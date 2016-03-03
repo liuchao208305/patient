@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  patient
+//
+//  Created by ChaosLiu on 16/3/2.
+//  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "Macro.h"
+
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import <MJRefresh.h>
+#import <MJExtension.h>
+#import <SDImageCache.h>
+
+#endif /* PrefixHeader_pch */
