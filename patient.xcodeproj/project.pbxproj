@@ -19,6 +19,13 @@
 		70265CBE1C8595300091C01F /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CBD1C8595300091C01F /* MineViewController.m */; };
 		70265CC11C8595720091C01F /* BaseNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC01C8595720091C01F /* BaseNaviController.m */; };
 		70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC31C85958C0091C01F /* BaseTabBarController.m */; };
+		702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702938FD1C8D16BE008280E2 /* UIColor+Extension.m */; };
+		702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939001C8D1754008280E2 /* UILabel+Extension.m */; };
+		702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939031C8D177C008280E2 /* UITextField+Extension.m */; };
+		702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939061C8D1795008280E2 /* UIImageView+Extension.m */; };
+		7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939091C8D17F3008280E2 /* UIButton+Extension.m */; };
+		7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029390C1C8D1809008280E2 /* UIBarButtonItem+Extension.m */; };
+		702939101C8D184A008280E2 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029390F1C8D184A008280E2 /* UIView+Extension.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -76,6 +83,20 @@
 		70265CC01C8595720091C01F /* BaseNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNaviController.m; sourceTree = "<group>"; };
 		70265CC21C85958C0091C01F /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		70265CC31C85958C0091C01F /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		702938FC1C8D16BE008280E2 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		702938FD1C8D16BE008280E2 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		702938FF1C8D1754008280E2 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
+		702939001C8D1754008280E2 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
+		702939021C8D177C008280E2 /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
+		702939031C8D177C008280E2 /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
+		702939051C8D1795008280E2 /* UIImageView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Extension.h"; sourceTree = "<group>"; };
+		702939061C8D1795008280E2 /* UIImageView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
+		702939081C8D17F3008280E2 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		702939091C8D17F3008280E2 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		7029390B1C8D1809008280E2 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		7029390C1C8D1809008280E2 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		7029390E1C8D184A008280E2 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7029390F1C8D184A008280E2 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -203,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				70265CA81C858B770091C01F /* Bases */,
+				70D375851C8D104D00AEA093 /* Categories */,
 				70265CA91C858B7F0091C01F /* Utils */,
 				70265CAA1C858B8E0091C01F /* Images */,
 				70265CAB1C858B950091C01F /* Macros */,
@@ -321,6 +343,27 @@
 				70265CBD1C8595300091C01F /* MineViewController.m */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		70D375851C8D104D00AEA093 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				702938FC1C8D16BE008280E2 /* UIColor+Extension.h */,
+				702938FD1C8D16BE008280E2 /* UIColor+Extension.m */,
+				702938FF1C8D1754008280E2 /* UILabel+Extension.h */,
+				702939001C8D1754008280E2 /* UILabel+Extension.m */,
+				702939021C8D177C008280E2 /* UITextField+Extension.h */,
+				702939031C8D177C008280E2 /* UITextField+Extension.m */,
+				702939051C8D1795008280E2 /* UIImageView+Extension.h */,
+				702939061C8D1795008280E2 /* UIImageView+Extension.m */,
+				702939081C8D17F3008280E2 /* UIButton+Extension.h */,
+				702939091C8D17F3008280E2 /* UIButton+Extension.m */,
+				7029390B1C8D1809008280E2 /* UIBarButtonItem+Extension.h */,
+				7029390C1C8D1809008280E2 /* UIBarButtonItem+Extension.m */,
+				7029390E1C8D184A008280E2 /* UIView+Extension.h */,
+				7029390F1C8D184A008280E2 /* UIView+Extension.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		8D99F46D261353D0951BA99F /* Pods */ = {
@@ -524,12 +567,16 @@
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
+				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
+				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				70265CBB1C8595270091C01F /* SearchViewController.m in Sources */,
+				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
+				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
@@ -537,8 +584,11 @@
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
 				70265CBE1C8595300091C01F /* MineViewController.m in Sources */,
 				70265CB81C8595160091C01F /* TestViewController.m in Sources */,
+				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
+				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				70265CB51C85950D0091C01F /* InfoViewController.m in Sources */,
+				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
