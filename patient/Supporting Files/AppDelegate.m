@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
+#import "LocationUtil.h"
 #import "BaseTabBarController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@property (strong,nonatomic)CLLocationManager *locationManger;
 
 @end
 
@@ -17,10 +21,59 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    [self getRelatedInformation];
+    [self startLocation];
     [self initRootWindow];
     
     return YES;
+}
+
+-(void)getRelatedInformation{
+    DLog(@"CountryCode-->%@",[LocationUtil getCountryCode]);
+    DLog(@"LanguageCode-->%@",[LocationUtil getLanguageCode]);
+    DLog(@"LanguageCollatorIdentifierCode-->%@",[LocationUtil getLanguageCollatorIdentifierCode]);
+    DLog(@"NSLocaleCurrencyCode-->%@",[LocationUtil getNSLocaleCurrencyCode]);
+    DLog(@"NSLocaleCurrencySymbol-->%@",[LocationUtil getNSLocaleCurrencySymbol]);
+    DLog(@"LanguageType-->%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"]);
+}
+
+-(void)startLocation{
+    self.locationManger = [[CLLocationManager alloc] init];
+    self.locationManger.delegate = self;
+    
+    if (SYSTEM_VERSION >= 8.0) {
+        [self.locationManger requestWhenInUseAuthorization];
+    }
+    self.locationManger.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManger.distanceFilter = 10.0f;
+    [self.locationManger startUpdatingLocation];
+}
+
+#pragma mark CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    DLog(@"定位成功！");
+    CLLocation *currentLocation = [locations lastObject];
+    CLLocationCoordinate2D coor = currentLocation.coordinate;
+    DLog(@"%@",[NSString stringWithFormat:@"经度-->%3.5f\n纬度-->%3.5f",coor.latitude,coor.longitude]);
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks,NSError *error){
+        for (CLPlacemark *placemark in placemarks) {
+            NSDictionary *addressDict = [placemark addressDictionary];
+            DLog(@"Country-->%@",[addressDict objectForKey:@"Country"]);
+            DLog(@"State-->%@",[addressDict objectForKey:@"State"]);
+            DLog(@"SubLocality-->%@",[addressDict objectForKey:@"SubLocality"]);
+        }
+    }];
+    [self.locationManger stopUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    if (error.code == kCLErrorDenied) {
+        DLog(@"访问被拒绝");
+    }
+    if (error.code == kCLErrorLocationUnknown) {
+        DLog(@"无法获取位置信息");
+    }
 }
 
 -(void)initRootWindow

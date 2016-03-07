@@ -32,8 +32,7 @@
 
 
 //----------------------系统类---------------------------
-#define IOS_VERSION ［[UIDevice currentDevice] systemVersion] floatValue]
-#define CurrentSystemVersion ［UIDevice currentDevice] systemVersion]
+#define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
