@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import "LocationUtil.h"
+#import "JPUSHService.h"
 #import "BaseTabBarController.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -23,11 +24,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self getRelatedInformation];
     [self startLocation];
+    [self startPush:launchOptions];
     [self startAnalytic];
     [self initRootWindow];
     return YES;
 }
 
+#pragma mark getRelatedInformation
 -(void)getRelatedInformation{
     DLog(@"CountryCode-->%@",[LocationUtil getCountryCode]);
     DLog(@"LanguageCode-->%@",[LocationUtil getLanguageCode]);
@@ -37,6 +40,7 @@
     DLog(@"LanguageType-->%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"]);
 }
 
+#pragma mark startLocation
 -(void)startLocation{
     self.locationManger = [[CLLocationManager alloc] init];
     self.locationManger.delegate = self;
@@ -49,7 +53,6 @@
     [self.locationManger startUpdatingLocation];
 }
 
-#pragma mark CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     DLog(@"定位成功！");
     CLLocation *currentLocation = [locations lastObject];
@@ -76,12 +79,83 @@
     }
 }
 
+#pragma mark startPush
+-(void)startPush:(NSDictionary *)launchOptions{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                          UIUserNotificationTypeSound |
+                                                          UIUserNotificationTypeAlert)
+                                              categories:nil];
+    } else {
+        //categories 必须为nil
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                          UIRemoteNotificationTypeSound |
+                                                          UIRemoteNotificationTypeAlert)
+                                              categories:nil];
+    }
+    [JPUSHService setupWithOption:launchOptions appKey:appKey
+                          channel:channel apsForProduction:isProduction];
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application
+didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    DLog(@"Fail To Register For Remote Notifications With Error: %@", error);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [JPUSHService handleRemoteNotification:userInfo];
+    DLog(@"收到通知:%@", [self logDic:userInfo]);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:
+(void (^)(UIBackgroundFetchResult))completionHandler {
+    [JPUSHService handleRemoteNotification:userInfo];
+    DLog(@"收到通知:%@", [self logDic:userInfo]);
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveLocalNotification:(UILocalNotification *)notification {
+    [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
+}
+
+- (NSString *)logDic:(NSDictionary *)dic {
+    if (![dic count]) {
+        return nil;
+    }
+    NSString *tempStr1 =
+    [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+                                                 withString:@"\\U"];
+    NSString *tempStr2 =
+    [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *tempStr3 =
+    [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str =
+    [NSPropertyListSerialization propertyListFromData:tempData
+                                     mutabilityOption:NSPropertyListImmutable
+                                               format:NULL
+                                     errorDescription:NULL];
+    return str;
+}
+
+#pragma mark startAnalytic
 -(void)startAnalytic{
     [MobClick startWithAppkey:@"56de29cf67e58ee8310006b2" reportPolicy:BATCH channelId:nil];
     [MobClick setEncryptEnabled:YES];
     [MobClick setLogEnabled:YES];
 }
 
+#pragma mark initRootWindow
 -(void)initRootWindow
 {
     BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
