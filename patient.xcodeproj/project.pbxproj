@@ -28,6 +28,7 @@
 		702939101C8D184A008280E2 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029390F1C8D184A008280E2 /* UIView+Extension.m */; };
 		702939121C8D5C38008280E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939111C8D5C38008280E2 /* CoreLocation.framework */; };
 		702939151C8D5D83008280E2 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939141C8D5D83008280E2 /* LocationUtil.m */; };
+		702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939171C8E677B008280E2 /* AnalyticUtil.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -102,6 +103,8 @@
 		702939111C8D5C38008280E2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		702939131C8D5D83008280E2 /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
 		702939141C8D5D83008280E2 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
+		702939161C8E677B008280E2 /* AnalyticUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticUtil.h; sourceTree = "<group>"; };
+		702939171C8E677B008280E2 /* AnalyticUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticUtil.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				70A9BD3D1C8809160035B5E0 /* GTMDefines.h */,
 				702939131C8D5D83008280E2 /* LocationUtil.h */,
 				702939141C8D5D83008280E2 /* LocationUtil.m */,
+				702939161C8E677B008280E2 /* AnalyticUtil.h */,
+				702939171C8E677B008280E2 /* AnalyticUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
+				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,

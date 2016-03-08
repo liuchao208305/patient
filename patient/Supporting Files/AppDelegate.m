@@ -23,8 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self getRelatedInformation];
     [self startLocation];
+    [self startAnalytic];
     [self initRootWindow];
-    
     return YES;
 }
 
@@ -74,6 +74,12 @@
     if (error.code == kCLErrorLocationUnknown) {
         DLog(@"无法获取位置信息");
     }
+}
+
+-(void)startAnalytic{
+    [MobClick startWithAppkey:@"56de29cf67e58ee8310006b2" reportPolicy:BATCH channelId:nil];
+    [MobClick setEncryptEnabled:YES];
+    [MobClick setLogEnabled:YES];
 }
 
 -(void)initRootWindow

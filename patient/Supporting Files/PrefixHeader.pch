@@ -19,5 +19,6 @@
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import <SDImageCache.h>
+#import <MobClick.h>
 
 #endif /* PrefixHeader_pch */
