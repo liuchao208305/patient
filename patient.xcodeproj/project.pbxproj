@@ -105,6 +105,7 @@
 		702939141C8D5D83008280E2 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
 		702939161C8E677B008280E2 /* AnalyticUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticUtil.h; sourceTree = "<group>"; };
 		702939171C8E677B008280E2 /* AnalyticUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticUtil.m; sourceTree = "<group>"; };
+		702939191C8E9774008280E2 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-2.1.0.a"; path = "Pods/JPush-iOS-SDK/lib/jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -391,6 +392,7 @@
 		FDDF907A0C5E47401071325B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				702939191C8E9774008280E2 /* jpush-ios-2.1.0.a */,
 				702939111C8D5C38008280E2 /* CoreLocation.framework */,
 				B22389C9580CCA6DA815ABF9 /* libPods.a */,
 			);
@@ -741,6 +743,10 @@
 				INFOPLIST_FILE = "patient/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -756,6 +762,10 @@
 				INFOPLIST_FILE = "patient/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
