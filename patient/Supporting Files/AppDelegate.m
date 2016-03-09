@@ -10,6 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationUtil.h"
 #import "JPUSHService.h"
+#import <UMSocialWechatHandler.h>
+#import <UMSocialQQHandler.h>
+#import <UMSocialSinaSSOHandler.h>
+#import <UMSocialLaiwangHandler.h>
+#import <UMSocialFacebookHandler.h>
+#import <UMSocialTwitterHandler.h>
 #import "BaseTabBarController.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -26,6 +32,7 @@
     [self startLocation];
     [self startPush:launchOptions];
     [self startAnalytic];
+    [self startSocial];
     [self initRootWindow];
     return YES;
 }
@@ -153,6 +160,39 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     [MobClick startWithAppkey:appKeyUMAnaytic reportPolicy:BATCH channelId:channelUMAnaytic];
     [MobClick setEncryptEnabled:YES];
     [MobClick setLogEnabled:YES];
+}
+
+#pragma mark startSocial
+-(void)startSocial{
+    //设置友盟社会化组件appkey
+    [UMSocialData setAppKey:appKeyUMSocial];
+    
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    //设置手机QQ 的AppId，Appkey，和分享URL
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3921700954"
+                                              secret:@"04b48b094faeb16683c32669824ebdad"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //设置来往AppId，appscret，显示来源名称和url地址
+    [UMSocialLaiwangHandler setLaiwangAppId:@"8112117817424282305" appSecret:@"9996ed5039e641658de7b83345fee6c9" appDescription:@"友盟社会化组件" urlStirng:@"http://www.umeng.com/social"];
+    //设置Facebook，AppID和分享url
+    //默认使用iOS自带的Facebook分享framework，在iOS 6以上有效。若要使用我们提供的facebook分享需要使用此开关：
+    [UMSocialFacebookHandler setFacebookAppID:@"1440390216179601" shareFacebookWithURL:@"http://www.umeng.com/social"];
+    //默认使用iOS自带的Twitter分享framework，在iOS 6以上有效。若要使用我们提供的twitter分享需要使用此开关：
+    [UMSocialTwitterHandler openTwitter];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [UMSocialTwitterHandler setTwitterAppKey:@"fB5tvRpna1CKK97xZUslbxiet" withSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K"];
+    }
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK
+    }
+    return result;
 }
 
 #pragma mark initRootWindow

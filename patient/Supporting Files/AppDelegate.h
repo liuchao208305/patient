@@ -14,6 +14,9 @@ static BOOL isProduction = FALSE;
 //友盟统计
 static NSString *appKeyUMAnaytic = @"56df91e4e0f55a811e002783";
 static NSString *channelUMAnaytic = @"Apple Store";
+//友盟分享
+static NSString *appKeyUMSocial = @"56df91e4e0f55a811e002783";
+static NSString *channelUMSocial = @"Apple Store";
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
