@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-static NSString *appKey = @"199e683592cb6507530a84d1";
-static NSString *channel = @"Apple Store";
+//极光推送
+static NSString *appKeyJPush = @"199e683592cb6507530a84d1";
+static NSString *channelJPush = @"Apple Store";
 static BOOL isProduction = FALSE;
+//友盟统计
+static NSString *appKeyUMAnaytic = @"56df91e4e0f55a811e002783";
+static NSString *channelUMAnaytic = @"Apple Store";
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

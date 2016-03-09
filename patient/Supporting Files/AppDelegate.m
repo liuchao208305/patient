@@ -94,8 +94,8 @@
                                                           UIRemoteNotificationTypeAlert)
                                               categories:nil];
     }
-    [JPUSHService setupWithOption:launchOptions appKey:appKey
-                          channel:channel apsForProduction:isProduction];
+    [JPUSHService setupWithOption:launchOptions appKey:appKeyJPush
+                          channel:channelJPush apsForProduction:isProduction];
 }
 
 - (void)application:(UIApplication *)application
@@ -150,7 +150,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 #pragma mark startAnalytic
 -(void)startAnalytic{
-    [MobClick startWithAppkey:@"56de29cf67e58ee8310006b2" reportPolicy:BATCH channelId:nil];
+    [MobClick startWithAppkey:appKeyUMAnaytic reportPolicy:BATCH channelId:channelUMAnaytic];
     [MobClick setEncryptEnabled:YES];
     [MobClick setLogEnabled:YES];
 }
