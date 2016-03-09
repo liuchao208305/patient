@@ -30,6 +30,9 @@
 #endif
 //----------------------日志类---------------------------
 
+//----------------------弱引用---------------------------
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+//----------------------弱引用---------------------------
 
 //----------------------系统类---------------------------
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
