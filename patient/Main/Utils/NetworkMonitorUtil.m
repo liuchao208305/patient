@@ -35,15 +35,35 @@
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
                 //回调处理
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *currentNetworkStatusStr = [NSString stringWithFormat:@"%ld",(long)AFNetworkReachabilityStatusUnknown];
+                    NSDictionary *currentNetworkStatusDic = [NSDictionary dictionaryWithObjectsAndKeys:currentNetworkStatusStr,@"currentNetworkStatusStr", nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationChangeNetworkStatusUnknown object:nil userInfo:currentNetworkStatusDic];
+                });
                 break;
             case AFNetworkReachabilityStatusNotReachable:
                 //回调处理
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *currentNetworkStatusStr = [NSString stringWithFormat:@"%ld",(long)AFNetworkReachabilityStatusNotReachable];
+                    NSDictionary *currentNetworkStatusDic = [NSDictionary dictionaryWithObjectsAndKeys:currentNetworkStatusStr,@"currentNetworkStatusStr", nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationChangeNetworkStatusNotReachable object:nil userInfo:currentNetworkStatusDic];
+                });
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
                 //回调处理
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *currentNetworkStatusStr = [NSString stringWithFormat:@"%ld",(long)AFNetworkReachabilityStatusNotReachable];
+                    NSDictionary *currentNetworkStatusDic = [NSDictionary dictionaryWithObjectsAndKeys:currentNetworkStatusStr,@"currentNetworkStatusStr", nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationChangeNetworkStatusReachableViaWWAN object:nil userInfo:currentNetworkStatusDic];
+                });
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 //回调处理
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *currentNetworkStatusStr = [NSString stringWithFormat:@"%ld",(long)AFNetworkReachabilityStatusNotReachable];
+                    NSDictionary *currentNetworkStatusDic = [NSDictionary dictionaryWithObjectsAndKeys:currentNetworkStatusStr,@"currentNetworkStatusStr", nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationChangeNetworkStatusReachableViaWiFi object:nil userInfo:currentNetworkStatusDic];
+                });
                 break;
             default:
                 break;

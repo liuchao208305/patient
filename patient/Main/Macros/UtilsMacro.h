@@ -76,7 +76,15 @@
 
 //----------------------时间类---------------------------
 //获取系统时间戳
-#define getCurentTime [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
+#define getCurrentTime [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
+// Hud停留时间
+#define kHudDelayTime 2.0
+
 //----------------------时间类---------------------------
+
+//----------------------文本信息类---------------------------
+#define kNetworkStatusError @"网络不给力，请稍后再试！"
+#define kNetworkStatusClose @"网络无法连接，请检查您的网络！"
+//----------------------文本信息类---------------------------
 
 #endif /* UtilsMacro_h */

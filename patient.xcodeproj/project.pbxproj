@@ -39,6 +39,7 @@
 		702939641C8EC72C008280E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939631C8EC72C008280E2 /* UIKit.framework */; };
 		702939661C8EC736008280E2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939651C8EC735008280E2 /* Security.framework */; };
 		702939681C8EC73F008280E2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939671C8EC73F008280E2 /* libz.tbd */; };
+		7029396D1C9146A9008280E2 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029396C1C9146A9008280E2 /* BaseTableViewController.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -127,6 +128,8 @@
 		702939631C8EC72C008280E2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		702939651C8EC735008280E2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		702939671C8EC73F008280E2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7029396B1C9146A9008280E2 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		7029396C1C9146A9008280E2 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				70265CC01C8595720091C01F /* BaseNaviController.m */,
 				70A9BD141C8686930035B5E0 /* BaseViewController.h */,
 				70A9BD151C8686930035B5E0 /* BaseViewController.m */,
+				7029396B1C9146A9008280E2 /* BaseTableViewController.h */,
+				7029396C1C9146A9008280E2 /* BaseTableViewController.m */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				70265CBB1C8595270091C01F /* SearchViewController.m in Sources */,
+				7029396D1C9146A9008280E2 /* BaseTableViewController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,

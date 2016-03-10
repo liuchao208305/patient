@@ -7,23 +7,95 @@
 //
 
 #import "BaseViewController.h"
+#import "HudUtil.h"
 
 @interface BaseViewController ()
+
+@property (assign,nonatomic) BOOL isNaviBack;
 
 @end
 
 @implementation BaseViewController
 
+#pragma mark Life Circle
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    //监测通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unKnown) name:kNotificationChangeNetworkStatusUnknown object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notReachble) name:kNotificationChangeNetworkStatusNotReachable object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viaWwan) name:kNotificationChangeNetworkStatusReachableViaWWAN object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viaWifi) name:kNotificationChangeNetworkStatusReachableViaWiFi object:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self initNavBar];
+    [self initTabBar];
+    
+    [self initGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    [self setHidesBottomBarWhenPushed:NO];
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    //移除通知
+    [[NSNotificationCenter defaultCenter] removeObserver:kNotificationChangeNetworkStatusUnknown];
+    [[NSNotificationCenter defaultCenter] removeObserver:kNotificationChangeNetworkStatusNotReachable];
+    [[NSNotificationCenter defaultCenter] removeObserver:kNotificationChangeNetworkStatusReachableViaWWAN];
+    [[NSNotificationCenter defaultCenter] removeObserver:kNotificationChangeNetworkStatusReachableViaWiFi];
+}
+
+-(void)initNavBar{
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *navBackItem = [[UIBarButtonItem alloc] initWithImage:@"xxxx" style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
+    self.navigationItem.leftBarButtonItem =navBackItem;
+}
+
+-(void)initTabBar{
+    [self setHidesBottomBarWhenPushed:YES];
+}
+
+-(void)initGestureRecognizer{
+    self.isNaviBack = YES;
+    UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(isNaviBack)];
+    recognizer.edges = UIRectEdgeLeft;
+    [self.view addGestureRecognizer:recognizer];
+}
+
+#pragma mark Target Function
+-(void)unKnown{
+    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusError withDelaySeconds:kHudDelayTime];
+}
+
+-(void)notReachble{
+    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusClose withDelaySeconds:kHudDelayTime];
+}
+
+-(void)viaWwan{
+    
+}
+
+-(void)viaWifi{
+    
+}
+
+-(void)isNavBack{
+    if (self.isNaviBack == YES) {
+        [self navBack];
+    }
+}
+
+-(void)navBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 #pragma mark - Navigation
