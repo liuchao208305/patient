@@ -10,6 +10,9 @@
 
 @interface AdaptionUtil : NSObject
 
-+ (BOOL)isIphoneFour;
++(BOOL)isIphoneFour;
++(BOOL)isIphoneFive;
++(BOOL)isIphoneSix;
++(BOOL)isIphoneSixPlus;
 
 @end

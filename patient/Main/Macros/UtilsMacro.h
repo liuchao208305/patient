@@ -50,9 +50,14 @@
 #define IsIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
 //是否等于8.0的ios版本
 #define IsIOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >=8.0 ? YES : NO)
+
+
 //----------------------系统类---------------------------
 
 //----------------------颜色类---------------------------
+#define kButtonFontColor [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
+
+
 // 获取RGB颜色
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)

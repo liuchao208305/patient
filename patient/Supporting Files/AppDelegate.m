@@ -19,8 +19,13 @@
 #import <UMSocialTwitterHandler.h>
 #import "BaseTabBarController.h"
 
+#import "GuideViewController.h"
+
 @interface AppDelegate ()<CLLocationManagerDelegate>
 
+@property (assign,nonatomic)BOOL isVersionUpdated;
+@property (assign,nonatomic)BOOL isLoginSucceeded;
+@property (strong,nonatomic)UINavigationController *navController;
 @property (strong,nonatomic)CLLocationManager *locationManger;
 
 @end
@@ -52,6 +57,26 @@
 #pragma mark checkNetworkStatus
 -(void)checkNetworkStatus{
     [[NetworkMonitorUtil sharedInstance] startNetWorkMonitor];
+}
+
+#pragma mark checkVersionStatus
+-(BOOL)checkVersionStatus{
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"CFBundleVersion"];
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    if ([currentVersion isEqualToString:lastVersion]) {
+        DLog(@"没有更新版本！");
+        return NO;
+    }else{
+        DLog(@"有更新版本！");
+        //存储当前版本
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"CFBundleVersion"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    return YES;
+}
+
+-(void)checkLoginStatus{
+    
 }
 
 #pragma mark startLocation
@@ -206,11 +231,19 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 #pragma mark initRootWindow
 -(void)initRootWindow
 {
-    BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window setRootViewController:rootVC];
-    [self.window addSubview:rootVC.view];
-    [self.window makeKeyAndVisible];
+    if ([self checkVersionStatus] == YES) {
+        GuideViewController *guideVC = [[GuideViewController alloc] init];
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [self.window setRootViewController:guideVC];
+        [self.window addSubview:guideVC.view];
+        [self.window makeKeyAndVisible];
+    }else{
+        BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [self.window setRootViewController:rootVC];
+        [self.window addSubview:rootVC.view];
+        [self.window makeKeyAndVisible];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

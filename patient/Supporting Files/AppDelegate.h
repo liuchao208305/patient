@@ -22,6 +22,5 @@ static NSString *channelUMSocial = @"Apple Store";
 
 @property (strong, nonatomic) UIWindow *window;
 
-
 @end
 
