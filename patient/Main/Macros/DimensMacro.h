@@ -20,11 +20,6 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define CONTENT_HEIGHT (SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT)
-//机型尺寸
-#define kiPhone4S 480
-#define kiPhone5S 568
-#define kiPhone6 667
-#define kiPhone6Plus 736
 //屏幕分辨率
 #define SCREEN_RESOLUTION (SCREEN_WIDTH * SCREEN_HEIGHT * ([UIScreen mainScreen].scale))
 

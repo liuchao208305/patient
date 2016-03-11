@@ -59,12 +59,12 @@
 }
 
 -(void)initTabBar{
-    [self setHidesBottomBarWhenPushed:YES];
+//    [self setHidesBottomBarWhenPushed:YES];
 }
 
 -(void)initGestureRecognizer{
     self.isNaviBack = YES;
-    UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(isNaviBack)];
+    UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(navBack)];
     recognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:recognizer];
 }

@@ -8,3 +8,5 @@ pod 'MBProgressHUD','~>0.9.2'
 pod 'Masonry', '~> 0.6.4'
 pod 'UMengAnalytics', '~> 3.6.6'
 pod 'UMengSocial', '~> 5.0'
+
+pod 'SDCycleScrollView', '~> 1.61'

@@ -17,8 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationBar.translucent= NO;
     self.navigationBar.barTintColor=[UIColor whiteColor];
-    self.navigationBar.tintColor=[UIColor whiteColor];
+    self.navigationBar.tintColor=[UIColor redColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 

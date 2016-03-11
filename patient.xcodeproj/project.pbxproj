@@ -13,10 +13,6 @@
 		70265C821C858AA50091C01F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70265C801C858AA50091C01F /* LaunchScreen.storyboard */; };
 		70265C8D1C858AA50091C01F /* patientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C8C1C858AA50091C01F /* patientTests.m */; };
 		70265C981C858AA50091C01F /* patientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C971C858AA50091C01F /* patientUITests.m */; };
-		70265CB51C85950D0091C01F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CB41C85950D0091C01F /* InfoViewController.m */; };
-		70265CB81C8595160091C01F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CB71C8595160091C01F /* TestViewController.m */; };
-		70265CBB1C8595270091C01F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CBA1C8595270091C01F /* SearchViewController.m */; };
-		70265CBE1C8595300091C01F /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CBD1C8595300091C01F /* MineViewController.m */; };
 		70265CC11C8595720091C01F /* BaseNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC01C8595720091C01F /* BaseNaviController.m */; };
 		70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC31C85958C0091C01F /* BaseTabBarController.m */; };
 		702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702938FD1C8D16BE008280E2 /* UIColor+Extension.m */; };
@@ -29,7 +25,6 @@
 		702939121C8D5C38008280E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939111C8D5C38008280E2 /* CoreLocation.framework */; };
 		702939151C8D5D83008280E2 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939141C8D5D83008280E2 /* LocationUtil.m */; };
 		702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939171C8E677B008280E2 /* AnalyticUtil.m */; };
-		702939561C8EC6CE008280E2 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939541C8EC6CE008280E2 /* jpush-ios-2.1.0.a */; };
 		702939581C8EC6F1008280E2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939571C8EC6F1008280E2 /* CFNetwork.framework */; };
 		7029395A1C8EC6FB008280E2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939591C8EC6FB008280E2 /* CoreFoundation.framework */; };
 		7029395C1C8EC706008280E2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7029395B1C8EC706008280E2 /* CoreTelephony.framework */; };
@@ -44,6 +39,12 @@
 		7029397E1C91DBB2008280E2 /* guideview1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7029397B1C91DBB2008280E2 /* guideview1.jpg */; };
 		7029397F1C91DBB2008280E2 /* guideview2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7029397C1C91DBB2008280E2 /* guideview2.jpg */; };
 		702939801C91DBB2008280E2 /* guideview3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7029397D1C91DBB2008280E2 /* guideview3.jpg */; };
+		702939821C925E7A008280E2 /* tabbar_info_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 702939811C925E7A008280E2 /* tabbar_info_normal.png */; };
+		702939861C9271EC008280E2 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939841C9271EC008280E2 /* jpush-ios-2.1.0.a */; };
+		702939891C9273C4008280E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939881C9273C4008280E2 /* InfoViewController.m */; };
+		7029398C1C9273D1008280E2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398B1C9273D1008280E2 /* TestViewController.m */; };
+		7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398E1C9273E4008280E2 /* SearchViewController.m */; };
+		702939921C9273FA008280E2 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939911C9273FA008280E2 /* MineViewController.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -89,14 +90,6 @@
 		70265C931C858AA50091C01F /* patientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = patientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C971C858AA50091C01F /* patientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = patientUITests.m; sourceTree = "<group>"; };
 		70265C991C858AA50091C01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70265CB31C85950D0091C01F /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		70265CB41C85950D0091C01F /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		70265CB61C8595160091C01F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		70265CB71C8595160091C01F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		70265CB91C8595270091C01F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		70265CBA1C8595270091C01F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		70265CBC1C8595300091C01F /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
-		70265CBD1C8595300091C01F /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		70265CBF1C8595720091C01F /* BaseNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNaviController.h; sourceTree = "<group>"; };
 		70265CC01C8595720091C01F /* BaseNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNaviController.m; sourceTree = "<group>"; };
 		70265CC21C85958C0091C01F /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
@@ -121,8 +114,6 @@
 		702939161C8E677B008280E2 /* AnalyticUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticUtil.h; sourceTree = "<group>"; };
 		702939171C8E677B008280E2 /* AnalyticUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticUtil.m; sourceTree = "<group>"; };
 		702939191C8E9774008280E2 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-2.1.0.a"; path = "Pods/JPush-iOS-SDK/lib/jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
-		702939541C8EC6CE008280E2 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-2.1.0.a"; path = "../../../../推送/极光/JPush-iOS-SDK-2.1.0/lib/jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
-		702939551C8EC6CE008280E2 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = "../../../../推送/极光/JPush-iOS-SDK-2.1.0/lib/JPUSHService.h"; sourceTree = "<group>"; };
 		702939571C8EC6F1008280E2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		702939591C8EC6FB008280E2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		7029395B1C8EC706008280E2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -139,6 +130,17 @@
 		7029397B1C91DBB2008280E2 /* guideview1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guideview1.jpg; sourceTree = "<group>"; };
 		7029397C1C91DBB2008280E2 /* guideview2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guideview2.jpg; sourceTree = "<group>"; };
 		7029397D1C91DBB2008280E2 /* guideview3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guideview3.jpg; sourceTree = "<group>"; };
+		702939811C925E7A008280E2 /* tabbar_info_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_info_normal.png; sourceTree = "<group>"; };
+		702939841C9271EC008280E2 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
+		702939851C9271EC008280E2 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		702939871C9273C4008280E2 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		702939881C9273C4008280E2 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		7029398A1C9273D1008280E2 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		7029398B1C9273D1008280E2 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		7029398D1C9273E4008280E2 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		7029398E1C9273E4008280E2 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		702939901C9273FA008280E2 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		702939911C9273FA008280E2 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -182,10 +184,10 @@
 				702939621C8EC723008280E2 /* Foundation.framework in Frameworks */,
 				702939601C8EC718008280E2 /* CoreGraphics.framework in Frameworks */,
 				7029395E1C8EC70F008280E2 /* SystemConfiguration.framework in Frameworks */,
+				702939861C9271EC008280E2 /* jpush-ios-2.1.0.a in Frameworks */,
 				7029395C1C8EC706008280E2 /* CoreTelephony.framework in Frameworks */,
 				7029395A1C8EC6FB008280E2 /* CoreFoundation.framework in Frameworks */,
 				702939581C8EC6F1008280E2 /* CFNetwork.framework in Frameworks */,
-				702939561C8EC6CE008280E2 /* jpush-ios-2.1.0.a in Frameworks */,
 				702939121C8D5C38008280E2 /* CoreLocation.framework in Frameworks */,
 				D3124DFAA46975EB9B4563C1 /* libPods.a in Frameworks */,
 			);
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				7029396E1C916B90008280E2 /* Guide */,
+				702939831C925FF9008280E2 /* Login */,
 				70265CAC1C858C0A0091C01F /* Info */,
 				70265CAD1C858C170091C01F /* Test */,
 				70265CAE1C858DF80091C01F /* Search */,
@@ -353,6 +356,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				702939811C925E7A008280E2 /* tabbar_info_normal.png */,
 				7029397B1C91DBB2008280E2 /* guideview1.jpg */,
 				7029397C1C91DBB2008280E2 /* guideview2.jpg */,
 				7029397D1C91DBB2008280E2 /* guideview3.jpg */,
@@ -376,8 +380,8 @@
 		70265CAC1C858C0A0091C01F /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				70265CB31C85950D0091C01F /* InfoViewController.h */,
-				70265CB41C85950D0091C01F /* InfoViewController.m */,
+				702939871C9273C4008280E2 /* InfoViewController.h */,
+				702939881C9273C4008280E2 /* InfoViewController.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -385,8 +389,8 @@
 		70265CAD1C858C170091C01F /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				70265CB61C8595160091C01F /* TestViewController.h */,
-				70265CB71C8595160091C01F /* TestViewController.m */,
+				7029398A1C9273D1008280E2 /* TestViewController.h */,
+				7029398B1C9273D1008280E2 /* TestViewController.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -394,8 +398,8 @@
 		70265CAE1C858DF80091C01F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				70265CB91C8595270091C01F /* SearchViewController.h */,
-				70265CBA1C8595270091C01F /* SearchViewController.m */,
+				7029398D1C9273E4008280E2 /* SearchViewController.h */,
+				7029398E1C9273E4008280E2 /* SearchViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -403,8 +407,8 @@
 		70265CAF1C85915C0091C01F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				70265CBC1C8595300091C01F /* MineViewController.h */,
-				70265CBD1C8595300091C01F /* MineViewController.m */,
+				702939901C9273FA008280E2 /* MineViewController.h */,
+				702939911C9273FA008280E2 /* MineViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -412,8 +416,8 @@
 		702939531C8EC692008280E2 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
-				702939541C8EC6CE008280E2 /* jpush-ios-2.1.0.a */,
-				702939551C8EC6CE008280E2 /* JPUSHService.h */,
+				702939841C9271EC008280E2 /* jpush-ios-2.1.0.a */,
+				702939851C9271EC008280E2 /* JPUSHService.h */,
 			);
 			path = JPush;
 			sourceTree = "<group>";
@@ -425,6 +429,13 @@
 				702939731C916D21008280E2 /* GuideViewController.m */,
 			);
 			path = Guide;
+			sourceTree = "<group>";
+		};
+		702939831C925FF9008280E2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		70D375851C8D104D00AEA093 /* Categories */ = {
@@ -588,6 +599,7 @@
 				7029397E1C91DBB2008280E2 /* guideview1.jpg in Resources */,
 				70265C821C858AA50091C01F /* LaunchScreen.storyboard in Resources */,
 				70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */,
+				702939821C925E7A008280E2 /* tabbar_info_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,10 +678,11 @@
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
+				7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
+				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
-				70265CBB1C8595270091C01F /* SearchViewController.m in Sources */,
 				7029396D1C9146A9008280E2 /* BaseTableViewController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
@@ -681,12 +694,11 @@
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
-				70265CBE1C8595300091C01F /* MineViewController.m in Sources */,
-				70265CB81C8595160091C01F /* TestViewController.m in Sources */,
+				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
-				70265CB51C85950D0091C01F /* InfoViewController.m in Sources */,
+				7029398C1C9273D1008280E2 /* TestViewController.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 			);
@@ -828,6 +840,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
+					"$(PROJECT_DIR)/patient/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -847,6 +860,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
+					"$(PROJECT_DIR)/patient/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
