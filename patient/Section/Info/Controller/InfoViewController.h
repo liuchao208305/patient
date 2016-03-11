@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface InfoViewController : BaseViewController
+@interface InfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong,nonatomic)UITableView *tableView;
 
 @end

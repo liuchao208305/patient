@@ -41,6 +41,7 @@
     [self startAnalytic];
     [self startSocial];
     [self initRootWindow];
+    
     return YES;
 }
 

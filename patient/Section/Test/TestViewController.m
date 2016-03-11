@@ -18,7 +18,10 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    [self initNavBar];
+    [self initTabBar];
     [self initView];
+    [self initRecognizer];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -29,8 +32,21 @@
     [super viewWillDisappear:YES];
 }
 
+#pragma mark Init Section
+-(void)initNavBar{
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+-(void)initTabBar{
+    [self setHidesBottomBarWhenPushed:NO];
+}
+
 -(void)initView{
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)initRecognizer{
+    
 }
 
 @end

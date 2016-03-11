@@ -32,8 +32,8 @@
     
     [self initNavBar];
     [self initTabBar];
-    
-    [self initGestureRecognizer];
+    [self initView];
+    [self initRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,10 +59,16 @@
 }
 
 -(void)initTabBar{
-//    [self setHidesBottomBarWhenPushed:YES];
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
+    
+    [self setHidesBottomBarWhenPushed:YES];
 }
 
--(void)initGestureRecognizer{
+-(void)initView{
+    
+}
+
+-(void)initRecognizer{
     self.isNaviBack = YES;
     UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(navBack)];
     recognizer.edges = UIRectEdgeLeft;
