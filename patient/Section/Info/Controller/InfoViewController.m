@@ -69,7 +69,8 @@
     
     self.tableView.tableHeaderView = headView;
     self.tableView.tableFooterView = footView;
-    [self.view addSubview:self.tableView];
+//    [self.view addSubview:self.tableView];
+    [self.view addSubview:headView];
 }
 
 -(void)initRecognizer{

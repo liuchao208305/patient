@@ -1,5 +1,5 @@
 //
-//  BaseTableViewController.h
+//  BaseTableViewCell.h
 //  patient
 //
 //  Created by ChaosLiu on 16/3/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseTableViewController : UITableViewController
+@interface BaseTableViewCell : UITableViewCell
 
 @end
