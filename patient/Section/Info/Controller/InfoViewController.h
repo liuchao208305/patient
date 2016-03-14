@@ -7,9 +7,32 @@
 //
 
 #import "BaseViewController.h"
+#import "InfoHeaderView.h"
 
 @interface InfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIView *footView;
+
+@property (strong,nonatomic)InfoHeaderView *infoHeadView;
+
+
+@property (strong,nonatomic)UIImageView *timeImage;
+@property (strong,nonatomic)UILabel *timeLabel;
+
+@property (strong,nonatomic)NSMutableArray *adImageArray;
+
+@property (strong,nonatomic)NSMutableArray *diseaseImageArray;
+@property (strong,nonatomic)NSMutableArray *diseaseLabelArray;
+
+@property (strong,nonatomic)NSMutableArray *healthImageArray;
+@property (strong,nonatomic)NSMutableArray *healthLableArray;
+
+@property (strong,nonatomic)NSMutableArray *studioImageArray;
+@property (strong,nonatomic)NSMutableArray *studioLableArray;
+
+@property (strong,nonatomic)NSMutableArray *personImageArray;
+@property (strong,nonatomic)NSMutableArray *personLableArray;
 
 @end

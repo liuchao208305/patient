@@ -15,6 +15,8 @@
 #define NAVIGATION_BAR_HEIGHT 44
 //状态栏＋导航栏高度
 #define STATUS_AND_NAVIGATION_HEIGHT ((STATUS_BAR_HEIGHT) + (NAVIGATION_BAR_HEIGHT))
+//标签栏高度
+#define TAB_BAR_HEIGHT self.tabBarController.tabBar.frame.size.height
 //屏幕尺寸
 #define SCREEN_RECT ([UIScreen mainScreen].bounds)
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

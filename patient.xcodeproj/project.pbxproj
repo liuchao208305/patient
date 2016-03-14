@@ -54,6 +54,15 @@
 		707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B931C965F9B00101B30 /* BaseCollectionView.m */; };
 		707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B961C9662BD00101B30 /* BaseTableViewController.m */; };
 		707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B991C9662EB00101B30 /* BaseCollectionViewController.m */; };
+		707E5BA11C969F5600101B30 /* DiseaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BA01C969F5600101B30 /* DiseaseTableCell.m */; };
+		707E5BA41C969F6A00101B30 /* HealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BA31C969F6A00101B30 /* HealthTableCell.m */; };
+		707E5BA71C969F8400101B30 /* StudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BA61C969F8400101B30 /* StudioTableCell.m */; };
+		707E5BAA1C969FCC00101B30 /* PersonTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BA91C969FCC00101B30 /* PersonTableCell.m */; };
+		707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BB81C96A67E00101B30 /* InfoHeaderView.m */; };
+		707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BBB1C96C01B00101B30 /* DiseaseData.m */; };
+		707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BBE1C96C02D00101B30 /* HealthData.m */; };
+		707E5BC21C96C03A00101B30 /* StudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC11C96C03A00101B30 /* StudioData.m */; };
+		707E5BC51C96C04D00101B30 /* PersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC41C96C04D00101B30 /* PersonData.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -165,6 +174,24 @@
 		707E5B961C9662BD00101B30 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		707E5B981C9662EB00101B30 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
 		707E5B991C9662EB00101B30 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
+		707E5B9F1C969F5600101B30 /* DiseaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseTableCell.h; sourceTree = "<group>"; };
+		707E5BA01C969F5600101B30 /* DiseaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseTableCell.m; sourceTree = "<group>"; };
+		707E5BA21C969F6A00101B30 /* HealthTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthTableCell.h; sourceTree = "<group>"; };
+		707E5BA31C969F6A00101B30 /* HealthTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthTableCell.m; sourceTree = "<group>"; };
+		707E5BA51C969F8400101B30 /* StudioTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioTableCell.h; sourceTree = "<group>"; };
+		707E5BA61C969F8400101B30 /* StudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioTableCell.m; sourceTree = "<group>"; };
+		707E5BA81C969FCC00101B30 /* PersonTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonTableCell.h; sourceTree = "<group>"; };
+		707E5BA91C969FCC00101B30 /* PersonTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonTableCell.m; sourceTree = "<group>"; };
+		707E5BB71C96A67E00101B30 /* InfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoHeaderView.h; sourceTree = "<group>"; };
+		707E5BB81C96A67E00101B30 /* InfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoHeaderView.m; sourceTree = "<group>"; };
+		707E5BBA1C96C01B00101B30 /* DiseaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseData.h; sourceTree = "<group>"; };
+		707E5BBB1C96C01B00101B30 /* DiseaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseData.m; sourceTree = "<group>"; };
+		707E5BBD1C96C02D00101B30 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
+		707E5BBE1C96C02D00101B30 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
+		707E5BC01C96C03A00101B30 /* StudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioData.h; sourceTree = "<group>"; };
+		707E5BC11C96C03A00101B30 /* StudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioData.m; sourceTree = "<group>"; };
+		707E5BC31C96C04D00101B30 /* PersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonData.h; sourceTree = "<group>"; };
+		707E5BC41C96C04D00101B30 /* PersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonData.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -490,6 +517,14 @@
 		7029399A1C929E14008280E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				707E5BBA1C96C01B00101B30 /* DiseaseData.h */,
+				707E5BBB1C96C01B00101B30 /* DiseaseData.m */,
+				707E5BBD1C96C02D00101B30 /* HealthData.h */,
+				707E5BBE1C96C02D00101B30 /* HealthData.m */,
+				707E5BC01C96C03A00101B30 /* StudioData.h */,
+				707E5BC11C96C03A00101B30 /* StudioData.m */,
+				707E5BC31C96C04D00101B30 /* PersonData.h */,
+				707E5BC41C96C04D00101B30 /* PersonData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -497,6 +532,16 @@
 		7029399B1C929E1C008280E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				707E5B9F1C969F5600101B30 /* DiseaseTableCell.h */,
+				707E5BA01C969F5600101B30 /* DiseaseTableCell.m */,
+				707E5BB71C96A67E00101B30 /* InfoHeaderView.h */,
+				707E5BB81C96A67E00101B30 /* InfoHeaderView.m */,
+				707E5BA21C969F6A00101B30 /* HealthTableCell.h */,
+				707E5BA31C969F6A00101B30 /* HealthTableCell.m */,
+				707E5BA51C969F8400101B30 /* StudioTableCell.h */,
+				707E5BA61C969F8400101B30 /* StudioTableCell.m */,
+				707E5BA81C969FCC00101B30 /* PersonTableCell.h */,
+				707E5BA91C969FCC00101B30 /* PersonTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -739,15 +784,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
+				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
+				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
+				707E5BA71C969F8400101B30 /* StudioTableCell.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
+				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
+				707E5BA41C969F6A00101B30 /* HealthTableCell.m in Sources */,
 				7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */,
 				707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
@@ -756,11 +806,14 @@
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
+				707E5BAA1C969FCC00101B30 /* PersonTableCell.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
+				707E5BA11C969F5600101B30 /* DiseaseTableCell.m in Sources */,
+				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
@@ -769,6 +822,7 @@
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
+				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				7029398C1C9273D1008280E2 /* TestViewController.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,

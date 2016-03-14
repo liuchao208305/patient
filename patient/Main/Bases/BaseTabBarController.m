@@ -26,7 +26,7 @@
     backView.backgroundColor=[UIColor whiteColor];
     [self.tabBar insertSubview:backView atIndex:0];
     self.tabBar.opaque=YES;
-    self.tabBar.tintColor=[UIColor blackColor];
+    self.tabBar.tintColor=[UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     
     [self initChildViewControllers];
 }
@@ -38,7 +38,7 @@
     InfoViewController *InfoVC = [[InfoViewController alloc] init];
     [InfoVC.tabBarItem setTitle:@"首页"];
     [InfoVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_info_normal"]];
-    [InfoVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"btn_home_selected"]];
+    [InfoVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_info_normal"]];
     BaseNaviController *InfoNavC = [[BaseNaviController alloc] initWithRootViewController:InfoVC];
     [childVCArray addObject:InfoNavC];
     

@@ -50,12 +50,12 @@
 }
 
 -(void)initNavBar{
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *navBackItem = [[UIBarButtonItem alloc] initWithImage:@"xxxx" style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
-    self.navigationItem.leftBarButtonItem =navBackItem;
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    UIBarButtonItem *navBackItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xxxx"] style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
+//    self.navigationItem.leftBarButtonItem =navBackItem;
 }
 
 -(void)initTabBar{
