@@ -80,10 +80,10 @@
 -(void)initNavBar{
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsCompact];
     
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tabbar_info_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_left_item"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
     self.navigationItem.leftBarButtonItem =leftButtonItem;
     
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tabbar_info_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
@@ -162,7 +162,7 @@
         static NSString *cellName = @"DiseaseTableCell";
         DiseaseTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"DiseaseTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
         return cell;
@@ -170,7 +170,7 @@
         static NSString *cellName = @"HealthTableCell";
         HealthTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[HealthTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HealthTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
         return cell;
@@ -178,7 +178,7 @@
         static NSString *cellName = @"StudioTableCell";
         StudioTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[StudioTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"StudioTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
         return cell;
@@ -186,7 +186,7 @@
         static NSString *cellName = @"PersonTableCell";
         PersonTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[PersonTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
         return cell;

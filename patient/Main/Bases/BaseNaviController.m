@@ -19,7 +19,7 @@
     
     self.navigationBar.translucent= NO;
     self.navigationBar.barTintColor=[UIColor whiteColor];
-    self.navigationBar.tintColor=[UIColor redColor];
+    self.navigationBar.tintColor=[UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 

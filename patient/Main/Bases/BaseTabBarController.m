@@ -38,28 +38,28 @@
     InfoViewController *InfoVC = [[InfoViewController alloc] init];
     [InfoVC.tabBarItem setTitle:@"首页"];
     [InfoVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_info_normal"]];
-    [InfoVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_info_normal"]];
+    [InfoVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_info_selected"]];
     BaseNaviController *InfoNavC = [[BaseNaviController alloc] initWithRootViewController:InfoVC];
     [childVCArray addObject:InfoNavC];
     
     TestViewController *TestVC = [[TestViewController alloc] init];
     [TestVC.tabBarItem setTitle:@"测体质"];
-    [TestVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_info_normal"]];
-    [TestVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"btn_column_selected"]];
+    [TestVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_test_normal"]];
+    [TestVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_test_selected"]];
     BaseNaviController *TestNavC = [[BaseNaviController alloc] initWithRootViewController:TestVC];
     [childVCArray addObject:TestNavC];
     
     SearchViewController *SearchVC = [[SearchViewController alloc] init];
     [SearchVC.tabBarItem setTitle:@"搜索"];
-    [SearchVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_info_normal"]];
-    [SearchVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"btn_live_selected"]];
+    [SearchVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_search_normal"]];
+    [SearchVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_search_selected"]];
     BaseNaviController *SearchNavC = [[BaseNaviController alloc] initWithRootViewController:SearchVC];
     [childVCArray addObject:SearchNavC];
     
     MineViewController *MineVC = [[MineViewController alloc] init];
     [MineVC.tabBarItem setTitle:@"我的"];
-    [MineVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_info_normal"]];
-    [MineVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"btn_user_selected"]];
+    [MineVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_mine_normal"]];
+    [MineVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_mine_selected"]];
     BaseNaviController *MineNavC = [[BaseNaviController alloc] initWithRootViewController:MineVC];
     [childVCArray addObject:MineNavC];
     
