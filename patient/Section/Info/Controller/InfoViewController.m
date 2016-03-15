@@ -12,6 +12,8 @@
 #import "StudioTableCell.h"
 #import "PersonTableCell.h"
 
+#import "ScanViewController.h"
+
 #import <SDCycleScrollView.h>
 
 @implementation InfoViewController
@@ -80,18 +82,14 @@
 -(void)initNavBar{
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsCompact];
     
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_left_item"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_left_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
     self.navigationItem.leftBarButtonItem =leftButtonItem;
     
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(donothing)];
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navToScanViewController)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 -(void)initTabBar{
-    [self setHidesBottomBarWhenPushed:NO];
-}
-
--(void)donothing{
     
 }
 
@@ -218,6 +216,18 @@
         self.infoHeadView.moreLabel.text = @"更多";
     }
     return self.infoHeadView;
+}
+
+#pragma mark Target Action
+-(void)navBack{
+    
+}
+
+-(void)navToScanViewController{
+    self.hidesBottomBarWhenPushed = YES;
+    ScanViewController *scanVC = [[ScanViewController alloc] init];
+    [self.navigationController pushViewController:scanVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 

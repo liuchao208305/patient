@@ -50,18 +50,17 @@
 }
 
 -(void)initNavBar{
-//    self.navigationController.navigationBar.translucent = NO;
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    UIBarButtonItem *navBackItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xxxx"] style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
-//    self.navigationItem.leftBarButtonItem =navBackItem;
+    //设置导航栏文字为白色
+    self.navigationController.navigationBar.titleTextAttributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
+    //    //设置后退按钮为白色
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    //    //设置后退按钮统一为返回
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
 }
 
 -(void)initTabBar{
-    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
-    
-    [self setHidesBottomBarWhenPushed:YES];
+    self.tabBarController.tabBar.tintColor = MAIN_COLOR;
 }
 
 -(void)initView{
