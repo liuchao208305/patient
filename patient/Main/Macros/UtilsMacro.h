@@ -45,13 +45,13 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 //大于等于7.0的ios版本
-#define iOS7_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
+#define SYSTEM_VERSION_iOS7_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
 //大于等于8.0的ios版本
-#define iOS8_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+#define SYSTEM_VERSION_iOS8_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
 //是否等于7.0的ios版本
-#define IsIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
+#define SYSTEM_VERSION_IsIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
 //是否等于8.0的ios版本
-#define IsIOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >=8.0 ? YES : NO)
+#define SYSTEM_VERSION_IsIOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >=8.0 ? YES : NO)
 
 
 //----------------------系统类---------------------------
@@ -85,15 +85,17 @@
 
 //----------------------时间类---------------------------
 //获取系统时间戳
-#define getCurrentTime [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
+#define Current_Time [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
 // Hud停留时间
-#define kHudDelayTime 2.0
+#define Hud_DelayTime 2.0
 
 //----------------------时间类---------------------------
 
 //----------------------文本信息类---------------------------
 #define kNetworkStatusError @"网络不给力，请稍后再试！"
+#define TEXT_NetworkStatusError @"网络不给力，请稍后再试！"
 #define kNetworkStatusClose @"网络无法连接，请检查您的网络！"
+#define TEXT_NetworkStatusClose @"网络无法连接，请检查您的网络！"
 //----------------------文本信息类---------------------------
 
 //----------------------代码块类---------------------------
