@@ -37,7 +37,6 @@
 		702939741C916D21008280E2 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939731C916D21008280E2 /* GuideViewController.m */; };
 		702939861C9271EC008280E2 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 702939841C9271EC008280E2 /* jpush-ios-2.1.0.a */; };
 		702939891C9273C4008280E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939881C9273C4008280E2 /* InfoViewController.m */; };
-		7029398C1C9273D1008280E2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398B1C9273D1008280E2 /* TestViewController.m */; };
 		7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398E1C9273E4008280E2 /* SearchViewController.m */; };
 		702939921C9273FA008280E2 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939911C9273FA008280E2 /* MineViewController.m */; };
 		7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AC6B1C974C5100BB6818 /* HealthTableCell.m */; };
@@ -180,8 +179,6 @@
 		702939851C9271EC008280E2 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		702939871C9273C4008280E2 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		702939881C9273C4008280E2 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		7029398A1C9273D1008280E2 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		7029398B1C9273D1008280E2 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7029398D1C9273E4008280E2 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		7029398E1C9273E4008280E2 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		702939901C9273FA008280E2 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
@@ -411,7 +408,6 @@
 				7029396E1C916B90008280E2 /* Guide */,
 				702939831C925FF9008280E2 /* Login */,
 				70265CAC1C858C0A0091C01F /* Info */,
-				70265CAD1C858C170091C01F /* Test */,
 				70265CAE1C858DF80091C01F /* Search */,
 				70265CAF1C85915C0091C01F /* Mine */,
 			);
@@ -546,15 +542,6 @@
 				702939991C929E03008280E2 /* Controller */,
 			);
 			path = Info;
-			sourceTree = "<group>";
-		};
-		70265CAD1C858C170091C01F /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				7029398A1C9273D1008280E2 /* TestViewController.h */,
-				7029398B1C9273D1008280E2 /* TestViewController.m */,
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		70265CAE1C858DF80091C01F /* Search */ = {
@@ -958,7 +945,6 @@
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
-				7029398C1C9273D1008280E2 /* TestViewController.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 			);
