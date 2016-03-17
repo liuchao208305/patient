@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-bi-NGG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_health_main_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-bi-NGG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                     </imageView>
                 </subviews>
@@ -27,4 +27,7 @@
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cell_health_main_button.png" width="320" height="65"/>
+    </resources>
 </document>

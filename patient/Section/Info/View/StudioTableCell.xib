@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="88.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-dv-OAe">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_studio_main_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-dv-OAe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="88.5"/>
                     </imageView>
                 </subviews>
@@ -28,4 +28,7 @@
             <point key="canvasLocation" x="388" y="318.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cell_studio_main_button.png" width="320" height="91"/>
+    </resources>
 </document>

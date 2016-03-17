@@ -61,17 +61,17 @@
                 button.titleLabel.font = [UIFont systemFontOfSize:15];
             }
             [button setTitle:@"立即进入" forState:UIControlStateNormal];
-            [button setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+            [button setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
             button.layer.cornerRadius = 2;
             button.layer.borderWidth = 1;
-            button.layer.borderColor = MAIN_COLOR.CGColor;
+            button.layer.borderColor = kMAIN_COLOR.CGColor;
             [button addTarget:self action:@selector(initRootWindow) forControlEvents:UIControlEventTouchUpInside];
             [self.scrollView addSubview:button];
         }
     }
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-100)/2, SCREEN_HEIGHT-30, 100, 20)];
     self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-    self.pageControl.currentPageIndicatorTintColor = MAIN_COLOR;
+    self.pageControl.currentPageIndicatorTintColor = kMAIN_COLOR;
     self.pageControl.numberOfPages = imageArray.count;
     [self.view addSubview:self.pageControl];
 }

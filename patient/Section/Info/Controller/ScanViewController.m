@@ -61,7 +61,13 @@
 
 #pragma mark Init Section
 - (void)initNavBar{
-    self.navigationItem.title = @"二维码扫描";
+//    self.navigationItem.title = @"二维码扫描";
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = @"二维码扫描";
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
 }
 
 - (void)initView{

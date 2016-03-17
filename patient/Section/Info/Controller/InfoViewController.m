@@ -26,7 +26,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = kBACKGROUND_COLOR;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
@@ -80,10 +80,18 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsCompact];
     
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_left_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navBack)];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image.png"] forBarMetrics:(UIBarMetricsDefault)];
+    
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_left_item"] style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.leftBarButtonItem =leftButtonItem;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = @"现在是午时  此时宜静养，静卧或小睡一会吧！";
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:15];
+    self.navigationItem.titleView = label;
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navToScanViewController)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
@@ -118,7 +126,7 @@
 }
 
 -(void)initTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115-TAB_BAR_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -201,7 +209,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
+    return 10;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -212,8 +220,21 @@
         self.infoHeadView.titleLabel.hidden = YES;
         self.infoHeadView.moreLabel.hidden = YES;
         self.infoHeadView.moreImage.hidden = YES;
-    }else{
+    }else if(section == 1){
+        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_health_title_button"];
+        self.infoHeadView.titleLabel.text = @"吃出健康";
         self.infoHeadView.moreLabel.text = @"更多";
+        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_health_more_button"];
+    }else if (section == 2){
+        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_studio_title_button"];
+        self.infoHeadView.titleLabel.text = @"推荐名老中医工作室";
+        self.infoHeadView.moreLabel.text = @"更多";
+        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_studio_more_button"];
+    }else if (section == 3){
+        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_person_title_button"];
+        self.infoHeadView.titleLabel.text = @"推荐名老中医";
+        self.infoHeadView.moreLabel.text = @"更多";
+        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_person_more_button"];
     }
     return self.infoHeadView;
 }

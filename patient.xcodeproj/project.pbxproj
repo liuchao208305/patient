@@ -84,6 +84,9 @@
 		7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD501C9869A400BB6818 /* scan_back_image.png */; };
 		7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD511C9869A400BB6818 /* scan_line_image.png */; };
 		7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD5E1C99902500BB6818 /* TestViewController.m */; };
+		7046AD621C99956400BB6818 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD611C99956400BB6818 /* LoginViewController.m */; };
+		7046AD641C9998FC00BB6818 /* navbar_background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD631C9998FC00BB6818 /* navbar_background_image.png */; };
+		7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -235,6 +238,11 @@
 		7046AD511C9869A400BB6818 /* scan_line_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_line_image.png; sourceTree = "<group>"; };
 		7046AD5D1C99902500BB6818 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7046AD5E1C99902500BB6818 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		7046AD601C99956400BB6818 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7046AD611C99956400BB6818 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7046AD631C9998FC00BB6818 /* navbar_background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_background_image.png; sourceTree = "<group>"; };
+		7046AD681C99C42E00BB6818 /* YJSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSegmentedControl.h; sourceTree = "<group>"; };
+		7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSegmentedControl.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -486,6 +494,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7046AD631C9998FC00BB6818 /* navbar_background_image.png */,
 				7046AD501C9869A400BB6818 /* scan_back_image.png */,
 				7046AD511C9869A400BB6818 /* scan_line_image.png */,
 				7046AD361C97E8D300BB6818 /* launchimage.jpg */,
@@ -587,6 +596,10 @@
 		702939831C925FF9008280E2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				7046AD681C99C42E00BB6818 /* YJSegmentedControl.h */,
+				7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */,
+				7046AD601C99956400BB6818 /* LoginViewController.h */,
+				7046AD611C99956400BB6818 /* LoginViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -830,6 +843,7 @@
 				7046AD211C97E5D700BB6818 /* cell_studio_main_button.png in Resources */,
 				7046AD1E1C97E5D700BB6818 /* cell_person_more_button.png in Resources */,
 				7046AD251C97E5D700BB6818 /* guideview2.jpg in Resources */,
+				7046AD641C9998FC00BB6818 /* navbar_background_image.png in Resources */,
 				7046AD2A1C97E5D700BB6818 /* navbar_left_item.png in Resources */,
 				7046AD161C97E5D700BB6818 /* cell_disease_laotou_button.png in Resources */,
 				7046AC6E1C974C5100BB6818 /* HealthTableCell.xib in Resources */,
@@ -940,6 +954,7 @@
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
+				7046AD621C99956400BB6818 /* LoginViewController.m in Sources */,
 				7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
@@ -961,6 +976,7 @@
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
+				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

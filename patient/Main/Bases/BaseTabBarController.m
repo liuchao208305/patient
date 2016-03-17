@@ -26,7 +26,7 @@
     backView.backgroundColor=[UIColor whiteColor];
     [self.tabBar insertSubview:backView atIndex:0];
     self.tabBar.opaque = YES;
-    self.tabBar.tintColor = MAIN_COLOR;
+    self.tabBar.tintColor = kMAIN_COLOR;
     
     [self initChildViewControllers];
 }

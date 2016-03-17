@@ -16,106 +16,106 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-V5-D6x">
-                        <rect key="frame" x="110" y="0.0" width="1" height="153.5"/>
+                        <rect key="frame" x="130" y="0.0" width="1" height="153.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="JFi-5i-b1S"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61j-7Q-kfE">
-                        <rect key="frame" x="111" y="68" width="209" height="1"/>
+                        <rect key="frame" x="131" y="68" width="189" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="wV7-Qm-42a"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-d2-h9g">
-                        <rect key="frame" x="25" y="20" width="56" height="56"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_guomin_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-d2-h9g">
+                        <rect key="frame" x="35" y="20" width="56" height="56"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="56" id="ECR-xP-DSR"/>
                             <constraint firstAttribute="height" constant="56" id="bJh-yq-9gU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpi-dA-hZK">
-                        <rect key="frame" x="32" y="86" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="过敏专题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpi-dA-hZK">
+                        <rect key="frame" x="29" y="86" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0W-Kd-5YX">
-                        <rect key="frame" x="32" y="108.5" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="特约专家  为您解忧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0W-Kd-5YX">
+                        <rect key="frame" x="7.5" y="108.5" width="111.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看名老中医" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urT-ZL-gVx">
+                        <rect key="frame" x="181" y="10" width="85" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urT-ZL-gVx">
-                        <rect key="frame" x="127" y="10" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咨询指定医生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVO-GQ-diJ">
+                        <rect key="frame" x="178.5" y="35" width="90" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVO-GQ-diJ">
-                        <rect key="frame" x="127" y="32.5" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4x1-gJ-umG">
-                        <rect key="frame" x="243" y="10" width="30" height="50"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_laotou_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="4x1-gJ-umG">
+                        <rect key="frame" x="232" y="10" width="30" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Aph-Rl-JWz"/>
                             <constraint firstAttribute="width" constant="30" id="XXR-Jf-ccE"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GRG-yP-qP6">
-                        <rect key="frame" x="127" y="81" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_pifuke_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="GRG-yP-qP6">
+                        <rect key="frame" x="156" y="81" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="M54-Zn-hQZ"/>
                             <constraint firstAttribute="height" constant="25" id="dUG-rb-Kge"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YiO-QY-nRe">
-                        <rect key="frame" x="127" y="118" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_nanke_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="YiO-QY-nRe">
+                        <rect key="frame" x="156" y="118" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="0hk-Bi-SPw"/>
                             <constraint firstAttribute="height" constant="25" id="L9V-lr-Yar"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-6Z-pJV">
-                        <rect key="frame" x="157" y="83.5" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="皮肤科" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-6Z-pJV">
+                        <rect key="frame" x="186" y="84.5" width="45" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-Qr-LPl">
-                        <rect key="frame" x="157" y="120.5" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男科" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-Qr-LPl">
+                        <rect key="frame" x="186" y="122" width="30" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uvj-ep-Ac4">
-                        <rect key="frame" x="219" y="81.5" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_fuke_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="uvj-ep-Ac4">
+                        <rect key="frame" x="266" y="81.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="7LA-21-IRk"/>
                             <constraint firstAttribute="height" constant="25" id="yqY-rQ-81W"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-6M-TD8">
-                        <rect key="frame" x="219" y="118" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_disease_yinanzazheng_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-6M-TD8">
+                        <rect key="frame" x="266" y="118" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="D5A-01-Xgy"/>
                             <constraint firstAttribute="width" constant="25" id="dAR-e0-2My"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnS-AN-FJJ">
-                        <rect key="frame" x="249" y="84" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疑难杂症" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sE-hn-m8I">
+                        <rect key="frame" x="296" y="122" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sE-hn-m8I">
-                        <rect key="frame" x="249" y="120.5" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妇科" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnS-AN-FJJ">
+                        <rect key="frame" x="296" y="84.5" width="30" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -123,7 +123,7 @@
                 <constraints>
                     <constraint firstAttribute="top" secondItem="urT-ZL-gVx" secondAttribute="top" constant="-10" id="4Ly-B9-8nl"/>
                     <constraint firstItem="YiO-QY-nRe" firstAttribute="centerX" secondItem="GRG-yP-qP6" secondAttribute="centerX" id="4c3-Dt-mKk"/>
-                    <constraint firstItem="uvj-ep-Ac4" firstAttribute="leading" secondItem="lRU-6Z-pJV" secondAttribute="trailing" constant="20" id="7Zq-5l-X3A"/>
+                    <constraint firstItem="uvj-ep-Ac4" firstAttribute="leading" secondItem="lRU-6Z-pJV" secondAttribute="trailing" constant="35" id="7Zq-5l-X3A"/>
                     <constraint firstItem="8sE-hn-m8I" firstAttribute="centerY" secondItem="d0j-6M-TD8" secondAttribute="centerY" id="7dk-zP-6VM"/>
                     <constraint firstItem="4x1-gJ-umG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="87w-RK-NaQ"/>
                     <constraint firstAttribute="bottom" secondItem="Oyz-V5-D6x" secondAttribute="bottom" id="A4c-g6-V4F"/>
@@ -132,15 +132,15 @@
                     <constraint firstItem="uvj-ep-Ac4" firstAttribute="centerY" secondItem="lRU-6Z-pJV" secondAttribute="centerY" id="GSl-sH-7sD"/>
                     <constraint firstItem="d0j-6M-TD8" firstAttribute="centerX" secondItem="uvj-ep-Ac4" secondAttribute="centerX" id="GlU-tf-kkh"/>
                     <constraint firstItem="sGm-Qr-LPl" firstAttribute="leading" secondItem="YiO-QY-nRe" secondAttribute="trailing" constant="5" id="NpO-yN-OCS"/>
-                    <constraint firstItem="ViH-d2-h9g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="OSU-no-b0h"/>
+                    <constraint firstItem="ViH-d2-h9g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="OSU-no-b0h"/>
                     <constraint firstItem="61j-7Q-kfE" firstAttribute="leading" secondItem="Oyz-V5-D6x" secondAttribute="trailing" id="Qvb-u5-QzD"/>
                     <constraint firstItem="E0W-Kd-5YX" firstAttribute="top" secondItem="jpi-dA-hZK" secondAttribute="bottom" constant="2" id="R30-rr-eA4"/>
                     <constraint firstItem="VnS-AN-FJJ" firstAttribute="centerY" secondItem="uvj-ep-Ac4" secondAttribute="centerY" id="Rlx-4k-Rhq"/>
                     <constraint firstItem="YiO-QY-nRe" firstAttribute="top" secondItem="GRG-yP-qP6" secondAttribute="bottom" constant="12" id="Rn5-FV-HCE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4x1-gJ-umG" secondAttribute="trailing" constant="39" id="TO0-du-sOD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4x1-gJ-umG" secondAttribute="trailing" constant="50" id="TO0-du-sOD"/>
                     <constraint firstItem="jpi-dA-hZK" firstAttribute="top" secondItem="ViH-d2-h9g" secondAttribute="bottom" constant="10" id="TuU-gf-yyf"/>
-                    <constraint firstItem="Oyz-V5-D6x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="WfK-2K-YhO"/>
-                    <constraint firstItem="urT-ZL-gVx" firstAttribute="leading" secondItem="Oyz-V5-D6x" secondAttribute="trailing" constant="16" id="XNU-NA-XYr"/>
+                    <constraint firstItem="Oyz-V5-D6x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="130" id="WfK-2K-YhO"/>
+                    <constraint firstItem="urT-ZL-gVx" firstAttribute="leading" secondItem="Oyz-V5-D6x" secondAttribute="trailing" constant="50" id="XNU-NA-XYr"/>
                     <constraint firstItem="GRG-yP-qP6" firstAttribute="top" secondItem="61j-7Q-kfE" secondAttribute="bottom" constant="12" id="cvK-45-uZ2"/>
                     <constraint firstItem="lRU-6Z-pJV" firstAttribute="centerY" secondItem="GRG-yP-qP6" secondAttribute="centerY" id="fQ7-5N-typ"/>
                     <constraint firstAttribute="trailing" secondItem="61j-7Q-kfE" secondAttribute="trailing" id="fxE-h4-jPP"/>
@@ -150,7 +150,7 @@
                     <constraint firstItem="8sE-hn-m8I" firstAttribute="leading" secondItem="d0j-6M-TD8" secondAttribute="trailing" constant="5" id="qSg-6Z-fjK"/>
                     <constraint firstItem="ViH-d2-h9g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="r9H-Ml-woV"/>
                     <constraint firstItem="61j-7Q-kfE" firstAttribute="top" secondItem="QVO-GQ-diJ" secondAttribute="bottom" constant="15" id="st1-qU-voP"/>
-                    <constraint firstItem="GRG-yP-qP6" firstAttribute="leading" secondItem="Oyz-V5-D6x" secondAttribute="trailing" constant="16" id="uML-Lp-Zo8"/>
+                    <constraint firstItem="GRG-yP-qP6" firstAttribute="leading" secondItem="Oyz-V5-D6x" secondAttribute="trailing" constant="25" id="uML-Lp-Zo8"/>
                     <constraint firstItem="Oyz-V5-D6x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="v6q-hb-Ew2"/>
                     <constraint firstItem="QVO-GQ-diJ" firstAttribute="centerX" secondItem="urT-ZL-gVx" secondAttribute="centerX" id="w44-y1-4lg"/>
                     <constraint firstItem="d0j-6M-TD8" firstAttribute="centerY" secondItem="sGm-Qr-LPl" secondAttribute="centerY" id="w7U-i0-9vf"/>
@@ -170,4 +170,12 @@
             <point key="canvasLocation" x="504" y="444"/>
         </imageView>
     </objects>
+    <resources>
+        <image name="cell_disease_fuke_button.png" width="23" height="23"/>
+        <image name="cell_disease_guomin_button.png" width="55" height="55"/>
+        <image name="cell_disease_laotou_button.png" width="32" height="50"/>
+        <image name="cell_disease_nanke_button.png" width="23" height="23"/>
+        <image name="cell_disease_pifuke_button.png" width="23" height="23"/>
+        <image name="cell_disease_yinanzazheng_button.png" width="23" height="23"/>
+    </resources>
 </document>

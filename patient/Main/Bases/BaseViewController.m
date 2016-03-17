@@ -50,21 +50,18 @@
 }
 
 -(void)initNavBar{
-    //设置导航栏文字为白色
-    self.navigationController.navigationBar.titleTextAttributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
-    //    //设置后退按钮为白色
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    //    //设置后退按钮统一为返回
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = item;
+//    self.navigationController.navigationBar.tintColor = kWHITE_COLOR;
+//    
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.backBarButtonItem = item;
 }
 
 -(void)initTabBar{
-    self.tabBarController.tabBar.tintColor = MAIN_COLOR;
+    self.tabBarController.tabBar.tintColor = kMAIN_COLOR;
 }
 
 -(void)initView{
-    
+    self.view.backgroundColor = kBACKGROUND_COLOR;
 }
 
 -(void)initRecognizer{

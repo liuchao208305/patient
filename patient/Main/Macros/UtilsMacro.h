@@ -58,13 +58,13 @@
 
 //----------------------颜色类---------------------------
 //主色调（碧绿色）
-#define MAIN_COLOR [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
+#define kMAIN_COLOR [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
 //白色
-#define WHITE_COLOR [UIColor whiteColor]
+#define kWHITE_COLOR [UIColor whiteColor]
 //背景色
-#define BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]
+#define kBACKGROUND_COLOR ColorWithHexRGB(0xeeeeee)
 //清除背景色
-#define CLEAR_COLOR [UIColor clearColor]
+#define kCLEAR_COLOR [UIColor clearColor]
 
 // 获取RGB颜色
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]

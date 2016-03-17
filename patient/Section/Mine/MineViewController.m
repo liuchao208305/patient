@@ -42,7 +42,7 @@
 }
 
 -(void)initView{
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = kBACKGROUND_COLOR;
 }
 
 -(void)initRecognizer{

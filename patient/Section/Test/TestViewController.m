@@ -7,6 +7,8 @@
 //
 
 #import "TestViewController.h"
+#import "AlertUtil.h"
+#import "LoginViewController.h"
 
 @implementation TestViewController
 
@@ -42,11 +44,24 @@
 }
 
 -(void)initView{
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = kBACKGROUND_COLOR;
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 100, 100)];
+    [button setTitle:@"test" forState:UIControlStateNormal];
+    [button setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 -(void)initRecognizer{
     
+}
+
+#pragma mark Target Action
+-(void)test{
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 @end

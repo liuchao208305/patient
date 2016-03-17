@@ -116,7 +116,7 @@
 + (UIView *)createViewFrame:(CGRect)frame
 {
     UIView *view = [[UIView alloc] initWithFrame:frame];
-    view.backgroundColor = WHITE_COLOR;
+    view.backgroundColor = kWHITE_COLOR;
     return view;
 }
 
