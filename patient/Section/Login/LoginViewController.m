@@ -5,11 +5,11 @@
 //  Created by ChaosLiu on 16/3/16.
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
-
 #import "LoginViewController.h"
 #import "YJSegmentedControl.h"
 #import "AdaptionUtil.h"
 #import "AgreementViewController.h"
+#import "NetworkUtil.h"
 
 @interface LoginViewController ()<YJSegmentedControlDelegate>{
     UIView *whiteBackView;
@@ -429,7 +429,28 @@
 }
 #pragma mark Network Request
 -(void)getCaptchaRequest{
-    DLog(@"test");
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:@"18058974552" forKey:@"phone"];
+//    
+//    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:kServerUrl successBlock:^(NSURLSessionDataTask *task,id responseObject){
+//        DLog(@"responseObject-->%@",responseObject);
+//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+//        DLog(@"errorStr-->%@",errorStr);
+//    }];
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:@"18058974552" forKey:@"phone"];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameter options:0 error:nil];
+    NSString *jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    [[NetworkUtil sharedInstance]postResultWithParameter:jsonString url:kServerUrl successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+    }];
 }
 #pragma mark Data Parse
 

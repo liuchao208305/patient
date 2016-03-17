@@ -11,8 +11,8 @@
 
 #define TIMEOUT 30
 
-typedef void(^SuccessBlock)(id responseBody);
-typedef void(^FailureBlock)(NSString *error);
+typedef void(^SuccessBlock)(NSURLSessionDataTask *task,id responseObject);
+typedef void(^FailureBlock)(NSURLSessionDataTask *task,NSError *error);
 
 @interface NetworkUtil : NSObject
 
@@ -23,7 +23,9 @@ typedef void(^FailureBlock)(NSString *error);
 -(void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 #pragma mark - POST
--(void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+//-(void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+-(void)postResultWithParameter:(NSString *)jsonString url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 #pragma mark - AFN上传照片
 -(void)upImageWithParameter:(NSDictionary *)parameter imageArray:(NSArray *)images url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;

@@ -12,7 +12,7 @@
 //接口名称相关
 #ifdef DEBUG
 //Debug状态下的测试API
-#define kServerUrl     @"http://boys.test.companydomain.com/api/"
+#define kServerUrl     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/getCode?"
 #else
 //Release状态下的线上API
 #define kServerUrl     @"http://www.companydomain.com/api/"
