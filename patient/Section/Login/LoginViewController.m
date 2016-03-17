@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "YJSegmentedControl.h"
+#import "AdaptionUtil.h"
+#import "AgreementViewController.h"
 
 @interface LoginViewController ()<YJSegmentedControlDelegate>{
     UIView *whiteBackView;
@@ -34,9 +36,13 @@
     UIImageView *imageView3;
     UILabel *label3;
     
+    UIView *grayBackView;
     UILabel *agreementLabel;
-    UIButton *agrementButton;
+    UIButton *agreementButton;
     UIButton *loginButton;
+    
+    int timeCount;
+    NSThread *thread;
 }
 @end
 
@@ -45,6 +51,10 @@
 #pragma mark Life Circle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+    if (thread != nil) {
+        [thread cancel];
+    }
 }
 
 - (void)viewDidLoad {
@@ -102,17 +112,112 @@
     
     [self.view addSubview:whiteBackView];
     
-    agreementLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 10+156+56, 95, 20)];
-    agreementLabel.text = @"1";
-    [self.view addSubview:agreementLabel];
+    grayBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 160, SCREEN_WIDTH, SCREEN_HEIGHT-156)];
+    grayBackView.backgroundColor = kBACKGROUND_COLOR;
+    [self.view addSubview:grayBackView];
     
-    agrementButton = [[UIButton alloc] initWithFrame:CGRectMake(55+95+5, 10+156+56, 95, 20)];
-    [agrementButton setTitle:@"2" forState:UIControlStateNormal];
-    [self.view addSubview:agrementButton];
+    agreementLabel = [[UILabel alloc]init];
+    agreementLabel.text = @"点击确定即同意";
+    agreementLabel.textColor = kDARK_GRAY_COLOR;
+    [grayBackView addSubview:agreementLabel];
     
-    loginButton = [[UIButton alloc] initWithFrame:CGRectMake(75, 10+156+56+20+18, 118, 49)];
-    [loginButton setTitle:@"3" forState:UIControlStateNormal];
-    [self.view addSubview:loginButton];
+    agreementButton = [[UIButton alloc] init];
+    [agreementButton setTitle:@"就这看服务条款" forState:UIControlStateNormal];
+    [agreementButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [agreementButton addTarget:self action:@selector(agreementButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [grayBackView addSubview:agreementButton];
+    
+    loginButton = [[UIButton alloc] init];
+    [loginButton setTitle:@"确定" forState:UIControlStateNormal];
+    [loginButton setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_normal"] forState:UIControlStateNormal];
+    [loginButton setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_selected"] forState:UIControlStateHighlighted];
+    [grayBackView addSubview:loginButton];
+    
+    if ([AdaptionUtil isIphoneFour]) {
+        [agreementLabel mas_updateConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(grayBackView).offset(20);
+            make.top.equalTo(grayBackView).offset(10);
+            make.width.mas_equalTo(120);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [agreementButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(agreementLabel).offset(100);
+            make.right.equalTo(grayBackView).offset(-5);
+            make.centerY.equalTo(agreementLabel).offset(0);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [loginButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.centerX.equalTo(grayBackView).offset(0);
+            make.top.equalTo(agreementButton).offset(25);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(49);
+        }];
+    }else if ([AdaptionUtil isIphoneFive]){
+        [agreementLabel mas_updateConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(grayBackView).offset(30);
+            make.top.equalTo(grayBackView).offset(20);
+            make.width.mas_equalTo(120);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [agreementButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(agreementLabel).offset(120);
+            make.right.equalTo(grayBackView).offset(-30);
+            make.centerY.equalTo(agreementLabel).offset(0);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [loginButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.centerX.equalTo(grayBackView).offset(0);
+            make.top.equalTo(agreementButton).offset(25);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(40);
+        }];
+    }else if ([AdaptionUtil isIphoneSix]){
+        [agreementLabel mas_updateConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(grayBackView).offset(50);
+            make.top.equalTo(grayBackView).offset(56);
+            make.width.mas_equalTo(120);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [agreementButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(agreementLabel).offset(100);
+            make.right.equalTo(grayBackView).offset(-50);
+            make.centerY.equalTo(agreementLabel).offset(0);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [loginButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.centerX.equalTo(grayBackView).offset(0);
+            make.top.equalTo(agreementButton).offset(36);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(49);
+        }];
+    }else if ([AdaptionUtil isIphoneSixPlus]){
+        [agreementLabel mas_updateConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(grayBackView).offset(80);
+            make.top.equalTo(grayBackView).offset(56);
+            make.width.mas_equalTo(120);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [agreementButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(agreementLabel).offset(90);
+            make.right.equalTo(grayBackView).offset(-56);
+            make.centerY.equalTo(agreementLabel).offset(0);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [loginButton mas_makeConstraints:^(MASConstraintMaker *make){
+            make.centerX.equalTo(grayBackView).offset(0);
+            make.top.equalTo(agreementButton).offset(36);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(49);
+        }];
+    }
 }
 
 //快速登录
@@ -128,8 +233,8 @@
     firstButton1 = [[UIButton alloc] init];
     [firstButton1 setTitle:@"获取验证码" forState:UIControlStateNormal];
     [firstButton1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [firstButton1 setBackgroundColor:ColorWithHexRGB(0xdddddd)];
-    firstButton1.layer.cornerRadius = 2;
+    [firstButton1 setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_normal"] forState:UIControlStateNormal];
+    [firstButton1 addTarget:self action:@selector(getCaptchaButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [firstBackView1 addSubview:firstButton1];
     
     [firstTextField1 mas_updateConstraints:^(MASConstraintMaker *make){
@@ -142,7 +247,7 @@
         make.right.equalTo(firstBackView1).offset(-10);
         make.centerY.equalTo(firstTextField1).offset(0);
         make.width.mas_equalTo(95);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(44);
     }];
     
     firstTFBottomLineView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 44+55, SCREEN_WIDTH, 1)];
@@ -209,40 +314,40 @@
     [whiteBackView addSubview:backView];
     
     imageView1 = [[UIImageView alloc] init];
-    [imageView1 setImage:[UIImage imageNamed:@"navbar_right_item"]];
+    [imageView1 setImage:[UIImage imageNamed:@"login_third_login_weixin"]];
     [backView addSubview:imageView1];
     
     label1 = [[UILabel alloc] init];
-    label1.text = @"1";
+    label1.text = @"微信";
     [backView addSubview:label1];
     
     imageView2 = [[UIImageView alloc] init];
-    [imageView2 setImage:[UIImage imageNamed:@"navbar_right_item"]];
+    [imageView2 setImage:[UIImage imageNamed:@"login_third_login_weibo"]];
     [backView addSubview:imageView2];
     
     label2 = [[UILabel alloc] init];
-    label2.text = @"2";
+    label2.text = @"微博";
     [backView addSubview:label2];
     
     imageView3 = [[UIImageView alloc] init];
-    [imageView3 setImage:[UIImage imageNamed:@"navbar_right_item"]];
+    [imageView3 setImage:[UIImage imageNamed:@"login_third_login_qq"]];
     [backView addSubview:imageView3];
     
     label3 = [[UILabel alloc] init];
-    label3.text = @"3";
+    label3.text = @"QQ";
     [backView addSubview:label3];
     
     [imageView1 mas_updateConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(backView).offset(35);
-        make.top.equalTo(backView).offset(29);
+        make.top.equalTo(backView).offset(10);
         make.width.mas_equalTo(60);
         make.height.mas_equalTo(60);
     }];
     
     [label1 mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.equalTo(imageView1).offset(0);
-        make.bottom.equalTo(backView).offset(-20);
-        make.width.mas_equalTo(30);
+        make.centerX.equalTo(imageView1).offset(5);
+        make.bottom.equalTo(backView).offset(-50);
+        make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);
     }];
     
@@ -254,9 +359,9 @@
     }];
     
     [label2 mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.equalTo(imageView2).offset(0);
+        make.centerX.equalTo(imageView2).offset(5);
         make.centerY.equalTo(label1).offset(0);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);
     }];
     
@@ -268,9 +373,9 @@
     }];
     
     [label3 mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.equalTo(imageView3).offset(0);
+        make.centerX.equalTo(imageView3).offset(5);
         make.centerY.equalTo(label2).offset(0);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);
     }];
 
@@ -285,18 +390,56 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)getCaptchaButtonClicked{
+    [self getCaptchaRequest];
+    
+    [firstButton1 setEnabled:NO];
+    
+    thread= [[NSThread alloc]initWithTarget:self selector:@selector(beginCountDown) object:nil];
+    [thread start];
+}
 
+-(void)beginCountDown{
+    timeCount = 59;
+    while (timeCount > 0 && !thread.isCancelled) {
+        [self performSelectorOnMainThread:@selector(updateCaptchaButton) withObject:nil waitUntilDone:NO];
+        [NSThread sleepForTimeInterval:1];
+        timeCount--;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [firstButton1 setEnabled:YES];
+        
+        [firstButton1 setTitle:@"获取验证码" forState:UIControlStateNormal];
+        [firstButton1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [firstButton1 setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_normal"] forState:UIControlStateNormal];
+    });
+}
+
+- (void) updateCaptchaButton{
+    NSString *timeCountString = [NSString stringWithFormat:@"已发送(%d)", timeCount];
+    firstButton1.titleLabel.text = timeCountString;
+    [firstButton1 setTitle:timeCountString forState:UIControlStateNormal];
+}
+
+-(void)agreementButtonClicked{
+    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
+    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    [self.navigationController pushViewController:agreementVC animated:YES];
+}
+#pragma mark Network Request
+-(void)getCaptchaRequest{
+    DLog(@"test");
+}
+#pragma mark Data Parse
 
 #pragma mark YJSegmentedControlDelegate
 - (void)segumentSelectionChange:(NSInteger)selection{
     if (selection == 0) {
-        NSLog(@"新动态");
         [self initQuickLoginView];
     }else if (selection == 1){
-        NSLog(@"朋友圈");
         [self initNormalLoginView];
     }else{
-        NSLog(@"iOS教程");
         [self initPlatformLoginView];
     }
     

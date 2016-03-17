@@ -61,6 +61,12 @@
 #define kMAIN_COLOR [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
 //白色
 #define kWHITE_COLOR [UIColor whiteColor]
+//黑色
+#define kBLACK_COLOR [UIColor blackColor]
+//深灰色
+#define kDARK_GRAY_COLOR [UIColor darkGrayColor]
+//浅灰色
+#define kLIGHT_GRAY_COLOR [UIColor lightGrayColor]
 //背景色
 #define kBACKGROUND_COLOR ColorWithHexRGB(0xeeeeee)
 //清除背景色
