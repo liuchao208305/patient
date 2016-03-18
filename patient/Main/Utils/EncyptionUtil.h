@@ -17,4 +17,6 @@
 // 解密方法
 + (NSString*)decrypt:(NSString*)encryptText;
 
++(NSString *)encrypt_md5:(NSString *)string;
+
 @end

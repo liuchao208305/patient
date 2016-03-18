@@ -9,6 +9,7 @@
 #ifndef Macro_h
 #define Macro_h
 
+#import "CommonMacro.h"
 #import "DimensMacro.h"
 #import "PathMacro.h"
 #import "UtilsMacro.h"

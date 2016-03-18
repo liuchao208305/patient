@@ -10,8 +10,10 @@
 #import "AdaptionUtil.h"
 #import "AgreementViewController.h"
 #import "NetworkUtil.h"
+#import "LoginStatusDelegate.h"
+#import "EncyptionUtil.h"
 
-@interface LoginViewController ()<YJSegmentedControlDelegate>{
+@interface LoginViewController ()<YJSegmentedControlDelegate,LoginDelegate>{
     UIView *whiteBackView;
     UIView *segmentBottomLineView;
     //快速登录
@@ -44,6 +46,9 @@
     int timeCount;
     NSThread *thread;
 }
+
+//@property (strong,nonatomic)LoginStatusDelegate *loginStatus;
+
 @end
 
 @implementation LoginViewController
@@ -131,6 +136,7 @@
     [loginButton setTitle:@"确定" forState:UIControlStateNormal];
     [loginButton setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_normal"] forState:UIControlStateNormal];
     [loginButton setBackgroundImage:[UIImage imageNamed:@"login_confirm_login_selected"] forState:UIControlStateHighlighted];
+    [loginButton addTarget:self action:@selector(loginButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [grayBackView addSubview:loginButton];
     
     if ([AdaptionUtil isIphoneFour]) {
@@ -416,7 +422,7 @@
     });
 }
 
-- (void) updateCaptchaButton{
+- (void)updateCaptchaButton{
     NSString *timeCountString = [NSString stringWithFormat:@"已发送(%d)", timeCount];
     firstButton1.titleLabel.text = timeCountString;
     [firstButton1 setTitle:timeCountString forState:UIControlStateNormal];
@@ -427,44 +433,67 @@
     agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
     [self.navigationController pushViewController:agreementVC animated:YES];
 }
+
+-(void)loginButtonClicked{
+    [self sendLoginRequest];
+}
+
 #pragma mark Network Request
 -(void)getCaptchaRequest{
-//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-//    [parameter setValue:@"18058974552" forKey:@"phone"];
-//    
-//    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:kServerUrl successBlock:^(NSURLSessionDataTask *task,id responseObject){
-//        DLog(@"responseObject-->%@",responseObject);
-//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-//        DLog(@"errorStr-->%@",errorStr);
-//    }];
-    
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:@"15960814137" forKey:@"phone"];
+    [parameter setValue:firstTextField1.text forKey:@"phone"];
     
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameter options:NSJSONWritingPrettyPrinted error:nil];
-//    NSString *jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:kServerUrl successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:kJZK_LOGIN_GET_CATPCHA successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
+        DLog(@"getCaptchaRequest成功");
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
     }];
 }
+
+-(void)sendLoginRequest{
+    LoginStatusDelegate *loginStatus = [[LoginStatusDelegate alloc] init];
+    if (self.loginType == quickLogin) {
+        DLog(@"quickLogin");
+        [loginStatus quickLogin:firstTextField1.text pwd:secondTextField1.text];
+    }else if (self.loginType == normalLogin){
+        DLog(@"normalLogin");
+        [loginStatus normalLogin:firstTextField2.text pwd:[EncyptionUtil encrypt_md5:secondTextField2.text]];
+    }else if (self.loginType == thirdLogin){
+        DLog(@"thirdLogin");
+    }
+}
+
 #pragma mark Data Parse
 
 #pragma mark YJSegmentedControlDelegate
 - (void)segumentSelectionChange:(NSInteger)selection{
     if (selection == 0) {
+        self.loginType = quickLogin;
         [self initQuickLoginView];
     }else if (selection == 1){
+        self.loginType = normalLogin;
         [self initNormalLoginView];
     }else{
+        self.loginType = thirdLogin;
         [self initPlatformLoginView];
     }
-    
 }
+
+#pragma mark LoginDelegate
+-(void)loginSuccess:(LoginModel *)loginModel{
+    DLog(@"登录回调！");
+}
+
+-(void)loginError:(NSInteger)code errMsg:(NSString *)message{
+    DLog(@"登录错误");
+}
+
+-(void)loginFailure:(NSError *)error{
+    DLog(@"登录失败");
+}
+
 /*
 #pragma mark - Navigation
 

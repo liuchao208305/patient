@@ -10,4 +10,16 @@
 
 @interface CommonUtil : NSObject
 
++(BOOL)judgeIsLoginOnce;
++(BOOL)judgeIsLoginSuccess;
++(BOOL)judgeIsLoginFailure;
++(BOOL)judgeIsLoginInvalid;
++(BOOL)judgeIsLoginOut;
+
++(void)changeIsLoginOnce:(BOOL) isLoginOnce;
++(void)changeIsLoginSuccess:(BOOL) isLoginSuccess;
++(void)changeIsLoginFailure:(BOOL) isLoginFailure;
++(void)changeIsLoginInvalid:(BOOL) isLoginInvalid;
++(void)changeIsLoginOut:(BOOL) isLoginOut;
+
 @end

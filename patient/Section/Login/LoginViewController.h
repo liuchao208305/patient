@@ -10,4 +10,15 @@
 
 @interface LoginViewController : BaseViewController
 
+typedef NS_ENUM(NSInteger, loginType)
+{
+    quickLogin = 0,
+    normalLogin = 1,
+    thirdLogin = 2
+};
+
+@property (strong,nonatomic)NSString *sourceVC;
+
+@property (assign,nonatomic)NSInteger loginType;
+
 @end

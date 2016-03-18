@@ -73,11 +73,11 @@
 
 #pragma mark Target Function
 -(void)unKnown{
-    [HudUtil showSimpleTextOnlyHUD:TEXT_NetworkStatusError withDelaySeconds:Hud_DelayTime];
+    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:Hud_DelayTime];
 }
 
 -(void)notReachble{
-    [HudUtil showSimpleTextOnlyHUD:TEXT_NetworkStatusClose withDelaySeconds:Hud_DelayTime];
+    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusCloseText withDelaySeconds:Hud_DelayTime];
 }
 
 -(void)viaWwan{
