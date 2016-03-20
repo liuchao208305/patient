@@ -12,7 +12,8 @@
 //接口名称相关
 #ifdef DEBUG
 //Debug状态下的测试API
-#define kServerUrl     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/getCode?"
+#define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 内网
+#define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/getCode?"// 外网
 #else
 //Release状态下的线上API
 #define kServerUrl     @"http://www.companydomain.com/api/"
@@ -25,7 +26,7 @@
 typedef enum {
     kSUCCESS = 0,//成功
     kERROR = 1,//失败
-} SERVER_COMMON_STATUS;
+} SERVER_RETURN_CODE;
 
 //接口
 /*
@@ -36,8 +37,8 @@ typedef enum {
  #define COMMENT_DELETE          @"comment/delComment"       //删除评论
  #define LOGINOUT                @"common/logout"            //登出
  */
-#define kJZK_LOGIN_GET_CATPCHA @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/getCode?" //获取验证码
-#define kJZK_QUICK_LOGIN @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/fastLogin?"//快速登录
-#define kJZK_NORMAL_LOGIN @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/login?"//常规登录
+#define kJZK_LOGIN_GET_CATPCHA @"user/getCode?" //获取验证码
+#define kJZK_QUICK_LOGIN @"user/fastLogin?"//快速登录
+#define kJZK_NORMAL_LOGIN @"user/login?"//常规登录
 
 #endif /* APIStringMacro_h */

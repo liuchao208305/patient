@@ -84,7 +84,6 @@
 		7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD501C9869A400BB6818 /* scan_back_image.png */; };
 		7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD511C9869A400BB6818 /* scan_line_image.png */; };
 		7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD5E1C99902500BB6818 /* TestViewController.m */; };
-		7046AD621C99956400BB6818 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD611C99956400BB6818 /* LoginViewController.m */; };
 		7046AD641C9998FC00BB6818 /* navbar_background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD631C9998FC00BB6818 /* navbar_background_image.png */; };
 		7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */; };
 		7046AD711C9A426100BB6818 /* login_confirm_login_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD6B1C9A426100BB6818 /* login_confirm_login_normal.png */; };
@@ -95,7 +94,8 @@
 		7046AD781C9A481C00BB6818 /* login_confirm_login_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD771C9A481C00BB6818 /* login_confirm_login_selected.png */; };
 		7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD7A1C9A5CAE00BB6818 /* AgreementViewController.m */; };
 		7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD7E1C9BD29200BB6818 /* LoginModel.m */; };
-		7046AD851C9BD41F00BB6818 /* LoginStatusDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD841C9BD41F00BB6818 /* LoginStatusDelegate.m */; };
+		7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD871C9F1D2900BB6818 /* LoginRequestDelegate.m */; };
+		7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD891C9F1FAC00BB6818 /* LoginViewController.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -248,7 +248,6 @@
 		7046AD5D1C99902500BB6818 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7046AD5E1C99902500BB6818 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7046AD601C99956400BB6818 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7046AD611C99956400BB6818 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7046AD631C9998FC00BB6818 /* navbar_background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_background_image.png; sourceTree = "<group>"; };
 		7046AD681C99C42E00BB6818 /* YJSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSegmentedControl.h; sourceTree = "<group>"; };
 		7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSegmentedControl.m; sourceTree = "<group>"; };
@@ -263,8 +262,9 @@
 		7046AD7C1C9BB4C200BB6818 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 		7046AD7D1C9BD29200BB6818 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
 		7046AD7E1C9BD29200BB6818 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
-		7046AD831C9BD41F00BB6818 /* LoginStatusDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginStatusDelegate.h; sourceTree = "<group>"; };
-		7046AD841C9BD41F00BB6818 /* LoginStatusDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginStatusDelegate.m; sourceTree = "<group>"; };
+		7046AD861C9F1D2900BB6818 /* LoginRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequestDelegate.h; sourceTree = "<group>"; };
+		7046AD871C9F1D2900BB6818 /* LoginRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequestDelegate.m; sourceTree = "<group>"; };
+		7046AD891C9F1FAC00BB6818 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -628,13 +628,13 @@
 				7046AD681C99C42E00BB6818 /* YJSegmentedControl.h */,
 				7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */,
 				7046AD601C99956400BB6818 /* LoginViewController.h */,
-				7046AD611C99956400BB6818 /* LoginViewController.m */,
+				7046AD891C9F1FAC00BB6818 /* LoginViewController.m */,
 				7046AD791C9A5CAE00BB6818 /* AgreementViewController.h */,
 				7046AD7A1C9A5CAE00BB6818 /* AgreementViewController.m */,
 				7046AD7D1C9BD29200BB6818 /* LoginModel.h */,
 				7046AD7E1C9BD29200BB6818 /* LoginModel.m */,
-				7046AD831C9BD41F00BB6818 /* LoginStatusDelegate.h */,
-				7046AD841C9BD41F00BB6818 /* LoginStatusDelegate.m */,
+				7046AD861C9F1D2900BB6818 /* LoginRequestDelegate.h */,
+				7046AD871C9F1D2900BB6818 /* LoginRequestDelegate.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -975,12 +975,14 @@
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
+				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
+				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
@@ -996,7 +998,6 @@
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
-				7046AD621C99956400BB6818 /* LoginViewController.m in Sources */,
 				7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
@@ -1011,7 +1012,6 @@
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
-				7046AD851C9BD41F00BB6818 /* LoginStatusDelegate.m in Sources */,
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,

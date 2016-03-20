@@ -10,10 +10,12 @@
 #import "AdaptionUtil.h"
 #import "AgreementViewController.h"
 #import "NetworkUtil.h"
-#import "LoginStatusDelegate.h"
+#import "LoginRequestDelegate.h"
 #import "EncyptionUtil.h"
 
-@interface LoginViewController ()<YJSegmentedControlDelegate,LoginDelegate>{
+@interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,LoginDelegate>{
+    UIScrollView *scrollView;
+    
     UIView *whiteBackView;
     UIView *segmentBottomLineView;
     //快速登录
@@ -45,9 +47,9 @@
     
     int timeCount;
     NSThread *thread;
+    
+//    LoginRequestDelegate *loginRequest;
 }
-
-//@property (strong,nonatomic)LoginStatusDelegate *loginStatus;
 
 @end
 
@@ -104,6 +106,11 @@
 -(void)initView{
     self.view.backgroundColor = kBACKGROUND_COLOR;
     
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    scrollView.delegate = self;
+    scrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT);
+    [self.view addSubview:scrollView];
+    
     whiteBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, 156)];
     whiteBackView.backgroundColor = kWHITE_COLOR;
     NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:@"手机快速登录", @"已有帐号登录", @"第三方登录",nil];
@@ -115,11 +122,11 @@
     [whiteBackView addSubview:segmentBottomLineView];
     [self initQuickLoginView];
     
-    [self.view addSubview:whiteBackView];
+    [scrollView addSubview:whiteBackView];
     
     grayBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 160, SCREEN_WIDTH, SCREEN_HEIGHT-156)];
     grayBackView.backgroundColor = kBACKGROUND_COLOR;
-    [self.view addSubview:grayBackView];
+    [scrollView addSubview:grayBackView];
     
     agreementLabel = [[UILabel alloc]init];
     agreementLabel.text = @"点击确定即同意";
@@ -388,7 +395,11 @@
 }
 
 -(void)initRecognizer{
+    kAddNotification(@selector(keyboardWillShow), UIKeyboardWillChangeFrameNotification);
+    kAddNotification(@selector(keyboardWillHide), UIKeyboardWillHideNotification);
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewClicked:)];
+    [scrollView addGestureRecognizer:tap];
 }
 
 #pragma mark Target Action
@@ -438,28 +449,49 @@
     [self sendLoginRequest];
 }
 
+- (void)keyboardWillShow{
+    if ([AdaptionUtil isIphoneFour]) {
+        scrollView.contentOffset = CGPointMake(0, 50);
+    }
+}
+
+- (void)keyboardWillHide{
+    scrollView.contentOffset = CGPointMake(0, 0);
+}
+
+- (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [firstTextField1 resignFirstResponder];
+    [secondTextField1 resignFirstResponder];
+    [firstTextField2 resignFirstResponder];
+    [secondTextField2 resignFirstResponder];
+}
+
 #pragma mark Network Request
 -(void)getCaptchaRequest{
-    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:firstTextField1.text forKey:@"phone"];
-    
-    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:kJZK_LOGIN_GET_CATPCHA successBlock:^(NSURLSessionDataTask *task,id responseObject){
-        DLog(@"responseObject-->%@",responseObject);
-        DLog(@"getCaptchaRequest成功");
-    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-        DLog(@"errorStr-->%@",errorStr);
-    }];
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:firstTextField1.text forKey:@"phone"];
+//    
+//    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+//        DLog(@"responseObject-->%@",responseObject);
+//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+//        DLog(@"errorStr-->%@",errorStr);
+//    }];
+    LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
+    loginRequest.loginDelegate = self;
+    [loginRequest getCaptcha:firstTextField1.text];
 }
 
 -(void)sendLoginRequest{
-    LoginStatusDelegate *loginStatus = [[LoginStatusDelegate alloc] init];
+    LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
+    loginRequest.loginDelegate =self;
+    
     if (self.loginType == quickLogin) {
         DLog(@"quickLogin");
-        [loginStatus quickLogin:firstTextField1.text pwd:secondTextField1.text];
+        [loginRequest quickLogin:firstTextField1.text pwd:secondTextField1.text];
     }else if (self.loginType == normalLogin){
         DLog(@"normalLogin");
-        [loginStatus normalLogin:firstTextField2.text pwd:[EncyptionUtil encrypt_md5:secondTextField2.text]];
+        [loginRequest normalLogin:firstTextField2.text pwd:[EncyptionUtil encrypt_md5:secondTextField2.text]];
     }else if (self.loginType == thirdLogin){
         DLog(@"thirdLogin");
     }
@@ -483,15 +515,15 @@
 
 #pragma mark LoginDelegate
 -(void)loginSuccess:(LoginModel *)loginModel{
-    DLog(@"登录回调！");
+    DLog(@"登录成功回调！");
 }
 
 -(void)loginError:(NSInteger)code errMsg:(NSString *)message{
-    DLog(@"登录错误");
+    DLog(@"登录错误回调");
 }
 
 -(void)loginFailure:(NSError *)error{
-    DLog(@"登录失败");
+    DLog(@"登录失败回调");
 }
 
 /*
