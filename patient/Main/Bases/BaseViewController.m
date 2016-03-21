@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "HudUtil.h"
+#import "AlertUtil.h"
 
 @interface BaseViewController ()
 
@@ -49,6 +50,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:kNotificationChangeNetworkStatusReachableViaWiFi];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [self setHidesBottomBarWhenPushed:NO];
+}
+
+#pragma mark Init Section
 -(void)initNavBar{
 //    self.navigationController.navigationBar.tintColor = kWHITE_COLOR;
 //    

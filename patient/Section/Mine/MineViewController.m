@@ -15,20 +15,16 @@
 #pragma mark Life Circle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    
-//    if ([CommonUtil judgeIsLoginSuccess] == NO) {
-//        //跳转到登录页面
-//        BOOL isLoginSuccess;
-//        LoginViewController *loginVC = [[LoginViewController alloc] init];
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//        [self presentViewController:navController animated:YES completion:nil];
-//        //登录成功之后变更登录状态
-//        [CommonUtil changeIsLoginOnce:isLoginSuccess];
-//    }
 }
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
     
     [self initNavBar];
     [self initTabBar];

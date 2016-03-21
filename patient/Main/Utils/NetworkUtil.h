@@ -25,8 +25,6 @@ typedef void(^FailureBlock)(NSURLSessionDataTask *task,NSError *error);
 #pragma mark - POST
 -(void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
-//-(void)postResultWithParameter:(NSString *)jsonString url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
-
 #pragma mark - AFN上传照片
 -(void)upImageWithParameter:(NSDictionary *)parameter imageArray:(NSArray *)images url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 

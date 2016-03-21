@@ -36,10 +36,9 @@
 }
 
 +(void)changeIsLoginOnce:(BOOL)isLoginOnce{
-    if (!isLoginOnce || isLoginOnce == NO) {
-        [[NSUserDefaults standardUserDefaults] setBool:isLoginOnce forKey:kJZK_isLoginOnce];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+    isLoginOnce = !isLoginOnce;
+    [[NSUserDefaults standardUserDefaults] setBool:isLoginOnce forKey:kJZK_isLoginOnce];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)changeIsLoginSuccess:(BOOL)isLoginSuccess{

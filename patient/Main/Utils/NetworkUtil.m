@@ -65,19 +65,6 @@
     }];
 }
 
-//-(void)postResultWithParameter:(NSString *)jsonString url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
-//    [[NetworkMonitorUtil sharedInstance] startNetWorkMonitor];
-//    AFHTTPSessionManager *manager = [self baseHtppRequest];
-//    NSString *urlStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    [manager POST:urlStr parameters:jsonString success:^(NSURLSessionDataTask *task,id responseObject){
-//        successBlock(task,responseObject);
-//    }failure:^(NSURLSessionDataTask *task,NSError *error){
-//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-//        failureBlock(task,error);
-//    }];
-//}
-
 -(void)upImageWithParameter:(NSDictionary *)parameter imageArray:(NSArray *)images url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     [[NetworkMonitorUtil sharedInstance] startNetWorkMonitor];
     AFHTTPSessionManager *manager = [self baseHtppRequest];

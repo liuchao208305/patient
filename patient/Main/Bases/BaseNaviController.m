@@ -17,8 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationBar.translucent= NO;
-//    self.navigationBar.barTintColor= ColorWithHexRGB(0x2bd996);
     self.navigationBar.tintColor= kWHITE_COLOR;
 }
 

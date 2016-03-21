@@ -523,7 +523,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     if (![CommonUtil judgeIsLoginOnce]) {
-        [CommonUtil changeIsLoginOnce:YES];
+        BOOL isLoginOnce = NO;
+        [CommonUtil changeIsLoginOnce:isLoginOnce];
         //如果是第一次登录将跳转到相应页面进行资料完善
     }
     
