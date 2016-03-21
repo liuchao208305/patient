@@ -50,33 +50,33 @@
 //    }];
 //}
 
--(void)getCaptcha:(NSString *)phone{
-        NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-        [parameter setValue:phone forKey:@"phone"];
-    
-        [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
-            DLog(@"responseObject-->%@",responseObject);
-            self.result = (NSMutableDictionary *)responseObject;
-            
-            self.code = [[self.result objectForKey:@"code"] integerValue];
-            self.message = [self.result objectForKey:@"message"];
-            self.data = [self.result objectForKey:@"data"];
-            
-            if (self.code == kSUCCESS) {
-                [self successCallBack];
-            }else{
-                [self errorCallBack];
-            }
-
-        }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-            NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-            DLog(@"errorStr-->%@",errorStr);
-            
-            if (self.loginDelegate && [self.loginDelegate respondsToSelector:@selector(loginFailure:)]) {
-                [self.loginDelegate loginFailure:error];
-            }
-        }];
-}
+//-(void)getCaptcha:(NSString *)phone{
+//        NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//        [parameter setValue:phone forKey:@"phone"];
+//    
+//        [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+//            DLog(@"responseObject-->%@",responseObject);
+//            self.result = (NSMutableDictionary *)responseObject;
+//            
+//            self.code = [[self.result objectForKey:@"code"] integerValue];
+//            self.message = [self.result objectForKey:@"message"];
+//            self.data = [self.result objectForKey:@"data"];
+//            
+//            if (self.code == kSUCCESS) {
+//                [self successCallBack];
+//            }else{
+//                [self errorCallBack];
+//            }
+//
+//        }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+//            NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+//            DLog(@"errorStr-->%@",errorStr);
+//            
+//            if (self.loginDelegate && [self.loginDelegate respondsToSelector:@selector(loginFailure:)]) {
+//                [self.loginDelegate loginFailure:error];
+//            }
+//        }];
+//}
 
 -(void)quickLogin:(NSString *)phone pwd:(NSString *)code{
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];

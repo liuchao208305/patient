@@ -23,7 +23,7 @@
 
 //-(void)checkLoginStatus:(NSString *)account pwd:(NSString *)password;
 
--(void)getCaptcha:(NSString *)phone;
+//-(void)getCaptcha:(NSString *)phone;
 -(void)quickLogin:(NSString *)phone pwd:(NSString *)code;
 -(void)normalLogin:(NSString *)user pwd:(NSString *)password;
 

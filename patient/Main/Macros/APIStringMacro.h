@@ -13,7 +13,7 @@
 #ifdef DEBUG
 //Debug状态下的测试API
 #define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 内网
-#define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/user/getCode?"// 外网
+#define kServerAddressOut     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 外网
 #else
 //Release状态下的线上API
 #define kServerUrl     @"http://www.companydomain.com/api/"
@@ -40,5 +40,6 @@ typedef enum {
 #define kJZK_LOGIN_GET_CATPCHA @"user/getCode?" //获取验证码
 #define kJZK_QUICK_LOGIN @"user/fastLogin?"//快速登录
 #define kJZK_NORMAL_LOGIN @"user/login?"//常规登录
+#define kJZK_INFO_INFORMATION @"user/index?"//首页信息
 
 #endif /* APIStringMacro_h */

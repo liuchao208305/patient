@@ -11,16 +11,27 @@
 #import "HealthTableCell.h"
 #import "StudioTableCell.h"
 #import "PersonTableCell.h"
-
+#import "NetworkUtil.h"
 #import "ScanViewController.h"
-
 #import <SDCycleScrollView.h>
+
+@interface InfoViewController ()
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
+
+@end
 
 @implementation InfoViewController
 
 #pragma mark Life Circle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+    [self sendInfoRequest];
 }
 
 -(void)viewDidLoad{
@@ -251,5 +262,34 @@
     self.hidesBottomBarWhenPushed = NO;
 }
 
+#pragma mark Network Request
+-(void)sendInfoRequest{
+    DLog(@"sendInfoRequest");
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:nil url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_INFO_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [self dataParse];
+        }else{
+            
+        }
+            
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+    }];
+}
+
+#pragma mark Data Parse
+-(void)dataParse{
+    
+}
 
 @end

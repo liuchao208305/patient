@@ -12,6 +12,7 @@
 #import "NetworkUtil.h"
 #import "LoginRequestDelegate.h"
 #import "EncyptionUtil.h"
+#import "CommonUtil.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -468,18 +469,19 @@
 
 #pragma mark Network Request
 -(void)getCaptchaRequest{
-//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-//    [parameter setValue:firstTextField1.text forKey:@"phone"];
-//    
-//    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
-//        DLog(@"responseObject-->%@",responseObject);
-//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-//        DLog(@"errorStr-->%@",errorStr);
-//    }];
-    LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
-    loginRequest.loginDelegate = self;
-    [loginRequest getCaptcha:firstTextField1.text];
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:firstTextField1.text forKey:@"phone"];
+    
+    [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+    }];
+    
+//    LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
+//    loginRequest.loginDelegate = self;
+//    [loginRequest getCaptcha:firstTextField1.text];
 }
 
 -(void)sendLoginRequest{
@@ -516,6 +518,16 @@
 #pragma mark LoginDelegate
 -(void)loginSuccess:(LoginModel *)loginModel{
     DLog(@"登录成功回调！");
+    //保存登录状态和相关信息
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kJZK_isLoginSuccess];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if (![CommonUtil judgeIsLoginOnce]) {
+        [CommonUtil changeIsLoginOnce:YES];
+        //如果是第一次登录将跳转到相应页面进行资料完善
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)loginError:(NSInteger)code errMsg:(NSString *)message{

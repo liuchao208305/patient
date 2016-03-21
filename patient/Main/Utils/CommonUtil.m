@@ -36,8 +36,7 @@
 }
 
 +(void)changeIsLoginOnce:(BOOL)isLoginOnce{
-    if (isLoginOnce == NO) {
-        isLoginOnce = YES;
+    if (!isLoginOnce || isLoginOnce == NO) {
         [[NSUserDefaults standardUserDefaults] setBool:isLoginOnce forKey:kJZK_isLoginOnce];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }

@@ -21,4 +21,6 @@ typedef NS_ENUM(NSInteger, loginType)
 
 @property (assign,nonatomic)NSInteger loginType;
 
+@property (assign,nonatomic)BOOL isLoginSuccess;
+@property (assign,nonatomic)BOOL isLoginOnce;
 @end

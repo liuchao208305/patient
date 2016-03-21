@@ -9,8 +9,6 @@
 #ifndef UtilsMacro_h
 #define UtilsMacro_h
 
-@class BResponse;
-
 //----------------------日志类---------------------------
 //DEBUG  模式下打印日志,当前行
 #ifdef DEBUG
@@ -91,9 +89,9 @@
 
 //----------------------时间类---------------------------
 //获取系统时间戳
-#define Current_Time [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
+#define kCurrent_Time [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
 // Hud停留时间
-#define Hud_DelayTime 2.0
+#define kHud_DelayTime 2.0
 
 //----------------------时间类---------------------------
 
