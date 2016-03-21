@@ -179,9 +179,25 @@
         static NSString *cellName = @"DiseaseTableCell";
         DiseaseTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"DiseaseTableCell" owner:nil options:nil] firstObject];
+            cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        [cell.guominImageView setImage:[UIImage imageNamed:@"cell_disease_guomin_button"]];
+        cell.guominLabel1.text = @"过敏";
+        cell.guominLabel2.text = @"专题";
+        cell.guominLabel3.text = @"特约专家 为您解忧";
+        cell.laotouLabel1.text = @"看名老中医";
+        cell.laotouLabel2.text = @"咨询指定医生";
+        [cell.laotouImageView setImage:[UIImage imageNamed:@"cell_disease_laotou_button"]];
+        cell.keshiLabel1.text = @"皮肤科";
+        [cell.keshiImageView1 setImage:[UIImage imageNamed:@"cell_disease_pifuke_button"]];
+        cell.keshiLabel2.text = @"妇科";
+        [cell.keshiImageView2 setImage:[UIImage imageNamed:@"cell_disease_fuke_button"]];
+        cell.keshiLabel3.text = @"男科";
+        [cell.keshiImageView3 setImage:[UIImage imageNamed:@"cell_disease_nanke_button"]];
+        cell.keshiLabel4.text = @"疑难杂症";
+        [cell.keshiImageView4 setImage:[UIImage imageNamed:@"cell_disease_yinanzazheng_button"]];
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *cellName = @"HealthTableCell";
@@ -203,9 +219,22 @@
         static NSString *cellName = @"PersonTableCell";
         PersonTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonTableCell" owner:nil options:nil] firstObject];
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonTableCell" owner:nil options:nil] firstObject];
+            cell = [[PersonTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        [cell.imageView1 setImage:[UIImage imageNamed:@"cell_person_hejiazhen_button"]];
+        cell.label1_1.text = @"何嘉珍";
+        cell.label1_2.text = @"习惯性流产";
+        
+        [cell.imageView2 setImage:[UIImage imageNamed:@"cell_person_youweiping_button"]];
+        cell.label2_1.text = @"尤卫平";
+        cell.label2_2.text = @"前列腺疾病";
+        
+        [cell.imageView3 setImage:[UIImage imageNamed:@"cell_person_songshihua_button"]];
+        cell.label3_1.text = @"宋世华";
+        cell.label3_2.text = @"子宫肌瘤，不孕症";
+        
         return cell;
     }
 

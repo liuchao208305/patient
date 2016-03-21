@@ -96,6 +96,7 @@
 		7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD7E1C9BD29200BB6818 /* LoginModel.m */; };
 		7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD871C9F1D2900BB6818 /* LoginRequestDelegate.m */; };
 		7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD891C9F1FAC00BB6818 /* LoginViewController.m */; };
+		7046ADA21CA0168500BB6818 /* cell_person_title_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046ADA11CA0168500BB6818 /* cell_person_title_button.png */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -265,6 +266,7 @@
 		7046AD861C9F1D2900BB6818 /* LoginRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequestDelegate.h; sourceTree = "<group>"; };
 		7046AD871C9F1D2900BB6818 /* LoginRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequestDelegate.m; sourceTree = "<group>"; };
 		7046AD891C9F1FAC00BB6818 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7046ADA11CA0168500BB6818 /* cell_person_title_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_person_title_button.png; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				7046ACFC1C97E5D700BB6818 /* cell_health_title_button.png */,
 				7046ACFD1C97E5D700BB6818 /* cell_person_hejiazhen_button.png */,
 				7046ACFE1C97E5D700BB6818 /* cell_person_more_button.png */,
+				7046ADA11CA0168500BB6818 /* cell_person_title_button.png */,
 				7046ACFF1C97E5D700BB6818 /* cell_person_songshihua_button.png */,
 				7046AD001C97E5D700BB6818 /* cell_person_youweiping_button.png */,
 				7046AD011C97E5D700BB6818 /* cell_studio_main_button.png */,
@@ -1027,6 +1030,7 @@
 				7046AD2F1C97E5D700BB6818 /* tabbar_mine_selected.png in Resources */,
 				7046AD201C97E5D700BB6818 /* cell_person_youweiping_button.png in Resources */,
 				7046AD291C97E5D700BB6818 /* info_scrollview3.jpg in Resources */,
+				7046ADA21CA0168500BB6818 /* cell_person_title_button.png in Resources */,
 				7046AD241C97E5D700BB6818 /* guideview1.jpg in Resources */,
 				70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */,
 				7046AD741C9A426100BB6818 /* login_third_login_qq.png in Resources */,
