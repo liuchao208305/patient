@@ -19,6 +19,7 @@
 #import "StudioData.h"
 #import "PersonData.h"
 #import "BannerData.h"
+#import "ExpertInfoViewController.h"
 
 @interface InfoViewController (){
     SDCycleScrollView *scrollView;
@@ -285,7 +286,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     self.infoHeadView = [[InfoHeaderView alloc] init];
     self.infoHeadView.tag = section;
-    if (section ==0) {
+    if (section == 0) {
         self.infoHeadView.titleImage.hidden = YES;
         self.infoHeadView.titleLabel.hidden = YES;
         self.infoHeadView.moreLabel.hidden = YES;
@@ -307,6 +308,22 @@
         self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_person_more_button"];
     }
     return self.infoHeadView;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    DLog(@"%ld",indexPath.section);
+    if (indexPath.section == 0) {
+        
+    }else if (indexPath.section == 1){
+        
+    }else if (indexPath.section == 2){
+        
+    }else if (indexPath.section == 3){
+        self.hidesBottomBarWhenPushed = YES;
+        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+        [self.navigationController pushViewController:expertVC animated:YES];
+    }
 }
 
 #pragma mark Target Action
