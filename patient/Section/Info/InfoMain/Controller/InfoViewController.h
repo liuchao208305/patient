@@ -21,8 +21,11 @@
 @property (strong,nonatomic)UIImageView *timeImage;
 @property (strong,nonatomic)UILabel *timeLabel;
 
+@property (strong,nonatomic)NSMutableArray *localImageArray;
+@property (strong,nonatomic)NSMutableArray *adArray;
 @property (strong,nonatomic)NSMutableArray *adImageArray;
 
+@property (strong,nonatomic)NSMutableArray *diseaseArray;
 @property (strong,nonatomic)NSMutableArray *diseaseImageArray;
 @property (strong,nonatomic)NSMutableArray *diseaseLabelArray;
 

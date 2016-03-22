@@ -10,7 +10,8 @@
 
 @interface DiseaseData : NSObject
 
-@property (strong,nonatomic)UIImageView *image;
-@property (strong,nonatomic)UILabel *label;
+@property(strong,nonatomic)NSString *depart_id;
+@property(strong,nonatomic)NSString *depart_url;
+@property(strong,nonatomic)NSString *depart_name;
 
 @end

@@ -14,9 +14,15 @@
 #import "NetworkUtil.h"
 #import "ScanViewController.h"
 #import <SDCycleScrollView.h>
+#import "DiseaseData.h"
+#import "HealthData.h"
+#import "StudioData.h"
+#import "PersonData.h"
+#import "BannerData.h"
 
-@interface InfoViewController ()
-
+@interface InfoViewController (){
+    SDCycleScrollView *scrollView;
+}
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
 @property (strong,nonatomic)NSString *message;
@@ -31,7 +37,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    [self sendInfoRequest];
+//    [self lazyLoading];
+//    [self sendInfoRequest];
 }
 
 -(void)viewDidLoad{
@@ -41,6 +48,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
+    [self sendInfoRequest];
     [self loadData];
     
     [self initNavBar];
@@ -59,7 +67,9 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+    self.adArray = [NSMutableArray array];
     self.adImageArray = [NSMutableArray array];
+    self.diseaseArray = [NSMutableArray array];
     self.diseaseImageArray = [NSMutableArray array];
     self.diseaseLabelArray = [NSMutableArray array];
     self.healthImageArray = [NSMutableArray array];
@@ -120,13 +130,13 @@
 
 -(void)initHeadView{
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, SCREEN_HEIGHT*0.3)];
-    NSMutableArray *imageArray = [NSMutableArray array];
+    self.localImageArray = [NSMutableArray array];
     for (int i = 1; i<4; i++) {
-        NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.jpg",i];
+        NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.png",i];
         UIImage *image = [UIImage imageNamed:imageName];
-        [imageArray addObject:image];
+        [self.localImageArray addObject:image];
     }
-    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:imageArray];
+    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:self.localImageArray];
     scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     scrollView.autoScrollTimeInterval = 5;
     [self.headView addSubview:scrollView];
@@ -181,22 +191,42 @@
         if (!cell) {
             cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
-        //填充数据
-        [cell.guominImageView setImage:[UIImage imageNamed:@"cell_disease_guomin_button"]];
-        cell.guominLabel1.text = @"过敏";
-        cell.guominLabel2.text = @"专题";
+        
+        /*
+         //填充假数据
+         [cell.guominImageView setImage:[UIImage imageNamed:@"cell_disease_guomin_button"]];
+         cell.guominLabel1.text = @"过敏";
+         cell.guominLabel2.text = @"专题";
+         cell.guominLabel3.text = @"特约专家 为您解忧";
+         cell.laotouLabel1.text = @"看名老中医";
+         cell.laotouLabel2.text = @"咨询指定医生";
+         [cell.laotouImageView setImage:[UIImage imageNamed:@"cell_disease_laotou_button"]];
+         cell.keshiLabel1.text = @"皮肤科";
+         [cell.keshiImageView1 setImage:[UIImage imageNamed:@"cell_disease_pifuke_button"]];
+         cell.keshiLabel2.text = @"妇科";
+         [cell.keshiImageView2 setImage:[UIImage imageNamed:@"cell_disease_fuke_button"]];
+         cell.keshiLabel3.text = @"男科";
+         [cell.keshiImageView3 setImage:[UIImage imageNamed:@"cell_disease_nanke_button"]];
+         cell.keshiLabel4.text = @"疑难杂症";
+         [cell.keshiImageView4 setImage:[UIImage imageNamed:@"cell_disease_yinanzazheng_button"]];
+         */
+        [cell.guominImageView sd_setImageWithURL:[[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"]];
+        cell.guominLabel1.text = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
+//        cell.guominLabel2.text = @"专题";
         cell.guominLabel3.text = @"特约专家 为您解忧";
-        cell.laotouLabel1.text = @"看名老中医";
+        cell.laotouLabel1.text = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
         cell.laotouLabel2.text = @"咨询指定医生";
-        [cell.laotouImageView setImage:[UIImage imageNamed:@"cell_disease_laotou_button"]];
-        cell.keshiLabel1.text = @"皮肤科";
-        [cell.keshiImageView1 setImage:[UIImage imageNamed:@"cell_disease_pifuke_button"]];
-        cell.keshiLabel2.text = @"妇科";
-        [cell.keshiImageView2 setImage:[UIImage imageNamed:@"cell_disease_fuke_button"]];
-        cell.keshiLabel3.text = @"男科";
-        [cell.keshiImageView3 setImage:[UIImage imageNamed:@"cell_disease_nanke_button"]];
-        cell.keshiLabel4.text = @"疑难杂症";
-        [cell.keshiImageView4 setImage:[UIImage imageNamed:@"cell_disease_yinanzazheng_button"]];
+        [cell.laotouImageView sd_setImageWithURL:[[self.data objectForKey:@"templates"] objectForKey:@"cover_url"]];
+        if (!self.diseaseArray) {
+            cell.keshiLabel1.text = [self.diseaseLabelArray objectAtIndex:0];
+            [cell.keshiImageView1 sd_setImageWithURL:[self.diseaseImageArray objectAtIndex:0]];
+            cell.keshiLabel2.text = [self.diseaseLabelArray objectAtIndex:1];
+            [cell.keshiImageView2 sd_setImageWithURL:[self.diseaseImageArray objectAtIndex:1]];
+            cell.keshiLabel3.text = [self.diseaseLabelArray objectAtIndex:2];
+            [cell.keshiImageView3 sd_setImageWithURL:[self.diseaseImageArray objectAtIndex:2]];
+            cell.keshiLabel4.text = [self.diseaseLabelArray objectAtIndex:3];
+            [cell.keshiImageView4 sd_setImageWithURL:[self.diseaseImageArray objectAtIndex:3]];
+        }
         
         return cell;
     }else if (indexPath.section == 1){
@@ -318,7 +348,18 @@
 
 #pragma mark Data Parse
 -(void)dataParse{
+    self.adArray = [BannerData objectArrayWithKeyValuesArray:[self.data objectForKey:@"banner"]];
+    for (BannerData *bannerData in self.adArray) {
+        [self.adImageArray addObject:bannerData.banner_url];
+    }
+    scrollView.imageURLStringsGroup = self.adImageArray;
     
+    self.diseaseArray = [DiseaseData objectArrayWithKeyValuesArray:[self.data objectForKey:@"departs"]];
+    for (DiseaseData *diseaseData in self.diseaseArray) {
+        [self.diseaseImageArray addObject:diseaseData.depart_url];
+        [self.diseaseLabelArray addObject:diseaseData.depart_name];
+    }
+    [self.tableView reloadData];
 }
 
 @end
