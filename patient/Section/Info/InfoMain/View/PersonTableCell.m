@@ -63,14 +63,14 @@
     }];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.imageView1).offset(25);
+        make.centerX.equalTo(self.imageView1).offset(30);
         make.top.equalTo(self.imageView1).offset(80);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView1).offset(10);
+        make.centerX.equalTo(self.backView1).offset(20);
         make.top.equalTo(self.label1_1).offset(20);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
@@ -96,14 +96,14 @@
     }];
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView2).offset(25);
+        make.centerX.equalTo(self.backView2).offset(30);
         make.top.equalTo(self.imageView2).offset(80);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView2).offset(10);
+        make.centerX.equalTo(self.backView2).offset(20);
         make.top.equalTo(self.label2_1).offset(20);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
@@ -128,14 +128,14 @@
     }];
     
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.imageView3).offset(25);
+        make.centerX.equalTo(self.backView3).offset(30);
         make.top.equalTo(self.imageView3).offset(80);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView3).offset(0);
+        make.centerX.equalTo(self.backView3).offset(20);
         make.top.equalTo(self.label3_1).offset(20);
         make.width.mas_equalTo(150);
         make.height.mas_equalTo(12);

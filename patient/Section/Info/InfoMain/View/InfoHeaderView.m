@@ -34,27 +34,27 @@
     [self addSubview:self.moreImage];
     
     [self.titleImage mas_updateConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self).offset(12);
+        make.leading.equalTo(self).offset(12);
         make.centerY.equalTo(self).offset(0);
         make.width.mas_equalTo(16);
         make.height.mas_equalTo(16);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self.titleImage).offset(20);
+        make.leading.equalTo(self.titleImage).offset(16+10);
         make.centerY.equalTo(self.titleImage).offset(0);
         make.height.mas_equalTo(13);
     }];
     
     [self.moreImage mas_makeConstraints:^(MASConstraintMaker *make){
-        make.right.equalTo(self).offset(-6);
+        make.trailing.equalTo(self).offset(-6);
         make.centerY.equalTo(self).offset(0);
         make.width.mas_equalTo(3);
         make.height.mas_equalTo(9);
     }];
     
     [self.moreLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.right.equalTo(self.moreImage).offset(-8);
+        make.trailing.equalTo(self.moreImage).offset(-3-8);
         make.centerY.equalTo(self.moreImage).offset(0);
         make.height.mas_equalTo(12);
     }];

@@ -130,7 +130,8 @@
 }
 
 -(void)initHeadView{
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, SCREEN_HEIGHT*0.3)];
+//    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, SCREEN_HEIGHT*0.3)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     self.localImageArray = [NSMutableArray array];
     for (int i = 1; i<4; i++) {
         NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.png",i];
@@ -194,7 +195,6 @@
         }
         
         /*
-         //填充假数据
          [cell.guominImageView setImage:[UIImage imageNamed:@"cell_disease_guomin_button"]];
          cell.guominLabel1.text = @"过敏";
          cell.guominLabel2.text = @"专题";
@@ -211,9 +211,15 @@
          cell.keshiLabel4.text = @"疑难杂症";
          [cell.keshiImageView4 setImage:[UIImage imageNamed:@"cell_disease_yinanzazheng_button"]];
          */
+        
+        
+        /*
+         
+         */
+        
         [cell.guominImageView sd_setImageWithURL:[[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"]];
         cell.guominLabel1.text = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
-//        cell.guominLabel2.text = @"专题";
+        //        cell.guominLabel2.text = @"专题";
         cell.guominLabel3.text = @"特约专家 为您解忧";
         cell.laotouLabel1.text = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
         cell.laotouLabel2.text = @"咨询指定医生";

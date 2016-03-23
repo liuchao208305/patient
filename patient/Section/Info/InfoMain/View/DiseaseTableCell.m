@@ -173,7 +173,7 @@
         [self.backView2 addSubview:self.laotouImageView];
         
         [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.backView2).offset(25);
+            make.leading.equalTo(self.backView2).offset(25);
             make.top.equalTo(self.backView2).offset(15);
             make.width.mas_equalTo(75);
             make.height.mas_equalTo(15);
@@ -188,7 +188,7 @@
         
         [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.backView2).offset(0);
-            make.right.equalTo(self.backView2).offset(-39);
+            make.trailing.equalTo(self.backView2).offset(-39);
             make.width.mas_equalTo(39);
             make.height.mas_equalTo(50);
         }];
@@ -205,7 +205,7 @@
         [self.backView2 addSubview:self.laotouImageView];
         
         [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.backView2).offset(25);
+            make.leading.equalTo(self.backView2).offset(25);
             make.top.equalTo(self.backView2).offset(15);
             make.width.mas_equalTo(75);
             make.height.mas_equalTo(15);
@@ -220,7 +220,7 @@
         
         [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.backView2).offset(0);
-            make.right.equalTo(self.backView2).offset(-39);
+            make.trailing.equalTo(self.backView2).offset(-39);
             make.width.mas_equalTo(39);
             make.height.mas_equalTo(50);
         }];
@@ -237,7 +237,7 @@
         [self.backView2 addSubview:self.laotouImageView];
         
         [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.backView2).offset(40);
+            make.leading.equalTo(self.backView2).offset(40);
             make.top.equalTo(self.backView2).offset(15);
             make.width.mas_equalTo(75);
             make.height.mas_equalTo(15);
@@ -252,7 +252,7 @@
         
         [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.backView2).offset(0);
-            make.right.equalTo(self.backView2).offset(-50);
+            make.trailing.equalTo(self.backView2).offset(-50);
             make.width.mas_equalTo(39);
             make.height.mas_equalTo(50);
         }];
@@ -269,7 +269,7 @@
         [self.backView2 addSubview:self.laotouImageView];
         
         [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.backView2).offset(45);
+            make.leading.equalTo(self.backView2).offset(45);
             make.top.equalTo(self.backView2).offset(15);
             make.width.mas_equalTo(75);
             make.height.mas_equalTo(15);
@@ -284,7 +284,7 @@
         
         [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.backView2).offset(0);
-            make.right.equalTo(self.backView2).offset(-50);
+            make.trailing.equalTo(self.backView2).offset(-50);
             make.width.mas_equalTo(39);
             make.height.mas_equalTo(50);
         }];
@@ -309,7 +309,7 @@
     [self.backView3 addSubview:self.keshiView4];
     
     [self.keshiView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backView3).offset(0);
+        make.leading.equalTo(self.backView3).offset(0);
         make.top.equalTo(self.backView3).offset(0);
         make.width.mas_equalTo((SCREEN_WIDTH-111)/2);
         make.height.mas_equalTo((154-68)/2);
@@ -323,7 +323,7 @@
     }];
     
     [self.keshiView3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backView3).offset(0);
+        make.leading.equalTo(self.backView3).offset(0);
         make.bottom.equalTo(self.backView3).offset(0);
         make.width.equalTo(self.keshiView1);
         make.height.equalTo(self.keshiView1);
@@ -347,14 +347,14 @@
         [self.keshiView1 addSubview:self.keshiLabel1];
         
         [self.keshiImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView1).offset(18);
+            make.leading.equalTo(self.keshiView1).offset(10);
             make.centerY.equalTo(self.keshiView1).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView1).offset(30);
+            make.leading.equalTo(self.keshiImageView1).offset(23+10);
             make.centerY.equalTo(self.keshiImageView1).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -368,14 +368,14 @@
         [self.keshiView1 addSubview:self.keshiLabel1];
         
         [self.keshiImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView1).offset(10);
+            make.leading.equalTo(self.keshiView1).offset(10);
             make.centerY.equalTo(self.keshiView1).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView1).offset(30);
+            make.leading.equalTo(self.keshiImageView1).offset(23+10);
             make.centerY.equalTo(self.keshiImageView1).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -389,14 +389,14 @@
         [self.keshiView1 addSubview:self.keshiLabel1];
         
         [self.keshiImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView1).offset(20);
+            make.leading.equalTo(self.keshiView1).offset(20);
             make.centerY.equalTo(self.keshiView1).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView1).offset(40);
+            make.leading.equalTo(self.keshiImageView1).offset(23+20);
             make.centerY.equalTo(self.keshiImageView1).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -410,14 +410,14 @@
         [self.keshiView1 addSubview:self.keshiLabel1];
         
         [self.keshiImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView1).offset(20);
+            make.leading.equalTo(self.keshiView1).offset(20);
             make.centerY.equalTo(self.keshiView1).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView1).offset(40);
+            make.leading.equalTo(self.keshiImageView1).offset(23+20);
             make.centerY.equalTo(self.keshiImageView1).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -435,14 +435,14 @@
         [self.keshiView2 addSubview:self.keshiLabel2];
         
         [self.keshiImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView2).offset(18);
+            make.leading.equalTo(self.keshiView2).offset(10);
             make.centerY.equalTo(self.keshiView2).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView2).offset(30);
+            make.leading.equalTo(self.keshiImageView2).offset(23+10);
             make.centerY.equalTo(self.keshiImageView2).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -456,14 +456,14 @@
         [self.keshiView2 addSubview:self.keshiLabel2];
         
         [self.keshiImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView2).offset(10);
+            make.leading.equalTo(self.keshiView2).offset(10);
             make.centerY.equalTo(self.keshiView2).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView2).offset(30);
+            make.leading.equalTo(self.keshiImageView2).offset(23+10);
             make.centerY.equalTo(self.keshiImageView2).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -477,14 +477,14 @@
         [self.keshiView2 addSubview:self.keshiLabel2];
         
         [self.keshiImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView2).offset(20);
+            make.leading.equalTo(self.keshiView2).offset(20);
             make.centerY.equalTo(self.keshiView2).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView2).offset(40);
+            make.leading.equalTo(self.keshiImageView2).offset(40);
             make.centerY.equalTo(self.keshiImageView2).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -498,14 +498,14 @@
         [self.keshiView2 addSubview:self.keshiLabel2];
         
         [self.keshiImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView2).offset(20);
+            make.leading.equalTo(self.keshiView2).offset(20);
             make.centerY.equalTo(self.keshiView2).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView2).offset(40);
+            make.leading.equalTo(self.keshiImageView2).offset(23+20);
             make.centerY.equalTo(self.keshiImageView2).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -523,14 +523,14 @@
         [self.keshiView3 addSubview:self.keshiLabel3];
         
         [self.keshiImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView3).offset(18);
+            make.leading.equalTo(self.keshiView3).offset(10);
             make.centerY.equalTo(self.keshiView3).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView3).offset(30);
+            make.leading.equalTo(self.keshiImageView3).offset(23+10);
             make.centerY.equalTo(self.keshiImageView3).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -544,14 +544,14 @@
         [self.keshiView3 addSubview:self.keshiLabel3];
         
         [self.keshiImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView3).offset(10);
+            make.leading.equalTo(self.keshiView3).offset(10);
             make.centerY.equalTo(self.keshiView3).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView3).offset(30);
+            make.leading.equalTo(self.keshiImageView3).offset(23+10);
             make.centerY.equalTo(self.keshiImageView3).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -565,14 +565,14 @@
         [self.keshiView3 addSubview:self.keshiLabel3];
         
         [self.keshiImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView3).offset(20);
+            make.leading.equalTo(self.keshiView3).offset(20);
             make.centerY.equalTo(self.keshiView3).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView3).offset(40);
+            make.leading.equalTo(self.keshiImageView3).offset(40);
             make.centerY.equalTo(self.keshiImageView3).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -586,14 +586,14 @@
         [self.keshiView3 addSubview:self.keshiLabel3];
         
         [self.keshiImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView3).offset(20);
+            make.leading.equalTo(self.keshiView3).offset(20);
             make.centerY.equalTo(self.keshiView3).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView3).offset(40);
+            make.leading.equalTo(self.keshiImageView3).offset(23+20);
             make.centerY.equalTo(self.keshiImageView3).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -611,14 +611,14 @@
         [self.keshiView4 addSubview:self.keshiLabel4];
         
         [self.keshiImageView4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView4).offset(18);
+            make.leading.equalTo(self.keshiView4).offset(10);
             make.centerY.equalTo(self.keshiView4).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView4).offset(30);
+            make.leading.equalTo(self.keshiImageView4).offset(23+10);
             make.centerY.equalTo(self.keshiImageView4).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -632,14 +632,14 @@
         [self.keshiView4 addSubview:self.keshiLabel4];
         
         [self.keshiImageView4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView4).offset(10);
+            make.leading.equalTo(self.keshiView4).offset(10);
             make.centerY.equalTo(self.keshiView4).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView4).offset(30);
+            make.leading.equalTo(self.keshiImageView4).offset(23+10);
             make.centerY.equalTo(self.keshiImageView4).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -653,14 +653,14 @@
         [self.keshiView4 addSubview:self.keshiLabel4];
         
         [self.keshiImageView4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView4).offset(20);
+            make.leading.equalTo(self.keshiView4).offset(20);
             make.centerY.equalTo(self.keshiView4).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView4).offset(40);
+            make.leading.equalTo(self.keshiImageView4).offset(40);
             make.centerY.equalTo(self.keshiImageView4).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);
@@ -674,14 +674,14 @@
         [self.keshiView4 addSubview:self.keshiLabel4];
         
         [self.keshiImageView4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiView4).offset(20);
+            make.leading.equalTo(self.keshiView4).offset(20);
             make.centerY.equalTo(self.keshiView4).offset(0);
             make.width.mas_equalTo(23);
             make.height.mas_equalTo(23);
         }];
         
         [self.keshiLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.keshiImageView4).offset(40);
+            make.leading.equalTo(self.keshiImageView4).offset(23+20);
             make.centerY.equalTo(self.keshiImageView4).offset(0);
             make.width.mas_equalTo(80);
             make.height.mas_equalTo(12);

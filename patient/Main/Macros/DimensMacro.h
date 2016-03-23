@@ -25,6 +25,6 @@
 //屏幕分辨率
 #define SCREEN_RESOLUTION (SCREEN_WIDTH * SCREEN_HEIGHT * ([UIScreen mainScreen].scale))
 //屏幕缩放比
-#define SCREEN_SCALE    [UIScreen mainScreen].bounds.size.width/375.0f
+#define SCREEN_SCALE    [UIScreen mainScreen].bounds.size.width/320.0f
 
 #endif /* DimensMacro_h */
