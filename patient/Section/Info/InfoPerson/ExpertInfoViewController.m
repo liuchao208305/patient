@@ -12,6 +12,8 @@
 #import "ExpertCommentTableCell.h"
 #import "ExpertProcessTableCell.h"
 #import "ExpertClinicTableCell.h"
+#import "FMGVideoPlayView.h"
+#import "FullViewController.h"
 
 @interface ExpertInfoViewController ()
 
@@ -61,6 +63,13 @@
 
 -(void)initHeadView{
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
+    
+    FMGVideoPlayView *playView = [FMGVideoPlayView videoPlayView];
+    [playView setUrlString:@"http://v1.mukewang.com/a45016f4-08d6-4277-abe6-bcfd5244c201/L.mp4"];
+    playView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3);
+    playView.contrainerViewController = self;
+    
+    [self.headView addSubview:playView];
 }
 
 -(void)initFootView{
