@@ -10,6 +10,9 @@
 
 @interface ExpertClinicTableCell : UITableViewCell
 
+@property (strong,nonatomic)UIView *lineView;
+
+@property (strong,nonatomic)UIView *mainView;
 @property (strong,nonatomic)UILabel *label1;
 @property (strong,nonatomic)UILabel *label2;
 @property (strong,nonatomic)UIImageView *starImageView1;

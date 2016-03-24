@@ -149,6 +149,8 @@
 		70C03E111CA3B23200DBA175 /* default_image_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E0F1CA3B23200DBA175 /* default_image_big.png */; };
 		70C03E121CA3B23200DBA175 /* default_image_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E101CA3B23200DBA175 /* default_image_small.png */; };
 		70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E131CA3C3B100DBA175 /* full_pause_btn@2x.png */; };
+		70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E161CA3D0FE00DBA175 /* NullUtil.m */; };
+		70C03E1D1CA44FD800DBA175 /* CommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E1C1CA44FD800DBA175 /* CommentData.m */; };
 		D3124DFAA46975EB9B4563C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22389C9580CCA6DA815ABF9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -396,6 +398,10 @@
 		70C03E0F1CA3B23200DBA175 /* default_image_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_image_big.png; sourceTree = "<group>"; };
 		70C03E101CA3B23200DBA175 /* default_image_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_image_small.png; sourceTree = "<group>"; };
 		70C03E131CA3C3B100DBA175 /* full_pause_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_pause_btn@2x.png"; sourceTree = "<group>"; };
+		70C03E151CA3D0FE00DBA175 /* NullUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullUtil.h; sourceTree = "<group>"; };
+		70C03E161CA3D0FE00DBA175 /* NullUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullUtil.m; sourceTree = "<group>"; };
+		70C03E1B1CA44FD800DBA175 /* CommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentData.h; sourceTree = "<group>"; };
+		70C03E1C1CA44FD800DBA175 /* CommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentData.m; sourceTree = "<group>"; };
 		9F46B65898D5DC530D828292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B22389C9580CCA6DA815ABF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -589,6 +595,8 @@
 				702939141C8D5D83008280E2 /* LocationUtil.m */,
 				702939161C8E677B008280E2 /* AnalyticUtil.h */,
 				702939171C8E677B008280E2 /* AnalyticUtil.m */,
+				70C03E151CA3D0FE00DBA175 /* NullUtil.h */,
+				70C03E161CA3D0FE00DBA175 /* NullUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -920,14 +928,16 @@
 				7046ADD41CA1100600BB6818 /* ReservationListViewController.h */,
 				7046ADD51CA1100600BB6818 /* ReservationListViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7046AD9F1C9FD32700BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70C03E1B1CA44FD800DBA175 /* CommentData.h */,
+				70C03E1C1CA44FD800DBA175 /* CommentData.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7046ADA01C9FD32B00BB6818 /* View */ = {
@@ -948,7 +958,7 @@
 				70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */,
 				70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		70C03DF11CA291F700DBA175 /* FMGAVPlayer */ = {
@@ -1282,10 +1292,12 @@
 				70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
+				70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
+				70C03E1D1CA44FD800DBA175 /* CommentData.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,

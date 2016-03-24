@@ -19,4 +19,6 @@
 @property (strong,nonatomic)ExpertHeadView *expertHeadView;
 @property (strong,nonatomic)ExpertFootView *expertFootView;
 
+@property (strong,nonatomic)NSString *expertId;
+
 @end

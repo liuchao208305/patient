@@ -42,5 +42,7 @@ typedef enum {
 #define kJZK_QUICK_LOGIN @"user/fastLogin?"//快速登录
 #define kJZK_NORMAL_LOGIN @"user/login?"//常规登录
 #define kJZK_INFO_INFORMATION @"user/index?"//首页信息
+#define kJZK_EXPERT_INFORMATION @"userDotor/detail?"//专家信息
+#define kJZK_CLINIC_INFORMATION @"userDotor/fujin" //诊所信息
 
 #endif /* APIStringMacro_h */

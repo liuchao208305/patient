@@ -20,6 +20,7 @@
 #import "PersonData.h"
 #import "BannerData.h"
 #import "ExpertInfoViewController.h"
+#import "NullUtil.h"
 
 @interface InfoViewController (){
     SDCycleScrollView *scrollView;
@@ -33,22 +34,32 @@
 @property (strong,nonatomic)NSString *timeLabel1;
 @property (strong,nonatomic)NSString *timeLabel2;
 
+@property (strong,nonatomic)NSString *guominId1;
+@property (strong,nonatomic)NSString *guominId2;
 @property (strong,nonatomic)NSString *guominLabel1;
 @property (strong,nonatomic)NSString *guominImage;
 @property (strong,nonatomic)NSString *guominLabel3;
+@property (strong,nonatomic)NSString *laotouId;
 @property (strong,nonatomic)NSString *laotouLabel1;
 @property (strong,nonatomic)NSString *laotouLabel2;
 @property (strong,nonatomic)NSString *laotouImage;
 
+@property (strong,nonatomic)NSString *keshiId1;
 @property (strong,nonatomic)NSString *keshiLabel1;
 @property (strong,nonatomic)NSString *keshiImage1;
+@property (strong,nonatomic)NSString *keshiId2;
 @property (strong,nonatomic)NSString *keshiLabel2;
 @property (strong,nonatomic)NSString *keshiImage2;
+@property (strong,nonatomic)NSString *keshiId3;
 @property (strong,nonatomic)NSString *keshiLabel3;
 @property (strong,nonatomic)NSString *keshiImage3;
+@property (strong,nonatomic)NSString *keshiId4;
 @property (strong,nonatomic)NSString *keshiLabel4;
 @property (strong,nonatomic)NSString *keshiImage4;
 
+@property (strong,nonatomic)NSString *studioId;
+@property (strong,nonatomic)NSString *studioBrief;
+@property (strong,nonatomic)NSString *studioName;
 @property (strong,nonatomic)NSString *studioImage;
 
 @property (strong,nonatomic)NSString *personId1;
@@ -229,20 +240,20 @@
         if (!cell) {
             cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+
+        cell.guominLabel1.text = [NullUtil judgeStringNull:self.guominLabel1];
+        [cell.guominImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.guominImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.laotouLabel1.text = [NullUtil judgeStringNull:self.laotouLabel1];
+        [cell.laotouImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.laotouImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         
-        cell.guominLabel1.text = self.guominLabel1;
-        [cell.guominImageView sd_setImageWithURL:self.guominImage placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.laotouLabel1.text = self.laotouLabel1;
-        [cell.laotouImageView sd_setImageWithURL:self.laotouImage placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.keshiLabel1.text = self.keshiLabel1;
-        [cell.keshiImageView1 sd_setImageWithURL:self.keshiImage1 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel2.text = self.keshiLabel2;
-        [cell.keshiImageView2 sd_setImageWithURL:self.keshiImage2 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel3.text = self.keshiLabel3;
-        [cell.keshiImageView3 sd_setImageWithURL:self.keshiImage3 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel4.text = self.keshiLabel4;
-        [cell.keshiImageView4 sd_setImageWithURL:self.keshiImage4 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.keshiLabel1.text = [NullUtil judgeStringNull:self.keshiLabel1];
+        [cell.keshiImageView1 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage1]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.keshiLabel2.text = [NullUtil judgeStringNull:self.keshiLabel2];
+        [cell.keshiImageView2 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage2]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.keshiLabel3.text = [NullUtil judgeStringNull:self.keshiLabel3];
+        [cell.keshiImageView3 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage3]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.keshiLabel4.text = [NullUtil judgeStringNull:self.keshiLabel4];
+        [cell.keshiImageView4 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage4]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -260,7 +271,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"StudioTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
-        [cell.studioImageView sd_setImageWithURL:self.studioImage placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+        [cell.studioImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.studioImage]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
         
         return cell;
     }else if (indexPath.section == 3){
@@ -269,35 +280,33 @@
         if (!cell) {
             cell = [[PersonTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
-        //填充数据
+
+        cell.personId1 = [NullUtil judgeStringNull:self.personId1];
+        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.image1]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.label1_1.text = [NullUtil judgeStringNull:self.label1_1];
+        cell.label1_2.text = [NullUtil judgeStringNull:self.label1_2];
         
-        /*
-         [cell.imageView1 setImage:[UIImage imageNamed:@"cell_person_hejiazhen_button"]];
-         cell.label1_1.text = @"何嘉珍";
-         cell.label1_2.text = @"习惯性流产";
-         
-         [cell.imageView2 setImage:[UIImage imageNamed:@"cell_person_youweiping_button"]];
-         cell.label2_1.text = @"尤卫平";
-         cell.label2_2.text = @"前列腺疾病";
-         
-         [cell.imageView3 setImage:[UIImage imageNamed:@"cell_person_songshihua_button"]];
-         cell.label3_1.text = @"宋世华";
-         cell.label3_2.text = @"子宫肌瘤，不孕症";
-         */
-        cell.personId1 = self.personId1;
-        [cell.imageView1 sd_setImageWithURL:self.image1 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.label1_1.text = self.label1_1;
-        cell.label1_2.text = self.label1_2;
+        cell.personId2 = [NullUtil judgeStringNull:self.personId2];
+        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.image2]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.label2_1.text = [NullUtil judgeStringNull:self.label2_1];
+        cell.label2_2.text = [NullUtil judgeStringNull:self.label2_2];
         
-        cell.personId2 = self.personId2;
-        [cell.imageView2 sd_setImageWithURL:self.image2 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.label2_1.text = self.label2_1;
-        cell.label2_2.text = self.label2_2;
+        cell.personId3 = [NullUtil judgeStringNull:self.personId3];
+        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.image3]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.label3_1.text = [NullUtil judgeStringNull:self.label3_1];
+        cell.label3_2.text = [NullUtil judgeStringNull:self.label3_2];
         
-        cell.personId3 = self.personId3;
-        [cell.imageView3 sd_setImageWithURL:self.image3 placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.label3_1.text = self.label3_1;
-        cell.label3_2.text = self.label3_2;
+        cell.backView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(person1Clicked)];
+        [cell.backView1 addGestureRecognizer:recognizer1];
+        
+        cell.backView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(person2Clicked)];
+        [cell.backView2 addGestureRecognizer:recognizer2];
+        
+        cell.backView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(person3Clicked)];
+        [cell.backView3 addGestureRecognizer:recognizer3];
         
         return cell;
     }
@@ -353,9 +362,7 @@
     }else if (indexPath.section == 2){
         
     }else if (indexPath.section == 3){
-        self.hidesBottomBarWhenPushed = YES;
-        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
-        [self.navigationController pushViewController:expertVC animated:YES];
+        
     }
 }
 
@@ -369,6 +376,27 @@
     ScanViewController *scanVC = [[ScanViewController alloc] init];
     [self.navigationController pushViewController:scanVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+}
+
+-(void)person1Clicked{
+    self.hidesBottomBarWhenPushed = YES;
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.personId1;
+    [self.navigationController pushViewController:expertVC animated:YES];
+}
+
+-(void)person2Clicked{
+    self.hidesBottomBarWhenPushed = YES;
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.personId2;
+    [self.navigationController pushViewController:expertVC animated:YES];
+}
+
+-(void)person3Clicked{
+    self.hidesBottomBarWhenPushed = YES;
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.personId3;
+    [self.navigationController pushViewController:expertVC animated:YES];
 }
 
 #pragma mark Network Request
@@ -402,54 +430,70 @@
     self.timeLabel2 = [[self.data objectForKey:@"hours"] objectForKey:@"content"];
     self.timeLabel.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
     
-    self.adArray = [BannerData objectArrayWithKeyValuesArray:[self.data objectForKey:@"banner"]];
+    self.adArray = [BannerData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"banner"]];
     for (BannerData *bannerData in self.adArray) {
+        [self.adIdArray addObject:bannerData.banner_id];
+        [self.adUrlArray addObject:bannerData.url];
         [self.adImageArray addObject:bannerData.banner_url];
     }
     scrollView.imageURLStringsGroup = self.adImageArray;
     
+    self.guominId1 = [[self.data objectForKey:@"spcial"] objectForKey:@"disease_id"];
+    self.guominId2 = [[self.data objectForKey:@"spcial"] objectForKey:@"case_id"];
     self.guominLabel1 = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
     self.guominImage = [[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"];
+    self.laotouId = [[self.data objectForKey:@"templates"] objectForKey:@"template_id"];
     self.laotouLabel1 = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
     self.laotouImage = [[self.data objectForKey:@"templates"] objectForKey:@"cover_url"];
     
-    self.diseaseArray = [DiseaseData objectArrayWithKeyValuesArray:[self.data objectForKey:@"departs"]];
+    self.diseaseArray = [DiseaseData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"departs"]];
     for (DiseaseData *diseaseData in self.diseaseArray) {
+        [self.diseaseIdArray addObject:diseaseData.depart_id];
         [self.diseaseImageArray addObject:diseaseData.depart_url];
         [self.diseaseLabelArray addObject:diseaseData.depart_name];
     }
+    self.keshiId1 = self.diseaseIdArray[0];
     self.keshiLabel1 = self.diseaseLabelArray[0];
     self.keshiImage1 = self.diseaseImageArray[0];
+    self.keshiId2 = self.diseaseIdArray[1];
     self.keshiLabel2 = self.diseaseLabelArray[1];
     self.keshiImage2 = self.diseaseImageArray[1];
+    self.keshiId3 = self.diseaseIdArray[2];
     self.keshiLabel3 = self.diseaseLabelArray[2];
     self.keshiImage3 = self.diseaseImageArray[2];
+    self.keshiId4 = self.diseaseIdArray[3];
     self.keshiLabel4 = self.diseaseLabelArray[3];
     self.keshiImage4 = self.diseaseImageArray[3];
     
+    self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
+    self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];
+    self.studioName = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgName"];
     self.studioImage = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgCover"];
     
-//    self.personArray = [PersonData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
-//    for (PersonData *personData in self.personArray) {
-//        [self.personIdArray addObject:personData.doctorId];
-//        [self.personImageArray addObject:personData.heandUrl];
-//        [self.personLable1Array addObject:personData.doctorName];
+    self.personArray = [PersonData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
+    for (PersonData *personData in self.personArray) {
+        [self.personIdArray addObject:personData.doctorId];
+        [self.personImageArray addObject:personData.heandUrl];
+        [self.personLable1Array addObject:personData.doctorName];
 //        [self.personLable2Array addObject:personData.diseaseName];
-//    }
-//
-//    self.personId1 = self.personIdArray[0];
-//    self.image1 = self.personImageArray[0];
-//    self.label1_1 = self.personLable1Array[0];
+    }
+
+    self.personId1 = self.personIdArray[0];
+    self.image1 = self.personImageArray[0];
+    self.label1_1 = self.personLable1Array[0];
+    self.label1_2 = [[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"];
 //    self.label1_2 = self.personLable2Array[0];
-//    
-//    self.personId2 = self.personIdArray[1];
-//    self.image2 = self.personImageArray[1];
-//    self.label2_1 = self.personLable1Array[1];
+    
+    self.personId2 = self.personIdArray[1];
+    self.image2 = self.personImageArray[1];
+    self.label2_1 = self.personLable1Array[1];
+    self.label2_2 = [[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"];
 //    self.label2_2 = self.personLable2Array[1];
-//    
+    
 //    self.personId3 = self.personIdArray[2];
 //    self.image3 = self.personImageArray[2];
 //    self.label3_1 = self.personLable1Array[2];
+//    self.label3_2 = [[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"];
 //    self.label3_2 = self.personLable2Array[2];
     
     [self.tableView reloadData];

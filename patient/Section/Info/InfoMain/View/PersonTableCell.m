@@ -25,6 +25,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initView];
+        [self initRecognizer];
         [self fontAdaption];
     }
     return self;
@@ -140,6 +141,10 @@
         make.width.mas_equalTo(150);
         make.height.mas_equalTo(12);
     }];
+}
+
+-(void)initRecognizer{
+    
 }
 
 -(void)fontAdaption{

@@ -14,8 +14,17 @@
 #import "ExpertClinicTableCell.h"
 #import "FMGVideoPlayView.h"
 #import "FullViewController.h"
+#import "NetworkUtil.h"
 
 @interface ExpertInfoViewController ()
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSString *videoUrl;
 
 @end
 
@@ -31,6 +40,9 @@
     
     self.view.backgroundColor = kBACKGROUND_COLOR;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self sendExpertInfoRequest];
+    [self sendClinicInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -65,7 +77,7 @@
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     
     FMGVideoPlayView *playView = [FMGVideoPlayView videoPlayView];
-    [playView setUrlString:@"http://v1.mukewang.com/a45016f4-08d6-4277-abe6-bcfd5244c201/L.mp4"];
+    [playView setUrlString:self.videoUrl];
     playView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3);
     playView.contrainerViewController = self;
     
@@ -153,7 +165,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
+    return 10;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -230,7 +242,45 @@
 }
 
 #pragma mark Network Request
+-(void)sendExpertInfoRequest{
+    DLog(@"sendExpertInfoRequest");
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.expertId forKey:@"doctorId"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION);
+        DLog(@"%@",self.expertId);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [self expertInfoDataParse];
+        }else{
+            
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+    }];
+}
+
+-(void)sendClinicInfoRequest{
+    
+}
 
 #pragma mark Data Parse
+-(void)expertInfoDataParse{
+    
+}
+
+-(void)clinicInfoDataParse{
+    
+}
 
 @end
