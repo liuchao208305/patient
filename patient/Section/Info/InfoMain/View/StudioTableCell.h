@@ -10,4 +10,6 @@
 
 @interface StudioTableCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *studioImageView;
+
 @end

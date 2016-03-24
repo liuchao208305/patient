@@ -118,177 +118,197 @@
     self.guominImageView = [[UIImageView alloc] init];
     [self.backView1 addSubview:self.guominImageView];
     
-    self.guominLabel1 = [[UILabel alloc] init];
-    self.guominLabel1.font = [UIFont systemFontOfSize:15];
-    [self.backView1 addSubview:self.guominLabel1];
-    
-    self.guominLabel2 = [[UILabel alloc] init];
-    self.guominLabel2.font = [UIFont systemFontOfSize:15];
-    [self.backView1 addSubview:self.guominLabel2];
-    
-    self.guominLabel3 = [[UILabel alloc] init];
-    self.guominLabel3.font = [UIFont systemFontOfSize:12];
-    [self.backView1 addSubview:self.guominLabel3];
-    
     [self.guominImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView1).offset(0);
-        make.top.equalTo(self.backView1).offset(23);
-        make.width.mas_equalTo(56);
-        make.height.mas_equalTo(56);
+        make.leading.equalTo(self.backView1).offset(0);
+        make.trailing.equalTo(self.backView1).offset(0);
+        make.top.equalTo(self.backView1).offset(0);
+        make.bottom.equalTo(self.backView1).offset(0);
     }];
     
-    [self.guominLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.guominImageView).offset(-10);
-        make.top.equalTo(self.guominImageView).offset(70);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(15);
-    }];
+//    self.guominImageView = [[UIImageView alloc] init];
+//    [self.backView1 addSubview:self.guominImageView];
     
-    [self.guominLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.guominImageView).offset(30);
-        make.centerY.equalTo(self.guominLabel1).offset(0);
-        make.width.equalTo(self.guominLabel1);
-        make.height.equalTo(self.guominLabel1);
-    }];
-    
-    [self.guominLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView1).offset(0);
-        make.bottom.equalTo(self.backView1).offset(-23);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
-    }];
+//    self.guominLabel1 = [[UILabel alloc] init];
+//    self.guominLabel1.font = [UIFont systemFontOfSize:15];
+//    [self.backView1 addSubview:self.guominLabel1];
+//    
+//    self.guominLabel2 = [[UILabel alloc] init];
+//    self.guominLabel2.font = [UIFont systemFontOfSize:15];
+//    [self.backView1 addSubview:self.guominLabel2];
+//    
+//    self.guominLabel3 = [[UILabel alloc] init];
+//    self.guominLabel3.font = [UIFont systemFontOfSize:12];
+//    [self.backView1 addSubview:self.guominLabel3];
+//    
+//    [self.guominImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.backView1).offset(0);
+//        make.top.equalTo(self.backView1).offset(23);
+//        make.width.mas_equalTo(56);
+//        make.height.mas_equalTo(56);
+//    }];
+//    
+//    [self.guominLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.guominImageView).offset(-10);
+//        make.top.equalTo(self.guominImageView).offset(70);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(15);
+//    }];
+//    
+//    [self.guominLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.guominImageView).offset(30);
+//        make.centerY.equalTo(self.guominLabel1).offset(0);
+//        make.width.equalTo(self.guominLabel1);
+//        make.height.equalTo(self.guominLabel1);
+//    }];
+//    
+//    [self.guominLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.backView1).offset(0);
+//        make.bottom.equalTo(self.backView1).offset(-23);
+//        make.width.mas_equalTo(100);
+//        make.height.mas_equalTo(13);
+//    }];
 }
 
 -(void)initBackView2{
-    if ([AdaptionUtil isIphoneFour]) {
-        self.laotouLabel1 = [[UILabel alloc] init];
-        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
-        [self.backView2 addSubview:self.laotouLabel1];
-        
-        self.laotouLabel2 = [[UILabel alloc] init];
-        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
-        [self.backView2 addSubview:self.laotouLabel2];
-        
-        self.laotouImageView = [[UIImageView alloc] init];
-        [self.backView2 addSubview:self.laotouImageView];
-        
-        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.backView2).offset(25);
-            make.top.equalTo(self.backView2).offset(15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(15);
-        }];
-        
-        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.laotouLabel1).offset(0);
-            make.bottom.equalTo(self.backView2).offset(-15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(13);
-        }];
-        
-        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.backView2).offset(0);
-            make.trailing.equalTo(self.backView2).offset(-39);
-            make.width.mas_equalTo(39);
-            make.height.mas_equalTo(50);
-        }];
-    }else if ([AdaptionUtil isIphoneFive]){
-        self.laotouLabel1 = [[UILabel alloc] init];
-        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
-        [self.backView2 addSubview:self.laotouLabel1];
-        
-        self.laotouLabel2 = [[UILabel alloc] init];
-        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
-        [self.backView2 addSubview:self.laotouLabel2];
-        
-        self.laotouImageView = [[UIImageView alloc] init];
-        [self.backView2 addSubview:self.laotouImageView];
-        
-        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.backView2).offset(25);
-            make.top.equalTo(self.backView2).offset(15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(15);
-        }];
-        
-        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.laotouLabel1).offset(0);
-            make.bottom.equalTo(self.backView2).offset(-15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(13);
-        }];
-        
-        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.backView2).offset(0);
-            make.trailing.equalTo(self.backView2).offset(-39);
-            make.width.mas_equalTo(39);
-            make.height.mas_equalTo(50);
-        }];
-    }else if ([AdaptionUtil isIphoneSix]){
-        self.laotouLabel1 = [[UILabel alloc] init];
-        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
-        [self.backView2 addSubview:self.laotouLabel1];
-        
-        self.laotouLabel2 = [[UILabel alloc] init];
-        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
-        [self.backView2 addSubview:self.laotouLabel2];
-        
-        self.laotouImageView = [[UIImageView alloc] init];
-        [self.backView2 addSubview:self.laotouImageView];
-        
-        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.backView2).offset(40);
-            make.top.equalTo(self.backView2).offset(15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(15);
-        }];
-        
-        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.laotouLabel1).offset(0);
-            make.bottom.equalTo(self.backView2).offset(-15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(13);
-        }];
-        
-        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.backView2).offset(0);
-            make.trailing.equalTo(self.backView2).offset(-50);
-            make.width.mas_equalTo(39);
-            make.height.mas_equalTo(50);
-        }];
-    }else if ([AdaptionUtil isIphoneSixPlus]){
-        self.laotouLabel1 = [[UILabel alloc] init];
-        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
-        [self.backView2 addSubview:self.laotouLabel1];
-        
-        self.laotouLabel2 = [[UILabel alloc] init];
-        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
-        [self.backView2 addSubview:self.laotouLabel2];
-        
-        self.laotouImageView = [[UIImageView alloc] init];
-        [self.backView2 addSubview:self.laotouImageView];
-        
-        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.backView2).offset(45);
-            make.top.equalTo(self.backView2).offset(15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(15);
-        }];
-        
-        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.laotouLabel1).offset(0);
-            make.bottom.equalTo(self.backView2).offset(-15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(13);
-        }];
-        
-        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.backView2).offset(0);
-            make.trailing.equalTo(self.backView2).offset(-50);
-            make.width.mas_equalTo(39);
-            make.height.mas_equalTo(50);
-        }];
-    }
+    self.laotouImageView = [[UIImageView alloc] init];
+    [self.backView2 addSubview:self.laotouImageView];
+    
+    [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.backView2).offset(0);
+        make.trailing.equalTo(self.backView2).offset(0);
+        make.top.equalTo(self.backView2).offset(0);
+        make.bottom.equalTo(self.backView2).offset(0);
+    }];
+    
+//    if ([AdaptionUtil isIphoneFour]) {
+//        self.laotouLabel1 = [[UILabel alloc] init];
+//        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
+//        [self.backView2 addSubview:self.laotouLabel1];
+//        
+//        self.laotouLabel2 = [[UILabel alloc] init];
+//        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
+//        [self.backView2 addSubview:self.laotouLabel2];
+//        
+//        self.laotouImageView = [[UIImageView alloc] init];
+//        [self.backView2 addSubview:self.laotouImageView];
+//        
+//        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self.backView2).offset(25);
+//            make.top.equalTo(self.backView2).offset(15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(15);
+//        }];
+//        
+//        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerX.equalTo(self.laotouLabel1).offset(0);
+//            make.bottom.equalTo(self.backView2).offset(-15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(13);
+//        }];
+//        
+//        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerY.equalTo(self.backView2).offset(0);
+//            make.trailing.equalTo(self.backView2).offset(-39);
+//            make.width.mas_equalTo(39);
+//            make.height.mas_equalTo(50);
+//        }];
+//    }else if ([AdaptionUtil isIphoneFive]){
+//        self.laotouLabel1 = [[UILabel alloc] init];
+//        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
+//        [self.backView2 addSubview:self.laotouLabel1];
+//        
+//        self.laotouLabel2 = [[UILabel alloc] init];
+//        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
+//        [self.backView2 addSubview:self.laotouLabel2];
+//        
+//        self.laotouImageView = [[UIImageView alloc] init];
+//        [self.backView2 addSubview:self.laotouImageView];
+//        
+//        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self.backView2).offset(25);
+//            make.top.equalTo(self.backView2).offset(15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(15);
+//        }];
+//        
+//        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerX.equalTo(self.laotouLabel1).offset(0);
+//            make.bottom.equalTo(self.backView2).offset(-15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(13);
+//        }];
+//        
+//        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerY.equalTo(self.backView2).offset(0);
+//            make.trailing.equalTo(self.backView2).offset(-39);
+//            make.width.mas_equalTo(39);
+//            make.height.mas_equalTo(50);
+//        }];
+//    }else if ([AdaptionUtil isIphoneSix]){
+//        self.laotouLabel1 = [[UILabel alloc] init];
+//        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
+//        [self.backView2 addSubview:self.laotouLabel1];
+//        
+//        self.laotouLabel2 = [[UILabel alloc] init];
+//        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
+//        [self.backView2 addSubview:self.laotouLabel2];
+//        
+//        self.laotouImageView = [[UIImageView alloc] init];
+//        [self.backView2 addSubview:self.laotouImageView];
+//        
+//        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self.backView2).offset(40);
+//            make.top.equalTo(self.backView2).offset(15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(15);
+//        }];
+//        
+//        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerX.equalTo(self.laotouLabel1).offset(0);
+//            make.bottom.equalTo(self.backView2).offset(-15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(13);
+//        }];
+//        
+//        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerY.equalTo(self.backView2).offset(0);
+//            make.trailing.equalTo(self.backView2).offset(-50);
+//            make.width.mas_equalTo(39);
+//            make.height.mas_equalTo(50);
+//        }];
+//    }else if ([AdaptionUtil isIphoneSixPlus]){
+//        self.laotouLabel1 = [[UILabel alloc] init];
+//        self.laotouLabel1.font = [UIFont systemFontOfSize:15];
+//        [self.backView2 addSubview:self.laotouLabel1];
+//        
+//        self.laotouLabel2 = [[UILabel alloc] init];
+//        self.laotouLabel2.font = [UIFont systemFontOfSize:12];
+//        [self.backView2 addSubview:self.laotouLabel2];
+//        
+//        self.laotouImageView = [[UIImageView alloc] init];
+//        [self.backView2 addSubview:self.laotouImageView];
+//        
+//        [self.laotouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self.backView2).offset(45);
+//            make.top.equalTo(self.backView2).offset(15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(15);
+//        }];
+//        
+//        [self.laotouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerX.equalTo(self.laotouLabel1).offset(0);
+//            make.bottom.equalTo(self.backView2).offset(-15);
+//            make.width.mas_equalTo(75);
+//            make.height.mas_equalTo(13);
+//        }];
+//        
+//        [self.laotouImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerY.equalTo(self.backView2).offset(0);
+//            make.trailing.equalTo(self.backView2).offset(-50);
+//            make.width.mas_equalTo(39);
+//            make.height.mas_equalTo(50);
+//        }];
+//    }
 }
 
 -(void)initBackView3{

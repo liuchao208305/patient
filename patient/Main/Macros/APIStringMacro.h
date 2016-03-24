@@ -12,8 +12,9 @@
 //接口名称相关
 #ifdef DEBUG
 //Debug状态下的测试API
-#define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 内网
-#define kServerAddressOut     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 外网
+//#define kServerAddress     @"http://192.168.5.144:8080/jiuzhekan_http/public/v1/"// 内网测试地址－秦兵
+//#define kServerAddress     @"http://192.168.5.102:83/jiuzhekan_http/public/v1/"// 内网测试地址－欧日广
+#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/public/v1/"// 外网测试地址
 #else
 //Release状态下的线上API
 #define kServerUrl     @"http://www.companydomain.com/api/"

@@ -10,6 +10,9 @@
 
 @interface HealthData : NSObject
 
-@property (strong,nonatomic)UIImageView *image;
+@property (strong,nonatomic)NSString *cooks_id;
+@property (strong,nonatomic)NSString *cooks_NAME;
+@property (strong,nonatomic)NSString *cooks_type;
+@property (strong,nonatomic)NSString *cooks_photoUrl;
 
 @end

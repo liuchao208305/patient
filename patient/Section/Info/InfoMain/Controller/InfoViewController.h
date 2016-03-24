@@ -35,7 +35,10 @@
 @property (strong,nonatomic)NSMutableArray *studioImageArray;
 @property (strong,nonatomic)NSMutableArray *studioLableArray;
 
+@property (strong,nonatomic)NSMutableArray *personArray;
+@property (strong,nonatomic)NSMutableArray *personIdArray;
 @property (strong,nonatomic)NSMutableArray *personImageArray;
-@property (strong,nonatomic)NSMutableArray *personLableArray;
+@property (strong,nonatomic)NSMutableArray *personLable1Array;
+@property (strong,nonatomic)NSMutableArray *personLable2Array;
 
 @end

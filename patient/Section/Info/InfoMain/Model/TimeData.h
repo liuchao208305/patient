@@ -10,4 +10,8 @@
 
 @interface TimeData : NSObject
 
+@property (strong,nonatomic)NSString *hour_id;
+@property (strong,nonatomic)NSString *hours;
+@property (strong,nonatomic)NSString *content;
+
 @end

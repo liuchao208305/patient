@@ -10,4 +10,5 @@
 
 @interface HealthTableCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *healthImageView;
 @end

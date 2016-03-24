@@ -10,6 +10,9 @@
 
 @interface StudioData : NSObject
 
-@property (strong,nonatomic)UIImageView *image;
+@property (strong,nonatomic)NSString *orgId;
+@property (strong,nonatomic)NSString *orgCover;
+@property (strong,nonatomic)NSString *orgBrief;
+@property (strong,nonatomic)NSString *orgName;
 
 @end

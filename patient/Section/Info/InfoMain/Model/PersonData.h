@@ -10,7 +10,9 @@
 
 @interface PersonData : NSObject
 
-@property (strong,nonatomic)UIImageView *image;
-@property (strong,nonatomic)UILabel *label;
+@property (strong,nonatomic)NSString *doctorId;
+@property (strong,nonatomic)NSString *heandUrl;
+@property (strong,nonatomic)NSString *doctorName;
+@property (strong,nonatomic)NSString *diseaseName;
 
 @end
