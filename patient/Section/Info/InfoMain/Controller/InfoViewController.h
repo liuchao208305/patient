@@ -35,9 +35,9 @@
 @property (strong,nonatomic)NSMutableArray *healthImageArray;
 @property (strong,nonatomic)NSMutableArray *healthLableArray;
 
-@property (strong,nonatomic)NSMutableArray *studioArray;
-@property (strong,nonatomic)NSMutableArray *studioImageArray;
-@property (strong,nonatomic)NSMutableArray *studioLableArray;
+//@property (strong,nonatomic)NSMutableArray *studioArray;
+//@property (strong,nonatomic)NSMutableArray *studioImageArray;
+//@property (strong,nonatomic)NSMutableArray *studioLableArray;
 
 @property (strong,nonatomic)NSMutableArray *personArray;
 @property (strong,nonatomic)NSMutableArray *personIdArray;

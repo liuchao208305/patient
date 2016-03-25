@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,19 +15,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-bi-NGG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aoj-3E-9hc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="h6h-bi-NGG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cok-NE-ZfC"/>
-                    <constraint firstAttribute="bottom" secondItem="h6h-bi-NGG" secondAttribute="bottom" id="TWf-PB-Zwg"/>
-                    <constraint firstAttribute="trailing" secondItem="h6h-bi-NGG" secondAttribute="trailing" id="aoS-4L-PMb"/>
-                    <constraint firstItem="h6h-bi-NGG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gIn-Im-Zgz"/>
+                    <constraint firstAttribute="trailing" secondItem="Aoj-3E-9hc" secondAttribute="trailing" id="JrF-Bc-oIS"/>
+                    <constraint firstItem="Aoj-3E-9hc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="32" id="KgX-SK-ejU"/>
+                    <constraint firstItem="Aoj-3E-9hc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UTf-vI-CJp"/>
+                    <constraint firstAttribute="bottom" secondItem="Aoj-3E-9hc" secondAttribute="bottom" id="ZYn-1f-2fN"/>
+                    <constraint firstAttribute="top" secondItem="Aoj-3E-9hc" secondAttribute="top" id="l0R-4A-uEu"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="KgX-SK-ejU"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="healthImageView" destination="h6h-bi-NGG" id="RQv-on-SBa"/>
+                <outlet property="healthImageView" destination="Aoj-3E-9hc" id="dC1-cU-jH4"/>
             </connections>
         </tableViewCell>
     </objects>

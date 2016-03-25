@@ -21,4 +21,10 @@
 
 @property (strong,nonatomic)NSString *expertId;
 
+@property (strong,nonatomic)NSMutableArray *commentArray;
+@property (strong,nonatomic)NSMutableArray *commemtImageArray;
+@property (strong,nonatomic)NSMutableArray *commentPatientArray;
+@property (strong,nonatomic)NSMutableArray *commentExpertArray;
+@property (strong,nonatomic)NSMutableArray *commentPraiseArray;
+
 @end

@@ -15,6 +15,7 @@
 #import "FMGVideoPlayView.h"
 #import "FullViewController.h"
 #import "NetworkUtil.h"
+#import "CommentData.h"
 
 @interface ExpertInfoViewController ()
 
@@ -24,7 +25,19 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (strong,nonatomic)FMGVideoPlayView *playView;
 @property (strong,nonatomic)NSString *videoUrl;
+
+@property (strong,nonatomic)NSString *detailLabel1;
+@property (strong,nonatomic)NSString *detailLabel2;
+@property (strong,nonatomic)NSString *detailLabel3;
+@property (assign,nonatomic)NSInteger detailNumber;
+@property (strong,nonatomic)NSString *detailMoney;
+
+@property (strong,nonatomic)NSString *advantageLabel1;
+@property (strong,nonatomic)NSString *advantageLabel2;
+@property (strong,nonatomic)NSString *advantageLabel3;
+@property (strong,nonatomic)NSString *advantageLabel4;
 
 @end
 
@@ -41,6 +54,7 @@
     self.view.backgroundColor = kBACKGROUND_COLOR;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    [self lazyLoading];
     [self sendExpertInfoRequest];
     [self sendClinicInfoRequest];
     
@@ -56,6 +70,15 @@
 
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark Lazy Loading
+-(void)lazyLoading{
+    self.commentArray = [NSMutableArray array];
+    self.commemtImageArray = [NSMutableArray array];
+    self.commentPatientArray = [NSMutableArray array];
+    self.commentExpertArray = [NSMutableArray array];
+    self.commentPraiseArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -76,12 +99,11 @@
 -(void)initHeadView{
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     
-    FMGVideoPlayView *playView = [FMGVideoPlayView videoPlayView];
-    [playView setUrlString:self.videoUrl];
-    playView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3);
-    playView.contrainerViewController = self;
+    self.playView = [FMGVideoPlayView videoPlayView];
+    self.playView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3);
+    self.playView.contrainerViewController = self;
     
-    [self.headView addSubview:playView];
+    [self.headView addSubview:self.playView];
 }
 
 -(void)initFootView{
@@ -151,13 +173,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return 0;
+        return 0.1;
     }else if (section == 1){
-        return 0;
+        return 0.1;
     }else if (section == 2){
-        return 0;
+        return 0.1;
     }else if (section == 3){
-        return 0;
+        return 0.1;
     }else if (section == 4){
         return 46;
     }
@@ -276,7 +298,27 @@
 
 #pragma mark Data Parse
 -(void)expertInfoDataParse{
+    self.videoUrl = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"vedioURL"];
+    [self.playView setUrlString:self.videoUrl];
     
+    self.detailLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"doctor_name"];
+    self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
+    self.detailNumber = [[[self.data objectForKey:@"docotrDetail"] objectForKey:@"atteation"] integerValue];
+    self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
+    
+    self.advantageLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"mainly"];
+    self.advantageLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"diseaseName"];
+    self.advantageLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"research"];
+    self.advantageLabel4 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"exper"];
+    
+    self.commentArray = [CommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
+    for (CommentData *commentData in self.commentArray) {
+        [self.commentPatientArray addObject:commentData.user_name];
+        [self.commentExpertArray addObject:commentData.doctor_name];
+        [self.commentPraiseArray addObject:commentData.flag_name];
+    }
+    
+    [self.tableView reloadData];
 }
 
 -(void)clinicInfoDataParse{

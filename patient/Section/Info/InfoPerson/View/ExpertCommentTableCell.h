@@ -10,10 +10,22 @@
 
 @interface ExpertCommentTableCell : UITableViewCell
 
-@property (strong,nonatomic)UIImageView *bannerImageView;
-@property (strong,nonatomic)UILabel *label1;
-@property (strong,nonatomic)UILabel *label2;
-@property (strong,nonatomic)UILabel *label3;
-@property (strong,nonatomic)UILabel *label4;
+@property (strong,nonatomic)UIImageView *bannerImageView1;
+@property (strong,nonatomic)UILabel *label1_1;
+@property (strong,nonatomic)UILabel *label1_2;
+@property (strong,nonatomic)UILabel *label1_3;
+@property (strong,nonatomic)UILabel *label1_4;
+
+@property (strong,nonatomic)UIImageView *bannerImageView2;
+@property (strong,nonatomic)UILabel *label2_1;
+@property (strong,nonatomic)UILabel *label2_2;
+@property (strong,nonatomic)UILabel *label2_3;
+@property (strong,nonatomic)UILabel *label2_4;
+
+@property (strong,nonatomic)UIImageView *bannerImageView3;
+@property (strong,nonatomic)UILabel *label3_1;
+@property (strong,nonatomic)UILabel *label3_2;
+@property (strong,nonatomic)UILabel *label3_3;
+@property (strong,nonatomic)UILabel *label3_4;
 
 @end

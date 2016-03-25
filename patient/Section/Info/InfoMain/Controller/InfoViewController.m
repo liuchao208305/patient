@@ -57,6 +57,11 @@
 @property (strong,nonatomic)NSString *keshiLabel4;
 @property (strong,nonatomic)NSString *keshiImage4;
 
+@property (strong,nonatomic)NSString *healthId;
+@property (strong,nonatomic)NSString *healthName;
+@property (strong,nonatomic)NSString *healthImage;
+@property (assign,nonatomic)NSInteger healthType;
+
 @property (strong,nonatomic)NSString *studioId;
 @property (strong,nonatomic)NSString *studioBrief;
 @property (strong,nonatomic)NSString *studioName;
@@ -120,8 +125,8 @@
     self.diseaseLabelArray = [NSMutableArray array];
     self.healthImageArray = [NSMutableArray array];
     self.healthLableArray = [NSMutableArray array];
-    self.studioImageArray = [NSMutableArray array];
-    self.studioLableArray = [NSMutableArray array];
+//    self.studioImageArray = [NSMutableArray array];
+//    self.studioLableArray = [NSMutableArray array];
     self.personArray = [NSMutableArray array];
     self.personIdArray = [NSMutableArray array];
     self.personImageArray = [NSMutableArray array];
@@ -263,6 +268,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HealthTableCell" owner:nil options:nil] firstObject];
         }
         //填充数据
+        [cell.healthImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.healthImage]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
         return cell;
     }else if (indexPath.section == 2){
         static NSString *cellName = @"StudioTableCell";
@@ -464,6 +470,8 @@
     self.keshiId4 = self.diseaseIdArray[3];
     self.keshiLabel4 = self.diseaseLabelArray[3];
     self.keshiImage4 = self.diseaseImageArray[3];
+    
+    self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
     
     self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
     self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];
