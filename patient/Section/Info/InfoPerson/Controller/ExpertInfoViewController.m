@@ -16,6 +16,8 @@
 #import "FullViewController.h"
 #import "NetworkUtil.h"
 #import "CommentData.h"
+#import "NullUtil.h"
+#import "ClinicData.h"
 
 @interface ExpertInfoViewController ()
 
@@ -24,6 +26,12 @@
 @property (strong,nonatomic)NSString *message;
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableArray *data2;
+@property (assign,nonatomic)NSError *error2;
 
 @property (strong,nonatomic)FMGVideoPlayView *playView;
 @property (strong,nonatomic)NSString *videoUrl;
@@ -46,6 +54,9 @@
 #pragma mark Life Circle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
+    self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
 }
 
 -(void)viewDidLoad{
@@ -75,10 +86,19 @@
 #pragma mark Lazy Loading
 -(void)lazyLoading{
     self.commentArray = [NSMutableArray array];
+    self.commentExpertIdArray = [NSMutableArray array];
     self.commemtImageArray = [NSMutableArray array];
     self.commentPatientArray = [NSMutableArray array];
     self.commentExpertArray = [NSMutableArray array];
     self.commentPraiseArray = [NSMutableArray array];
+    
+    self.clinicArray = [NSMutableArray array];
+    self.clinicNameArray = [NSMutableArray array];
+    self.clinicAddressArray = [NSMutableArray array];
+    self.clinicStarArray = [NSMutableArray array];
+    self.clinicDistanceArray = [NSMutableArray array];
+    self.clinicMoneyArray = [NSMutableArray array];
+    self.clinicCouponArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -222,6 +242,19 @@
             cell = [[ExpertDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        cell.label1_1.text = [NullUtil judgeStringNull:self.detailLabel1];
+        cell.label1_2.text = [NullUtil judgeStringNull:self.detailLabel2];
+        cell.label1_3.text = [NullUtil judgeStringNull:self.detailLabel3];
+        if (self.detailNumber == 1) {
+            //已关注
+            cell.label2_1.text = @"已关注";
+        }else{
+            //未关注
+            cell.label2_1.text = @"未关注";
+        }
+        cell.lable3_1.text = @"特需服务费";
+        cell.lable3_2.text = [NSString stringWithFormat:@"%@",self.detailMoney];
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *cellName = @"ExpertAdvantageTableCell";
@@ -230,6 +263,24 @@
             cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        if (indexPath.row == 0) {
+            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
+            cell.titleLabel.text = @"主治";
+            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel1];
+        }else if (indexPath.row == 1){
+            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_shanchang_image"]];
+            cell.titleLabel.text = @"擅长";
+            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel2];
+        }else if (indexPath.row == 2){
+            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_yanjiufangxiang_image"]];
+            cell.titleLabel.text = @"研究方向";
+            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel3];
+        }else if (indexPath.row == 3){
+            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_jingli_image"]];
+            cell.titleLabel.text = @"经历";
+            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel4];
+            [cell.button setImage:[UIImage imageNamed:@"info_expert_xiangxia_image"] forState:UIControlStateNormal];
+        }
         return cell;
     }else if (indexPath.section == 2){
         static NSString *cellName = @"ExpertCommentTableCell";
@@ -246,6 +297,9 @@
             cell = [[ExpertProcessTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        cell.ProcessLabel.text = @"看病流程介绍图";
+        [cell.ProcessImageView setImage:[UIImage imageNamed:@"default_image_big"]];
+        
         return cell;
     }else if (indexPath.section == 4){
         static NSString *cellName = @"ExpertClinicTableCell";
@@ -271,8 +325,6 @@
     [parameter setValue:self.expertId forKey:@"doctorId"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
-        DLog(@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION);
-        DLog(@"%@",self.expertId);
         DLog(@"responseObject-->%@",responseObject);
         self.result = (NSMutableDictionary *)responseObject;
         
@@ -293,7 +345,33 @@
 }
 
 -(void)sendClinicInfoRequest{
+    DLog(@"sendClinicInfoRequest");
     
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.longtitude forKey:@"x"];
+    [parameter setValue:self.latitude forKey:@"y"];
+    [parameter setValue:@"1" forKey:@"currentPage"];
+    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:@"1" forKey:@"type"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CLINIC_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [self clinicInfoDataParse];
+        }else{
+            
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr2 = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr2-->%@",errorStr2);
+    }];
 }
 
 #pragma mark Data Parse
@@ -302,8 +380,9 @@
     [self.playView setUrlString:self.videoUrl];
     
     self.detailLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"doctor_name"];
+    self.detailLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"title_name"];
     self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
-    self.detailNumber = [[[self.data objectForKey:@"docotrDetail"] objectForKey:@"atteation"] integerValue];
+    self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
     self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
     
     self.advantageLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"mainly"];
@@ -313,6 +392,7 @@
     
     self.commentArray = [CommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
     for (CommentData *commentData in self.commentArray) {
+        [self.commentExpertIdArray addObject:commentData.doctor_id];
         [self.commentPatientArray addObject:commentData.user_name];
         [self.commentExpertArray addObject:commentData.doctor_name];
         [self.commentPraiseArray addObject:commentData.flag_name];
@@ -322,7 +402,14 @@
 }
 
 -(void)clinicInfoDataParse{
-    
+    self.clinicArray = [ClinicData mj_objectArrayWithKeyValuesArray:self.data2];
+    for (ClinicData *clinicData in self.clinicArray) {
+        [self.clinicNameArray addObject:clinicData.outpat_name];
+        [self.clinicStarArray addObject:clinicData.commenResult];
+        [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%f",clinicData.juli]];
+        [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%f",clinicData.money]];
+    }
+    [self.tableView reloadData];
 }
 
 @end

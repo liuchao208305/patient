@@ -9,6 +9,9 @@
 #ifndef CommonMacro_h
 #define CommonMacro_h
 
+#define kJZK_longitude @"JZK_longitude"
+#define kJZK_latitude @"kJZK_latitude"
+
 #define kJZK_isLoginOnce @"JZK_isLoginOnce" //是否第一次登录
 #define kJZK_isLoginSuccess @"JZK_isLoginSuccess"//是否登录成功
 #define kJZK_isLoginFailure @"JZK_isLoginFailure"//是否登录失败

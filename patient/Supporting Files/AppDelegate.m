@@ -97,7 +97,12 @@
     DLog(@"定位成功！");
     CLLocation *currentLocation = [locations lastObject];
     CLLocationCoordinate2D coor = currentLocation.coordinate;
-    DLog(@"%@",[NSString stringWithFormat:@"经度-->%3.5f\n纬度-->%3.5f",coor.latitude,coor.longitude]);
+    DLog(@"%@",[NSString stringWithFormat:@"经度-->%3.5f\n纬度-->%3.5f",coor.longitude,coor.latitude]);
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:coor.latitude forKey:kJZK_longitude];
+    [[NSUserDefaults standardUserDefaults] setFloat:coor.longitude forKey:kJZK_latitude];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks,NSError *error){
         for (CLPlacemark *placemark in placemarks) {
