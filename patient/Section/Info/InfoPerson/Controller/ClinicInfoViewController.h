@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
-@interface ClinicInfoViewController : BaseViewController
+@interface ClinicInfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong,nonatomic)NSString *clinicName;
+
+@property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIView *footView;
 
 @end

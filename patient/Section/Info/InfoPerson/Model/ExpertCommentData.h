@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CommentData : NSObject
+@interface ExpertCommentData : NSObject
 
 @property (strong,nonatomic)NSString *doctor_name;
 @property (strong,nonatomic)NSString *user_name;

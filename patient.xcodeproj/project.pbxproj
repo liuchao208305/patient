@@ -149,7 +149,7 @@
 		70C03E121CA3B23200DBA175 /* default_image_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E101CA3B23200DBA175 /* default_image_small.png */; };
 		70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E131CA3C3B100DBA175 /* full_pause_btn@2x.png */; };
 		70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E161CA3D0FE00DBA175 /* NullUtil.m */; };
-		70C03E1D1CA44FD800DBA175 /* CommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E1C1CA44FD800DBA175 /* CommentData.m */; };
+		70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */; };
 		70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */; };
 		70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */; };
 		70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */; };
@@ -157,7 +157,13 @@
 		70FEAD9B1CA51F76006A044A /* info_expert_xiangxia_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD951CA51F76006A044A /* info_expert_xiangxia_image.png */; };
 		70FEAD9C1CA51F76006A044A /* info_expert_yanjiufangxiang_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD961CA51F76006A044A /* info_expert_yanjiufangxiang_image.png */; };
 		70FEAD9D1CA51F76006A044A /* info_expert_zhuzhi_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD971CA51F76006A044A /* info_expert_zhuzhi_image.png */; };
-		70FEADA01CA53E55006A044A /* ClinicData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEAD9F1CA53E55006A044A /* ClinicData.m */; };
+		70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEAD9F1CA53E55006A044A /* ExpertClinicData.m */; };
+		70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADE11CA8CFDB006A044A /* ClinicDetailTableCell.m */; };
+		70FEADE51CA8D03F006A044A /* ClinicExpertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADE41CA8D03F006A044A /* ClinicExpertTableCell.m */; };
+		70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADE71CA8D069006A044A /* ClinicDoctorTableCell.m */; };
+		70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */; };
+		70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */; };
+		70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF01CA90C23006A044A /* ClinicDoctorView.m */; };
 		D3124DFAA46975EB9B4563C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22389C9580CCA6DA815ABF9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -406,8 +412,8 @@
 		70C03E131CA3C3B100DBA175 /* full_pause_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_pause_btn@2x.png"; sourceTree = "<group>"; };
 		70C03E151CA3D0FE00DBA175 /* NullUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullUtil.h; sourceTree = "<group>"; };
 		70C03E161CA3D0FE00DBA175 /* NullUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullUtil.m; sourceTree = "<group>"; };
-		70C03E1B1CA44FD800DBA175 /* CommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentData.h; sourceTree = "<group>"; };
-		70C03E1C1CA44FD800DBA175 /* CommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentData.m; sourceTree = "<group>"; };
+		70C03E1B1CA44FD800DBA175 /* ExpertCommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertCommentData.h; sourceTree = "<group>"; };
+		70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertCommentData.m; sourceTree = "<group>"; };
 		70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_media_default@2x.jpg"; sourceTree = "<group>"; };
 		70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_guanzhu_selected.png; sourceTree = "<group>"; };
 		70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_jingli_image.png; sourceTree = "<group>"; };
@@ -415,8 +421,20 @@
 		70FEAD951CA51F76006A044A /* info_expert_xiangxia_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_xiangxia_image.png; sourceTree = "<group>"; };
 		70FEAD961CA51F76006A044A /* info_expert_yanjiufangxiang_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_yanjiufangxiang_image.png; sourceTree = "<group>"; };
 		70FEAD971CA51F76006A044A /* info_expert_zhuzhi_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_zhuzhi_image.png; sourceTree = "<group>"; };
-		70FEAD9E1CA53E55006A044A /* ClinicData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicData.h; sourceTree = "<group>"; };
-		70FEAD9F1CA53E55006A044A /* ClinicData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicData.m; sourceTree = "<group>"; };
+		70FEAD9E1CA53E55006A044A /* ExpertClinicData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertClinicData.h; sourceTree = "<group>"; };
+		70FEAD9F1CA53E55006A044A /* ExpertClinicData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertClinicData.m; sourceTree = "<group>"; };
+		70FEADE01CA8CFDB006A044A /* ClinicDetailTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicDetailTableCell.h; sourceTree = "<group>"; };
+		70FEADE11CA8CFDB006A044A /* ClinicDetailTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicDetailTableCell.m; sourceTree = "<group>"; };
+		70FEADE31CA8D03F006A044A /* ClinicExpertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicExpertTableCell.h; sourceTree = "<group>"; };
+		70FEADE41CA8D03F006A044A /* ClinicExpertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicExpertTableCell.m; sourceTree = "<group>"; };
+		70FEADE61CA8D069006A044A /* ClinicDoctorTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicDoctorTableCell.h; sourceTree = "<group>"; };
+		70FEADE71CA8D069006A044A /* ClinicDoctorTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicDoctorTableCell.m; sourceTree = "<group>"; };
+		70FEADE91CA8D0AC006A044A /* ClinicScheduleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicScheduleTableCell.h; sourceTree = "<group>"; };
+		70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicScheduleTableCell.m; sourceTree = "<group>"; };
+		70FEADEC1CA8E26A006A044A /* ClinicHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicHeaderView.h; sourceTree = "<group>"; };
+		70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicHeaderView.m; sourceTree = "<group>"; };
+		70FEADEF1CA90C23006A044A /* ClinicDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicDoctorView.h; sourceTree = "<group>"; };
+		70FEADF01CA90C23006A044A /* ClinicDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicDoctorView.m; sourceTree = "<group>"; };
 		9F46B65898D5DC530D828292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B22389C9580CCA6DA815ABF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -944,10 +962,10 @@
 				7046ADC91CA10F8C00BB6818 /* ClinicInfoViewController.m */,
 				7046ADCE1CA10FD700BB6818 /* TreatmentInfoViewController.h */,
 				7046ADCF1CA10FD700BB6818 /* TreatmentInfoViewController.m */,
-				7046ADD11CA10FEB00BB6818 /* TreatmentDetailViewController.h */,
-				7046ADD21CA10FEB00BB6818 /* TreatmentDetailViewController.m */,
 				7046ADD41CA1100600BB6818 /* ReservationListViewController.h */,
 				7046ADD51CA1100600BB6818 /* ReservationListViewController.m */,
+				7046ADD11CA10FEB00BB6818 /* TreatmentDetailViewController.h */,
+				7046ADD21CA10FEB00BB6818 /* TreatmentDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -955,10 +973,10 @@
 		7046AD9F1C9FD32700BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				70C03E1B1CA44FD800DBA175 /* CommentData.h */,
-				70C03E1C1CA44FD800DBA175 /* CommentData.m */,
-				70FEAD9E1CA53E55006A044A /* ClinicData.h */,
-				70FEAD9F1CA53E55006A044A /* ClinicData.m */,
+				70C03E1B1CA44FD800DBA175 /* ExpertCommentData.h */,
+				70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */,
+				70FEAD9E1CA53E55006A044A /* ExpertClinicData.h */,
+				70FEAD9F1CA53E55006A044A /* ExpertClinicData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -980,6 +998,18 @@
 				7046AE521CA14BC300BB6818 /* ExpertHeadView.m */,
 				70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */,
 				70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */,
+				70FEADE01CA8CFDB006A044A /* ClinicDetailTableCell.h */,
+				70FEADE11CA8CFDB006A044A /* ClinicDetailTableCell.m */,
+				70FEADE31CA8D03F006A044A /* ClinicExpertTableCell.h */,
+				70FEADE41CA8D03F006A044A /* ClinicExpertTableCell.m */,
+				70FEADE61CA8D069006A044A /* ClinicDoctorTableCell.h */,
+				70FEADE71CA8D069006A044A /* ClinicDoctorTableCell.m */,
+				70FEADEF1CA90C23006A044A /* ClinicDoctorView.h */,
+				70FEADF01CA90C23006A044A /* ClinicDoctorView.m */,
+				70FEADE91CA8D0AC006A044A /* ClinicScheduleTableCell.h */,
+				70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */,
+				70FEADEC1CA8E26A006A044A /* ClinicHeaderView.h */,
+				70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1295,8 +1325,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
+				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
+				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
 				7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */,
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
+				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
@@ -1320,13 +1354,15 @@
 				707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */,
 				70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
+				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
 				70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */,
+				70FEADE51CA8D03F006A044A /* ClinicExpertTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
-				70C03E1D1CA44FD800DBA175 /* CommentData.m in Sources */,
+				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
@@ -1360,7 +1396,7 @@
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
-				70FEADA01CA53E55006A044A /* ClinicData.m in Sources */,
+				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,

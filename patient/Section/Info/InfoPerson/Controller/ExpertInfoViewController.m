@@ -15,9 +15,10 @@
 #import "FMGVideoPlayView.h"
 #import "FullViewController.h"
 #import "NetworkUtil.h"
-#import "CommentData.h"
+#import "ExpertCommentData.h"
 #import "NullUtil.h"
-#import "ClinicData.h"
+#import "ExpertClinicData.h"
+#import "ClinicInfoViewController.h"
 
 @interface ExpertInfoViewController ()
 
@@ -314,7 +315,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.section == 4) {
+        self.hidesBottomBarWhenPushed = YES;
+        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
+        [self.navigationController pushViewController:clincInfoVC animated:YES];
+    }
 }
 
 #pragma mark Network Request
@@ -390,8 +395,8 @@
     self.advantageLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"research"];
     self.advantageLabel4 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"exper"];
     
-    self.commentArray = [CommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
-    for (CommentData *commentData in self.commentArray) {
+    self.commentArray = [ExpertCommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
+    for (ExpertCommentData *commentData in self.commentArray) {
         [self.commentExpertIdArray addObject:commentData.doctor_id];
         [self.commentPatientArray addObject:commentData.user_name];
         [self.commentExpertArray addObject:commentData.doctor_name];
@@ -402,8 +407,8 @@
 }
 
 -(void)clinicInfoDataParse{
-    self.clinicArray = [ClinicData mj_objectArrayWithKeyValuesArray:self.data2];
-    for (ClinicData *clinicData in self.clinicArray) {
+    self.clinicArray = [ExpertClinicData mj_objectArrayWithKeyValuesArray:self.data2];
+    for (ExpertClinicData *clinicData in self.clinicArray) {
         [self.clinicNameArray addObject:clinicData.outpat_name];
         [self.clinicStarArray addObject:clinicData.commenResult];
         [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%f",clinicData.juli]];

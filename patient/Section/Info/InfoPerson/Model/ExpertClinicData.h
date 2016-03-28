@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ClinicData : NSObject
+@interface ExpertClinicData : NSObject
 
 @property (strong,nonatomic)NSString *outpat_id;
 @property (strong,nonatomic)NSString *commenResult;
