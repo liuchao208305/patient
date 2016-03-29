@@ -164,6 +164,8 @@
 		70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */; };
 		70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */; };
 		70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF01CA90C23006A044A /* ClinicDoctorView.m */; };
+		70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */; };
+		70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */; };
 		D3124DFAA46975EB9B4563C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22389C9580CCA6DA815ABF9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -435,6 +437,10 @@
 		70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicHeaderView.m; sourceTree = "<group>"; };
 		70FEADEF1CA90C23006A044A /* ClinicDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicDoctorView.h; sourceTree = "<group>"; };
 		70FEADF01CA90C23006A044A /* ClinicDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicDoctorView.m; sourceTree = "<group>"; };
+		70FEADF21CAA2447006A044A /* MedicineReceivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineReceivingViewController.h; sourceTree = "<group>"; };
+		70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineReceivingViewController.m; sourceTree = "<group>"; };
+		70FEADF51CAA2768006A044A /* TreatmentFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreatmentFinishViewController.h; sourceTree = "<group>"; };
+		70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreatmentFinishViewController.m; sourceTree = "<group>"; };
 		9F46B65898D5DC530D828292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B22389C9580CCA6DA815ABF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -966,6 +972,10 @@
 				7046ADD51CA1100600BB6818 /* ReservationListViewController.m */,
 				7046ADD11CA10FEB00BB6818 /* TreatmentDetailViewController.h */,
 				7046ADD21CA10FEB00BB6818 /* TreatmentDetailViewController.m */,
+				70FEADF51CAA2768006A044A /* TreatmentFinishViewController.h */,
+				70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */,
+				70FEADF21CAA2447006A044A /* MedicineReceivingViewController.h */,
+				70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1337,7 +1347,9 @@
 				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */,
+				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
+				70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
