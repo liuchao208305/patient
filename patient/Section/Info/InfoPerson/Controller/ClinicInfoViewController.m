@@ -13,11 +13,24 @@
 #import "ClinicScheduleTableCell.h"
 #import "ClinicHeaderView.h"
 #import "TreatmentInfoViewController.h"
+#import "NetworkUtil.h"
 
 @interface ClinicInfoViewController ()
 
 @property (strong,nonatomic)UIImageView *clinicImage;
 @property (strong,nonatomic)ClinicHeaderView *clinicHeadView;
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableArray *data2;
+@property (assign,nonatomic)NSError *error2;
 
 @end
 
@@ -31,6 +44,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
+    [self sendClinicDoctorRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -65,7 +79,12 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = self.clinicName;
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
 }
 
 -(void)initTabBar{
@@ -259,7 +278,35 @@
 }
 
 #pragma mark Network Request
+-(void)sendClinicDoctorRequest{
+    DLog(@"sendExpertInfoRequest");
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.clinicId forKey:@"outpatId"];
+    [parameter setValue:self.expertId forKey:@"doctorId"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_DOCTOR_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [self clinicDoctorDataParse];
+        }else{
+            
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+    }];
+}
 
 #pragma mark Data Parse
-
+-(void)clinicDoctorDataParse{
+    
+}
 @end

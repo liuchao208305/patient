@@ -11,9 +11,10 @@
 @interface ExpertClinicData : NSObject
 
 @property (strong,nonatomic)NSString *outpat_id;
-@property (strong,nonatomic)NSString *commenResult;
 @property (strong,nonatomic)NSString *outpat_name;
-@property (assign,nonatomic)double money;
-@property (assign,nonatomic)double juli;
+@property (strong,nonatomic)NSString *address;
+@property (strong,nonatomic)NSString *commenResult;
+@property (assign,nonatomic)float money;
+@property (assign,nonatomic)float juli;
 
 @end

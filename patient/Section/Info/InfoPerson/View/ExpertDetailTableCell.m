@@ -58,43 +58,45 @@
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView1).offset(12);
         make.top.equalTo(self.backView1).offset(16);
-        make.width.mas_equalTo(54);
+        make.width.mas_equalTo(90);
         make.height.mas_equalTo(18);
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_1).offset(54+13);
+        make.leading.equalTo(self.label1_1).offset(90+13);
         make.centerY.equalTo(self.label1_1).offset(0);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(150);
         make.height.mas_equalTo(13);
     }];
     
     [self.label1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView1).offset(12);
         make.bottom.equalTo(self.backView1).offset(-16);
-        make.width.mas_equalTo(115);
+        make.width.mas_equalTo(300);
         make.height.mas_equalTo(20);
     }];
 }
 
 -(void)initBackView2{
     self.button = [[UIButton alloc] init];
+    [self.button setImage:[UIImage imageNamed:@"default_image_small"] forState:UIControlStateNormal];
     [self.backView2 addSubview:self.button];
     
     self.label2_1 = [[UILabel alloc] init];
     [self.backView2 addSubview:self.label2_1];
     
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView2).offset(0);
+//        make.centerX.equalTo(self.backView2).offset(0);
+        make.leading.equalTo(self.backView2).offset(28);
         make.top.equalTo(self.backView2).offset(10);
         make.width.mas_equalTo(32);
         make.height.mas_equalTo(32);
     }];
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.backView2).offset(0);
+        make.centerX.equalTo(self.button).offset(32/2);
         make.top.equalTo(self.button).offset(32+5);
-        make.width.mas_equalTo(32);
+        make.width.mas_equalTo(80);
         make.bottom.equalTo(self.backView2).offset(-10);
     }];
 }
@@ -106,19 +108,21 @@
     self.lable3_2 = [[UILabel alloc] init];
     [self.backView3 addSubview:self.lable3_2];
     
-    [self.lable3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.backView3).offset(-10);
+    [self.lable3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.backView3).offset(0);
         make.centerY.equalTo(self.backView3).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(20);
+    }];
+    
+    [self.lable3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.lable3_1).offset(100+10);
+        make.centerY.equalTo(self.lable3_1).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(15);
     }];
     
-    [self.lable3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.lable3_2).offset(-50-10);
-        make.centerY.equalTo(self.backView3).offset(0);
-        make.width.mas_equalTo(80);
-        make.height.mas_equalTo(20);
-    }];
+    
 }
 
 @end

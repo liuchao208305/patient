@@ -10,8 +10,12 @@
 
 @interface ExpertHeadView : UIView
 
-@property (strong,nonatomic)UIButton *buttonLeft;
-@property (strong,nonatomic)UIView *lineView;
-@property (strong,nonatomic)UIButton *buttonRight;
+//@property (strong,nonatomic)UIButton *buttonLeft;
+//@property (strong,nonatomic)UIView *lineView;
+//@property (strong,nonatomic)UIButton *buttonRight;
+
+@property (strong,nonatomic)UIView *fiterView;
+@property (strong,nonatomic)UILabel *fiterLabel;
+@property (strong,nonatomic)UIImageView *fiterImage;
 
 @end

@@ -44,5 +44,6 @@ typedef enum {
 #define kJZK_INFO_INFORMATION @"user/index?"//首页信息
 #define kJZK_EXPERT_INFORMATION @"userDotor/detail?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"userDotor/fujin?" //诊所信息
+#define kJZK_DOCTOR_INFORMATION @"user/selOutpat?"//医生信息
 
 #endif /* APIStringMacro_h */

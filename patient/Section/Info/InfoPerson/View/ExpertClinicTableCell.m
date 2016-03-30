@@ -84,14 +84,14 @@
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(10);
         make.top.equalTo(self.mainView).offset(10);
-        make.width.mas_equalTo(125);
+        make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(15);
     }];
     
     [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(10);
         make.top.equalTo(self.label1).offset(15+10);
-        make.width.mas_equalTo(175);
+        make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(15);
     }];
     
@@ -133,19 +133,19 @@
     [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.mainView).offset(-10);
         make.centerY.equalTo(self.starImageView5).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
     
     [self.label4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(10);
         make.centerY.equalTo(self.starImageView1).offset(28);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
     
     [self.label5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label4).offset(80+10);
+        make.leading.equalTo(self.label4).offset(100+10);
         make.centerY.equalTo(self.label4).offset(0);
         make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);

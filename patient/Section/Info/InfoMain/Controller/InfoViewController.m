@@ -163,7 +163,7 @@
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
     
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 20)];
-    self.timeLabel.text = @"现在是午时  此时宜静养，静卧或小睡一会吧！";
+//    self.timeLabel.text = @"现在是午时  此时宜静养，静卧或小睡一会吧！";
     self.timeLabel.textColor = [UIColor blackColor];
     self.timeLabel.font = [UIFont systemFontOfSize:13];
     self.navigationItem.titleView = self.timeLabel;
@@ -388,6 +388,7 @@
     self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId1;
+    expertVC.expertName = self.label1_1;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 
@@ -395,6 +396,7 @@
     self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId2;
+    expertVC.expertName = self.label2_1;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 
@@ -402,6 +404,7 @@
     self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId3;
+    expertVC.expertName = self.label3_1;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 
@@ -471,7 +474,10 @@
     self.keshiLabel4 = self.diseaseLabelArray[3];
     self.keshiImage4 = self.diseaseImageArray[3];
     
+    self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"id"];
+    self.healthName = [[self.data objectForKey:@"cooks"][0] objectForKey:@"NAME"];
     self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
+    self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"type"];
     
     self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
     self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];
@@ -483,26 +489,28 @@
         [self.personIdArray addObject:personData.doctorId];
         [self.personImageArray addObject:personData.heandUrl];
         [self.personLable1Array addObject:personData.doctorName];
-//        [self.personLable2Array addObject:personData.diseaseName];
     }
 
     self.personId1 = self.personIdArray[0];
     self.image1 = self.personImageArray[0];
     self.label1_1 = self.personLable1Array[0];
-    self.label1_2 = [[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"];
-//    self.label1_2 = self.personLable2Array[0];
+    if (![[[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+        self.label1_2 = [[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"];
+    }
     
     self.personId2 = self.personIdArray[1];
     self.image2 = self.personImageArray[1];
     self.label2_1 = self.personLable1Array[1];
-    self.label2_2 = [[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"];
-//    self.label2_2 = self.personLable2Array[1];
+    if (![[[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+        self.label2_2 = [[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"];
+    }
     
-//    self.personId3 = self.personIdArray[2];
-//    self.image3 = self.personImageArray[2];
-//    self.label3_1 = self.personLable1Array[2];
-//    self.label3_2 = [[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"];
-//    self.label3_2 = self.personLable2Array[2];
+    self.personId3 = self.personIdArray[2];
+    self.image3 = self.personImageArray[2];
+    self.label3_1 = self.personLable1Array[2];
+    if (![[[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+        self.label3_2 = [[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"];
+    }
     
     [self.tableView reloadData];
 }

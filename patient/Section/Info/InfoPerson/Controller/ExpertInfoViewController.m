@@ -48,18 +48,15 @@
 @property (strong,nonatomic)NSString *advantageLabel3;
 @property (strong,nonatomic)NSString *advantageLabel4;
 
+@property (assign,nonatomic)NSInteger currentPage;
+@property (assign,nonatomic)NSInteger pageSize;
+@property (strong,nonatomic)NSString *shaixuanType;
+
 @end
 
 @implementation ExpertInfoViewController
 
 #pragma mark Life Circle
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
-    self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
-}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -76,8 +73,23 @@
     [self initRecognizer];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
+    self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -94,6 +106,7 @@
     self.commentPraiseArray = [NSMutableArray array];
     
     self.clinicArray = [NSMutableArray array];
+    self.clinicIdArray = [NSMutableArray array];
     self.clinicNameArray = [NSMutableArray array];
     self.clinicAddressArray = [NSMutableArray array];
     self.clinicStarArray = [NSMutableArray array];
@@ -104,7 +117,12 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-//    self.navigationController.navigationBar.hidden =YES;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = self.expertName;
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
 }
 
 -(void)initTabBar{
@@ -140,6 +158,11 @@
     
     self.tableView.tableHeaderView = self.headView;
     self.tableView.tableFooterView = self.footView;
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self sendClinicInfoRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -164,7 +187,7 @@
     }else if (section == 3){
         return 1;
     }else if (section == 4){
-        return 2;
+        return self.clinicArray.count;
     }
     return 0;
 }
@@ -217,9 +240,7 @@
     if (section == 4) {
         
     }else{
-        self.expertHeadView.buttonLeft.hidden = YES;
-        self.expertHeadView.lineView.hidden = YES;
-        self.expertHeadView.buttonRight.hidden = YES;
+        self.expertHeadView.fiterView.hidden = YES;
     }
     return self.expertHeadView;
 }
@@ -248,13 +269,15 @@
         cell.label1_3.text = [NullUtil judgeStringNull:self.detailLabel3];
         if (self.detailNumber == 1) {
             //已关注
+            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
             cell.label2_1.text = @"已关注";
         }else{
             //未关注
+            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
             cell.label2_1.text = @"未关注";
         }
         cell.lable3_1.text = @"特需服务费";
-        cell.lable3_2.text = [NSString stringWithFormat:@"%@",self.detailMoney];
+        cell.lable3_2.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -309,6 +332,86 @@
             cell = [[ExpertClinicTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        for (int i = 0; i<self.clinicArray.count; i++) {
+            cell.label1.text = self.clinicNameArray[indexPath.row];
+            
+            if (![[self.data2[indexPath.row] objectForKey:@"address"] isEqualToString:@""]) {
+                cell.label2.text = [self.data2[indexPath.row] objectForKey:@"address"];
+            }
+            
+            if ([self.clinicStarArray[indexPath.row] integerValue] == 0) {
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>0 && [self.clinicStarArray[indexPath.row] integerValue]<11){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>10 && [self.clinicStarArray[indexPath.row] integerValue]<21){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>20 && [self.clinicStarArray[indexPath.row] integerValue]<31){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>30 && [self.clinicStarArray[indexPath.row] integerValue]<41){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>40 && [self.clinicStarArray[indexPath.row] integerValue]<51){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>50 && [self.clinicStarArray[indexPath.row] integerValue]<61){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>60 && [self.clinicStarArray[indexPath.row] integerValue]<71){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>70 && [self.clinicStarArray[indexPath.row] integerValue]<81){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>80 && [self.clinicStarArray[indexPath.row] integerValue]<91){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+            }else if ([self.clinicStarArray[indexPath.row] integerValue]>90 && [self.clinicStarArray[indexPath.row] integerValue]<101){
+                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+            }
+            
+            cell.label3.text = [NSString stringWithFormat:@"距离%@km",self.clinicDistanceArray[indexPath.row]];
+            cell.label4.text = @"特需服务费";
+            cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
+        }
+        
         return cell;
     }
     return nil;
@@ -318,6 +421,9 @@
     if (indexPath.section == 4) {
         self.hidesBottomBarWhenPushed = YES;
         ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
+        clincInfoVC.expertId = self.expertId;
+        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+        clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
         [self.navigationController pushViewController:clincInfoVC animated:YES];
     }
 }
@@ -352,11 +458,13 @@
 -(void)sendClinicInfoRequest{
     DLog(@"sendClinicInfoRequest");
     
+    self.pageSize += 10;
+    
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.longtitude forKey:@"x"];
     [parameter setValue:self.latitude forKey:@"y"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
     [parameter setValue:@"1" forKey:@"type"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CLINIC_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
@@ -409,12 +517,16 @@
 -(void)clinicInfoDataParse{
     self.clinicArray = [ExpertClinicData mj_objectArrayWithKeyValuesArray:self.data2];
     for (ExpertClinicData *clinicData in self.clinicArray) {
+        [self.clinicIdArray addObject:clinicData.outpat_id];
         [self.clinicNameArray addObject:clinicData.outpat_name];
         [self.clinicStarArray addObject:clinicData.commenResult];
-        [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%f",clinicData.juli]];
-        [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%f",clinicData.money]];
+        [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%.1f",clinicData.juli]];
+        [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%.2f",clinicData.money]];
     }
+    
     [self.tableView reloadData];
+    
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

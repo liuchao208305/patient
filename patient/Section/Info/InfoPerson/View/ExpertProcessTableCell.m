@@ -28,7 +28,7 @@
     
     [self.ProcessLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(10);
-        make.centerX.equalTo(self.contentView).offset(80);
+        make.centerX.equalTo(self.ProcessImageView).offset(0);
         make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
@@ -36,8 +36,8 @@
     [self.ProcessImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.ProcessLabel).offset(15+10);
         make.centerX.equalTo(self.contentView).offset(0);
-        make.width.mas_equalTo(320);
-        make.height.mas_equalTo(200-15-10);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(200-15-10-10);
     } ];
 }
 

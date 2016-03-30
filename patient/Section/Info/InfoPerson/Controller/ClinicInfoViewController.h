@@ -10,6 +10,8 @@
 
 @interface ClinicInfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong,nonatomic)NSString *expertId;
+@property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *clinicName;
 
 @property (strong,nonatomic)UITableView *tableView;

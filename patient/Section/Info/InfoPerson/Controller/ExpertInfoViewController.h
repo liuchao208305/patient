@@ -13,6 +13,7 @@
 @interface ExpertInfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSString *expertId;
+@property (strong,nonatomic)NSString *expertName;
 
 @property (strong,nonatomic)NSString *longtitude;
 @property (strong,nonatomic)NSString *latitude;
@@ -32,6 +33,7 @@
 @property (strong,nonatomic)NSMutableArray *commentPraiseArray;
 
 @property (strong,nonatomic)NSMutableArray *clinicArray;
+@property (strong,nonatomic)NSMutableArray *clinicIdArray;
 @property (strong,nonatomic)NSMutableArray *clinicNameArray;
 @property (strong,nonatomic)NSMutableArray *clinicAddressArray;
 @property (strong,nonatomic)NSMutableArray *clinicStarArray;
