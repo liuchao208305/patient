@@ -35,33 +35,38 @@
     return isLoginOut;
 }
 
++(BOOL)judgeIsLoginQuit{
+    BOOL isLoginQuit = [[NSUserDefaults standardUserDefaults] boolForKey:kJZK_isLoginQuit];
+    return isLoginQuit;
+}
+
 +(void)changeIsLoginOnce:(BOOL)isLoginOnce{
-    isLoginOnce = !isLoginOnce;
     [[NSUserDefaults standardUserDefaults] setBool:isLoginOnce forKey:kJZK_isLoginOnce];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)changeIsLoginSuccess:(BOOL)isLoginSuccess{
-    isLoginSuccess = !isLoginSuccess;
     [[NSUserDefaults standardUserDefaults] setBool:isLoginSuccess forKey:kJZK_isLoginSuccess];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)changeIsLoginFailure:(BOOL)isLoginFailure{
-    isLoginFailure = !isLoginFailure;
     [[NSUserDefaults standardUserDefaults] setBool:isLoginFailure forKey:kJZK_isLoginFailure];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)changeIsLoginInvalid:(BOOL)isLoginInvalid{
-    isLoginInvalid = !isLoginInvalid;
     [[NSUserDefaults standardUserDefaults] setBool:isLoginInvalid forKey:kJZK_isLoginInvalid];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)changeIsLoginOut:(BOOL)isLoginOut{
-    isLoginOut = !isLoginOut;
     [[NSUserDefaults standardUserDefaults] setBool:isLoginOut forKey:kJZK_isLoginOut];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void)changeIsLoginQuit:(BOOL)isLoginQuit{
+    [[NSUserDefaults standardUserDefaults] setBool:isLoginQuit forKey:kJZK_isLoginQuit];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

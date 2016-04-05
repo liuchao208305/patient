@@ -14,7 +14,7 @@
 @property (strong,nonatomic)NSString *outpat_name;
 @property (strong,nonatomic)NSString *address;
 @property (strong,nonatomic)NSString *commenResult;
-@property (assign,nonatomic)float money;
-@property (assign,nonatomic)float juli;
+@property (assign,nonatomic)double money;
+@property (assign,nonatomic)double juli;
 
 @end

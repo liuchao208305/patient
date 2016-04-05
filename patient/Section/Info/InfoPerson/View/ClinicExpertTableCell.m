@@ -57,11 +57,12 @@
     
     self.moneyLabel2 = [[UILabel alloc] init];
     self.expertLabel2.text =@"test";
-    [self.backView addSubview:self.expertLabel2];
+    [self.backView addSubview:self.moneyLabel2];
     
     [self.expertImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView).offset(12);
         make.top.equalTo(self.backView).offset(12);
+//        make.centerY.equalTo(self.backView).offset(0);
         make.width.mas_equalTo(78);
         make.height.mas_equalTo(78);
     }];
@@ -69,24 +70,18 @@
     [self.expertLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertImage).offset(78+10);
         make.top.equalTo(self.backView).offset(26);
-        make.width.mas_equalTo(50);
+//        make.top.equalTo(self.expertImage).offset(0);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
 
     [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertLabel1).offset(50+10);
+        make.leading.equalTo(self.expertLabel1).offset(100+10);
         make.centerY.equalTo(self.expertLabel1).offset(0);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(13);
     }];
-
-    [self.expertLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertLabel1).offset(0);
-        make.top.equalTo(self.expertLabel1).offset(15+22);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(13);
-    }];
-
+    
     [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.backView).offset(-10);
         make.centerY.equalTo(self.expertLabel2).offset(0);
@@ -94,13 +89,20 @@
         make.height.mas_equalTo(14);
     }];
 
-#warning self.moneyLabel2
-//    [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leading.equalTo(self.expertLabel3).offset(50+10);
-//        make.centerY.equalTo(self.expertLabel3).offset(0);
-//        make.width.mas_equalTo(50);
-//        make.height.mas_equalTo(14);
-//    }];
+    [self.expertLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertLabel1).offset(0);
+        make.top.equalTo(self.expertLabel1).offset(15+22);
+//        make.bottom.equalTo(self.expertImage).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(13);
+    }];
+    
+    [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.backView).offset(-10);
+        make.centerY.equalTo(self.expertLabel3).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(14);
+    }];
 }
 
 @end

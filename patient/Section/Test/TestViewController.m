@@ -10,6 +10,8 @@
 #import "AlertUtil.h"
 #import "LoginViewController.h"
 #import "ClinicInfoViewController.h"
+#import "DateUtil.h"
+#import "AlertUtil.h"
 
 @implementation TestViewController
 
@@ -64,10 +66,10 @@
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
 //    [self presentViewController:navController animated:YES completion:nil];
     
-//    self.hidesBottomBarWhenPushed = YES;
-//    ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
-//    [self.navigationController pushViewController:clincInfoVC animated:YES];
-//    self.hidesBottomBarWhenPushed = NO;
+    DLog(@"%@",[DateUtil getFirstDate]);
+    DLog(@"%@",[DateUtil getSecondDate]);
+    DLog(@"%@",[DateUtil getThirdDate]);
+    DLog(@"%@",[DateUtil getFourthDate]);
 }
 
 @end

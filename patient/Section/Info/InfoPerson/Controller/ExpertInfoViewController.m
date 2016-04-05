@@ -19,6 +19,8 @@
 #import "NullUtil.h"
 #import "ExpertClinicData.h"
 #import "ClinicInfoViewController.h"
+#import "LoginViewController.h"
+#import "CommonUtil.h"
 
 @interface ExpertInfoViewController ()
 
@@ -171,6 +173,13 @@
 }
 
 #pragma mark Target Action
+-(void)focusButtonClicked:(BOOL)isFocus{
+    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -276,6 +285,9 @@
             [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
             cell.label2_1.text = @"未关注";
         }
+        
+        [cell.button addTarget:self action:@selector(focusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
         cell.lable3_1.text = @"特需服务费";
         cell.lable3_2.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
         
@@ -410,6 +422,7 @@
             cell.label3.text = [NSString stringWithFormat:@"距离%@km",self.clinicDistanceArray[indexPath.row]];
             cell.label4.text = @"特需服务费";
             cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
+            [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
         }
         
         return cell;
@@ -424,6 +437,7 @@
         clincInfoVC.expertId = self.expertId;
         clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
         clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
+//        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
         [self.navigationController pushViewController:clincInfoVC animated:YES];
     }
 }
@@ -521,7 +535,7 @@
         [self.clinicNameArray addObject:clinicData.outpat_name];
         [self.clinicStarArray addObject:clinicData.commenResult];
         [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%.1f",clinicData.juli]];
-        [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%.2f",clinicData.money]];
+        [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%ld",(long)clinicData.money]];
     }
     
     [self.tableView reloadData];

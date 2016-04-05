@@ -17,6 +17,7 @@
 #define kJZK_isLoginFailure @"JZK_isLoginFailure"//是否登录失败
 #define kJZK_isLoginInvalid @"JZK_isLoginInvalid"//是否登录失效
 #define kJZK_isLoginOut @"JZK_isLoginOut"//是否退出登录
+#define kJZK_isLoginQuit @"JZK_isLoginQuit"//是否放弃登录
 
 #define kJZK_token @"JZK_token"
 

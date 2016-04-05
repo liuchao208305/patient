@@ -10,7 +10,7 @@
 
 @implementation HudUtil
 
-+(void)showSimpleTextOnlyHUD:(NSString *)strMessage withDelaySeconds:(float)fSeconds{
++(void)showSimpleTextOnlyHUD:(NSString *)strMessage withDelaySeconds:(float)delaySeconds{
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
     [[UIApplication sharedApplication].keyWindow addSubview:hud];
     hud.mode = MBProgressHUDModeText;
@@ -21,11 +21,12 @@
     }
     hud.removeFromSuperViewOnHide = YES;
     [hud show:YES];
-    if (fSeconds > 10) {
-        [hud hide:YES afterDelay:1];
-    }else{
-        [hud hide:YES afterDelay:2];
-    }
+//    if (fSeconds > 10) {
+//        [hud hide:YES afterDelay:1];
+//    }else{
+//        [hud hide:YES afterDelay:2];
+//    }
+    [hud hide:YES afterDelay:delaySeconds];
 }
 
 @end

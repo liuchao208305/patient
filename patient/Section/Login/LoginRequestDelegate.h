@@ -11,7 +11,8 @@
 
 @protocol LoginDelegate <NSObject>
 
--(void)loginSuccess:(LoginModel *)loginModel;
+//-(void)loginSuccess:(LoginModel *)loginModel;
+-(void)loginSuccess:(NSString *)token;
 -(void)loginError:(NSInteger)code errMsg:(NSString *)message;
 -(void)loginFailure:(NSError *)error;
 
@@ -21,9 +22,6 @@
 
 @property (weak,nonatomic)id<LoginDelegate> loginDelegate;
 
-//-(void)checkLoginStatus:(NSString *)account pwd:(NSString *)password;
-
-//-(void)getCaptcha:(NSString *)phone;
 -(void)quickLogin:(NSString *)phone pwd:(NSString *)code;
 -(void)normalLogin:(NSString *)user pwd:(NSString *)password;
 

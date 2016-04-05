@@ -13,8 +13,9 @@
 #import "LoginRequestDelegate.h"
 #import "EncyptionUtil.h"
 #import "CommonUtil.h"
+#import "HudUtil.h"
 
-@interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,LoginDelegate>{
+@interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
     
     UIView *whiteBackView;
@@ -405,7 +406,12 @@
 
 #pragma mark Target Action
 -(void)dismiss{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (![CommonUtil judgeIsLoginSuccess]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提醒" message:@"确定要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(void)getCaptchaButtonClicked{
@@ -478,10 +484,6 @@
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
     }];
-    
-//    LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
-//    loginRequest.loginDelegate = self;
-//    [loginRequest getCaptcha:firstTextField1.text];
 }
 
 -(void)sendLoginRequest{
@@ -515,28 +517,58 @@
     }
 }
 
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [CommonUtil changeIsLoginSuccess:NO];
+        }];
+    }
+}
+
 #pragma mark LoginDelegate
--(void)loginSuccess:(LoginModel *)loginModel{
+//-(void)loginSuccess:(LoginModel *)loginModel{
+//    DLog(@"登录成功回调！");
+//    //保存登录状态和相关信息
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kJZK_isLoginSuccess];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    
+//    
+//    if (![CommonUtil judgeIsLoginOnce]) {
+//        BOOL isLoginOnce = NO;
+//        [CommonUtil changeIsLoginOnce:isLoginOnce];
+//        //如果是第一次登录将跳转到相应页面进行资料完善
+//    }
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+-(void)loginSuccess:(NSString *)token{
     DLog(@"登录成功回调！");
-    //保存登录状态和相关信息
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kJZK_isLoginSuccess];
+    
+    [CommonUtil changeIsLoginSuccess:YES];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_isLoginSuccess];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     if (![CommonUtil judgeIsLoginOnce]) {
-        BOOL isLoginOnce = NO;
-        [CommonUtil changeIsLoginOnce:isLoginOnce];
+        [CommonUtil changeIsLoginOnce:NO];
         //如果是第一次登录将跳转到相应页面进行资料完善
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 -(void)loginError:(NSInteger)code errMsg:(NSString *)message{
     DLog(@"登录错误回调");
+    [HudUtil showSimpleTextOnlyHUD:message withDelaySeconds:kHud_DelayTime];
 }
 
 -(void)loginFailure:(NSError *)error{
     DLog(@"登录失败回调");
+    NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+    [HudUtil showSimpleTextOnlyHUD:errorStr withDelaySeconds:kHud_DelayTime];
 }
 
 /*

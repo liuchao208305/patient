@@ -58,7 +58,7 @@
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.titleImage).offset(15+6);
         make.centerY.equalTo(self.titleImage).offset(0);
-        make.width.mas_equalTo(self.contentView.width-12-15-6);
+        make.width.mas_equalTo(SCREEN_WIDTH-12-15-6);
         make.height.mas_equalTo(15);
     }];
     
@@ -70,28 +70,28 @@
     }];
     
     [self.starImage2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.starImage1).offset(15+1);
+        make.leading.equalTo(self.starImage1).offset(15+5);
         make.centerY.equalTo(self.starImage1).offset(0);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
     
     [self.starImage3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.starImage2).offset(15+1);
+        make.leading.equalTo(self.starImage2).offset(15+5);
         make.centerY.equalTo(self.starImage2).offset(0);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
     
     [self.starImage4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.starImage3).offset(15+1);
+        make.leading.equalTo(self.starImage3).offset(15+5);
         make.centerY.equalTo(self.starImage3).offset(0);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
     
     [self.starImage5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.starImage4).offset(15+1);
+        make.leading.equalTo(self.starImage4).offset(15+5);
         make.centerY.equalTo(self.starImage4).offset(0);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);

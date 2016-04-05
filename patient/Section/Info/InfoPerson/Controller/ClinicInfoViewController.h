@@ -13,9 +13,12 @@
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *clinicName;
+//@property (strong,nonatomic)NSString *couponMoney;
 
 @property (strong,nonatomic)UITableView *tableView;
 @property (strong,nonatomic)UIView *headView;
 @property (strong,nonatomic)UIView *footView;
+
+-(void)sendRequestAccordingSelection:(NSInteger)selection;
 
 @end

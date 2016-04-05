@@ -12,7 +12,4 @@
 
 @property (strong, nonatomic)NSString *token;
 
-@property (assign, nonatomic)NSInteger gender;
-@property (assign, nonatomic)NSInteger stage;
-
 @end

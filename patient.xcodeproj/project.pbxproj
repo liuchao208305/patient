@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7002D85F1CACC19F0074426A /* info_clinic_clinic_title_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D8551CACC19F0074426A /* info_clinic_clinic_title_image.png */; };
+		7002D8601CACC19F0074426A /* info_clinic_doctor_title_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D8561CACC19F0074426A /* info_clinic_doctor_title_image.png */; };
+		7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D8571CACC19F0074426A /* info_clinic_expert_title_image.png */; };
+		7002D8621CACC19F0074426A /* info_clinic_schedule_bookable_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D8581CACC19F0074426A /* info_clinic_schedule_bookable_button.png */; };
+		7002D8631CACC19F0074426A /* info_clinic_schedule_bookable_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D8591CACC19F0074426A /* info_clinic_schedule_bookable_image.png */; };
+		7002D8641CACC19F0074426A /* info_clinic_schedule_coupon_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D85A1CACC19F0074426A /* info_clinic_schedule_coupon_button.png */; };
+		7002D8651CACC19F0074426A /* info_clinic_schedule_coupon_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D85B1CACC19F0074426A /* info_clinic_schedule_coupon_image.png */; };
+		7002D8661CACC19F0074426A /* info_clinic_schedule_unbookable_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D85C1CACC19F0074426A /* info_clinic_schedule_unbookable_button.png */; };
+		7002D8671CACC19F0074426A /* info_clinic_schedule_unbookable_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D85D1CACC19F0074426A /* info_clinic_schedule_unbookable_image.png */; };
+		7002D8681CACC19F0074426A /* navbar_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D85E1CACC19F0074426A /* navbar_back_image.png */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -197,6 +207,16 @@
 
 /* Begin PBXFileReference section */
 		44E7BFAA0341B176F5A14DA8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7002D8551CACC19F0074426A /* info_clinic_clinic_title_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_clinic_title_image.png; sourceTree = "<group>"; };
+		7002D8561CACC19F0074426A /* info_clinic_doctor_title_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_doctor_title_image.png; sourceTree = "<group>"; };
+		7002D8571CACC19F0074426A /* info_clinic_expert_title_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_expert_title_image.png; sourceTree = "<group>"; };
+		7002D8581CACC19F0074426A /* info_clinic_schedule_bookable_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_bookable_button.png; sourceTree = "<group>"; };
+		7002D8591CACC19F0074426A /* info_clinic_schedule_bookable_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_bookable_image.png; sourceTree = "<group>"; };
+		7002D85A1CACC19F0074426A /* info_clinic_schedule_coupon_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_coupon_button.png; sourceTree = "<group>"; };
+		7002D85B1CACC19F0074426A /* info_clinic_schedule_coupon_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_coupon_image.png; sourceTree = "<group>"; };
+		7002D85C1CACC19F0074426A /* info_clinic_schedule_unbookable_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_unbookable_button.png; sourceTree = "<group>"; };
+		7002D85D1CACC19F0074426A /* info_clinic_schedule_unbookable_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_clinic_schedule_unbookable_image.png; sourceTree = "<group>"; };
+		7002D85E1CACC19F0074426A /* navbar_back_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_back_image.png; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -661,6 +681,16 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7002D8551CACC19F0074426A /* info_clinic_clinic_title_image.png */,
+				7002D8561CACC19F0074426A /* info_clinic_doctor_title_image.png */,
+				7002D8571CACC19F0074426A /* info_clinic_expert_title_image.png */,
+				7002D8581CACC19F0074426A /* info_clinic_schedule_bookable_button.png */,
+				7002D8591CACC19F0074426A /* info_clinic_schedule_bookable_image.png */,
+				7002D85A1CACC19F0074426A /* info_clinic_schedule_coupon_button.png */,
+				7002D85B1CACC19F0074426A /* info_clinic_schedule_coupon_image.png */,
+				7002D85C1CACC19F0074426A /* info_clinic_schedule_unbookable_button.png */,
+				7002D85D1CACC19F0074426A /* info_clinic_schedule_unbookable_image.png */,
+				7002D85E1CACC19F0074426A /* navbar_back_image.png */,
 				70FEAE041CABBC89006A044A /* info_expert_xingxing_full.png */,
 				70FEAE051CABBC89006A044A /* info_expert_xingxing_half.png */,
 				70FEAE061CABBC89006A044A /* info_expert_xingxing_zero.png */,
@@ -1226,6 +1256,7 @@
 				7046AD231C97E5D700BB6818 /* cell_studio_title_button.png in Resources */,
 				70FEAE091CABBC89006A044A /* info_expert_xingxing_zero.png in Resources */,
 				7046AD1B1C97E5D700BB6818 /* cell_health_more_button.png in Resources */,
+				7002D8671CACC19F0074426A /* info_clinic_schedule_unbookable_image.png in Resources */,
 				70FEAE011CAB80B5006A044A /* info_expert_shaixuan_jia.png in Resources */,
 				7046AD311C97E5D700BB6818 /* tabbar_search_selected.png in Resources */,
 				70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */,
@@ -1234,8 +1265,10 @@
 				70FEAE081CABBC89006A044A /* info_expert_xingxing_half.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
+				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,
 				70C03E0A1CA2926A00DBA175 /* mini_launchFullScreen_btn222@2x.png in Resources */,
 				7046AD2E1C97E5D700BB6818 /* tabbar_mine_normal.png in Resources */,
+				7002D8641CACC19F0074426A /* info_clinic_schedule_coupon_button.png in Resources */,
 				7046AC781C974C9F00BB6818 /* PersonTableCell.xib in Resources */,
 				7046AD321C97E5D700BB6818 /* tabbar_test_normal.png in Resources */,
 				7046AD171C97E5D700BB6818 /* cell_disease_nanke_button.png in Resources */,
@@ -1246,6 +1279,7 @@
 				70C03E001CA2923800DBA175 /* full_play_btn_hl222@2x.png in Resources */,
 				7046AD141C97E5D700BB6818 /* cell_disease_fuke_button.png in Resources */,
 				7046AD191C97E5D700BB6818 /* cell_disease_yinanzazheng_button.png in Resources */,
+				7002D8651CACC19F0074426A /* info_clinic_schedule_coupon_image.png in Resources */,
 				7046AD2D1C97E5D700BB6818 /* tabbar_info_selected.png in Resources */,
 				70C03E111CA3B23200DBA175 /* default_image_big.png in Resources */,
 				70C03DFC1CA2920E00DBA175 /* FMGVideoPlayView.xib in Resources */,
@@ -1253,6 +1287,7 @@
 				70FEAD9D1CA51F76006A044A /* info_expert_zhuzhi_image.png in Resources */,
 				70FEAE031CAB80B5006A044A /* info_expert_shaixuan_up.png in Resources */,
 				7046AD301C97E5D700BB6818 /* tabbar_search_normal.png in Resources */,
+				7002D8681CACC19F0074426A /* navbar_back_image.png in Resources */,
 				70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */,
 				70265C821C858AA50091C01F /* LaunchScreen.storyboard in Resources */,
 				7046AD781C9A481C00BB6818 /* login_confirm_login_selected.png in Resources */,
@@ -1265,7 +1300,9 @@
 				7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */,
 				7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */,
 				7046AD221C97E5D700BB6818 /* cell_studio_more_button.png in Resources */,
+				7002D8601CACC19F0074426A /* info_clinic_doctor_title_image.png in Resources */,
 				7046AD211C97E5D700BB6818 /* cell_studio_main_button.png in Resources */,
+				7002D85F1CACC19F0074426A /* info_clinic_clinic_title_image.png in Resources */,
 				70C03E021CA2924000DBA175 /* full_pause_btn222@2x.png in Resources */,
 				70FEAE071CABBC89006A044A /* info_expert_xingxing_full.png in Resources */,
 				7046AD1E1C97E5D700BB6818 /* cell_person_more_button.png in Resources */,
@@ -1275,6 +1312,7 @@
 				7046AD641C9998FC00BB6818 /* navbar_background_image.png in Resources */,
 				7046AD2A1C97E5D700BB6818 /* navbar_left_item.png in Resources */,
 				7046AD161C97E5D700BB6818 /* cell_disease_laotou_button.png in Resources */,
+				7002D8661CACC19F0074426A /* info_clinic_schedule_unbookable_button.png in Resources */,
 				70FEAD9A1CA51F76006A044A /* info_expert_shanchang_image.png in Resources */,
 				70FEADFF1CAB80B5006A044A /* info_expert_shaixuan_di.png in Resources */,
 				7046AC6E1C974C5100BB6818 /* HealthTableCell.xib in Resources */,
@@ -1295,8 +1333,10 @@
 				7046AD741C9A426100BB6818 /* login_third_login_qq.png in Resources */,
 				7046AD371C97E8D300BB6818 /* launchimage.jpg in Resources */,
 				7046ADB91CA0F8B400BB6818 /* info_scrollview1.png in Resources */,
+				7002D8621CACC19F0074426A /* info_clinic_schedule_bookable_button.png in Resources */,
 				7046ADBA1CA0F8B400BB6818 /* info_scrollview2.png in Resources */,
 				7046AD151C97E5D700BB6818 /* cell_disease_guomin_button.png in Resources */,
+				7002D8631CACC19F0074426A /* info_clinic_schedule_bookable_image.png in Resources */,
 				7046AD761C9A426100BB6818 /* login_third_login_weixin.png in Resources */,
 				7046AD711C9A426100BB6818 /* login_confirm_login_normal.png in Resources */,
 			);

@@ -15,11 +15,13 @@
 +(BOOL)judgeIsLoginFailure;
 +(BOOL)judgeIsLoginInvalid;
 +(BOOL)judgeIsLoginOut;
++(BOOL)judgeIsLoginQuit;
 
 +(void)changeIsLoginOnce:(BOOL) isLoginOnce;
 +(void)changeIsLoginSuccess:(BOOL) isLoginSuccess;
 +(void)changeIsLoginFailure:(BOOL) isLoginFailure;
 +(void)changeIsLoginInvalid:(BOOL) isLoginInvalid;
 +(void)changeIsLoginOut:(BOOL) isLoginOut;
++(void)changeIsLoginQuit:(BOOL) isLoginQuit;
 
 @end

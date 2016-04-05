@@ -78,8 +78,9 @@
     self.label5 = [[UILabel alloc] init];
     [self.mainView addSubview:self.label5];
     
-    self.couponImageView = [[UIImageView alloc] init];
-    [self.mainView addSubview:self.couponImageView];
+    self.couponButton = [[UIButton alloc] init];
+    self.couponButton.backgroundColor = [UIColor orangeColor];
+    [self.mainView addSubview:self.couponButton];
     
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(10);
@@ -151,10 +152,10 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.couponImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.couponButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label5).offset(45+10);
         make.centerY.equalTo(self.label5).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
 }

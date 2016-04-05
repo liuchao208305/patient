@@ -13,18 +13,8 @@
 @implementation MineViewController
 
 #pragma mark Life Circle
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
-    if ([CommonUtil judgeIsLoginSuccess] == NO) {
-        LoginViewController *loginVC = [[LoginViewController alloc] init];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [self presentViewController:navController animated:YES completion:nil];
-    }
     
     [self initNavBar];
     [self initTabBar];
@@ -32,12 +22,26 @@
     [self initRecognizer];
 }
 
--(void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
 }
 
 #pragma mark Init Section

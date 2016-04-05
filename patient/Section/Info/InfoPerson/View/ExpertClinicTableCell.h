@@ -23,6 +23,6 @@
 @property (strong,nonatomic)UILabel *label3;
 @property (strong,nonatomic)UILabel *label4;
 @property (strong,nonatomic)UILabel *label5;
-@property (strong,nonatomic)UIImageView *couponImageView;
+@property (strong,nonatomic)UIButton *couponButton;
 
 @end
