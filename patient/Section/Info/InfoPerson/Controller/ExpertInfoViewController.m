@@ -289,7 +289,7 @@
         [cell.button addTarget:self action:@selector(focusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.lable3_1.text = @"特需服务费";
-        cell.lable3_2.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
+        cell.lable3_2.text = [NullUtil judgeStringNull:[NSString stringWithFormat:@"¥ %@",self.detailMoney]];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -509,6 +509,7 @@
     self.detailLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"doctor_name"];
     self.detailLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"title_name"];
     self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
+    
     self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
     self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
     

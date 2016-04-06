@@ -31,31 +31,32 @@
 @property (strong,nonatomic)NSMutableDictionary *result2_1;
 @property (assign,nonatomic)NSInteger code2_1;
 @property (strong,nonatomic)NSString *message2_1;
-@property (strong,nonatomic)NSMutableArray *data2_1;
+@property (strong,nonatomic)NSMutableDictionary *data2_1;
 @property (assign,nonatomic)NSError *error2_1;
 
 @property (strong,nonatomic)NSMutableDictionary *result2_2;
 @property (assign,nonatomic)NSInteger code2_2;
 @property (strong,nonatomic)NSString *message2_2;
-@property (strong,nonatomic)NSMutableArray *data2_2;
+@property (strong,nonatomic)NSMutableDictionary *data2_2;
 @property (assign,nonatomic)NSError *error2_2;
 
 @property (strong,nonatomic)NSMutableDictionary *result2_3;
 @property (assign,nonatomic)NSInteger code2_3;
 @property (strong,nonatomic)NSString *message2_3;
-@property (strong,nonatomic)NSMutableArray *data2_3;
+@property (strong,nonatomic)NSMutableDictionary *data2_3;
 @property (assign,nonatomic)NSError *error2_3;
 
 @property (strong,nonatomic)NSMutableDictionary *result2_4;
 @property (assign,nonatomic)NSInteger code2_4;
 @property (strong,nonatomic)NSString *message2_4;
-@property (strong,nonatomic)NSMutableArray *data2_4;
+@property (strong,nonatomic)NSMutableDictionary *data2_4;
 @property (assign,nonatomic)NSError *error2_4;
 
 @property (strong,nonatomic)NSString *clinicImage;
 @property (strong,nonatomic)NSString *clinicAdress;
 @property (strong,nonatomic)NSString *clinicComment;
 
+@property (strong,nonatomic)NSString *expertIdTest;
 @property (strong,nonatomic)NSString *expertImage;
 @property (strong,nonatomic)NSString *expertName;
 @property (strong,nonatomic)NSString *expertTitle;
@@ -68,6 +69,18 @@
 
 @property (strong,nonatomic)NSString *appointmentUpTime;
 @property (strong,nonatomic)NSString *appointmentDownTime;
+
+@property (strong,nonatomic)NSString *forenoonBookStatus1;
+@property (strong,nonatomic)NSString *afternoonBookStatus1;
+
+@property (strong,nonatomic)NSString *forenoonBookStatus2;
+@property (strong,nonatomic)NSString *afternoonBookStatus2;
+
+@property (strong,nonatomic)NSString *forenoonBookStatus3;
+@property (strong,nonatomic)NSString *afternoonBookStatus3;
+
+@property (strong,nonatomic)NSString *forenoonBookStatus4;
+@property (strong,nonatomic)NSString *afternoonBookStatus4;
 
 @end
 
@@ -167,6 +180,9 @@
 -(void)reservationButtonClicked{
     self.hidesBottomBarWhenPushed = YES;
     TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.defaultDoctorId;
     [self.navigationController pushViewController:treatVC animated:YES];
 }
 
@@ -370,13 +386,27 @@
             cell = [[ClinicScheduleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
-//        cell.label1_1.text = @"上午";
-//        cell.label1_2.text = @"预计";
-//        cell.label1_3.text = self.appointmentUpTime;
-//        cell.label1_4.text = @"下午";
-//        cell.label1_5.text = @"预计";
-//        cell.label1_6.text = self.appointmentDownTime;
-//        
+        cell.label1_1.text = @"上午";
+        cell.label1_2.text = @"预计";
+        cell.label1_3.text = self.appointmentUpTime;
+        if ([self.forenoonBookStatus1 integerValue] == 0) {
+            [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else{
+            [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }
+        cell.label1_4.text = @"下午";
+        cell.label1_5.text = @"预计";
+        cell.label1_6.text = self.appointmentDownTime;
+        if ([self.afternoonBookStatus1 integerValue] == 0) {
+            [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else{
+            [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }
+//
 //        cell.label2_1.text = @"上午";
 //        cell.label2_2.text = @"预计";
 //        cell.label2_3.text = self.appointmentUpTime;
@@ -480,8 +510,11 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
+//    [parameter setValue:self.expertIdTest forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getFirstTime] forKey:@"date"];
     
+    DLog(@"%@",parameter);
+#warning 此处存在多次请求发生覆盖的情况
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
         self.result2_1 = (NSMutableDictionary *)responseObject;
@@ -596,6 +629,7 @@
     self.clinicComment = [[self.data objectForKey:@"outpats"] objectForKey:@"commonResult"];
     self.couponMoney = [[[self.data objectForKey:@"outpats"] objectForKey:@"money"] doubleValue];
     
+    self.expertIdTest = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"doctor_id"];
     self.expertImage = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"heandUrl"];
     self.expertName = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"doctorName"];
     self.expertTitle = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"zhicheng"];
@@ -611,10 +645,15 @@
     self.appointmentDownTime = [[self.data objectForKey:@"outpats"] objectForKey:@"down_date"];
     
     [self.tableView reloadData];
+    
+    [self sendClinicScheduleRequest1];
 }
 
 -(void)clinicScheduleDataParse1{
+    self.forenoonBookStatus1 = [self.data2_1 objectForKey:@"up"];
+    self.afternoonBookStatus1 = [self.data2_1 objectForKey:@"down"];
     
+    [self.tableView reloadData];
 }
 
 -(void)clinicScheduleDataParse2{

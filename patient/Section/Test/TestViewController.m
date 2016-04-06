@@ -62,14 +62,9 @@
 
 #pragma mark Target Action
 -(void)test{
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//    [self presentViewController:navController animated:YES completion:nil];
-    
-    DLog(@"%@",[DateUtil getFirstDate]);
-    DLog(@"%@",[DateUtil getSecondDate]);
-    DLog(@"%@",[DateUtil getThirdDate]);
-    DLog(@"%@",[DateUtil getFourthDate]);
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 @end

@@ -24,6 +24,8 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    [self reservationListDataFilling];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -53,7 +55,12 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = @"预约单确认";
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
 }
 
 -(void)initTabBar{
@@ -84,12 +91,11 @@
     [self.scrollView addSubview:self.backView3];
     
     self.onlineButton = [[UIButton alloc] init];
-    self.onlineButton.backgroundColor = kBLACK_COLOR;
     [self.onlineButton addTarget:self action:@selector(onlineButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.onlineButton];
     
     self.offlineButton = [[UIButton alloc] init];
-    self.offlineButton.backgroundColor = kBLACK_COLOR;
+    [self.offlineButton addTarget:self action:@selector(offlineButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.offlineButton];
     
     [self.onlineButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -120,11 +126,11 @@
     }];
     /*=======================================================================*/
     self.expertImage = [[UIImageView alloc] init];
-    [self.expertImage setImage:[UIImage imageNamed:@"default_image_small"]];
+//    [self.expertImage setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.imageBackView addSubview:self.expertImage];
     
     self.doctorImage = [[UIImageView alloc] init];
-    [self.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
+//    [self.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.imageBackView addSubview:self.doctorImage];
     
     [self.expertImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -168,14 +174,14 @@
     [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.imageBackView).offset(90);
         make.top.equalTo(self.backView1).offset(20);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
     
     [self.doctorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.imageBackView).offset(90);
         make.top.equalTo(self.expertLabel).offset(15+5);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
         
     }];
@@ -183,28 +189,28 @@
     [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.imageBackView).offset(90);
         make.top.equalTo(self.doctorLabel).offset(15+5);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(300);
         make.height.mas_equalTo(15);
     }];
     
     [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.backView1).offset(-25);
         make.top.equalTo(self.clinicLabel).offset(15+5);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(300);
         make.height.mas_equalTo(15);
     }];
     
     [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.expertLabel).offset(0);
         make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(50);
         make.height.mas_equalTo(15);
     }];
     
     [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.doctorLabel).offset(0);
         make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(50);
         make.height.mas_equalTo(15);
     }];
     /*=======================================================================*/
@@ -219,14 +225,25 @@
         make.height.mas_equalTo(1);
     }];
     
+    self.timeImage = [[UIImageView alloc] init];
+//    [self.timeImage setImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.backView1 addSubview:self.timeImage];
+    
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.text = @"test";
     [self.backView1 addSubview:self.timeLabel];
     
+    [self.timeImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.lineView).offset(1+10);
+        make.trailing.equalTo(self.timeLabel).offset(-200-5);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(15);
+    }];
+    
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lineView).offset(1+10);
         make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
 }
@@ -283,12 +300,12 @@
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView2).offset(12);
         make.top.equalTo(self.backView2).offset(16);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.backView2).offset(12+60+17);
+        make.leading.equalTo(self.backView2).offset(12+80+17);
         make.centerY.equalTo(self.label1_1).offset(0);
         make.width.mas_equalTo(160);
         make.height.mas_equalTo(15);
@@ -297,7 +314,7 @@
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label1_1).offset(0);
         make.top.equalTo(self.label1_1).offset(15+32);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
     
@@ -311,7 +328,7 @@
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label2_1).offset(0);
         make.top.equalTo(self.label2_1).offset(15+32);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
@@ -325,35 +342,35 @@
     [self.label4_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label3_1).offset(0);
         make.top.equalTo(self.label3_1).offset(15+32);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
     [self.label4_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label3_2).offset(0);
         make.centerY.equalTo(self.label4_1).offset(0);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
     [self.label4_3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView2).offset(12);
         make.centerY.equalTo(self.label4_2).offset(0);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
     [self.label4_4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label4_3).offset(60+17);
         make.centerY.equalTo(self.label4_3).offset(0);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
     [self.label5_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label4_1).offset(0);
         make.top.equalTo(self.label4_1).offset(15+32);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
@@ -377,14 +394,14 @@
     [self.label6_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView3).offset(12);
         make.centerY.equalTo(self.backView3).offset(0);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(20);
     }];
     
     [self.label6_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label6_1).offset(50+20);
         make.centerY.equalTo(self.label6_1).offset(0);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(20);
     }];
 }
@@ -395,13 +412,76 @@
 
 #pragma mark Target Action
 -(void)onlineButtonClicked{
-    self.hidesBottomBarWhenPushed = YES;
-    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
-    [self.navigationController pushViewController:detailVC animated:YES];
+//    self.hidesBottomBarWhenPushed = YES;
+//    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
+//    
+//    detailVC.publicDoctorImage = self.publicDoctorImage;
+//    detailVC.publicDoctorImage = self.publicDoctorImage;
+//    detailVC.publicExpertName = self.publicExpertName;
+//    detailVC.publicDoctorName = self.publicDoctorName;
+//    detailVC.publicClinicName = self.publicClinicName;
+//    detailVC.publicClinicAddress = self.publicClinicAddress;
+//    detailVC.publicFormerMoney = self.publicFormerMoney;
+//    detailVC.publicLatterMoney = self.publicLatterMoney;
+//    detailVC.publicAppiontmentTime = self.publicAppiontmentTime;
+//    
+//    detailVC.publicPatientName = self.publicPatientName;
+//    detailVC.publicPatientId = self.publicPatientId;
+//    detailVC.publicPatientMobile = self.publicPatientMobile;
+//    detailVC.publicPatientAge = self.publicPatientAge;
+//    detailVC.publicPatientSex = self.publicPatientSex;
+//    detailVC.publicPatientSymptom = self.publicPatientSymptom;
+//    
+//    detailVC.publicCouponQuantity = self.label6_2.text;
+//    
+//    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+-(void)offlineButtonClicked{
+    
 }
 
 #pragma mark Network Request
 
 #pragma mark Data Parse
+
+#pragma mark Data Filling
+-(void)reservationListDataFilling{
+    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertLabel.text = self.publicExpertName;
+    self.doctorLabel.text = self.publicDoctorName;
+    self.clinicLabel.text = self.publicClinicName;
+    self.addressLabel.text = self.publicClinicAddress;
+    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
+    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+    self.timeLabel.text = self.publicAppiontmentTime;
+    
+    self.label1_1.text = @"姓名：";
+    self.label1_2.text = self.publicPatientName;
+    self.label2_1.text = @"身份证号：";
+    self.label2_2.text = self.publicPatientId;
+    self.label3_1.text = @"手机号：";
+    self.label3_2.text = self.publicPatientMobile;
+    self.label4_1.text = @"年龄：";
+    self.label4_2.text = self.publicPatientAge;
+    self.label4_3.text = @"性别：";
+    self.label4_4.text = self.publicPatientSex;
+    self.label5_1.text = @"症状：";
+    self.label5_2.text = self.publicPatientSymptom;
+    self.label6_1.text = @"优惠券：";
+    self.label6_2.text = @"无可用优惠券";
+    
+    [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付  ¥ %.0f",self.publicLatterMoney] forState:UIControlStateNormal];
+    [self.onlineButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_normal"] forState:UIControlStateNormal];
+    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_selected"] forState:UIControlStateHighlighted];
+    
+    [self.offlineButton setTitle:@"线下支付" forState:UIControlStateNormal];
+    [self.offlineButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_normal"] forState:UIControlStateNormal];
+    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_selected"] forState:UIControlStateHighlighted];
+}
 
 @end

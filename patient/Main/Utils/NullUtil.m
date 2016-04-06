@@ -12,7 +12,7 @@
 
 +(NSString *)judgeStringNull:(NSString *)str{
     if (
-        [str isEqualToString:@"null"] ||
+//        [str isEqualToString:@"null"] ||
         [str isKindOfClass:[NSNull class]] ||
         [[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ||
         str == nil ||

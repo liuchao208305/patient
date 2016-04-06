@@ -548,7 +548,7 @@
     
     [CommonUtil changeIsLoginSuccess:YES];
     
-    [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_isLoginSuccess];
+    [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     if (![CommonUtil judgeIsLoginOnce]) {
