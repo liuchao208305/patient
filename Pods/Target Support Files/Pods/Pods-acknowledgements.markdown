@@ -169,6 +169,11 @@ THE SOFTWARE.
 Copyright 2011 - 2015 UMeng.com. All rights reserved.
 
 
+## UMengMessage
+
+Copyright 2011 - 2014 UMeng.com. All rights reserved.
+
+
 ## UMengSocial
 
 Copyright 2011 - 2016 UMeng.com. All rights reserved.

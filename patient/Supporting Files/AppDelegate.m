@@ -14,9 +14,7 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialQQHandler.h>
 #import <UMSocialSinaSSOHandler.h>
-#import <UMSocialLaiwangHandler.h>
-#import <UMSocialFacebookHandler.h>
-#import <UMSocialTwitterHandler.h>
+#import <UMessage.h>
 #import "BaseTabBarController.h"
 
 #import "GuideViewController.h"
@@ -126,72 +124,130 @@
 
 #pragma mark startPush
 -(void)startPush:(NSDictionary *)launchOptions{
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        //可以添加自定义categories
-        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
-                                                          UIUserNotificationTypeSound |
-                                                          UIUserNotificationTypeAlert)
-                                              categories:nil];
-    } else {
-        //categories 必须为nil
-        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                          UIRemoteNotificationTypeSound |
-                                                          UIRemoteNotificationTypeAlert)
-                                              categories:nil];
+    [UMessage startWithAppkey:appKeyUMPush launchOptions:launchOptions];
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
+        //register remoteNotification types （iOS 8.0及其以上版本）
+        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+        action1.identifier = @"action1_identifier";
+        action1.title=@"Accept";
+        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+        
+        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+        action2.identifier = @"action2_identifier";
+        action2.title=@"Reject";
+        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+        action2.destructive = YES;
+        
+        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+        categorys.identifier = @"category1";//这组动作的唯一标示
+        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+        
+        UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
+                                                                                     categories:[NSSet setWithObject:categorys]];
+        [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+        
+    } else{
+        //register remoteNotification types (iOS 8.0以下)
+        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
+         |UIRemoteNotificationTypeSound
+         |UIRemoteNotificationTypeAlert];
     }
-    [JPUSHService setupWithOption:launchOptions appKey:appKeyJPush
-                          channel:channelJPush apsForProduction:isProduction];
+#else
+    //register remoteNotification types (iOS 8.0以下)
+    [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
+     |UIRemoteNotificationTypeSound
+     |UIRemoteNotificationTypeAlert];
+#endif
+    
+    [UMessage setLogEnabled:YES];
 }
 
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [JPUSHService registerDeviceToken:deviceToken];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [UMessage registerDeviceToken:deviceToken];
+    
+    DLog(@"deviceToken-->%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                 stringByReplacingOccurrencesOfString: @">" withString: @""]
+                stringByReplacingOccurrencesOfString: @" " withString: @""]);
 }
 
-- (void)application:(UIApplication *)application
-didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    DLog(@"Fail To Register For Remote Notifications With Error: %@", error);
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [UMessage didReceiveRemoteNotification:userInfo];
 }
 
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [JPUSHService handleRemoteNotification:userInfo];
-    DLog(@"收到通知:%@", [self logDic:userInfo]);
-}
-
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:
-(void (^)(UIBackgroundFetchResult))completionHandler {
-    [JPUSHService handleRemoteNotification:userInfo];
-    DLog(@"收到通知:%@", [self logDic:userInfo]);
-    completionHandler(UIBackgroundFetchResultNewData);
-}
-
-- (void)application:(UIApplication *)application
-didReceiveLocalNotification:(UILocalNotification *)notification {
-    [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
-}
-
-- (NSString *)logDic:(NSDictionary *)dic {
-    if (![dic count]) {
-        return nil;
-    }
-    NSString *tempStr1 =
-    [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
-                                                 withString:@"\\U"];
-    NSString *tempStr2 =
-    [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    NSString *tempStr3 =
-    [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
-    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *str =
-    [NSPropertyListSerialization propertyListFromData:tempData
-                                     mutabilityOption:NSPropertyListImmutable
-                                               format:NULL
-                                     errorDescription:NULL];
-    return str;
-}
+/*
+ -(void)startPush:(NSDictionary *)launchOptions{
+ if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+ //可以添加自定义categories
+ [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+ UIUserNotificationTypeSound |
+ UIUserNotificationTypeAlert)
+ categories:nil];
+ } else {
+ //categories 必须为nil
+ [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+ UIRemoteNotificationTypeSound |
+ UIRemoteNotificationTypeAlert)
+ categories:nil];
+ }
+ [JPUSHService setupWithOption:launchOptions appKey:appKeyJPush
+ channel:channelJPush apsForProduction:isProduction];
+ }
+ 
+ - (void)application:(UIApplication *)application
+ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+ [JPUSHService registerDeviceToken:deviceToken];
+ }
+ 
+ - (void)application:(UIApplication *)application
+ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+ DLog(@"Fail To Register For Remote Notifications With Error: %@", error);
+ }
+ 
+ - (void)application:(UIApplication *)application
+ didReceiveRemoteNotification:(NSDictionary *)userInfo {
+ [JPUSHService handleRemoteNotification:userInfo];
+ DLog(@"收到通知:%@", [self logDic:userInfo]);
+ }
+ 
+ - (void)application:(UIApplication *)application
+ didReceiveRemoteNotification:(NSDictionary *)userInfo
+ fetchCompletionHandler:
+ (void (^)(UIBackgroundFetchResult))completionHandler {
+ [JPUSHService handleRemoteNotification:userInfo];
+ DLog(@"收到通知:%@", [self logDic:userInfo]);
+ completionHandler(UIBackgroundFetchResultNewData);
+ }
+ 
+ - (void)application:(UIApplication *)application
+ didReceiveLocalNotification:(UILocalNotification *)notification {
+ [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
+ }
+ 
+ - (NSString *)logDic:(NSDictionary *)dic {
+ if (![dic count]) {
+ return nil;
+ }
+ NSString *tempStr1 =
+ [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+ withString:@"\\U"];
+ NSString *tempStr2 =
+ [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+ NSString *tempStr3 =
+ [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+ NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+ NSString *str =
+ [NSPropertyListSerialization propertyListFromData:tempData
+ mutabilityOption:NSPropertyListImmutable
+ format:NULL
+ errorDescription:NULL];
+ return str;
+ }
+ */
 
 #pragma mark startAnalytic
 -(void)startAnalytic{
@@ -204,26 +260,15 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 -(void)startSocial{
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:appKeyUMSocial];
-    /*
-     //设置微信AppId、appSecret，分享url
-     [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
-     //设置手机QQ 的AppId，Appkey，和分享URL
-     [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
-     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
-     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3921700954"
-     secret:@"04b48b094faeb16683c32669824ebdad"
-     RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-     //设置来往AppId，appscret，显示来源名称和url地址
-     [UMSocialLaiwangHandler setLaiwangAppId:@"8112117817424282305" appSecret:@"9996ed5039e641658de7b83345fee6c9" appDescription:@"友盟社会化组件" urlStirng:@"http://www.umeng.com/social"];
-     //设置Facebook，AppID和分享url
-     //默认使用iOS自带的Facebook分享framework，在iOS 6以上有效。若要使用我们提供的facebook分享需要使用此开关：
-     [UMSocialFacebookHandler setFacebookAppID:@"1440390216179601" shareFacebookWithURL:@"http://www.umeng.com/social"];
-     //默认使用iOS自带的Twitter分享framework，在iOS 6以上有效。若要使用我们提供的twitter分享需要使用此开关：
-     [UMSocialTwitterHandler openTwitter];
-     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-     [UMSocialTwitterHandler setTwitterAppKey:@"fB5tvRpna1CKK97xZUslbxiet" withSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K"];
-     }
-     */
+    [UMSocialData openLog:YES];
+    
+    [UMSocialWechatHandler setWXAppId:@"wxb18ebc8c2ec62bfd" appSecret:@"3c1abf48531f06744717a96031e9c1dc" url:@"http://www.jiuzhekan.com/"];
+    
+    [UMSocialQQHandler setQQWithAppId:@"1105242043" appKey:@"EIVT0j4ZL1ODYed8" url:@"http://www.jiuzhekan.com/"];
+    
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3928839999"
+                                              secret:@"d3e2b58f53600d0811b1d29ae1be36ab"
+                                         RedirectURL:@"http://www.jiuzhekan.com/"];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
