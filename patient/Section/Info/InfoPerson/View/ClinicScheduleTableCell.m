@@ -38,8 +38,6 @@
     self.backView.backgroundColor = kBACKGROUND_COLOR;
     
     [self initBackView1];
-//    ClinicInfoViewController *clinicInfoVC = [[ClinicInfoViewController alloc] init];
-//    [clinicInfoVC sendRequestAccordingSelection:0];
     
     [self.contentView addSubview:self.backView];
 }
@@ -615,13 +613,13 @@
     [clinicInfoVC sendRequestAccordingSelection:selection];
     
     if (selection == 0) {
-        [self initBackView1];
+        [self initBackView1]; 
     }else if (selection == 1){
         [self initBackView2];
     }else if (selection == 2){
         [self initBackView3];
     }else if (selection == 3){
-        [self initBackView4]; 
+        [self initBackView4];
     }
 }
 

@@ -386,48 +386,91 @@
             cell = [[ClinicScheduleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
-        cell.label1_1.text = @"上午";
-        cell.label1_2.text = @"预计";
-        cell.label1_3.text = self.appointmentUpTime;
-        if ([self.forenoonBookStatus1 integerValue] == 0) {
-            [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
-            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-        }else{
-            [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
-            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        }
-        cell.label1_4.text = @"下午";
-        cell.label1_5.text = @"预计";
-        cell.label1_6.text = self.appointmentDownTime;
-        if ([self.afternoonBookStatus1 integerValue] == 0) {
-            [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
-            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-        }else{
-            [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
-            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        }
-//
-//        cell.label2_1.text = @"上午";
-//        cell.label2_2.text = @"预计";
-//        cell.label2_3.text = self.appointmentUpTime;
-//        cell.label2_4.text = @"下午";
-//        cell.label2_5.text = @"预计";
-//        cell.label2_6.text = self.appointmentDownTime;
-//        
-//        cell.label3_1.text = @"上午";
-//        cell.label3_2.text = @"预计";
-//        cell.label3_3.text = self.appointmentUpTime;
-//        cell.label3_4.text = @"下午";
-//        cell.label3_5.text = @"预计";
-//        cell.label3_6.text = self.appointmentDownTime;
-//        
-//        cell.label4_1.text = @"上午";
-//        cell.label4_2.text = @"预计";
-//        cell.label4_3.text = self.appointmentUpTime;
-//        cell.label4_4.text = @"下午";
-//        cell.label4_5.text = @"预计";
-//        cell.label4_6.text = self.appointmentDownTime;
-        
+        /*
+         cell.label1_1.text = @"上午";
+         cell.label1_2.text = @"预计";
+         cell.label1_3.text = self.appointmentUpTime;
+         if ([self.forenoonBookStatus1 integerValue] == 1) {
+         [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         cell.label1_4.text = @"下午";
+         cell.label1_5.text = @"预计";
+         cell.label1_6.text = self.appointmentDownTime;
+         if ([self.afternoonBookStatus1 integerValue] == 1) {
+         [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         
+         cell.label2_1.text = @"上午";
+         cell.label2_2.text = @"预计";
+         cell.label2_3.text = self.appointmentUpTime;
+         if ([self.forenoonBookStatus2 integerValue] == 1) {
+         [cell.button2_1 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         cell.label2_4.text = @"下午";
+         cell.label2_5.text = @"预计";
+         cell.label2_6.text = self.appointmentDownTime;
+         if ([self.afternoonBookStatus2 integerValue] == 1) {
+         [cell.button2_2 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         
+         cell.label3_1.text = @"上午";
+         cell.label3_2.text = @"预计";
+         cell.label3_3.text = self.appointmentUpTime;
+         if ([self.forenoonBookStatus3 integerValue] == 1) {
+         [cell.button3_1 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button3_1 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         cell.label3_4.text = @"下午";
+         cell.label3_5.text = @"预计";
+         cell.label3_6.text = self.appointmentDownTime;
+         if ([self.afternoonBookStatus3 integerValue] == 1) {
+         [cell.button3_2 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button3_2 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         
+         cell.label4_1.text = @"上午";
+         cell.label4_2.text = @"预计";
+         cell.label4_3.text = self.appointmentUpTime;
+         if ([self.forenoonBookStatus4 integerValue] == 1) {
+         [cell.button4_1 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button4_1 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         cell.label4_4.text = @"下午";
+         cell.label4_5.text = @"预计";
+         cell.label4_6.text = self.appointmentDownTime;
+         if ([self.afternoonBookStatus4 integerValue] == 1) {
+         [cell.button4_2 setTitle:@"预约" forState:UIControlStateNormal];
+         [cell.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+         }else{
+         [cell.button4_2 setTitle:@"已约满" forState:UIControlStateNormal];
+         [cell.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+         }
+         */
         
         [cell.button1_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         
@@ -488,16 +531,20 @@
 -(void)sendRequestAccordingSelection:(NSInteger)selection{
     switch (selection) {
         case 0:
-            [self sendClinicScheduleRequest1];
+            DLog(@"此处应该进行第一个选项卡的数据填充");
+            DLog(@"forenoonBookStatus1-->%@afternoonBookStatus1-->%@",self.forenoonBookStatus1,self.afternoonBookStatus1);
             break;
         case 1:
-            [self sendClinicScheduleRequest2];
+            DLog(@"此处应该进行第二个选项卡的数据填充");
+            DLog(@"forenoonBookStatus2-->%@afternoonBookStatus2-->%@",self.forenoonBookStatus2,self.afternoonBookStatus2);
             break;
         case 2:
-            [self sendClinicScheduleRequest3];
+            DLog(@"此处应该进行第三个选项卡的数据填充");
+            DLog(@"forenoonBookStatus3-->%@afternoonBookStatus3-->%@",self.forenoonBookStatus3,self.afternoonBookStatus3);
             break;
         case 3:
-            [self sendClinicScheduleRequest4];
+            DLog(@"此处应该进行第四个选项卡的数据填充");
+            DLog(@"forenoonBookStatus4-->%@afternoonBookStatus4-->%@",self.forenoonBookStatus4,self.afternoonBookStatus4);
             break;
         default:
             break;
@@ -510,11 +557,8 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
-//    [parameter setValue:self.expertIdTest forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getFirstTime] forKey:@"date"];
     
-    DLog(@"%@",parameter);
-#warning 此处存在多次请求发生覆盖的情况
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
         self.result2_1 = (NSMutableDictionary *)responseObject;
@@ -526,9 +570,8 @@
         if (self.code2_1 == kSUCCESS) {
             [self clinicScheduleDataParse1];
         }else{
-            
+            DLog(@"%@",self.message2_1);
         }
-        
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
@@ -554,7 +597,7 @@
         if (self.code2_2 == kSUCCESS) {
             [self clinicScheduleDataParse2];
         }else{
-            
+            DLog(@"%@",self.message2_2);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -582,7 +625,7 @@
         if (self.code2_3 == kSUCCESS) {
             [self clinicScheduleDataParse3];
         }else{
-            
+            DLog(@"%@",self.message2_3);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -610,7 +653,7 @@
         if (self.code2_4 == kSUCCESS) {
             [self clinicScheduleDataParse4];
         }else{
-            
+            DLog(@"%@",self.message2_4);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -644,28 +687,48 @@
     self.appointmentUpTime = [[self.data objectForKey:@"outpats"] objectForKey:@"up_date"];
     self.appointmentDownTime = [[self.data objectForKey:@"outpats"] objectForKey:@"down_date"];
     
-    [self.tableView reloadData];
-    
     [self sendClinicScheduleRequest1];
+    [self sendClinicScheduleRequest2];
+    [self sendClinicScheduleRequest3];
+    [self sendClinicScheduleRequest4];
+    
+    [self.tableView reloadData];
 }
 
 -(void)clinicScheduleDataParse1{
     self.forenoonBookStatus1 = [self.data2_1 objectForKey:@"up"];
     self.afternoonBookStatus1 = [self.data2_1 objectForKey:@"down"];
     
-    [self.tableView reloadData];
+    DLog(@"forenoonBookStatus1-->%@afternoonBookStatus1-->%@",self.forenoonBookStatus1,self.afternoonBookStatus1);
+    
+//    [self.tableView reloadData];
 }
 
 -(void)clinicScheduleDataParse2{
+    self.forenoonBookStatus2 = [self.data2_2 objectForKey:@"up"];
+    self.afternoonBookStatus2 = [self.data2_2 objectForKey:@"down"];
     
+    DLog(@"forenoonBookStatus2-->%@afternoonBookStatus2-->%@",self.forenoonBookStatus2,self.afternoonBookStatus2);
+    
+//    [self.tableView reloadData];
 }
 
 -(void)clinicScheduleDataParse3{
+    self.forenoonBookStatus3 = [self.data2_3 objectForKey:@"up"];
+    self.afternoonBookStatus3 = [self.data2_3 objectForKey:@"down"];
     
+    DLog(@"forenoonBookStatus3-->%@afternoonBookStatus3-->%@",self.forenoonBookStatus3,self.afternoonBookStatus3);
+    
+//    [self.tableView reloadData];
 }
 
 -(void)clinicScheduleDataParse4{
+    self.forenoonBookStatus4 = [self.data2_4 objectForKey:@"up"];
+    self.afternoonBookStatus4 = [self.data2_4 objectForKey:@"down"];
     
+    DLog(@"forenoonBookStatus4-->%@afternoonBookStatus4-->%@",self.forenoonBookStatus4,self.afternoonBookStatus4);
+    
+//    [self.tableView reloadData];
 }
 
 @end

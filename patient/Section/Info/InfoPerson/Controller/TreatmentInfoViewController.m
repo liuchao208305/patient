@@ -662,7 +662,7 @@
         if (self.code == kSUCCESS) {
             [self treatmentInfoDataParse];
         }else{
-            
+            DLog(@"%@",self.message);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

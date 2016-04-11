@@ -63,9 +63,9 @@
 
 #pragma mark Target Action
 -(void)test{
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//    [self presentViewController:navController animated:YES completion:nil];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:navController animated:YES completion:nil];
     
 //    [UMSocialSnsService presentSnsIconSheetView:self
 //                                         appKey:@"56df91e4e0f55a811e002783"

@@ -436,6 +436,7 @@
         ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
         clincInfoVC.expertId = self.expertId;
         clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+        
         clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
 //        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
         [self.navigationController pushViewController:clincInfoVC animated:YES];
