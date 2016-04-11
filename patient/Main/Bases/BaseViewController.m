@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "HudUtil.h"
 #import "AlertUtil.h"
+#import "AppDelegate.h"
 
 @interface BaseViewController ()
 
@@ -52,8 +53,6 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    
-    [self setHidesBottomBarWhenPushed:NO];
 }
 
 #pragma mark Init Section

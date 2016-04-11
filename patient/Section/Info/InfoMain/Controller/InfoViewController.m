@@ -385,26 +385,27 @@
 }
 
 -(void)person1Clicked{
-    self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId1;
     expertVC.expertName = self.label1_1;
+    
+    expertVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 
 -(void)person2Clicked{
-    self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId2;
     expertVC.expertName = self.label2_1;
+    expertVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 
 -(void)person3Clicked{
-    self.hidesBottomBarWhenPushed = YES;
     ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
     expertVC.expertId = self.personId3;
     expertVC.expertName = self.label3_1;
+    expertVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:expertVC animated:YES];
 }
 

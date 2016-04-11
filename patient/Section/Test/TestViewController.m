@@ -66,6 +66,7 @@
 //    LoginViewController *loginVC = [[LoginViewController alloc] init];
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
 //    [self presentViewController:navController animated:YES completion:nil];
+    
 //    [UMSocialSnsService presentSnsIconSheetView:self
 //                                         appKey:@"56df91e4e0f55a811e002783"
 //                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能"
