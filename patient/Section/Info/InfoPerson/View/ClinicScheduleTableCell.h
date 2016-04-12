@@ -68,4 +68,9 @@
 @property (strong,nonatomic)UIButton *couponButton4_2;
 @property (strong,nonatomic)UIButton *button4_2;
 
+//-(void)initBackView1;
+//-(void)initBackView2;
+//-(void)initBackView3;
+//-(void)initBackView4;
+
 @end

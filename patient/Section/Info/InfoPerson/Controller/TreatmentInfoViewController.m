@@ -10,6 +10,8 @@
 #import "ReservationListViewController.h"
 #import "DateUtil.h"
 #import "NetworkUtil.h"
+#import "CommonUtil.h"
+#import "LoginViewController.h"
 
 @interface TreatmentInfoViewController ()
 
@@ -61,6 +63,11 @@
 //    DLog(@"%@",self.doctorId);
 //    DLog(@"%@",[DateUtil getFirstTime]);
 //    DLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token]);
+    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
