@@ -25,10 +25,12 @@
     
     self.doctorName = [[UILabel alloc] init];
     self.doctorName.text = @"test";
+    self.doctorName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.doctorName];
     
     self.doctorDomain = [[UILabel alloc] init];
     self.doctorDomain.text = @"test";
+    self.doctorDomain.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.doctorDomain];
     
     [self.doctorImage mas_makeConstraints:^(MASConstraintMaker *make) {

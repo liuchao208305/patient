@@ -10,4 +10,6 @@
 
 @interface MineFunctionTableCell : UITableViewCell
 
+@property (strong,nonatomic)UICollectionView *collectionView;
+
 @end

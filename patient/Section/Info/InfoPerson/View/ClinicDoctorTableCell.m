@@ -46,7 +46,8 @@
     for (int i = 0; i<10; i++) {
         ClinicDoctorView *doctorView = [[ClinicDoctorView alloc] init];
         doctorView.tag = i;
-        doctorView.frame = CGRectMake((i+1)*27+i*69, 16, 69, 150);
+//        doctorView.frame = CGRectMake((i+1)*27+i*69, 16, 69, 150);
+        doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
         [doctorView.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
         doctorView.doctorName.text = @"test";
         doctorView.doctorDomain.text = @"test";

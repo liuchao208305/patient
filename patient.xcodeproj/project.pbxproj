@@ -157,6 +157,7 @@
 		705EF80A1CBD02A300732886 /* mine_headview_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 705EF8081CBD02A300732886 /* mine_headview_more.png */; };
 		705EF80B1CBD02A300732886 /* mine_top_patient_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 705EF8091CBD02A300732886 /* mine_top_patient_image.png */; };
 		705EF80E1CBD43B300732886 /* RecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EF80D1CBD43B300732886 /* RecordView.m */; };
+		705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -449,6 +450,8 @@
 		705EF8091CBD02A300732886 /* mine_top_patient_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_top_patient_image.png; sourceTree = "<group>"; };
 		705EF80C1CBD43B300732886 /* RecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordView.h; sourceTree = "<group>"; };
 		705EF80D1CBD43B300732886 /* RecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordView.m; sourceTree = "<group>"; };
+		705EF80F1CBDD41D00732886 /* MineFunctionCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineFunctionCollectionCell.h; sourceTree = "<group>"; };
+		705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineFunctionCollectionCell.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -1224,6 +1227,8 @@
 				705EF80D1CBD43B300732886 /* RecordView.m */,
 				705EF8051CBCBB7A00732886 /* MineFunctionTableCell.h */,
 				705EF8061CBCBB7A00732886 /* MineFunctionTableCell.m */,
+				705EF80F1CBDD41D00732886 /* MineFunctionCollectionCell.h */,
+				705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1592,6 +1597,7 @@
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
+				705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */,
 				7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */,
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
 				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,

@@ -46,7 +46,8 @@
     for (int i = 0; i<10; i++) {
         RecordView *recordView = [[RecordView alloc] init];
         recordView.tag = i;
-        recordView.frame = CGRectMake((i+1)*21+i*46, 15, 46, 55);
+//        recordView.frame = CGRectMake((i+1)*21+i*46, 15, 46, 55);
+        recordView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-46*4)/5+i*46, 15, 46, 55);
         [recordView.recordImage setImage:[UIImage imageNamed:@"mine_default_medical_record"]];
         recordView.recordName.text = @"张小泉";
         [self.scrollView addSubview:recordView];
@@ -55,7 +56,7 @@
         [recordView addGestureRecognizer:recognizer];
     }
     
-    self.scrollView.contentSize = CGSizeMake(10*(21+46)+21, 0);
+    self.scrollView.contentSize = CGSizeMake(10*((SCREEN_WIDTH-46*4)/5+46)+21, 0);
 }
 
 #pragma mark Target Action
