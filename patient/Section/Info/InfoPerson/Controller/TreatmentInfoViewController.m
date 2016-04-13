@@ -669,7 +669,13 @@
         if (self.code == kSUCCESS) {
             [self treatmentInfoDataParse];
         }else{
+            DLog(@"%ld",(long)self.code);
             DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

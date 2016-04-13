@@ -386,90 +386,40 @@
             cell = [[ClinicScheduleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        
         /*
-         cell.label1_1.text = @"上午";
-         cell.label1_2.text = @"预计";
-         cell.label1_3.text = self.appointmentUpTime;
-         if ([self.forenoonBookStatus1 integerValue] == 1) {
-         [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         cell.label1_4.text = @"下午";
-         cell.label1_5.text = @"预计";
-         cell.label1_6.text = self.appointmentDownTime;
-         if ([self.afternoonBookStatus1 integerValue] == 1) {
-         [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         
-         cell.label2_1.text = @"上午";
-         cell.label2_2.text = @"预计";
-         cell.label2_3.text = self.appointmentUpTime;
-         if ([self.forenoonBookStatus2 integerValue] == 1) {
-         [cell.button2_1 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         cell.label2_4.text = @"下午";
-         cell.label2_5.text = @"预计";
-         cell.label2_6.text = self.appointmentDownTime;
-         if ([self.afternoonBookStatus2 integerValue] == 1) {
-         [cell.button2_2 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         
-         cell.label3_1.text = @"上午";
-         cell.label3_2.text = @"预计";
-         cell.label3_3.text = self.appointmentUpTime;
-         if ([self.forenoonBookStatus3 integerValue] == 1) {
-         [cell.button3_1 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button3_1 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         cell.label3_4.text = @"下午";
-         cell.label3_5.text = @"预计";
-         cell.label3_6.text = self.appointmentDownTime;
-         if ([self.afternoonBookStatus3 integerValue] == 1) {
-         [cell.button3_2 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button3_2 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         
-         cell.label4_1.text = @"上午";
-         cell.label4_2.text = @"预计";
-         cell.label4_3.text = self.appointmentUpTime;
-         if ([self.forenoonBookStatus4 integerValue] == 1) {
-         [cell.button4_1 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button4_1 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
-         cell.label4_4.text = @"下午";
-         cell.label4_5.text = @"预计";
-         cell.label4_6.text = self.appointmentDownTime;
-         if ([self.afternoonBookStatus4 integerValue] == 1) {
-         [cell.button4_2 setTitle:@"预约" forState:UIControlStateNormal];
-         [cell.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-         }else{
-         [cell.button4_2 setTitle:@"已约满" forState:UIControlStateNormal];
-         [cell.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-         }
+         ==============================================================================================
+         */
+        cell.label1_1.text = @"上午";
+        cell.label1_2.text = @"预计";
+        cell.label1_3.text = self.appointmentUpTime;
+        if ([self.forenoonBookStatus1 integerValue] == 1) {
+            [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }else{
+            [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }
+        cell.label1_4.text = @"下午";
+        cell.label1_5.text = @"预计";
+        cell.label1_6.text = self.appointmentDownTime;
+        if ([self.afternoonBookStatus1 integerValue] == 1) {
+            [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }else{
+            [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }
+        /*
+         ==============================================================================================
+         */
+        
+        /*
+         ==============================================================================================
+         */
+        
+        /*
+         ==============================================================================================
          */
         
         [cell.button1_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];

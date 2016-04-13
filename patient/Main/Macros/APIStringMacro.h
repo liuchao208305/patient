@@ -27,6 +27,7 @@
 typedef enum {
     kSUCCESS = 0,//成功
     kERROR = 1,//失败
+    kTOKENINVALID = 3//Token失效
 } SERVER_RETURN_CODE;
 
 //接口
