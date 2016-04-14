@@ -13,6 +13,7 @@
 #import "DateUtil.h"
 #import "AlertUtil.h"
 #import <UMSocial.h>
+#import "ClinicInfoFixViewController.h"
 
 @implementation TestViewController
 
@@ -63,9 +64,13 @@
 
 #pragma mark Target Action
 -(void)test{
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    [self presentViewController:navController animated:YES completion:nil];
+//    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+//    [self presentViewController:navController animated:YES completion:nil];
+    
+    ClinicInfoFixViewController *clincFixVC = [[ClinicInfoFixViewController alloc] init];
+    clincFixVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:clincFixVC animated:YES];
     
 //    [UMSocialSnsService presentSnsIconSheetView:self
 //                                         appKey:@"56df91e4e0f55a811e002783"

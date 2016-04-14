@@ -52,7 +52,7 @@
         recordView.recordName.text = @"张小泉";
         [self.scrollView addSubview:recordView];
         
-        UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doctorViewClicked:)];
+        UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(recordViewClicked:)];
         [recordView addGestureRecognizer:recognizer];
     }
     
@@ -60,7 +60,7 @@
 }
 
 #pragma mark Target Action
--(void)doctorViewClicked:(UIGestureRecognizer *)sender{
+-(void)recordViewClicked:(UIGestureRecognizer *)sender{
     NSLog(@"%ld",sender.view.tag);
 }
 

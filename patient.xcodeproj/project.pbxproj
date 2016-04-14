@@ -30,6 +30,7 @@
 		7002D8801CB4AA0F0074426A /* info_treatment_ screenshot_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D87D1CB4AA0F0074426A /* info_treatment_ screenshot_button.png */; };
 		7002D8811CB4AA0F0074426A /* info_treatment_paynow_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D87E1CB4AA0F0074426A /* info_treatment_paynow_normal.png */; };
 		7002D8821CB4AA0F0074426A /* info_treatment_paynow_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D87F1CB4AA0F0074426A /* info_treatment_paynow_selected.png */; };
+		7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E36E1CBF656B002CA541 /* ClinicInfoFixViewController.m */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -268,6 +269,8 @@
 		7002D87D1CB4AA0F0074426A /* info_treatment_ screenshot_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_ screenshot_button.png"; sourceTree = "<group>"; };
 		7002D87E1CB4AA0F0074426A /* info_treatment_paynow_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_treatment_paynow_normal.png; sourceTree = "<group>"; };
 		7002D87F1CB4AA0F0074426A /* info_treatment_paynow_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_treatment_paynow_selected.png; sourceTree = "<group>"; };
+		7005E36D1CBF656B002CA541 /* ClinicInfoFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicInfoFixViewController.h; sourceTree = "<group>"; };
+		7005E36E1CBF656B002CA541 /* ClinicInfoFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicInfoFixViewController.m; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1138,6 +1141,8 @@
 				7046ADC61CA10F7A00BB6818 /* ExpertInfoViewController.m */,
 				7046ADC81CA10F8C00BB6818 /* ClinicInfoViewController.h */,
 				7046ADC91CA10F8C00BB6818 /* ClinicInfoViewController.m */,
+				7005E36D1CBF656B002CA541 /* ClinicInfoFixViewController.h */,
+				7005E36E1CBF656B002CA541 /* ClinicInfoFixViewController.m */,
 				7046ADCE1CA10FD700BB6818 /* TreatmentInfoViewController.h */,
 				7046ADCF1CA10FD700BB6818 /* TreatmentInfoViewController.m */,
 				7046ADD41CA1100600BB6818 /* ReservationListViewController.h */,
@@ -1674,6 +1679,7 @@
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
+				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
