@@ -359,7 +359,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DLog(@"%ld",indexPath.section);
     if (indexPath.section == 0) {
         
@@ -370,6 +370,8 @@
     }else if (indexPath.section == 3){
         
     }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark Target Action

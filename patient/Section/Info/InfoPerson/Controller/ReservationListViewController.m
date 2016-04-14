@@ -413,8 +413,8 @@
 #pragma mark Target Action
 -(void)onlineButtonClicked{
 //    self.hidesBottomBarWhenPushed = YES;
-//    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
-//    
+    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
+//
 //    detailVC.publicDoctorImage = self.publicDoctorImage;
 //    detailVC.publicDoctorImage = self.publicDoctorImage;
 //    detailVC.publicExpertName = self.publicExpertName;
@@ -434,7 +434,7 @@
 //    
 //    detailVC.publicCouponQuantity = self.label6_2.text;
 //    
-//    [self.navigationController pushViewController:detailVC animated:YES];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 -(void)offlineButtonClicked{

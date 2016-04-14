@@ -212,15 +212,15 @@
 
 -(void)initSubView2{
     self.label2_1 = [[UILabel alloc] init];
-//    self.label2_1.text = @"2_1";
+    self.label2_1.text = @"2_1";
     [self.backUpView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
-//    self.label2_2.text = @"2_2";
+    self.label2_2.text = @"2_2";
     [self.backUpView2 addSubview:self.label2_2];
     
     self.label2_3  = [[UILabel alloc] init];
-//    self.label2_3.text = @"2_3";
+    self.label2_3.text = @"2_3";
     [self.backUpView2 addSubview:self.label2_3];
     
     self.couponButton2_1 = [[UIButton alloc] init];
@@ -269,15 +269,15 @@
      =====================================================================
      */
     self.label2_4 = [[UILabel alloc] init];
-//    self.label2_4.text = @"2_4";
+    self.label2_4.text = @"2_4";
     [self.backDownView2 addSubview:self.label2_4];
     
     self.label2_5 = [[UILabel alloc] init];
-//    self.label2_5.text = @"2_5";
+    self.label2_5.text = @"2_5";
     [self.backDownView2 addSubview:self.label2_5];
     
     self.label2_6  = [[UILabel alloc] init];
-//    self.label2_6.text = @"2_6";
+    self.label2_6.text = @"2_6";
     [self.backDownView2 addSubview:self.label2_6];
     
     self.couponButton2_2 = [[UIButton alloc] init];
@@ -613,13 +613,37 @@
     [clinicInfoVC sendRequestAccordingSelection:selection];
     
     if (selection == 0) {
-        [self initBackView1]; 
+        [self initBackView1];
+        [self.backUpView2 removeFromSuperview];
+        [self.backDownView2 removeFromSuperview];
+        [self.backUpView3 removeFromSuperview];
+        [self.backDownView3 removeFromSuperview];
+        [self.backUpView4 removeFromSuperview];
+        [self.backDownView4 removeFromSuperview];
     }else if (selection == 1){
         [self initBackView2];
+        [self.backUpView1 removeFromSuperview];
+        [self.backDownView1 removeFromSuperview];
+        [self.backUpView3 removeFromSuperview];
+        [self.backDownView3 removeFromSuperview];
+        [self.backUpView4 removeFromSuperview];
+        [self.backDownView4 removeFromSuperview];
     }else if (selection == 2){
         [self initBackView3];
+        [self.backUpView1 removeFromSuperview];
+        [self.backDownView1 removeFromSuperview];
+        [self.backUpView2 removeFromSuperview];
+        [self.backDownView2 removeFromSuperview];
+        [self.backUpView4 removeFromSuperview];
+        [self.backDownView4 removeFromSuperview];
     }else if (selection == 3){
         [self initBackView4];
+        [self.backUpView1 removeFromSuperview];
+        [self.backDownView1 removeFromSuperview];
+        [self.backUpView2 removeFromSuperview];
+        [self.backDownView2 removeFromSuperview];
+        [self.backUpView3 removeFromSuperview];
+        [self.backDownView3 removeFromSuperview];
     }
 }
 

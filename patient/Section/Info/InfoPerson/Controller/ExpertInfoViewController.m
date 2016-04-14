@@ -441,6 +441,8 @@
 //        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
         [self.navigationController pushViewController:clincInfoVC animated:YES];
     }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark Network Request

@@ -393,27 +393,73 @@
         cell.label1_1.text = @"上午";
         cell.label1_2.text = @"预计";
         cell.label1_3.text = self.appointmentUpTime;
-        if ([self.forenoonBookStatus1 integerValue] == 1) {
+        if ([self.forenoonBookStatus1 integerValue] == 0) {
             [cell.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
             [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        }else{
+        }else if ([self.forenoonBookStatus1 integerValue] == 1){
             [cell.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.forenoonBookStatus1 integerValue] == 2){
+            [cell.button1_1 setTitle:@"未排班" forState:UIControlStateNormal];
+            [cell.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
             [cell.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
         }
+        
         cell.label1_4.text = @"下午";
         cell.label1_5.text = @"预计";
         cell.label1_6.text = self.appointmentDownTime;
-        if ([self.afternoonBookStatus1 integerValue] == 1) {
+        if ([self.afternoonBookStatus1 integerValue] == 0) {
             [cell.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button1_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
             [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        }else{
+        }else if ([self.afternoonBookStatus1 integerValue] == 1){
             [cell.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.afternoonBookStatus1 integerValue] == 2){
+            [cell.button1_2 setTitle:@"未排班" forState:UIControlStateNormal];
+            [cell.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
             [cell.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
         }
         /*
          ==============================================================================================
          */
+        cell.label2_1.text = @"上午";
+        cell.label2_2.text = @"预计";
+        cell.label2_3.text = self.appointmentUpTime;
+        if ([self.forenoonBookStatus2 integerValue] == 0) {
+            [cell.button2_1 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button2_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }else if ([self.forenoonBookStatus2 integerValue] == 1){
+            [cell.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.forenoonBookStatus2 integerValue] == 2){
+            [cell.button2_1 setTitle:@"未排班" forState:UIControlStateNormal];
+            [cell.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }
         
+        cell.label2_4.text = @"下午";
+        cell.label2_5.text = @"预计";
+        cell.label2_6.text = self.appointmentDownTime;
+        if ([self.afternoonBookStatus1 integerValue] == 0) {
+            [cell.button2_2 setTitle:@"预约" forState:UIControlStateNormal];
+            [cell.button2_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        }else if ([self.afternoonBookStatus1 integerValue] == 1){
+            [cell.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
+            [cell.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.afternoonBookStatus1 integerValue] == 2){
+            [cell.button2_2 setTitle:@"未排班" forState:UIControlStateNormal];
+            [cell.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [cell.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }
+
         /*
          ==============================================================================================
          */
@@ -479,22 +525,59 @@
 
 
 -(void)sendRequestAccordingSelection:(NSInteger)selection{
+//    ClinicScheduleTableCell *cell = [[ClinicScheduleTableCell alloc] init];
+    static NSString *cellName = @"ClinicScheduleTableCell";
+    ClinicScheduleTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+    if (!cell) {
+        cell = [[ClinicScheduleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+    }
     switch (selection) {
         case 0:
             DLog(@"此处应该进行第一个选项卡的数据填充");
             DLog(@"forenoonBookStatus1-->%@afternoonBookStatus1-->%@",self.forenoonBookStatus1,self.afternoonBookStatus1);
+//            [cell initBackView1];
+//            [cell.backUpView2 removeFromSuperview];
+//            [cell.backDownView2 removeFromSuperview];
+//            [cell.backUpView3 removeFromSuperview];
+//            [cell.backDownView3 removeFromSuperview];
+//            [cell.backUpView4 removeFromSuperview];
+//            [cell.backDownView4 removeFromSuperview];
             break;
         case 1:
             DLog(@"此处应该进行第二个选项卡的数据填充");
             DLog(@"forenoonBookStatus2-->%@afternoonBookStatus2-->%@",self.forenoonBookStatus2,self.afternoonBookStatus2);
+//            [cell initBackView2];
+//            [cell.backUpView1 removeFromSuperview];
+//            [cell.backDownView1 removeFromSuperview];
+//            [cell.backUpView3 removeFromSuperview];
+//            [cell.backDownView3 removeFromSuperview];
+//            [cell.backUpView4 removeFromSuperview];
+//            [cell.backDownView4 removeFromSuperview];
+            
+//            cell.backUpView1.backgroundColor = [UIColor redColor];
+//            cell.backDownView1.backgroundColor = [UIColor redColor];
             break;
         case 2:
             DLog(@"此处应该进行第三个选项卡的数据填充");
             DLog(@"forenoonBookStatus3-->%@afternoonBookStatus3-->%@",self.forenoonBookStatus3,self.afternoonBookStatus3);
+//            [cell initBackView3];
+//            [cell.backUpView1 removeFromSuperview];
+//            [cell.backDownView1 removeFromSuperview];
+//            [cell.backUpView2 removeFromSuperview];
+//            [cell.backDownView2 removeFromSuperview];
+//            [cell.backUpView4 removeFromSuperview];
+//            [cell.backDownView4 removeFromSuperview];
             break;
         case 3:
             DLog(@"此处应该进行第四个选项卡的数据填充");
             DLog(@"forenoonBookStatus4-->%@afternoonBookStatus4-->%@",self.forenoonBookStatus4,self.afternoonBookStatus4);
+//            [cell initBackView4];
+//            [cell.backUpView1 removeFromSuperview];
+//            [cell.backDownView1 removeFromSuperview];
+//            [cell.backUpView2 removeFromSuperview];
+//            [cell.backDownView2 removeFromSuperview];
+//            [cell.backUpView3 removeFromSuperview];
+//            [cell.backDownView3 removeFromSuperview];
             break;
         default:
             break;
