@@ -21,11 +21,6 @@
     }
     hud.removeFromSuperViewOnHide = YES;
     [hud show:YES];
-//    if (fSeconds > 10) {
-//        [hud hide:YES afterDelay:1];
-//    }else{
-//        [hud hide:YES afterDelay:2];
-//    }
     [hud hide:YES afterDelay:delaySeconds];
 }
 

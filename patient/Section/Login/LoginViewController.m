@@ -237,6 +237,10 @@
 
 //快速登录
 -(void)initQuickLoginView{
+    [agreementLabel setHidden:NO];
+    [agreementButton setHidden:NO];
+    [loginButton setHidden:NO];
+    
     firstBackView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 45, SCREEN_WIDTH, 55)];
     firstBackView1.backgroundColor = kWHITE_COLOR;
     [whiteBackView addSubview:firstBackView1];
@@ -287,6 +291,10 @@
 
 //已有帐号登录
 -(void)initNormalLoginView{
+    [agreementLabel setHidden:NO];
+    [agreementButton setHidden:NO];
+    [loginButton setHidden:NO];
+    
     firstBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 45, SCREEN_WIDTH, 55)];
     firstBackView2.backgroundColor = kWHITE_COLOR;
     [whiteBackView addSubview:firstBackView2];
@@ -324,6 +332,10 @@
 
 //第三方登录
 -(void)initPlatformLoginView{
+    [agreementLabel setHidden:YES];
+    [agreementButton setHidden:YES];
+    [loginButton setHidden:YES];
+    
     backView = [[UIView alloc] initWithFrame:CGRectMake(0, 45, SCREEN_WIDTH, 145)];
     backView.backgroundColor = kWHITE_COLOR;
     [whiteBackView addSubview:backView];
@@ -393,6 +405,18 @@
         make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);
     }];
+    
+    imageView1.userInteractionEnabled = YES;
+    UITapGestureRecognizer *weixinTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeixinClicked)];
+    [imageView1 addGestureRecognizer:weixinTap];
+    
+    imageView2.userInteractionEnabled = YES;
+    UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeiboClicked)];
+    [imageView2 addGestureRecognizer:weiboTap];
+    
+    imageView3.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tencentTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginTencentClicked)];
+    [imageView3 addGestureRecognizer:tencentTap];
 
 }
 
@@ -454,6 +478,37 @@
 
 -(void)loginButtonClicked{
     [self sendLoginRequest];
+}
+
+-(void)thirdLoginWeixinClicked{
+    
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+            NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+        }
+    });
+}
+
+-(void)thirdLoginWeiboClicked{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+            NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+        }
+    });
+}
+
+-(void)thirdLoginTencentClicked{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+            NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+        }
+    });
 }
 
 - (void)keyboardWillShow{

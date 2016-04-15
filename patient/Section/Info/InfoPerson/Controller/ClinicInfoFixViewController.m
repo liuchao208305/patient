@@ -7,6 +7,8 @@
 //
 
 #import "ClinicInfoFixViewController.h"
+#import "HudUtil.h"
+#import "TreatmentInfoViewController.h"
 
 @interface ClinicInfoFixViewController ()
 
@@ -81,7 +83,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-    [self sendClinicDoctorRequest];
+//    [self sendClinicDoctorRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -91,6 +93,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [self sendClinicDoctorRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -131,7 +135,7 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    self.scrollView.contentSize = CGSizeMake(0, 1.25*SCREEN_HEIGHT);
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
@@ -1014,9 +1018,21 @@
     NSLog(@"%ld",sender.view.tag);
 }
 
+-(void)reservationButtonClicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.defaultDoctorId;
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
 #pragma mark Network Request
 -(void)sendClinicDoctorRequest{
     DLog(@"sendClinicDoctorRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.clinicId forKey:@"outpatId"];
@@ -1024,6 +1040,9 @@
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_DOCTOR_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         self.result = (NSMutableDictionary *)responseObject;
         
         self.code = [[self.result objectForKey:@"code"] integerValue];
@@ -1033,17 +1052,26 @@
         if (self.code == kSUCCESS) {
             [self clinicDoctorDataParse];
         }else{
-            
+            DLog(@"%@",self.message);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
 -(void)sendClinicScheduleRequest1{
     DLog(@"sendClinicScheduleRequest1");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
@@ -1051,6 +1079,9 @@
     [parameter setValue:[DateUtil getFirstTime] forKey:@"date"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"responseObject-->%@",responseObject);
         self.result2_1 = (NSMutableDictionary *)responseObject;
         
@@ -1062,15 +1093,25 @@
             [self clinicScheduleDataParse1];
         }else{
             DLog(@"%@",self.message2_1);
+            [HudUtil showSimpleTextOnlyHUD:self.message2_1 withDelaySeconds:kHud_DelayTime];
         }
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
 -(void)sendClinicScheduleRequest2{
     DLog(@"sendClinicScheduleRequest2");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
@@ -1078,6 +1119,9 @@
     [parameter setValue:[DateUtil getSecondTime] forKey:@"date"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"responseObject-->%@",responseObject);
         self.result2_2 = (NSMutableDictionary *)responseObject;
         
@@ -1089,16 +1133,26 @@
             [self clinicScheduleDataParse2];
         }else{
             DLog(@"%@",self.message2_2);
+            [HudUtil showSimpleTextOnlyHUD:self.message2_2 withDelaySeconds:kHud_DelayTime];
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
 -(void)sendClinicScheduleRequest3{
     DLog(@"sendClinicScheduleRequest3");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
@@ -1106,6 +1160,9 @@
     [parameter setValue:[DateUtil getThirdTime] forKey:@"date"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"responseObject-->%@",responseObject);
         self.result2_3 = (NSMutableDictionary *)responseObject;
         
@@ -1117,16 +1174,26 @@
             [self clinicScheduleDataParse3];
         }else{
             DLog(@"%@",self.message2_3);
+            [HudUtil showSimpleTextOnlyHUD:self.message2_3 withDelaySeconds:kHud_DelayTime];
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
 -(void)sendClinicScheduleRequest4{
     DLog(@"sendClinicScheduleRequest4");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
@@ -1134,6 +1201,9 @@
     [parameter setValue:[DateUtil getFourthTime] forKey:@"date"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"responseObject-->%@",responseObject);
         self.result2_4 = (NSMutableDictionary *)responseObject;
         
@@ -1145,11 +1215,17 @@
             [self clinicScheduleDataParse4];
         }else{
             DLog(@"%@",self.message2_4);
+            [HudUtil showSimpleTextOnlyHUD:self.message2_4 withDelaySeconds:kHud_DelayTime];
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
@@ -1174,6 +1250,11 @@
     
     self.appointmentUpTime = [[self.data objectForKey:@"outpats"] objectForKey:@"up_date"];
     self.appointmentDownTime = [[self.data objectForKey:@"outpats"] objectForKey:@"down_date"];
+    
+    [self clinicDoctorDataFilling];
+    
+    [self initSubBackView1];
+    [self sendClinicScheduleRequest1];
 }
 
 -(void)clinicScheduleDataParse1{
@@ -1181,6 +1262,8 @@
     self.afternoonBookStatus1 = [self.data2_1 objectForKey:@"down"];
     
     DLog(@"forenoonBookStatus1-->%@afternoonBookStatus1-->%@",self.forenoonBookStatus1,self.afternoonBookStatus1);
+    
+    [self clinicScheduleDataFilling1];
 }
 
 -(void)clinicScheduleDataParse2{
@@ -1188,6 +1271,8 @@
     self.afternoonBookStatus2 = [self.data2_2 objectForKey:@"down"];
     
     DLog(@"forenoonBookStatus2-->%@afternoonBookStatus2-->%@",self.forenoonBookStatus2,self.afternoonBookStatus2);
+    
+    [self clinicScheduleDataFilling2];
 }
 
 -(void)clinicScheduleDataParse3{
@@ -1195,6 +1280,8 @@
     self.afternoonBookStatus3 = [self.data2_3 objectForKey:@"down"];
     
     DLog(@"forenoonBookStatus3-->%@afternoonBookStatus3-->%@",self.forenoonBookStatus3,self.afternoonBookStatus3);
+    
+    [self clinicScheduleDataFilling3];
 }
 
 -(void)clinicScheduleDataParse4{
@@ -1202,47 +1289,263 @@
     self.afternoonBookStatus4 = [self.data2_4 objectForKey:@"down"];
     
     DLog(@"forenoonBookStatus4-->%@afternoonBookStatus4-->%@",self.forenoonBookStatus4,self.afternoonBookStatus4);
+    
+    [self clinicScheduleDataFilling4];
 }
 
 #pragma mark Data Filling
 -(void)clinicDoctorDataFilling{
+    [self.clinicImageView sd_setImageWithURL:[NSURL URLWithString:self.clinicImage] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+    [self.addressImageView setImage:[UIImage imageNamed:@"info_clinic_clinic_title_image"]];
+    self.addressLabel.text = self.clinicAdress;
     
+    if ([self.clinicComment integerValue] == 0) {
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>0 && [self.clinicComment integerValue]<11){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>10 && [self.clinicComment integerValue]<21){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>20 && [self.clinicComment integerValue]<31){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>30 && [self.clinicComment integerValue]<41){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>40 && [self.clinicComment integerValue]<51){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>50 && [self.clinicComment integerValue]<61){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>60 && [self.clinicComment integerValue]<71){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>70 && [self.clinicComment integerValue]<81){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+    }else if ([self.clinicComment integerValue]>80 && [self.clinicComment integerValue]<91){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+    }else if ([self.clinicComment integerValue]>90 && [self.clinicComment integerValue]<101){
+        [self.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+        [self.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+    }
+    
+    [self.expertTitleImageView setImage:[UIImage imageNamed:@"info_clinic_expert_title_image"]];
+    self.expertTitleLabel.text = @"特需服务专家";
+    [self.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.expertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertLabel1.text = self.expertName;
+    self.expertLabel2.text = self.expertTitle;
+    self.expertLabel3.text = self.expertGroup;
+    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %ld",(long)self.formerMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%ld",(long)self.latterMoney];
+    
+    [self.doctorTitleImageView setImage:[UIImage imageNamed:@"info_clinic_doctor_title_image"]];
+    self.doctorTitleLabel.text = @"线下门诊医生";
 }
 
 -(void)clinicScheduleDataFilling1{
+    self.label1_1.text = @"上午";
+    self.label1_2.text = @"预计";
+    self.label1_3.text = self.appointmentUpTime;
+    if ([self.forenoonBookStatus1 integerValue] == 0) {
+        [self.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button1_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.forenoonBookStatus1 integerValue] == 1){
+        [self.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus1 integerValue] == 2){
+        [self.button1_1 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
     
+    self.label1_4.text = @"下午";
+    self.label1_5.text = @"预计";
+    self.label1_6.text = self.appointmentDownTime;
+    if ([self.afternoonBookStatus1 integerValue] == 0) {
+        [self.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button1_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button1_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.afternoonBookStatus1 integerValue] == 1){
+        [self.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus1 integerValue] == 2){
+        [self.button1_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
 }
 
 -(void)clinicScheduleDataFilling2{
+    self.label2_1.text = @"上午";
+    self.label2_2.text = @"预计";
+    self.label2_3.text = self.appointmentUpTime;
+    if ([self.forenoonBookStatus2 integerValue] == 0) {
+        [self.button2_1 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button2_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button2_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.forenoonBookStatus2 integerValue] == 1){
+        [self.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus2 integerValue] == 2){
+        [self.button2_1 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
     
+    self.label2_4.text = @"下午";
+    self.label2_5.text = @"预计";
+    self.label2_6.text = self.appointmentDownTime;
+    if ([self.afternoonBookStatus2 integerValue] == 0) {
+        [self.button2_2 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button2_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button2_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.afternoonBookStatus2 integerValue] == 1){
+        [self.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus2 integerValue] == 2){
+        [self.button2_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
 }
 
 -(void)clinicScheduleDataFilling3{
+    self.label3_1.text = @"上午";
+    self.label3_2.text = @"预计";
+    self.label3_3.text = self.appointmentUpTime;
+    if ([self.forenoonBookStatus3 integerValue] == 0) {
+        [self.button3_1 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button3_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button3_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.forenoonBookStatus3 integerValue] == 1){
+        [self.button3_1 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus3 integerValue] == 2){
+        [self.button3_1 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
     
+    self.label3_4.text = @"下午";
+    self.label3_5.text = @"预计";
+    self.label3_6.text = self.appointmentDownTime;
+    if ([self.afternoonBookStatus3 integerValue] == 0) {
+        [self.button3_2 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button3_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button3_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.afternoonBookStatus3 integerValue] == 1){
+        [self.button3_2 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus3 integerValue] == 2){
+        [self.button3_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
 }
 
 -(void)clinicScheduleDataFilling4{
+    self.label4_1.text = @"上午";
+    self.label4_2.text = @"预计";
+    self.label4_3.text = self.appointmentUpTime;
+    if ([self.forenoonBookStatus4 integerValue] == 0) {
+        [self.button4_1 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button4_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button4_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.forenoonBookStatus4 integerValue] == 1){
+        [self.button4_1 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus4 integerValue] == 2){
+        [self.button4_1 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
     
+    self.label4_4.text = @"下午";
+    self.label4_5.text = @"预计";
+    self.label4_6.text = self.appointmentDownTime;
+    if ([self.afternoonBookStatus4 integerValue] == 0) {
+        [self.button4_2 setTitle:@"预约" forState:UIControlStateNormal];
+        [self.button4_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+        [self.button4_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }else if ([self.afternoonBookStatus4 integerValue] == 1){
+        [self.button4_2 setTitle:@"已约满" forState:UIControlStateNormal];
+        [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus4 integerValue] == 2){
+        [self.button4_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark YJSegmentedControlDelegate
 - (void)segumentSelectionChange:(NSInteger)selection{
     if (selection == 0) {
-        [self sendClinicScheduleRequest1];
         [self initSubBackView1];
-        [self clinicScheduleDataFilling1];
+        [self sendClinicScheduleRequest1];
     }else if (selection == 1){
-        [self sendClinicScheduleRequest2];
         [self initSubBackView2];
-        [self clinicScheduleDataFilling2];
+        [self sendClinicScheduleRequest2];
     }else if (selection == 2){
-        [self sendClinicScheduleRequest3];
         [self initSubBackView3];
-        [self clinicScheduleDataFilling3];
+        [self sendClinicScheduleRequest3];
     }else if (selection == 3){
-        [self sendClinicScheduleRequest4];
         [self initSubBackView4];
-        [self clinicScheduleDataFilling4];
+        [self sendClinicScheduleRequest4];
     }
 }
 

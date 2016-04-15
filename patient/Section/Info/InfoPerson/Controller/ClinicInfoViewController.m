@@ -16,6 +16,7 @@
 #import "NetworkUtil.h"
 #import "NullUtil.h"
 #import "DateUtil.h"
+#import "HudUtil.h"
 
 @interface ClinicInfoViewController ()
 
@@ -94,7 +95,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-    [self sendClinicDoctorRequest];
+//    [self sendClinicDoctorRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -104,6 +105,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [self sendClinicDoctorRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -499,12 +502,19 @@
 -(void)sendClinicDoctorRequest{
     DLog(@"sendClinicDoctorRequest");
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.clinicId forKey:@"outpatId"];
     [parameter setValue:self.expertId forKey:@"doctorId"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_DOCTOR_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         self.result = (NSMutableDictionary *)responseObject;
         
         self.code = [[self.result objectForKey:@"code"] integerValue];
@@ -514,12 +524,17 @@
         if (self.code == kSUCCESS) {
             [self clinicDoctorDataParse];
         }else{
-            
+            DLog(@"%@",self.message);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 

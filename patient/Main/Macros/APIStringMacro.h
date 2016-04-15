@@ -17,7 +17,7 @@
 #define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"// 外网测试地址
 #else
 //Release状态下的线上API
-#define kServerUrl     @"http://www.companydomain.com/api/"
+#define kServerUrl     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
 #endif
 
 #define	kCODE	    @"code"
@@ -30,15 +30,7 @@ typedef enum {
     kTOKENINVALID = 3//Token失效
 } SERVER_RETURN_CODE;
 
-//接口
-/*
- #define GET_CONTENT_DETAIL      @"channel/getContentDetail" //获取内容详情(含上一个和下一个)
- #define GET_COMMENT_LIST        @"comment/getCommentList"   //获取评论列表
- #define COMMENT_LOGIN           @"comment/login"            //获取评论列表
- #define COMMENT_PUBLISH         @"comment/publish"          //发布评论
- #define COMMENT_DELETE          @"comment/delComment"       //删除评论
- #define LOGINOUT                @"common/logout"            //登出
- */
+/*========================================接口===============================================*/
 #define kJZK_LOGIN_GET_CATPCHA @"public/v1/user/getCode?" //获取验证码
 #define kJZK_QUICK_LOGIN @"public/v1/user/fastLogin?"//快速登录
 #define kJZK_NORMAL_LOGIN @"public/v1/user/login?"//常规登录
@@ -48,6 +40,29 @@ typedef enum {
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息
 #define kJZK_SCHEDULE_INFORMATION @"public/v1/user/selDoctorPaiban?"//时间表信息
 
-#define kJZK_TREATMENT_INFORMATION @"private/v1/getConuTx?"//预约信息
+#define kJZK_TREATMENT_INFORMATION @"private/v1/getConuTx?"//预约单信息
+#define kJZK_TREATMENT_CONFIRM_INFORMATION @"private/v1/user/confReservation?"//预约单确认
+#define kJZK_TREATMENT_CANCEL_INFORMATION @"private/v1/user/exitConuBasic?"//预约单取消
+#define kJZK_TREATMENT_DETAIL_INFORMATION @"private/v1/user/getConuByOrder?"//预约单详情
+#define kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW @"private/v1/user/pay?"//预约单详情—立即支付
+#define kJZK_CONTACT_INFORMATION_GET @"private/v1/user/getUserContact?"//获取常用联系人
+#define KJZK_CONTACT_INFORMATION_ADD @"private/v1/user/addContact?"//添加常用联系人
+#define kJZK_ID_INFORMATION @"private/v1/user/getKeyExists?"//身份证或者医保信息
+#define kJZK_RECORD_INFORMATION_ADD @"private/v1/user/addContactBook?"//添加病历本
+#define kJZK_COUPON_INFORMATION @"private/v1/user/getUserConpou?"//优惠券信息
+#define kJZK_COUPON_INFORAMTION_EXCHANGE @"private/v1/user/getCouponByCode?"//优惠券兑换
+#define kJZK_ORDER_INFORMATION @"private/v1/user/getConuListPage?"//订单列表信息
+#define kJZK_ORDER_DETAIL_INFORMATION @"private/v1/user/getConuBasicByConId?"//订单详情
+
+#define kJZK_TEST_INFORMATION_GET @"public/v1/pageAnalysis?"//获取体质测试信息
+#define kJZK_TEST_INFORMATION_CONFIRM @"public/v1/commitAnalysis?"//提交体质测试信息
+
+#define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
+#define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
+#define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
+
+#define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
+#define kJZK_IMAGE_UPLOAD @"private/v1/user/updateConuPhoto"//图片上传
+/*========================================接口===============================================*/
 
 #endif /* APIStringMacro_h */

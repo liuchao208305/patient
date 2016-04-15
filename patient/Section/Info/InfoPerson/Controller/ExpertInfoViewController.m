@@ -21,6 +21,8 @@
 #import "ClinicInfoViewController.h"
 #import "LoginViewController.h"
 #import "CommonUtil.h"
+#import "HudUtil.h"
+#import "ClinicInfoFixViewController.h"
 
 @interface ExpertInfoViewController ()
 
@@ -66,8 +68,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-    [self sendExpertInfoRequest];
-    [self sendClinicInfoRequest];
+//    [self sendExpertInfoRequest];
+//    [self sendClinicInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -80,6 +82,9 @@
     
     self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
     self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
+    
+    [self sendExpertInfoRequest];
+    [self sendClinicInfoRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -432,14 +437,20 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 4) {
-        self.hidesBottomBarWhenPushed = YES;
-        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
-        clincInfoVC.expertId = self.expertId;
-        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+//        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
+//        clincInfoVC.expertId = self.expertId;
+//        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+//        
+//        clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
+////        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
+//        [self.navigationController pushViewController:clincInfoVC animated:YES];
         
-        clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
-//        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
-        [self.navigationController pushViewController:clincInfoVC animated:YES];
+        ClinicInfoFixViewController *clincInfoFixVC = [[ClinicInfoFixViewController alloc] init];
+        clincInfoFixVC.expertId = self.expertId;
+        clincInfoFixVC.clinicId = self.clinicIdArray[indexPath.row];
+        
+        clincInfoFixVC.clinicName = self.clinicNameArray[indexPath.row];
+        [self.navigationController pushViewController:clincInfoFixVC animated:YES];
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -449,10 +460,17 @@
 -(void)sendExpertInfoRequest{
     DLog(@"sendExpertInfoRequest");
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.expertId forKey:@"doctorId"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"responseObject-->%@",responseObject);
         self.result = (NSMutableDictionary *)responseObject;
         
@@ -463,12 +481,16 @@
         if (self.code == kSUCCESS) {
             [self expertInfoDataParse];
         }else{
-            
+            DLog(@"%@",self.message);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 

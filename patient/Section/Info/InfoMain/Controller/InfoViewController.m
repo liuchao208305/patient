@@ -21,6 +21,7 @@
 #import "BannerData.h"
 #import "ExpertInfoViewController.h"
 #import "NullUtil.h"
+#import "HudUtil.h"
 
 @interface InfoViewController (){
     SDCycleScrollView *scrollView;
@@ -89,7 +90,7 @@
     [super viewWillAppear:YES];
     
 //    [self lazyLoading];
-//    [self sendInfoRequest];
+    [self sendInfoRequest];
 }
 
 -(void)viewDidLoad{
@@ -99,7 +100,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-    [self sendInfoRequest];
+//    [self sendInfoRequest];
     [self loadData];
     
     [self initNavBar];
@@ -415,7 +416,14 @@
 -(void)sendInfoRequest{
     DLog(@"sendInfoRequest");
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
     [[NetworkUtil sharedInstance] getResultWithParameter:nil url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_INFO_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
         DLog(@"responseObject-->%@",responseObject);
         self.result = (NSMutableDictionary *)responseObject;
@@ -427,12 +435,17 @@
         if (self.code == kSUCCESS) {
             [self dataParse];
         }else{
-            
+            DLog(@"%@",self.message);
         }
             
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 

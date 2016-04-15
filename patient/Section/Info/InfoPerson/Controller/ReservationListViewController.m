@@ -8,6 +8,7 @@
 
 #import "ReservationListViewController.h"
 #import "TreatmentDetailViewController.h"
+#import "HudUtil.h"
 
 @implementation ReservationListViewController
 
@@ -321,7 +322,7 @@
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label1_2).offset(0);
         make.centerY.equalTo(self.label2_1).offset(0);
-        make.width.mas_equalTo(160);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
     
@@ -335,7 +336,7 @@
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label2_2).offset(0);
         make.centerY.equalTo(self.label3_1).offset(0);
-        make.width.mas_equalTo(160);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
     

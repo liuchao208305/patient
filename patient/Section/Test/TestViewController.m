@@ -64,13 +64,9 @@
 
 #pragma mark Target Action
 -(void)test{
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//    [self presentViewController:navController animated:YES completion:nil];
-    
-    ClinicInfoFixViewController *clincFixVC = [[ClinicInfoFixViewController alloc] init];
-    clincFixVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:clincFixVC animated:YES];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:navController animated:YES completion:nil];
     
 //    [UMSocialSnsService presentSnsIconSheetView:self
 //                                         appKey:@"56df91e4e0f55a811e002783"

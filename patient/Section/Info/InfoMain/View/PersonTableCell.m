@@ -51,10 +51,12 @@
     [self.backView1 addSubview:self.imageView1];
     
     self.label1_1 = [[UILabel alloc] init];
+    self.label1_1.textAlignment = NSTextAlignmentCenter;
     [self.backView1 addSubview:self.label1_1];
     
     self.label1_2 = [[UILabel alloc] init];
     self.label1_2.font = [UIFont systemFontOfSize:12];
+    self.label1_2.textAlignment = NSTextAlignmentCenter;
     [self.backView1 addSubview:self.label1_2];
     
     [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +67,7 @@
     }];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageView1).offset(0);
+        make.centerX.equalTo(self.imageView1).offset(0);
         make.top.equalTo(self.imageView1).offset(70+10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
@@ -85,10 +87,12 @@
     [self.backView2 addSubview:self.imageView2];
     
     self.label2_1 = [[UILabel alloc] init];
+    self.label2_1.textAlignment = NSTextAlignmentCenter;
     [self.backView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
     self.label2_2.font = [UIFont systemFontOfSize:12];
+    self.label2_2.textAlignment = NSTextAlignmentCenter;
     [self.backView2 addSubview:self.label2_2];
     
     [self.imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,7 +103,7 @@
     }];
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageView2).offset(0);
+        make.centerX.equalTo(self.imageView2).offset(0);
         make.top.equalTo(self.imageView2).offset(70+10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
@@ -118,10 +122,12 @@
     [self.backView3 addSubview:self.imageView3];
     
     self.label3_1 = [[UILabel alloc] init];
+    self.label3_1.textAlignment = NSTextAlignmentCenter;
     [self.backView3 addSubview:self.label3_1];
     
     self.label3_2 = [[UILabel alloc] init];
     self.label3_2.font = [UIFont systemFontOfSize:12];
+    self.label3_2.textAlignment = NSTextAlignmentCenter;
     [self.backView3 addSubview:self.label3_2];
     
     [self.imageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,7 +138,7 @@
     }];
     
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageView3).offset(0);
+        make.centerX.equalTo(self.imageView3).offset(0);
         make.top.equalTo(self.imageView3).offset(70+10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);

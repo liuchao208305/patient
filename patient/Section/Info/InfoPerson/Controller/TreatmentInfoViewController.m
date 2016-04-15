@@ -12,8 +12,9 @@
 #import "NetworkUtil.h"
 #import "CommonUtil.h"
 #import "LoginViewController.h"
+#import "HudUtil.h"
 
-@interface TreatmentInfoViewController ()
+@interface TreatmentInfoViewController ()<UITextFieldDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -48,7 +49,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-    [self sendTreatmentInfoRequest];
+//    [self sendTreatmentInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -68,6 +69,8 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self presentViewController:navController animated:YES completion:nil];
     }
+    
+    [self sendTreatmentInfoRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -328,6 +331,7 @@
     
     self.textfield1 = [[UITextField alloc] init];
 //    self.textfield1.placeholder = @"test";
+    self.textfield1.delegate = self;
     [self.backView2 addSubview:self.textfield1];
     
     [self.textfield1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -362,6 +366,7 @@
     
     self.textfield2 = [[UITextField alloc] init];
 //    self.textfield2.placeholder = @"test";
+    self.textfield2.delegate = self;
     [self.backView2 addSubview:self.textfield2];
     
     [self.textfield2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -396,6 +401,7 @@
     
     self.textfield3 = [[UITextField alloc] init];
 //    self.textfield3.placeholder = @"test";
+    self.textfield3.delegate = self;
     [self.backView2 addSubview:self.textfield3];
     
     [self.textfield3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -430,6 +436,7 @@
     
     self.textfield4 = [[UITextField alloc] init];
 //    self.textfield4.placeholder = @"test";
+    self.textfield4.delegate = self;
     [self.backView2 addSubview:self.textfield4];
     
     [self.textfield4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -647,9 +654,26 @@
     [self.navigationController pushViewController:reservationVC animated:YES];
 }
 
+#pragma mark UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.textfield1 resignFirstResponder];
+    [self.textfield2 resignFirstResponder];
+    [self.textfield3 resignFirstResponder];
+    [self.textfield4 resignFirstResponder];
+    return YES;
+}
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 #pragma mark Network Request
 -(void)sendTreatmentInfoRequest{
     DLog(@"sendTreatmentInfoRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.expertId forKey:@"max_doctor_id"];
@@ -660,6 +684,9 @@
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_TREATMENT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         self.result = (NSMutableDictionary *)responseObject;
         
         self.code = [[self.result objectForKey:@"code"] integerValue];
@@ -679,8 +706,13 @@
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
     }];
 }
 
