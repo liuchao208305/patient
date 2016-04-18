@@ -10,6 +10,8 @@
 
 @interface TreatmentInfoViewController : BaseViewController
 
+@property (assign,nonatomic)BOOL isContactChecked;
+
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *doctorId;

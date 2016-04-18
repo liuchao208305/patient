@@ -9,6 +9,11 @@
 #import "ReservationListViewController.h"
 #import "TreatmentDetailViewController.h"
 #import "HudUtil.h"
+#import "CouponCheckViewController.h"
+
+@interface ReservationListViewController ()<CouponDelegate>
+
+@end
 
 @implementation ReservationListViewController
 
@@ -90,6 +95,10 @@
     self.backView3.backgroundColor = kWHITE_COLOR;
     [self initBackView3];
     [self.scrollView addSubview:self.backView3];
+    
+    self.backView3.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView3Clicked)];
+    [self.backView3 addGestureRecognizer:tap];
     
     self.onlineButton = [[UIButton alloc] init];
     [self.onlineButton addTarget:self action:@selector(onlineButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -385,11 +394,11 @@
 
 -(void)initBackView3{
     self.label6_1 = [[UILabel alloc] init];
-    self.label6_1.text = @"test";
+//    self.label6_1.text = @"test";
     [self.backView3 addSubview:self.label6_1];
     
     self.label6_2 = [[UILabel alloc] init];
-    self.label6_2.text = @"test";
+//    self.label6_2.text = @"test";
     [self.backView3 addSubview:self.label6_2];
     
     [self.label6_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -411,35 +420,51 @@
     
 }
 
+#pragma mark CouponDelegate
+-(void)couponSelected:(CouponData *)couponData{
+    self.publicCouponId = couponData.conpouId;
+    self.label6_2.text = couponData.conpouName;
+}
+
 #pragma mark Target Action
+-(void)backView3Clicked{
+    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
+    couponCheckVC.treatmentMoney = self.publicLatterMoney;
+    couponCheckVC.couponDelegate = self;
+    [self.navigationController pushViewController:couponCheckVC animated:YES];
+}
+
 -(void)onlineButtonClicked{
-//    self.hidesBottomBarWhenPushed = YES;
-    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
-//
-//    detailVC.publicDoctorImage = self.publicDoctorImage;
-//    detailVC.publicDoctorImage = self.publicDoctorImage;
-//    detailVC.publicExpertName = self.publicExpertName;
-//    detailVC.publicDoctorName = self.publicDoctorName;
-//    detailVC.publicClinicName = self.publicClinicName;
-//    detailVC.publicClinicAddress = self.publicClinicAddress;
-//    detailVC.publicFormerMoney = self.publicFormerMoney;
-//    detailVC.publicLatterMoney = self.publicLatterMoney;
-//    detailVC.publicAppiontmentTime = self.publicAppiontmentTime;
-//    
-//    detailVC.publicPatientName = self.publicPatientName;
-//    detailVC.publicPatientId = self.publicPatientId;
-//    detailVC.publicPatientMobile = self.publicPatientMobile;
-//    detailVC.publicPatientAge = self.publicPatientAge;
-//    detailVC.publicPatientSex = self.publicPatientSex;
-//    detailVC.publicPatientSymptom = self.publicPatientSymptom;
-//    
-//    detailVC.publicCouponQuantity = self.label6_2.text;
-//    
-    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 -(void)offlineButtonClicked{
+    TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
     
+    detailVC.expertId = self.expertId;
+    detailVC.clinicId = self.clinicId;
+    detailVC.doctorId = self.doctorId;
+    
+    detailVC.publicDoctorImage = self.publicDoctorImage;
+    detailVC.publicDoctorImage = self.publicDoctorImage;
+    detailVC.publicExpertName = self.publicExpertName;
+    detailVC.publicDoctorName = self.publicDoctorName;
+    detailVC.publicClinicName = self.publicClinicName;
+    detailVC.publicClinicAddress = self.publicClinicAddress;
+    detailVC.publicFormerMoney = self.publicFormerMoney;
+    detailVC.publicLatterMoney = self.publicLatterMoney;
+    detailVC.publicAppiontmentTime = self.publicAppiontmentTime;
+    
+    detailVC.publicPatientName = self.publicPatientName;
+    detailVC.publicPatientId = self.publicPatientId;
+    detailVC.publicPatientMobile = self.publicPatientMobile;
+    detailVC.publicPatientAge = self.publicPatientAge;
+    detailVC.publicPatientSex = self.publicPatientSex;
+    detailVC.publicPatientSymptom = self.publicPatientSymptom;
+    
+    detailVC.publicCouponQuantity = self.label6_2.text;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark Network Request
@@ -474,7 +499,8 @@
     self.label6_1.text = @"优惠券：";
     self.label6_2.text = @"无可用优惠券";
     
-    [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付  ¥ %.0f",self.publicLatterMoney] forState:UIControlStateNormal];
+//    [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付  ¥ %.0f",self.publicLatterMoney] forState:UIControlStateNormal];
+    [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付"] forState:UIControlStateNormal];
     [self.onlineButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
     [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_normal"] forState:UIControlStateNormal];
     [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_selected"] forState:UIControlStateHighlighted];

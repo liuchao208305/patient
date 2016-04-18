@@ -31,6 +31,14 @@
 		7002D8811CB4AA0F0074426A /* info_treatment_paynow_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D87E1CB4AA0F0074426A /* info_treatment_paynow_normal.png */; };
 		7002D8821CB4AA0F0074426A /* info_treatment_paynow_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7002D87F1CB4AA0F0074426A /* info_treatment_paynow_selected.png */; };
 		7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E36E1CBF656B002CA541 /* ClinicInfoFixViewController.m */; };
+		7005E37F1CC0D112002CA541 /* ContactCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E37E1CC0D112002CA541 /* ContactCheckViewController.m */; };
+		7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3811CC0D138002CA541 /* ContactAddViewController.m */; };
+		7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3841CC0D14C002CA541 /* ContactChangeViewController.m */; };
+		7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3881CC0D188002CA541 /* RecordCheckViewController.m */; };
+		7005E38C1CC0D199002CA541 /* RecordAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E38B1CC0D199002CA541 /* RecordAddViewController.m */; };
+		7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E38E1CC0D1AC002CA541 /* RecordChangeViewController.m */; };
+		7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3911CC0D1C5002CA541 /* CouponCheckViewController.m */; };
+		7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3941CC0D79F002CA541 /* ContactTableCell.m */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -171,6 +179,15 @@
 		707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BBE1C96C02D00101B30 /* HealthData.m */; };
 		707E5BC21C96C03A00101B30 /* StudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC11C96C03A00101B30 /* StudioData.m */; };
 		707E5BC51C96C04D00101B30 /* PersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC41C96C04D00101B30 /* PersonData.m */; };
+		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
+		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
+		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
+		70926CE21CC4DA4600CB0416 /* info_coupon_blue_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDC1CC4DA4600CB0416 /* info_coupon_blue_back_image.png */; };
+		70926CE31CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDD1CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png */; };
+		70926CE41CC4DA4600CB0416 /* info_coupon_pink_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDE1CC4DA4600CB0416 /* info_coupon_pink_back_image.png */; };
+		70926CE51CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDF1CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png */; };
+		70926CE61CC4DA4600CB0416 /* info_coupon_yellow_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CE01CC4DA4600CB0416 /* info_coupon_yellow_back_image.png */; };
+		70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CE81CC4F55B00CB0416 /* CouponData.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -271,6 +288,22 @@
 		7002D87F1CB4AA0F0074426A /* info_treatment_paynow_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_treatment_paynow_selected.png; sourceTree = "<group>"; };
 		7005E36D1CBF656B002CA541 /* ClinicInfoFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicInfoFixViewController.h; sourceTree = "<group>"; };
 		7005E36E1CBF656B002CA541 /* ClinicInfoFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicInfoFixViewController.m; sourceTree = "<group>"; };
+		7005E37D1CC0D112002CA541 /* ContactCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCheckViewController.h; sourceTree = "<group>"; };
+		7005E37E1CC0D112002CA541 /* ContactCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCheckViewController.m; sourceTree = "<group>"; };
+		7005E3801CC0D138002CA541 /* ContactAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAddViewController.h; sourceTree = "<group>"; };
+		7005E3811CC0D138002CA541 /* ContactAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAddViewController.m; sourceTree = "<group>"; };
+		7005E3831CC0D14C002CA541 /* ContactChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactChangeViewController.h; sourceTree = "<group>"; };
+		7005E3841CC0D14C002CA541 /* ContactChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactChangeViewController.m; sourceTree = "<group>"; };
+		7005E3871CC0D188002CA541 /* RecordCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCheckViewController.h; sourceTree = "<group>"; };
+		7005E3881CC0D188002CA541 /* RecordCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCheckViewController.m; sourceTree = "<group>"; };
+		7005E38A1CC0D199002CA541 /* RecordAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAddViewController.h; sourceTree = "<group>"; };
+		7005E38B1CC0D199002CA541 /* RecordAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAddViewController.m; sourceTree = "<group>"; };
+		7005E38D1CC0D1AC002CA541 /* RecordChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordChangeViewController.h; sourceTree = "<group>"; };
+		7005E38E1CC0D1AC002CA541 /* RecordChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordChangeViewController.m; sourceTree = "<group>"; };
+		7005E3901CC0D1C5002CA541 /* CouponCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCheckViewController.h; sourceTree = "<group>"; };
+		7005E3911CC0D1C5002CA541 /* CouponCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCheckViewController.m; sourceTree = "<group>"; };
+		7005E3931CC0D79F002CA541 /* ContactTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableCell.h; sourceTree = "<group>"; };
+		7005E3941CC0D79F002CA541 /* ContactTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableCell.m; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -479,6 +512,18 @@
 		707E5BC11C96C03A00101B30 /* StudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioData.m; sourceTree = "<group>"; };
 		707E5BC31C96C04D00101B30 /* PersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonData.h; sourceTree = "<group>"; };
 		707E5BC41C96C04D00101B30 /* PersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonData.m; sourceTree = "<group>"; };
+		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
+		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
+		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
+		70926CD91CC4AB0600CB0416 /* CouponTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponTableCell.m; sourceTree = "<group>"; };
+		70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_blue_back_image_fix.png; sourceTree = "<group>"; };
+		70926CDC1CC4DA4600CB0416 /* info_coupon_blue_back_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_blue_back_image.png; sourceTree = "<group>"; };
+		70926CDD1CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_pink_back_image_fix.png; sourceTree = "<group>"; };
+		70926CDE1CC4DA4600CB0416 /* info_coupon_pink_back_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_pink_back_image.png; sourceTree = "<group>"; };
+		70926CDF1CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_yellow_back_image_fix.png; sourceTree = "<group>"; };
+		70926CE01CC4DA4600CB0416 /* info_coupon_yellow_back_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_coupon_yellow_back_image.png; sourceTree = "<group>"; };
+		70926CE71CC4F55B00CB0416 /* CouponData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponData.h; sourceTree = "<group>"; };
+		70926CE81CC4F55B00CB0416 /* CouponData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponData.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -606,6 +651,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7005E3701CC0CF60002CA541 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3731CC0CF93002CA541 /* Coupon */,
+				7005E3721CC0CF8B002CA541 /* Record */,
+				7005E3711CC0CF80002CA541 /* Contact */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		7005E3711CC0CF80002CA541 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				7005E37C1CC0CFE6002CA541 /* View */,
+				7005E37B1CC0CFE0002CA541 /* Model */,
+				7005E37A1CC0CFD9002CA541 /* Controller */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		7005E3721CC0CF8B002CA541 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3791CC0CFD3002CA541 /* View */,
+				7005E3781CC0CFC7002CA541 /* Model */,
+				7005E3771CC0CFC1002CA541 /* Controller */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		7005E3731CC0CF93002CA541 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3751CC0CFB5002CA541 /* View */,
+				7005E3761CC0CFBB002CA541 /* Model */,
+				7005E3741CC0CFAA002CA541 /* Controller */,
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		7005E3741CC0CFAA002CA541 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3901CC0D1C5002CA541 /* CouponCheckViewController.h */,
+				7005E3911CC0D1C5002CA541 /* CouponCheckViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7005E3751CC0CFB5002CA541 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				70926CD81CC4AB0600CB0416 /* CouponTableCell.h */,
+				70926CD91CC4AB0600CB0416 /* CouponTableCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7005E3761CC0CFBB002CA541 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70926CE71CC4F55B00CB0416 /* CouponData.h */,
+				70926CE81CC4F55B00CB0416 /* CouponData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7005E3771CC0CFC1002CA541 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3871CC0D188002CA541 /* RecordCheckViewController.h */,
+				7005E3881CC0D188002CA541 /* RecordCheckViewController.m */,
+				7005E38A1CC0D199002CA541 /* RecordAddViewController.h */,
+				7005E38B1CC0D199002CA541 /* RecordAddViewController.m */,
+				7005E38D1CC0D1AC002CA541 /* RecordChangeViewController.h */,
+				7005E38E1CC0D1AC002CA541 /* RecordChangeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7005E3781CC0CFC7002CA541 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7005E3791CC0CFD3002CA541 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7005E37A1CC0CFD9002CA541 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7005E37D1CC0D112002CA541 /* ContactCheckViewController.h */,
+				7005E37E1CC0D112002CA541 /* ContactCheckViewController.m */,
+				7005E3801CC0D138002CA541 /* ContactAddViewController.h */,
+				7005E3811CC0D138002CA541 /* ContactAddViewController.m */,
+				7005E3831CC0D14C002CA541 /* ContactChangeViewController.h */,
+				7005E3841CC0D14C002CA541 /* ContactChangeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7005E37B1CC0CFE0002CA541 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70926CD51CC46F5C00CB0416 /* ContactData.h */,
+				70926CD61CC46F5C00CB0416 /* ContactData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7005E37C1CC0CFE6002CA541 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7005E3931CC0D79F002CA541 /* ContactTableCell.h */,
+				7005E3941CC0D79F002CA541 /* ContactTableCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		70265C661C858AA50091C01F = {
 			isa = PBXGroup;
 			children = (
@@ -686,6 +856,7 @@
 		70265CA61C858B500091C01F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				7005E3701CC0CF60002CA541 /* Other */,
 				7029396E1C916B90008280E2 /* Guide */,
 				702939831C925FF9008280E2 /* Login */,
 				70265CAC1C858C0A0091C01F /* Info */,
@@ -767,6 +938,12 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */,
+				70926CDC1CC4DA4600CB0416 /* info_coupon_blue_back_image.png */,
+				70926CDD1CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png */,
+				70926CDE1CC4DA4600CB0416 /* info_coupon_pink_back_image.png */,
+				70926CDF1CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png */,
+				70926CE01CC4DA4600CB0416 /* info_coupon_yellow_back_image.png */,
 				705EF8081CBD02A300732886 /* mine_headview_more.png */,
 				705EF8091CBD02A300732886 /* mine_top_patient_image.png */,
 				705EF7D61CBC947600732886 /* mine_bottom_body.png */,
@@ -1418,10 +1595,12 @@
 				70FEAE011CAB80B5006A044A /* info_expert_shaixuan_jia.png in Resources */,
 				7002D8801CB4AA0F0074426A /* info_treatment_ screenshot_button.png in Resources */,
 				7046AD311C97E5D700BB6818 /* tabbar_search_selected.png in Resources */,
+				70926CE51CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png in Resources */,
 				70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */,
 				7046AC7D1C97640A00BB6818 /* DiseaseTableCell.xib in Resources */,
 				7046AD1D1C97E5D700BB6818 /* cell_person_hejiazhen_button.png in Resources */,
 				70FEAE081CABBC89006A044A /* info_expert_xingxing_half.png in Resources */,
+				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
 				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,
@@ -1478,6 +1657,7 @@
 				7046AD211C97E5D700BB6818 /* cell_studio_main_button.png in Resources */,
 				7002D85F1CACC19F0074426A /* info_clinic_clinic_title_image.png in Resources */,
 				70C03E021CA2924000DBA175 /* full_pause_btn222@2x.png in Resources */,
+				70926CE31CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png in Resources */,
 				70FEAE071CABBC89006A044A /* info_expert_xingxing_full.png in Resources */,
 				7046AD1E1C97E5D700BB6818 /* cell_person_more_button.png in Resources */,
 				7046AD251C97E5D700BB6818 /* guideview2.jpg in Resources */,
@@ -1509,13 +1689,16 @@
 				705EF7F41CBC947600732886 /* mine_orderstatus_tobeevaluated.png in Resources */,
 				70C03E0E1CA2C22D00DBA175 /* full_play_btn_hl@2x.png in Resources */,
 				7046AD241C97E5D700BB6818 /* guideview1.jpg in Resources */,
+				70926CE41CC4DA4600CB0416 /* info_coupon_pink_back_image.png in Resources */,
 				705EF7EE1CBC947600732886 /* mine_default_medical_record.png in Resources */,
 				70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */,
 				70FEADF91CAB7710006A044A /* info_expert_guanzhu_normal.png in Resources */,
 				7046AD741C9A426100BB6818 /* login_third_login_qq.png in Resources */,
 				7046AD371C97E8D300BB6818 /* launchimage.jpg in Resources */,
+				70926CE21CC4DA4600CB0416 /* info_coupon_blue_back_image.png in Resources */,
 				7046ADB91CA0F8B400BB6818 /* info_scrollview1.png in Resources */,
 				7002D87A1CB49F7F0074426A /* info_treatment_online_normal.png in Resources */,
+				70926CE61CC4DA4600CB0416 /* info_coupon_yellow_back_image.png in Resources */,
 				7002D8621CACC19F0074426A /* info_clinic_schedule_bookable_button.png in Resources */,
 				7046ADBA1CA0F8B400BB6818 /* info_scrollview2.png in Resources */,
 				7046AD151C97E5D700BB6818 /* cell_disease_guomin_button.png in Resources */,
@@ -1600,6 +1783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
+				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
 				705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */,
@@ -1615,7 +1799,11 @@
 				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */,
+				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
+				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
+				7005E38C1CC0D199002CA541 /* RecordAddViewController.m in Sources */,
+				7005E37F1CC0D112002CA541 /* ContactCheckViewController.m in Sources */,
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
@@ -1623,8 +1811,10 @@
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
 				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
+				7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
+				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
@@ -1632,6 +1822,7 @@
 				705EF80E1CBD43B300732886 /* RecordView.m in Sources */,
 				7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */,
 				707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */,
+				70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */,
 				70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
@@ -1644,6 +1835,7 @@
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
+				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
@@ -1652,6 +1844,7 @@
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
+				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,
@@ -1680,6 +1873,7 @@
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
+				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,

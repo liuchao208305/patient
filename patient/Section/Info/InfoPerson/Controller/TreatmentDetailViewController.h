@@ -10,24 +10,28 @@
 
 @interface TreatmentDetailViewController : BaseViewController
 
-//@property (strong,nonatomic)NSString *publicExpertImage;
-//@property (strong,nonatomic)NSString *publicDoctorImage;
-//@property (strong,nonatomic)NSString *publicExpertName;
-//@property (strong,nonatomic)NSString *publicDoctorName;
-//@property (strong,nonatomic)NSString *publicClinicName;
-//@property (strong,nonatomic)NSString *publicClinicAddress;
-//@property (assign,nonatomic)double publicFormerMoney;
-//@property (assign,nonatomic)double publicLatterMoney;
-//@property (strong,nonatomic)NSString *publicAppiontmentTime;
-//
-//@property (strong,nonatomic)NSString *publicPatientName;
-//@property (strong,nonatomic)NSString *publicPatientId;
-//@property (strong,nonatomic)NSString *publicPatientMobile;
-//@property (strong,nonatomic)NSString *publicPatientAge;
-//@property (strong,nonatomic)NSString *publicPatientSex;
-//@property (strong,nonatomic)NSString *publicPatientSymptom;
-//
-//@property (strong,nonatomic)NSString *publicCouponQuantity;
+@property (strong,nonatomic)NSString *expertId;
+@property (strong,nonatomic)NSString *clinicId;
+@property (strong,nonatomic)NSString *doctorId;
+
+@property (strong,nonatomic)NSString *publicExpertImage;
+@property (strong,nonatomic)NSString *publicDoctorImage;
+@property (strong,nonatomic)NSString *publicExpertName;
+@property (strong,nonatomic)NSString *publicDoctorName;
+@property (strong,nonatomic)NSString *publicClinicName;
+@property (strong,nonatomic)NSString *publicClinicAddress;
+@property (assign,nonatomic)double publicFormerMoney;
+@property (assign,nonatomic)double publicLatterMoney;
+@property (strong,nonatomic)NSString *publicAppiontmentTime;
+
+@property (strong,nonatomic)NSString *publicPatientName;
+@property (strong,nonatomic)NSString *publicPatientId;
+@property (strong,nonatomic)NSString *publicPatientMobile;
+@property (strong,nonatomic)NSString *publicPatientAge;
+@property (strong,nonatomic)NSString *publicPatientSex;
+@property (strong,nonatomic)NSString *publicPatientSymptom;
+
+@property (strong,nonatomic)NSString *publicCouponQuantity;
 
 /*==============================================================*/
 

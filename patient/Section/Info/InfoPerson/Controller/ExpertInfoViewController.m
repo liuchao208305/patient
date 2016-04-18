@@ -68,8 +68,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-//    [self sendExpertInfoRequest];
-//    [self sendClinicInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -84,7 +82,6 @@
     self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
     
     [self sendExpertInfoRequest];
-    [self sendClinicInfoRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -551,7 +548,7 @@
         [self.commentPraiseArray addObject:commentData.flag_name];
     }
     
-    [self.tableView reloadData];
+    [self sendClinicInfoRequest];
 }
 
 -(void)clinicInfoDataParse{

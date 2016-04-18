@@ -13,8 +13,9 @@
 #import "CommonUtil.h"
 #import "LoginViewController.h"
 #import "HudUtil.h"
+#import "ContactCheckViewController.h"
 
-@interface TreatmentInfoViewController ()<UITextFieldDelegate>
+@interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -469,11 +470,11 @@
     }];
     
     self.button5_1 = [[UIButton alloc] init];
-//    [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+    [self.button5_1 addTarget:self action:@selector(button5_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.backView2 addSubview:self.button5_1];
     
     self.button5_2 = [[UIButton alloc] init];
-//    [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+    [self.button5_2 addTarget:self action:@selector(button5_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.backView2 addSubview:self.button5_2];
     
     [self.button5_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -489,6 +490,17 @@
         make.width.mas_equalTo(90);
         make.height.mas_equalTo(30);
     }];
+    
+    if (self.isContactChecked) {
+        
+    }else{
+        [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
+        [self.button5_1 setTitleColor: [UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+        [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
+        [self.button5_2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+    }
 /*=======================================================================*/
     self.lineView6 = [[UIView alloc] init];
     self.lineView6.backgroundColor = kBACKGROUND_COLOR;
@@ -626,13 +638,45 @@
 }
 
 -(void)initRecognizer{
-    
+    self.contactView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactViewClicked)];
+    [self.contactView addGestureRecognizer:tap];
 }
 
 #pragma mark Target Action
+-(void)contactViewClicked{
+    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
+    contactCheckVC.contactDelegate = self;
+    [self.navigationController pushViewController:contactCheckVC animated:YES];
+}
+
+-(void)button5_1Clicked{
+    self.patientSex = @"男";
+    [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
+    [self.button5_1 setTitleColor: kMAIN_COLOR forState:UIControlStateNormal];
+    [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
+    [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
+    [self.button5_2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+}
+
+-(void)button5_2Clicked{
+    self.patientSex = @"女";
+    [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
+    [self.button5_1 setTitleColor: [UIColor lightGrayColor] forState:UIControlStateNormal];
+    [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+    [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
+    [self.button5_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+    [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
+}
+
 -(void)confirmButtonClicked{
     self.hidesBottomBarWhenPushed = YES;
     ReservationListViewController *reservationVC = [[ReservationListViewController alloc] init];
+    
+    reservationVC.expertId = self.expertId;
+    reservationVC.clinicId = self.clinicId;
+    reservationVC.doctorId = self.doctorId;
     
     reservationVC.publicDoctorImage = self.expertImageString;
     reservationVC.publicDoctorImage = self.doctorImageString;
@@ -665,6 +709,33 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+}
+
+#pragma mark ContactDelegate
+-(void)contactSelected:(ContactData *)contactData{
+    self.isContactChecked = YES;
+    
+    self.textfield1.text = contactData.real_name;
+    self.textfield2.text = contactData.id_number;
+    self.textfield3.text = contactData.phone;
+    self.textfield4.text = [NSString stringWithFormat:@"%ld",(long)contactData.age];
+    if (contactData.sex == 0) {
+        self.patientSex = @"男";
+        [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
+        [self.button5_1 setTitleColor: kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
+        [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
+        [self.button5_2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+    }else{
+        self.patientSex = @"女";
+        [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
+        [self.button5_1 setTitleColor: [UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+        [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
+        [self.button5_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark Network Request
@@ -757,12 +828,6 @@
     self.label3.text = @"手机号码";
     self.label4.text = @"年龄";
     self.label5.text = @"性别";
-    [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
-    [self.button5_1 setTitleColor: kMAIN_COLOR forState:UIControlStateNormal];
-    [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
-    [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
-    [self.button5_2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     self.label6.text = @"症状";
     
     [self.confirmButton setTitle:@"确定" forState:UIControlStateNormal];

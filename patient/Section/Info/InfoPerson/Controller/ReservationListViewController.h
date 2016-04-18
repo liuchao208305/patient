@@ -10,6 +10,10 @@
 
 @interface ReservationListViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *expertId;
+@property (strong,nonatomic)NSString *clinicId;
+@property (strong,nonatomic)NSString *doctorId;
+
 @property (strong,nonatomic)NSString *publicExpertImage;
 @property (strong,nonatomic)NSString *publicDoctorImage;
 @property (strong,nonatomic)NSString *publicExpertName;
@@ -26,6 +30,8 @@
 @property (strong,nonatomic)NSString *publicPatientAge;
 @property (strong,nonatomic)NSString *publicPatientSex;
 @property (strong,nonatomic)NSString *publicPatientSymptom;
+
+@property (strong,nonatomic)NSString *publicCouponId;
 
 /*==============================================================*/
 @property (strong,nonatomic)UIScrollView *scrollView;

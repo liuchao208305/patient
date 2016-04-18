@@ -14,6 +14,7 @@
 #import "AlertUtil.h"
 #import <UMSocial.h>
 #import "ClinicInfoFixViewController.h"
+#import "ContactCheckViewController.h"
 
 @implementation TestViewController
 

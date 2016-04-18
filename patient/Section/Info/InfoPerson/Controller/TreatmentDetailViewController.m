@@ -464,38 +464,38 @@
 
 #pragma mark Data Filling
 -(void)treatmentDetailDataFilling{
-//    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-//    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-//    self.expertLabel.text = self.publicExpertName;
-//    self.doctorLabel.text = self.publicDoctorName;
-//    self.clinicLabel.text = self.publicClinicName;
-//    self.addressLabel.text = self.publicClinicAddress;
-//    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
-//    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
-//    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
-//    self.timeLabel.text = self.publicAppiontmentTime;
-//    
-//    self.label1_1.text = @"姓名：";
-//    self.label1_2.text = self.publicPatientName;
-//    self.label2_1.text = @"身份证号：";
-//    self.label2_2.text = self.publicPatientId;
-//    self.label3_1.text = @"手机号：";
-//    self.label3_2.text = self.publicPatientMobile;
-//    self.label4_1.text = @"年龄：";
-//    self.label4_2.text = self.publicPatientAge;
-//    self.label4_3.text = @"性别：";
-//    self.label4_4.text = self.publicPatientSex;
-//    self.label5_1.text = @"症状：";
-//    self.label5_2.text = self.publicPatientSymptom;
-//    self.label6_1.text = @"优惠券";
-//    self.label6_2.text = @"无可用优惠券";
-//    self.label7_1.text = @"支付情况";
-//    self.label7_2.text = @"未支付";
-//    
-//    [self.payNowButton setTitle:@"立即支付" forState:UIControlStateNormal];
-//    [self.payNowButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-//    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
-//    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
+    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertLabel.text = self.publicExpertName;
+    self.doctorLabel.text = self.publicDoctorName;
+    self.clinicLabel.text = self.publicClinicName;
+    self.addressLabel.text = self.publicClinicAddress;
+    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
+    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+    self.timeLabel.text = self.publicAppiontmentTime;
+    
+    self.label1_1.text = @"姓名：";
+    self.label1_2.text = self.publicPatientName;
+    self.label2_1.text = @"身份证号：";
+    self.label2_2.text = self.publicPatientId;
+    self.label3_1.text = @"手机号：";
+    self.label3_2.text = self.publicPatientMobile;
+    self.label4_1.text = @"年龄：";
+    self.label4_2.text = self.publicPatientAge;
+    self.label4_3.text = @"性别：";
+    self.label4_4.text = self.publicPatientSex;
+    self.label5_1.text = @"症状：";
+    self.label5_2.text = self.publicPatientSymptom;
+    self.label6_1.text = @"优惠券";
+    self.label6_2.text = @"无可用优惠券";
+    self.label7_1.text = @"支付情况";
+    self.label7_2.text = @"未支付";
+    
+    [self.payNowButton setTitle:@"立即支付" forState:UIControlStateNormal];
+    [self.payNowButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
+    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
 }
 
 @end

@@ -95,6 +95,7 @@
     [super viewWillAppear:animated];
     
     [self sendClinicDoctorRequest];
+//    [self sendClinicScheduleRequest1];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -1092,6 +1093,7 @@
         if (self.code2_1 == kSUCCESS) {
             [self clinicScheduleDataParse1];
         }else{
+            DLog(@"%ld",(long)self.code2_1);
             DLog(@"%@",self.message2_1);
             [HudUtil showSimpleTextOnlyHUD:self.message2_1 withDelaySeconds:kHud_DelayTime];
         }
@@ -1247,6 +1249,7 @@
     self.latterMoney = self.formerMoney - self.couponMoney;
     
     self.defaultDoctorId = [self.data objectForKey:@"default_doctorId"];
+    DLog(@"%@",self.defaultDoctorId);
     
     self.appointmentUpTime = [[self.data objectForKey:@"outpats"] objectForKey:@"up_date"];
     self.appointmentDownTime = [[self.data objectForKey:@"outpats"] objectForKey:@"down_date"];
@@ -1397,6 +1400,10 @@
         [self.button1_1 setTitle:@"未排班" forState:UIControlStateNormal];
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus1 integerValue] == 3){
+        [self.button1_1 setTitle:@"已请假" forState:UIControlStateNormal];
+        [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
     
     self.label1_4.text = @"下午";
@@ -1413,6 +1420,10 @@
         [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }else if ([self.afternoonBookStatus1 integerValue] == 2){
         [self.button1_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus1 integerValue] == 3){
+        [self.button1_2 setTitle:@"已请假" forState:UIControlStateNormal];
         [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
@@ -1435,6 +1446,10 @@
         [self.button2_1 setTitle:@"未排班" forState:UIControlStateNormal];
         [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus2 integerValue] == 3){
+        [self.button2_1 setTitle:@"已请假" forState:UIControlStateNormal];
+        [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
     
     self.label2_4.text = @"下午";
@@ -1451,6 +1466,10 @@
         [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }else if ([self.afternoonBookStatus2 integerValue] == 2){
         [self.button2_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus2 integerValue] == 3){
+        [self.button2_2 setTitle:@"已请假" forState:UIControlStateNormal];
         [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
@@ -1473,6 +1492,10 @@
         [self.button3_1 setTitle:@"未排班" forState:UIControlStateNormal];
         [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus3 integerValue] == 3){
+        [self.button3_1 setTitle:@"已请假" forState:UIControlStateNormal];
+        [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
     
     self.label3_4.text = @"下午";
@@ -1489,6 +1512,10 @@
         [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }else if ([self.afternoonBookStatus3 integerValue] == 2){
         [self.button3_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus3 integerValue] == 3){
+        [self.button3_2 setTitle:@"已请假" forState:UIControlStateNormal];
         [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
@@ -1511,6 +1538,10 @@
         [self.button4_1 setTitle:@"未排班" forState:UIControlStateNormal];
         [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.forenoonBookStatus4 integerValue] == 3){
+        [self.button4_1 setTitle:@"已请假" forState:UIControlStateNormal];
+        [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
     
     self.label4_4.text = @"下午";
@@ -1527,6 +1558,10 @@
         [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }else if ([self.afternoonBookStatus4 integerValue] == 2){
         [self.button4_2 setTitle:@"未排班" forState:UIControlStateNormal];
+        [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else if ([self.afternoonBookStatus4 integerValue] == 3){
+        [self.button4_2 setTitle:@"已请假" forState:UIControlStateNormal];
         [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
     }
