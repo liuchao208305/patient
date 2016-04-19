@@ -10,8 +10,19 @@
 #import "TreatmentDetailViewController.h"
 #import "HudUtil.h"
 #import "CouponCheckViewController.h"
+#import "NetworkUtil.h"
+#import "NullUtil.h"
+#import "HudUtil.h"
 
-@interface ReservationListViewController ()<CouponDelegate>
+@interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate>
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
+
+@property (assign,nonatomic)NSInteger paymentType;
 
 @end
 
@@ -420,12 +431,6 @@
     
 }
 
-#pragma mark CouponDelegate
--(void)couponSelected:(CouponData *)couponData{
-    self.publicCouponId = couponData.conpouId;
-    self.label6_2.text = couponData.conpouName;
-}
-
 #pragma mark Target Action
 -(void)backView3Clicked{
     CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
@@ -435,10 +440,46 @@
 }
 
 -(void)onlineButtonClicked{
+//    DLog(@"%@",self.expertId);
+//    DLog(@"%@",self.clinicId);
+//    DLog(@"%@",self.doctorId);
+//    DLog(@"%@",self.appointmentTime);
+//    DLog(@"%@",self.publicDoctorImage);
+//    DLog(@"%@",self.publicDoctorImage);
+//    DLog(@"%@",self.publicExpertName);
+//    DLog(@"%@",self.publicDoctorName);
+//    DLog(@"%@",self.publicClinicName);
+//    DLog(@"%@",self.publicClinicAddress);
+//    DLog(@"%f",self.publicFormerMoney);
+//    DLog(@"%f",self.publicLatterMoney);
+//    DLog(@"%@",self.publicAppiontmentTime);
+//    DLog(@"%@",self.publicPatientName);
+//    DLog(@"%@",self.publicPatientId);
+//    DLog(@"%@",self.publicPatientMobile);
+//    DLog(@"%@",self.publicPatientAge);
+//    DLog(@"%@",self.publicPatientSex);
+//    DLog(@"%@",self.publicPatientSymptom);
+//    DLog(@"%@",self.label6_2.text);
+//    DLog(@"%@",self.publicCouponId);
     
+//    [self sendPaymentInfoRequest];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择支付方式"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
 }
 
 -(void)offlineButtonClicked{
+    self.paymentType = 1;
+    [self sendPaymentInfoRequest];
+}
+
+-(void)pushTreatmentDetailViewController{
     TreatmentDetailViewController *detailVC = [[TreatmentDetailViewController alloc] init];
     
     detailVC.expertId = self.expertId;
@@ -462,14 +503,106 @@
     detailVC.publicPatientSex = self.publicPatientSex;
     detailVC.publicPatientSymptom = self.publicPatientSymptom;
     
+    detailVC.publicCouponId = self.publicCouponId;
     detailVC.publicCouponQuantity = self.label6_2.text;
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+#pragma mark CouponDelegate
+-(void)couponSelected:(CouponData *)couponData{
+    self.publicCouponId = couponData.conpouId;
+    self.label6_2.text = couponData.conpouName;
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        //支付宝支付
+        self.paymentType = 2;
+        [self sendPaymentInfoRequest];
+    }else if (buttonIndex == 1){
+        //微信支付
+        self.paymentType = 3;
+        [self sendPaymentInfoRequest];
+    }else if(buttonIndex == 2){
+        //取消
+    }
+}
+
 #pragma mark Network Request
+-(void)sendPaymentInfoRequest{
+    DLog(@"sendPaymentInfoRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+//    [parameter setValue:self.doctorId forKey:@"min_doctor_id"];
+//    [parameter setValue:self.expertId forKey:@"max_doctor_id"];
+//    [parameter setValue:self.appointmentTime forKey:@"bespoke_date"];
+//    [parameter setValue:self.publicPatientName forKey:@"name"];
+//    [parameter setValue:self.clinicId forKey:@"outpatId"];
+//    [parameter setValue:self.publicPatientId forKey:@"ID_no"];
+//    [parameter setValue:self.publicPatientMobile forKey:@"phone"];
+//    [parameter setValue:self.publicPatientSex forKey:@"sex"];
+//    [parameter setValue:self.publicPatientAge forKey:@"age"];
+//    [parameter setValue:nil forKey:@"symptom_ids"];
+//    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.paymentType] forKey:@"pay_type"];
+//    [parameter setValue:self.publicCouponId forKey:@"coupon_id"];
+//    [parameter setValue:[NSString stringWithFormat:@"%f",self.publicLatterMoney] forKey:@"price"];
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:@"6b84e90af32911e59833780cb87fb47f" forKey:@"min_doctor_id"];
+    [parameter setValue:@"234565765645645" forKey:@"max_doctor_id"];
+    [parameter setValue:@"2016-04-22 13:02:20" forKey:@"bespoke_date"];
+    [parameter setValue:@"刘超" forKey:@"name"];
+    [parameter setValue:@"9072fdeaf31a11e59833780cb87fb47f" forKey:@"outpatId"];
+    [parameter setValue:@"500233199412157810" forKey:@"ID_no"];
+    [parameter setValue:@"13826654854" forKey:@"phone"];
+    [parameter setValue:@"2" forKey:@"sex"];
+    [parameter setValue:@"22" forKey:@"age"];
+    [parameter setValue:@"2" forKey:@"pay_type"];
+    [parameter setValue:@"5.100000" forKey:@"price"];
+    
+    DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_CONFIRM_INFORMATION);
+    DLog(@"%@",parameter);
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_TREATMENT_CONFIRM_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [self paymentInfoDataParse];
+        }else{
+            DLog(@"%@",self.message);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
+-(void)paymentInfoDataParse{
+    
+}
 
 #pragma mark Data Filling
 -(void)reservationListDataFilling{

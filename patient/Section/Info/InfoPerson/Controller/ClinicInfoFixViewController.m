@@ -83,7 +83,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-//    [self sendClinicDoctorRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -95,7 +94,6 @@
     [super viewWillAppear:animated];
     
     [self sendClinicDoctorRequest];
-//    [self sendClinicScheduleRequest1];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -492,6 +490,7 @@
     
     self.button1_1  = [[UIButton alloc] init];
     //    [self.button1_1 setImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    self.button1_1.tag = 1000+1;
     [self.backUpView1 addSubview:self.button1_1];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -549,6 +548,7 @@
     
     self.button1_2  = [[UIButton alloc] init];
     //    [self.button1_2 setImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+    self.button1_2.tag = 1000+2;
     [self.backDownView1 addSubview:self.button1_2];
     
     [self.label1_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -633,6 +633,7 @@
     
     self.button2_1  = [[UIButton alloc] init];
     //    [self.button2_1 setImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    self.button2_1.tag = 1000+3;
     [self.backUpView2 addSubview:self.button2_1];
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -690,6 +691,7 @@
     
     self.button2_2  = [[UIButton alloc] init];
     //    [self.button2_2 setImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+    self.button2_2.tag = 1000+4;
     [self.backDownView2 addSubview:self.button2_2];
     
     [self.label2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -774,6 +776,7 @@
     
     self.button3_1  = [[UIButton alloc] init];
     //    [self.button3_1 setImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    self.button3_1.tag = 1000+5;
     [self.backUpView3 addSubview:self.button3_1];
     
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -831,6 +834,7 @@
     
     self.button3_2  = [[UIButton alloc] init];
     //    [self.button3_2 setImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+    self.button3_2.tag = 1000+6;
     [self.backDownView3 addSubview:self.button3_2];
     
     [self.label3_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -915,6 +919,7 @@
     
     self.button4_1  = [[UIButton alloc] init];
     //    [self.button4_1 setImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    self.button4_1.tag = 1000+7;
     [self.backUpView4 addSubview:self.button4_1];
     
     [self.label4_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -972,6 +977,7 @@
     
     self.button4_2  = [[UIButton alloc] init];
     //    [self.button4_2 setImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+    self.button4_2.tag = 1000+8;
     [self.backDownView4 addSubview:self.button4_2];
     
     [self.label4_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1019,11 +1025,30 @@
     NSLog(@"%ld",sender.view.tag);
 }
 
--(void)reservationButtonClicked{
+-(void)reservationButtonClicked:(UIButton *)sender{
     TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.defaultDoctorId;
+    
+    if (sender.tag == 1000+1) {
+        treatVC.appointmentTime = [DateUtil getFirstTime];
+    }else if (sender.tag == 1000+2){
+        treatVC.appointmentTime = [DateUtil getFirstTime];
+    }else if (sender.tag == 1000+3){
+        treatVC.appointmentTime = [DateUtil getSecondTime];
+    }else if (sender.tag == 1000+4){
+        treatVC.appointmentTime = [DateUtil getSecondTime];
+    }else if (sender.tag == 1000+5){
+        treatVC.appointmentTime = [DateUtil getThirdTime];
+    }else if (sender.tag == 1000+6){
+        treatVC.appointmentTime = [DateUtil getThirdTime];
+    }else if (sender.tag == 1000+7){
+        treatVC.appointmentTime = [DateUtil getFourthTime];
+    }else if (sender.tag == 1000+8){
+        treatVC.appointmentTime = [DateUtil getFourthTime];
+    }
+    
     [self.navigationController pushViewController:treatVC animated:YES];
 }
 
@@ -1391,7 +1416,8 @@
         [self.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button1_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button1_1.tag = 1000+1;
+        [self.button1_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus1 integerValue] == 1){
         [self.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1413,7 +1439,8 @@
         [self.button1_2 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button1_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button1_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button1_2.tag = 1000+2;
+        [self.button1_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus1 integerValue] == 1){
         [self.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1437,7 +1464,8 @@
         [self.button2_1 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button2_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button2_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button2_1.tag = 1000+3;
+        [self.button2_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus2 integerValue] == 1){
         [self.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1459,7 +1487,8 @@
         [self.button2_2 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button2_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button2_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button2_2.tag = 1000+4;
+        [self.button2_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus2 integerValue] == 1){
         [self.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1483,7 +1512,8 @@
         [self.button3_1 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button3_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button3_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button3_1.tag = 1000+5;
+        [self.button3_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus3 integerValue] == 1){
         [self.button3_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1505,7 +1535,8 @@
         [self.button3_2 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button3_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button3_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button3_2.tag = 1000+6;
+        [self.button3_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus3 integerValue] == 1){
         [self.button3_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1529,7 +1560,8 @@
         [self.button4_1 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button4_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button4_1 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button4_1.tag = 1000+7;
+        [self.button4_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus4 integerValue] == 1){
         [self.button4_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1551,7 +1583,8 @@
         [self.button4_2 setTitle:@"预约" forState:UIControlStateNormal];
         [self.button4_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-        [self.button4_2 addTarget:self action:@selector(reservationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        self.button4_2.tag = 1000+8;
+        [self.button4_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus4 integerValue] == 1){
         [self.button4_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];

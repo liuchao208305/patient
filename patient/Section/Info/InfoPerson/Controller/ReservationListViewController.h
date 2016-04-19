@@ -13,6 +13,7 @@
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *doctorId;
+@property (strong,nonatomic)NSString *appointmentTime;
 
 @property (strong,nonatomic)NSString *publicExpertImage;
 @property (strong,nonatomic)NSString *publicDoctorImage;

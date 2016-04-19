@@ -31,6 +31,7 @@
 @property (strong,nonatomic)NSString *publicPatientSex;
 @property (strong,nonatomic)NSString *publicPatientSymptom;
 
+@property (strong,nonatomic)NSString *publicCouponId;
 @property (strong,nonatomic)NSString *publicCouponQuantity;
 
 /*==============================================================*/

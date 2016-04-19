@@ -15,6 +15,7 @@
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *doctorId;
+@property (strong,nonatomic)NSString *appointmentTime;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
 @property (strong,nonatomic)UIView *backView;

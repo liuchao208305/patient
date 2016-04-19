@@ -677,6 +677,7 @@
     reservationVC.expertId = self.expertId;
     reservationVC.clinicId = self.clinicId;
     reservationVC.doctorId = self.doctorId;
+    reservationVC.appointmentTime = self.appointmentTime;
     
     reservationVC.publicDoctorImage = self.expertImageString;
     reservationVC.publicDoctorImage = self.doctorImageString;
@@ -750,7 +751,9 @@
     [parameter setValue:self.expertId forKey:@"max_doctor_id"];
     [parameter setValue:self.clinicId forKey:@"outpatId"];
     [parameter setValue:self.doctorId forKey:@"min_doctor_id"];
-    [parameter setValue:[DateUtil getFirstTime] forKey:@"bespoke_date"];
+#warning 此处应该根据上个页面所点按钮匹配相应时间
+//    [parameter setValue:[DateUtil getFirstTime] forKey:@"bespoke_date"];
+    [parameter setValue:self.appointmentTime forKey:@"bespoke_date"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_TREATMENT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
