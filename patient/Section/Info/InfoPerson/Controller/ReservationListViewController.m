@@ -13,6 +13,7 @@
 #import "NetworkUtil.h"
 #import "NullUtil.h"
 #import "HudUtil.h"
+#import "AlertUtil.h"
 
 @interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate>
 
@@ -23,6 +24,9 @@
 @property (assign,nonatomic)NSError *error;
 
 @property (assign,nonatomic)NSInteger paymentType;
+
+@property (strong,nonatomic)NSString *orderNumber;
+@property (strong,nonatomic)NSString *paymentInfomation;
 
 @end
 
@@ -469,7 +473,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",@"银联支付",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
 }
@@ -524,9 +528,14 @@
         [self sendPaymentInfoRequest];
     }else if (buttonIndex == 1){
         //微信支付
-        self.paymentType = 3;
-        [self sendPaymentInfoRequest];
+//        self.paymentType = 3;
+//        [self sendPaymentInfoRequest];
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
     }else if(buttonIndex == 2){
+//        self.paymentType =4;
+//        [self sendPaymentInfoRequest];
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
+    }else if (buttonIndex == 3){
         //取消
     }
 }
@@ -539,35 +548,35 @@
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
     
-//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-//    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-//    [parameter setValue:self.doctorId forKey:@"min_doctor_id"];
-//    [parameter setValue:self.expertId forKey:@"max_doctor_id"];
-//    [parameter setValue:self.appointmentTime forKey:@"bespoke_date"];
-//    [parameter setValue:self.publicPatientName forKey:@"name"];
-//    [parameter setValue:self.clinicId forKey:@"outpatId"];
-//    [parameter setValue:self.publicPatientId forKey:@"ID_no"];
-//    [parameter setValue:self.publicPatientMobile forKey:@"phone"];
-//    [parameter setValue:self.publicPatientSex forKey:@"sex"];
-//    [parameter setValue:self.publicPatientAge forKey:@"age"];
-//    [parameter setValue:nil forKey:@"symptom_ids"];
-//    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.paymentType] forKey:@"pay_type"];
-//    [parameter setValue:self.publicCouponId forKey:@"coupon_id"];
-//    [parameter setValue:[NSString stringWithFormat:@"%f",self.publicLatterMoney] forKey:@"price"];
-    
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:@"6b84e90af32911e59833780cb87fb47f" forKey:@"min_doctor_id"];
-    [parameter setValue:@"234565765645645" forKey:@"max_doctor_id"];
-    [parameter setValue:@"2016-04-22 13:02:20" forKey:@"bespoke_date"];
-    [parameter setValue:@"刘超" forKey:@"name"];
-    [parameter setValue:@"9072fdeaf31a11e59833780cb87fb47f" forKey:@"outpatId"];
-    [parameter setValue:@"500233199412157810" forKey:@"ID_no"];
-    [parameter setValue:@"13826654854" forKey:@"phone"];
-    [parameter setValue:@"2" forKey:@"sex"];
-    [parameter setValue:@"22" forKey:@"age"];
-    [parameter setValue:@"2" forKey:@"pay_type"];
-    [parameter setValue:@"5.100000" forKey:@"price"];
+    [parameter setValue:self.doctorId forKey:@"min_doctor_id"];
+    [parameter setValue:self.expertId forKey:@"max_doctor_id"];
+    [parameter setValue:self.appointmentTime forKey:@"bespoke_date"];
+    [parameter setValue:self.publicPatientName forKey:@"name"];
+    [parameter setValue:self.clinicId forKey:@"outpatId"];
+    [parameter setValue:self.publicPatientId forKey:@"ID_no"];
+    [parameter setValue:self.publicPatientMobile forKey:@"phone"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.publicPatientSexFix] forKey:@"sex"];
+    [parameter setValue:self.publicPatientAge forKey:@"age"];
+    [parameter setValue:self.publicPatientSymptom forKey:@"symptom_ids"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.paymentType] forKey:@"pay_type"];
+    [parameter setValue:self.publicCouponId forKey:@"coupon_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%f",self.publicLatterMoney] forKey:@"price"];
+    
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+//    [parameter setValue:@"6b84e90af32911e59833780cb87fb47f" forKey:@"min_doctor_id"];
+//    [parameter setValue:@"234565765645645" forKey:@"max_doctor_id"];
+//    [parameter setValue:@"2016-04-22 13:02:20" forKey:@"bespoke_date"];
+//    [parameter setValue:@"刘超" forKey:@"name"];
+//    [parameter setValue:@"9072fdeaf31a11e59833780cb87fb47f" forKey:@"outpatId"];
+//    [parameter setValue:@"500233199412157810" forKey:@"ID_no"];
+//    [parameter setValue:@"13826654854" forKey:@"phone"];
+//    [parameter setValue:@"2" forKey:@"sex"];
+//    [parameter setValue:@"22" forKey:@"age"];
+//    [parameter setValue:@"2" forKey:@"pay_type"];
+//    [parameter setValue:@"5.100000" forKey:@"price"];
     
     DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_CONFIRM_INFORMATION);
     DLog(@"%@",parameter);
@@ -584,7 +593,16 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            [self paymentInfoDataParse];
+            if (self.paymentType == 1) {
+                [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+                [self pushTreatmentDetailViewController];
+            }else if (self.paymentType == 2){
+                [self paymentInfoAliPayDataParse];
+            }else if (self.paymentType == 3){
+                [self paymentInfoWechatPayDataParse];
+            }else if (self.paymentType == 4){
+                [self paymentInfoUnionPayDataParse];
+            }
         }else{
             DLog(@"%@",self.message);
         }
@@ -600,7 +618,16 @@
 }
 
 #pragma mark Data Parse
--(void)paymentInfoDataParse{
+-(void)paymentInfoAliPayDataParse{
+    self.orderNumber = [self.data objectForKey:@"orderNo"];
+    self.paymentInfomation = [self.data objectForKey:@"payinfo"];
+}
+
+-(void)paymentInfoWechatPayDataParse{
+    
+}
+
+-(void)paymentInfoUnionPayDataParse{
     
 }
 

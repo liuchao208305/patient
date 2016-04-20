@@ -30,6 +30,7 @@
 @property (strong,nonatomic)NSString *publicPatientMobile;
 @property (strong,nonatomic)NSString *publicPatientAge;
 @property (strong,nonatomic)NSString *publicPatientSex;
+@property (assign,nonatomic)NSInteger publicPatientSexFix;
 @property (strong,nonatomic)NSString *publicPatientSymptom;
 
 @property (strong,nonatomic)NSString *publicCouponId;

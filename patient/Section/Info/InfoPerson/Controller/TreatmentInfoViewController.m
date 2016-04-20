@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "HudUtil.h"
 #import "ContactCheckViewController.h"
+#import "AlertUtil.h"
 
 @interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
 
@@ -36,6 +37,7 @@
 @property (strong,nonatomic)NSString *appiontmentTime2;
 
 @property (strong,nonatomic)NSString *patientSex;
+@property (assign,nonatomic)NSInteger patientSexFix;
 @property (strong,nonatomic)NSString *patientSymptom;
 
 @end
@@ -652,6 +654,7 @@
 
 -(void)button5_1Clicked{
     self.patientSex = @"男";
+    self.patientSexFix = 1;
     [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
     [self.button5_1 setTitleColor: kMAIN_COLOR forState:UIControlStateNormal];
     [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
@@ -662,6 +665,7 @@
 
 -(void)button5_2Clicked{
     self.patientSex = @"女";
+    self.patientSexFix = 2;
     [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
     [self.button5_1 setTitleColor: [UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
@@ -671,32 +675,44 @@
 }
 
 -(void)confirmButtonClicked{
-    self.hidesBottomBarWhenPushed = YES;
-    ReservationListViewController *reservationVC = [[ReservationListViewController alloc] init];
-    
-    reservationVC.expertId = self.expertId;
-    reservationVC.clinicId = self.clinicId;
-    reservationVC.doctorId = self.doctorId;
-    reservationVC.appointmentTime = self.appointmentTime;
-    
-    reservationVC.publicDoctorImage = self.expertImageString;
-    reservationVC.publicDoctorImage = self.doctorImageString;
-    reservationVC.publicExpertName = self.expertName;
-    reservationVC.publicDoctorName = self.doctorName;
-    reservationVC.publicClinicName = self.clinicName;
-    reservationVC.publicClinicAddress = self.clinicAddress;
-    reservationVC.publicFormerMoney = self.formerMoney;
-    reservationVC.publicLatterMoney = self.latterMoney;
-    reservationVC.publicAppiontmentTime = self.timeLabel.text;
-    
-    reservationVC.publicPatientName = self.textfield1.text;
-    reservationVC.publicPatientId = self.textfield2.text;
-    reservationVC.publicPatientMobile = self.textfield3.text;
-    reservationVC.publicPatientAge = self.textfield4.text;
-    reservationVC.publicPatientSex = self.patientSex;
-    reservationVC.publicPatientSymptom = self.patientSymptom;
-    
-    [self.navigationController pushViewController:reservationVC animated:YES];
+    if ([self.textfield1.text isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"姓名不能为空！"];
+    }else if ([self.textfield2.text isEqualToString:@""]){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证不能为空！"];
+    }else if ([self.textfield3.text isEqualToString:@""]){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
+    }else if ([self.textfield4.text isEqualToString:@""]){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+    }else if ([self.patientSex isEqualToString:@""]){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
+    }else{
+        ReservationListViewController *reservationVC = [[ReservationListViewController alloc] init];
+        
+        reservationVC.expertId = self.expertId;
+        reservationVC.clinicId = self.clinicId;
+        reservationVC.doctorId = self.doctorId;
+        reservationVC.appointmentTime = self.appointmentTime;
+        
+        reservationVC.publicDoctorImage = self.expertImageString;
+        reservationVC.publicDoctorImage = self.doctorImageString;
+        reservationVC.publicExpertName = self.expertName;
+        reservationVC.publicDoctorName = self.doctorName;
+        reservationVC.publicClinicName = self.clinicName;
+        reservationVC.publicClinicAddress = self.clinicAddress;
+        reservationVC.publicFormerMoney = self.formerMoney;
+        reservationVC.publicLatterMoney = self.latterMoney;
+        reservationVC.publicAppiontmentTime = self.timeLabel.text;
+        
+        reservationVC.publicPatientName = self.textfield1.text;
+        reservationVC.publicPatientId = self.textfield2.text;
+        reservationVC.publicPatientMobile = self.textfield3.text;
+        reservationVC.publicPatientAge = self.textfield4.text;
+        reservationVC.publicPatientSex = self.patientSex;
+        reservationVC.publicPatientSexFix = self.patientSexFix;
+        reservationVC.publicPatientSymptom = self.patientSymptom;
+        
+        [self.navigationController pushViewController:reservationVC animated:YES];
+    }
 }
 
 #pragma mark UITextFieldDelegate
@@ -722,6 +738,7 @@
     self.textfield4.text = [NSString stringWithFormat:@"%ld",(long)contactData.age];
     if (contactData.sex == 0) {
         self.patientSex = @"男";
+        self.patientSexFix = 1;
         [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
         [self.button5_1 setTitleColor: kMAIN_COLOR forState:UIControlStateNormal];
         [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
@@ -730,6 +747,7 @@
         [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else{
         self.patientSex = @"女";
+        self.patientSexFix = 2;
         [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
         [self.button5_1 setTitleColor: [UIColor lightGrayColor] forState:UIControlStateNormal];
         [self.button5_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
