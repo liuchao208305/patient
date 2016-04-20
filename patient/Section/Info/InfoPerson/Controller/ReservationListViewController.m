@@ -14,6 +14,7 @@
 #import "NullUtil.h"
 #import "HudUtil.h"
 #import "AlertUtil.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate>
 
@@ -27,6 +28,10 @@
 
 @property (strong,nonatomic)NSString *orderNumber;
 @property (strong,nonatomic)NSString *paymentInfomation;
+
+@property (strong,nonatomic)NSString *alipayMomo;
+@property (strong,nonatomic)NSString *alipayResult;
+@property (strong,nonatomic)NSString *alipayResultStatus;
 
 @end
 
@@ -508,7 +513,9 @@
     detailVC.publicPatientSymptom = self.publicPatientSymptom;
     
     detailVC.publicCouponId = self.publicCouponId;
-    detailVC.publicCouponQuantity = self.label6_2.text;
+    detailVC.publicCouponName = self.label6_2.text;
+    
+    detailVC.orderNumber = self.orderNumber;
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
@@ -596,6 +603,7 @@
             if (self.paymentType == 1) {
                 [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
                 [self pushTreatmentDetailViewController];
+//                [self paymentInfoOfflineDataParse];
             }else if (self.paymentType == 2){
                 [self paymentInfoAliPayDataParse];
             }else if (self.paymentType == 3){
@@ -618,9 +626,39 @@
 }
 
 #pragma mark Data Parse
+-(void)paymentInfoOfflineDataParse{
+    self.orderNumber = [self.data objectForKey:@"orderNo"];
+    
+    [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+    
+    [self pushTreatmentDetailViewController];
+}
+
 -(void)paymentInfoAliPayDataParse{
     self.orderNumber = [self.data objectForKey:@"orderNo"];
     self.paymentInfomation = [self.data objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo = [resultDic objectForKey:@"memo"];
+        self.alipayResult = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+        }else if ([self.alipayResultStatus integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+        
+        [self pushTreatmentDetailViewController];
+    }];
 }
 
 -(void)paymentInfoWechatPayDataParse{

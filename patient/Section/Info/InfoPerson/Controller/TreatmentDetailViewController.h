@@ -33,7 +33,9 @@
 @property (strong,nonatomic)NSString *publicPatientSymptom;
 
 @property (strong,nonatomic)NSString *publicCouponId;
-@property (strong,nonatomic)NSString *publicCouponQuantity;
+@property (strong,nonatomic)NSString *publicCouponName;
+
+@property (strong,nonatomic)NSString *orderNumber;
 
 /*==============================================================*/
 
