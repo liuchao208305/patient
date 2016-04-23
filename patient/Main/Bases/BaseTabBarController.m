@@ -10,6 +10,7 @@
 #import "BaseNaviController.h"
 #import "InfoViewController.h"
 #import "TestViewController.h"
+#import "TestFixViewController.h"
 #import "SearchViewController.h"
 #import "MineViewController.h"
 
@@ -42,12 +43,18 @@
     BaseNaviController *InfoNavC = [[BaseNaviController alloc] initWithRootViewController:InfoVC];
     [childVCArray addObject:InfoNavC];
     
-    TestViewController *TestVC = [[TestViewController alloc] init];
-    [TestVC.tabBarItem setTitle:@"测体质"];
-    [TestVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_test_normal"]];
-    [TestVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_test_selected"]];
-    BaseNaviController *TestNavC = [[BaseNaviController alloc] initWithRootViewController:TestVC];
-    [childVCArray addObject:TestNavC];
+//    TestViewController *TestVC = [[TestViewController alloc] init];
+//    [TestVC.tabBarItem setTitle:@"测体质"];
+//    [TestVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_test_normal"]];
+//    [TestVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_test_selected"]];
+//    BaseNaviController *TestNavC = [[BaseNaviController alloc] initWithRootViewController:TestVC];
+//    [childVCArray addObject:TestNavC];
+    TestFixViewController *TestFixVC = [[TestFixViewController alloc] init];
+    [TestFixVC.tabBarItem setTitle:@"测体质"];
+    [TestFixVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_test_normal"]];
+    [TestFixVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_test_selected"]];
+    BaseNaviController *TestFixNavC = [[BaseNaviController alloc] initWithRootViewController:TestFixVC];
+    [childVCArray addObject:TestFixNavC];
     
     SearchViewController *SearchVC = [[SearchViewController alloc] init];
     [SearchVC.tabBarItem setTitle:@"搜索"];

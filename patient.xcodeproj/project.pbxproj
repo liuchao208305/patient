@@ -112,7 +112,6 @@
 		7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD391C98107F00BB6818 /* ScanViewController.m */; };
 		7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD501C9869A400BB6818 /* scan_back_image.png */; };
 		7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD511C9869A400BB6818 /* scan_line_image.png */; };
-		7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD5E1C99902500BB6818 /* TestViewController.m */; };
 		7046AD641C9998FC00BB6818 /* navbar_background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD631C9998FC00BB6818 /* navbar_background_image.png */; };
 		7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AD691C99C42E00BB6818 /* YJSegmentedControl.m */; };
 		7046AD711C9A426100BB6818 /* login_confirm_login_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7046AD6B1C9A426100BB6818 /* login_confirm_login_normal.png */; };
@@ -194,6 +193,9 @@
 		70926D951CC7329100CB0416 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D941CC7329100CB0416 /* QuartzCore.framework */; };
 		70926D971CC7329C00CB0416 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D961CC7329C00CB0416 /* CoreText.framework */; };
 		70926D991CC732D700CB0416 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D981CC732D700CB0416 /* CoreMotion.framework */; };
+		70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926D9E1CC77C3E00CB0416 /* TestViewController.m */; };
+		70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926DA11CC77D3100CB0416 /* QuestionData.m */; };
+		70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -204,6 +206,9 @@
 		70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD361C88017D0035B5E0 /* AdaptionUtil.m */; };
 		70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD391C88019F0035B5E0 /* EncyptionUtil.m */; };
 		70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD3C1C8809160035B5E0 /* GTMBase64.m */; };
+		70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */; };
+		70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */; };
+		70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -412,8 +417,6 @@
 		7046AD391C98107F00BB6818 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		7046AD501C9869A400BB6818 /* scan_back_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_back_image.png; sourceTree = "<group>"; };
 		7046AD511C9869A400BB6818 /* scan_line_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_line_image.png; sourceTree = "<group>"; };
-		7046AD5D1C99902500BB6818 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		7046AD5E1C99902500BB6818 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7046AD601C99956400BB6818 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		7046AD631C9998FC00BB6818 /* navbar_background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_background_image.png; sourceTree = "<group>"; };
 		7046AD681C99C42E00BB6818 /* YJSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSegmentedControl.h; sourceTree = "<group>"; };
@@ -536,6 +539,12 @@
 		70926D941CC7329100CB0416 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		70926D961CC7329C00CB0416 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		70926D981CC732D700CB0416 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		70926D9D1CC77C3E00CB0416 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		70926D9E1CC77C3E00CB0416 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		70926DA01CC77D3100CB0416 /* QuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionData.h; sourceTree = "<group>"; };
+		70926DA11CC77D3100CB0416 /* QuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionData.m; sourceTree = "<group>"; };
+		70926DA31CC782B400CB0416 /* TestQuestionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestQuestionTableCell.h; sourceTree = "<group>"; };
+		70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestQuestionTableCell.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -564,6 +573,12 @@
 		70A9BD3B1C8809160035B5E0 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		70A9BD3C1C8809160035B5E0 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		70A9BD3D1C8809160035B5E0 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFixViewController.h; sourceTree = "<group>"; };
+		70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFixViewController.m; sourceTree = "<group>"; };
+		70B4EA6D1CCB57F000141E38 /* TestResultListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultListViewController.h; sourceTree = "<group>"; };
+		70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultListViewController.m; sourceTree = "<group>"; };
+		70B4EA701CCB580E00141E38 /* TestResultDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultDetailViewController.h; sourceTree = "<group>"; };
+		70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultDetailViewController.m; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -1210,8 +1225,9 @@
 		7046AD5C1C99900100BB6818 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				7046AD5D1C99902500BB6818 /* TestViewController.h */,
-				7046AD5E1C99902500BB6818 /* TestViewController.m */,
+				70926D9C1CC77BD500CB0416 /* View */,
+				70926D9B1CC77BD000CB0416 /* Model */,
+				70926D9A1CC77BC800CB0416 /* Controller */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1440,6 +1456,39 @@
 				70926D8F1CC7327300CB0416 /* AlipaySDK.framework */,
 			);
 			path = AliPay;
+			sourceTree = "<group>";
+		};
+		70926D9A1CC77BC800CB0416 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70926D9D1CC77C3E00CB0416 /* TestViewController.h */,
+				70926D9E1CC77C3E00CB0416 /* TestViewController.m */,
+				70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */,
+				70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */,
+				70B4EA6D1CCB57F000141E38 /* TestResultListViewController.h */,
+				70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */,
+				70B4EA701CCB580E00141E38 /* TestResultDetailViewController.h */,
+				70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70926D9B1CC77BD000CB0416 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70926DA01CC77D3100CB0416 /* QuestionData.h */,
+				70926DA11CC77D3100CB0416 /* QuestionData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70926D9C1CC77BD500CB0416 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				70926DA31CC782B400CB0416 /* TestQuestionTableCell.h */,
+				70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		70C03DF11CA291F700DBA175 /* FMGAVPlayer */ = {
@@ -1831,6 +1880,7 @@
 				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */,
+				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
 				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
@@ -1838,8 +1888,10 @@
 				7005E37F1CC0D112002CA541 /* ContactCheckViewController.m in Sources */,
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
+				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
+				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
 				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
@@ -1865,18 +1917,20 @@
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
+				70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
-				7046AD5F1C99902500BB6818 /* TestViewController.m in Sources */,
+				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
+				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,

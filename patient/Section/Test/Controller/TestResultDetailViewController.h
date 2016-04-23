@@ -1,13 +1,13 @@
 //
-//  TestViewController.h
+//  TestResultDetailViewController.h
 //  patient
 //
-//  Created by ChaosLiu on 16/3/11.
+//  Created by ChaosLiu on 16/4/23.
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
 #import "BaseViewController.h"
 
-@interface TestViewController : BaseViewController
+@interface TestResultDetailViewController : BaseViewController
 
 @end
