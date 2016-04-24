@@ -13,6 +13,8 @@
 #import "TestQuestionTableCell.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "TestResultListViewController.h"
+#import "TestResultDetailViewController.h"
 
 @interface TestFixViewController ()
 
@@ -42,6 +44,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.answeredQuestionQuantity = 0;
+    
     [self lazyLoading];
     
     [self initNavBar];
@@ -13614,11 +13617,15 @@
 }
 
 -(void)confirmButtonClicked{
-    if (self.answeredQuestionQuantity < 60) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请回答完所有问题"];
-    }else{
-        [self sendTestConfirmRequest];
-    }
+//    if (self.answeredQuestionQuantity < 60) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请回答完所有问题"];
+//    }else{
+//        [self sendTestConfirmRequest];
+//    }
+    
+    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
+    listVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:listVC animated:YES];
 }
 
 #pragma mark Network Request

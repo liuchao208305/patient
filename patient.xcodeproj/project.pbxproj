@@ -209,6 +209,8 @@
 		70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */; };
 		70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */; };
 		70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */; };
+		70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */; };
+		70B4EA781CCB725500141E38 /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA771CCB725500141E38 /* ResultData.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -579,6 +581,10 @@
 		70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultListViewController.m; sourceTree = "<group>"; };
 		70B4EA701CCB580E00141E38 /* TestResultDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultDetailViewController.h; sourceTree = "<group>"; };
 		70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultDetailViewController.m; sourceTree = "<group>"; };
+		70B4EA731CCB6A8A00141E38 /* TestResultListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultListTableCell.h; sourceTree = "<group>"; };
+		70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultListTableCell.m; sourceTree = "<group>"; };
+		70B4EA761CCB725500141E38 /* ResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultData.h; sourceTree = "<group>"; };
+		70B4EA771CCB725500141E38 /* ResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultData.m; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -1478,6 +1484,8 @@
 			children = (
 				70926DA01CC77D3100CB0416 /* QuestionData.h */,
 				70926DA11CC77D3100CB0416 /* QuestionData.m */,
+				70B4EA761CCB725500141E38 /* ResultData.h */,
+				70B4EA771CCB725500141E38 /* ResultData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1487,6 +1495,8 @@
 			children = (
 				70926DA31CC782B400CB0416 /* TestQuestionTableCell.h */,
 				70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */,
+				70B4EA731CCB6A8A00141E38 /* TestResultListTableCell.h */,
+				70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1940,6 +1950,7 @@
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
+				70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
@@ -1950,6 +1961,7 @@
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
+				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
 				7046ADD31CA10FEB00BB6818 /* TreatmentDetailViewController.m in Sources */,
