@@ -11,8 +11,9 @@
 #import "AlertUtil.h"
 #import "HudUtil.h"
 #import "NullUtil.h"
+#import "SNChart.h"
 
-@interface TestResultDetailViewController ()
+@interface TestResultDetailViewController ()<SNChartDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -119,7 +120,7 @@
     
     self.backView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10, SCREEN_WIDTH, 190)];
     self.backView2.backgroundColor = kWHITE_COLOR;
-    [self initBackView2];
+//    [self initBackView2];
     [self.scrollView addSubview:self.backView2];
     
     self.backView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10+190+10, SCREEN_WIDTH, 250)];
@@ -177,7 +178,8 @@
 }
 
 -(void)initBackView2{
-    
+    SNChart *chart = [[SNChart alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.backView2.frame.size.height) withDataSource:self andChatStyle:SNChartStyleBar];
+    [chart showInView:self.backView2];
 }
 
 -(void)initBackView3{
@@ -336,6 +338,16 @@
     
 }
 
+#pragma mark SNChartDataSource
+-(NSArray *)chatConfigYValue:(SNChart *)chart{
+//    return @[@"100",@"100",@"70",@"30",@"50",@"14",@"5",@"14",@"5"];
+    return @[@"100",[NSString stringWithFormat:@"%ld",(long)self.a_score],[NSString stringWithFormat:@"%ld",(long)self.b_score],[NSString stringWithFormat:@"%ld",(long)self.c_score],[NSString stringWithFormat:@"%ld",(long)self.d_score],[NSString stringWithFormat:@"%ld",(long)self.e_score],[NSString stringWithFormat:@"%ld",(long)self.f_score],[NSString stringWithFormat:@"%ld",(long)self.g_score],[NSString stringWithFormat:@"%ld",(long)self.h_score],[NSString stringWithFormat:@"%ld",(long)self.i_score]];
+}
+
+-(NSArray *)chatConfigXValue:(SNChart *)chart{
+    return @[@"满分",@"阳虚质",@"阴虚质",@"气虚质",@"痰湿质",@"湿热质",@"血瘀质",@"气郁质",@"特禀质",@"平和质"];
+}
+
 #pragma mark Target Action
 
 #pragma mark Network Request
@@ -409,6 +421,8 @@
     self.label1_1.text = @"您的体质是：";
     self.label1_2.text = self.main_result;
     self.label1_3.text = [NSString stringWithFormat:@"倾向%@",self.trend_result];
+    
+    [self initBackView2];
     
     self.label3_1.text = @"您的体质是：";
     self.label3_2.text = self.main_result;

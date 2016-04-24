@@ -211,6 +211,11 @@
 		70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */; };
 		70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */; };
 		70B4EA781CCB725500141E38 /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA771CCB725500141E38 /* ResultData.m */; };
+		70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EA7A1CCCC7E100141E38 /* 气泡.png */; };
+		70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA7C1CCCC7E100141E38 /* SNChart.m */; };
+		70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA7E1CCCC7E100141E38 /* SNChartBar.m */; };
+		70B4EA861CCCC7E100141E38 /* SNChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA801CCCC7E100141E38 /* SNChartLine.m */; };
+		70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA821CCCC7E100141E38 /* UIBezierPath+curved.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -585,6 +590,15 @@
 		70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultListTableCell.m; sourceTree = "<group>"; };
 		70B4EA761CCB725500141E38 /* ResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultData.h; sourceTree = "<group>"; };
 		70B4EA771CCB725500141E38 /* ResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultData.m; sourceTree = "<group>"; };
+		70B4EA7A1CCCC7E100141E38 /* 气泡.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "气泡.png"; sourceTree = "<group>"; };
+		70B4EA7B1CCCC7E100141E38 /* SNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChart.h; sourceTree = "<group>"; };
+		70B4EA7C1CCCC7E100141E38 /* SNChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChart.m; sourceTree = "<group>"; };
+		70B4EA7D1CCCC7E100141E38 /* SNChartBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChartBar.h; sourceTree = "<group>"; };
+		70B4EA7E1CCCC7E100141E38 /* SNChartBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChartBar.m; sourceTree = "<group>"; };
+		70B4EA7F1CCCC7E100141E38 /* SNChartLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNChartLine.h; sourceTree = "<group>"; };
+		70B4EA801CCCC7E100141E38 /* SNChartLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNChartLine.m; sourceTree = "<group>"; };
+		70B4EA811CCCC7E100141E38 /* UIBezierPath+curved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+curved.h"; sourceTree = "<group>"; };
+		70B4EA821CCCC7E100141E38 /* UIBezierPath+curved.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+curved.m"; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -908,6 +922,7 @@
 		70265CA71C858B5A0091C01F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				70B4EA791CCCC7B300141E38 /* SNChartView */,
 				70926D8D1CC7322200CB0416 /* AliPay */,
 				70C03DF11CA291F700DBA175 /* FMGAVPlayer */,
 				702939531C8EC692008280E2 /* JPush */,
@@ -1501,6 +1516,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		70B4EA791CCCC7B300141E38 /* SNChartView */ = {
+			isa = PBXGroup;
+			children = (
+				70B4EA7A1CCCC7E100141E38 /* 气泡.png */,
+				70B4EA7B1CCCC7E100141E38 /* SNChart.h */,
+				70B4EA7C1CCCC7E100141E38 /* SNChart.m */,
+				70B4EA7D1CCCC7E100141E38 /* SNChartBar.h */,
+				70B4EA7E1CCCC7E100141E38 /* SNChartBar.m */,
+				70B4EA7F1CCCC7E100141E38 /* SNChartLine.h */,
+				70B4EA801CCCC7E100141E38 /* SNChartLine.m */,
+				70B4EA811CCCC7E100141E38 /* UIBezierPath+curved.h */,
+				70B4EA821CCCC7E100141E38 /* UIBezierPath+curved.m */,
+			);
+			path = SNChartView;
+			sourceTree = "<group>";
+		};
 		70C03DF11CA291F700DBA175 /* FMGAVPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1692,6 +1723,7 @@
 				70FEAE081CABBC89006A044A /* info_expert_xingxing_half.png in Resources */,
 				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
+				70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
 				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,
 				705EF7EF1CBC947600732886 /* mine_navbar_item_left.png in Resources */,
@@ -1929,6 +1961,7 @@
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
+				70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
@@ -1948,11 +1981,13 @@
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
+				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
 				70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */,
+				70B4EA861CCCC7E100141E38 /* SNChartLine.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
@@ -1975,6 +2010,7 @@
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
+				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
 			);
