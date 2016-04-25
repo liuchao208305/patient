@@ -10,6 +10,9 @@
 
 @interface RecordView : UIView
 
+@property (strong,nonatomic)NSString *recordId;
+@property (strong,nonatomic)NSString *recordPatientName;
+
 @property (strong,nonatomic)UIImageView *recordImage;
 @property (strong,nonatomic)UILabel *recordName;
 

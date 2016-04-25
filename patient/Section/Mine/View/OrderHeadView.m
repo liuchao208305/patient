@@ -64,6 +64,16 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(1);
     }];
+    
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *orderHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(orderHeadViewClicked)];
+    [self addGestureRecognizer:orderHeadViewTap];
+}
+
+-(void)orderHeadViewClicked{
+    if (self.orderHeadViewClickedDelegate && [self.orderHeadViewClickedDelegate respondsToSelector:@selector(orderHeadViewClicked)]) {
+        [self.orderHeadViewClickedDelegate orderHeadViewClicked];
+    }
 }
 
 @end

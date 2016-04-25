@@ -75,7 +75,40 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    DLog(@"%ld",(long)indexPath.row);
+    if (indexPath.row == 0) {
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function1Clicked)]) {
+            [self.functionDelegate function1Clicked];
+        }
+    }else if (indexPath.row == 1){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function2Clicked)]) {
+            [self.functionDelegate function2Clicked];
+        }
+    }else if (indexPath.row == 2){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function3Clicked)]) {
+            [self.functionDelegate function3Clicked];
+        }
+    }else if (indexPath.row == 3){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function4Clicked)]) {
+            [self.functionDelegate function4Clicked];
+        }
+    }else if (indexPath.row == 4){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function5Clicked)]) {
+            [self.functionDelegate function5Clicked];
+        }
+    }else if (indexPath.row == 5){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function6Clicked)]) {
+            [self.functionDelegate function6Clicked];
+        }
+    }else if (indexPath.row == 6){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function7Clicked)]) {
+            [self.functionDelegate function7Clicked];
+        }
+    }else if (indexPath.row == 7){
+        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function8Clicked)]) {
+            [self.functionDelegate function8Clicked];
+        }
+    }
 }
 
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{

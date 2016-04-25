@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol OrderHeadViewClickedDelegate <NSObject>
+
+-(void)orderHeadViewClicked;
+
+@end
+
 @interface OrderHeadView : UIView
 
 @property (strong,nonatomic)UILabel *leftLabel;
@@ -15,5 +21,7 @@
 @property (strong,nonatomic)UIImageView *rightImageView;
 
 @property (strong,nonatomic)UIView *bottomLineView;
+
+@property (weak,nonatomic)id<OrderHeadViewClickedDelegate> orderHeadViewClickedDelegate;
 
 @end

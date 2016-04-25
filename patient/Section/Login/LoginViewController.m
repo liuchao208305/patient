@@ -49,9 +49,25 @@
     
     int timeCount;
     NSThread *thread;
-    
-//    LoginRequestDelegate *loginRequest;
 }
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
+
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
 
 @end
 
@@ -487,6 +503,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [self sendWeixinLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -497,6 +514,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [self sendWeiboLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -507,6 +525,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [self sendTencentLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -541,6 +560,147 @@
     }];
 }
 
+-(void)sendTencentLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+    DLog(@"sendTencentLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:uid forKey:@"code"];
+    [parameter setValue:username forKey:@"name"];
+    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:@"Tencent" forKey:@"source"];
+    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"登录成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self tencentLoginDataParse];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            DLog(@"%ld",(long)self.code);
+            DLog(@"%@",self.message);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendWeixinLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+    DLog(@"sendWeixinLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:uid forKey:@"code"];
+    [parameter setValue:username forKey:@"name"];
+    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:@"Weixin" forKey:@"source"];
+    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"登录成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self weixinLoginDataParse];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            DLog(@"%ld",(long)self.code2);
+            DLog(@"%@",self.message2);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendWeiboLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+    DLog(@"sendWeiboLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:uid forKey:@"code"];
+    [parameter setValue:username forKey:@"name"];
+    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:@"Weibo" forKey:@"source"];
+    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"登录成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self weiboLoginDataParse];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            DLog(@"%ld",(long)self.code3);
+            DLog(@"%@",self.message3);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 -(void)sendLoginRequest{
     LoginRequestDelegate *loginRequest = [[LoginRequestDelegate alloc] init];
     loginRequest.loginDelegate =self;
@@ -557,6 +717,20 @@
 }
 
 #pragma mark Data Parse
+-(void)tencentLoginDataParse{
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)weixinLoginDataParse{
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)weiboLoginDataParse{
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 #pragma mark YJSegmentedControlDelegate
 - (void)segumentSelectionChange:(NSInteger)selection{
@@ -582,22 +756,6 @@
 }
 
 #pragma mark LoginDelegate
-//-(void)loginSuccess:(LoginModel *)loginModel{
-//    DLog(@"登录成功回调！");
-//    //保存登录状态和相关信息
-//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kJZK_isLoginSuccess];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//    
-//    
-//    if (![CommonUtil judgeIsLoginOnce]) {
-//        BOOL isLoginOnce = NO;
-//        [CommonUtil changeIsLoginOnce:isLoginOnce];
-//        //如果是第一次登录将跳转到相应页面进行资料完善
-//    }
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
 -(void)loginSuccess:(NSString *)token{
     DLog(@"登录成功回调！");
     

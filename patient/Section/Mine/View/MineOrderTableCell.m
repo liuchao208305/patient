@@ -50,9 +50,9 @@
     [self.backView1 addSubview:self.imageSmallView1];
     
     self.superscript1 = [[UILabel alloc] init];
-    self.superscript1.text = @"12";
+    self.superscript1.text = @"0";
     self.superscript1.textColor = kWHITE_COLOR;
-    self.superscript1.font = [UIFont systemFontOfSize:8];
+    self.superscript1.font = [UIFont systemFontOfSize:7];
     self.superscript1.textAlignment = NSTextAlignmentCenter;
     [self.imageSmallView1 addSubview:self.superscript1];
     
@@ -101,9 +101,9 @@
     [self.backView2 addSubview:self.imageSmallView2];
     
     self.superscript2 = [[UILabel alloc] init];
-    self.superscript2.text = @"12";
+    self.superscript2.text = @"0";
     self.superscript2.textColor = kWHITE_COLOR;
-    self.superscript2.font = [UIFont systemFontOfSize:8];
+    self.superscript2.font = [UIFont systemFontOfSize:7];
     self.superscript2.textAlignment = NSTextAlignmentCenter;
     [self.imageSmallView2 addSubview:self.superscript2];
     
@@ -152,9 +152,9 @@
     [self.backView3 addSubview:self.imageSmallView3];
     
     self.superscript3 = [[UILabel alloc] init];
-    self.superscript3.text = @"12";
+    self.superscript3.text = @"0";
     self.superscript3.textColor = kWHITE_COLOR;
-    self.superscript3.font = [UIFont systemFontOfSize:8];
+    self.superscript3.font = [UIFont systemFontOfSize:7];
     self.superscript3.textAlignment = NSTextAlignmentCenter;
     [self.imageSmallView3 addSubview:self.superscript3];
     
@@ -203,9 +203,9 @@
     [self.backView4 addSubview:self.imageSmallView4];
     
     self.superscript4 = [[UILabel alloc] init];
-    self.superscript4.text = @"12";
+    self.superscript4.text = @"0";
     self.superscript4.textColor = kWHITE_COLOR;
-    self.superscript4.font = [UIFont systemFontOfSize:8];
+    self.superscript4.font = [UIFont systemFontOfSize:7];
     self.superscript4.textAlignment = NSTextAlignmentCenter;
     [self.imageSmallView4 addSubview:self.superscript4];
     

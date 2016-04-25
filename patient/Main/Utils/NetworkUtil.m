@@ -72,7 +72,8 @@
     [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
         for (int i = 1; i<=images.count; i++) {
             NSData *imageData = UIImageJPEGRepresentation(images[i-1], 1.0);
-            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"image%d",i] fileName:@"image" mimeType:@"image/jpg"];
+//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"image%d",i] fileName:@"image" mimeType:@"image/jpg"];
+            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"image%d",i] fileName:@"jpg" mimeType:@"image/jpg"];
         }
     }success:^(NSURLSessionDataTask *task,id responseObject){
         successBlock(task,responseObject);

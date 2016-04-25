@@ -37,6 +37,7 @@ typedef enum {
 #define kJZK_LOGIN_GET_CATPCHA @"public/v1/user/getCode?" //获取验证码
 #define kJZK_QUICK_LOGIN @"public/v1/user/fastLogin?"//快速登录
 #define kJZK_NORMAL_LOGIN @"public/v1/user/login?"//常规登录
+#define kJZK_THIRD_LOGIN @"public/v1/user/insertLogin?"//第三方登录
 #define kJZK_INFO_INFORMATION @"public/v1/user/index?"//首页信息
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
@@ -63,6 +64,7 @@ typedef enum {
 #define kJZK_TEST_RESULT_DETAIL_INFORMATION @"public/v1/getAnalyResultDetail?"//获取体质测试结构详情信息
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
+#define kJZK_MINE_SETTING_INFOMATION_CONFIRM @"private/v1/user/updateSet?"//提交个人设置信息
 #define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
 

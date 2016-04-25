@@ -99,6 +99,9 @@
     label.font = [UIFont systemFontOfSize:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
+    
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"test_result_detail_share_button"] style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClicked)];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 -(void)initTabBar{
@@ -349,6 +352,16 @@
 }
 
 #pragma mark Target Action
+-(void)shareButtonClicked{
+    DLog(@"shareButtonClicked");
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"56df91e4e0f55a811e002783"
+                                          shareText:@"友盟社会化分享让您快速实现分享等社会化功能"
+                                         shareImage:[UIImage imageNamed:@"default_image_small"]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
+                                           delegate:self];
+}
 
 #pragma mark Network Request
 -(void)sendTestResultDetailRequest{

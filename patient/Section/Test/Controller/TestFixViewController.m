@@ -15,6 +15,7 @@
 #import "AlertUtil.h"
 #import "TestResultListViewController.h"
 #import "TestResultDetailViewController.h"
+#import "LoginViewController.h"
 
 @interface TestFixViewController ()
 
@@ -13617,15 +13618,15 @@
 }
 
 -(void)confirmButtonClicked{
-//    if (self.answeredQuestionQuantity < 60) {
-//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请回答完所有问题"];
-//    }else{
-//        [self sendTestConfirmRequest];
-//    }
+    if (self.answeredQuestionQuantity < 60) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请回答完所有问题"];
+    }else{
+        [self sendTestConfirmRequest];
+    }
     
-    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
-    listVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:listVC animated:YES];
+//    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
+//    listVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:listVC animated:YES];
 }
 
 #pragma mark Network Request
@@ -14110,9 +14111,23 @@
         
         if (self.code2 == kSUCCESS) {
             //跳转到测试结果详情页面
+            NSString *resultId = [self.data2 objectForKey:@"analy_result_id"];
+            
+            TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
+            detailVC.hidesBottomBarWhenPushed = YES;
+            
+            detailVC.resultId = resultId;
+            [self.navigationController pushViewController:detailVC animated:YES];
+            
         }else{
-            DLog(@"%@",self.message2);
-            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+//            DLog(@"%@",self.message2);
+//            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+            
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

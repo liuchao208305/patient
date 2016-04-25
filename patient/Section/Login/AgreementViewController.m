@@ -44,8 +44,8 @@
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(navBack)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(navBack)];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)initTabBar{
@@ -66,9 +66,9 @@
 }
 
 #pragma mark Target Action
--(void)navBack{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//-(void)navBack{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 #pragma mark UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView{

@@ -261,6 +261,30 @@
         cell.keshiLabel4.text = [NullUtil judgeStringNull:self.keshiLabel4];
         [cell.keshiImageView4 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage4]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         
+        cell.guominImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *guominImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guominImageViewClicked)];
+        [cell.guominImageView addGestureRecognizer:guominImageViewTap];
+        
+        cell.laotouImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *laotouImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(laotouImageViewClicked)];
+        [cell.laotouImageView addGestureRecognizer:laotouImageViewTap];
+        
+        cell.keshiView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *keshiView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView1Clicked)];
+        [cell.keshiView1 addGestureRecognizer:keshiView1Tap];
+        
+        cell.keshiView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *keshiView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView2Clicked)];
+        [cell.keshiView2 addGestureRecognizer:keshiView2Tap];
+        
+        cell.keshiView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *keshiView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView3Clicked)];
+        [cell.keshiView3 addGestureRecognizer:keshiView3Tap];
+        
+        cell.keshiView4.userInteractionEnabled = YES;
+        UITapGestureRecognizer *keshiView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView4Clicked)];
+        [cell.keshiView4 addGestureRecognizer:keshiView4Tap];
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *cellName = @"HealthTableCell";
@@ -345,16 +369,30 @@
         self.infoHeadView.titleLabel.text = @"吃出健康";
         self.infoHeadView.moreLabel.text = @"更多";
         self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_health_more_button"];
+        
+        self.infoHeadView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *healthHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthHeadViewClicked)];
+        [self.infoHeadView addGestureRecognizer:healthHeadViewTap];
+        
     }else if (section == 2){
         self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_studio_title_button"];
         self.infoHeadView.titleLabel.text = @"推荐名老中医工作室";
         self.infoHeadView.moreLabel.text = @"更多";
         self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_studio_more_button"];
+        
+        self.infoHeadView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *studioHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(studioHeadViewClicked)];
+        [self.infoHeadView addGestureRecognizer:studioHeadViewTap];
+        
     }else if (section == 3){
         self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_person_title_button"];
         self.infoHeadView.titleLabel.text = @"推荐名老中医";
         self.infoHeadView.moreLabel.text = @"更多";
         self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_person_more_button"];
+        
+        self.infoHeadView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *personHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personHeadViewClicked)];
+        [self.infoHeadView addGestureRecognizer:personHeadViewTap];
     }
     return self.infoHeadView;
 }
@@ -385,6 +423,42 @@
     ScanViewController *scanVC = [[ScanViewController alloc] init];
     [self.navigationController pushViewController:scanVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+}
+
+-(void)guominImageViewClicked{
+    DLog(@"guominImageViewClicked");
+}
+
+-(void)laotouImageViewClicked{
+    DLog(@"laotouImageViewClicked");
+}
+
+-(void)keshiView1Clicked{
+    DLog(@"keshiView1Clicked");
+}
+
+-(void)keshiView2Clicked{
+    DLog(@"keshiView2Clicked");
+}
+
+-(void)keshiView3Clicked{
+    DLog(@"keshiView3Clicked");
+}
+
+-(void)keshiView4Clicked{
+    DLog(@"keshiView4Clicked");
+}
+
+-(void)healthHeadViewClicked{
+    DLog(@"healthHeadViewClicked");
+}
+
+-(void)studioHeadViewClicked{
+    DLog(@"studioHeadViewClicked");
+}
+
+-(void)personHeadViewClicked{
+    DLog(@"personHeadViewClicked");
 }
 
 -(void)person1Clicked{

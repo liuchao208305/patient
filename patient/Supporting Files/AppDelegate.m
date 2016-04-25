@@ -262,6 +262,10 @@
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:appKeyUMSocial];
     [UMSocialData openLog:YES];
+    /*
+     //个人测试用
+     
+     */
     
     [UMSocialWechatHandler setWXAppId:@"wxb18ebc8c2ec62bfd" appSecret:@"3c1abf48531f06744717a96031e9c1dc" url:@"http://www.jiuzhekan.com/"];
     
@@ -270,6 +274,18 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3928839999"
                                               secret:@"d3e2b58f53600d0811b1d29ae1be36ab"
                                          RedirectURL:@"http://www.jiuzhekan.com/"];
+    
+    /*
+     //公司测试用
+     [UMSocialWechatHandler setWXAppId:@"wxef6c524d4d882179" appSecret:@"56afef8674fedd10a539331e99edcb13" url:@"http://www.jiuzhekan.com/"];
+     
+     [UMSocialQQHandler setQQWithAppId:@"1105354776" appKey:@"qpnQRy3P7cZGdJgv" url:@"http://www.jiuzhekan.com/"];
+     
+     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3928839999"
+     secret:@"d3e2b58f53600d0811b1d29ae1be36ab"
+     RedirectURL:@"http://www.jiuzhekan.com/"];
+     */
+    
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

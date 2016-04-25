@@ -52,6 +52,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.navigationController.navigationBar.hidden = NO;
+    
     [self sendTestResultListRequest];
 }
 
@@ -84,15 +86,14 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
     label.text = @"体质测试结果列表";
     label.textColor = [UIColor whiteColor];
     label.font = [UIFont systemFontOfSize:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
-    
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"重新测试" style:UIBarButtonItemStylePlain target:self action:@selector(navBackToTestFixViewController)];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 -(void)initTabBar{
@@ -113,9 +114,6 @@
 }
 
 #pragma mark Target Action
--(void)navBackToTestFixViewController{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -177,7 +175,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:@"100" forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_TEST_RESULT_LIST_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         

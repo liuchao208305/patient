@@ -7,7 +7,6 @@
 //
 
 #import "MineRecordTableCell.h"
-#import "RecordView.h"
 
 @interface MineRecordTableCell ()
 
@@ -44,16 +43,15 @@
 
 -(void)initSubView{
     for (int i = 0; i<10; i++) {
-        RecordView *recordView = [[RecordView alloc] init];
-        recordView.tag = i;
-//        recordView.frame = CGRectMake((i+1)*21+i*46, 15, 46, 55);
-        recordView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-46*4)/5+i*46, 15, 46, 55);
-        [recordView.recordImage setImage:[UIImage imageNamed:@"mine_default_medical_record"]];
-        recordView.recordName.text = @"张小泉";
-        [self.scrollView addSubview:recordView];
+        self.recordView = [[RecordView alloc] init];
+        self.recordView.tag = i;
+        self.recordView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-46*4)/5+i*46, 15, 46, 55);
+//        [self.recordView.recordImage setImage:[UIImage imageNamed:@"mine_default_medical_record"]];
+//        self.recordView.recordName.text = @"张小泉";
+        [self.scrollView addSubview:self.recordView];
         
         UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(recordViewClicked:)];
-        [recordView addGestureRecognizer:recognizer];
+        [self.recordView addGestureRecognizer:recognizer];
     }
     
     self.scrollView.contentSize = CGSizeMake(10*((SCREEN_WIDTH-46*4)/5+46)+21, 0);

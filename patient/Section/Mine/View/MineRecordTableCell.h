@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordView.h"
 
 @interface MineRecordTableCell : UITableViewCell
+
+@property (strong,nonatomic)RecordView *recordView;
 
 @end
