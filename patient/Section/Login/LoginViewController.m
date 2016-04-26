@@ -503,7 +503,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendWeixinLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendWeixinLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -514,7 +514,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendWeiboLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendWeiboLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -525,7 +525,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendTencentLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendTencentLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -560,7 +560,7 @@
     }];
 }
 
--(void)sendTencentLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+-(void)sendTencentLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendTencentLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -568,9 +568,9 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:uid forKey:@"code"];
-    [parameter setValue:username forKey:@"name"];
-    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Tencent" forKey:@"source"];
     [parameter setValue:@"iOS" forKey:@"source_equ"];
     
@@ -607,7 +607,7 @@
     }];
 }
 
--(void)sendWeixinLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+-(void)sendWeixinLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendWeixinLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -615,9 +615,9 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:uid forKey:@"code"];
-    [parameter setValue:username forKey:@"name"];
-    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weixin" forKey:@"source"];
     [parameter setValue:@"iOS" forKey:@"source_equ"];
     
@@ -654,7 +654,7 @@
     }];
 }
 
--(void)sendWeiboLoginRequest:(NSString *)uid name:(NSString *)username image:(NSString *)url{
+-(void)sendWeiboLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendWeiboLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -662,9 +662,9 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:uid forKey:@"code"];
-    [parameter setValue:username forKey:@"name"];
-    [parameter setValue:url forKey:@"head_url"];
+    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weibo" forKey:@"source"];
     [parameter setValue:@"iOS" forKey:@"source_equ"];
     

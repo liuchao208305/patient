@@ -19,8 +19,8 @@
 #define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
 #else
 //Release状态下的线上API
-#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
-#define kServerAddressPay   @"http://www.jiuzhekan.com/jiuzhekan_pay/"//外网上线地址—支付
+//#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
+//#define kServerAddressPay   @"http://www.jiuzhekan.com/jiuzhekan_pay/"//外网上线地址—支付
 #endif
 
 #define	kCODE	    @"code"
@@ -69,6 +69,7 @@ typedef enum {
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
 
 #define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
+#define kJZK_HEAD_IMAGE_UPLOAD @"private/v1/user/updateHeand?"//更改个人头像
 #define kJZK_IMAGE_UPLOAD @"private/v1/user/updateConuPhoto"//图片上传
 /*========================================接口===============================================*/
 

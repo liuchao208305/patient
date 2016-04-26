@@ -104,6 +104,9 @@
     label.font = [UIFont systemFontOfSize:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
+    
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"test_result_detail_share_button"] style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClicked)];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 -(void)initTabBar{
@@ -507,6 +510,10 @@
 }
 
 #pragma mark Target Action
+-(void)doneButtonClicked{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 -(void)backView3Clicked{
     DLog(@"backView3Clicked");
     CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];

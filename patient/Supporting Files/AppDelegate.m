@@ -267,12 +267,12 @@
      
      */
     
-    [UMSocialWechatHandler setWXAppId:@"wxb18ebc8c2ec62bfd" appSecret:@"3c1abf48531f06744717a96031e9c1dc" url:@"http://www.jiuzhekan.com/"];
+    [UMSocialWechatHandler setWXAppId:@"wxef6c524d4d882179" appSecret:@"56afef8674fedd10a539331e99edcb13" url:@"http://www.jiuzhekan.com/"];
     
-    [UMSocialQQHandler setQQWithAppId:@"1105242043" appKey:@"EIVT0j4ZL1ODYed8" url:@"http://www.jiuzhekan.com/"];
+    [UMSocialQQHandler setQQWithAppId:@"1105354776" appKey:@"qpnQRy3P7cZGdJgv" url:@"http://www.jiuzhekan.com/"];
     
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3928839999"
-                                              secret:@"d3e2b58f53600d0811b1d29ae1be36ab"
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2024109510"
+                                              secret:@"53778e0f7f552ef65803271e61135e9d"
                                          RedirectURL:@"http://www.jiuzhekan.com/"];
     
     /*

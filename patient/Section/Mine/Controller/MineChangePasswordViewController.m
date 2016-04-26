@@ -11,6 +11,7 @@
 #import "AlertUtil.h"
 #import "HudUtil.h"
 #import "AdaptionUtil.h"
+#import "EncyptionUtil.h"
 
 @interface MineChangePasswordViewController (){
     int timeCount;
@@ -327,7 +328,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.textField1_1.text forKey:@"phone"];
     [parameter setValue:self.textField1_2.text forKey:@"code"];
-    [parameter setValue:self.textField2_2.text forKey:@"newPwd"];
+    [parameter setValue:[EncyptionUtil encrypt_md5:self.textField2_2.text] forKey:@"newPwd"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_PASSWORD_RESET_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);

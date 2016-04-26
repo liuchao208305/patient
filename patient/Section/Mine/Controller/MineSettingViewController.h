@@ -10,6 +10,14 @@
 
 @interface MineSettingViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *publicUserName;
+@property (strong,nonatomic)NSString *publicRealName;
+@property (strong,nonatomic)NSString *publicIdNumber;
+@property (strong,nonatomic)NSString *publicSsNumber;
+@property (strong,nonatomic)NSString *publicMobileNumber;
+@property (strong,nonatomic)NSString *publicUserAge;
+@property (assign,nonatomic)NSInteger publicUserSex;
+
 @property (strong,nonatomic)UIScrollView *scrollView;
 
 @property (strong,nonatomic)UIView *backView1;

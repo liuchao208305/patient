@@ -449,30 +449,6 @@
 }
 
 -(void)onlineButtonClicked{
-//    DLog(@"%@",self.expertId);
-//    DLog(@"%@",self.clinicId);
-//    DLog(@"%@",self.doctorId);
-//    DLog(@"%@",self.appointmentTime);
-//    DLog(@"%@",self.publicDoctorImage);
-//    DLog(@"%@",self.publicDoctorImage);
-//    DLog(@"%@",self.publicExpertName);
-//    DLog(@"%@",self.publicDoctorName);
-//    DLog(@"%@",self.publicClinicName);
-//    DLog(@"%@",self.publicClinicAddress);
-//    DLog(@"%f",self.publicFormerMoney);
-//    DLog(@"%f",self.publicLatterMoney);
-//    DLog(@"%@",self.publicAppiontmentTime);
-//    DLog(@"%@",self.publicPatientName);
-//    DLog(@"%@",self.publicPatientId);
-//    DLog(@"%@",self.publicPatientMobile);
-//    DLog(@"%@",self.publicPatientAge);
-//    DLog(@"%@",self.publicPatientSex);
-//    DLog(@"%@",self.publicPatientSymptom);
-//    DLog(@"%@",self.label6_2.text);
-//    DLog(@"%@",self.publicCouponId);
-    
-//    [self sendPaymentInfoRequest];
-    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择支付方式"
                                   delegate:self
@@ -662,7 +638,7 @@
 }
 
 -(void)paymentInfoWechatPayDataParse{
-    
+    DLog(@"paymentInfoWechatPayDataParse");
 }
 
 -(void)paymentInfoUnionPayDataParse{

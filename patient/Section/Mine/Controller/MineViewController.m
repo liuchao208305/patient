@@ -33,11 +33,21 @@
 @property (strong,nonatomic)NSMutableDictionary *result2;
 @property (assign,nonatomic)NSInteger code2;
 @property (strong,nonatomic)NSString *message2;
-@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (strong,nonatomic)NSString *data2;
 @property (assign,nonatomic)NSError *error2;
+
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
 
 @property (strong,nonatomic)NSString *user_id;
 @property (strong,nonatomic)NSString *user_name;
+@property (strong,nonatomic)NSString *ID_number;
+@property (strong,nonatomic)NSString *ID_medical;
+@property (strong,nonatomic)NSString *user_age;
+@property (assign,nonatomic)NSInteger user_sex;
 @property (strong,nonatomic)NSString *qr_code_url;
 
 @property (strong,nonatomic)NSString *heand_url;
@@ -322,6 +332,14 @@
 -(void)rightButtonClicked{
     MineSettingViewController *settingVC = [[MineSettingViewController alloc] init];
     settingVC.hidesBottomBarWhenPushed = YES;
+    
+    settingVC.publicUserName = self.user_name;
+    settingVC.publicRealName = self.real_name;
+    settingVC.publicIdNumber = self.ID_number;
+    settingVC.publicSsNumber = self.ID_medical;
+    settingVC.publicUserAge = self.user_age;
+    settingVC.publicUserSex = self.user_sex;
+    
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 
@@ -451,7 +469,7 @@
         
         if (self.code == kSUCCESS) {
             [self mineInfoDataParse];
-//            [self mineInfoDataParse2];
+            [self mineInfoDataParse2];
         }else{
             DLog(@"%@",self.message);
             if (self.code == kTOKENINVALID) {
@@ -502,8 +520,7 @@
         self.data2 = [self.result2 objectForKey:@"data"];
         
         if (self.code2 == kSUCCESS) {
-            [HudUtil showSimpleTextOnlyHUD:@"上传成功！" withDelaySeconds:kHud_DelayTime];
-            [self sendMineInfoRequest];
+            [self savePatientImageViewRequest];
         }else{
             DLog(@"%@",self.message2);
             if (self.code2 == kTOKENINVALID) {
@@ -522,10 +539,52 @@
     }];
 }
 
+-(void)savePatientImageViewRequest{
+    DLog(@"savePatientImageViewRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:self.data2 forKey:@"heand_url"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEAD_IMAGE_UPLOAD] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            [self sendMineInfoRequest];
+        }else{
+            DLog(@"%@",self.message3);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)mineInfoDataParse{
     self.user_id = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"user_id"]];
     self.user_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"user_name"]];
+    self.ID_number = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"ID_number"]];
+    self.ID_medical = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"ID_medical"]];
+    self.user_age = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"user_age"]];
+    self.user_sex = [[[self.data objectForKey:@"user"] objectForKey:@"user_sex"] integerValue];
     self.qr_code_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"qr_code_url"]];
     
     self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"heand_url"]];
@@ -554,8 +613,7 @@
 
 #pragma mark Data Filling
 -(void)mineInfoDataFilling{
-//    [self.patientImageView sd_setImageWithURL:[NSURL URLWithString:self.heand_url] placeholderImage:[UIImage imageNamed:@"mine_top_patient_image"]];
-    [self.patientImageView sd_setImageWithURL:[NSURL URLWithString:self.heand_url] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.patientImageView sd_setImageWithURL:[NSURL URLWithString:self.heand_url] placeholderImage:[UIImage imageNamed:@"mine_top_patient_image"]];
     self.patientLabel.text = [self.real_name isEqualToString:@""] ? @"暂无" : self.real_name;
 }
 

@@ -51,6 +51,8 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = NO;
+    
+    [self mineSettingDataFilling];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -94,27 +96,27 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 320+10+44+10+180+30+50+30);
+    self.scrollView.contentSize = CGSizeMake(0, 320-45+10+44+10+180+30+50+30);
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = YES;
     [self.view addSubview:self.scrollView];
     
-    self.backView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 320)];
+    self.backView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 320-45)];
     self.backView1.backgroundColor = kWHITE_COLOR;
     [self initSubView1];
     [self.scrollView addSubview:self.backView1];
     
-    self.backView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 320+10, SCREEN_WIDTH, 44)];
+    self.backView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 320-45+10, SCREEN_WIDTH, 44)];
     self.backView2.backgroundColor = kWHITE_COLOR;
     [self initSubView2];
     [self.scrollView addSubview:self.backView2];
     
-    self.backView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 320+10+44+10, SCREEN_WIDTH, 180)];
+    self.backView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 320-45+10+44+10, SCREEN_WIDTH, 180)];
     self.backView3.backgroundColor = kWHITE_COLOR;
     [self initSubView3];
     [self.scrollView addSubview:self.backView3];
     
-    self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 320+10+44+10+180+30, SCREEN_WIDTH-60, 50)];
+    self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 320-45+10+44+10+180+30, SCREEN_WIDTH-60, 50)];
     [self.saveButton setTitle:@"保存" forState:UIControlStateNormal];
     [self.saveButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
     [self.saveButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
@@ -172,17 +174,17 @@
     self.lineView1_4.backgroundColor = kBACKGROUND_COLOR;
     [self.backView1 addSubview:self.lineView1_4];
     
-    self.label1_5 = [[UILabel alloc] init];
-    self.label1_5.text = @"手机号码";
-    [self.backView1 addSubview:self.label1_5];
+//    self.label1_5 = [[UILabel alloc] init];
+//    self.label1_5.text = @"手机号码";
+//    [self.backView1 addSubview:self.label1_5];
     
-    self.textField1_5 = [[UITextField alloc] init];
-    self.textField1_5.placeholder = @"请输入您的手机号码";
-    [self.backView1 addSubview:self.textField1_5];
+//    self.textField1_5 = [[UITextField alloc] init];
+//    self.textField1_5.placeholder = @"请输入您的手机号码";
+//    [self.backView1 addSubview:self.textField1_5];
     
-    self.lineView1_5 = [[UIView alloc] init];
-    self.lineView1_5.backgroundColor = kBACKGROUND_COLOR;
-    [self.backView1 addSubview:self.lineView1_5];
+//    self.lineView1_5 = [[UIView alloc] init];
+//    self.lineView1_5.backgroundColor = kBACKGROUND_COLOR;
+//    [self.backView1 addSubview:self.lineView1_5];
     
     self.label1_6 = [[UILabel alloc] init];
     self.label1_6.text = @"年龄";
@@ -298,30 +300,30 @@
         make.height.mas_equalTo(1);
     }];
     
-    [self.label1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.backView1).offset(15);
-        make.top.equalTo(self.lineView1_4).offset(1+15);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(15);
-    }];
+//    [self.label1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.backView1).offset(15);
+//        make.top.equalTo(self.lineView1_4).offset(1+15);
+//        make.width.mas_equalTo(100);
+//        make.height.mas_equalTo(15);
+//    }];
     
-    [self.textField1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_5).offset(100);
-        make.centerY.equalTo(self.label1_5).offset(0);
-        make.width.mas_equalTo(SCREEN_WIDTH-100-15);
-        make.height.mas_equalTo(30);
-    }];
+//    [self.textField1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.label1_5).offset(100);
+//        make.centerY.equalTo(self.label1_5).offset(0);
+//        make.width.mas_equalTo(SCREEN_WIDTH-100-15);
+//        make.height.mas_equalTo(30);
+//    }];
     
-    [self.lineView1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label1_5).offset(15+15);
-        make.leading.equalTo(self.backView1).offset(0);
-        make.trailing.equalTo(self.backView1).offset(0);
-        make.height.mas_equalTo(1);
-    }];
+//    [self.lineView1_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.label1_5).offset(15+15);
+//        make.leading.equalTo(self.backView1).offset(0);
+//        make.trailing.equalTo(self.backView1).offset(0);
+//        make.height.mas_equalTo(1);
+//    }];
     
     [self.label1_6 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView1).offset(15);
-        make.top.equalTo(self.lineView1_5).offset(1+15);
+        make.top.equalTo(self.lineView1_4).offset(1+15);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);
     }];
@@ -654,6 +656,7 @@
         }else{
             DLog(@"%ld",(long)self.code);
             DLog(@"%@",self.message);
+            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
             if (self.code == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -673,5 +676,20 @@
 }
 
 #pragma mark Data Parse
+
+#pragma mark Data Filling
+-(void)mineSettingDataFilling{
+    self.textField1_1.text = self.publicUserName;
+    self.textField1_2.text = self.publicRealName;
+    self.textField1_3.text = self.publicIdNumber;
+    self.textField1_4.text = self.publicSsNumber;
+    self.textField1_6.text = self.publicUserAge;
+    
+    if (self.publicUserSex == 1) {
+        [self button1_7_1Clicked];
+    }else if (self.publicUserSex == 2){
+        [self button1_7_2Clicked];
+    }
+}
 
 @end
