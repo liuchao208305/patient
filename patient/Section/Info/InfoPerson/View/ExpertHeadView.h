@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FiterViewClickDelegate <NSObject>
+
+-(void)filterViewClicked;
+
+@end
+
 @interface ExpertHeadView : UIView
 
 //@property (strong,nonatomic)UIButton *buttonLeft;
@@ -17,5 +23,7 @@
 @property (strong,nonatomic)UIView *fiterView;
 @property (strong,nonatomic)UILabel *fiterLabel;
 @property (strong,nonatomic)UIImageView *fiterImage;
+
+@property (weak,nonatomic)id<FiterViewClickDelegate> fiterViewClickDelegate;
 
 @end

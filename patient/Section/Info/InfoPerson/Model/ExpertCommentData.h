@@ -10,8 +10,8 @@
 
 @interface ExpertCommentData : NSObject
 
-@property (strong,nonatomic)NSString *doctor_name;
 @property (strong,nonatomic)NSString *user_name;
+@property (strong,nonatomic)NSString *doctor_name;
 @property (strong,nonatomic)NSString *flag_name;
 @property (strong,nonatomic)NSString *doctor_id;
 

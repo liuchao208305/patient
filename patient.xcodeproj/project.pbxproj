@@ -221,6 +221,7 @@
 		70B4EA8F1CCDBF8C00141E38 /* test_result_detail_share_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EA8E1CCDBF8C00141E38 /* test_result_detail_share_button.png */; };
 		70B4EA921CCE2E5700141E38 /* MineChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */; };
 		70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA941CCE56F800141E38 /* ImageUtil.m */; };
+		70B4EA971CCF553D00141E38 /* info_expert_comment_image_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -613,6 +614,7 @@
 		70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineChangePasswordViewController.m; sourceTree = "<group>"; };
 		70B4EA931CCE56F800141E38 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
 		70B4EA941CCE56F800141E38 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
+		70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_comment_image_default.png; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -1008,6 +1010,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */,
 				70B4EA8E1CCDBF8C00141E38 /* test_result_detail_share_button.png */,
 				70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */,
 				70926CDC1CC4DA4600CB0416 /* info_coupon_blue_back_image.png */,
@@ -1749,6 +1752,7 @@
 				70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
 				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,
+				70B4EA971CCF553D00141E38 /* info_expert_comment_image_default.png in Resources */,
 				705EF7EF1CBC947600732886 /* mine_navbar_item_left.png in Resources */,
 				70C03E0A1CA2926A00DBA175 /* mini_launchFullScreen_btn222@2x.png in Resources */,
 				7046AD2E1C97E5D700BB6818 /* tabbar_mine_normal.png in Resources */,
@@ -2188,7 +2192,7 @@
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient666;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient777;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2215,7 +2219,7 @@
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient666;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient777;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

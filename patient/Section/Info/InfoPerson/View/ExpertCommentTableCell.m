@@ -38,47 +38,50 @@
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollEnabled = NO;
-//    self.scrollView.backgroundColor = kBLACK_COLOR;
     [self.contentView addSubview:self.scrollView];
     
     for (int i = 0; i <3; i++) {
         self.mainView = [[UIView alloc] initWithFrame:CGRectMake(0, i*(74*SCREEN_SCALE+10), SCREEN_WIDTH, 74*SCREEN_SCALE+10)];
-        self.mainView.tag = i;
+        self.mainView.tag = 100+i;
         [self.scrollView addSubview:self.mainView];
     }
     
-    self.subView1 = (UIView *)[self viewWithTag:0];
-//    [self iniSubView1];
-    self.subView1.backgroundColor = [UIColor redColor];
-    self.subView2 = (UIView *)[self viewWithTag:1];
-//    [self initSubView2];
-    self.subView2.backgroundColor = [UIColor greenColor];
-    self.subView3 = (UIView *)[self viewWithTag:2];
-//    [self initSubView3];
-    self.subView3.backgroundColor = [UIColor blueColor];
+    self.subView1 = (UIView *)[self viewWithTag:100];
+    [self iniSubView1];
+    self.subView1.backgroundColor = kWHITE_COLOR;
+    
+    self.subView2 = (UIView *)[self viewWithTag:101];
+    [self initSubView2];
+    self.subView2.backgroundColor = kWHITE_COLOR;
+    
+    self.subView3 = (UIView *)[self viewWithTag:102];
+    [self initSubView3];
+    self.subView3.backgroundColor = kWHITE_COLOR;
     
     [self startTimer];
 }
 
 -(void)iniSubView1{
     self.bannerImageView1 = [[UIImageView alloc] init];
-    self.bannerImageView1.backgroundColor = [UIColor redColor];
+    [self.bannerImageView1 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.subView1 addSubview:self.bannerImageView1];
     
     self.label1_1 = [[UILabel alloc] init];
-    self.label1_1.text = @"label1_1";
+    self.label1_1.text = @"张可可";
     [self.subView1 addSubview:self.label1_1];
     
     self.label1_2 = [[UILabel alloc] init];
-    self.label1_2.text = @"label1_2";
+    self.label1_2.text = @"赞";
+    self.label1_2.textColor = [UIColor redColor];
     [self.subView1 addSubview:self.label1_2];
     
     self.label1_3 = [[UILabel alloc] init];
-    self.label1_3.text = @"label1_3";
+    self.label1_3.text = @"尤医生";
     [self.subView1 addSubview:self.label1_3];
     
     self.label1_4 = [[UILabel alloc] init];
-    self.label1_4.text = @"label1_4";
+    self.label1_4.text = @"神丹妙药";
+    self.label1_4.textColor = [UIColor redColor];
     [self.subView1 addSubview:self.label1_4];
     
     [self.bannerImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,47 +94,53 @@
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.bannerImageView1).offset(20+40);
         make.centerY.equalTo(self.bannerImageView1).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_1).offset(45+10);
+        make.leading.equalTo(self.label1_1).offset(60+10);
         make.centerY.equalTo(self.label1_1).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(20);
         make.height.mas_equalTo(14);
     }];
     
     [self.label1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_2).offset(45+1);
+        make.leading.equalTo(self.label1_2).offset(20);
         make.centerY.equalTo(self.label1_2).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label1_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_3).offset(45+10);
+        make.leading.equalTo(self.label1_3).offset(60+10);
         make.centerY.equalTo(self.label1_3).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(14);
     }];
 }
 
 -(void)initSubView2{
     self.bannerImageView2 = [[UIImageView alloc] init];
-    self.bannerImageView2.backgroundColor = [UIColor greenColor];
+    [self.bannerImageView2 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.subView2 addSubview:self.bannerImageView2];
     
     self.label2_1 = [[UILabel alloc] init];
+    self.label2_1.text = @"洛可可";
     [self.subView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
+    self.label2_2.text = @"赞";
+    self.label2_2.textColor = [UIColor redColor];
     [self.subView2 addSubview:self.label2_2];
     
     self.label2_3 = [[UILabel alloc] init];
+    self.label2_3.text = @"尤医生";
     [self.subView2 addSubview:self.label2_3];
     
     self.label2_4 = [[UILabel alloc] init];
+    self.label2_4.text = @"妙手回春";
+    self.label2_4.textColor = [UIColor redColor];
     [self.subView2 addSubview:self.label2_4];
     
     [self.bannerImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,47 +153,53 @@
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.bannerImageView2).offset(20+40);
         make.centerY.equalTo(self.bannerImageView2).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_1).offset(45+10);
+        make.leading.equalTo(self.label2_1).offset(60+10);
         make.centerY.equalTo(self.label2_1).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(20);
         make.height.mas_equalTo(14);
     }];
     
     [self.label2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_2).offset(45+1);
+        make.leading.equalTo(self.label2_2).offset(20);
         make.centerY.equalTo(self.label2_2).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_3).offset(45+10);
+        make.leading.equalTo(self.label2_3).offset(60+10);
         make.centerY.equalTo(self.label2_3).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(14);
     }];
 }
 
 -(void)initSubView3{
     self.bannerImageView3 = [[UIImageView alloc] init];
-    self.bannerImageView3.backgroundColor = [UIColor blueColor];
+    [self.bannerImageView3 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.subView3 addSubview:self.bannerImageView3];
     
     self.label3_1 = [[UILabel alloc] init];
+    self.label3_1.text = @"洛可可";
     [self.subView3 addSubview:self.label3_1];
     
     self.label3_2 = [[UILabel alloc] init];
+    self.label3_2.text = @"赞";
+    self.label3_2.textColor = [UIColor redColor];
     [self.subView3 addSubview:self.label3_2];
     
     self.label3_3 = [[UILabel alloc] init];
+    self.label3_3.text = @"尤医生";
     [self.subView3 addSubview:self.label3_3];
     
     self.label3_4 = [[UILabel alloc] init];
+    self.label3_4.text = @"救死扶伤";
+    self.label3_4.textColor = [UIColor redColor];
     [self.subView3 addSubview:self.label3_4];
     
     [self.bannerImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,28 +212,28 @@
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.bannerImageView3).offset(20+40);
         make.centerY.equalTo(self.bannerImageView3).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label3_1).offset(45+10);
+        make.leading.equalTo(self.label3_1).offset(60+10);
         make.centerY.equalTo(self.label3_1).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(20);
         make.height.mas_equalTo(14);
     }];
     
     [self.label3_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label3_2).offset(45+1);
+        make.leading.equalTo(self.label3_2).offset(20);
         make.centerY.equalTo(self.label3_2).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(60);
         make.height.mas_equalTo(14);
     }];
     
     [self.label3_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label3_3).offset(45+10);
+        make.leading.equalTo(self.label3_3).offset(60+10);
         make.centerY.equalTo(self.label3_3).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(14);
     }];
 }

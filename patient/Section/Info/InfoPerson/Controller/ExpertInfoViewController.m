@@ -24,7 +24,7 @@
 #import "HudUtil.h"
 #import "ClinicInfoFixViewController.h"
 
-@interface ExpertInfoViewController ()
+@interface ExpertInfoViewController ()<FiterViewClickDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -176,11 +176,20 @@
 
 #pragma mark Target Action
 -(void)focusButtonClicked:(BOOL)isFocus{
+    DLog(@"focusButtonClicked");
     if ([CommonUtil judgeIsLoginSuccess] == NO) {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self presentViewController:navController animated:YES completion:nil];
     }
+}
+
+-(void)stretchButtonClicked{
+    DLog(@"stretchButtonClicked");
+}
+
+-(void)filterViewClicked{
+    DLog(@"filterViewClicked");
 }
 
 #pragma mark UITableViewDelegate
@@ -249,7 +258,7 @@
     self.expertHeadView = [[ExpertHeadView alloc] init];
     self.expertHeadView.tag = section;
     if (section == 4) {
-        
+        self.expertHeadView.fiterViewClickDelegate = self;
     }else{
         self.expertHeadView.fiterView.hidden = YES;
     }
@@ -318,6 +327,7 @@
             cell.titleLabel.text = @"经历";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel4];
             [cell.button setImage:[UIImage imageNamed:@"info_expert_xiangxia_image"] forState:UIControlStateNormal];
+            [cell.button addTarget:self action:@selector(stretchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         }
         return cell;
     }else if (indexPath.section == 2){
@@ -345,6 +355,9 @@
         if (!cell) {
             cell = [[ExpertClinicTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+        
+        
+        
         //填充数据
         for (int i = 0; i<self.clinicArray.count; i++) {
             cell.label1.text = self.clinicNameArray[indexPath.row];

@@ -85,6 +85,16 @@
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
+    
+    self.fiterView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *fiterViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(filterViewClicked)];
+    [self.fiterView addGestureRecognizer:fiterViewTap];
+}
+
+-(void)filterViewClicked{
+    if (self.fiterViewClickDelegate && [self.fiterViewClickDelegate respondsToSelector:@selector(filterViewClicked)]) {
+        [self.fiterViewClickDelegate filterViewClicked];
+    }
 }
 
 @end

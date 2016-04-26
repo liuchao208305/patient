@@ -533,7 +533,9 @@
     for (BannerData *bannerData in self.adArray) {
         [self.adIdArray addObject:bannerData.banner_id];
         [self.adUrlArray addObject:bannerData.url];
-        [self.adImageArray addObject:bannerData.banner_url];
+        if (self.adImageArray.count<3) {
+            [self.adImageArray addObject:bannerData.banner_url];
+        }
     }
     scrollView.imageURLStringsGroup = self.adImageArray;
     
