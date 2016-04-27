@@ -21,6 +21,9 @@
 #import "LoginRequestDelegate.h"
 #import "RecordData.h"
 #import "TestResultListViewController.h"
+#import "ContactCheckViewController.h"
+#import "CouponCheckViewController.h"
+#import "OrderListViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate>
 
@@ -256,8 +259,8 @@
         
         cell.superscript1.text = [NSString stringWithFormat:@"%ld",(long)self.bespoke];
         cell.superscript2.text = [NSString stringWithFormat:@"%ld",(long)self.runs];
-        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
-        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
+        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
+        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -355,22 +358,42 @@
 
 -(void)orderHeadViewClicked{
     DLog(@"orderHeadViewClicked");
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.hidesBottomBarWhenPushed = YES;
+    orderListVC.orderType = 0;
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)backView1Clicked{
     DLog(@"backView1Clicked");
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.hidesBottomBarWhenPushed = YES;
+    orderListVC.orderType = 1;
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)backView2Clicked{
     DLog(@"backView2Clicked");
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.hidesBottomBarWhenPushed = YES;
+    orderListVC.orderType = 2;
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)backView3Clicked{
     DLog(@"backView3Clicked");
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.hidesBottomBarWhenPushed = YES;
+    orderListVC.orderType = 3;
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)backView4Clicked{
     DLog(@"backView4Clicked");
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.hidesBottomBarWhenPushed = YES;
+    orderListVC.orderType = 4;
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 #pragma mark- UIActionSheet
@@ -424,6 +447,8 @@
 
 -(void)function4Clicked{
     DLog(@"function4Clicked");
+//    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
+//    [self.navigationController pushViewController:couponCheckVC animated:YES];
 }
 
 -(void)function5Clicked{
@@ -443,6 +468,8 @@
 
 -(void)function8Clicked{
     DLog(@"function8Clicked");
+//    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
+//    [self.navigationController pushViewController:contactCheckVC animated:YES];
 }
 
 #pragma mark Network Request
@@ -596,8 +623,8 @@
 -(void)mineInfoDataParse2{
     self.bespoke = [[[self.data objectForKey:@"conCount"] objectForKey:@"bespoke"] integerValue];
     self.runs = [[[self.data objectForKey:@"conCount"] objectForKey:@"runs"] integerValue];
-    self.dones = [[[self.data objectForKey:@"conCount"] objectForKey:@"dones"] integerValue];
     self.comments = [[[self.data objectForKey:@"conCount"] objectForKey:@"comments"] integerValue];
+    self.dones = [[[self.data objectForKey:@"conCount"] objectForKey:@"dones"] integerValue];
     
     self.desicsbook = [self.data objectForKey:@"desicsbook"];
     self.recordArray = [RecordData mj_objectArrayWithKeyValuesArray:self.desicsbook];

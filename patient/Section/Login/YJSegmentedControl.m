@@ -11,7 +11,7 @@
 @interface YJSegmentedControl ()<YJSegmentedControlDelegate>{
     CGFloat witdthFloat;
     UIView * buttonDownView;
-    NSInteger selectSeugment;
+//    NSInteger selectSeugment;
 }
 @end
 
@@ -20,7 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.btnTitleSource = [NSMutableArray array];
-        selectSeugment = 0;
+        self.selectSeugment = 0;
     }
     return self;
 }
@@ -78,17 +78,17 @@
 
 -(void)selectTheSegument:(NSInteger)segument{
     
-    if (selectSeugment != segument) {
+    if (self.selectSeugment != segument) {
         
-        [self.btnTitleSource[selectSeugment] setSelected:NO];
+        [self.btnTitleSource[self.selectSeugment] setSelected:NO];
         [self.btnTitleSource[segument] setSelected:YES];
         
         [UIView animateWithDuration:0.2 animations:^{
             
             [buttonDownView setFrame:CGRectMake(segument * witdthFloat,self.bounds.size.height - 2, witdthFloat, 2)];
         }];
-        selectSeugment = segument;
-        [self.delegate segumentSelectionChange:selectSeugment];
+        self.selectSeugment = segument;
+        [self.delegate segumentSelectionChange:self.selectSeugment];
     }
 }
 

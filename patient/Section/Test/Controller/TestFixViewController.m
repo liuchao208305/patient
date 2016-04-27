@@ -6985,7 +6985,7 @@
 
 -(void)changeQuestion1Presentation{
     if (self.isButton1_1Clicked) {
-        self.answer1 = @"很少";
+        self.answer1 = @"没有";
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundColor:kMAIN_COLOR];
         [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -6995,7 +6995,7 @@
         [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton1_2Clicked){
-        self.answer1 = @"偶尔";
+        self.answer1 = @"很少";
         [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7096,7 +7096,7 @@
 
 -(void)changeQuestion2Presentation{
     if (self.isButton2_1Clicked) {
-        self.answer2 = @"很少";
+        self.answer2 = @"没有";
         [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundColor:kMAIN_COLOR];
         [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7106,7 +7106,7 @@
         [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton2_2Clicked){
-        self.answer2 = @"偶尔";
+        self.answer2 = @"很少";
         [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7207,7 +7207,7 @@
 
 -(void)changeQuestion3Presentation{
     if (self.isButton3_1Clicked) {
-        self.answer3 = @"很少";
+        self.answer3 = @"没有";
         [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundColor:kMAIN_COLOR];
         [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7217,7 +7217,7 @@
         [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton3_2Clicked){
-        self.answer3 = @"偶尔";
+        self.answer3 = @"很少";
         [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7318,7 +7318,7 @@
 
 -(void)changeQuestion4Presentation{
     if (self.isButton4_1Clicked) {
-        self.answer4 = @"很少";
+        self.answer4 = @"没有";
         [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundColor:kMAIN_COLOR];
         [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7328,7 +7328,7 @@
         [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton4_2Clicked){
-        self.answer4 = @"偶尔";
+        self.answer4 = @"很少";
         [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7429,7 +7429,7 @@
 
 -(void)changeQuestion5Presentation{
     if (self.isButton5_1Clicked) {
-        self.answer5 = @"很少";
+        self.answer5 = @"没有";
         [self.button5_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_1 setBackgroundColor:kMAIN_COLOR];
         [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7439,7 +7439,7 @@
         [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton5_2Clicked){
-        self.answer5 = @"偶尔";
+        self.answer5 = @"很少";
         [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7540,7 +7540,7 @@
 
 -(void)changeQuestion6Presentation{
     if (self.isButton6_1Clicked) {
-        self.answer6 = @"很少";
+        self.answer6 = @"没有";
         [self.button6_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_1 setBackgroundColor:kMAIN_COLOR];
         [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7550,7 +7550,7 @@
         [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton6_2Clicked){
-        self.answer6 = @"偶尔";
+        self.answer6 = @"很少";
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7651,7 +7651,7 @@
 
 -(void)changeQuestion7Presentation{
     if (self.isButton7_1Clicked) {
-        self.answer7 = @"很少";
+        self.answer7 = @"没有";
         [self.button7_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_1 setBackgroundColor:kMAIN_COLOR];
         [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7661,7 +7661,7 @@
         [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton7_2Clicked){
-        self.answer7 = @"偶尔";
+        self.answer7 = @"很少";
         [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7762,7 +7762,7 @@
 
 -(void)changeQuestion8Presentation{
     if (self.isButton8_1Clicked) {
-        self.answer8 = @"很少";
+        self.answer8 = @"没有";
         [self.button8_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_1 setBackgroundColor:kMAIN_COLOR];
         [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7772,7 +7772,7 @@
         [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton8_2Clicked){
-        self.answer8 = @"偶尔";
+        self.answer8 = @"很少";
         [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7873,7 +7873,7 @@
 
 -(void)changeQuestion9Presentation{
     if (self.isButton9_1Clicked) {
-        self.answer9 = @"很少";
+        self.answer9 = @"没有";
         [self.button9_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_1 setBackgroundColor:kMAIN_COLOR];
         [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7883,7 +7883,7 @@
         [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton9_2Clicked){
-        self.answer9 = @"偶尔";
+        self.answer9 = @"很少";
         [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -7984,7 +7984,7 @@
 
 -(void)changeQuestion10Presentation{
     if (self.isButton10_1Clicked) {
-        self.answer10 = @"很少";
+        self.answer10 = @"没有";
         [self.button10_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_1 setBackgroundColor:kMAIN_COLOR];
         [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -7994,7 +7994,7 @@
         [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton10_2Clicked){
-        self.answer10 = @"偶尔";
+        self.answer10 = @"很少";
         [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8071,7 +8071,7 @@
     self.isButton11_2Clicked = YES;
     self.isButton11_3Clicked = NO;
     self.isButton11_4Clicked = NO;
-    [self changeQuestion1Presentation];
+    [self changeQuestion11Presentation];
     [self recordQuestion11AnsweredStatus];
 }
 
@@ -8095,7 +8095,7 @@
 
 -(void)changeQuestion11Presentation{
     if (self.isButton11_1Clicked) {
-        self.answer11 = @"很少";
+        self.answer11 = @"没有";
         [self.button11_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_1 setBackgroundColor:kMAIN_COLOR];
         [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8105,7 +8105,7 @@
         [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton11_2Clicked){
-        self.answer11 = @"偶尔";
+        self.answer11 = @"很少";
         [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8206,7 +8206,7 @@
 
 -(void)changeQuestion12Presentation{
     if (self.isButton12_1Clicked) {
-        self.answer12 = @"很少";
+        self.answer12 = @"没有";
         [self.button12_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_1 setBackgroundColor:kMAIN_COLOR];
         [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8216,7 +8216,7 @@
         [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton12_2Clicked){
-        self.answer12 = @"偶尔";
+        self.answer12 = @"很少";
         [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8317,7 +8317,7 @@
 
 -(void)changeQuestion13Presentation{
     if (self.isButton13_1Clicked) {
-        self.answer13 = @"很少";
+        self.answer13 = @"没有";
         [self.button13_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_1 setBackgroundColor:kMAIN_COLOR];
         [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8327,7 +8327,7 @@
         [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton13_2Clicked){
-        self.answer13 = @"偶尔";
+        self.answer13 = @"很少";
         [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8428,7 +8428,7 @@
 
 -(void)changeQuestion14Presentation{
     if (self.isButton14_1Clicked) {
-        self.answer14 = @"很少";
+        self.answer14 = @"没有";
         [self.button14_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_1 setBackgroundColor:kMAIN_COLOR];
         [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8438,7 +8438,7 @@
         [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton14_2Clicked){
-        self.answer14 = @"偶尔";
+        self.answer14 = @"很少";
         [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8539,7 +8539,7 @@
 
 -(void)changeQuestion15Presentation{
     if (self.isButton15_1Clicked) {
-        self.answer15 = @"很少";
+        self.answer15 = @"没有";
         [self.button15_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_1 setBackgroundColor:kMAIN_COLOR];
         [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8549,7 +8549,7 @@
         [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton15_2Clicked){
-        self.answer15 = @"偶尔";
+        self.answer15 = @"很少";
         [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8650,7 +8650,7 @@
 
 -(void)changeQuestion16Presentation{
     if (self.isButton16_1Clicked) {
-        self.answer16 = @"很少";
+        self.answer16 = @"没有";
         [self.button16_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_1 setBackgroundColor:kMAIN_COLOR];
         [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8660,7 +8660,7 @@
         [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton16_2Clicked){
-        self.answer16 = @"偶尔";
+        self.answer16 = @"很少";
         [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8761,7 +8761,7 @@
 
 -(void)changeQuestion17Presentation{
     if (self.isButton17_1Clicked) {
-        self.answer17 = @"很少";
+        self.answer17 = @"没有";
         [self.button17_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_1 setBackgroundColor:kMAIN_COLOR];
         [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8771,7 +8771,7 @@
         [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton17_2Clicked){
-        self.answer17 = @"偶尔";
+        self.answer17 = @"很少";
         [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8872,7 +8872,7 @@
 
 -(void)changeQuestion18Presentation{
     if (self.isButton18_1Clicked) {
-        self.answer18 = @"很少";
+        self.answer18 = @"没有";
         [self.button18_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_1 setBackgroundColor:kMAIN_COLOR];
         [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8882,7 +8882,7 @@
         [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton18_2Clicked){
-        self.answer18 = @"偶尔";
+        self.answer18 = @"很少";
         [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -8983,7 +8983,7 @@
 
 -(void)changeQuestion19Presentation{
     if (self.isButton19_1Clicked) {
-        self.answer19 = @"很少";
+        self.answer19 = @"没有";
         [self.button19_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_1 setBackgroundColor:kMAIN_COLOR];
         [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -8993,7 +8993,7 @@
         [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton19_2Clicked){
-        self.answer19 = @"偶尔";
+        self.answer19 = @"很少";
         [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9094,7 +9094,7 @@
 
 -(void)changeQuestion20Presentation{
     if (self.isButton20_1Clicked) {
-        self.answer20 = @"很少";
+        self.answer20 = @"没有";
         [self.button20_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_1 setBackgroundColor:kMAIN_COLOR];
         [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9104,7 +9104,7 @@
         [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton20_2Clicked){
-        self.answer20 = @"偶尔";
+        self.answer20 = @"很少";
         [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9205,7 +9205,7 @@
 
 -(void)changeQuestion21Presentation{
     if (self.isButton21_1Clicked) {
-        self.answer21 = @"很少";
+        self.answer21 = @"没有";
         [self.button21_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_1 setBackgroundColor:kMAIN_COLOR];
         [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9215,7 +9215,7 @@
         [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton21_2Clicked){
-        self.answer21 = @"偶尔";
+        self.answer21 = @"很少";
         [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9316,7 +9316,7 @@
 
 -(void)changeQuestion22Presentation{
     if (self.isButton22_1Clicked) {
-        self.answer22 = @"很少";
+        self.answer22 = @"没有";
         [self.button22_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_1 setBackgroundColor:kMAIN_COLOR];
         [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9326,7 +9326,7 @@
         [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton22_2Clicked){
-        self.answer22 = @"偶尔";
+        self.answer22 = @"很少";
         [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9427,7 +9427,7 @@
 
 -(void)changeQuestion23Presentation{
     if (self.isButton23_1Clicked) {
-        self.answer23 = @"很少";
+        self.answer23 = @"没有";
         [self.button23_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_1 setBackgroundColor:kMAIN_COLOR];
         [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9437,7 +9437,7 @@
         [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton23_2Clicked){
-        self.answer23 = @"偶尔";
+        self.answer23 = @"很少";
         [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9538,7 +9538,7 @@
 
 -(void)changeQuestion24Presentation{
     if (self.isButton24_1Clicked) {
-        self.answer24 = @"很少";
+        self.answer24 = @"没有";
         [self.button24_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_1 setBackgroundColor:kMAIN_COLOR];
         [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9548,7 +9548,7 @@
         [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton24_2Clicked){
-        self.answer24 = @"偶尔";
+        self.answer24 = @"很少";
         [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9649,7 +9649,7 @@
 
 -(void)changeQuestion25Presentation{
     if (self.isButton25_1Clicked) {
-        self.answer25 = @"很少";
+        self.answer25 = @"没有";
         [self.button25_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_1 setBackgroundColor:kMAIN_COLOR];
         [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9659,7 +9659,7 @@
         [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton25_2Clicked){
-        self.answer25 = @"偶尔";
+        self.answer25 = @"很少";
         [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9760,7 +9760,7 @@
 
 -(void)changeQuestion26Presentation{
     if (self.isButton26_1Clicked) {
-        self.answer26 = @"很少";
+        self.answer26 = @"没有";
         [self.button26_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_1 setBackgroundColor:kMAIN_COLOR];
         [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9770,7 +9770,7 @@
         [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton26_2Clicked){
-        self.answer26 = @"偶尔";
+        self.answer26 = @"很少";
         [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9871,7 +9871,7 @@
 
 -(void)changeQuestion27Presentation{
     if (self.isButton27_1Clicked) {
-        self.answer27 = @"很少";
+        self.answer27 = @"没有";
         [self.button27_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_1 setBackgroundColor:kMAIN_COLOR];
         [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9881,7 +9881,7 @@
         [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton27_2Clicked){
-        self.answer27 = @"偶尔";
+        self.answer27 = @"很少";
         [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -9982,7 +9982,7 @@
 
 -(void)changeQuestion28Presentation{
     if (self.isButton28_1Clicked) {
-        self.answer28 = @"很少";
+        self.answer28 = @"没有";
         [self.button28_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_1 setBackgroundColor:kMAIN_COLOR];
         [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -9992,7 +9992,7 @@
         [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton28_2Clicked){
-        self.answer28 = @"偶尔";
+        self.answer28 = @"很少";
         [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10093,7 +10093,7 @@
 
 -(void)changeQuestion29Presentation{
     if (self.isButton29_1Clicked) {
-        self.answer29 = @"很少";
+        self.answer29 = @"没有";
         [self.button29_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_1 setBackgroundColor:kMAIN_COLOR];
         [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10103,7 +10103,7 @@
         [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton29_2Clicked){
-        self.answer29 = @"偶尔";
+        self.answer29 = @"很少";
         [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10204,7 +10204,7 @@
 
 -(void)changeQuestion30Presentation{
     if (self.isButton30_1Clicked) {
-        self.answer30 = @"很少";
+        self.answer30 = @"没有";
         [self.button30_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_1 setBackgroundColor:kMAIN_COLOR];
         [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10214,7 +10214,7 @@
         [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton30_2Clicked){
-        self.answer30 = @"偶尔";
+        self.answer30 = @"很少";
         [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10244,7 +10244,7 @@
         [self.button30_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kMAIN_COLOR];
     }
-    DLog(@"self.answer30-->%@",self.answer1);
+    DLog(@"self.answer30-->%@",self.answer30);
 }
 
 -(void)recordQuestion30AnsweredStatus{
@@ -10315,7 +10315,7 @@
 
 -(void)changeQuestion31Presentation{
     if (self.isButton31_1Clicked) {
-        self.answer31 = @"很少";
+        self.answer31 = @"没有";
         [self.button31_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_1 setBackgroundColor:kMAIN_COLOR];
         [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10325,7 +10325,7 @@
         [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton31_2Clicked){
-        self.answer31 = @"偶尔";
+        self.answer31 = @"很少";
         [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10426,7 +10426,7 @@
 
 -(void)changeQuestion32Presentation{
     if (self.isButton32_1Clicked) {
-        self.answer32 = @"很少";
+        self.answer32 = @"没有";
         [self.button32_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_1 setBackgroundColor:kMAIN_COLOR];
         [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10436,7 +10436,7 @@
         [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton32_2Clicked){
-        self.answer32 = @"偶尔";
+        self.answer32 = @"很少";
         [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10537,7 +10537,7 @@
 
 -(void)changeQuestion33Presentation{
     if (self.isButton33_1Clicked) {
-        self.answer33 = @"很少";
+        self.answer33 = @"没有";
         [self.button33_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_1 setBackgroundColor:kMAIN_COLOR];
         [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10547,7 +10547,7 @@
         [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton33_2Clicked){
-        self.answer33 = @"偶尔";
+        self.answer33 = @"很少";
         [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10648,7 +10648,7 @@
 
 -(void)changeQuestion34Presentation{
     if (self.isButton34_1Clicked) {
-        self.answer34 = @"很少";
+        self.answer34 = @"没有";
         [self.button34_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_1 setBackgroundColor:kMAIN_COLOR];
         [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10658,7 +10658,7 @@
         [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton34_2Clicked){
-        self.answer34 = @"偶尔";
+        self.answer34 = @"很少";
         [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10759,7 +10759,7 @@
 
 -(void)changeQuestion35Presentation{
     if (self.isButton35_1Clicked) {
-        self.answer35 = @"很少";
+        self.answer35 = @"没有";
         [self.button35_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_1 setBackgroundColor:kMAIN_COLOR];
         [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10769,7 +10769,7 @@
         [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton35_2Clicked){
-        self.answer35 = @"偶尔";
+        self.answer35 = @"很少";
         [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10870,7 +10870,7 @@
 
 -(void)changeQuestion36Presentation{
     if (self.isButton36_1Clicked) {
-        self.answer36 = @"很少";
+        self.answer36 = @"没有";
         [self.button36_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_1 setBackgroundColor:kMAIN_COLOR];
         [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10880,7 +10880,7 @@
         [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton36_2Clicked){
-        self.answer36 = @"偶尔";
+        self.answer36 = @"很少";
         [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -10981,7 +10981,7 @@
 
 -(void)changeQuestion37Presentation{
     if (self.isButton37_1Clicked) {
-        self.answer37 = @"很少";
+        self.answer37 = @"没有";
         [self.button37_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_1 setBackgroundColor:kMAIN_COLOR];
         [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -10991,7 +10991,7 @@
         [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton37_2Clicked){
-        self.answer37 = @"偶尔";
+        self.answer37 = @"很少";
         [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11092,7 +11092,7 @@
 
 -(void)changeQuestion38Presentation{
     if (self.isButton38_1Clicked) {
-        self.answer38 = @"很少";
+        self.answer38 = @"没有";
         [self.button38_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_1 setBackgroundColor:kMAIN_COLOR];
         [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11102,7 +11102,7 @@
         [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton38_2Clicked){
-        self.answer38 = @"偶尔";
+        self.answer38 = @"很少";
         [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11203,7 +11203,7 @@
 
 -(void)changeQuestion39Presentation{
     if (self.isButton39_1Clicked) {
-        self.answer39 = @"很少";
+        self.answer39 = @"没有";
         [self.button39_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_1 setBackgroundColor:kMAIN_COLOR];
         [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11213,7 +11213,7 @@
         [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton39_2Clicked){
-        self.answer39 = @"偶尔";
+        self.answer39 = @"很少";
         [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11314,7 +11314,7 @@
 
 -(void)changeQuestion40Presentation{
     if (self.isButton40_1Clicked) {
-        self.answer40 = @"很少";
+        self.answer40 = @"没有";
         [self.button40_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_1 setBackgroundColor:kMAIN_COLOR];
         [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11324,7 +11324,7 @@
         [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton40_2Clicked){
-        self.answer40 = @"偶尔";
+        self.answer40 = @"很少";
         [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11425,7 +11425,7 @@
 
 -(void)changeQuestion41Presentation{
     if (self.isButton41_1Clicked) {
-        self.answer41 = @"很少";
+        self.answer41 = @"没有";
         [self.button41_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_1 setBackgroundColor:kMAIN_COLOR];
         [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11435,7 +11435,7 @@
         [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton41_2Clicked){
-        self.answer41 = @"偶尔";
+        self.answer41 = @"很少";
         [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11536,7 +11536,7 @@
 
 -(void)changeQuestion42Presentation{
     if (self.isButton42_1Clicked) {
-        self.answer42 = @"很少";
+        self.answer42 = @"没有";
         [self.button42_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_1 setBackgroundColor:kMAIN_COLOR];
         [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11546,7 +11546,7 @@
         [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton42_2Clicked){
-        self.answer42 = @"偶尔";
+        self.answer42 = @"很少";
         [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11647,7 +11647,7 @@
 
 -(void)changeQuestion43Presentation{
     if (self.isButton43_1Clicked) {
-        self.answer43 = @"很少";
+        self.answer43 = @"没有";
         [self.button43_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_1 setBackgroundColor:kMAIN_COLOR];
         [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11657,7 +11657,7 @@
         [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton43_2Clicked){
-        self.answer43 = @"偶尔";
+        self.answer43 = @"很少";
         [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11758,7 +11758,7 @@
 
 -(void)changeQuestion44Presentation{
     if (self.isButton44_1Clicked) {
-        self.answer44 = @"很少";
+        self.answer44 = @"没有";
         [self.button44_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_1 setBackgroundColor:kMAIN_COLOR];
         [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11768,7 +11768,7 @@
         [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton44_2Clicked){
-        self.answer44 = @"偶尔";
+        self.answer44 = @"很少";
         [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11869,7 +11869,7 @@
 
 -(void)changeQuestion45Presentation{
     if (self.isButton45_1Clicked) {
-        self.answer45 = @"很少";
+        self.answer45 = @"没有";
         [self.button45_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_1 setBackgroundColor:kMAIN_COLOR];
         [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11879,7 +11879,7 @@
         [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton45_2Clicked){
-        self.answer45 = @"偶尔";
+        self.answer45 = @"很少";
         [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -11980,7 +11980,7 @@
 
 -(void)changeQuestion46Presentation{
     if (self.isButton46_1Clicked) {
-        self.answer46 = @"很少";
+        self.answer46 = @"没有";
         [self.button46_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_1 setBackgroundColor:kMAIN_COLOR];
         [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -11990,7 +11990,7 @@
         [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton46_2Clicked){
-        self.answer46 = @"偶尔";
+        self.answer46 = @"很少";
         [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12091,7 +12091,7 @@
 
 -(void)changeQuestion47Presentation{
     if (self.isButton47_1Clicked) {
-        self.answer47 = @"很少";
+        self.answer47 = @"没有";
         [self.button47_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_1 setBackgroundColor:kMAIN_COLOR];
         [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12101,7 +12101,7 @@
         [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton47_2Clicked){
-        self.answer47 = @"偶尔";
+        self.answer47 = @"很少";
         [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12202,7 +12202,7 @@
 
 -(void)changeQuestion48Presentation{
     if (self.isButton48_1Clicked) {
-        self.answer48 = @"很少";
+        self.answer48 = @"没有";
         [self.button48_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_1 setBackgroundColor:kMAIN_COLOR];
         [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12212,7 +12212,7 @@
         [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton48_2Clicked){
-        self.answer48 = @"偶尔";
+        self.answer48 = @"很少";
         [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12313,7 +12313,7 @@
 
 -(void)changeQuestion49Presentation{
     if (self.isButton49_1Clicked) {
-        self.answer49 = @"很少";
+        self.answer49 = @"没有";
         [self.button49_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_1 setBackgroundColor:kMAIN_COLOR];
         [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12323,7 +12323,7 @@
         [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton49_2Clicked){
-        self.answer49 = @"偶尔";
+        self.answer49 = @"很少";
         [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12424,7 +12424,7 @@
 
 -(void)changeQuestion50Presentation{
     if (self.isButton50_1Clicked) {
-        self.answer50 = @"很少";
+        self.answer50 = @"没有";
         [self.button50_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_1 setBackgroundColor:kMAIN_COLOR];
         [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12434,7 +12434,7 @@
         [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton50_2Clicked){
-        self.answer50 = @"偶尔";
+        self.answer50 = @"很少";
         [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12535,7 +12535,7 @@
 
 -(void)changeQuestion51Presentation{
     if (self.isButton51_1Clicked) {
-        self.answer51 = @"很少";
+        self.answer51 = @"没有";
         [self.button51_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_1 setBackgroundColor:kMAIN_COLOR];
         [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12545,7 +12545,7 @@
         [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton51_2Clicked){
-        self.answer51 = @"偶尔";
+        self.answer51 = @"很少";
         [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12646,7 +12646,7 @@
 
 -(void)changeQuestion52Presentation{
     if (self.isButton52_1Clicked) {
-        self.answer52 = @"很少";
+        self.answer52 = @"没有";
         [self.button52_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_1 setBackgroundColor:kMAIN_COLOR];
         [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12656,7 +12656,7 @@
         [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton52_2Clicked){
-        self.answer52 = @"偶尔";
+        self.answer52 = @"很少";
         [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12757,7 +12757,7 @@
 
 -(void)changeQuestion53Presentation{
     if (self.isButton53_1Clicked) {
-        self.answer53 = @"很少";
+        self.answer53 = @"没有";
         [self.button53_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_1 setBackgroundColor:kMAIN_COLOR];
         [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12767,7 +12767,7 @@
         [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton53_2Clicked){
-        self.answer53 = @"偶尔";
+        self.answer53 = @"很少";
         [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12868,7 +12868,7 @@
 
 -(void)changeQuestion54Presentation{
     if (self.isButton54_1Clicked) {
-        self.answer54 = @"很少";
+        self.answer54 = @"没有";
         [self.button54_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_1 setBackgroundColor:kMAIN_COLOR];
         [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12878,7 +12878,7 @@
         [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton54_2Clicked){
-        self.answer54 = @"偶尔";
+        self.answer54 = @"很少";
         [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -12979,7 +12979,7 @@
 
 -(void)changeQuestion55Presentation{
     if (self.isButton55_1Clicked) {
-        self.answer55 = @"很少";
+        self.answer55 = @"没有";
         [self.button55_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_1 setBackgroundColor:kMAIN_COLOR];
         [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -12989,7 +12989,7 @@
         [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton55_2Clicked){
-        self.answer55 = @"偶尔";
+        self.answer55 = @"很少";
         [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -13090,7 +13090,7 @@
 
 -(void)changeQuestion56Presentation{
     if (self.isButton56_1Clicked) {
-        self.answer56 = @"很少";
+        self.answer56 = @"没有";
         [self.button56_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_1 setBackgroundColor:kMAIN_COLOR];
         [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -13100,7 +13100,7 @@
         [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton56_2Clicked){
-        self.answer56 = @"偶尔";
+        self.answer56 = @"很少";
         [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -13201,7 +13201,7 @@
 
 -(void)changeQuestion57Presentation{
     if (self.isButton57_1Clicked) {
-        self.answer57 = @"很少";
+        self.answer57 = @"没有";
         [self.button57_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_1 setBackgroundColor:kMAIN_COLOR];
         [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -13211,7 +13211,7 @@
         [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton57_2Clicked){
-        self.answer57 = @"偶尔";
+        self.answer57 = @"很少";
         [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -13312,7 +13312,7 @@
 
 -(void)changeQuestion58Presentation{
     if (self.isButton58_1Clicked) {
-        self.answer58 = @"很少";
+        self.answer58 = @"没有";
         [self.button58_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_1 setBackgroundColor:kMAIN_COLOR];
         [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -13322,7 +13322,7 @@
         [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton58_2Clicked){
-        self.answer58 = @"偶尔";
+        self.answer58 = @"很少";
         [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -13423,7 +13423,7 @@
 
 -(void)changeQuestion59Presentation{
     if (self.isButton59_1Clicked) {
-        self.answer59 = @"很少";
+        self.answer59 = @"没有";
         [self.button59_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_1 setBackgroundColor:kMAIN_COLOR];
         [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -13433,7 +13433,7 @@
         [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton59_2Clicked){
-        self.answer59 = @"偶尔";
+        self.answer59 = @"很少";
         [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -13534,7 +13534,7 @@
 
 -(void)changeQuestion60Presentation{
     if (self.isButton60_1Clicked) {
-        self.answer60 = @"很少";
+        self.answer60 = @"没有";
         [self.button60_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_1 setBackgroundColor:kMAIN_COLOR];
         [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -13544,7 +13544,7 @@
         [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton60_2Clicked){
-        self.answer60 = @"偶尔";
+        self.answer60 = @"很少";
         [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];

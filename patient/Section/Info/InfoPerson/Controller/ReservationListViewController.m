@@ -634,6 +634,7 @@
         }
         
         [self pushTreatmentDetailViewController];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 

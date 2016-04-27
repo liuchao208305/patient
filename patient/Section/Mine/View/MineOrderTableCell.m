@@ -159,7 +159,7 @@
     [self.imageSmallView3 addSubview:self.superscript3];
     
     self.label3 = [[UILabel alloc] init];
-    self.label3.text = @"已完成";
+    self.label3.text = @"待评价";
     self.label3.textAlignment = NSTextAlignmentCenter;
     [self.backView3 addSubview:self.label3];
     
@@ -210,7 +210,7 @@
     [self.imageSmallView4 addSubview:self.superscript4];
     
     self.label4 = [[UILabel alloc] init];
-    self.label4.text = @"待评价";
+    self.label4.text = @"已完成";
     self.label4.textAlignment = NSTextAlignmentCenter;
     [self.backView4 addSubview:self.label4];
     

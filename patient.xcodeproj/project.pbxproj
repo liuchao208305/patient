@@ -222,6 +222,9 @@
 		70B4EA921CCE2E5700141E38 /* MineChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */; };
 		70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA941CCE56F800141E38 /* ImageUtil.m */; };
 		70B4EA971CCF553D00141E38 /* info_expert_comment_image_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */; };
+		70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB31CD088FB00141E38 /* OrderListViewController.m */; };
+		70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB61CD08DE000141E38 /* OrderData.m */; };
+		70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -615,6 +618,12 @@
 		70B4EA931CCE56F800141E38 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
 		70B4EA941CCE56F800141E38 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
 		70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_comment_image_default.png; sourceTree = "<group>"; };
+		70B4EAB21CD088FA00141E38 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
+		70B4EAB31CD088FB00141E38 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
+		70B4EAB51CD08DE000141E38 /* OrderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderData.h; sourceTree = "<group>"; };
+		70B4EAB61CD08DE000141E38 /* OrderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderData.m; sourceTree = "<group>"; };
+		70B4EAB81CD0A52600141E38 /* OrderListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListTableCell.h; sourceTree = "<group>"; };
+		70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListTableCell.m; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -1462,6 +1471,8 @@
 				70B4EA891CCD0A9600141E38 /* MineSettingViewController.m */,
 				70B4EA901CCE2E5700141E38 /* MineChangePasswordViewController.h */,
 				70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */,
+				70B4EAB21CD088FA00141E38 /* OrderListViewController.h */,
+				70B4EAB31CD088FB00141E38 /* OrderListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1471,6 +1482,8 @@
 			children = (
 				70B4EA8B1CCD1D9600141E38 /* RecordData.h */,
 				70B4EA8C1CCD1D9600141E38 /* RecordData.m */,
+				70B4EAB51CD08DE000141E38 /* OrderData.h */,
+				70B4EAB61CD08DE000141E38 /* OrderData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1492,6 +1505,8 @@
 				705EF8061CBCBB7A00732886 /* MineFunctionTableCell.m */,
 				705EF80F1CBDD41D00732886 /* MineFunctionCollectionCell.h */,
 				705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */,
+				70B4EAB81CD0A52600141E38 /* OrderListTableCell.h */,
+				70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1939,6 +1954,7 @@
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
 				705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */,
 				7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */,
+				70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */,
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
 				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
@@ -1984,6 +2000,7 @@
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
 				70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */,
 				70FEADE51CA8D03F006A044A /* ClinicExpertTableCell.m in Sources */,
+				70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
@@ -2031,6 +2048,7 @@
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
 				7046ADD31CA10FEB00BB6818 /* TreatmentDetailViewController.m in Sources */,
+				70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,

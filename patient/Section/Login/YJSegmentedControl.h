@@ -27,6 +27,8 @@
 @property (strong, nonatomic) UIFont * titleFont;
 @property (nonatomic, strong) UIColor * buttonDownColor;
 
+@property (assign,nonatomic)NSInteger selectSeugment;
+
 + (YJSegmentedControl *)segmentedControlFrame:(CGRect)frame titleDataSource:(NSArray *)titleDataSouece backgroundColor:(UIColor *)backgroundColor titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont selectColor:(UIColor *)selectColor buttonDownColor:(UIColor *)buttonDownColor Delegate:(id)delegate;
 
 @end
