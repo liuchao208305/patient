@@ -140,7 +140,7 @@
 
 -(void)initView{
     NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:@"未使用", @"已使用", @"已过期",nil];
-    self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:[UIColor whiteColor] titleColor:[UIColor grayColor] titleFont:[UIFont systemFontOfSize:15] selectColor:kBLACK_COLOR buttonDownColor:nil Delegate:self];
+    self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:[UIColor whiteColor] titleColor:[UIColor grayColor] titleFont:[UIFont systemFontOfSize:15] selectColor:kBLACK_COLOR buttonDownColor:nil Delegate:self selectSeugment:0];
     [self.view addSubview:self.segmentControl];
 }
 

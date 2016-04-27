@@ -64,7 +64,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+    [self initView:self.orderType];
     [self initRecognizer];
 }
 
@@ -72,16 +72,7 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = NO;
-    
-//    self.flag1 = YES;
-//    self.flag2 = NO;
-//    self.flag3 = NO;
-//    self.flag4 = NO;
-//    self.flag5 = NO;
-//    
-//    [self initSubView1];
-//    [self sendOrderListRequest1];
-#warning 默认进入此页面，上方显示转台无法更改
+
     if (self.orderType == 0) {
         self.flag1 = YES;
         self.flag2 = NO;
@@ -250,9 +241,9 @@
     
 }
 
--(void)initView{
+-(void)initView:(NSInteger)number{
     NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:@"全部", @"已预约", @"进行中",@"待评价",@"已完成",nil];
-    self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:kBACKGROUND_COLOR titleColor:kLIGHT_GRAY_COLOR titleFont:[UIFont systemFontOfSize:14] selectColor:kBLACK_COLOR buttonDownColor:kMAIN_COLOR Delegate:self];
+    self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:kBACKGROUND_COLOR titleColor:kLIGHT_GRAY_COLOR titleFont:[UIFont systemFontOfSize:14] selectColor:kBLACK_COLOR buttonDownColor:kMAIN_COLOR Delegate:self selectSeugment:number];
     
     [self.view addSubview:self.segmentControl];
 }

@@ -17,18 +17,17 @@
 
 @implementation YJSegmentedControl
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame selectSeugment:(NSInteger)selectSeugment{
     if (self = [super initWithFrame:frame]) {
         self.btnTitleSource = [NSMutableArray array];
-        self.selectSeugment = 0;
     }
     return self;
 }
 
 
-+ (YJSegmentedControl *)segmentedControlFrame:(CGRect)frame titleDataSource:(NSArray *)titleDataSouece backgroundColor:(UIColor *)backgroundColor titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont selectColor:(UIColor *)selectColor buttonDownColor:(UIColor *)buttonDownColor Delegate:(id)delegate{
++ (YJSegmentedControl *)segmentedControlFrame:(CGRect)frame titleDataSource:(NSArray *)titleDataSouece backgroundColor:(UIColor *)backgroundColor titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont selectColor:(UIColor *)selectColor buttonDownColor:(UIColor *)buttonDownColor Delegate:(id)delegate selectSeugment:(NSInteger)selectSeugment{
     
-    YJSegmentedControl * smc = [[self alloc] initWithFrame:frame];
+    YJSegmentedControl * smc = [[self alloc] initWithFrame:frame selectSeugment:selectSeugment];
     smc.backgroundColor = backgroundColor;
     smc.buttonDownColor = buttonDownColor;
    
@@ -37,6 +36,7 @@
 //    smc.titleFont=[UIFont fontWithName:@".Helvetica Neue Interface" size:14.0f];
     smc.selectColor = selectColor;
     smc.delegate = delegate;
+    smc.selectSeugment = selectSeugment;
     [smc AddSegumentArray:titleDataSouece];
     return smc;
 }
@@ -59,7 +59,7 @@
         [btn setTitleColor:self.selectColor forState:UIControlStateSelected];
         btn.tag = i + 1;
         [btn addTarget:self action:@selector(changeSegumentAction:) forControlEvents:UIControlEventTouchUpInside];
-        if (i == 0) {
+        if (i == self.selectSeugment) {
             buttonDownView =[[UIView alloc]initWithFrame:CGRectMake(i * witdthFloat, self.bounds.size.height - 2, witdthFloat, 2)];
             [buttonDownView setBackgroundColor:self.buttonDownColor];
             

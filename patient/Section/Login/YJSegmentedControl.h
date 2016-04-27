@@ -19,16 +19,14 @@
 
 @interface YJSegmentedControl : UIView
 
-@property (nonatomic, strong) id <YJSegmentedControlDelegate> delegate;
-
 @property (nonatomic, strong) NSMutableArray * btnTitleSource;
 @property (strong, nonatomic) UIColor * titleColor;
 @property (strong, nonatomic) UIColor * selectColor;
 @property (strong, nonatomic) UIFont * titleFont;
 @property (nonatomic, strong) UIColor * buttonDownColor;
-
+@property (nonatomic, strong) id <YJSegmentedControlDelegate> delegate;
 @property (assign,nonatomic)NSInteger selectSeugment;
 
-+ (YJSegmentedControl *)segmentedControlFrame:(CGRect)frame titleDataSource:(NSArray *)titleDataSouece backgroundColor:(UIColor *)backgroundColor titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont selectColor:(UIColor *)selectColor buttonDownColor:(UIColor *)buttonDownColor Delegate:(id)delegate;
++ (YJSegmentedControl *)segmentedControlFrame:(CGRect)frame titleDataSource:(NSArray *)titleDataSouece backgroundColor:(UIColor *)backgroundColor titleColor:(UIColor *)titleColor titleFont:(UIFont *)titleFont selectColor:(UIColor *)selectColor buttonDownColor:(UIColor *)buttonDownColor Delegate:(id)delegate selectSeugment:(NSInteger)selectSeugment;
 
 @end
