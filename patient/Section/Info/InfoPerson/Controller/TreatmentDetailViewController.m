@@ -28,6 +28,33 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
+/*================================================*/
+@property (strong,nonatomic)NSString *fixExpertImage;
+@property (strong,nonatomic)NSString *fixDoctorImage;
+@property (strong,nonatomic)NSString *fixExpertName;
+@property (strong,nonatomic)NSString *fixDoctorName;
+@property (strong,nonatomic)NSString *fixClinicName;
+@property (strong,nonatomic)NSString *fixClinicAddress;
+@property (assign,nonatomic)double fixFormerMoney;
+@property (assign,nonatomic)double fixCouponMoney;
+@property (assign,nonatomic)double fixLatterMoney;
+@property (strong,nonatomic)NSString *fixAppiontmentTime;
+
+@property (strong,nonatomic)NSString *fixPatientName;
+@property (strong,nonatomic)NSString *fixPatientId;
+@property (strong,nonatomic)NSString *fixPatientMobile;
+@property (assign,nonatomic)NSInteger fixPatientAge;
+@property (strong,nonatomic)NSString *fixPatientSex;
+@property (assign,nonatomic)NSInteger fixPatientSexFix;
+@property (strong,nonatomic)NSString *fixPatientSymptom;
+
+@property (strong,nonatomic)NSString *fixCouponId;
+@property (strong,nonatomic)NSString *fixCouponName;
+
+@property (strong,nonatomic)NSString *fixNewCouponId;
+@property (strong,nonatomic)NSString *fixNewCouponName;
+/*================================================*/
+
 @property (strong,nonatomic)NSString *treatmentId;
 @property (strong,nonatomic)NSString *treatmentNumber;
 @property (strong,nonatomic)NSString *treatmentTime;
@@ -40,9 +67,6 @@
 @property (strong,nonatomic)NSString *alipayMomo;
 @property (strong,nonatomic)NSString *alipayResult;
 @property (strong,nonatomic)NSString *alipayResultStatus;
-
-@property (strong,nonatomic)NSString *publicNewCouponId;
-@property (strong,nonatomic)NSString *publicNewCouponName;
 
 @property (assign,nonatomic)NSInteger payStatusCode;
 @property (strong,nonatomic)NSString *qrcodeImageString;
@@ -64,15 +88,13 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
-    
-//    [self treatmentDetailDataFilling];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     [self sendTreatmentDetailRequest];
-    [self treatmentDetailDataFilling];
+//    [self treatmentDetailDataFilling];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -105,8 +127,10 @@
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonClicked)];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    if (!self.isFromOrderListVC) {
+        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonClicked)];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }
 }
 
 -(void)initTabBar{
@@ -588,6 +612,11 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
+//            if (!self.isFromOrderListVC) {
+//                [self treatmentDetailDataParse];
+//            }else{
+//                
+//            }
             [self treatmentDetailDataParse];
         }else{
             DLog(@"%@",self.message);
@@ -617,7 +646,7 @@
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.paymentType] forKey:@"pay_type"];
     [parameter setValue:self.publicNewCouponId forKey:@"coupon_id"];
     [parameter setValue:self.publicCouponId forKey:@"oldtext"];
-    [parameter setValue:[NSString stringWithFormat:@"%f",self.publicLatterMoney] forKey:@"price"];
+    [parameter setValue:[NSString stringWithFormat:@"%.2f",self.fixLatterMoney] forKey:@"price"];
     
     DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW);
     DLog(@"%@",parameter);
@@ -659,21 +688,34 @@
 
 #pragma mark Data Parse
 -(void)treatmentDetailDataParse{
-//    self.treatmentId = [NullUtil judgeStringNull:[self.data objectForKey:@"consult_id"]];
-//    self.treatmentNumber = [NullUtil judgeStringNull:[self.data objectForKey:@"order_no"]];
-//    self.treatmentTime = [NullUtil judgeStringNull:[self.data objectForKey:@"create_date"]];
-//    self.treatmentStatusCode = [[NullUtil judgeStringNull:[self.data objectForKey:@"status"]] integerValue];
-//    
-//    self.payStatusCode = [[NullUtil judgeStringNull:[self.data objectForKey:@"pay_status"]] integerValue];
-//    self.qrcodeImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"code_url"]];
+    /*=================================================================================*/
+    self.fixExpertImage = [NullUtil judgeStringNull:[self.data objectForKey:@"maxHeand"]];
+    self.fixDoctorImage = [NullUtil judgeStringNull:[self.data objectForKey:@"minHeand"]];
+    self.fixExpertName = [NullUtil judgeStringNull:[self.data objectForKey:@"maxDoctorName"]];
+    self.fixDoctorName = [NullUtil judgeStringNull:[self.data objectForKey:@"minDoctorName"]];
+    self.fixClinicName = [NullUtil judgeStringNull:[self.data objectForKey:@"outpat_name"]];
+    self.fixClinicAddress = [NullUtil judgeStringNull:[self.data objectForKey:@"address"]];
+    self.fixFormerMoney = [[self.data objectForKey:@"maxMoney"] doubleValue];
+    self.fixLatterMoney = [[self.data objectForKey:@"price"] doubleValue];
+    self.fixAppiontmentTime = [NullUtil judgeStringNull:[self.data objectForKey:@"bespoke_date"]];
     
-    self.treatmentId = [self.data objectForKey:@"consult_id"];
-    self.treatmentNumber = [self.data objectForKey:@"order_no"];
-    self.treatmentTime = [self.data objectForKey:@"create_date"];
+    self.fixPatientName = [NullUtil judgeStringNull:[self.data objectForKey:@"userName"]];
+    self.fixPatientId = [NullUtil judgeStringNull:[self.data objectForKey:@"ID_no"]];
+    self.fixPatientMobile = [NullUtil judgeStringNull:[self.data objectForKey:@"phone"]];
+    self.fixPatientAge = [[self.data objectForKey:@"age"] integerValue];
+    self.fixPatientSexFix = [[self.data objectForKey:@"sex"] integerValue];
+    self.fixPatientSymptom = [NullUtil judgeStringNull:[self.data objectForKey:@"symptom_ids"]];
+    
+    self.fixCouponName = [NullUtil judgeStringNull:[self.data objectForKey:@"conpou_name"]];
+    /*=================================================================================*/
+    
+    self.treatmentId = [NullUtil judgeStringNull:[self.data objectForKey:@"consult_id"]];
+    self.treatmentNumber = [NullUtil judgeStringNull:[self.data objectForKey:@"order_no"]];
+    self.treatmentTime = [NullUtil judgeStringNull:[self.data objectForKey:@"create_date"]];
     self.treatmentStatusCode = [[self.data objectForKey:@"status"] integerValue];
     
     self.payStatusCode = [[self.data objectForKey:@"pay_status"] integerValue];
-    self.qrcodeImageString = [self.data objectForKey:@"code_url"];
+    self.qrcodeImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"code_url"]];
     
     [self treatmentDetailFixDataFilling];
 }
@@ -695,6 +737,8 @@
             
             self.label7_2.text = @"已支付";
             self.payNowButton.hidden = YES;
+            
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }else if ([self.alipayResultStatus integerValue] == 8000){
             //支付结果确认中
             [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
@@ -714,43 +758,68 @@
 }
 
 #pragma mark Data Filling
--(void)treatmentDetailDataFilling{
-    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    self.expertLabel.text = self.publicExpertName;
-    self.doctorLabel.text = self.publicDoctorName;
-    self.clinicLabel.text = self.publicClinicName;
-    self.addressLabel.text = self.publicClinicAddress;
-    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
-    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
-    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
-    self.timeLabel.text = self.publicAppiontmentTime;
-    
-    self.label1_1.text = @"姓名：";
-    self.label1_2.text = self.publicPatientName;
-    self.label2_1.text = @"身份证号：";
-    self.label2_2.text = self.publicPatientId;
-    self.label3_1.text = @"手机号：";
-    self.label3_2.text = self.publicPatientMobile;
-    self.label4_1.text = @"年龄：";
-    self.label4_2.text = self.publicPatientAge;
-    self.label4_3.text = @"性别：";
-    self.label4_4.text = self.publicPatientSex;
-    self.label5_1.text = @"症状：";
-    self.label5_2.text = self.publicPatientSymptom;
-    
-    self.label6_1.text = @"优惠券";
-    self.label6_2.text = self.publicCouponName;
-    
-    self.label7_1.text = @"支付情况";
-//    self.label7_2.text = @"未支付";
-//    [self.payNowButton setTitle:@"立即支付" forState:UIControlStateNormal];
-//    [self.payNowButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-//    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
-//    [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
-}
+//-(void)treatmentDetailDataFilling{
+//    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//    self.expertLabel.text = self.publicExpertName;
+//    self.doctorLabel.text = self.publicDoctorName;
+//    self.clinicLabel.text = self.publicClinicName;
+//    self.addressLabel.text = self.publicClinicAddress;
+//    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
+//    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
+//    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+//    self.timeLabel.text = self.publicAppiontmentTime;
+//    
+//    self.label1_1.text = @"姓名：";
+//    self.label1_2.text = self.publicPatientName;
+//    self.label2_1.text = @"身份证号：";
+//    self.label2_2.text = self.publicPatientId;
+//    self.label3_1.text = @"手机号：";
+//    self.label3_2.text = self.publicPatientMobile;
+//    self.label4_1.text = @"年龄：";
+//    self.label4_2.text = self.publicPatientAge;
+//    self.label4_3.text = @"性别：";
+//    self.label4_4.text = self.publicPatientSex;
+//    self.label5_1.text = @"症状：";
+//    self.label5_2.text = self.publicPatientSymptom;
+//    
+//    self.label6_1.text = @"优惠券";
+//    self.label6_2.text = self.publicCouponName;
+//    
+//    self.label7_1.text = @"支付情况";
+//}
 
 -(void)treatmentDetailFixDataFilling{
+    /*===========================================================================*/
+    [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.fixExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.fixDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertLabel.text = self.fixExpertName;
+    self.doctorLabel.text = self.fixDoctorName;
+    self.clinicLabel.text = self.fixClinicName;
+    self.addressLabel.text = self.fixClinicAddress;
+    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.fixFormerMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.fixLatterMoney];
+    [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+    self.timeLabel.text = self.fixAppiontmentTime;
+    
+    self.label1_1.text = @"姓名：";
+    self.label1_2.text = self.fixPatientName;
+    self.label2_1.text = @"身份证号：";
+    self.label2_2.text = self.fixPatientId;
+    self.label3_1.text = @"手机号：";
+    self.label3_2.text = self.fixPatientMobile;
+    self.label4_1.text = @"年龄：";
+    self.label4_2.text = [NSString stringWithFormat:@"%ld",(long)self.fixPatientAge];
+    self.label4_3.text = @"性别：";
+    self.label4_4.text = self.fixPatientSexFix == 1 ? @"男" : @"女";
+    self.label5_1.text = @"症状：";
+    self.label5_2.text = [self.fixPatientSymptom isEqualToString:@""] ? @"无可疑症状" : self.fixPatientSymptom;
+    
+    self.label6_1.text = @"优惠券";
+    self.label6_2.text = [self.fixCouponName isEqualToString:@""] ? @"无可用优惠券" : self.fixCouponName;
+    
+    self.label7_1.text = @"支付情况";
+    /*===========================================================================*/
     if (self.payStatusCode == 0) {
         //未支付
         self.label7_2.text = @"未支付";

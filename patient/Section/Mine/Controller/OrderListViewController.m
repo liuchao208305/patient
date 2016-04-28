@@ -156,6 +156,9 @@
     self.orderPatientIdArrayAll = [NSMutableArray array];
     self.orderPatientNameArrayAll = [NSMutableArray array];
     
+    self.orderPayIdArrayAll = [NSMutableArray array];
+    self.orderPayStatusArrayAll = [NSMutableArray array];
+    
     self.orderArrayBooked = [NSMutableArray array];
     self.orderIdArrayBooked = [NSMutableArray array];
     self.orderStatusArrayBooked = [NSMutableArray array];
@@ -172,6 +175,9 @@
     self.orderDoctorImageArrayBooked = [NSMutableArray array];
     self.orderPatientIdArrayBooked = [NSMutableArray array];
     self.orderPatientNameArrayBooked = [NSMutableArray array];
+    
+    self.orderPayIdArrayBooked = [NSMutableArray array];
+    self.orderPayStatusArrayBooked = [NSMutableArray array];
     
     self.orderArrayProceeding = [NSMutableArray array];
     self.orderIdArrayProceeding = [NSMutableArray array];
@@ -190,6 +196,9 @@
     self.orderPatientIdArrayProceeding = [NSMutableArray array];
     self.orderPatientNameArrayProceeding = [NSMutableArray array];
     
+    self.orderPayIdArrayProceeding = [NSMutableArray array];
+    self.orderPayStatusArrayProceeding = [NSMutableArray array];
+    
     self.orderArrayCompleted = [NSMutableArray array];
     self.orderIdArrayCompleted = [NSMutableArray array];
     self.orderStatusArrayCompleted = [NSMutableArray array];
@@ -207,6 +216,9 @@
     self.orderPatientIdArrayCompleted = [NSMutableArray array];
     self.orderPatientNameArrayCompleted = [NSMutableArray array];
     
+    self.orderPayIdArrayCompleted = [NSMutableArray array];
+    self.orderPayStatusArrayCompleted = [NSMutableArray array];
+    
     self.orderArrayEvaluating = [NSMutableArray array];
     self.orderIdArrayEvaluating = [NSMutableArray array];
     self.orderStatusArrayEvaluating = [NSMutableArray array];
@@ -223,6 +235,9 @@
     self.orderDoctorImageArrayEvaluating = [NSMutableArray array];
     self.orderPatientIdArrayEvaluating = [NSMutableArray array];
     self.orderPatientNameArrayEvaluating = [NSMutableArray array];
+    
+    self.orderPayIdArrayEvaluating = [NSMutableArray array];
+    self.orderPayStatusArrayEvaluating = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -345,15 +360,19 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4) {
+        if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 6) {
             return 135;
         }else{
             return 195;
         }
     }else if (self.flag2){
-        return 195;
+        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
+            return 195;
+        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
+            return 135;
+        }
     }else if (self.flag3){
-        return 195;
+        return 135;
     }else if (self.flag4){
         return 195;
     }else if (self.flag5){
@@ -382,20 +401,29 @@
         cell.label1_1.text = self.orderPatientNameArrayAll[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayAll[indexPath.section];
         
-        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1) {
-            cell.label1_3.text = @"已预约";
-            [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
+        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1){
+            if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 0) {
+                cell.label1_3.text = @"未支付";
+                [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
+                [cell.button addTarget:self action:@selector(bookedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+            }else if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1){
+                cell.label1_3.text = @"已支付";
+                cell.lineView2.hidden = YES;
+                cell.button.hidden = YES;
+            }
         }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4){
             cell.label1_3.text = @"进行中";
-            [cell.button setTitle:@"立即查看" forState:UIControlStateNormal];
-        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 6){
-            cell.label1_3.text = @"已完成";
             
             cell.lineView2.hidden = YES;
             cell.button.hidden = YES;
         }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 5){
             cell.label1_3.text = @"待评价";
             [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
+        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 6){
+            cell.label1_3.text = @"已完成";
+            
+            cell.lineView2.hidden = YES;
+            cell.button.hidden = YES;
         }
         
         cell.label2_1.text = [self.orderCreatTimeArrayAll[indexPath.section] substringToIndex:4];
@@ -415,9 +443,15 @@
         cell.label1_1.text = self.orderPatientNameArrayBooked[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayBooked[indexPath.section];
         
-        cell.label1_3.text = @"已预约";
-        [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
-        [cell.button addTarget:self action:@selector(bookedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
+            cell.label1_3.text = @"未支付";
+            [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
+            [cell.button addTarget:self action:@selector(bookedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
+            cell.label1_3.text = @"已支付";
+            cell.lineView2.hidden = YES;
+            cell.button.hidden = YES;
+        }
         
         cell.label2_1.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringToIndex:4];
         cell.label2_2.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
@@ -436,8 +470,8 @@
         cell.label1_2.text = self.orderBookTimeArrayProceeding[indexPath.section];
         
         cell.label1_3.text = @"进行中";
-        [cell.button setTitle:@"立即查看" forState:UIControlStateNormal];
-        [cell.button addTarget:self action:@selector(proceedingButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        cell.lineView2.hidden = YES;
+        cell.button.hidden = YES;
         
         cell.label2_1.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringToIndex:4];
         cell.label2_2.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
@@ -503,9 +537,10 @@
     }else if (self.flag2){
 #warning 跳转回来，页面重新初始化，触发不了此方法
         TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
-        detaiVC.orderNumber = self.orderIdArrayBooked[indexPath.section];
+        detaiVC.isFromOrderListVC = YES;
+        detaiVC.orderNumber = self.orderPayIdArrayBooked[indexPath.section];
         [self.navigationController pushViewController:detaiVC animated:YES];
-        
+
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
 //        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
@@ -513,11 +548,11 @@
         
         [self.tableView3 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag4){
+//        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//        [self.navigationController pushViewController:medicineVC animated:YES];
         
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
-        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-        [self.navigationController pushViewController:medicineVC animated:YES];
         
         [self.tableView5 deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -802,6 +837,9 @@
         [self.orderDoctorNameArrayAll addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
         [self.orderDoctorImageArrayAll addObject:[NullUtil judgeStringNull:orderData.minHeand]];
         [self.orderPatientNameArrayAll addObject:[NullUtil judgeStringNull:orderData.userName]];
+        
+        [self.orderPayIdArrayAll addObject:[NullUtil judgeStringNull:orderData.order_no]];
+        [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
     }
     
     [self.tableView1 reloadData];
@@ -825,6 +863,9 @@
         [self.orderDoctorNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
         [self.orderDoctorImageArrayBooked addObject:[NullUtil judgeStringNull:orderData.minHeand]];
         [self.orderPatientNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.userName]];
+        
+        [self.orderPayIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.order_no]];
+        [self.orderPayStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
     }
     
     [self.tableView2 reloadData];
@@ -848,6 +889,9 @@
         [self.orderDoctorNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
         [self.orderDoctorImageArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minHeand]];
         [self.orderPatientNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.userName]];
+        
+        [self.orderPayIdArrayProceeding addObject:[NullUtil judgeStringNull:orderData.order_no]];
+        [self.orderPayStatusArrayProceeding addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
     }
     
     [self.tableView3 reloadData];
@@ -871,6 +915,9 @@
         [self.orderDoctorNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
         [self.orderDoctorImageArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minHeand]];
         [self.orderPatientNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.userName]];
+        
+        [self.orderPayIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.order_no]];
+        [self.orderPayStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
     }
     
     [self.tableView4 reloadData];
@@ -894,6 +941,9 @@
         [self.orderDoctorNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
         [self.orderDoctorImageArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minHeand]];
         [self.orderPatientNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.userName]];
+        
+        [self.orderPayIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.order_no]];
+        [self.orderPayStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
     }
     
     [self.tableView5 reloadData];

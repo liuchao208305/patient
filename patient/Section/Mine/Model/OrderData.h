@@ -24,5 +24,7 @@
 @property (assign,nonatomic)double price;
 @property (strong,nonatomic)NSString *userName;
 @property (strong,nonatomic)NSString *maxDoctorName;
+@property (assign,nonatomic)NSInteger pay_status;
+@property (strong,nonatomic)NSString *order_no;
 
 @end

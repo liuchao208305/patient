@@ -27,7 +27,7 @@
 @property (strong,nonatomic)UITableView *tableView3;
 @property (strong,nonatomic)UITableView *tableView4;
 @property (strong,nonatomic)UITableView *tableView5;
-
+/*=========================================================================*/
 @property (strong,nonatomic)NSMutableArray *orderArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayAll;
@@ -45,7 +45,9 @@
 @property (strong,nonatomic)NSMutableArray *orderPatientIdArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderPatientNameArrayAll;
 
-
+@property (strong,nonatomic)NSMutableArray *orderPayIdArrayAll;
+@property (strong,nonatomic)NSMutableArray *orderPayStatusArrayAll;
+/*=========================================================================*/
 @property (strong,nonatomic)NSMutableArray *orderArrayBooked;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayBooked;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayBooked;
@@ -63,6 +65,9 @@
 @property (strong,nonatomic)NSMutableArray *orderPatientIdArrayBooked;
 @property (strong,nonatomic)NSMutableArray *orderPatientNameArrayBooked;
 
+@property (strong,nonatomic)NSMutableArray *orderPayIdArrayBooked;
+@property (strong,nonatomic)NSMutableArray *orderPayStatusArrayBooked;
+/*=========================================================================*/
 @property (strong,nonatomic)NSMutableArray *orderArrayProceeding;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayProceeding;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayProceeding;
@@ -80,6 +85,9 @@
 @property (strong,nonatomic)NSMutableArray *orderPatientIdArrayProceeding;
 @property (strong,nonatomic)NSMutableArray *orderPatientNameArrayProceeding;
 
+@property (strong,nonatomic)NSMutableArray *orderPayIdArrayProceeding;
+@property (strong,nonatomic)NSMutableArray *orderPayStatusArrayProceeding;
+/*=========================================================================*/
 @property (strong,nonatomic)NSMutableArray *orderArrayEvaluating;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayEvaluating;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayEvaluating;
@@ -97,6 +105,9 @@
 @property (strong,nonatomic)NSMutableArray *orderPatientIdArrayEvaluating;
 @property (strong,nonatomic)NSMutableArray *orderPatientNameArrayEvaluating;
 
+@property (strong,nonatomic)NSMutableArray *orderPayIdArrayEvaluating;
+@property (strong,nonatomic)NSMutableArray *orderPayStatusArrayEvaluating;
+/*=========================================================================*/
 @property (strong,nonatomic)NSMutableArray *orderArrayCompleted;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayCompleted;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayCompleted;
@@ -113,5 +124,8 @@
 @property (strong,nonatomic)NSMutableArray *orderDoctorImageArrayCompleted;
 @property (strong,nonatomic)NSMutableArray *orderPatientIdArrayCompleted;
 @property (strong,nonatomic)NSMutableArray *orderPatientNameArrayCompleted;
+
+@property (strong,nonatomic)NSMutableArray *orderPayIdArrayCompleted;
+@property (strong,nonatomic)NSMutableArray *orderPayStatusArrayCompleted;
 
 @end

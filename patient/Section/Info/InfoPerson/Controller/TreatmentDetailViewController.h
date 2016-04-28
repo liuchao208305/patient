@@ -10,6 +10,9 @@
 
 @interface TreatmentDetailViewController : BaseViewController
 
+@property (assign,nonatomic)BOOL isFromOrderListVC;
+@property (strong,nonatomic)NSString *orderNumber;
+
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *doctorId;
@@ -31,11 +34,12 @@
 @property (strong,nonatomic)NSString *publicPatientSex;
 @property (assign,nonatomic)NSInteger publicPatientSexFix;
 @property (strong,nonatomic)NSString *publicPatientSymptom;
-
+//
 @property (strong,nonatomic)NSString *publicCouponId;
 @property (strong,nonatomic)NSString *publicCouponName;
 
-@property (strong,nonatomic)NSString *orderNumber;
+@property (strong,nonatomic)NSString *publicNewCouponId;
+@property (strong,nonatomic)NSString *publicNewCouponName;
 
 /*==============================================================*/
 

@@ -12,7 +12,13 @@
 #import "NullUtil.h"
 #import "AlertUtil.h"
 
-@interface CouponCheckViewController ()
+@interface CouponCheckViewController ()<UIAlertViewDelegate>
+
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableArray *data;
+@property (assign,nonatomic)NSError *error;
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -53,6 +59,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.hidden = NO;
     
     self.flag1 = YES;
     self.flag2 = NO;
@@ -123,6 +131,8 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
     label.text = @"我的优惠券";
     label.textColor = [UIColor whiteColor];
@@ -130,7 +140,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"兑换" style:(UIBarButtonItemStylePlain) target:self action:@selector(exchange)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"兑换" style:(UIBarButtonItemStylePlain) target:self action:@selector(exchangeButtonClicked)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
@@ -188,8 +198,18 @@
 }
 
 #pragma mark Target Action
--(void)exchange{
-    
+-(void)exchangeButtonClicked{
+    DLog(@"exchangeButtonClicked");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"兑换优惠券" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换",nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert show];
+}
+
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UITextField *textfield = [alertView textFieldAtIndex:0];
+    DLog(@"%@",textfield.text);
+    [self sendCouponExchangeRequest:textfield.text];
 }
 
 #pragma mark YJSegmentedControlDelegate
@@ -297,16 +317,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        if ([self.couponMinMoneyArrayUnused[indexPath.section] doubleValue] < self.treatmentMoney && [self.couponTypeArrayUnused[indexPath.section] integerValue] == 2) {
-            if (self.couponDelegate && [self.couponDelegate respondsToSelector:@selector(couponSelected:)]) {
-                [self.couponDelegate couponSelected:self.couponArrayUnused[indexPath.section]];
+        if (!self.isFromMineVC) {
+            if ([self.couponMinMoneyArrayUnused[indexPath.section] doubleValue] < self.treatmentMoney && [self.couponTypeArrayUnused[indexPath.section] integerValue] == 2) {
+                if (self.couponDelegate && [self.couponDelegate respondsToSelector:@selector(couponSelected:)]) {
+                    [self.couponDelegate couponSelected:self.couponArrayUnused[indexPath.section]];
+                }
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }else{
+                [AlertUtil showSimpleAlertWithTitle:@"温馨提示" message:self.couponReasonArrayUnused[indexPath.section]];
             }
-            
-            [self.navigationController popViewControllerAnimated:YES];
-        }else{
-            [AlertUtil showSimpleAlertWithTitle:@"温馨提示" message:self.couponReasonArrayUnused[indexPath.section]];
         }
-        
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
@@ -316,6 +337,47 @@
 }
 
 #pragma mark Network Request
+-(void)sendCouponExchangeRequest:(NSString *)code{
+    DLog(@"sendCouponExchangeRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:code forKey:@"code"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_COUPON_INFORAMTION_EXCHANGE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_COUPON_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            
+        }else{
+            DLog(@"%@",self.message);
+            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 -(void)sendCouponCheckRequest1{
     DLog(@"sendCouponCheckRequest1");
     

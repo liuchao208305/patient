@@ -17,6 +17,8 @@
 
 @interface ContactCheckViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (assign,nonatomic)BOOL isFromMineVC;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)NSMutableArray *contactArray;

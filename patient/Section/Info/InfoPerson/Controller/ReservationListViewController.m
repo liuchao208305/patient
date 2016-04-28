@@ -487,7 +487,7 @@
     detailVC.publicPatientAge = self.publicPatientAge;
     detailVC.publicPatientSex = self.publicPatientSex;
     detailVC.publicPatientSymptom = self.publicPatientSymptom;
-    
+//
     detailVC.publicCouponId = self.publicCouponId;
     detailVC.publicCouponName = self.label6_2.text;
     

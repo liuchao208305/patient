@@ -25,7 +25,7 @@
 #import "CouponCheckViewController.h"
 #import "OrderListViewController.h"
 
-@interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate>
+@interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -76,6 +76,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
+    [self sendMineInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -88,7 +89,7 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
-    [self sendMineInfoRequest];
+//    [self sendMineInfoRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -105,7 +106,11 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.recordArray = [NSMutableArray array];
+    self.recordIdArray = [NSMutableArray array];
+    self.recordImageArray = [NSMutableArray array];
+    self.recordNameArray = [NSMutableArray array];
+    self.recordPatientNameArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -264,18 +269,15 @@
         
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"MineRecordTableCell";
-        MineRecordTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MineRecordTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        //填充数据
-        for (int i = 0; i< self.recordArray.count; i++) {
-//            cell.recordView.recordId = self.recordIdArray[i];
-//            cell.recordView.recordPatientName = self.recordPatientNameArray[i];
-            [cell.recordView.recordImage sd_setImageWithURL:[NSURL URLWithString:self.recordImageArray[i]] placeholderImage:[UIImage imageNamed:@"mine_default_medical_record"]];
-            cell.recordView.recordName.text = self.recordNameArray[i];
-        }
+//        static NSString *cellName = @"MineRecordTableCell";
+//        MineRecordTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MineRecordTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+        
+        MineRecordTableCell *cell = [[MineRecordTableCell alloc] init];
+        [cell initView:self.recordIdArray.count Withid:self.recordIdArray image:self.recordImageArray name:self.recordNameArray patientName:self.recordPatientNameArray];
+        cell.recordViewDelegate = self;
         
         return cell;
     }else if (indexPath.section == 2){
@@ -432,6 +434,14 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark RecordViewDelegate
+-(void)recordViewClicked:(NSInteger)tag{
+    DLog(@"%@",self.recordIdArray[tag]);
+    DLog(@"%@",self.recordImageArray[tag]);
+    DLog(@"%@",self.recordNameArray[tag]);
+    DLog(@"%@",self.recordPatientNameArray[tag]);
+}
+
 #pragma mark FunctionDelegate
 -(void)function1Clicked{
     DLog(@"function1Clicked");
@@ -447,8 +457,10 @@
 
 -(void)function4Clicked{
     DLog(@"function4Clicked");
-//    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
-//    [self.navigationController pushViewController:couponCheckVC animated:YES];
+    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
+    couponCheckVC.hidesBottomBarWhenPushed = YES;
+    couponCheckVC.isFromMineVC = YES;
+    [self.navigationController pushViewController:couponCheckVC animated:YES];
 }
 
 -(void)function5Clicked{
@@ -468,8 +480,10 @@
 
 -(void)function8Clicked{
     DLog(@"function8Clicked");
-//    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
-//    [self.navigationController pushViewController:contactCheckVC animated:YES];
+    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
+    contactCheckVC.hidesBottomBarWhenPushed = YES;
+    contactCheckVC.isFromMineVC = YES;
+    [self.navigationController pushViewController:contactCheckVC animated:YES];
 }
 
 #pragma mark Network Request

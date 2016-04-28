@@ -19,6 +19,8 @@
 
 @interface CouponCheckViewController : BaseViewController<YJSegmentedControlDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (assign,nonatomic)BOOL isFromMineVC;
+
 @property (assign,nonatomic)double treatmentMoney;
 
 @property (assign,nonatomic)BOOL flag1;

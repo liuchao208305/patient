@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "RecordView.h"
 
+@protocol RecordViewDelegate <NSObject>
+
+-(void)recordViewClicked:(NSInteger)tag;
+
+@end
+
 @interface MineRecordTableCell : UITableViewCell
 
 @property (strong,nonatomic)RecordView *recordView;
+
+-(void)initView:(NSInteger)number Withid:(NSMutableArray *)recordIdArray image:(NSMutableArray *)recordImageArray name:(NSMutableArray *)recordNameArray patientName:(NSMutableArray *)recordPatientNameArray;
+
+@property (weak,nonatomic)id<RecordViewDelegate> recordViewDelegate;
 
 @end

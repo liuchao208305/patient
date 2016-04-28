@@ -43,6 +43,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.navigationController.navigationBar.hidden = NO;
+    
     [self sendContactCheckRequest];
 }
 
@@ -77,6 +79,8 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
     label.text = @"常用联系人";
     label.textColor = [UIColor whiteColor];
@@ -144,11 +148,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.contactDelegate && [self.contactDelegate respondsToSelector:@selector(contactSelected:)]) {
-        [self.contactDelegate contactSelected:self.contactArray[indexPath.row]];
+    if (!self.isFromMineVC) {
+        if (self.contactDelegate && [self.contactDelegate respondsToSelector:@selector(contactSelected:)]) {
+            [self.contactDelegate contactSelected:self.contactArray[indexPath.row]];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    [self.navigationController popViewControllerAnimated:YES];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
