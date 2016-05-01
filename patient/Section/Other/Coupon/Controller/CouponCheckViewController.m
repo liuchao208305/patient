@@ -207,9 +207,11 @@
 
 #pragma mark UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UITextField *textfield = [alertView textFieldAtIndex:0];
-    DLog(@"%@",textfield.text);
-    [self sendCouponExchangeRequest:textfield.text];
+    if (buttonIndex == 1) {
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        DLog(@"%@",textfield.text);
+        [self sendCouponExchangeRequest:textfield.text];
+    }
 }
 
 #pragma mark YJSegmentedControlDelegate

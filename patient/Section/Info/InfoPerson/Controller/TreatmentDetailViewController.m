@@ -14,7 +14,7 @@
 #import "AlertUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
 
-@interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate>
+@interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -27,6 +27,12 @@
 @property (strong,nonatomic)NSString *message2;
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
+
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
 
 /*================================================*/
 @property (strong,nonatomic)NSString *fixExpertImage;
@@ -129,6 +135,9 @@
     
     if (!self.isFromOrderListVC) {
         UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonClicked)];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }else{
+        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
     }
 }
@@ -383,7 +392,7 @@
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label1_2).offset(0);
         make.centerY.equalTo(self.label2_1).offset(0);
-        make.width.mas_equalTo(160);
+        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
     
@@ -538,6 +547,13 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)cancelButtonClicked{
+    DLog(@"cancelButtonClicked");
+//    [self sendCancelTreatmentRequest];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定要取消吗？" message:@"" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是",nil];
+    [alert show];
+}
+
 -(void)backView3Clicked{
     DLog(@"backView3Clicked");
     CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
@@ -585,6 +601,14 @@
     }
 }
 
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+    }else if (buttonIndex == 1){
+        [self sendCancelTreatmentRequest];
+    }
+}
+
 #pragma mark Network Request
 -(void)sendTreatmentDetailRequest{
     DLog(@"sendTreatmentDetailRequest");
@@ -612,14 +636,51 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-//            if (!self.isFromOrderListVC) {
-//                [self treatmentDetailDataParse];
-//            }else{
-//                
-//            }
             [self treatmentDetailDataParse];
         }else{
             DLog(@"%@",self.message);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendCancelTreatmentRequest{
+    DLog(@"sendCancelTreatmentRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:self.treatmentId forKey:@"conID"];
+    
+    DLog(@"%@%@",kServerAddress,kJZK_TREATMENT_CANCEL_INFORMATION);
+    DLog(@"%@",parameter);
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_TREATMENT_CANCEL_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"取消成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            DLog(@"%@",self.message3);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

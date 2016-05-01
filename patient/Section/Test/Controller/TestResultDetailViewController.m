@@ -416,15 +416,15 @@
     self.h_score = [[self.data objectForKey:@"h_score"] integerValue];
     self.i_score = [[self.data objectForKey:@"i_score"] integerValue];
     
-    self.tt_prescription = [self.data objectForKey:@"description"];
-    self.tt_point = [self.data objectForKey:@"tt_point"];
+    self.tt_prescription = [NullUtil judgeStringNull:[self.data objectForKey:@"description"]];
+    self.tt_point = [NullUtil judgeStringNull:[self.data objectForKey:@"tt_point"]];
     
-    self.vegetables = [self.data objectForKey:@"vegetables"];
+    self.vegetables = [NullUtil judgeStringNull:[self.data objectForKey:@"vegetables"]];
     
-    self.tt_rule = [self.data objectForKey:@"tt_rule"];
+    self.tt_rule = [NullUtil judgeStringNull:[self.data objectForKey:@"tt_rule"]];
     
-    self.tt_prescription = [self.data objectForKey:@"tt_prescription"];
-    self.lzjj = [self.data objectForKey:@"lzjj"];
+    self.tt_prescription = [NullUtil judgeStringNull:[self.data objectForKey:@"tt_prescription"]];
+    self.lzjj = [NullUtil judgeStringNull:[self.data objectForKey:@"lzjj"]];
     
     [self testResultDetailDataFilling];
 }

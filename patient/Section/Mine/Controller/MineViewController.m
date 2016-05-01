@@ -76,6 +76,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
+#warning 此处还存在刷新的问题
     [self sendMineInfoRequest];
     
     [self initNavBar];

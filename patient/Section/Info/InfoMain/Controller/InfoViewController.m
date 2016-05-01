@@ -22,6 +22,8 @@
 #import "ExpertInfoViewController.h"
 #import "NullUtil.h"
 #import "HudUtil.h"
+#import "InfoMoreStudioViewController.h"
+#import "InfoMorePersonViewController.h"
 
 @interface InfoViewController (){
     SDCycleScrollView *scrollView;
@@ -455,6 +457,9 @@
 
 -(void)studioHeadViewClicked{
     DLog(@"studioHeadViewClicked");
+    InfoMoreStudioViewController *moreStudioVC = [[InfoMoreStudioViewController alloc] init];
+    moreStudioVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:moreStudioVC animated:YES];
 }
 
 -(void)personHeadViewClicked{

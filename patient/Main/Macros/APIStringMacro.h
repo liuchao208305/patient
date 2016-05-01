@@ -12,11 +12,11 @@
 //接口名称相关
 #ifdef DEBUG
 //Debug状态下的测试API
-//#define kServerAddress     @"http://192.168.5.46:83/jiuzhekan_http/"// 内网测试地址－秦兵
-//#define kServerAddressPay   @"http://192.168.5.46:83/jiuzhekan_pay/"//外网测试地址—秦兵－支付
+#define kServerAddress     @"http://192.168.5.46:83/jiuzhekan_http/"// 内网测试地址－秦兵
+#define kServerAddressPay   @"http://192.168.5.46:83/jiuzhekan_pay/"//外网测试地址—秦兵－支付
 //#define kServerAddress     @"http://192.168.5.102:83/jiuzhekan_http/"// 内网测试地址－欧日广
-#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"// 外网测试地址
-#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
+//#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"// 外网测试地址
+//#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
 #else
 //Release状态下的线上API
 //#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
@@ -39,6 +39,8 @@ typedef enum {
 #define kJZK_NORMAL_LOGIN @"public/v1/user/login?"//常规登录
 #define kJZK_THIRD_LOGIN @"public/v1/user/insertLogin?"//第三方登录
 #define kJZK_INFO_INFORMATION @"public/v1/user/index?"//首页信息
+#define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表
+#define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/getMoreMaxDoctor?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息
@@ -51,6 +53,7 @@ typedef enum {
 #define kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW @"private/v1/user/pay?"//预约单详情—立即支付
 #define kJZK_CONTACT_INFORMATION_GET @"private/v1/user/getUserContact?"//获取常用联系人
 #define KJZK_CONTACT_INFORMATION_ADD @"private/v1/user/addContact?"//添加常用联系人
+#define KJZK_CONTACT_INFORMATION_DELETE @"private/v1/user/deleteContact?"//删除常用联系人
 #define kJZK_ID_INFORMATION @"private/v1/user/getKeyExists?"//身份证或者医保信息
 #define kJZK_RECORD_INFORMATION_ADD @"private/v1/user/addContactBook?"//添加病历本
 #define kJZK_COUPON_INFORMATION @"private/v1/user/getUserConpou?"//优惠券信息
@@ -70,7 +73,7 @@ typedef enum {
 
 #define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
 #define kJZK_HEAD_IMAGE_UPLOAD @"private/v1/user/updateHeand?"//更改个人头像
-#define kJZK_IMAGE_UPLOAD @"private/v1/user/updateConuPhoto"//图片上传
+#define kJZK_IMAGE_UPLOAD @"private/v1/user/updateConuPhoto?"//图片上传
 /*========================================接口===============================================*/
 
 #endif /* APIStringMacro_h */

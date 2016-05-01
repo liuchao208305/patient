@@ -10,6 +10,8 @@
 #import "ContactTableCell.h"
 #import "NetworkUtil.h"
 #import "HudUtil.h"
+#import "ContactAddViewController.h"
+#import "ContactChangeViewController.h"
 
 @interface ContactCheckViewController ()
 
@@ -18,6 +20,12 @@
 @property (strong,nonatomic)NSString *message;
 @property (strong,nonatomic)NSMutableArray *data;
 @property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
 
 @property (strong,nonnull)ContactData *contactData;
 
@@ -87,6 +95,9 @@
     label.font = [UIFont systemFontOfSize:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"新增" style:(UIBarButtonItemStylePlain) target:self action:@selector(addContactButtonClicked)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)initTabBar{
@@ -108,6 +119,10 @@
 }
 
 #pragma mark Target Action
+-(void)addContactButtonClicked{
+    ContactAddViewController *addContactVC = [[ContactAddViewController alloc] init];
+    [self.navigationController pushViewController:addContactVC animated:YES];
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -153,9 +168,31 @@
             [self.contactDelegate contactSelected:self.contactArray[indexPath.row]];
         }
         [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        ContactChangeViewController *contactChangeVC = [[ContactChangeViewController alloc] init];
+        
+        contactChangeVC.contactId = self.contactIdArray[indexPath.row];
+        contactChangeVC.existsbook = self.contactRecordStatusArray[indexPath.row];
+        contactChangeVC.contactName = self.contactNameArray[indexPath.row];
+        contactChangeVC.contactIdNumber = self.contactIdNumberArray[indexPath.row];
+        contactChangeVC.contactMobile = self.contactPhoneArray[indexPath.row];
+        contactChangeVC.contactAge = self.contactAgeArray[indexPath.row];
+        contactChangeVC.contactSex = self.contactSexArray[indexPath.row];
+        
+        [self.navigationController pushViewController:contactChangeVC animated:YES];
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        DLog(@"UITableViewCellEditingStyleDelete");
+        [self.contactArray removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self sendContactDeleteRequest:self.contactIdArray[indexPath.row]];
+    }
 }
 
 #pragma mark Network Request
@@ -186,6 +223,47 @@
             [self contactCheckDataParse];
         }else{
             DLog(@"%@",self.message);
+            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendContactDeleteRequest:(NSString *)contactId{
+    DLog(@"sendContactDeleteRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:contactId forKey:@"contact_id"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,KJZK_CONTACT_INFORMATION_DELETE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"删除成功！" withDelaySeconds:kHud_DelayTime];
+        }else{
+            DLog(@"%@",self.message2);
             [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
         }
         

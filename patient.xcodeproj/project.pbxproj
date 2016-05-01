@@ -225,6 +225,12 @@
 		70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB31CD088FB00141E38 /* OrderListViewController.m */; };
 		70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB61CD08DE000141E38 /* OrderData.m */; };
 		70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */; };
+		70B4EABD1CD265C000141E38 /* InfoMoreStudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EABC1CD265C000141E38 /* InfoMoreStudioViewController.m */; };
+		70B4EAC01CD265DC00141E38 /* InfoMorePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EABF1CD265DC00141E38 /* InfoMorePersonViewController.m */; };
+		70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAC21CD2686C00141E38 /* MoreStudioTableCell.m */; };
+		70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAC51CD2688200141E38 /* MorePersonTableCell.m */; };
+		70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */; };
+		70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EACB1CD26A5F00141E38 /* MorePersonData.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -624,6 +630,18 @@
 		70B4EAB61CD08DE000141E38 /* OrderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderData.m; sourceTree = "<group>"; };
 		70B4EAB81CD0A52600141E38 /* OrderListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListTableCell.h; sourceTree = "<group>"; };
 		70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListTableCell.m; sourceTree = "<group>"; };
+		70B4EABB1CD265C000141E38 /* InfoMoreStudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoMoreStudioViewController.h; sourceTree = "<group>"; };
+		70B4EABC1CD265C000141E38 /* InfoMoreStudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoMoreStudioViewController.m; sourceTree = "<group>"; };
+		70B4EABE1CD265DC00141E38 /* InfoMorePersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoMorePersonViewController.h; sourceTree = "<group>"; };
+		70B4EABF1CD265DC00141E38 /* InfoMorePersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoMorePersonViewController.m; sourceTree = "<group>"; };
+		70B4EAC11CD2686C00141E38 /* MoreStudioTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreStudioTableCell.h; sourceTree = "<group>"; };
+		70B4EAC21CD2686C00141E38 /* MoreStudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreStudioTableCell.m; sourceTree = "<group>"; };
+		70B4EAC41CD2688200141E38 /* MorePersonTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorePersonTableCell.h; sourceTree = "<group>"; };
+		70B4EAC51CD2688200141E38 /* MorePersonTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorePersonTableCell.m; sourceTree = "<group>"; };
+		70B4EAC71CD26A4F00141E38 /* MoreStudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreStudioData.h; sourceTree = "<group>"; };
+		70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreStudioData.m; sourceTree = "<group>"; };
+		70B4EACA1CD26A5F00141E38 /* MorePersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorePersonData.h; sourceTree = "<group>"; };
+		70B4EACB1CD26A5F00141E38 /* MorePersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorePersonData.m; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -1228,6 +1246,10 @@
 				702939881C9273C4008280E2 /* InfoViewController.m */,
 				7046AD381C98107F00BB6818 /* ScanViewController.h */,
 				7046AD391C98107F00BB6818 /* ScanViewController.m */,
+				70B4EABB1CD265C000141E38 /* InfoMoreStudioViewController.h */,
+				70B4EABC1CD265C000141E38 /* InfoMoreStudioViewController.m */,
+				70B4EABE1CD265DC00141E38 /* InfoMorePersonViewController.h */,
+				70B4EABF1CD265DC00141E38 /* InfoMorePersonViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1247,6 +1269,10 @@
 				7046ADA51CA0D78300BB6818 /* BannerData.m */,
 				7046ADA71CA0DE8000BB6818 /* TimeData.h */,
 				7046ADA81CA0DE8000BB6818 /* TimeData.m */,
+				70B4EAC71CD26A4F00141E38 /* MoreStudioData.h */,
+				70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */,
+				70B4EACA1CD26A5F00141E38 /* MorePersonData.h */,
+				70B4EACB1CD26A5F00141E38 /* MorePersonData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1268,6 +1294,10 @@
 				7046AC741C974C9F00BB6818 /* PersonTableCell.h */,
 				7046AC751C974C9F00BB6818 /* PersonTableCell.m */,
 				7046AC761C974C9F00BB6818 /* PersonTableCell.xib */,
+				70B4EAC11CD2686C00141E38 /* MoreStudioTableCell.h */,
+				70B4EAC21CD2686C00141E38 /* MoreStudioTableCell.m */,
+				70B4EAC41CD2688200141E38 /* MorePersonTableCell.h */,
+				70B4EAC51CD2688200141E38 /* MorePersonTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1962,6 +1992,7 @@
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
+				70B4EAC01CD265DC00141E38 /* InfoMorePersonViewController.m in Sources */,
 				707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */,
 				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
@@ -1986,6 +2017,7 @@
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
 				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
+				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
@@ -2002,6 +2034,7 @@
 				70FEADE51CA8D03F006A044A /* ClinicExpertTableCell.m in Sources */,
 				70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
+				70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
@@ -2029,6 +2062,7 @@
 				70B4EA921CCE2E5700141E38 /* MineChangePasswordViewController.m in Sources */,
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
+				70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */,
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
@@ -2044,6 +2078,7 @@
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
+				70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */,
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
@@ -2051,6 +2086,7 @@
 				70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
+				70B4EABD1CD265C000141E38 /* InfoMoreStudioViewController.m in Sources */,
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,

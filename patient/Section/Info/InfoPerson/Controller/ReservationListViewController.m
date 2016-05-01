@@ -577,9 +577,7 @@
         
         if (self.code == kSUCCESS) {
             if (self.paymentType == 1) {
-                [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
-                [self pushTreatmentDetailViewController];
-//                [self paymentInfoOfflineDataParse];
+                [self paymentInfoOfflineDataParse];
             }else if (self.paymentType == 2){
                 [self paymentInfoAliPayDataParse];
             }else if (self.paymentType == 3){
