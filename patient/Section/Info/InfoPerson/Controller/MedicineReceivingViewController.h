@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
-@interface MedicineReceivingViewController : BaseViewController
+@interface MedicineReceivingViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong,nonatomic)NSString *orderNumber;
+
+@property (strong,nonatomic)UILabel *navTitleLabel;
+
+@property (strong,nonatomic)UITableView *tableView;
 
 @end

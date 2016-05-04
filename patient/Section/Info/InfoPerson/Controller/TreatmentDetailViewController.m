@@ -274,14 +274,14 @@
     [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.expertLabel).offset(0);
         make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(70);
         make.height.mas_equalTo(15);
     }];
     
     [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.doctorLabel).offset(0);
         make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(70);
         make.height.mas_equalTo(15);
     }];
     /*=======================================================================*/
@@ -854,10 +854,10 @@
     /*===========================================================================*/
     [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.fixExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
     [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.fixDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    self.expertLabel.text = self.fixExpertName;
-    self.doctorLabel.text = self.fixDoctorName;
-    self.clinicLabel.text = self.fixClinicName;
-    self.addressLabel.text = self.fixClinicAddress;
+    self.expertLabel.text = [NSString stringWithFormat:@"特需专家：%@",self.fixExpertName];
+    self.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.fixDoctorName];
+    self.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.fixClinicName];
+    self.addressLabel.text = [NSString stringWithFormat:@"                   %@",self.fixClinicAddress];
     self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.fixFormerMoney];
     self.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.fixLatterMoney];
     [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];

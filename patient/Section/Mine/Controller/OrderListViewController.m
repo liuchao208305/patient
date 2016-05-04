@@ -543,16 +543,17 @@
 
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
-//        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
-//        [self.navigationController pushViewController:finishVC animated:YES];
+        
         
         [self.tableView3 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag4){
-//        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-//        [self.navigationController pushViewController:medicineVC animated:YES];
+        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+        medicineVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
+        [self.navigationController pushViewController:medicineVC animated:YES];
         
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
+        
         
         [self.tableView5 deselectRowAtIndexPath:indexPath animated:YES];
     }

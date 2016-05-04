@@ -231,6 +231,43 @@
 		70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAC51CD2688200141E38 /* MorePersonTableCell.m */; };
 		70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */; };
 		70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EACB1CD26A5F00141E38 /* MorePersonData.m */; };
+		70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAD61CD86AAE00141E38 /* MRDoctorTableCell.m */; };
+		70B4EADA1CD86FA100141E38 /* MRPatientTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAD91CD86FA100141E38 /* MRPatientTableCell.m */; };
+		70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EADC1CD86FCA00141E38 /* MRCouponTableCell.m */; };
+		70B4EAE01CD8701000141E38 /* MRZhusuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EADF1CD8701000141E38 /* MRZhusuTableCell.m */; };
+		70B4EAE31CD8702500141E38 /* MRXianbingshiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAE21CD8702500141E38 /* MRXianbingshiTableCell.m */; };
+		70B4EAE61CD8704200141E38 /* MRJiwangshiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAE51CD8704200141E38 /* MRJiwangshiTableCell.m */; };
+		70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAE81CD8705B00141E38 /* MRShoushushiTableCell.m */; };
+		70B4EAEC1CD8707000141E38 /* MRGuomingshiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAEB1CD8707000141E38 /* MRGuomingshiTableCell.m */; };
+		70B4EAEF1CD8708900141E38 /* MRJiazushiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAEE1CD8708900141E38 /* MRJiazushiTableCell.m */; };
+		70B4EAF21CD8709F00141E38 /* MRShuimianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAF11CD8709F00141E38 /* MRShuimianTableCell.m */; };
+		70B4EAF51CD870B800141E38 /* MRYinshiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAF41CD870B800141E38 /* MRYinshiTableCell.m */; };
+		70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAF71CD870CB00141E38 /* MRYinshuiTableCell.m */; };
+		70B4EAFB1CD870E200141E38 /* MRDabianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAFA1CD870E200141E38 /* MRDabianTableCell.m */; };
+		70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EAFD1CD870F600141E38 /* MRXiaobianTableCell.m */; };
+		70B4EB011CD8710D00141E38 /* MRHanreTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB001CD8710D00141E38 /* MRHanreTableCell.m */; };
+		70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB031CD8712200141E38 /* MRTiwenTableCell.m */; };
+		70B4EB071CD8713800141E38 /* MRChuhanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB061CD8713800141E38 /* MRChuhanTableCell.m */; };
+		70B4EB0A1CD8715300141E38 /* MRJingshenTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB091CD8715300141E38 /* MRJingshenTableCell.m */; };
+		70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB0C1CD8716B00141E38 /* MRHunyuTableCell.m */; };
+		70B4EB101CD8718400141E38 /* MRDaixiaTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB0F1CD8718400141E38 /* MRDaixiaTableCell.m */; };
+		70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB121CD8719F00141E38 /* MRYuejingTableCell.m */; };
+		70B4EB161CD871B900141E38 /* MRTigeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB151CD871B900141E38 /* MRTigeTableCell.m */; };
+		70B4EB191CD871CD00141E38 /* MRShexiangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB181CD871CD00141E38 /* MRShexiangTableCell.m */; };
+		70B4EB1C1CD871E000141E38 /* MRMaixiangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB1B1CD871E000141E38 /* MRMaixiangTableCell.m */; };
+		70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB1E1CD871FC00141E38 /* MRZhongyiTableCell.m */; };
+		70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB211CD8720F00141E38 /* MRXiyiTableCell.m */; };
+		70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB241CD8722D00141E38 /* MRZhaopianTableCell.m */; };
+		70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB271CD8724000141E38 /* MRChufangTableCell.m */; };
+		70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB2A1CD8726500141E38 /* MRFYfangfaTableCell.m */; };
+		70B4EB2E1CD8728000141E38 /* MRFYshijianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB2D1CD8728000141E38 /* MRFYshijianTableCell.m */; };
+		70B4EB311CD8729700141E38 /* MRFYcishuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB301CD8729700141E38 /* MRFYcishuTableCell.m */; };
+		70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB361CD872DA00141E38 /* MRYizhuTextTableCell.m */; };
+		70B4EB3A1CD8730300141E38 /* MRYizhuSoundTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB391CD8730200141E38 /* MRYizhuSoundTableCell.m */; };
+		70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB3C1CD8744200141E38 /* MRQitaTableCell.m */; };
+		70B4EB401CD8950300141E38 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB3F1CD8950300141E38 /* StringUtil.m */; };
+		70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB421CD9DB1E00141E38 /* MRChufangData.m */; };
+		70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -263,7 +300,6 @@
 		70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */; };
 		70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */; };
 		70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF01CA90C23006A044A /* ClinicDoctorView.m */; };
-		70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */; };
 		70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */; };
 		70FEADF91CAB7710006A044A /* info_expert_guanzhu_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEADF81CAB7710006A044A /* info_expert_guanzhu_normal.png */; };
 		70FEADFF1CAB80B5006A044A /* info_expert_shaixuan_di.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEADFA1CAB80B5006A044A /* info_expert_shaixuan_di.png */; };
@@ -642,6 +678,79 @@
 		70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreStudioData.m; sourceTree = "<group>"; };
 		70B4EACA1CD26A5F00141E38 /* MorePersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorePersonData.h; sourceTree = "<group>"; };
 		70B4EACB1CD26A5F00141E38 /* MorePersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorePersonData.m; sourceTree = "<group>"; };
+		70B4EAD51CD86AAE00141E38 /* MRDoctorTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRDoctorTableCell.h; sourceTree = "<group>"; };
+		70B4EAD61CD86AAE00141E38 /* MRDoctorTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDoctorTableCell.m; sourceTree = "<group>"; };
+		70B4EAD81CD86FA100141E38 /* MRPatientTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRPatientTableCell.h; sourceTree = "<group>"; };
+		70B4EAD91CD86FA100141E38 /* MRPatientTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRPatientTableCell.m; sourceTree = "<group>"; };
+		70B4EADB1CD86FC900141E38 /* MRCouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCouponTableCell.h; sourceTree = "<group>"; };
+		70B4EADC1CD86FCA00141E38 /* MRCouponTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCouponTableCell.m; sourceTree = "<group>"; };
+		70B4EADE1CD8701000141E38 /* MRZhusuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRZhusuTableCell.h; sourceTree = "<group>"; };
+		70B4EADF1CD8701000141E38 /* MRZhusuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRZhusuTableCell.m; sourceTree = "<group>"; };
+		70B4EAE11CD8702500141E38 /* MRXianbingshiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRXianbingshiTableCell.h; sourceTree = "<group>"; };
+		70B4EAE21CD8702500141E38 /* MRXianbingshiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRXianbingshiTableCell.m; sourceTree = "<group>"; };
+		70B4EAE41CD8704200141E38 /* MRJiwangshiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRJiwangshiTableCell.h; sourceTree = "<group>"; };
+		70B4EAE51CD8704200141E38 /* MRJiwangshiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRJiwangshiTableCell.m; sourceTree = "<group>"; };
+		70B4EAE71CD8705B00141E38 /* MRShoushushiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRShoushushiTableCell.h; sourceTree = "<group>"; };
+		70B4EAE81CD8705B00141E38 /* MRShoushushiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRShoushushiTableCell.m; sourceTree = "<group>"; };
+		70B4EAEA1CD8707000141E38 /* MRGuomingshiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRGuomingshiTableCell.h; sourceTree = "<group>"; };
+		70B4EAEB1CD8707000141E38 /* MRGuomingshiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGuomingshiTableCell.m; sourceTree = "<group>"; };
+		70B4EAED1CD8708900141E38 /* MRJiazushiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRJiazushiTableCell.h; sourceTree = "<group>"; };
+		70B4EAEE1CD8708900141E38 /* MRJiazushiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRJiazushiTableCell.m; sourceTree = "<group>"; };
+		70B4EAF01CD8709F00141E38 /* MRShuimianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRShuimianTableCell.h; sourceTree = "<group>"; };
+		70B4EAF11CD8709F00141E38 /* MRShuimianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRShuimianTableCell.m; sourceTree = "<group>"; };
+		70B4EAF31CD870B800141E38 /* MRYinshiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYinshiTableCell.h; sourceTree = "<group>"; };
+		70B4EAF41CD870B800141E38 /* MRYinshiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYinshiTableCell.m; sourceTree = "<group>"; };
+		70B4EAF61CD870CB00141E38 /* MRYinshuiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYinshuiTableCell.h; sourceTree = "<group>"; };
+		70B4EAF71CD870CB00141E38 /* MRYinshuiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYinshuiTableCell.m; sourceTree = "<group>"; };
+		70B4EAF91CD870E200141E38 /* MRDabianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRDabianTableCell.h; sourceTree = "<group>"; };
+		70B4EAFA1CD870E200141E38 /* MRDabianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDabianTableCell.m; sourceTree = "<group>"; };
+		70B4EAFC1CD870F600141E38 /* MRXiaobianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRXiaobianTableCell.h; sourceTree = "<group>"; };
+		70B4EAFD1CD870F600141E38 /* MRXiaobianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRXiaobianTableCell.m; sourceTree = "<group>"; };
+		70B4EAFF1CD8710D00141E38 /* MRHanreTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRHanreTableCell.h; sourceTree = "<group>"; };
+		70B4EB001CD8710D00141E38 /* MRHanreTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRHanreTableCell.m; sourceTree = "<group>"; };
+		70B4EB021CD8712200141E38 /* MRTiwenTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTiwenTableCell.h; sourceTree = "<group>"; };
+		70B4EB031CD8712200141E38 /* MRTiwenTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTiwenTableCell.m; sourceTree = "<group>"; };
+		70B4EB051CD8713800141E38 /* MRChuhanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChuhanTableCell.h; sourceTree = "<group>"; };
+		70B4EB061CD8713800141E38 /* MRChuhanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChuhanTableCell.m; sourceTree = "<group>"; };
+		70B4EB081CD8715300141E38 /* MRJingshenTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRJingshenTableCell.h; sourceTree = "<group>"; };
+		70B4EB091CD8715300141E38 /* MRJingshenTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRJingshenTableCell.m; sourceTree = "<group>"; };
+		70B4EB0B1CD8716B00141E38 /* MRHunyuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRHunyuTableCell.h; sourceTree = "<group>"; };
+		70B4EB0C1CD8716B00141E38 /* MRHunyuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRHunyuTableCell.m; sourceTree = "<group>"; };
+		70B4EB0E1CD8718400141E38 /* MRDaixiaTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRDaixiaTableCell.h; sourceTree = "<group>"; };
+		70B4EB0F1CD8718400141E38 /* MRDaixiaTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDaixiaTableCell.m; sourceTree = "<group>"; };
+		70B4EB111CD8719F00141E38 /* MRYuejingTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYuejingTableCell.h; sourceTree = "<group>"; };
+		70B4EB121CD8719F00141E38 /* MRYuejingTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYuejingTableCell.m; sourceTree = "<group>"; };
+		70B4EB141CD871B900141E38 /* MRTigeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTigeTableCell.h; sourceTree = "<group>"; };
+		70B4EB151CD871B900141E38 /* MRTigeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTigeTableCell.m; sourceTree = "<group>"; };
+		70B4EB171CD871CD00141E38 /* MRShexiangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRShexiangTableCell.h; sourceTree = "<group>"; };
+		70B4EB181CD871CD00141E38 /* MRShexiangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRShexiangTableCell.m; sourceTree = "<group>"; };
+		70B4EB1A1CD871E000141E38 /* MRMaixiangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMaixiangTableCell.h; sourceTree = "<group>"; };
+		70B4EB1B1CD871E000141E38 /* MRMaixiangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMaixiangTableCell.m; sourceTree = "<group>"; };
+		70B4EB1D1CD871FC00141E38 /* MRZhongyiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRZhongyiTableCell.h; sourceTree = "<group>"; };
+		70B4EB1E1CD871FC00141E38 /* MRZhongyiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRZhongyiTableCell.m; sourceTree = "<group>"; };
+		70B4EB201CD8720F00141E38 /* MRXiyiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRXiyiTableCell.h; sourceTree = "<group>"; };
+		70B4EB211CD8720F00141E38 /* MRXiyiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRXiyiTableCell.m; sourceTree = "<group>"; };
+		70B4EB231CD8722D00141E38 /* MRZhaopianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRZhaopianTableCell.h; sourceTree = "<group>"; };
+		70B4EB241CD8722D00141E38 /* MRZhaopianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRZhaopianTableCell.m; sourceTree = "<group>"; };
+		70B4EB261CD8724000141E38 /* MRChufangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChufangTableCell.h; sourceTree = "<group>"; };
+		70B4EB271CD8724000141E38 /* MRChufangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChufangTableCell.m; sourceTree = "<group>"; };
+		70B4EB291CD8726500141E38 /* MRFYfangfaTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFYfangfaTableCell.h; sourceTree = "<group>"; };
+		70B4EB2A1CD8726500141E38 /* MRFYfangfaTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFYfangfaTableCell.m; sourceTree = "<group>"; };
+		70B4EB2C1CD8728000141E38 /* MRFYshijianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFYshijianTableCell.h; sourceTree = "<group>"; };
+		70B4EB2D1CD8728000141E38 /* MRFYshijianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFYshijianTableCell.m; sourceTree = "<group>"; };
+		70B4EB2F1CD8729700141E38 /* MRFYcishuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFYcishuTableCell.h; sourceTree = "<group>"; };
+		70B4EB301CD8729700141E38 /* MRFYcishuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFYcishuTableCell.m; sourceTree = "<group>"; };
+		70B4EB351CD872DA00141E38 /* MRYizhuTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYizhuTextTableCell.h; sourceTree = "<group>"; };
+		70B4EB361CD872DA00141E38 /* MRYizhuTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYizhuTextTableCell.m; sourceTree = "<group>"; };
+		70B4EB381CD8730200141E38 /* MRYizhuSoundTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYizhuSoundTableCell.h; sourceTree = "<group>"; };
+		70B4EB391CD8730200141E38 /* MRYizhuSoundTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYizhuSoundTableCell.m; sourceTree = "<group>"; };
+		70B4EB3B1CD8744200141E38 /* MRQitaTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRQitaTableCell.h; sourceTree = "<group>"; };
+		70B4EB3C1CD8744200141E38 /* MRQitaTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRQitaTableCell.m; sourceTree = "<group>"; };
+		70B4EB3E1CD8950300141E38 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		70B4EB3F1CD8950300141E38 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+		70B4EB411CD9DB1E00141E38 /* MRChufangData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChufangData.h; sourceTree = "<group>"; };
+		70B4EB421CD9DB1E00141E38 /* MRChufangData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChufangData.m; sourceTree = "<group>"; };
+		70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineReceivingViewController.m; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -688,7 +797,6 @@
 		70FEADEF1CA90C23006A044A /* ClinicDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicDoctorView.h; sourceTree = "<group>"; };
 		70FEADF01CA90C23006A044A /* ClinicDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicDoctorView.m; sourceTree = "<group>"; };
 		70FEADF21CAA2447006A044A /* MedicineReceivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineReceivingViewController.h; sourceTree = "<group>"; };
-		70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineReceivingViewController.m; sourceTree = "<group>"; };
 		70FEADF51CAA2768006A044A /* TreatmentFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreatmentFinishViewController.h; sourceTree = "<group>"; };
 		70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreatmentFinishViewController.m; sourceTree = "<group>"; };
 		70FEADF81CAB7710006A044A /* info_expert_guanzhu_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_guanzhu_normal.png; sourceTree = "<group>"; };
@@ -1030,6 +1138,8 @@
 				70C03E161CA3D0FE00DBA175 /* NullUtil.m */,
 				70B4EA931CCE56F800141E38 /* ImageUtil.h */,
 				70B4EA941CCE56F800141E38 /* ImageUtil.m */,
+				70B4EB3E1CD8950300141E38 /* StringUtil.h */,
+				70B4EB3F1CD8950300141E38 /* StringUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1443,7 +1553,7 @@
 				70FEADF51CAA2768006A044A /* TreatmentFinishViewController.h */,
 				70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */,
 				70FEADF21CAA2447006A044A /* MedicineReceivingViewController.h */,
-				70FEADF31CAA2447006A044A /* MedicineReceivingViewController.m */,
+				70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1455,6 +1565,8 @@
 				70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */,
 				70FEAD9E1CA53E55006A044A /* ExpertClinicData.h */,
 				70FEAD9F1CA53E55006A044A /* ExpertClinicData.m */,
+				70B4EB411CD9DB1E00141E38 /* MRChufangData.h */,
+				70B4EB421CD9DB1E00141E38 /* MRChufangData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1488,6 +1600,74 @@
 				70FEADEA1CA8D0AC006A044A /* ClinicScheduleTableCell.m */,
 				70FEADEC1CA8E26A006A044A /* ClinicHeaderView.h */,
 				70FEADED1CA8E26A006A044A /* ClinicHeaderView.m */,
+				70B4EAD51CD86AAE00141E38 /* MRDoctorTableCell.h */,
+				70B4EAD61CD86AAE00141E38 /* MRDoctorTableCell.m */,
+				70B4EAD81CD86FA100141E38 /* MRPatientTableCell.h */,
+				70B4EAD91CD86FA100141E38 /* MRPatientTableCell.m */,
+				70B4EADB1CD86FC900141E38 /* MRCouponTableCell.h */,
+				70B4EADC1CD86FCA00141E38 /* MRCouponTableCell.m */,
+				70B4EADE1CD8701000141E38 /* MRZhusuTableCell.h */,
+				70B4EADF1CD8701000141E38 /* MRZhusuTableCell.m */,
+				70B4EAE11CD8702500141E38 /* MRXianbingshiTableCell.h */,
+				70B4EAE21CD8702500141E38 /* MRXianbingshiTableCell.m */,
+				70B4EAE41CD8704200141E38 /* MRJiwangshiTableCell.h */,
+				70B4EAE51CD8704200141E38 /* MRJiwangshiTableCell.m */,
+				70B4EAE71CD8705B00141E38 /* MRShoushushiTableCell.h */,
+				70B4EAE81CD8705B00141E38 /* MRShoushushiTableCell.m */,
+				70B4EAEA1CD8707000141E38 /* MRGuomingshiTableCell.h */,
+				70B4EAEB1CD8707000141E38 /* MRGuomingshiTableCell.m */,
+				70B4EAED1CD8708900141E38 /* MRJiazushiTableCell.h */,
+				70B4EAEE1CD8708900141E38 /* MRJiazushiTableCell.m */,
+				70B4EAF01CD8709F00141E38 /* MRShuimianTableCell.h */,
+				70B4EAF11CD8709F00141E38 /* MRShuimianTableCell.m */,
+				70B4EAF31CD870B800141E38 /* MRYinshiTableCell.h */,
+				70B4EAF41CD870B800141E38 /* MRYinshiTableCell.m */,
+				70B4EAF61CD870CB00141E38 /* MRYinshuiTableCell.h */,
+				70B4EAF71CD870CB00141E38 /* MRYinshuiTableCell.m */,
+				70B4EAF91CD870E200141E38 /* MRDabianTableCell.h */,
+				70B4EAFA1CD870E200141E38 /* MRDabianTableCell.m */,
+				70B4EAFC1CD870F600141E38 /* MRXiaobianTableCell.h */,
+				70B4EAFD1CD870F600141E38 /* MRXiaobianTableCell.m */,
+				70B4EAFF1CD8710D00141E38 /* MRHanreTableCell.h */,
+				70B4EB001CD8710D00141E38 /* MRHanreTableCell.m */,
+				70B4EB021CD8712200141E38 /* MRTiwenTableCell.h */,
+				70B4EB031CD8712200141E38 /* MRTiwenTableCell.m */,
+				70B4EB051CD8713800141E38 /* MRChuhanTableCell.h */,
+				70B4EB061CD8713800141E38 /* MRChuhanTableCell.m */,
+				70B4EB081CD8715300141E38 /* MRJingshenTableCell.h */,
+				70B4EB091CD8715300141E38 /* MRJingshenTableCell.m */,
+				70B4EB0B1CD8716B00141E38 /* MRHunyuTableCell.h */,
+				70B4EB0C1CD8716B00141E38 /* MRHunyuTableCell.m */,
+				70B4EB0E1CD8718400141E38 /* MRDaixiaTableCell.h */,
+				70B4EB0F1CD8718400141E38 /* MRDaixiaTableCell.m */,
+				70B4EB111CD8719F00141E38 /* MRYuejingTableCell.h */,
+				70B4EB121CD8719F00141E38 /* MRYuejingTableCell.m */,
+				70B4EB141CD871B900141E38 /* MRTigeTableCell.h */,
+				70B4EB151CD871B900141E38 /* MRTigeTableCell.m */,
+				70B4EB171CD871CD00141E38 /* MRShexiangTableCell.h */,
+				70B4EB181CD871CD00141E38 /* MRShexiangTableCell.m */,
+				70B4EB1A1CD871E000141E38 /* MRMaixiangTableCell.h */,
+				70B4EB1B1CD871E000141E38 /* MRMaixiangTableCell.m */,
+				70B4EB1D1CD871FC00141E38 /* MRZhongyiTableCell.h */,
+				70B4EB1E1CD871FC00141E38 /* MRZhongyiTableCell.m */,
+				70B4EB201CD8720F00141E38 /* MRXiyiTableCell.h */,
+				70B4EB211CD8720F00141E38 /* MRXiyiTableCell.m */,
+				70B4EB3B1CD8744200141E38 /* MRQitaTableCell.h */,
+				70B4EB3C1CD8744200141E38 /* MRQitaTableCell.m */,
+				70B4EB231CD8722D00141E38 /* MRZhaopianTableCell.h */,
+				70B4EB241CD8722D00141E38 /* MRZhaopianTableCell.m */,
+				70B4EB261CD8724000141E38 /* MRChufangTableCell.h */,
+				70B4EB271CD8724000141E38 /* MRChufangTableCell.m */,
+				70B4EB291CD8726500141E38 /* MRFYfangfaTableCell.h */,
+				70B4EB2A1CD8726500141E38 /* MRFYfangfaTableCell.m */,
+				70B4EB2C1CD8728000141E38 /* MRFYshijianTableCell.h */,
+				70B4EB2D1CD8728000141E38 /* MRFYshijianTableCell.m */,
+				70B4EB2F1CD8729700141E38 /* MRFYcishuTableCell.h */,
+				70B4EB301CD8729700141E38 /* MRFYcishuTableCell.m */,
+				70B4EB351CD872DA00141E38 /* MRYizhuTextTableCell.h */,
+				70B4EB361CD872DA00141E38 /* MRYizhuTextTableCell.m */,
+				70B4EB381CD8730200141E38 /* MRYizhuSoundTableCell.h */,
+				70B4EB391CD8730200141E38 /* MRYizhuSoundTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1979,54 +2159,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
+				70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */,
+				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
 				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
 				705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */,
+				70B4EB071CD8713800141E38 /* MRChuhanTableCell.m in Sources */,
 				7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */,
 				70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */,
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
+				70B4EADA1CD86FA100141E38 /* MRPatientTableCell.m in Sources */,
 				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,
+				70B4EB101CD8718400141E38 /* MRDaixiaTableCell.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				70B4EAC01CD265DC00141E38 /* InfoMorePersonViewController.m in Sources */,
 				707E5B9A1C9662EB00101B30 /* BaseCollectionViewController.m in Sources */,
 				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
+				70B4EB161CD871B900141E38 /* MRTigeTableCell.m in Sources */,
+				70B4EAE01CD8701000141E38 /* MRZhusuTableCell.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
-				70FEADF41CAA2447006A044A /* MedicineReceivingViewController.m in Sources */,
 				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
 				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
+				70B4EB011CD8710D00141E38 /* MRHanreTableCell.m in Sources */,
 				7005E38C1CC0D199002CA541 /* RecordAddViewController.m in Sources */,
 				7005E37F1CC0D112002CA541 /* ContactCheckViewController.m in Sources */,
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
+				70B4EAF21CD8709F00141E38 /* MRShuimianTableCell.m in Sources */,
 				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
+				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
+				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
+				70B4EAFB1CD870E200141E38 /* MRDabianTableCell.m in Sources */,
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
+				70B4EB0A1CD8715300141E38 /* MRJingshenTableCell.m in Sources */,
 				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
+				70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */,
 				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
+				70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */,
 				7046ADC71CA10F7A00BB6818 /* ExpertInfoViewController.m in Sources */,
+				70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */,
 				705EF80E1CBD43B300732886 /* RecordView.m in Sources */,
 				7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */,
 				707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */,
 				70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */,
+				70B4EB3A1CD8730300141E38 /* MRYizhuSoundTableCell.m in Sources */,
 				70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */,
+				70B4EB191CD871CD00141E38 /* MRShexiangTableCell.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
@@ -2044,6 +2241,7 @@
 				70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
+				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
@@ -2053,52 +2251,70 @@
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
+				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
 				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,
 				7046AE4A1CA1459400BB6818 /* ExpertCommentTableCell.m in Sources */,
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
+				70B4EAE61CD8704200141E38 /* MRJiwangshiTableCell.m in Sources */,
 				70B4EA921CCE2E5700141E38 /* MineChangePasswordViewController.m in Sources */,
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
 				70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */,
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
+				70B4EAE31CD8702500141E38 /* MRXianbingshiTableCell.m in Sources */,
+				70B4EB1C1CD871E000141E38 /* MRMaixiangTableCell.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
+				70B4EB2E1CD8728000141E38 /* MRFYshijianTableCell.m in Sources */,
 				70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */,
 				70B4EA861CCCC7E100141E38 /* SNChartLine.m in Sources */,
+				70B4EB311CD8729700141E38 /* MRFYcishuTableCell.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
+				70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */,
+				70B4EB401CD8950300141E38 /* StringUtil.m in Sources */,
 				7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */,
+				70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */,
 				705EF7FE1CBCA0F500732886 /* RecordHeaderView.m in Sources */,
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
 				70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */,
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
+				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
+				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
+				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
 				7046ADD31CA10FEB00BB6818 /* TreatmentDetailViewController.m in Sources */,
+				70B4EAEF1CD8708900141E38 /* MRJiazushiTableCell.m in Sources */,
 				70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */,
+				70B4EAEC1CD8707000141E38 /* MRGuomingshiTableCell.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
+				70B4EAF51CD870B800141E38 /* MRYinshiTableCell.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				70B4EABD1CD265C000141E38 /* InfoMoreStudioViewController.m in Sources */,
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
+				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
+				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
+				70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
