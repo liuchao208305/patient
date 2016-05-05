@@ -13,10 +13,14 @@
 #import "NullUtil.h"
 #import "StringUtil.h"
 #import "MRChufangData.h"
-
+/*=============================*/
 #import "MRDoctorTableCell.h"
 #import "MRPatientTableCell.h"
 #import "MRCouponTableCell.h"
+/*=============================*/
+#warning 此处是改成通用cell
+#import "MRTemplateGeneralTableCell.h"
+/*=============================*/
 #import "MRZhusuTableCell.h"
 #import "MRXianbingshiTableCell.h"
 #import "MRJiwangshiTableCell.h"
@@ -36,12 +40,15 @@
 #import "MRDaixiaTableCell.h"
 #import "MRYuejingTableCell.h"
 #import "MRTigeTableCell.h"
+/*=============================*/
 #import "MRShexiangTableCell.h"
 #import "MRMaixiangTableCell.h"
 #import "MRZhongyiTableCell.h"
 #import "MRXiyiTableCell.h"
 #import "MRQitaTableCell.h"
+/*=============================*/
 #import "MRZhaopianTableCell.h"
+/*=============================*/
 #import "MRChufangTableCell.h"
 #import "MRFYfangfaTableCell.h"
 #import "MRFYshijianTableCell.h"
@@ -193,14 +200,45 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 34;
+//    return 34;
+    return 3+1+12;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+//    return 1;
+    if (section == 3) {
+        return self.recordDetailResult.count == 0 ? 0 : self.recordDetailResult.count;
+    }else{
+        return 1;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0) {
+//        return 150;
+//    }else if (indexPath.section == 1){
+//        return 240;
+//    }else if (indexPath.section == 2){
+//        return 50;
+//    }
+//    
+//    else if (indexPath.section == 12){
+//        return 295;
+//    }else if (indexPath.section == 13){
+//        return 215;
+//    }else if (indexPath.section == 20){
+//        return 380;
+//    }else if (indexPath.section == 25){
+//        return 40;
+//    }else if (indexPath.section == 27){
+//        return 365;
+//    }else if (indexPath.section == 28){
+//        return 150;
+//    }
+//    else{
+//        return 80;
+//    }
+    
     if (indexPath.section == 0) {
         return 150;
     }else if (indexPath.section == 1){
@@ -208,18 +246,11 @@
     }else if (indexPath.section == 2){
         return 50;
     }
-    
-    else if (indexPath.section == 12){
-        return 295;
-    }else if (indexPath.section == 13){
-        return 215;
-    }else if (indexPath.section == 20){
-        return 380;
-    }else if (indexPath.section == 25){
+    else if (indexPath.section == 7){
         return 40;
-    }else if (indexPath.section == 27){
+    }else if (indexPath.section == 9){
         return 365;
-    }else if (indexPath.section == 28){
+    }else if (indexPath.section == 10){
         return 150;
     }
     else{
@@ -236,6 +267,400 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0) {
+//        static NSString *cellName = @"MRDoctorTableCell";
+//        MRDoctorTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRDoctorTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.expertImageString] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:self.doctorImageString] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.expertLabel.text = [NSString stringWithFormat:@"特需专家：%@",self.expertName];
+//        cell.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.doctorName];
+//        cell.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.clinicName];
+//        cell.addressLabel.text = [NSString stringWithFormat:@"                   %@",self.clinicAddress];
+//        cell.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
+//        cell.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.latterMoney];
+//        [cell.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+//        cell.timeLabel.text = self.bookTime;
+//        
+//        return cell;
+//    }else if (indexPath.section ==1){
+//        static NSString *cellName = @"MRPatientTableCell";
+//        MRPatientTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRPatientTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.label1_1.text = @"姓名：";
+//        cell.label1_2.text = self.patientName;
+//        cell.label2_1.text = @"身份证号：";
+//        cell.label2_2.text = self.patientIdNumber;
+//        cell.label3_1.text = @"手机号：";
+//        cell.label3_2.text = self.patientMobile;
+//        cell.label4_1.text = @"年龄：";
+//        cell.label4_2.text = [NSString stringWithFormat:@"%ld",(long)self.patientAgeFix];
+//        cell.label4_3.text = @"性别：";
+//        cell.label4_4.text = self.patientSexFix == 1 ? @"男" : @"女";
+//        cell.label5_1.text = @"症状：";
+//        cell.label5_2.text = [self.patientSymptom isEqualToString:@""] ? @"无可疑症状" : self.patientSymptom;
+//        
+//        return cell;
+//    }else if (indexPath.section ==2){
+//        static NSString *cellName = @"MRCouponTableCell";
+//        MRCouponTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRCouponTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.label6_1.text = @"优惠券";
+//        cell.label6_2.text = [self.couponName isEqualToString:@""] ? @"无可用优惠券" : self.couponName;
+//        
+//        return cell;
+//    }
+//    /*===================================================================================================*/
+//    else if (indexPath.section ==3){
+//        static NSString *cellName = @"MRZhusuTableCell";
+//        MRZhusuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRZhusuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[0][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[0][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[0][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[0][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==4){
+//        static NSString *cellName = @"MRXianbingshiTableCell";
+//        MRXianbingshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRXianbingshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[1][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[1][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[1][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[1][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==5){
+//        static NSString *cellName = @"MRJiwangshiTableCell";
+//        MRJiwangshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRJiwangshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[2][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[2][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[2][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[2][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==6){
+//        static NSString *cellName = @"MRShoushushiTableCell";
+//        MRShoushushiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRShoushushiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[3][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[3][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[3][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[3][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==7){
+//        static NSString *cellName = @"MRGuomingshiTableCell";
+//        MRGuomingshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRGuomingshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[4][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[4][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[4][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[4][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==8){
+//        static NSString *cellName = @"MRJiazushiTableCell";
+//        MRJiazushiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRJiazushiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[5][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[5][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[5][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[5][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==9){
+//        static NSString *cellName = @"MRShuimianTableCell";
+//        MRShuimianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRShuimianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[6][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[6][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[6][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[6][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==10){
+//        static NSString *cellName = @"MRYinshiTableCell";
+//        MRYinshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRYinshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[7][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[7][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[7][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[7][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==11){
+//        static NSString *cellName = @"MRYinshuiTableCell";
+//        MRYinshuiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRYinshuiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+////        cell.titleLabel.text = [self.recordDetailResult[8][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"title"];
+////        cell.contentLabel.text = [self.recordDetailResult[8][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==12){
+//        static NSString *cellName = @"MRDabianTableCell";
+//        MRDabianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRDabianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[8][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[8][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==13){
+//        static NSString *cellName = @"MRXiaobianTableCell";
+//        MRXiaobianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRXiaobianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[9][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[9][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[9][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[9][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==14){
+//        static NSString *cellName = @"MRHanreTableCell";
+//        MRHanreTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRHanreTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[10][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[10][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[10][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[10][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==15){
+//        static NSString *cellName = @"MRTiwenTableCell";
+//        MRTiwenTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRTiwenTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[11][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[11][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[11][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[11][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==16){
+//        static NSString *cellName = @"MRChuhanTableCell";
+//        MRChuhanTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRChuhanTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[12][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[12][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[12][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[12][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==17){
+//        static NSString *cellName = @"MRJingshenTableCell";
+//        MRJingshenTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRJingshenTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[13][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[13][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[13][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[13][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==18){
+//        static NSString *cellName = @"MRHunyuTableCell";
+//        MRHunyuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRHunyuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[14][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[14][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[14][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[14][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==19){
+//        static NSString *cellName = @"MRDaixiaTableCell";
+//        MRDaixiaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRDaixiaTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[15][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[15][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[15][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[15][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==20){
+//        static NSString *cellName = @"MRYuejingTableCell";
+//        MRYuejingTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRYuejingTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[16][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[16][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[16][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[16][@"content"];
+//        
+//        return cell;
+//    }else if (indexPath.section ==21){
+//        static NSString *cellName = @"MRTigeTableCell";
+//        MRTigeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRTigeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = [self.recordDetailResult[17][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[17][@"title"];
+//        cell.contentLabel.text = [self.recordDetailResult[17][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[17][@"content"];
+//        
+//        return cell;
+//    }
+//    /*===================================================================================================*/
+//    else if (indexPath.section ==22){
+//        static NSString *cellName = @"MRShexiangTableCell";
+//        MRShexiangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRShexiangTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"舌象";
+//        cell.contentLabel.text = [self.shexiang isEqualToString:@""] ? @"暂无" : self.shexiang;
+//        
+//        return cell;
+//    }else if (indexPath.section ==23){
+//        static NSString *cellName = @"MRMaixiangTableCell";
+//        MRMaixiangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRMaixiangTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"脉象";
+//        cell.contentLabel.text = [self.maixiang isEqualToString:@""] ? @"暂无" : self.maixiang;
+//        
+//        return cell;
+//    }else if (indexPath.section ==24){
+//        static NSString *cellName = @"MRZhongyiTableCell";
+//        MRZhongyiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRZhongyiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"中医诊断";
+//        cell.bianzhengLabel.text = [self.bianzheng isEqualToString:@""] ? @"暂无" : self.bianzheng;
+//        cell.bianbingLabel.text = [self.bianbing isEqualToString:@""] ? @"暂无" : self.bianbing;
+//        
+//        return cell;
+//    }else if (indexPath.section ==25){
+//        static NSString *cellName = @"MRXiyiTableCell";
+//        MRXiyiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRXiyiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"西医诊断";
+//        cell.contentLabel.text = [self.xiyizhenduan isEqualToString:@""] ? @"暂无" : self.xiyizhenduan;
+//        
+//        return cell;
+//    }else if (indexPath.section ==26){
+//        static NSString *cellName = @"MRQitaTableCell";
+//        MRQitaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRQitaTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"其他说明";
+//        cell.contentLabel.text = @"暂无";
+//        
+//        return cell;
+//    }else if (indexPath.section ==27){
+//        static NSString *cellName = @"MRZhaopianTableCell";
+//        MRZhaopianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRZhaopianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        return cell;
+//    }else if (indexPath.section ==28){
+//        static NSString *cellName = @"MRChufangTableCell";
+//        MRChufangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRChufangTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        return cell;
+//    }else if (indexPath.section ==29){
+//        static NSString *cellName = @"MRFYfangfaTableCell";
+//        MRFYfangfaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRFYfangfaTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"服药方法";
+//        cell.contentLabel.text = [self.fuyaoFangFa isEqualToString:@""] ? @"暂无" : self.fuyaoFangFa;
+//        
+//        return cell;
+//    }else if (indexPath.section ==30){
+//        static NSString *cellName = @"MRFYshijianTableCell";
+//        MRFYshijianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRFYshijianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"服药时间";
+//        cell.contentLabel.text = [self.fuyaoShiJian isEqualToString:@""] ? @"暂无" : self.fuyaoShiJian;
+//        
+//        return cell;
+//    }else if (indexPath.section ==31){
+//        static NSString *cellName = @"MRFYcishuTableCell";
+//        MRFYcishuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRFYcishuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"服药次数";
+//        cell.contentLabel.text = [self.fuyaoCiShu isEqualToString:@""] ? @"暂无" : self.fuyaoCiShu;
+//        
+//        return cell;
+//    }else if (indexPath.section ==32){
+//        static NSString *cellName = @"MRYizhuTextTableCell";
+//        MRYizhuTextTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRYizhuTextTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        cell.titleLabel.text = @"建议医嘱";
+//        cell.contentLabel.text = [self.yizhuTextString isEqualToString:@""] ? @"暂无" : self.yizhuTextString;
+//        
+//        return cell;
+//    }else if (indexPath.section ==33){
+//        static NSString *cellName = @"MRYizhuSoundTableCell";
+//        MRYizhuSoundTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[MRYizhuSoundTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        return cell;
+//    }
+//    
+//    return nil;
+    
+    
+    
     if (indexPath.section == 0) {
         static NSString *cellName = @"MRDoctorTableCell";
         MRDoctorTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
@@ -290,217 +715,23 @@
     }
     /*===================================================================================================*/
     else if (indexPath.section ==3){
-        static NSString *cellName = @"MRZhusuTableCell";
-        MRZhusuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        static NSString *cellName = @"MRTemplateGeneralTableCell";
+        MRTemplateGeneralTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[MRZhusuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[MRTemplateGeneralTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.titleLabel.text = [self.recordDetailResult[0][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[0][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[0][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[0][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==4){
-        static NSString *cellName = @"MRXianbingshiTableCell";
-        MRXianbingshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRXianbingshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        for (int i = 0; i<self.recordDetailResult.count; i++) {
+            if (indexPath.row == i) {
+                cell.titleLabel.text = [self.recordDetailResult[i][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"title"];
+                cell.contentLabel.text = [self.recordDetailResult[i][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"content"];
+            }
         }
-        
-        cell.titleLabel.text = [self.recordDetailResult[1][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[1][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[1][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[1][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==5){
-        static NSString *cellName = @"MRJiwangshiTableCell";
-        MRJiwangshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRJiwangshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[2][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[2][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[2][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[2][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==6){
-        static NSString *cellName = @"MRShoushushiTableCell";
-        MRShoushushiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRShoushushiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[3][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[3][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[3][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[3][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==7){
-        static NSString *cellName = @"MRGuomingshiTableCell";
-        MRGuomingshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRGuomingshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[4][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[4][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[4][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[4][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==8){
-        static NSString *cellName = @"MRJiazushiTableCell";
-        MRJiazushiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRJiazushiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[5][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[5][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[5][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[5][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==9){
-        static NSString *cellName = @"MRShuimianTableCell";
-        MRShuimianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRShuimianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[6][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[6][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[6][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[6][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==10){
-        static NSString *cellName = @"MRYinshiTableCell";
-        MRYinshiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRYinshiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[7][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[7][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[7][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[7][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==11){
-        static NSString *cellName = @"MRYinshuiTableCell";
-        MRYinshuiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRYinshuiTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-//        cell.titleLabel.text = [self.recordDetailResult[8][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"title"];
-//        cell.contentLabel.text = [self.recordDetailResult[8][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==12){
-        static NSString *cellName = @"MRDabianTableCell";
-        MRDabianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRDabianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[8][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[8][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[8][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==13){
-        static NSString *cellName = @"MRXiaobianTableCell";
-        MRXiaobianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRXiaobianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[9][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[9][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[9][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[9][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==14){
-        static NSString *cellName = @"MRHanreTableCell";
-        MRHanreTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRHanreTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[10][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[10][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[10][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[10][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==15){
-        static NSString *cellName = @"MRTiwenTableCell";
-        MRTiwenTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRTiwenTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[11][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[11][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[11][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[11][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==16){
-        static NSString *cellName = @"MRChuhanTableCell";
-        MRChuhanTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRChuhanTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[12][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[12][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[12][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[12][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==17){
-        static NSString *cellName = @"MRJingshenTableCell";
-        MRJingshenTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRJingshenTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[13][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[13][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[13][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[13][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==18){
-        static NSString *cellName = @"MRHunyuTableCell";
-        MRHunyuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRHunyuTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[14][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[14][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[14][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[14][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==19){
-        static NSString *cellName = @"MRDaixiaTableCell";
-        MRDaixiaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRDaixiaTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[15][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[15][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[15][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[15][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==20){
-        static NSString *cellName = @"MRYuejingTableCell";
-        MRYuejingTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRYuejingTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[16][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[16][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[16][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[16][@"content"];
-        
-        return cell;
-    }else if (indexPath.section ==21){
-        static NSString *cellName = @"MRTigeTableCell";
-        MRTigeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[MRTigeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        cell.titleLabel.text = [self.recordDetailResult[17][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[17][@"title"];
-        cell.contentLabel.text = [self.recordDetailResult[17][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[17][@"content"];
         
         return cell;
     }
     /*===================================================================================================*/
-    else if (indexPath.section ==22){
+    else if (indexPath.section ==4){
         static NSString *cellName = @"MRShexiangTableCell";
         MRShexiangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -511,7 +742,7 @@
         cell.contentLabel.text = [self.shexiang isEqualToString:@""] ? @"暂无" : self.shexiang;
         
         return cell;
-    }else if (indexPath.section ==23){
+    }else if (indexPath.section ==5){
         static NSString *cellName = @"MRMaixiangTableCell";
         MRMaixiangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -522,7 +753,7 @@
         cell.contentLabel.text = [self.maixiang isEqualToString:@""] ? @"暂无" : self.maixiang;
         
         return cell;
-    }else if (indexPath.section ==24){
+    }else if (indexPath.section ==6){
         static NSString *cellName = @"MRZhongyiTableCell";
         MRZhongyiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -534,7 +765,7 @@
         cell.bianbingLabel.text = [self.bianbing isEqualToString:@""] ? @"暂无" : self.bianbing;
         
         return cell;
-    }else if (indexPath.section ==25){
+    }else if (indexPath.section ==7){
         static NSString *cellName = @"MRXiyiTableCell";
         MRXiyiTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -545,7 +776,7 @@
         cell.contentLabel.text = [self.xiyizhenduan isEqualToString:@""] ? @"暂无" : self.xiyizhenduan;
         
         return cell;
-    }else if (indexPath.section ==26){
+    }else if (indexPath.section ==8){
         static NSString *cellName = @"MRQitaTableCell";
         MRQitaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -556,7 +787,7 @@
         cell.contentLabel.text = @"暂无";
         
         return cell;
-    }else if (indexPath.section ==27){
+    }else if (indexPath.section ==9){
         static NSString *cellName = @"MRZhaopianTableCell";
         MRZhaopianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -564,7 +795,7 @@
         }
         
         return cell;
-    }else if (indexPath.section ==28){
+    }else if (indexPath.section ==10){
         static NSString *cellName = @"MRChufangTableCell";
         MRChufangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -572,7 +803,7 @@
         }
         
         return cell;
-    }else if (indexPath.section ==29){
+    }else if (indexPath.section ==11){
         static NSString *cellName = @"MRFYfangfaTableCell";
         MRFYfangfaTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -583,7 +814,7 @@
         cell.contentLabel.text = [self.fuyaoFangFa isEqualToString:@""] ? @"暂无" : self.fuyaoFangFa;
         
         return cell;
-    }else if (indexPath.section ==30){
+    }else if (indexPath.section ==12){
         static NSString *cellName = @"MRFYshijianTableCell";
         MRFYshijianTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -594,7 +825,7 @@
         cell.contentLabel.text = [self.fuyaoShiJian isEqualToString:@""] ? @"暂无" : self.fuyaoShiJian;
         
         return cell;
-    }else if (indexPath.section ==31){
+    }else if (indexPath.section ==13){
         static NSString *cellName = @"MRFYcishuTableCell";
         MRFYcishuTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -605,7 +836,7 @@
         cell.contentLabel.text = [self.fuyaoCiShu isEqualToString:@""] ? @"暂无" : self.fuyaoCiShu;
         
         return cell;
-    }else if (indexPath.section ==32){
+    }else if (indexPath.section ==14){
         static NSString *cellName = @"MRYizhuTextTableCell";
         MRYizhuTextTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -616,7 +847,7 @@
         cell.contentLabel.text = [self.yizhuTextString isEqualToString:@""] ? @"暂无" : self.yizhuTextString;
         
         return cell;
-    }else if (indexPath.section ==33){
+    }else if (indexPath.section ==15){
         static NSString *cellName = @"MRYizhuSoundTableCell";
         MRYizhuSoundTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -705,8 +936,8 @@
     id recordResultTemp = [StringUtil dictionaryWithJsonString:[self.recordResult stringByReplacingOccurrencesOfString:@"\r\n" withString:@"_"]];
     if (recordResultTemp != [NSNull null]) {
         self.recordDetailResult = recordResultTemp[@"result"];
-//        DLog(@"self.recordDetailResult.count-->%lu",(unsigned long)self.recordDetailResult.count);
-//        DLog(@"self.recordDetailResult-->%@",self.recordDetailResult);
+        DLog(@"self.recordDetailResult.count-->%lu",(unsigned long)self.recordDetailResult.count);
+        DLog(@"self.recordDetailResult-->%@",self.recordDetailResult);
         for (int i = 0; i<self.recordDetailResult.count; i++) {
             DLog(@"title[%d]-->%@",i,self.recordDetailResult[i][@"title"]);
             DLog(@"content[%d]%@-->",i,self.recordDetailResult[i][@"content"]);
