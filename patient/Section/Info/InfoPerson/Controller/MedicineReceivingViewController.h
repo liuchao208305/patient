@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface MedicineReceivingViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MedicineReceivingViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSString *orderNumber;
 

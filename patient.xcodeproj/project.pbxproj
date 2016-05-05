@@ -269,6 +269,14 @@
 		70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB421CD9DB1E00141E38 /* MRChufangData.m */; };
 		70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */; };
 		70B4EB4B1CDAD58300141E38 /* MRTemplateGeneralTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB4A1CDAD58300141E38 /* MRTemplateGeneralTableCell.m */; };
+		70B4EB4E1CDB10F700141E38 /* MRZhaopianCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB4D1CDB10F700141E38 /* MRZhaopianCollectionCell.m */; };
+		70B4EB511CDB15CC00141E38 /* xPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB501CDB15CC00141E38 /* xPhotoViewController.m */; };
+		70B4EB561CDB36E400141E38 /* info_person_mr_record_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EB521CDB36E400141E38 /* info_person_mr_record_image.png */; };
+		70B4EB571CDB36E400141E38 /* info_person_mr_record_image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EB531CDB36E400141E38 /* info_person_mr_record_image1.png */; };
+		70B4EB581CDB36E400141E38 /* info_person_mr_record_image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EB541CDB36E400141E38 /* info_person_mr_record_image2.png */; };
+		70B4EB591CDB36E400141E38 /* info_person_mr_record_image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4EB551CDB36E400141E38 /* info_person_mr_record_image3.png */; };
+		70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EB5B1CDB36F600141E38 /* LVRecordTool.m */; };
+		70B4EB601CDB375800141E38 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B4EB5F1CDB375800141E38 /* libmp3lame.a */; };
 		70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */; };
 		70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */; };
 		70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03DF41CA2920E00DBA175 /* FMGVideoPlayView.m */; };
@@ -754,6 +762,18 @@
 		70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineReceivingViewController.m; sourceTree = "<group>"; };
 		70B4EB491CDAD58300141E38 /* MRTemplateGeneralTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTemplateGeneralTableCell.h; sourceTree = "<group>"; };
 		70B4EB4A1CDAD58300141E38 /* MRTemplateGeneralTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTemplateGeneralTableCell.m; sourceTree = "<group>"; };
+		70B4EB4C1CDB10F700141E38 /* MRZhaopianCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRZhaopianCollectionCell.h; sourceTree = "<group>"; };
+		70B4EB4D1CDB10F700141E38 /* MRZhaopianCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRZhaopianCollectionCell.m; sourceTree = "<group>"; };
+		70B4EB4F1CDB15CC00141E38 /* xPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xPhotoViewController.h; sourceTree = "<group>"; };
+		70B4EB501CDB15CC00141E38 /* xPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xPhotoViewController.m; sourceTree = "<group>"; };
+		70B4EB521CDB36E400141E38 /* info_person_mr_record_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_person_mr_record_image.png; sourceTree = "<group>"; };
+		70B4EB531CDB36E400141E38 /* info_person_mr_record_image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_person_mr_record_image1.png; sourceTree = "<group>"; };
+		70B4EB541CDB36E400141E38 /* info_person_mr_record_image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_person_mr_record_image2.png; sourceTree = "<group>"; };
+		70B4EB551CDB36E400141E38 /* info_person_mr_record_image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_person_mr_record_image3.png; sourceTree = "<group>"; };
+		70B4EB5A1CDB36F600141E38 /* LVRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVRecordTool.h; sourceTree = "<group>"; };
+		70B4EB5B1CDB36F600141E38 /* LVRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVRecordTool.m; sourceTree = "<group>"; };
+		70B4EB5E1CDB375800141E38 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		70B4EB5F1CDB375800141E38 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		70C03DD41CA25D1E00DBA175 /* ExpertFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertFootView.h; sourceTree = "<group>"; };
 		70C03DD51CA25D1E00DBA175 /* ExpertFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertFootView.m; sourceTree = "<group>"; };
 		70C03DF21CA2920E00DBA175 /* FMGAVPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FMGAVPlayer.bundle; sourceTree = "<group>"; };
@@ -835,6 +855,7 @@
 				7029395A1C8EC6FB008280E2 /* CoreFoundation.framework in Frameworks */,
 				702939581C8EC6F1008280E2 /* CFNetwork.framework in Frameworks */,
 				70926D911CC7327300CB0416 /* AlipaySDK.framework in Frameworks */,
+				70B4EB601CDB375800141E38 /* libmp3lame.a in Frameworks */,
 				702939121C8D5C38008280E2 /* CoreLocation.framework in Frameworks */,
 				D3124DFAA46975EB9B4563C1 /* libPods.a in Frameworks */,
 			);
@@ -1076,6 +1097,7 @@
 		70265CA71C858B5A0091C01F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				70B4EB5D1CDB374900141E38 /* lame */,
 				70B4EA791CCCC7B300141E38 /* SNChartView */,
 				70926D8D1CC7322200CB0416 /* AliPay */,
 				70C03DF11CA291F700DBA175 /* FMGAVPlayer */,
@@ -1150,6 +1172,10 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70B4EB521CDB36E400141E38 /* info_person_mr_record_image.png */,
+				70B4EB531CDB36E400141E38 /* info_person_mr_record_image1.png */,
+				70B4EB541CDB36E400141E38 /* info_person_mr_record_image2.png */,
+				70B4EB551CDB36E400141E38 /* info_person_mr_record_image3.png */,
 				70B4EA961CCF553D00141E38 /* info_expert_comment_image_default.png */,
 				70B4EA8E1CCDBF8C00141E38 /* test_result_detail_share_button.png */,
 				70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */,
@@ -1557,6 +1583,10 @@
 				70FEADF61CAA2768006A044A /* TreatmentFinishViewController.m */,
 				70FEADF21CAA2447006A044A /* MedicineReceivingViewController.h */,
 				70B4EB471CD9EFD900141E38 /* MedicineReceivingViewController.m */,
+				70B4EB4F1CDB15CC00141E38 /* xPhotoViewController.h */,
+				70B4EB501CDB15CC00141E38 /* xPhotoViewController.m */,
+				70B4EB5A1CDB36F600141E38 /* LVRecordTool.h */,
+				70B4EB5B1CDB36F600141E38 /* LVRecordTool.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1661,6 +1691,8 @@
 				70B4EB3C1CD8744200141E38 /* MRQitaTableCell.m */,
 				70B4EB231CD8722D00141E38 /* MRZhaopianTableCell.h */,
 				70B4EB241CD8722D00141E38 /* MRZhaopianTableCell.m */,
+				70B4EB4C1CDB10F700141E38 /* MRZhaopianCollectionCell.h */,
+				70B4EB4D1CDB10F700141E38 /* MRZhaopianCollectionCell.m */,
 				70B4EB261CD8724000141E38 /* MRChufangTableCell.h */,
 				70B4EB271CD8724000141E38 /* MRChufangTableCell.m */,
 				70B4EB291CD8726500141E38 /* MRFYfangfaTableCell.h */,
@@ -1786,6 +1818,15 @@
 				70B4EA821CCCC7E100141E38 /* UIBezierPath+curved.m */,
 			);
 			path = SNChartView;
+			sourceTree = "<group>";
+		};
+		70B4EB5D1CDB374900141E38 /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				70B4EB5E1CDB375800141E38 /* lame.h */,
+				70B4EB5F1CDB375800141E38 /* libmp3lame.a */,
+			);
+			path = lame;
 			sourceTree = "<group>";
 		};
 		70C03DF11CA291F700DBA175 /* FMGAVPlayer */ = {
@@ -1965,6 +2006,7 @@
 			files = (
 				70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */,
 				7002D8791CB49F7F0074426A /* info_treatment_offline_selected.png in Resources */,
+				70B4EB591CDB36E400141E38 /* info_person_mr_record_image3.png in Resources */,
 				7046AD231C97E5D700BB6818 /* cell_studio_title_button.png in Resources */,
 				70FEAE091CABBC89006A044A /* info_expert_xingxing_zero.png in Resources */,
 				7046AD1B1C97E5D700BB6818 /* cell_health_more_button.png in Resources */,
@@ -1995,6 +2037,7 @@
 				705EF7F21CBC947600732886 /* mine_orderstatus_reserved.png in Resources */,
 				7046ADBB1CA0F8B400BB6818 /* info_scrollview3.png in Resources */,
 				7002D86F1CB3BBBF0074426A /* info_treatment_confirm_selected.png in Resources */,
+				70B4EB571CDB36E400141E38 /* info_person_mr_record_image1.png in Resources */,
 				70C03E081CA2925E00DBA175 /* fast_forward.png in Resources */,
 				70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */,
 				7046AD1A1C97E5D700BB6818 /* cell_health_main_button.png in Resources */,
@@ -2004,6 +2047,7 @@
 				7046AD191C97E5D700BB6818 /* cell_disease_yinanzazheng_button.png in Resources */,
 				7002D8651CACC19F0074426A /* info_clinic_schedule_coupon_image.png in Resources */,
 				7046AD2D1C97E5D700BB6818 /* tabbar_info_selected.png in Resources */,
+				70B4EB561CDB36E400141E38 /* info_person_mr_record_image.png in Resources */,
 				70C03E111CA3B23200DBA175 /* default_image_big.png in Resources */,
 				7002D87B1CB49F7F0074426A /* info_treatment_online_selected.png in Resources */,
 				70C03DFC1CA2920E00DBA175 /* FMGVideoPlayView.xib in Resources */,
@@ -2086,6 +2130,7 @@
 				7002D8631CACC19F0074426A /* info_clinic_schedule_bookable_image.png in Resources */,
 				7046AD761C9A426100BB6818 /* login_third_login_weixin.png in Resources */,
 				7046AD711C9A426100BB6818 /* login_confirm_login_normal.png in Resources */,
+				70B4EB581CDB36E400141E38 /* info_person_mr_record_image2.png in Resources */,
 				705EF7E81CBC947600732886 /* mine_bottom_coupon.png in Resources */,
 				7002D8701CB3BBBF0074426A /* info_treatment_lianxiren_image.png in Resources */,
 				705EF7F01CBC947600732886 /* mine_navbar_item_right.png in Resources */,
@@ -2217,6 +2262,7 @@
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
+				70B4EB4E1CDB10F700141E38 /* MRZhaopianCollectionCell.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
 				70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */,
@@ -2239,6 +2285,7 @@
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
+				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70B4EA8A1CCD0A9600141E38 /* MineSettingViewController.m in Sources */,
@@ -2276,6 +2323,7 @@
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
 				70B4EB2E1CD8728000141E38 /* MRFYshijianTableCell.m in Sources */,
 				70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */,
+				70B4EB511CDB15CC00141E38 /* xPhotoViewController.m in Sources */,
 				70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */,
 				70C03DFB1CA2920E00DBA175 /* FMGVideoPlayView.m in Sources */,
 				70B4EA861CCCC7E100141E38 /* SNChartLine.m in Sources */,
@@ -2467,6 +2515,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
+					"$(PROJECT_DIR)/patient/Vendor/lame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient777;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2494,6 +2543,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
+					"$(PROJECT_DIR)/patient/Vendor/lame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient777;
 				PRODUCT_NAME = "$(TARGET_NAME)";

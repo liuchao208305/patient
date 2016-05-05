@@ -18,7 +18,6 @@
 #import "MRPatientTableCell.h"
 #import "MRCouponTableCell.h"
 /*=============================*/
-#warning 此处是改成通用cell
 #import "MRTemplateGeneralTableCell.h"
 /*=============================*/
 #import "MRZhusuTableCell.h"
@@ -48,6 +47,8 @@
 #import "MRQitaTableCell.h"
 /*=============================*/
 #import "MRZhaopianTableCell.h"
+#import "MRZhaopianCollectionCell.h"
+#import "xPhotoViewController.h"
 /*=============================*/
 #import "MRChufangTableCell.h"
 #import "MRFYfangfaTableCell.h"
@@ -55,6 +56,7 @@
 #import "MRFYcishuTableCell.h"
 #import "MRYizhuTextTableCell.h"
 #import "MRYizhuSoundTableCell.h"
+#import "LVRecordTool.h"
 
 @interface MedicineReceivingViewController ()
 
@@ -117,6 +119,9 @@
 @property (strong,nonatomic)NSString *fuyaoCiShu;
 @property (strong,nonatomic)NSString *yizhuTextString;
 @property (strong,nonatomic)NSString *yizhuSoundString;
+@property (strong,nonatomic)NSString *yizhuSoundUrlString;
+@property (strong,nonatomic)NSURL *yizhuSoundUrl;
+@property (strong,nonatomic)NSString *yizhuSoundTimeString;
 
 @end
 
@@ -197,6 +202,25 @@
 }
 
 #pragma mark Target Action
+-(void)soundImageViewClicked:(UITapGestureRecognizer *)gestureRecognizer{
+    DLog(@"soundImageViewClicked");
+    
+    [[LVRecordTool sharedRecordTool] playRecordFile:self.yizhuSoundUrl];
+    
+    UIView *clickedView = [gestureRecognizer view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    clickedImageView.animationImages = @[[UIImage imageNamed:@"info_person_mr_record_image1"],[UIImage imageNamed:@"info_person_mr_record_image2"], [UIImage imageNamed:@"info_person_mr_record_image3"]];
+    clickedImageView.animationDuration = 0.8;
+    [clickedImageView startAnimating];
+    
+    [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+        DLog(@"播放完毕！");
+        
+        if ([clickedImageView isAnimating] == YES) {
+            [clickedImageView stopAnimating];
+        }
+    };
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -208,6 +232,8 @@
 //    return 1;
     if (section == 3) {
         return self.recordDetailResult.count == 0 ? 0 : self.recordDetailResult.count;
+    }else if (section == 10){
+        return self.chufangArray.count == 0 ? 2: self.chufangArray.count+2;
     }else{
         return 1;
     }
@@ -249,9 +275,11 @@
     else if (indexPath.section == 7){
         return 40;
     }else if (indexPath.section == 9){
-        return 365;
+//        return 365;
+        return 40+20+(SCREEN_WIDTH/3-10)*3+20;
     }else if (indexPath.section == 10){
-        return 150;
+//        return 150;
+        return 40;
     }
     else{
         return 80;
@@ -794,12 +822,65 @@
             cell = [[MRZhaopianTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
+        cell.titleLabel.text = @"照片资料";
+        cell.countLabel.text = [NSString stringWithFormat:@"共%lu张",(unsigned long)self.zhaopianArray.count];
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 5;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        CGFloat height = 0;
+        if (self.zhaopianArray.count<=3) {
+            height= SCREEN_WIDTH/3;
+        } else if (self.zhaopianArray.count <=6) {
+            height= SCREEN_WIDTH/3*2;
+        } else if (self.zhaopianArray.count <=9) {
+            height= SCREEN_WIDTH/3*3;
+        } else {
+            height= SCREEN_WIDTH/3*3;
+        }
+
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,40, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.scrollEnabled = NO;
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [cell addSubview:collectionView];
+        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+        
         return cell;
     }else if (indexPath.section ==10){
         static NSString *cellName = @"MRChufangTableCell";
         MRChufangTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[MRChufangTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.titleLabel.text = @"建议处方";
+            cell.label1.hidden = YES;
+            cell.label2.hidden = YES;
+            cell.label3.hidden = YES;
+            cell.label4.hidden = YES;
+        }else if (indexPath.row == 1){
+            cell.titleLabel.hidden = YES;
+            cell.backgroundColor = kMAIN_COLOR;
+            cell.label1.text = @"药名";
+            cell.label2.text = @"剂量";
+            cell.label3.text = @"规格";
+            cell.label4.text = @"用法";
+        }else{
+            for (int i = 2; i<self.chufangArray.count+2; i++) {
+                if (indexPath.row == i){
+                    cell.titleLabel.hidden = YES;
+                    cell.label1.text = self.chufangNameArray[indexPath.row-2];
+                    cell.label2.text = self.chufangQuantityArray[indexPath.row-2];
+                    cell.label3.text = self.chufangUnitArray[indexPath.row-2];
+                    cell.label4.text = self.chufangUsageArray[indexPath.row-2];
+                }
+            }
         }
         
         return cell;
@@ -854,6 +935,10 @@
             cell = [[MRYizhuSoundTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
+        cell.soundImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked:)];
+        [cell.soundImageView addGestureRecognizer:tap];
+        
         return cell;
     }
     
@@ -862,6 +947,34 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (self.zhaopianArray.count>0){
+        if (self.zhaopianArray.count>9){
+            return 9;
+        }else{
+            return self.zhaopianArray.count;
+        }
+    }else{
+        return 0;
+    }
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    MRZhaopianCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MRZhaopianCollectionCell" forIndexPath:indexPath];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.zhaopianArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    xPhotoViewController *photoViewController = [[xPhotoViewController alloc] init];
+    photoViewController.index = indexPath.row;
+    photoViewController.photoPaths = self.zhaopianArray;
+    
+    [self.navigationController pushViewController:photoViewController animated:YES];
 }
 
 #pragma mark Network Request
@@ -954,11 +1067,21 @@
     self.xiyizhenduan = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"westdiagnosis"]];
     
     
-    if ([self.data objectForKey:@"photos_url"] != [NSNull null]) {
-        self.zhaopianImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"photos_url"]];
-        NSArray *zhaopianArrayTemp = [self.zhaopianImageString componentsSeparatedByString:@","];
-        self.zhaopianArray = [NSMutableArray arrayWithArray:zhaopianArrayTemp];
-    }
+//    if ([self.data objectForKey:@"photos_url"] != [NSNull null]) {
+//        self.zhaopianImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"photos_url"]];
+//        NSArray *zhaopianArrayTemp = [self.zhaopianImageString componentsSeparatedByString:@","];
+//        self.zhaopianArray = [NSMutableArray arrayWithArray:zhaopianArrayTemp];
+//    }
+    
+//    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
+    
+//    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
+    
+//    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
+    
+    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
+    
+    DLog(@"self.zhaopianArray.count-->%lu",(unsigned long)self.zhaopianArray.count);
     
     self.chufangArray = [MRChufangData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"details"]];
     for (MRChufangData *chufangData in self.chufangArray) {
@@ -973,7 +1096,39 @@
     self.fuyaoShiJian = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"medication_d"]];
     self.fuyaoCiShu = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"medication_c"]];
     self.yizhuTextString = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"charge"]];
-    self.yizhuSoundString = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"charge_url"]];
+    
+//    self.yizhuSoundString = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"charge_url"]];
+    self.yizhuSoundString = @"http://101.68.79.26:83/upload/ConuVoices/c574c2bb2824f040f54f1707b9f5e660.mp3";
+    if (self.yizhuSoundString.length > 0) {
+        if ([self.yizhuSoundString containsString:@","]) {
+            self.yizhuSoundUrlString = [[self.yizhuSoundString componentsSeparatedByString:@","] firstObject];
+            float chareTime = [[[self.yizhuSoundString componentsSeparatedByString:@","] lastObject] floatValue];
+            self.yizhuSoundTimeString = [NSString stringWithFormat:@"%.f\"", chareTime];
+        }else{
+            self.yizhuSoundUrlString = self.yizhuSoundString;
+        }
+        
+        if (self.yizhuSoundUrlString.length > 0) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDAnimationFade;
+            hud.labelText = kNetworkStatusLoadingText;
+            
+            [[NetworkUtil sharedInstance]downloadFileWithUrlStr:self.yizhuSoundUrlString flag:@"advice" successBlock:^(id resDict) {
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                DLog(@"文件下载成功！");
+                
+                self.yizhuSoundUrl = resDict;
+                
+            } failureBlock:^(NSString *error) {
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+            }];
+        }
+    }
     
     [self.tableView reloadData];
     

@@ -83,4 +83,46 @@
     }];
 }
 
+- (void)uploadFileWithParameter:(NSDictionary *)parameter names:(NSArray *)names urlStr:(NSString *)urlStr fileURLs:(NSArray *)fileURLs fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    [[NetworkMonitorUtil sharedInstance] startNetWorkMonitor];
+    AFHTTPSessionManager *manager = [self baseHtppRequest];
+    NSString *urlString =  [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [manager POST:urlString parameters:parameter constructingBodyWithBlock:^(id<AFMultipartFormData>formData) {
+        for (int i = 0; i<fileURLs.count; i++) {
+            NSData *data = [NSData dataWithContentsOfFile:fileURLs[i]];
+            [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"%@",names[i]] fileName:fileName mimeType:mimeType];
+        }
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(task,responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(task,error);
+    }];
+}
+
+-(void)downloadFileWithUrlStr:(NSString *)urlStr flag:(NSString *)flag successBlock:(SuccessBlockFix)successBlock failureBlock:(FailureBlockFix)failureBlock{
+    [[NetworkMonitorUtil sharedInstance] startNetWorkMonitor];
+    AFHTTPSessionManager *manager = [self baseHtppRequest];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response){
+        if ([flag isEqualToString:@"advice"]) {
+            NSURL *filePath = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]];
+            return [filePath URLByAppendingPathComponent:[response suggestedFilename]];
+        }else{
+            NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *path = [cachePath stringByAppendingPathComponent:response.suggestedFilename];
+            return [NSURL fileURLWithPath:path];
+        }
+    }completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        DLog(@"Finish and Download to: %@", filePath);
+        if (error) {
+            NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+            failureBlock(errorStr);
+        } else{
+            successBlock(filePath);
+        }
+    }];
+    [downloadTask resume];
+}
+
 @end

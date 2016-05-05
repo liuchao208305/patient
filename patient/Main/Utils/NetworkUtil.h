@@ -14,6 +14,9 @@
 typedef void(^SuccessBlock)(NSURLSessionDataTask *task,id responseObject);
 typedef void(^FailureBlock)(NSURLSessionDataTask *task,NSError *error);
 
+typedef void(^SuccessBlockFix)(id resDict);
+typedef void(^FailureBlockFix)(NSString *error);
+
 @interface NetworkUtil : NSObject
 
 +(NetworkUtil *)sharedInstance;
@@ -27,5 +30,11 @@ typedef void(^FailureBlock)(NSURLSessionDataTask *task,NSError *error);
 
 #pragma mark - AFN上传照片
 -(void)upImageWithParameter:(NSDictionary *)parameter imageArray:(NSArray *)images url:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+#pragma mark - AFN上传文件
+-(void)uploadFileWithParameter:(NSDictionary *)parameter names:(NSArray *)names urlStr:(NSString *)urlStr fileURLs:(NSArray *)fileURLs fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+#pragma mark - AFN下载文件
+- (void)downloadFileWithUrlStr:(NSString *)urlStr flag:(NSString *)flag successBlock:(SuccessBlockFix)successBlock failureBlock:(FailureBlockFix)failureBlock;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface MRYizhuSoundTableCell : UITableViewCell
 
+@property (nonatomic, strong) UIImageView *soundImageView;
+
 @end

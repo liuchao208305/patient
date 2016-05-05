@@ -102,7 +102,7 @@
     [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-25);
         make.top.equalTo(self.clinicLabel).offset(15+5);
-        make.width.mas_equalTo(300);
+        make.width.mas_equalTo(SCREEN_WIDTH-90);
         make.height.mas_equalTo(15);
     }];
     
