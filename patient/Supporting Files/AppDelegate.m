@@ -127,6 +127,10 @@
 -(void)startPush:(NSDictionary *)launchOptions{
     [UMessage startWithAppkey:appKeyUMPush launchOptions:launchOptions];
     
+    [UMessage addAlias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] type:@"jiuzhekan" response:^(id responseObject, NSError *error) {
+        DLog(@"UMessage addAlias responseObject-->%@",responseObject);
+    }];
+    
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
         //register remoteNotification types （iOS 8.0及其以上版本）
