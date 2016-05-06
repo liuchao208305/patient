@@ -262,30 +262,14 @@
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:appKeyUMSocial];
     [UMSocialData openLog:YES];
-    /*
-     //个人测试用
-     
-     */
     
-    [UMSocialWechatHandler setWXAppId:@"wxef6c524d4d882179" appSecret:@"56afef8674fedd10a539331e99edcb13" url:@"http://www.jiuzhekan.com/"];
+    [UMSocialWechatHandler setWXAppId:@"wx6a048cad50cccc7b" appSecret:@"5cc5a1439d30a6bbead8dffeaa52aadc" url:@"http://www.jiuzhekan.com/"];
     
-    [UMSocialQQHandler setQQWithAppId:@"1105354776" appKey:@"qpnQRy3P7cZGdJgv" url:@"http://www.jiuzhekan.com/"];
+    [UMSocialQQHandler setQQWithAppId:@"1105377074" appKey:@"2ptblRpn872OI4Lj" url:@"http://www.jiuzhekan.com/"];
     
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2024109510"
-                                              secret:@"53778e0f7f552ef65803271e61135e9d"
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2804359312"
+                                              secret:@"31ecd177145d7f65ba803b77fdfea63b"
                                          RedirectURL:@"http://www.jiuzhekan.com/"];
-    
-    /*
-     //公司测试用
-     [UMSocialWechatHandler setWXAppId:@"wxef6c524d4d882179" appSecret:@"56afef8674fedd10a539331e99edcb13" url:@"http://www.jiuzhekan.com/"];
-     
-     [UMSocialQQHandler setQQWithAppId:@"1105354776" appKey:@"qpnQRy3P7cZGdJgv" url:@"http://www.jiuzhekan.com/"];
-     
-     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3928839999"
-     secret:@"d3e2b58f53600d0811b1d29ae1be36ab"
-     RedirectURL:@"http://www.jiuzhekan.com/"];
-     */
-    
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

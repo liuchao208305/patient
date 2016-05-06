@@ -12,13 +12,13 @@
 //static NSString *channelJPush = @"Apple Store";
 //static BOOL isProduction = FALSE;
 //友盟统计
-static NSString *appKeyUMAnaytic = @"56df91e4e0f55a811e002783";
+static NSString *appKeyUMAnaytic = @"572af07ce0f55aead6002c5f";
 static NSString *channelUMAnaytic = @"Apple Store";
 //友盟分享
-static NSString *appKeyUMSocial = @"56df91e4e0f55a811e002783";
+static NSString *appKeyUMSocial = @"572af07ce0f55aead6002c5f";
 static NSString *channelUMSocial = @"Apple Store";
 //友盟推送
-static NSString *appKeyUMPush = @"56df91e4e0f55a811e002783";
+static NSString *appKeyUMPush = @"572af07ce0f55aead6002c5f";
 static NSString *channelUMPush = @"Apple Store";
 static BOOL isProduction = FALSE;
 
