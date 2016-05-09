@@ -464,6 +464,10 @@
 
 -(void)personHeadViewClicked{
     DLog(@"personHeadViewClicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"personHeadViewClicked";
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)person1Clicked{

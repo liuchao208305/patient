@@ -10,6 +10,8 @@
 
 @interface InfoMoreStudioViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong,nonatomic)UIView *searchView;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)NSMutableArray *studioArray;

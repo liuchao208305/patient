@@ -74,18 +74,18 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    UIView *myTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 64-22-10)];
-    myTitleView.backgroundColor = [UIColor colorWithRed:89/255.0 green:187/255.0 blue:163/255.0 alpha:1];
-    myTitleView.layer.cornerRadius = 4;
+    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 64-22-10)];
+    self.searchView.backgroundColor = [UIColor colorWithRed:89/255.0 green:187/255.0 blue:163/255.0 alpha:1];
+    self.searchView.layer.cornerRadius = 4;
     
-    float left = (myTitleView.width-(myTitleView.width - 20))/2;
-    UILabel *titleLB = [[UILabel alloc] initWithFrame:CGRectMake(left, 0, myTitleView.width - 20, myTitleView.height)];
-    titleLB.text = @"搜索";
-    titleLB.textAlignment = NSTextAlignmentCenter;
-    titleLB.textColor = [UIColor whiteColor];
-    [myTitleView addSubview:titleLB];
+    float left = (self.searchView.width-(self.searchView.width - 20))/2;
+    UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(left, 0, self.searchView.width - 20, self.searchView.height)];
+    searchLabel.text = @"搜索";
+    searchLabel.textAlignment = NSTextAlignmentCenter;
+    searchLabel.textColor = [UIColor whiteColor];
+    [self.searchView addSubview:searchLabel];
     
-    self.navigationItem.titleView = myTitleView;
+    self.navigationItem.titleView = self.searchView;
 }
 
 -(void)initTabBar{
