@@ -13,6 +13,7 @@
 #import "HudUtil.h"
 #import "AlertUtil.h"
 #import "NullUtil.h"
+#import "CityViewController.h"
 
 @interface InfoMorePersonViewController ()
 
@@ -39,14 +40,14 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
     if ([self.sourceVC isEqualToString:@"personHeadViewClicked"]) {
         [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -274,6 +275,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView2Clicked{
@@ -284,6 +287,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    [self sendMorePersonRequestWithDepartID:nil area:@"北京" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView3Clicked{
@@ -294,6 +299,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView4Clicked{
@@ -304,6 +311,8 @@
     self.label4.textColor = kBLACK_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    [self sendMorePersonRequestWithDepartID:nil area:@"上海" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView5Clicked{
@@ -314,6 +323,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kBLACK_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    [self sendMorePersonRequestWithDepartID:nil area:@"四川" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView6Clicked{
@@ -324,6 +335,14 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kBLACK_COLOR;
+    
+    CityViewController *controller = [[CityViewController alloc] init];
+    controller.currentCityString = [[NSUserDefaults standardUserDefaults] objectForKey:kJZK_city];
+    controller.selectString = ^(NSString *string){
+        DLog(@"%@",string);
+        [self sendMorePersonRequestWithDepartID:nil area:string currentPage:1 pageSize:10 seach:nil];
+    };
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark UITableViewDelegate

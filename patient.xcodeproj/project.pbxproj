@@ -178,6 +178,14 @@
 		707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BBE1C96C02D00101B30 /* HealthData.m */; };
 		707E5BC21C96C03A00101B30 /* StudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC11C96C03A00101B30 /* StudioData.m */; };
 		707E5BC51C96C04D00101B30 /* PersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC41C96C04D00101B30 /* PersonData.m */; };
+		708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */; };
+		708FD5E81CE086A6002CDFA8 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E61CE086A6002CDFA8 /* citydict.plist */; };
+		708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5ED1CE086E0002CDFA8 /* CityViewController.m */; };
+		708FD5F11CE086E0002CDFA8 /* ResultCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5EF1CE086E0002CDFA8 /* ResultCityController.m */; };
+		708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5F31CE086EE002CDFA8 /* CityTableViewCell.m */; };
+		708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5F51CE086EE002CDFA8 /* CustomSearchView.m */; };
+		708FD5FA1CE086EE002CDFA8 /* CustomTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5F71CE086EE002CDFA8 /* CustomTopView.m */; };
+		708FD5FD1CE086F5002CDFA8 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5FC1CE086F5002CDFA8 /* CityModel.m */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -588,6 +596,20 @@
 		707E5BC11C96C03A00101B30 /* StudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioData.m; sourceTree = "<group>"; };
 		707E5BC31C96C04D00101B30 /* PersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonData.h; sourceTree = "<group>"; };
 		707E5BC41C96C04D00101B30 /* PersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonData.m; sourceTree = "<group>"; };
+		708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancelBtn@2x.png"; sourceTree = "<group>"; };
+		708FD5E61CE086A6002CDFA8 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		708FD5EC1CE086E0002CDFA8 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		708FD5ED1CE086E0002CDFA8 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		708FD5EE1CE086E0002CDFA8 /* ResultCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCityController.h; sourceTree = "<group>"; };
+		708FD5EF1CE086E0002CDFA8 /* ResultCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCityController.m; sourceTree = "<group>"; };
+		708FD5F21CE086EE002CDFA8 /* CityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
+		708FD5F31CE086EE002CDFA8 /* CityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
+		708FD5F41CE086EE002CDFA8 /* CustomSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchView.h; sourceTree = "<group>"; };
+		708FD5F51CE086EE002CDFA8 /* CustomSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchView.m; sourceTree = "<group>"; };
+		708FD5F61CE086EE002CDFA8 /* CustomTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTopView.h; sourceTree = "<group>"; };
+		708FD5F71CE086EE002CDFA8 /* CustomTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTopView.m; sourceTree = "<group>"; };
+		708FD5FB1CE086F5002CDFA8 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		708FD5FC1CE086F5002CDFA8 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -1097,6 +1119,7 @@
 		70265CA71C858B5A0091C01F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				708FD5E41CE08693002CDFA8 /* selectCity */,
 				70B4EB5D1CDB374900141E38 /* lame */,
 				70B4EA791CCCC7B300141E38 /* SNChartView */,
 				70926D8D1CC7322200CB0416 /* AliPay */,
@@ -1758,6 +1781,51 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		708FD5E41CE08693002CDFA8 /* selectCity */ = {
+			isa = PBXGroup;
+			children = (
+				708FD5EB1CE086C0002CDFA8 /* Model */,
+				708FD5EA1CE086BB002CDFA8 /* View */,
+				708FD5E91CE086AC002CDFA8 /* Controller */,
+				708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */,
+				708FD5E61CE086A6002CDFA8 /* citydict.plist */,
+			);
+			path = selectCity;
+			sourceTree = "<group>";
+		};
+		708FD5E91CE086AC002CDFA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				708FD5EC1CE086E0002CDFA8 /* CityViewController.h */,
+				708FD5ED1CE086E0002CDFA8 /* CityViewController.m */,
+				708FD5EE1CE086E0002CDFA8 /* ResultCityController.h */,
+				708FD5EF1CE086E0002CDFA8 /* ResultCityController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		708FD5EA1CE086BB002CDFA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				708FD5F21CE086EE002CDFA8 /* CityTableViewCell.h */,
+				708FD5F31CE086EE002CDFA8 /* CityTableViewCell.m */,
+				708FD5F41CE086EE002CDFA8 /* CustomSearchView.h */,
+				708FD5F51CE086EE002CDFA8 /* CustomSearchView.m */,
+				708FD5F61CE086EE002CDFA8 /* CustomTopView.h */,
+				708FD5F71CE086EE002CDFA8 /* CustomTopView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		708FD5EB1CE086C0002CDFA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				708FD5FB1CE086F5002CDFA8 /* CityModel.h */,
+				708FD5FC1CE086F5002CDFA8 /* CityModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		70926D8D1CC7322200CB0416 /* AliPay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2021,6 +2089,7 @@
 				70FEAE081CABBC89006A044A /* info_expert_xingxing_half.png in Resources */,
 				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
+				708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */,
 				70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
 				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,
@@ -2078,6 +2147,7 @@
 				7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */,
 				7046AD221C97E5D700BB6818 /* cell_studio_more_button.png in Resources */,
 				7002D8601CACC19F0074426A /* info_clinic_doctor_title_image.png in Resources */,
+				708FD5E81CE086A6002CDFA8 /* citydict.plist in Resources */,
 				7046AD211C97E5D700BB6818 /* cell_studio_main_button.png in Resources */,
 				7002D85F1CACC19F0074426A /* info_clinic_clinic_title_image.png in Resources */,
 				70C03E021CA2924000DBA175 /* full_pause_btn222@2x.png in Resources */,
@@ -2235,6 +2305,7 @@
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
+				708FD5FA1CE086EE002CDFA8 /* CustomTopView.m in Sources */,
 				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
 				70B4EB011CD8710D00141E38 /* MRHanreTableCell.m in Sources */,
@@ -2244,8 +2315,10 @@
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				70B4EAF21CD8709F00141E38 /* MRShuimianTableCell.m in Sources */,
 				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,
+				708FD5FD1CE086F5002CDFA8 /* CityModel.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
+				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
@@ -2287,6 +2360,7 @@
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
+				708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70B4EA8A1CCD0A9600141E38 /* MineSettingViewController.m in Sources */,
 				70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */,
@@ -2295,6 +2369,7 @@
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
+				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
@@ -2351,6 +2426,7 @@
 				70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */,
 				70B4EAEC1CD8707000141E38 /* MRGuomingshiTableCell.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
+				708FD5F11CE086E0002CDFA8 /* ResultCityController.m in Sources */,
 				70B4EAF51CD870B800141E38 /* MRYinshiTableCell.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				70B4EABD1CD265C000141E38 /* InfoMoreStudioViewController.m in Sources */,

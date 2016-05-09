@@ -106,9 +106,14 @@
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks,NSError *error){
         for (CLPlacemark *placemark in placemarks) {
             NSDictionary *addressDict = [placemark addressDictionary];
+//            DLog(@"addressDict-->%@",addressDict);
             DLog(@"Country-->%@",[addressDict objectForKey:@"Country"]);
             DLog(@"State-->%@",[addressDict objectForKey:@"State"]);
+            DLog(@"City-->%@",[addressDict objectForKey:@"City"]);
             DLog(@"SubLocality-->%@",[addressDict objectForKey:@"SubLocality"]);
+            
+            [[NSUserDefaults standardUserDefaults] setValue:[addressDict objectForKey:@"City"] forKey:kJZK_city];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }];
     [self.locationManger stopUpdatingLocation];

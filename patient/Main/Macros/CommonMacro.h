@@ -21,6 +21,8 @@
 
 #define kJZK_token @"JZK_token"
 
+#define kJZK_city @"JZK_city"
+
 #define kJZK_accout @"JZK_account"
 #define kJZK_password @"JZK_password"
 
