@@ -21,6 +21,7 @@
 #pragma mark Init Section
 -(void)initView{
     self.expertImageView = [[UIImageView alloc] init];
+    self.expertImageView.layer.cornerRadius = 30;
 //    [self.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.contentView addSubview:self.expertImageView];
     

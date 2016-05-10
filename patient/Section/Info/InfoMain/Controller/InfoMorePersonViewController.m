@@ -14,6 +14,7 @@
 #import "AlertUtil.h"
 #import "NullUtil.h"
 #import "CityViewController.h"
+#import "ExpertInfoViewController.h"
 
 @interface InfoMorePersonViewController ()
 
@@ -41,8 +42,20 @@
     [self initView];
     [self initRecognizer];
     
-    if ([self.sourceVC isEqualToString:@"personHeadViewClicked"]) {
+    if ([self.sourceVC isEqualToString:@"personHeadViewClicked"] || [self.sourceVC isEqualToString:@"laotouImageViewClicked"]) {
         [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
     }
 }
 
@@ -276,7 +289,21 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
-    [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
+    if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+    }else{
+        [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
+    }
 }
 
 -(void)citySubView2Clicked{
@@ -288,7 +315,23 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
-    [self sendMorePersonRequestWithDepartID:nil area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    }else{
+        [self sendMorePersonRequestWithDepartID:nil area:@"北京" currentPage:1 pageSize:10 seach:nil];
+    }
+    
+//    [self sendMorePersonRequestWithDepartID:nil area:@"北京" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView3Clicked{
@@ -300,7 +343,23 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
-    [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    }else{
+        [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+    }
+    
+//    [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView4Clicked{
@@ -312,7 +371,23 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
-    [self sendMorePersonRequestWithDepartID:nil area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    }else{
+        [self sendMorePersonRequestWithDepartID:nil area:@"上海" currentPage:1 pageSize:10 seach:nil];
+    }
+    
+//    [self sendMorePersonRequestWithDepartID:nil area:@"上海" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView5Clicked{
@@ -324,7 +399,23 @@
     self.label5.textColor = kBLACK_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
-    [self sendMorePersonRequestWithDepartID:nil area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+        DLog(@"%@",self.departID);
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    }else{
+        [self sendMorePersonRequestWithDepartID:nil area:@"四川" currentPage:1 pageSize:10 seach:nil];
+    }
+    
+//    [self sendMorePersonRequestWithDepartID:nil area:@"四川" currentPage:1 pageSize:10 seach:nil];
 }
 
 -(void)citySubView6Clicked{
@@ -340,7 +431,24 @@
     controller.currentCityString = [[NSUserDefaults standardUserDefaults] objectForKey:kJZK_city];
     controller.selectString = ^(NSString *string){
         DLog(@"%@",string);
-        [self sendMorePersonRequestWithDepartID:nil area:string currentPage:1 pageSize:10 seach:nil];
+        
+        if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:string currentPage:1 pageSize:10 seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:string currentPage:1 pageSize:10 seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:string currentPage:1 pageSize:10 seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:string currentPage:1 pageSize:10 seach:nil];
+        }else{
+            [self sendMorePersonRequestWithDepartID:nil area:string currentPage:1 pageSize:10 seach:nil];
+        }
+        
+//        [self sendMorePersonRequestWithDepartID:nil area:string currentPage:1 pageSize:10 seach:nil];
     };
     [self presentViewController:controller animated:YES completion:nil];
 }
@@ -370,6 +478,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.expertIdArray[indexPath.row];
+    expertVC.expertName = self.expertNameArray[indexPath.row];
+    expertVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:expertVC animated:YES];
+    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -393,6 +507,7 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         DLog(@"%@%@",kServerAddress,kJZK_MORE_PERSON_INFORMATION);
+        DLog(@"%@",parameter);
         DLog(@"responseObject-->%@",responseObject);
         self.result = (NSMutableDictionary *)responseObject;
         

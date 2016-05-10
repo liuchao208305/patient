@@ -88,13 +88,6 @@
 @implementation InfoViewController
 
 #pragma mark Life Circle
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    
-//    [self lazyLoading];
-    [self sendInfoRequest];
-}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -102,13 +95,18 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-//    [self sendInfoRequest];
     [self loadData];
     
     [self initNavBar];
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [self sendInfoRequest];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -124,6 +122,7 @@
     self.adArray = [NSMutableArray array];
     self.adImageArray = [NSMutableArray array];
     self.diseaseArray = [NSMutableArray array];
+    self.diseaseIdArray = [NSMutableArray array];
     self.diseaseImageArray = [NSMutableArray array];
     self.diseaseLabelArray = [NSMutableArray array];
     self.healthImageArray = [NSMutableArray array];
@@ -433,22 +432,46 @@
 
 -(void)laotouImageViewClicked{
     DLog(@"laotouImageViewClicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"personHeadViewClicked";
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)keshiView1Clicked{
     DLog(@"keshiView1Clicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"keshiView1Clicked";
+    morePersonVC.departID = self.diseaseIdArray[0];
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)keshiView2Clicked{
     DLog(@"keshiView2Clicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"keshiView2Clicked";
+    morePersonVC.departID = self.diseaseIdArray[1];
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)keshiView3Clicked{
     DLog(@"keshiView3Clicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"keshiView3Clicked";
+    morePersonVC.departID = self.diseaseIdArray[2];
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)keshiView4Clicked{
     DLog(@"keshiView4Clicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"keshiView4Clicked";
+    morePersonVC.departID = self.diseaseIdArray[3];
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)healthHeadViewClicked{

@@ -48,6 +48,7 @@
 
 -(void)initBackView1{
     self.imageView1 = [[UIImageView alloc] init];
+    self.imageView1.layer.cornerRadius = 35;
     [self.backView1 addSubview:self.imageView1];
     
     self.label1_1 = [[UILabel alloc] init];
@@ -84,6 +85,7 @@
 
 -(void)initBackView2{
     self.imageView2 = [[UIImageView alloc] init];
+    self.imageView2.layer.cornerRadius = 35;
     [self.backView2 addSubview:self.imageView2];
     
     self.label2_1 = [[UILabel alloc] init];
@@ -119,6 +121,7 @@
 
 -(void)initBackView3{
     self.imageView3 = [[UIImageView alloc] init];
+    self.imageView3.layer.cornerRadius = 35;
     [self.backView3 addSubview:self.imageView3];
     
     self.label3_1 = [[UILabel alloc] init];

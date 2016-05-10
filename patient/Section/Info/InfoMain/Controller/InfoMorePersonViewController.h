@@ -11,6 +11,7 @@
 @interface InfoMorePersonViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSString *sourceVC;
+@property (strong,nonatomic)NSString *departID;
 
 @property (strong,nonatomic)UIView *searchView;
 
