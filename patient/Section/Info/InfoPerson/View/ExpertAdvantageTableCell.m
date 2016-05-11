@@ -48,14 +48,16 @@
     [self.mainView addSubview:self.titleImageView];
     
     self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.mainView addSubview:self.titleLabel];
     
     self.bodyLabel = [[UILabel alloc] init];
     self.bodyLabel.numberOfLines = 0;
+    self.bodyLabel.font = [UIFont systemFontOfSize:14];
     [self.mainView addSubview:self.bodyLabel];
     
-    self.button = [[UIButton alloc] init];
-    [self.mainView addSubview:self.button];
+//    self.button = [[UIButton alloc] init];
+//    [self.mainView addSubview:self.button];
     
     [self.titleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(12);
@@ -75,15 +77,16 @@
         make.leading.equalTo(self.mainView).offset(12);
         make.trailing.equalTo(self.mainView).offset(-12);
         make.top.equalTo(self.titleImageView).offset(15+5);
-        make.bottom.equalTo(self.button).offset(-15-5);
+//        make.bottom.equalTo(self.button).offset(-15-5);
+        make.bottom.equalTo(self.mainView).offset(-5);
     }];
     
-    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mainView).offset(0);
-        make.bottom.equalTo(self.mainView).offset(-5);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(15);
-    }];
+//    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.mainView).offset(0);
+//        make.bottom.equalTo(self.mainView).offset(-5);
+//        make.width.mas_equalTo(15);
+//        make.height.mas_equalTo(15);
+//    }];
 }
 
 -(void)initLineView{

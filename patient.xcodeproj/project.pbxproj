@@ -71,6 +71,9 @@
 		702939891C9273C4008280E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939881C9273C4008280E2 /* InfoViewController.m */; };
 		7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398E1C9273E4008280E2 /* SearchViewController.m */; };
 		702939921C9273FA008280E2 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939911C9273FA008280E2 /* MineViewController.m */; };
+		704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040068F1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m */; };
+		704006931CE30DCC004E5D7E /* TextEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 704006921CE30DCC004E5D7E /* TextEntity.m */; };
+		704006951CE30FFB004E5D7E /* TextInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 704006941CE30FFB004E5D7E /* TextInfo.json */; };
 		7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AC6B1C974C5100BB6818 /* HealthTableCell.m */; };
 		7046AC6E1C974C5100BB6818 /* HealthTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7046AC6C1C974C5100BB6818 /* HealthTableCell.xib */; };
 		7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AC701C974C7E00BB6818 /* StudioTableCell.m */; };
@@ -446,6 +449,11 @@
 		7029398E1C9273E4008280E2 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		702939901C9273FA008280E2 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		702939911C9273FA008280E2 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		7040068E1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertAdvantageFixTableCell.h; sourceTree = "<group>"; };
+		7040068F1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertAdvantageFixTableCell.m; sourceTree = "<group>"; };
+		704006911CE30DCC004E5D7E /* TextEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntity.h; sourceTree = "<group>"; };
+		704006921CE30DCC004E5D7E /* TextEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntity.m; sourceTree = "<group>"; };
+		704006941CE30FFB004E5D7E /* TextInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TextInfo.json; sourceTree = "<group>"; };
 		7046AC6A1C974C5100BB6818 /* HealthTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthTableCell.h; sourceTree = "<group>"; };
 		7046AC6B1C974C5100BB6818 /* HealthTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthTableCell.m; sourceTree = "<group>"; };
 		7046AC6C1C974C5100BB6818 /* HealthTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthTableCell.xib; sourceTree = "<group>"; };
@@ -1617,12 +1625,15 @@
 		7046AD9F1C9FD32700BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				704006941CE30FFB004E5D7E /* TextInfo.json */,
 				70C03E1B1CA44FD800DBA175 /* ExpertCommentData.h */,
 				70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */,
 				70FEAD9E1CA53E55006A044A /* ExpertClinicData.h */,
 				70FEAD9F1CA53E55006A044A /* ExpertClinicData.m */,
 				70B4EB411CD9DB1E00141E38 /* MRChufangData.h */,
 				70B4EB421CD9DB1E00141E38 /* MRChufangData.m */,
+				704006911CE30DCC004E5D7E /* TextEntity.h */,
+				704006921CE30DCC004E5D7E /* TextEntity.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1634,6 +1645,8 @@
 				7046AE431CA1457B00BB6818 /* ExpertDetailTableCell.m */,
 				7046AE451CA1458700BB6818 /* ExpertAdvantageTableCell.h */,
 				7046AE461CA1458700BB6818 /* ExpertAdvantageTableCell.m */,
+				7040068E1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.h */,
+				7040068F1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m */,
 				7046AE481CA1459400BB6818 /* ExpertCommentTableCell.h */,
 				7046AE491CA1459400BB6818 /* ExpertCommentTableCell.m */,
 				7046AE4B1CA145A200BB6818 /* ExpertProcessTableCell.h */,
@@ -2172,6 +2185,7 @@
 				7046AD2C1C97E5D700BB6818 /* tabbar_info_normal.png in Resources */,
 				7046AC731C974C7E00BB6818 /* StudioTableCell.xib in Resources */,
 				705EF7F31CBC947600732886 /* mine_orderstatus_tobecontinued.png in Resources */,
+				704006951CE30FFB004E5D7E /* TextInfo.json in Resources */,
 				7046AD2F1C97E5D700BB6818 /* tabbar_mine_selected.png in Resources */,
 				7002D8821CB4AA0F0074426A /* info_treatment_paynow_selected.png in Resources */,
 				705EF7E91CBC947600732886 /* mine_bottom_doctor.png in Resources */,
@@ -2280,6 +2294,7 @@
 			files = (
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
 				70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */,
+				704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */,
 				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
 				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
@@ -2290,6 +2305,7 @@
 				70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */,
 				707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */,
 				70B4EADA1CD86FA100141E38 /* MRPatientTableCell.m in Sources */,
+				704006931CE30DCC004E5D7E /* TextEntity.m in Sources */,
 				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,

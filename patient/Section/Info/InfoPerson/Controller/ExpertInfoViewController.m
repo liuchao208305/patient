@@ -9,6 +9,8 @@
 #import "ExpertInfoViewController.h"
 #import "ExpertDetailTableCell.h"
 #import "ExpertAdvantageTableCell.h"
+#import "ExpertAdvantageFixTableCell.h"
+#import "TextEntity.h"
 #import "ExpertCommentTableCell.h"
 #import "ExpertProcessTableCell.h"
 #import "ExpertClinicTableCell.h"
@@ -51,6 +53,8 @@
 @property (strong,nonatomic)NSString *advantageLabel2;
 @property (strong,nonatomic)NSString *advantageLabel3;
 @property (strong,nonatomic)NSString *advantageLabel4;
+
+@property(nonatomic, strong)NSMutableArray   *dataArr;
 
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
@@ -117,6 +121,32 @@
     self.clinicDistanceArray = [NSMutableArray array];
     self.clinicMoneyArray = [NSMutableArray array];
     self.clinicCouponArray = [NSMutableArray array];
+    
+//    self.dataArr = [NSMutableArray array];
+    
+//    NSString *path=[[NSBundle mainBundle] pathForResource:@"TextInfo" ofType:@"json"];
+//    NSString *jsonContent=[[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    if (jsonContent != nil)
+//    {
+//        NSData *jsonData = [jsonContent dataUsingEncoding:NSUTF8StringEncoding];
+//        NSError *err;
+//        NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                                   options:NSJSONReadingMutableContainers
+//                                                                     error:&err];
+//        NSArray *textList = [dic objectForKey:@"textList"];
+//        for (NSDictionary *dict in textList)
+//        {
+//            TextEntity *entity = [[TextEntity alloc]initWithDict:dict];
+//            if (entity)
+//            {
+//                [self.dataArr addObject:entity];
+//            }
+//        }
+//        if(err)
+//        {
+//            NSLog(@"json解析失败：%@",err);
+//        }
+//    }
 }
 
 #pragma mark Init Section
@@ -217,13 +247,32 @@
         return 120;
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
-            return 98;
+//            return 98;
+            return 74;
         }else if (indexPath.row == 1){
             return 74;
         }else if (indexPath.row == 2){
             return 74;
         }else if (indexPath.row == 3){
-            return 185;
+//            return 185;
+            TextEntity *entity = nil;
+//            if ([self.dataArr count] > indexPath.row)
+//            {
+//                entity = [self.dataArr objectAtIndex:0];
+//            }
+            
+            entity = [self.dataArr objectAtIndex:0];
+            
+            //根据isShowMoreText属性判断cell的高度
+            if (entity.isShowMoreText)
+            {
+                return [ExpertAdvantageFixTableCell cellMoreHeight:entity];
+            }
+            else
+            {
+                return [ExpertAdvantageFixTableCell cellDefaultHeight:entity];
+            }
+            return 0;
         }
     }else if (indexPath.section == 2){
         return 106;
@@ -304,32 +353,80 @@
         
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"ExpertAdvantageTableCell";
-        ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
+//        static NSString *cellName = @"ExpertAdvantageTableCell";
+//        ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
         //填充数据
         if (indexPath.row == 0) {
+            static NSString *cellName = @"ExpertAdvantageTableCell";
+            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+            if (!cell) {
+                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            }
+            
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
             cell.titleLabel.text = @"主治";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel1];
+            
+            return cell;
         }else if (indexPath.row == 1){
+            static NSString *cellName = @"ExpertAdvantageTableCell";
+            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+            if (!cell) {
+                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            }
+            
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_shanchang_image"]];
             cell.titleLabel.text = @"擅长";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel2];
+            
+            return cell;
         }else if (indexPath.row == 2){
+            static NSString *cellName = @"ExpertAdvantageTableCell";
+            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+            if (!cell) {
+                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            }
+            
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_yanjiufangxiang_image"]];
             cell.titleLabel.text = @"研究方向";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel3];
+            
+            return cell;
         }else if (indexPath.row == 3){
-            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_jingli_image"]];
-            cell.titleLabel.text = @"经历";
-            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel4];
-            [cell.button setImage:[UIImage imageNamed:@"info_expert_xiangxia_image"] forState:UIControlStateNormal];
-            [cell.button addTarget:self action:@selector(stretchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+            static NSString *cellName = @"ExpertAdvantageFixTableCell";
+            ExpertAdvantageFixTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+            if (!cell) {
+                cell = [[ExpertAdvantageFixTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            }
+            
+//            if ([self.dataArr count] > indexPath.row)
+//            {
+//                //这里的判断是为了防止数组越界
+////                cell.entity = [self.dataArr objectAtIndex:indexPath.row];
+//                cell.entity = [self.dataArr objectAtIndex:0];
+//            }
+            
+            cell.entity = [self.dataArr objectAtIndex:0];
+            //自定义cell的回调，获取要展开/收起的cell。刷新点击的cell
+            cell.showMoreTextBlock = ^(UITableViewCell *currentCell){
+                NSIndexPath *indexRow = [self.tableView indexPathForCell:currentCell];
+                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexRow, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
+            };
+            
+            return cell;
+            
+//            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_jingli_image"]];
+//            cell.titleLabel.text = @"经历";
+//            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel4];
+//            [cell.button setImage:[UIImage imageNamed:@"info_expert_xiangxia_image"] forState:UIControlStateNormal];
+//            [cell.button addTarget:self action:@selector(stretchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+            
+            
         }
-        return cell;
+//        return cell;
     }else if (indexPath.section == 2){
         static NSString *cellName = @"ExpertCommentTableCell";
         ExpertCommentTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
@@ -553,6 +650,11 @@
     self.advantageLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"diseaseName"];
     self.advantageLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"research"];
     self.advantageLabel4 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"exper"];
+    DLog(@"self.advantageLabel4-->%@",self.advantageLabel4);
+    
+    TextEntity *entity = [[TextEntity alloc]initWithTextName:@"经历" textContent:self.advantageLabel4];
+//    [self.dataArr addObject:entity];
+    self.dataArr = [NSMutableArray arrayWithObjects:entity, nil];
     
     self.commentArray = [ExpertCommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
     for (ExpertCommentData *commentData in self.commentArray) {
