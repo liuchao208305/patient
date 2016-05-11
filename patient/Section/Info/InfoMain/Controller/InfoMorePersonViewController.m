@@ -92,18 +92,25 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 64-22-10)];
-    self.searchView.backgroundColor = [UIColor colorWithRed:89/255.0 green:187/255.0 blue:163/255.0 alpha:1];
-    self.searchView.layer.cornerRadius = 4;
+//    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 64-22-10)];
+//    self.searchView.backgroundColor = [UIColor colorWithRed:89/255.0 green:187/255.0 blue:163/255.0 alpha:1];
+//    self.searchView.layer.cornerRadius = 4;
+//    
+//    float left = (self.searchView.width-(self.searchView.width - 20))/2;
+//    UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(left, 0, self.searchView.width - 20, self.searchView.height)];
+//    searchLabel.text = @"搜索";
+//    searchLabel.textAlignment = NSTextAlignmentCenter;
+//    searchLabel.textColor = [UIColor whiteColor];
+//    [self.searchView addSubview:searchLabel];
+//    
+//    self.navigationItem.titleView = self.searchView;
     
-    float left = (self.searchView.width-(self.searchView.width - 20))/2;
-    UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(left, 0, self.searchView.width - 20, self.searchView.height)];
-    searchLabel.text = @"搜索";
-    searchLabel.textAlignment = NSTextAlignmentCenter;
-    searchLabel.textColor = [UIColor whiteColor];
-    [self.searchView addSubview:searchLabel];
-    
-    self.navigationItem.titleView = self.searchView;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+    label.text = @"专家列表";
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
 }
 
 -(void)initTabBar{
