@@ -24,6 +24,7 @@
 #import "LoginViewController.h"
 #import "CommonUtil.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 #import "ClinicInfoFixViewController.h"
 
 @interface ExpertInfoViewController ()<FiterViewClickDelegate>
@@ -82,6 +83,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"ExpertInfoViewController"];
+    
     self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
     self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
     
@@ -94,6 +97,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ExpertInfoViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

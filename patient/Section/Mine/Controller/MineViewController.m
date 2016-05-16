@@ -18,6 +18,7 @@
 #import "HudUtil.h"
 #import "NullUtil.h"
 #import "ImageUtil.h"
+#import "AnalyticUtil.h"
 #import "LoginRequestDelegate.h"
 #import "RecordData.h"
 #import "TestResultListViewController.h"
@@ -88,6 +89,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [AnalyticUtil UMBeginLogPageView:@"MineViewController"];
+    
     self.navigationController.navigationBar.hidden = YES;
     
 //    [self sendMineInfoRequest];
@@ -95,6 +98,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"MineViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

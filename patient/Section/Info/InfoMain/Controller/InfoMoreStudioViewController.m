@@ -13,6 +13,7 @@
 #import "HudUtil.h"
 #import "AlertUtil.h"
 #import "NullUtil.h"
+#import "AnalyticUtil.h"
 
 @interface InfoMoreStudioViewController ()
 
@@ -44,6 +45,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"InfoMoreStudioViewController"];
+    
     [self sendMoreStudioRequest];
 }
 
@@ -53,6 +56,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"InfoMoreStudioViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

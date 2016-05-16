@@ -11,6 +11,7 @@
 #import "HudUtil.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 
 @interface CouponCheckViewController ()<UIAlertViewDelegate>
 
@@ -60,6 +61,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"CouponCheckViewController"];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     self.flag1 = YES;
@@ -77,6 +80,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"CouponCheckViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

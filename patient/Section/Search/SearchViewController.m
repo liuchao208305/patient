@@ -7,12 +7,15 @@
 //
 
 #import "SearchViewController.h"
+#import "AnalyticUtil.h"
 
 @implementation SearchViewController
 
 #pragma mark Life Circle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+    [AnalyticUtil UMBeginLogPageView:@"SearchViewController"];
 }
 
 -(void)viewDidLoad{
@@ -30,6 +33,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"SearchViewController"];
 }
 
 #pragma mark Init Section

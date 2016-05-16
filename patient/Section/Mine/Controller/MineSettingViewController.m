@@ -12,6 +12,7 @@
 #import "AlertUtil.h"
 #import "HudUtil.h"
 #import "CommonUtil.h"
+#import "AnalyticUtil.h"
 #import "LoginViewController.h"
 #import "AgreementViewController.h"
 #import "BaseTabBarController.h"
@@ -50,6 +51,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"MineSettingViewController"];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     [self mineSettingDataFilling];
@@ -61,6 +64,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"MineSettingViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

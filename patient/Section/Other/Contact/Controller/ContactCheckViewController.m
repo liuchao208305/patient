@@ -10,6 +10,7 @@
 #import "ContactTableCell.h"
 #import "NetworkUtil.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 #import "ContactAddViewController.h"
 #import "ContactChangeViewController.h"
 
@@ -51,6 +52,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"ContactCheckViewController"];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     [self sendContactCheckRequest];
@@ -62,6 +65,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ContactCheckViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

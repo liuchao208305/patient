@@ -7,6 +7,7 @@
 //
 
 #import "AgreementViewController.h"
+#import "AnalyticUtil.h"
 
 @interface AgreementViewController ()<UIWebViewDelegate>{
     MBProgressHUD *hud;
@@ -24,6 +25,18 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"AgreementViewController"];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"AgreementViewController"];
 }
 
 - (void)didReceiveMemoryWarning {

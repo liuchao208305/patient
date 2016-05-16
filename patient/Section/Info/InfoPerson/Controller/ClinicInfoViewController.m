@@ -17,6 +17,7 @@
 #import "NullUtil.h"
 #import "DateUtil.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 
 @interface ClinicInfoViewController ()
 
@@ -106,6 +107,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"ClinicInfoViewController"];
+    
     [self sendClinicDoctorRequest];
 }
 
@@ -115,6 +118,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ClinicInfoViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

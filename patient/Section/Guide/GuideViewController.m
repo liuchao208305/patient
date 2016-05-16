@@ -9,6 +9,7 @@
 #import "GuideViewController.h"
 #import "AdaptionUtil.h"
 #import "BaseTabBarController.h"
+#import "AnalyticUtil.h"
 
 @interface GuideViewController()<UIScrollViewDelegate>
 
@@ -24,6 +25,18 @@
     [super viewDidLoad];
     
     [self initGuideView];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"GuideViewController"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"GuideViewController"];
 }
 
 -(void)didReceiveMemoryWarning{

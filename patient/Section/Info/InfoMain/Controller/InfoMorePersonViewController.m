@@ -13,6 +13,7 @@
 #import "HudUtil.h"
 #import "AlertUtil.h"
 #import "NullUtil.h"
+#import "AnalyticUtil.h"
 #import "CityViewController.h"
 #import "ExpertInfoViewController.h"
 
@@ -61,6 +62,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"InfoMorePersonViewController"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -69,6 +72,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"InfoMorePersonViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

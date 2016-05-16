@@ -15,6 +15,7 @@
 #import "HudUtil.h"
 #import "ContactCheckViewController.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 
 @interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
 
@@ -62,6 +63,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"TreatmentInfoViewController"];
 //    DLog(@"%@",self.expertId);
 //    DLog(@"%@",self.clinicId);
 //    DLog(@"%@",self.doctorId);
@@ -82,6 +85,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"TreatmentInfoViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

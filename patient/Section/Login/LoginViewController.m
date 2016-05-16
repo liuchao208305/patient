@@ -14,6 +14,7 @@
 #import "EncyptionUtil.h"
 #import "CommonUtil.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -74,14 +75,6 @@
 @implementation LoginViewController
 
 #pragma mark Life Circle
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    
-    if (thread != nil) {
-        [thread cancel];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -91,8 +84,20 @@
     [self initRecognizer];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [AnalyticUtil UMBeginLogPageView:@"LoginViewController"];
+    
+    if (thread != nil) {
+        [thread cancel];
+    }
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"LoginViewController"];
 }
 
 - (void)didReceiveMemoryWarning {

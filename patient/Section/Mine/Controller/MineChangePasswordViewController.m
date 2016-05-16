@@ -12,6 +12,7 @@
 #import "HudUtil.h"
 #import "AdaptionUtil.h"
 #import "EncyptionUtil.h"
+#import "AnalyticUtil.h"
 
 @interface MineChangePasswordViewController (){
     int timeCount;
@@ -52,6 +53,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"MineChangePasswordViewController"];
+    
     if (thread != nil) {
         [thread cancel];
     }
@@ -63,6 +66,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"MineChangePasswordViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

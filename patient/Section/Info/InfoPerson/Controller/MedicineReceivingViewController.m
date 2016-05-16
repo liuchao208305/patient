@@ -12,6 +12,7 @@
 #import "HudUtil.h"
 #import "NullUtil.h"
 #import "StringUtil.h"
+#import "AnalyticUtil.h"
 #import "MRChufangData.h"
 /*=============================*/
 #import "MRDoctorTableCell.h"
@@ -145,6 +146,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"MedicineReceivingViewController"];
+    
     [self sendMedicineReceivingRequest];
 }
 
@@ -154,6 +157,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"MedicineReceivingViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

@@ -12,6 +12,7 @@
 #import "CouponCheckViewController.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
 
 @interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
@@ -105,10 +106,14 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"TreatmentDetailViewController"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"TreatmentDetailViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

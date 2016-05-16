@@ -13,6 +13,7 @@
 #import "TestQuestionTableCell.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 #import "TestResultListViewController.h"
 #import "TestResultDetailViewController.h"
 #import "LoginViewController.h"
@@ -57,6 +58,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [AnalyticUtil UMBeginLogPageView:@"TestFixViewController"];
+    
     [self sendTestInfoRequest];
 }
 
@@ -66,6 +69,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"TestFixViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

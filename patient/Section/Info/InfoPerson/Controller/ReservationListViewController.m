@@ -14,6 +14,7 @@
 #import "NullUtil.h"
 #import "HudUtil.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
 
 @interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate>
@@ -56,6 +57,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [AnalyticUtil UMBeginLogPageView:@"ReservationListViewController"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -64,6 +67,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ReservationListViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

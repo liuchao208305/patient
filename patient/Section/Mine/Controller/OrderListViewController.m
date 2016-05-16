@@ -11,6 +11,7 @@
 #import "HudUtil.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "AnalyticUtil.h"
 #import "OrderListTableCell.h"
 #import "OrderData.h"
 #import "TreatmentDetailViewController.h"
@@ -71,6 +72,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"OrderListViewController"];
+    
     self.navigationController.navigationBar.hidden = NO;
 
     if (self.orderType == 0) {
@@ -127,6 +130,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"OrderListViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

@@ -12,6 +12,7 @@
 #import "QuestionData.h"
 #import "TestQuestionTableCell.h"
 #import "NullUtil.h"
+#import "AnalyticUtil.h"
 
 @interface TestViewController ()<QuestionDelegate>
 
@@ -46,6 +47,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [AnalyticUtil UMBeginLogPageView:@"TestViewController"];
+    
     [self sendTestInfoRequest];
 }
 
@@ -55,6 +58,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"TestViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

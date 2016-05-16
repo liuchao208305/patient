@@ -22,6 +22,7 @@
 #import "ExpertInfoViewController.h"
 #import "NullUtil.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 #import "InfoMoreStudioViewController.h"
 #import "InfoMorePersonViewController.h"
 
@@ -106,6 +107,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [AnalyticUtil UMBeginLogPageView:@"InfoViewController"];
+    
     [self sendInfoRequest];
 }
 
@@ -115,6 +118,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [AnalyticUtil UMEndLogPageView:@"InfoViewController"];
 }
 
 #pragma mark Lazy Loading

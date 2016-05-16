@@ -11,6 +11,7 @@
 #import "AlertUtil.h"
 #import "HudUtil.h"
 #import "NullUtil.h"
+#import "AnalyticUtil.h"
 #import "SNChart.h"
 
 @interface TestResultDetailViewController ()<SNChartDataSource>
@@ -66,6 +67,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"TestResultDetailViewController"];
+    
     DLog(@"%@",self.resultId);
     [self sendTestResultDetailRequest];
 }
@@ -76,6 +79,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"TestResultDetailViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

@@ -8,6 +8,7 @@
 
 #import "ScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AnalyticUtil.h"
 
 @interface ScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -35,6 +36,8 @@
 {
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"ScanViewController"];
+    
     [self.session startRunning];
     [self openCamera];
 }
@@ -49,6 +52,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ScanViewController"];
     
     [self.session stopRunning];
     [timer invalidate];

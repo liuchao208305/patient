@@ -12,6 +12,7 @@
 #import "AlertUtil.h"
 #import "HudUtil.h"
 #import "NullUtil.h"
+#import "AnalyticUtil.h"
 #import "LoginViewController.h"
 #import "ResultData.h"
 #import "TestResultDetailViewController.h"
@@ -52,6 +53,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"TestResultListViewController"];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     [self sendTestResultListRequest];
@@ -63,6 +66,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"TestResultListViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

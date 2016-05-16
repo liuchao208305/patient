@@ -8,6 +8,7 @@
 
 #import "ClinicInfoFixViewController.h"
 #import "HudUtil.h"
+#import "AnalyticUtil.h"
 #import "TreatmentInfoViewController.h"
 
 @interface ClinicInfoFixViewController ()
@@ -93,6 +94,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [AnalyticUtil UMBeginLogPageView:@"ClinicInfoFixViewController"];
+    
     [self sendClinicDoctorRequest];
 }
 
@@ -102,6 +105,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [AnalyticUtil UMEndLogPageView:@"ClinicInfoFixViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
