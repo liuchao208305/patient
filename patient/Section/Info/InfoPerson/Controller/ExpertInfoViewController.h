@@ -32,6 +32,8 @@
 @property (strong,nonatomic)NSMutableArray *commentExpertArray;
 @property (strong,nonatomic)NSMutableArray *commentPraiseArray;
 
+@property (assign,nonatomic)NSInteger fiterType;
+
 @property (strong,nonatomic)NSMutableArray *clinicArray;
 @property (strong,nonatomic)NSMutableArray *clinicIdArray;
 @property (strong,nonatomic)NSMutableArray *clinicNameArray;

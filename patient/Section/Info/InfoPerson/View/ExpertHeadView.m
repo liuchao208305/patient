@@ -65,7 +65,7 @@
     }];
     
     self.fiterLabel = [[UILabel alloc] init];
-    self.fiterLabel.text = @"最近医院";
+//    self.fiterLabel.text = @"最近医院";
     [self.fiterView addSubview:self.fiterLabel];
     
     self.fiterImage = [[UIImageView alloc] init];

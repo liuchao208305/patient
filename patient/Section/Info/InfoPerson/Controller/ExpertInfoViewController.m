@@ -27,7 +27,7 @@
 #import "AnalyticUtil.h"
 #import "ClinicInfoFixViewController.h"
 
-@interface ExpertInfoViewController ()<FiterViewClickDelegate>
+@interface ExpertInfoViewController ()<FiterViewClickDelegate,UIActionSheetDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -199,7 +199,7 @@
     self.tableView.tableFooterView = self.footView;
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self sendClinicInfoRequest];
+        [self sendClinicInfoRequest:self.fiterType];
     }];
     
     [self.view addSubview:self.tableView];
@@ -225,6 +225,34 @@
 
 -(void)filterViewClicked{
     DLog(@"filterViewClicked");
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择筛选条件"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"最近医院", @"服务最佳",@"价格最低",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        self.expertHeadView.fiterLabel.text = @"最近医院";
+        self.fiterType = 1;
+        [self sendClinicInfoRequest:self.fiterType];
+    }else if (buttonIndex == 1){
+        self.expertHeadView.fiterLabel.text = @"服务最佳";
+        self.fiterType = 2;
+        [self sendClinicInfoRequest:self.fiterType];
+    }else if(buttonIndex == 2){
+        self.expertHeadView.fiterLabel.text = @"价格最低";
+        self.fiterType = 3;
+        [self sendClinicInfoRequest:self.fiterType];
+    }else if (buttonIndex == 3){
+        
+    }
 }
 
 #pragma mark UITableViewDelegate
@@ -313,6 +341,15 @@
     self.expertHeadView.tag = section;
     if (section == 4) {
         self.expertHeadView.fiterViewClickDelegate = self;
+        
+        if (self.fiterType == 1) {
+            self.expertHeadView.fiterLabel.text = @"最近医院";
+        }else if (self.fiterType == 2){
+            self.expertHeadView.fiterLabel.text = @"服务最佳";
+        }else if (self.fiterType == 3){
+            self.expertHeadView.fiterLabel.text = @"价格最低";
+        }
+        
     }else{
         self.expertHeadView.fiterView.hidden = YES;
     }
@@ -607,7 +644,7 @@
     }];
 }
 
--(void)sendClinicInfoRequest{
+-(void)sendClinicInfoRequest:(NSUInteger)type{
     DLog(@"sendClinicInfoRequest");
     
     self.pageSize += 10;
@@ -617,7 +654,7 @@
     [parameter setValue:self.latitude forKey:@"y"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
-    [parameter setValue:@"1" forKey:@"type"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.fiterType] forKey:@"type"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CLINIC_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -669,7 +706,10 @@
         [self.commentPraiseArray addObject:commentData.flag_name];
     }
     
-    [self sendClinicInfoRequest];
+    if (!self.fiterType) {
+        self.fiterType = 1;
+        [self sendClinicInfoRequest:self.fiterType];
+    }
 }
 
 -(void)clinicInfoDataParse{
