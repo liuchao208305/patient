@@ -181,6 +181,12 @@
 		707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BBE1C96C02D00101B30 /* HealthData.m */; };
 		707E5BC21C96C03A00101B30 /* StudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC11C96C03A00101B30 /* StudioData.m */; };
 		707E5BC51C96C04D00101B30 /* PersonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5BC41C96C04D00101B30 /* PersonData.m */; };
+		708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52D51CE9AEAE0033C479 /* StudioInfoViewController.m */; };
+		708B52D91CE9B54F0033C479 /* StutioAdvantageTabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52D81CE9B54F0033C479 /* StutioAdvantageTabelCell.m */; };
+		708B52DC1CE9B5690033C479 /* StudioExpertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52DB1CE9B5690033C479 /* StudioExpertTableCell.m */; };
+		708B52DF1CE9BB630033C479 /* StudioExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52DE1CE9BB630033C479 /* StudioExpertData.m */; };
+		708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52E11CE9C0900033C479 /* StudioHeadView.m */; };
+		708B52E51CEA5A670033C479 /* StudioExpertCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */; };
 		708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */; };
 		708FD5E81CE086A6002CDFA8 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E61CE086A6002CDFA8 /* citydict.plist */; };
 		708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5ED1CE086E0002CDFA8 /* CityViewController.m */; };
@@ -604,6 +610,18 @@
 		707E5BC11C96C03A00101B30 /* StudioData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioData.m; sourceTree = "<group>"; };
 		707E5BC31C96C04D00101B30 /* PersonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonData.h; sourceTree = "<group>"; };
 		707E5BC41C96C04D00101B30 /* PersonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonData.m; sourceTree = "<group>"; };
+		708B52D41CE9AEAE0033C479 /* StudioInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioInfoViewController.h; sourceTree = "<group>"; };
+		708B52D51CE9AEAE0033C479 /* StudioInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioInfoViewController.m; sourceTree = "<group>"; };
+		708B52D71CE9B54F0033C479 /* StutioAdvantageTabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StutioAdvantageTabelCell.h; sourceTree = "<group>"; };
+		708B52D81CE9B54F0033C479 /* StutioAdvantageTabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StutioAdvantageTabelCell.m; sourceTree = "<group>"; };
+		708B52DA1CE9B5690033C479 /* StudioExpertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioExpertTableCell.h; sourceTree = "<group>"; };
+		708B52DB1CE9B5690033C479 /* StudioExpertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioExpertTableCell.m; sourceTree = "<group>"; };
+		708B52DD1CE9BB630033C479 /* StudioExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioExpertData.h; sourceTree = "<group>"; };
+		708B52DE1CE9BB630033C479 /* StudioExpertData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioExpertData.m; sourceTree = "<group>"; };
+		708B52E01CE9C0900033C479 /* StudioHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioHeadView.h; sourceTree = "<group>"; };
+		708B52E11CE9C0900033C479 /* StudioHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioHeadView.m; sourceTree = "<group>"; };
+		708B52E31CEA5A670033C479 /* StudioExpertCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioExpertCollectionCell.h; sourceTree = "<group>"; };
+		708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioExpertCollectionCell.m; sourceTree = "<group>"; };
 		708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancelBtn@2x.png"; sourceTree = "<group>"; };
 		708FD5E61CE086A6002CDFA8 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		708FD5EC1CE086E0002CDFA8 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
@@ -1577,6 +1595,8 @@
 		7046AD9B1C9FD30C00BB6818 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				708B52D41CE9AEAE0033C479 /* StudioInfoViewController.h */,
+				708B52D51CE9AEAE0033C479 /* StudioInfoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1584,6 +1604,8 @@
 		7046AD9C1C9FD31300BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				708B52DD1CE9BB630033C479 /* StudioExpertData.h */,
+				708B52DE1CE9BB630033C479 /* StudioExpertData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1591,6 +1613,14 @@
 		7046AD9D1C9FD31A00BB6818 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				708B52D71CE9B54F0033C479 /* StutioAdvantageTabelCell.h */,
+				708B52D81CE9B54F0033C479 /* StutioAdvantageTabelCell.m */,
+				708B52E01CE9C0900033C479 /* StudioHeadView.h */,
+				708B52E11CE9C0900033C479 /* StudioHeadView.m */,
+				708B52DA1CE9B5690033C479 /* StudioExpertTableCell.h */,
+				708B52DB1CE9B5690033C479 /* StudioExpertTableCell.m */,
+				708B52E31CEA5A670033C479 /* StudioExpertCollectionCell.h */,
+				708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2366,9 +2396,11 @@
 				70B4EB191CD871CD00141E38 /* MRShexiangTableCell.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
+				708B52DC1CE9B5690033C479 /* StudioExpertTableCell.m in Sources */,
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
 				70B4EB4B1CDAD58300141E38 /* MRTemplateGeneralTableCell.m in Sources */,
 				70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */,
+				708B52E51CEA5A670033C479 /* StudioExpertCollectionCell.m in Sources */,
 				70FEADE51CA8D03F006A044A /* ClinicExpertTableCell.m in Sources */,
 				70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
@@ -2390,9 +2422,11 @@
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
+				708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
+				708B52DF1CE9BB630033C479 /* StudioExpertData.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
@@ -2426,6 +2460,7 @@
 				70B4EB401CD8950300141E38 /* StringUtil.m in Sources */,
 				7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */,
 				70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */,
+				708B52D91CE9B54F0033C479 /* StutioAdvantageTabelCell.m in Sources */,
 				705EF7FE1CBCA0F500732886 /* RecordHeaderView.m in Sources */,
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
@@ -2454,6 +2489,7 @@
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,
+				708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,

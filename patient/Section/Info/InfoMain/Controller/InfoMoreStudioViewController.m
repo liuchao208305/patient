@@ -14,6 +14,7 @@
 #import "AlertUtil.h"
 #import "NullUtil.h"
 #import "AnalyticUtil.h"
+#import "StudioInfoViewController.h"
 
 @interface InfoMoreStudioViewController ()
 
@@ -157,6 +158,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
+    studioVC.studioId = self.studioIdArray[indexPath.row];
+    studioVC.studioName = self.studioNameArray[indexPath.row];
+    studioVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:studioVC animated:YES];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

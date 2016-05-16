@@ -25,6 +25,7 @@
 #import "AnalyticUtil.h"
 #import "InfoMoreStudioViewController.h"
 #import "InfoMorePersonViewController.h"
+#import "StudioInfoViewController.h"
 
 @interface InfoViewController (){
     SDCycleScrollView *scrollView;
@@ -411,7 +412,11 @@
     }else if (indexPath.section == 1){
         
     }else if (indexPath.section == 2){
-        
+        StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
+        studioVC.studioId = self.studioId;
+        studioVC.studioName = self.studioName;
+        studioVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:studioVC animated:YES];
     }else if (indexPath.section == 3){
         
     }
