@@ -23,4 +23,6 @@
 @property (strong,nonatomic)NSMutableArray *expertImageArray;
 @property (strong,nonatomic)NSMutableArray *expertDiseaseArray;
 
+@property (strong,nonatomic)UICollectionView *collectionView;
+
 @end

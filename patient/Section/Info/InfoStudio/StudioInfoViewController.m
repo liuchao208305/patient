@@ -18,8 +18,9 @@
 #import "StudioExpertData.h"
 #import "StudioHeadView.h"
 #import "StudioExpertCollectionCell.h"
+#import "ExpertInfoViewController.h"
 
-@interface StudioInfoViewController ()<ExpertDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface StudioInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -225,7 +226,14 @@
             cell = [[StudioExpertTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
-        cell.expertDelegate = self;
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 340) collectionViewLayout:flowLayout];
+        self.collectionView.dataSource=self;
+        self.collectionView.delegate=self;
+        [self.collectionView setBackgroundColor:kWHITE_COLOR];
+        [self.collectionView registerClass:[StudioExpertCollectionCell class] forCellWithReuseIdentifier:@"StudioExpertCollectionCell"];
+        [cell.contentView addSubview:self.collectionView];
         
         return cell;
     }
@@ -236,29 +244,54 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark ExpertDelegate
--(void)expert1Clicked{
-    DLog(@"expert1Clicked");
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.expertArray.count == 0 ? 0 : self.expertArray.count;
 }
 
--(void)expert2Clicked{
-    DLog(@"expert2Clicked");
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
 
--(void)expert3Clicked{
-    DLog(@"expert3Clicked");
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellName = @"StudioExpertCollectionCell";
+    StudioExpertCollectionCell * cell = (StudioExpertCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.expertImageArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    cell.label1.text = self.expertNameArray[indexPath.row];
+    cell.label2.text = self.expertDiseaseArray[indexPath.row];
+
+    return cell;
 }
 
--(void)expert4Clicked{
-    DLog(@"expert4Clicked");
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(SCREEN_WIDTH/3, 170);
 }
 
--(void)expert5Clicked{
-    DLog(@"expert5Clicked");
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
--(void)expert6Clicked{
-    DLog(@"expert6Clicked");
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"%ld",(long)indexPath.row);
+    
+    ExpertInfoViewController *expertInfoVC = [[ExpertInfoViewController alloc] init];
+    expertInfoVC.hidesBottomBarWhenPushed = YES;
+    expertInfoVC.expertId = self.expertIdArray[indexPath.row];
+    expertInfoVC.expertName = self.expertNameArray[indexPath.row];
+    [self.navigationController pushViewController:expertInfoVC animated:YES];
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
 }
 
 #pragma mark Network Request
