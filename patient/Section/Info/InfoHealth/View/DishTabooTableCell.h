@@ -10,4 +10,6 @@
 
 @interface DishTabooTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *label;
+
 @end

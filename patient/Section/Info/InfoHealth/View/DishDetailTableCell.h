@@ -10,4 +10,6 @@
 
 @interface DishDetailTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *label;
+
 @end

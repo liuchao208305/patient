@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "HealthInfoViewController.h"
+#import "HealthDishInfoViewController.h"
 #import "NetworkUtil.h"
 #import "NullUtil.h"
 #import "CommonUtil.h"
@@ -19,8 +19,10 @@
 #import "DishStepTableCell.h"
 #import "DishTabooTableCell.h"
 #import "DishExpertTableCell.h"
+#import "DishFoodData.h"
+#import "DishExpertData.h"
 
-@interface HealthInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthDishInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -31,9 +33,33 @@
 @property (strong,nonatomic)UIImageView *dishImageView;
 @property (strong,nonatomic)DishHeaderView *dishHeaderView;
 
+@property (strong,nonatomic)NSString *dishImageString;
+@property (assign,nonatomic)NSInteger commentNumber;
+@property (strong,nonatomic)NSString *dishProperty;
+@property (strong,nonatomic)NSString *dishFunction;
+
+@property (strong,nonatomic)NSString *dishDetail;
+
+@property (strong,nonatomic)NSMutableArray *foodArray;
+@property (strong,nonatomic)NSMutableArray *foodIdArray;
+@property (strong,nonatomic)NSMutableArray *foodNameArray;
+@property (strong,nonatomic)NSMutableArray *foodQuantityArray;
+@property (strong,nonatomic)NSMutableArray *foodImageArray;
+
+@property (strong,nonatomic)NSString *dishStep;
+
+@property (strong,nonatomic)NSString *dishTaboo;
+
+@property (strong,nonatomic)NSMutableArray *expertArray;
+@property (strong,nonatomic)NSMutableArray *expertIdArray;
+@property (strong,nonatomic)NSMutableArray *expertImageArray;
+@property (strong,nonatomic)NSMutableArray *expertNameArray;
+@property (strong,nonatomic)NSMutableArray *expertTitleArray;
+@property (strong,nonatomic)NSMutableArray *expertUnitArray;
+
 @end
 
-@implementation HealthInfoViewController
+@implementation HealthDishInfoViewController
 
 #pragma mark Life Circle
 -(void)viewDidLoad{
@@ -53,7 +79,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [AnalyticUtil UMBeginLogPageView:@"HealthInfoViewController"];
+    [AnalyticUtil UMBeginLogPageView:@"HealthDishInfoViewController"];
     
     [self sendHealthInfoRequest];
 }
@@ -65,7 +91,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    [AnalyticUtil UMEndLogPageView:@"HealthInfoViewController"];
+    [AnalyticUtil UMEndLogPageView:@"HealthDishInfoViewController"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -78,7 +104,18 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+    self.foodArray = [NSMutableArray array];
+    self.foodIdArray = [NSMutableArray array];
+    self.foodNameArray = [NSMutableArray array];
+    self.foodQuantityArray = [NSMutableArray array];
+    self.foodImageArray = [NSMutableArray array];
     
+    self.expertArray = [NSMutableArray array];
+    self.expertIdArray = [NSMutableArray array];
+    self.expertImageArray = [NSMutableArray array];
+    self.expertNameArray = [NSMutableArray array];
+    self.expertTitleArray = [NSMutableArray array];
+    self.expertUnitArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -130,8 +167,14 @@
 }
 
 -(void)initBottomView{
-    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-55, SCREEN_WIDTH, 55)];
-    [self.view addSubview:self.bottomView];
+    self.leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-55, SCREEN_WIDTH/3*2, 55)];
+    [self.leftButton setBackgroundImage:[UIImage imageNamed:@"default_image_small"] forState:UIControlStateNormal];
+    [self.leftButton setTitle:@"test" forState:UIControlStateNormal];
+    [self.view addSubview:self.leftButton];
+    
+    self.rightButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, SCREEN_HEIGHT-55, SCREEN_WIDTH/3, 55)];
+    self.rightButton.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.rightButton];
 }
 
 -(void)initRecognizer{
@@ -256,6 +299,11 @@
             cell = [[DishBasicTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        [cell.commentImageView setImage:[UIImage imageNamed:@"info_health_dish_comment_yellow"]];
+        cell.commentLabel.text = [NSString stringWithFormat:@"%ld人点赞",(long)self.commentNumber];
+        cell.propertyLabel.text = [NSString stringWithFormat:@"物性：%@",self.dishProperty];
+        cell.functionLabel.text = [NSString stringWithFormat:@"适用于：%@",self.dishFunction];
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *cellName = @"DishDetailTableCell";
@@ -264,6 +312,8 @@
             cell = [[DishDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        cell.label.text = self.dishDetail;
+        
         return cell;
     }else if (indexPath.section == 2){
         static NSString *cellName = @"DishFoodTableCell";
@@ -288,6 +338,8 @@
             cell = [[DishTabooTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        cell.label.text = self.dishTaboo;
+        
         return cell;
     }else if (indexPath.section == 5){
         static NSString *cellName = @"DishExpertTableCell";
@@ -347,6 +399,35 @@
 
 #pragma mark Data Parse
 -(void)healthInfoDataParse{
+    self.dishImageString = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"cover_url"]];
+    self.commentNumber = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"admire"] integerValue];
+    self.dishProperty = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_wx"]];
+    self.dishFunction = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_gx"]];
+    
+    self.dishDetail = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"jianjie"]];
+    
+    self.foodArray = [DishFoodData mj_objectArrayWithKeyValuesArray:self.data];
+    if (self.foodArray.count > 0) {
+        for (DishFoodData *dishFoodData in self.foodArray) {
+            [self.foodIdArray addObject:dishFoodData.food_id];
+            [self.foodNameArray addObject:dishFoodData.food_name];
+            [self.foodQuantityArray addObject:dishFoodData.dose];
+            [self.foodImageArray addObject:dishFoodData.cover_url];
+        }
+    }
+    
+    self.dishStep = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"buzhou"]];
+    
+    self.dishTaboo = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_jj"]];
+    
+    self.expertArray = [DishExpertData mj_objectArrayWithKeyValuesArray:self.data];
+    for (DishExpertData *dishExpertData in self.expertArray) {
+        [self.expertIdArray addObject:dishExpertData.doctor_id];
+        [self.expertImageArray addObject:dishExpertData.heand_url];
+        [self.expertNameArray addObject:dishExpertData.doctor_name];
+        [self.expertTitleArray addObject:dishExpertData.title_name];
+        [self.expertUnitArray addObject:dishExpertData.company];
+    }
     
     [self.tableView reloadData];
 }

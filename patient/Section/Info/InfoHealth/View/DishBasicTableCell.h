@@ -10,4 +10,9 @@
 
 @interface DishBasicTableCell : UITableViewCell
 
+@property (strong,nonatomic)UIImageView *commentImageView;
+@property (strong,nonatomic)UILabel *commentLabel;
+@property (strong,nonatomic)UILabel *propertyLabel;
+@property (strong,nonatomic)UILabel *functionLabel;
+
 @end

@@ -26,7 +26,8 @@
 #import "InfoMoreHealthViewController.h"
 #import "InfoMoreStudioViewController.h"
 #import "InfoMorePersonViewController.h"
-#import "HealthInfoViewController.h"
+#import "HealthDishInfoViewController.h"
+#import "HealthFoodInfoViewController.h"
 #import "StudioInfoViewController.h"
 
 @interface InfoViewController (){
@@ -412,12 +413,21 @@
     if (indexPath.section == 0) {
         
     }else if (indexPath.section == 1){
-        HealthInfoViewController *healthVC = [[HealthInfoViewController alloc] init];
-        healthVC.healthType = self.healthType;
-        healthVC.healthId = self.healthId;
-        healthVC.healthName = self.healthName;
-        healthVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:healthVC animated:YES];
+        if (self.healthType == 1) {
+            HealthFoodInfoViewController *foodVC = [[HealthFoodInfoViewController alloc] init];
+            foodVC.healthType = self.healthType;
+            foodVC.healthId = self.healthId;
+            foodVC.healthName = self.healthName;
+            foodVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:foodVC animated:YES];
+        }else if(self.healthType == 2){
+            HealthDishInfoViewController *dishVC = [[HealthDishInfoViewController alloc] init];
+            dishVC.healthType = self.healthType;
+            dishVC.healthId = self.healthId;
+            dishVC.healthName = self.healthName;
+            dishVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:dishVC animated:YES];
+        }
     }else if (indexPath.section == 2){
         StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
         studioVC.studioId = self.studioId;
@@ -621,7 +631,7 @@
     self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"id"];
     self.healthName = [[self.data objectForKey:@"cooks"][0] objectForKey:@"NAME"];
     self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
-    self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"type"];
+    self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"TYPE"];
     
     self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
     self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];

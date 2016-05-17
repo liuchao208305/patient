@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface HealthInfoViewController : BaseViewController
+@interface HealthDishInfoViewController : BaseViewController
 
 @property (assign,nonatomic)NSInteger healthType;
 @property (strong,nonatomic)NSString *healthId;
@@ -18,6 +18,7 @@
 @property (strong,nonatomic)UIView *headView;
 @property (strong,nonatomic)UIView *footView;
 
-@property (strong,nonatomic)UIView *bottomView;
+@property (strong,nonatomic)UIButton *leftButton;
+@property (strong,nonatomic)UIButton *rightButton;
 
 @end

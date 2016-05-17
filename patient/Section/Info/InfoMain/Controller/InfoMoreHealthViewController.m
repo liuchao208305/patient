@@ -14,6 +14,8 @@
 #import "AnalyticUtil.h"
 #import "MoreHealthTableCell.h"
 #import "MoreHealthData.h"
+#import "HealthDishInfoViewController.h"
+#import "HealthFoodInfoViewController.h"
 
 @interface InfoMoreHealthViewController ()
 
@@ -142,6 +144,19 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.healthTypeArray[indexPath.row] integerValue] == 1) {
+        HealthFoodInfoViewController *foodVC = [[HealthFoodInfoViewController alloc] init];
+        foodVC.healthType = [self.healthTypeArray[indexPath.row] integerValue];
+        foodVC.healthId = self.healthIdArray[indexPath.row];
+        foodVC.healthName = self.healthNameArray[indexPath.row];
+        [self.navigationController pushViewController:foodVC animated:YES];
+    }else if([self.healthTypeArray[indexPath.row] integerValue] == 2){
+        HealthDishInfoViewController *dishVC = [[HealthDishInfoViewController alloc] init];
+        dishVC.healthType = [self.healthTypeArray[indexPath.row] integerValue];
+        dishVC.healthId = self.healthIdArray[indexPath.row];
+        dishVC.healthName = self.healthNameArray[indexPath.row];
+        [self.navigationController pushViewController:dishVC animated:YES];
+    }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
