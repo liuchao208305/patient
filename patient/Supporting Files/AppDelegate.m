@@ -17,6 +17,8 @@
 #import <UMessage.h>
 #import "BaseTabBarController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
+#import "WXApiManager.h"
 
 #import "GuideViewController.h"
 
@@ -39,6 +41,7 @@
     [self startPush:launchOptions];
     [self startAnalytic];
     [self startSocial];
+    [self startPay];
     [self initRootWindow];
     
     return YES;
@@ -279,6 +282,10 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2804359312"
                                               secret:@"31ecd177145d7f65ba803b77fdfea63b"
                                          RedirectURL:@"http://www.jiuzhekan.com/"];
+}
+
+-(void)startPay{
+    [WXApi registerApp:@"wx6a048cad50cccc7b" withDescription:@"demo 2.0"];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

@@ -14,8 +14,9 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
-@interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
+@interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate,WXApiDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -74,6 +75,15 @@
 @property (strong,nonatomic)NSString *alipayMomo;
 @property (strong,nonatomic)NSString *alipayResult;
 @property (strong,nonatomic)NSString *alipayResultStatus;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo;
+@property (strong,nonatomic)NSString *appid;
+@property (strong,nonatomic)NSString *noncestr;
+@property (strong,nonatomic)NSString *package;
+@property (strong,nonatomic)NSString *partnerid;
+@property (strong,nonatomic)NSString *prepayid;
+@property (strong,nonatomic)NSString *sign;
+@property (nonatomic, assign)UInt32 timeStamp;
 
 @property (assign,nonatomic)NSInteger payStatusCode;
 @property (strong,nonatomic)NSString *qrcodeImageString;
@@ -594,9 +604,9 @@
         [self sendPayNowInfoRequest];
     }else if (buttonIndex == 1){
         //微信支付
-//                self.paymentType = 3;
-        //        [self sendPaymentInfoRequest];
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
+        self.paymentType = 3;
+        [self sendPayNowInfoRequest];
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
     }else if(buttonIndex == 2){
         //        self.paymentType =4;
         //        [self sendPaymentInfoRequest];
@@ -816,7 +826,42 @@
 }
 
 -(void)paymentInfoWechatPayDataParse{
+    self.payinfo = [self.data2 objectForKey:@"payinfo"];
+    self.appid = [self.payinfo objectForKey:@"appid"];
+    self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+    self.package = [self.payinfo objectForKey:@"package"];
+    self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+    self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+    self.sign = [self.payinfo objectForKey:@"sign"];
+    self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
     
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid;
+    req.partnerId           = self.partnerid;
+    req.prepayId            = self.prepayid;
+    req.nonceStr            = self.noncestr;
+    req.timeStamp           = self.timeStamp;
+    req.package             = self.package;
+    req.sign                = self.sign;
+    [WXApi sendReq:req];
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+    
+    switch (resp.errCode) {
+        case WXSuccess:
+            strMsg = @"支付结果：成功！";
+            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+            break;
+            
+        default:
+            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+            break;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 -(void)paymentInfoUnionPayDataParse{

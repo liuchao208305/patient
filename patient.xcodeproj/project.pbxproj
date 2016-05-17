@@ -187,6 +187,8 @@
 		708B52DF1CE9BB630033C479 /* StudioExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52DE1CE9BB630033C479 /* StudioExpertData.m */; };
 		708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52E11CE9C0900033C479 /* StudioHeadView.m */; };
 		708B52E51CEA5A670033C479 /* StudioExpertCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */; };
+		708B52EC1CEAFB7D0033C479 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B52E71CEAFB7D0033C479 /* libWeChatSDK.a */; };
+		708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52EA1CEAFB7D0033C479 /* WXApiManager.m */; };
 		708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */; };
 		708FD5E81CE086A6002CDFA8 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E61CE086A6002CDFA8 /* citydict.plist */; };
 		708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5ED1CE086E0002CDFA8 /* CityViewController.m */; };
@@ -622,6 +624,11 @@
 		708B52E11CE9C0900033C479 /* StudioHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioHeadView.m; sourceTree = "<group>"; };
 		708B52E31CEA5A670033C479 /* StudioExpertCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioExpertCollectionCell.h; sourceTree = "<group>"; };
 		708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudioExpertCollectionCell.m; sourceTree = "<group>"; };
+		708B52E71CEAFB7D0033C479 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		708B52E81CEAFB7D0033C479 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		708B52E91CEAFB7D0033C479 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		708B52EA1CEAFB7D0033C479 /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		708B52EB1CEAFB7D0033C479 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancelBtn@2x.png"; sourceTree = "<group>"; };
 		708FD5E61CE086A6002CDFA8 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		708FD5EC1CE086E0002CDFA8 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
@@ -900,6 +907,7 @@
 				7029395E1C8EC70F008280E2 /* SystemConfiguration.framework in Frameworks */,
 				702939861C9271EC008280E2 /* jpush-ios-2.1.0.a in Frameworks */,
 				7029395C1C8EC706008280E2 /* CoreTelephony.framework in Frameworks */,
+				708B52EC1CEAFB7D0033C479 /* libWeChatSDK.a in Frameworks */,
 				7029395A1C8EC6FB008280E2 /* CoreFoundation.framework in Frameworks */,
 				702939581C8EC6F1008280E2 /* CFNetwork.framework in Frameworks */,
 				70926D911CC7327300CB0416 /* AlipaySDK.framework in Frameworks */,
@@ -1145,6 +1153,7 @@
 		70265CA71C858B5A0091C01F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				708B52E61CEAFB400033C479 /* WeixinPay */,
 				708FD5E41CE08693002CDFA8 /* selectCity */,
 				70B4EB5D1CDB374900141E38 /* lame */,
 				70B4EA791CCCC7B300141E38 /* SNChartView */,
@@ -1824,6 +1833,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		708B52E61CEAFB400033C479 /* WeixinPay */ = {
+			isa = PBXGroup;
+			children = (
+				708B52E71CEAFB7D0033C479 /* libWeChatSDK.a */,
+				708B52E81CEAFB7D0033C479 /* WXApi.h */,
+				708B52E91CEAFB7D0033C479 /* WXApiManager.h */,
+				708B52EA1CEAFB7D0033C479 /* WXApiManager.m */,
+				708B52EB1CEAFB7D0033C479 /* WXApiObject.h */,
+			);
+			path = WeixinPay;
+			sourceTree = "<group>";
+		};
 		708FD5E41CE08693002CDFA8 /* selectCity */ = {
 			isa = PBXGroup;
 			children = (
@@ -2495,6 +2516,7 @@
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
+				708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
 				70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */,
 			);
@@ -2644,6 +2666,7 @@
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
 					"$(PROJECT_DIR)/patient/Vendor/lame",
+					"$(PROJECT_DIR)/patient/Vendor/WeixinPay",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2672,6 +2695,7 @@
 					"$(PROJECT_DIR)/Pods/JPush-iOS-SDK/lib",
 					"$(PROJECT_DIR)/patient/Vendor/JPush",
 					"$(PROJECT_DIR)/patient/Vendor/lame",
+					"$(PROJECT_DIR)/patient/Vendor/WeixinPay",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
