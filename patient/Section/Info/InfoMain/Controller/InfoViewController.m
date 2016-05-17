@@ -618,11 +618,19 @@
     self.studioName = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgName"];
     self.studioImage = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgCover"];
     
+//    self.personArray = [PersonData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
+//    for (PersonData *personData in self.personArray) {
+//        [self.personIdArray addObject:personData.doctorId];
+//        [self.personImageArray addObject:personData.heandUrl];
+//        [self.personLable1Array addObject:personData.doctorName];
+//        [self.personLable2Array addObject:[NullUtil judgeStringNull:personData.diseaseName]];
+//    }
+    
     self.personArray = [PersonData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
     for (PersonData *personData in self.personArray) {
-        [self.personIdArray addObject:personData.doctorId];
-        [self.personImageArray addObject:personData.heandUrl];
-        [self.personLable1Array addObject:personData.doctorName];
+        [self.personIdArray addObject:personData.doctor_id];
+        [self.personImageArray addObject:personData.heand_url];
+        [self.personLable1Array addObject:personData.doctor_name];
         [self.personLable2Array addObject:[NullUtil judgeStringNull:personData.diseaseName]];
     }
 

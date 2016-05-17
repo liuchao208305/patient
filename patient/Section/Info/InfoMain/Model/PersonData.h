@@ -10,9 +10,14 @@
 
 @interface PersonData : NSObject
 
-@property (strong,nonatomic)NSString *doctorId;
-@property (strong,nonatomic)NSString *heandUrl;
-@property (strong,nonatomic)NSString *doctorName;
+//@property (strong,nonatomic)NSString *doctorId;
+//@property (strong,nonatomic)NSString *heandUrl;
+//@property (strong,nonatomic)NSString *doctorName;
+//@property (strong,nonatomic)NSString *diseaseName;
+
+@property (strong,nonatomic)NSString *doctor_id;
+@property (strong,nonatomic)NSString *heand_url;
+@property (strong,nonatomic)NSString *doctor_name;
 @property (strong,nonatomic)NSString *diseaseName;
 
 @end
