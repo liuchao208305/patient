@@ -23,8 +23,10 @@
 #import "NullUtil.h"
 #import "HudUtil.h"
 #import "AnalyticUtil.h"
+#import "InfoMoreHealthViewController.h"
 #import "InfoMoreStudioViewController.h"
 #import "InfoMorePersonViewController.h"
+#import "HealthInfoViewController.h"
 #import "StudioInfoViewController.h"
 
 @interface InfoViewController (){
@@ -410,7 +412,12 @@
     if (indexPath.section == 0) {
         
     }else if (indexPath.section == 1){
-        
+        HealthInfoViewController *healthVC = [[HealthInfoViewController alloc] init];
+        healthVC.healthType = self.healthType;
+        healthVC.healthId = self.healthId;
+        healthVC.healthName = self.healthName;
+        healthVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:healthVC animated:YES];
     }else if (indexPath.section == 2){
         StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
         studioVC.studioId = self.studioId;
@@ -486,6 +493,9 @@
 
 -(void)healthHeadViewClicked{
     DLog(@"healthHeadViewClicked");
+    InfoMoreHealthViewController *moreHealthVC = [[InfoMoreHealthViewController alloc] init];
+    moreHealthVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:moreHealthVC animated:YES];
 }
 
 -(void)studioHeadViewClicked{

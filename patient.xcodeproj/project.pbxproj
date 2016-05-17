@@ -189,6 +189,18 @@
 		708B52E51CEA5A670033C479 /* StudioExpertCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */; };
 		708B52EC1CEAFB7D0033C479 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B52E71CEAFB7D0033C479 /* libWeChatSDK.a */; };
 		708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52EA1CEAFB7D0033C479 /* WXApiManager.m */; };
+		708B52F01CEB077C0033C479 /* InfoMoreHealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52EF1CEB077C0033C479 /* InfoMoreHealthViewController.m */; };
+		708B52F31CEB07C30033C479 /* MoreHealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52F21CEB07C30033C479 /* MoreHealthTableCell.m */; };
+		708B52F61CEB0C540033C479 /* MoreHealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52F51CEB0C540033C479 /* MoreHealthData.m */; };
+		708B52F81CEB16B10033C479 /* info_health_comment_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708B52F71CEB16B10033C479 /* info_health_comment_image.png */; };
+		708B52FB1CEB19070033C479 /* HealthInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52FA1CEB19070033C479 /* HealthInfoViewController.m */; };
+		708B52FE1CEB28460033C479 /* DishBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B52FD1CEB28460033C479 /* DishBasicTableCell.m */; };
+		708B53011CEB28890033C479 /* DishDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B53001CEB28890033C479 /* DishDetailTableCell.m */; };
+		708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B53031CEB28CE0033C479 /* DishFoodTableCell.m */; };
+		708B53071CEB28F00033C479 /* DishStepTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B53061CEB28F00033C479 /* DishStepTableCell.m */; };
+		708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B53091CEB29520033C479 /* DishTabooTableCell.m */; };
+		708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B530C1CEB296C0033C479 /* DishExpertTableCell.m */; };
+		708B53101CEB2DD30033C479 /* DishHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B530F1CEB2DD30033C479 /* DishHeaderView.m */; };
 		708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */; };
 		708FD5E81CE086A6002CDFA8 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 708FD5E61CE086A6002CDFA8 /* citydict.plist */; };
 		708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708FD5ED1CE086E0002CDFA8 /* CityViewController.m */; };
@@ -629,6 +641,29 @@
 		708B52E91CEAFB7D0033C479 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		708B52EA1CEAFB7D0033C479 /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
 		708B52EB1CEAFB7D0033C479 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		708B52EE1CEB077C0033C479 /* InfoMoreHealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoMoreHealthViewController.h; sourceTree = "<group>"; };
+		708B52EF1CEB077C0033C479 /* InfoMoreHealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoMoreHealthViewController.m; sourceTree = "<group>"; };
+		708B52F11CEB07C30033C479 /* MoreHealthTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHealthTableCell.h; sourceTree = "<group>"; };
+		708B52F21CEB07C30033C479 /* MoreHealthTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreHealthTableCell.m; sourceTree = "<group>"; };
+		708B52F41CEB0C540033C479 /* MoreHealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHealthData.h; sourceTree = "<group>"; };
+		708B52F51CEB0C540033C479 /* MoreHealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreHealthData.m; sourceTree = "<group>"; };
+		708B52F71CEB16B10033C479 /* info_health_comment_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_health_comment_image.png; sourceTree = "<group>"; };
+		708B52F91CEB19070033C479 /* HealthInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfoViewController.h; sourceTree = "<group>"; };
+		708B52FA1CEB19070033C479 /* HealthInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfoViewController.m; sourceTree = "<group>"; };
+		708B52FC1CEB28460033C479 /* DishBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishBasicTableCell.h; sourceTree = "<group>"; };
+		708B52FD1CEB28460033C479 /* DishBasicTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishBasicTableCell.m; sourceTree = "<group>"; };
+		708B52FF1CEB28890033C479 /* DishDetailTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishDetailTableCell.h; sourceTree = "<group>"; };
+		708B53001CEB28890033C479 /* DishDetailTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishDetailTableCell.m; sourceTree = "<group>"; };
+		708B53021CEB28CE0033C479 /* DishFoodTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishFoodTableCell.h; sourceTree = "<group>"; };
+		708B53031CEB28CE0033C479 /* DishFoodTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishFoodTableCell.m; sourceTree = "<group>"; };
+		708B53051CEB28F00033C479 /* DishStepTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishStepTableCell.h; sourceTree = "<group>"; };
+		708B53061CEB28F00033C479 /* DishStepTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishStepTableCell.m; sourceTree = "<group>"; };
+		708B53081CEB29520033C479 /* DishTabooTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishTabooTableCell.h; sourceTree = "<group>"; };
+		708B53091CEB29520033C479 /* DishTabooTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTabooTableCell.m; sourceTree = "<group>"; };
+		708B530B1CEB296C0033C479 /* DishExpertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishExpertTableCell.h; sourceTree = "<group>"; };
+		708B530C1CEB296C0033C479 /* DishExpertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishExpertTableCell.m; sourceTree = "<group>"; };
+		708B530E1CEB2DD30033C479 /* DishHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishHeaderView.h; sourceTree = "<group>"; };
+		708B530F1CEB2DD30033C479 /* DishHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishHeaderView.m; sourceTree = "<group>"; };
 		708FD5E51CE086A6002CDFA8 /* cancelBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancelBtn@2x.png"; sourceTree = "<group>"; };
 		708FD5E61CE086A6002CDFA8 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		708FD5EC1CE086E0002CDFA8 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
@@ -1230,6 +1265,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708B52F71CEB16B10033C479 /* info_health_comment_image.png */,
 				70B4EB521CDB36E400141E38 /* info_person_mr_record_image.png */,
 				70B4EB531CDB36E400141E38 /* info_person_mr_record_image1.png */,
 				70B4EB541CDB36E400141E38 /* info_person_mr_record_image2.png */,
@@ -1443,6 +1479,8 @@
 				702939881C9273C4008280E2 /* InfoViewController.m */,
 				7046AD381C98107F00BB6818 /* ScanViewController.h */,
 				7046AD391C98107F00BB6818 /* ScanViewController.m */,
+				708B52EE1CEB077C0033C479 /* InfoMoreHealthViewController.h */,
+				708B52EF1CEB077C0033C479 /* InfoMoreHealthViewController.m */,
 				70B4EABB1CD265C000141E38 /* InfoMoreStudioViewController.h */,
 				70B4EABC1CD265C000141E38 /* InfoMoreStudioViewController.m */,
 				70B4EABE1CD265DC00141E38 /* InfoMorePersonViewController.h */,
@@ -1466,6 +1504,8 @@
 				7046ADA51CA0D78300BB6818 /* BannerData.m */,
 				7046ADA71CA0DE8000BB6818 /* TimeData.h */,
 				7046ADA81CA0DE8000BB6818 /* TimeData.m */,
+				708B52F41CEB0C540033C479 /* MoreHealthData.h */,
+				708B52F51CEB0C540033C479 /* MoreHealthData.m */,
 				70B4EAC71CD26A4F00141E38 /* MoreStudioData.h */,
 				70B4EAC81CD26A4F00141E38 /* MoreStudioData.m */,
 				70B4EACA1CD26A5F00141E38 /* MorePersonData.h */,
@@ -1491,6 +1531,8 @@
 				7046AC741C974C9F00BB6818 /* PersonTableCell.h */,
 				7046AC751C974C9F00BB6818 /* PersonTableCell.m */,
 				7046AC761C974C9F00BB6818 /* PersonTableCell.xib */,
+				708B52F11CEB07C30033C479 /* MoreHealthTableCell.h */,
+				708B52F21CEB07C30033C479 /* MoreHealthTableCell.m */,
 				70B4EAC11CD2686C00141E38 /* MoreStudioTableCell.h */,
 				70B4EAC21CD2686C00141E38 /* MoreStudioTableCell.m */,
 				70B4EAC41CD2688200141E38 /* MorePersonTableCell.h */,
@@ -1583,22 +1625,38 @@
 		7046AD981C9FD2F800BB6818 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				708B52F91CEB19070033C479 /* HealthInfoViewController.h */,
+				708B52FA1CEB19070033C479 /* HealthInfoViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7046AD991C9FD30000BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7046AD9A1C9FD30700BB6818 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				708B530E1CEB2DD30033C479 /* DishHeaderView.h */,
+				708B530F1CEB2DD30033C479 /* DishHeaderView.m */,
+				708B52FC1CEB28460033C479 /* DishBasicTableCell.h */,
+				708B52FD1CEB28460033C479 /* DishBasicTableCell.m */,
+				708B52FF1CEB28890033C479 /* DishDetailTableCell.h */,
+				708B53001CEB28890033C479 /* DishDetailTableCell.m */,
+				708B53021CEB28CE0033C479 /* DishFoodTableCell.h */,
+				708B53031CEB28CE0033C479 /* DishFoodTableCell.m */,
+				708B53051CEB28F00033C479 /* DishStepTableCell.h */,
+				708B53061CEB28F00033C479 /* DishStepTableCell.m */,
+				708B53081CEB29520033C479 /* DishTabooTableCell.h */,
+				708B53091CEB29520033C479 /* DishTabooTableCell.m */,
+				708B530B1CEB296C0033C479 /* DishExpertTableCell.h */,
+				708B530C1CEB296C0033C479 /* DishExpertTableCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		7046AD9B1C9FD30C00BB6818 /* Controller */ = {
@@ -1607,7 +1665,7 @@
 				708B52D41CE9AEAE0033C479 /* StudioInfoViewController.h */,
 				708B52D51CE9AEAE0033C479 /* StudioInfoViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7046AD9C1C9FD31300BB6818 /* Model */ = {
@@ -1616,7 +1674,7 @@
 				708B52DD1CE9BB630033C479 /* StudioExpertData.h */,
 				708B52DE1CE9BB630033C479 /* StudioExpertData.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7046AD9D1C9FD31A00BB6818 /* View */ = {
@@ -1631,7 +1689,7 @@
 				708B52E31CEA5A670033C479 /* StudioExpertCollectionCell.h */,
 				708B52E41CEA5A670033C479 /* StudioExpertCollectionCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		7046AD9E1C9FD32100BB6818 /* Controller */ = {
@@ -2173,6 +2231,7 @@
 				70B4EB571CDB36E400141E38 /* info_person_mr_record_image1.png in Resources */,
 				70C03E081CA2925E00DBA175 /* fast_forward.png in Resources */,
 				70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */,
+				708B52F81CEB16B10033C479 /* info_health_comment_image.png in Resources */,
 				7046AD1A1C97E5D700BB6818 /* cell_health_main_button.png in Resources */,
 				70C03E001CA2923800DBA175 /* full_play_btn_hl222@2x.png in Resources */,
 				705EF7ED1CBC947600732886 /* mine_bottom_useful.png in Resources */,
@@ -2343,10 +2402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708B53101CEB2DD30033C479 /* DishHeaderView.m in Sources */,
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
 				70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */,
 				704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */,
 				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
+				708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */,
 				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
@@ -2376,6 +2437,7 @@
 				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
 				70B4EB011CD8710D00141E38 /* MRHanreTableCell.m in Sources */,
+				708B52FE1CEB28460033C479 /* DishBasicTableCell.m in Sources */,
 				7005E38C1CC0D199002CA541 /* RecordAddViewController.m in Sources */,
 				7005E37F1CC0D112002CA541 /* ContactCheckViewController.m in Sources */,
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
@@ -2386,8 +2448,10 @@
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
+				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
+				708B52F31CEB07C30033C479 /* MoreHealthTableCell.m in Sources */,
 				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
 				70B4EAFB1CD870E200141E38 /* MRDabianTableCell.m in Sources */,
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
@@ -2430,12 +2494,15 @@
 				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
 				708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */,
+				708B52F01CEB077C0033C479 /* InfoMoreHealthViewController.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70B4EA8A1CCD0A9600141E38 /* MineSettingViewController.m in Sources */,
 				70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */,
 				70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */,
+				708B52F61CEB0C540033C479 /* MoreHealthData.m in Sources */,
 				70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
+				708B53011CEB28890033C479 /* DishDetailTableCell.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
 				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
@@ -2490,6 +2557,7 @@
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
 				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
+				708B52FB1CEB19070033C479 /* HealthInfoViewController.m in Sources */,
 				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
 				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
@@ -2498,6 +2566,7 @@
 				70B4EAB41CD088FB00141E38 /* OrderListViewController.m in Sources */,
 				70B4EAEC1CD8707000141E38 /* MRGuomingshiTableCell.m in Sources */,
 				707E5BBC1C96C01B00101B30 /* DiseaseData.m in Sources */,
+				708B53071CEB28F00033C479 /* DishStepTableCell.m in Sources */,
 				708FD5F11CE086E0002CDFA8 /* ResultCityController.m in Sources */,
 				70B4EAF51CD870B800141E38 /* MRYinshiTableCell.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
@@ -2514,6 +2583,7 @@
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
+				708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 				708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */,
