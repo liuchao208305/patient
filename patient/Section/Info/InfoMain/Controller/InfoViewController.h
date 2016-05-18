@@ -32,8 +32,11 @@
 @property (strong,nonatomic)NSMutableArray *diseaseLabelArray;
 
 @property (strong,nonatomic)NSMutableArray *healthArray;
+@property (strong,nonatomic)NSMutableArray *healthTypeArray;
+@property (strong,nonatomic)NSMutableArray *healthIdArray;
 @property (strong,nonatomic)NSMutableArray *healthImageArray;
-@property (strong,nonatomic)NSMutableArray *healthLableArray;
+@property (strong,nonatomic)NSMutableArray *healthNameArray;
+@property (strong,nonatomic)NSMutableArray *healthSeasonArray;
 
 //@property (strong,nonatomic)NSMutableArray *studioArray;
 //@property (strong,nonatomic)NSMutableArray *studioImageArray;

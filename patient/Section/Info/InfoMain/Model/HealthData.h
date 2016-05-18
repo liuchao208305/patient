@@ -10,9 +10,10 @@
 
 @interface HealthData : NSObject
 
-@property (strong,nonatomic)NSString *cooks_id;
-@property (strong,nonatomic)NSString *cooks_NAME;
-@property (strong,nonatomic)NSString *cooks_type;
-@property (strong,nonatomic)NSString *cooks_photoUrl;
+@property (strong,nonatomic)NSString *cook_id;
+@property (strong,nonatomic)NSString *NAME;
+@property (strong,nonatomic)NSString *TYPE;
+@property (strong,nonatomic)NSString *photoUrl;
+@property (strong,nonatomic)NSString *season;
 
 @end

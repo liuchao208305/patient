@@ -32,7 +32,7 @@
 #import "AgreementViewController.h"
 #import "DiseaseInfoViewController.h"
 
-@interface InfoViewController ()<SDCycleScrollViewDelegate>
+@interface InfoViewController ()<SDCycleScrollViewDelegate,HealthViewDelegate>
 {
     SDCycleScrollView *scrollView;
 }
@@ -139,8 +139,12 @@
     self.diseaseIdArray = [NSMutableArray array];
     self.diseaseImageArray = [NSMutableArray array];
     self.diseaseLabelArray = [NSMutableArray array];
+    self.healthArray = [NSMutableArray array];
+    self.healthTypeArray = [NSMutableArray array];
+    self.healthIdArray = [NSMutableArray array];
     self.healthImageArray = [NSMutableArray array];
-    self.healthLableArray = [NSMutableArray array];
+    self.healthNameArray= [NSMutableArray array];
+    self.healthSeasonArray = [NSMutableArray array];
 //    self.studioImageArray = [NSMutableArray array];
 //    self.studioLableArray = [NSMutableArray array];
     self.personArray = [NSMutableArray array];
@@ -303,13 +307,18 @@
         
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"HealthTableCell";
-        HealthTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"HealthTableCell" owner:nil options:nil] firstObject];
-        }
-        //填充数据
-        [cell.healthImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.healthImage]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+//        static NSString *cellName = @"HealthTableCell";
+//        HealthTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"HealthTableCell" owner:nil options:nil] firstObject];
+//        }
+//        //填充数据
+//        [cell.healthImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.healthImage]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+        
+        HealthTableCell *cell = [[HealthTableCell alloc] init];
+        [cell initViewWithArray:self.healthImageArray];
+        cell.healthViewDelegate = self;
+        
         return cell;
     }else if (indexPath.section == 2){
         static NSString *cellName = @"StudioTableCell";
@@ -455,6 +464,28 @@
     webVC.urlStr = self.adUrlArray[index];
     [self.navigationController pushViewController:webVC animated:YES];
 }
+
+#pragma mark HealthViewDelegate
+-(void)healthViewClicked:(NSInteger)index{
+    DLog(@"index-->%ld",(long)index);
+    
+    if ([self.healthTypeArray[index] integerValue] == 1) {
+        HealthFoodInfoViewController *foodVC = [[HealthFoodInfoViewController alloc] init];
+        foodVC.healthType = [self.healthTypeArray[index] integerValue];
+        foodVC.healthId = self.healthIdArray[index];
+        foodVC.healthName = self.healthNameArray[index];
+        foodVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:foodVC animated:YES];
+    }else if([self.healthTypeArray[index] integerValue] == 2){
+        HealthDishInfoViewController *dishVC = [[HealthDishInfoViewController alloc] init];
+        dishVC.healthType = [self.healthTypeArray[index] integerValue];
+        dishVC.healthId = self.healthIdArray[index];
+        dishVC.healthName = self.healthNameArray[index];
+        dishVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:dishVC animated:YES];
+    }
+}
+
 
 #pragma mark Target Action
 -(void)navBack{
@@ -650,10 +681,21 @@
     self.keshiLabel4 = self.diseaseLabelArray[3];
     self.keshiImage4 = self.diseaseImageArray[3];
     
-    self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"id"];
+    self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"cook_id"];
     self.healthName = [[self.data objectForKey:@"cooks"][0] objectForKey:@"NAME"];
     self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
     self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"TYPE"];
+    
+    self.healthArray = [HealthData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"cooks"]];
+    for (HealthData *healthData in self.healthArray) {
+        [self.healthTypeArray addObject:[NullUtil judgeStringNull:healthData.TYPE]];
+        [self.healthIdArray addObject:[NullUtil judgeStringNull:healthData.cook_id]];
+        if (self.healthImageArray.count < 3) {
+            [self.healthImageArray addObject:[NullUtil judgeStringNull:healthData.photoUrl]];
+        }
+        [self.healthNameArray addObject:[NullUtil judgeStringNull:healthData.NAME]];
+        [self.healthSeasonArray addObject:[NullUtil judgeStringNull:healthData.season]];
+    }
     
     self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
     self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];

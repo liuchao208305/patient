@@ -7,10 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDCycleScrollView.h>
 
-@interface HealthTableCell : UITableViewCell
+@protocol HealthViewDelegate <NSObject>
+
+-(void)healthViewClicked:(NSInteger)index;
+
+@end
+
+@interface HealthTableCell : UITableViewCell<SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *healthImageView;
+/*==================================================================*/
+@property (strong,nonatomic)SDCycleScrollView *scrollView;
 
+-(void)initViewWithArray:(NSMutableArray *)Array;
+
+@property (weak,nonatomic)id<HealthViewDelegate> healthViewDelegate;
 
 @end
