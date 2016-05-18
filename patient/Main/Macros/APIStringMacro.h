@@ -39,6 +39,7 @@ typedef enum {
 #define kJZK_NORMAL_LOGIN @"public/v1/user/login?"//常规登录
 #define kJZK_THIRD_LOGIN @"public/v1/user/insertLogin?"//第三方登录
 #define kJZK_INFO_INFORMATION @"public/v1/user/index?"//首页信息
+#define kJZK_DISEASE_INFOMATION @"/public/v1/getSpecialDetail?"//疾病专题信息
 #define kJZK_MORE_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicAppPage?"//健康饮食列表
 #define kJZK_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicDetail?"//健康饮食信息
 #define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表

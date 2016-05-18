@@ -30,6 +30,7 @@
 #import "HealthFoodInfoViewController.h"
 #import "StudioInfoViewController.h"
 #import "AgreementViewController.h"
+#import "DiseaseInfoViewController.h"
 
 @interface InfoViewController ()<SDCycleScrollViewDelegate>
 {
@@ -469,7 +470,12 @@
 
 -(void)guominImageViewClicked{
     DLog(@"guominImageViewClicked");
-    
+    DiseaseInfoViewController *diseaseVC = [[DiseaseInfoViewController alloc] init];
+    diseaseVC.hidesBottomBarWhenPushed = YES;
+//    diseaseVC.diseaseId = self.guominId1;
+    diseaseVC.diseaseId = self.guominId2;
+    diseaseVC.diseaseName = self.guominLabel1;
+    [self.navigationController pushViewController:diseaseVC animated:YES];
 }
 
 -(void)laotouImageViewClicked{
@@ -620,6 +626,7 @@
     self.guominId2 = [[self.data objectForKey:@"spcial"] objectForKey:@"case_id"];
     self.guominLabel1 = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
     self.guominImage = [[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"];
+    
     self.laotouId = [[self.data objectForKey:@"templates"] objectForKey:@"template_id"];
     self.laotouLabel1 = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
     self.laotouImage = [[self.data objectForKey:@"templates"] objectForKey:@"cover_url"];

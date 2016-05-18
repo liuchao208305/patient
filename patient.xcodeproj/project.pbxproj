@@ -350,6 +350,16 @@
 		70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E4C1CEBFCDB00DA22E5 /* FoodTabooTableCell.m */; };
 		70FD8E501CEC041400DA22E5 /* FoodDishData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E4F1CEC041400DA22E5 /* FoodDishData.m */; };
 		70FD8E531CEC0D1100DA22E5 /* FoodCookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E521CEC0D1100DA22E5 /* FoodCookView.m */; };
+		70FD8E561CEC399000DA22E5 /* DiseaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E551CEC399000DA22E5 /* DiseaseInfoViewController.m */; };
+		70FD8E591CEC3AA600DA22E5 /* DiseaseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E581CEC3AA600DA22E5 /* DiseaseHeaderView.m */; };
+		70FD8E5C1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E5B1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m */; };
+		70FD8E5F1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E5E1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m */; };
+		70FD8E621CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E611CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m */; };
+		70FD8E651CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E641CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m */; };
+		70FD8E681CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E671CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m */; };
+		70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E6A1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m */; };
+		70FD8E6E1CEC458900DA22E5 /* DiseaseExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E6D1CEC458900DA22E5 /* DiseaseExpertData.m */; };
+		70FD8E711CEC45B700DA22E5 /* DiseaseHealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E701CEC45B700DA22E5 /* DiseaseHealthData.m */; };
 		70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */; };
 		70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */; };
 		70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */; };
@@ -947,6 +957,26 @@
 		70FD8E4F1CEC041400DA22E5 /* FoodDishData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDishData.m; sourceTree = "<group>"; };
 		70FD8E511CEC0D1100DA22E5 /* FoodCookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCookView.h; sourceTree = "<group>"; };
 		70FD8E521CEC0D1100DA22E5 /* FoodCookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCookView.m; sourceTree = "<group>"; };
+		70FD8E541CEC399000DA22E5 /* DiseaseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseInfoViewController.h; sourceTree = "<group>"; };
+		70FD8E551CEC399000DA22E5 /* DiseaseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseInfoViewController.m; sourceTree = "<group>"; };
+		70FD8E571CEC3AA600DA22E5 /* DiseaseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseHeaderView.h; sourceTree = "<group>"; };
+		70FD8E581CEC3AA600DA22E5 /* DiseaseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseHeaderView.m; sourceTree = "<group>"; };
+		70FD8E5A1CEC3DA200DA22E5 /* DiseaseDetailTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseDetailTableCell.h; sourceTree = "<group>"; };
+		70FD8E5B1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseDetailTableCell.m; sourceTree = "<group>"; };
+		70FD8E5D1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseSymptomTableCell.h; sourceTree = "<group>"; };
+		70FD8E5E1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseSymptomTableCell.m; sourceTree = "<group>"; };
+		70FD8E601CEC3DEA00DA22E5 /* DiseaseCauseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseCauseTableCell.h; sourceTree = "<group>"; };
+		70FD8E611CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseCauseTableCell.m; sourceTree = "<group>"; };
+		70FD8E631CEC3E1100DA22E5 /* DiseaseAttentionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseAttentionTableCell.h; sourceTree = "<group>"; };
+		70FD8E641CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseAttentionTableCell.m; sourceTree = "<group>"; };
+		70FD8E661CEC3E2A00DA22E5 /* DiseaseExpertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseExpertTableCell.h; sourceTree = "<group>"; };
+		70FD8E671CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseExpertTableCell.m; sourceTree = "<group>"; };
+		70FD8E691CEC3E3C00DA22E5 /* DiseaseHealthTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseHealthTableCell.h; sourceTree = "<group>"; };
+		70FD8E6A1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseHealthTableCell.m; sourceTree = "<group>"; };
+		70FD8E6C1CEC458900DA22E5 /* DiseaseExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseExpertData.h; sourceTree = "<group>"; };
+		70FD8E6D1CEC458900DA22E5 /* DiseaseExpertData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseExpertData.m; sourceTree = "<group>"; };
+		70FD8E6F1CEC45B700DA22E5 /* DiseaseHealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseHealthData.h; sourceTree = "<group>"; };
+		70FD8E701CEC45B700DA22E5 /* DiseaseHealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseHealthData.m; sourceTree = "<group>"; };
 		70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_media_default@2x.jpg"; sourceTree = "<group>"; };
 		70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_guanzhu_selected.png; sourceTree = "<group>"; };
 		70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_jingli_image.png; sourceTree = "<group>"; };
@@ -1676,6 +1706,8 @@
 		7046AD951C9FD2DE00BB6818 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				70FD8E541CEC399000DA22E5 /* DiseaseInfoViewController.h */,
+				70FD8E551CEC399000DA22E5 /* DiseaseInfoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1683,6 +1715,10 @@
 		7046AD961C9FD2E500BB6818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70FD8E6C1CEC458900DA22E5 /* DiseaseExpertData.h */,
+				70FD8E6D1CEC458900DA22E5 /* DiseaseExpertData.m */,
+				70FD8E6F1CEC45B700DA22E5 /* DiseaseHealthData.h */,
+				70FD8E701CEC45B700DA22E5 /* DiseaseHealthData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1690,6 +1726,20 @@
 		7046AD971C9FD2EA00BB6818 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				70FD8E571CEC3AA600DA22E5 /* DiseaseHeaderView.h */,
+				70FD8E581CEC3AA600DA22E5 /* DiseaseHeaderView.m */,
+				70FD8E5A1CEC3DA200DA22E5 /* DiseaseDetailTableCell.h */,
+				70FD8E5B1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m */,
+				70FD8E5D1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.h */,
+				70FD8E5E1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m */,
+				70FD8E601CEC3DEA00DA22E5 /* DiseaseCauseTableCell.h */,
+				70FD8E611CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m */,
+				70FD8E631CEC3E1100DA22E5 /* DiseaseAttentionTableCell.h */,
+				70FD8E641CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m */,
+				70FD8E661CEC3E2A00DA22E5 /* DiseaseExpertTableCell.h */,
+				70FD8E671CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m */,
+				70FD8E691CEC3E3C00DA22E5 /* DiseaseHealthTableCell.h */,
+				70FD8E6A1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2515,6 +2565,7 @@
 				704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */,
 				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
 				708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */,
+				70FD8E681CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m in Sources */,
 				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
@@ -2538,6 +2589,7 @@
 				70B4EB161CD871B900141E38 /* MRTigeTableCell.m in Sources */,
 				70B4EAE01CD8701000141E38 /* MRZhusuTableCell.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
+				70FD8E5F1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m in Sources */,
 				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
 				708FD5FA1CE086EE002CDFA8 /* CustomTopView.m in Sources */,
@@ -2583,6 +2635,7 @@
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
 				70FD8E531CEC0D1100DA22E5 /* FoodCookView.m in Sources */,
 				70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */,
+				70FD8E5C1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m in Sources */,
 				7046ADC71CA10F7A00BB6818 /* ExpertInfoViewController.m in Sources */,
 				70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */,
 				705EF80E1CBD43B300732886 /* RecordView.m in Sources */,
@@ -2617,6 +2670,7 @@
 				70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				708B53011CEB28890033C479 /* DishDetailTableCell.m in Sources */,
+				70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
 				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
@@ -2624,18 +2678,21 @@
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
+				70FD8E561CEC399000DA22E5 /* DiseaseInfoViewController.m in Sources */,
 				708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
 				708B52DF1CE9BB630033C479 /* StudioExpertData.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
+				70FD8E6E1CEC458900DA22E5 /* DiseaseExpertData.m in Sources */,
 				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
 				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,
+				70FD8E651CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m in Sources */,
 				7046AE4A1CA1459400BB6818 /* ExpertCommentTableCell.m in Sources */,
 				70A9BD371C88017D0035B5E0 /* AdaptionUtil.m in Sources */,
 				70B4EAE61CD8704200141E38 /* MRJiwangshiTableCell.m in Sources */,
@@ -2647,6 +2704,7 @@
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
 				70B4EAE31CD8702500141E38 /* MRXianbingshiTableCell.m in Sources */,
 				70B4EB1C1CD871E000141E38 /* MRMaixiangTableCell.m in Sources */,
+				70FD8E621CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
 				70B4EB2E1CD8728000141E38 /* MRFYshijianTableCell.m in Sources */,
@@ -2657,9 +2715,11 @@
 				70B4EA861CCCC7E100141E38 /* SNChartLine.m in Sources */,
 				70B4EB311CD8729700141E38 /* MRFYcishuTableCell.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
+				70FD8E711CEC45B700DA22E5 /* DiseaseHealthData.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
 				70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */,
+				70FD8E591CEC3AA600DA22E5 /* DiseaseHeaderView.m in Sources */,
 				70B4EB401CD8950300141E38 /* StringUtil.m in Sources */,
 				70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */,
 				7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */,
