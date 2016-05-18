@@ -14,4 +14,8 @@
 @property (strong,nonatomic)NSString *healthId;
 @property (strong,nonatomic)NSString *healthName;
 
+@property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIView *footView;
+
 @end

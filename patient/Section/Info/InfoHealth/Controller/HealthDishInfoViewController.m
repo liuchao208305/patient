@@ -21,6 +21,7 @@
 #import "DishExpertTableCell.h"
 #import "DishFoodData.h"
 #import "DishExpertData.h"
+#import "ExpertInfoViewController.h"
 
 @interface HealthDishInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -81,7 +82,7 @@
     
     [AnalyticUtil UMBeginLogPageView:@"HealthDishInfoViewController"];
     
-    [self sendHealthInfoRequest];
+    [self sendHealthDishInfoRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -206,7 +207,7 @@
             return 1;
             break;
         case 5:
-            return 2;
+            return self.expertArray.count == 0 ? 0 :self.expertArray.count;
             break;
         default:
             return 1;
@@ -348,18 +349,29 @@
             cell = [[DishExpertTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.expertImageArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = self.expertNameArray[indexPath.row];
+        cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
+        cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
+        
         return cell;
     }
     return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 5) {
+        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+        expertVC.expertId = self.expertIdArray[indexPath.row];
+        expertVC.expertName = self.expertNameArray[indexPath.row];
+        [self.navigationController pushViewController:expertVC animated:YES];
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark Network Request
--(void)sendHealthInfoRequest{
-    DLog(@"sendHealthInfoRequest");
+-(void)sendHealthDishInfoRequest{
+    DLog(@"sendHealthDishInfoRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
@@ -369,6 +381,8 @@
     [parameter setValue:self.healthId forKey:@"food_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.healthType] forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    
+    DLog(@"parameter-->%@",parameter);
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -382,7 +396,7 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            [self healthInfoDataParse];
+            [self healthDishInfoDataParse];
         }else{
             DLog(@"%@",self.message);
         }
@@ -398,7 +412,7 @@
 }
 
 #pragma mark Data Parse
--(void)healthInfoDataParse{
+-(void)healthDishInfoDataParse{
     self.dishImageString = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"cover_url"]];
     self.commentNumber = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"admire"] integerValue];
     self.dishProperty = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_wx"]];
@@ -406,7 +420,7 @@
     
     self.dishDetail = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"jianjie"]];
     
-    self.foodArray = [DishFoodData mj_objectArrayWithKeyValuesArray:self.data];
+    self.foodArray = [DishFoodData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"foods"]];
     if (self.foodArray.count > 0) {
         for (DishFoodData *dishFoodData in self.foodArray) {
             [self.foodIdArray addObject:dishFoodData.food_id];
@@ -420,7 +434,7 @@
     
     self.dishTaboo = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_jj"]];
     
-    self.expertArray = [DishExpertData mj_objectArrayWithKeyValuesArray:self.data];
+    self.expertArray = [DishExpertData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
     for (DishExpertData *dishExpertData in self.expertArray) {
         [self.expertIdArray addObject:dishExpertData.doctor_id];
         [self.expertImageArray addObject:dishExpertData.heand_url];

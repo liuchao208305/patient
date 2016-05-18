@@ -342,6 +342,14 @@
 		70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C03E131CA3C3B100DBA175 /* full_pause_btn@2x.png */; };
 		70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E161CA3D0FE00DBA175 /* NullUtil.m */; };
 		70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */; };
+		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
+		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
+		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
+		70FD8E471CEBFCA500DA22E5 /* FoodCookTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E461CEBFCA500DA22E5 /* FoodCookTableCell.m */; };
+		70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E491CEBFCC900DA22E5 /* FoodChooseTableCell.m */; };
+		70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E4C1CEBFCDB00DA22E5 /* FoodTabooTableCell.m */; };
+		70FD8E501CEC041400DA22E5 /* FoodDishData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E4F1CEC041400DA22E5 /* FoodDishData.m */; };
+		70FD8E531CEC0D1100DA22E5 /* FoodCookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E521CEC0D1100DA22E5 /* FoodCookView.m */; };
 		70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */; };
 		70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */; };
 		70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */; };
@@ -923,6 +931,22 @@
 		70C03E161CA3D0FE00DBA175 /* NullUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullUtil.m; sourceTree = "<group>"; };
 		70C03E1B1CA44FD800DBA175 /* ExpertCommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertCommentData.h; sourceTree = "<group>"; };
 		70C03E1C1CA44FD800DBA175 /* ExpertCommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertCommentData.m; sourceTree = "<group>"; };
+		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
+		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
+		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
+		70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBasicTableCell.m; sourceTree = "<group>"; };
+		70FD8E421CEBFC8900DA22E5 /* FoodValueTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodValueTableCell.h; sourceTree = "<group>"; };
+		70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodValueTableCell.m; sourceTree = "<group>"; };
+		70FD8E451CEBFCA500DA22E5 /* FoodCookTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCookTableCell.h; sourceTree = "<group>"; };
+		70FD8E461CEBFCA500DA22E5 /* FoodCookTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCookTableCell.m; sourceTree = "<group>"; };
+		70FD8E481CEBFCC900DA22E5 /* FoodChooseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodChooseTableCell.h; sourceTree = "<group>"; };
+		70FD8E491CEBFCC900DA22E5 /* FoodChooseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodChooseTableCell.m; sourceTree = "<group>"; };
+		70FD8E4B1CEBFCDB00DA22E5 /* FoodTabooTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTabooTableCell.h; sourceTree = "<group>"; };
+		70FD8E4C1CEBFCDB00DA22E5 /* FoodTabooTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTabooTableCell.m; sourceTree = "<group>"; };
+		70FD8E4E1CEC041400DA22E5 /* FoodDishData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDishData.h; sourceTree = "<group>"; };
+		70FD8E4F1CEC041400DA22E5 /* FoodDishData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDishData.m; sourceTree = "<group>"; };
+		70FD8E511CEC0D1100DA22E5 /* FoodCookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCookView.h; sourceTree = "<group>"; };
+		70FD8E521CEC0D1100DA22E5 /* FoodCookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCookView.m; sourceTree = "<group>"; };
 		70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_media_default@2x.jpg"; sourceTree = "<group>"; };
 		70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_guanzhu_selected.png; sourceTree = "<group>"; };
 		70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_jingli_image.png; sourceTree = "<group>"; };
@@ -1688,6 +1712,8 @@
 				708103521CEB831F009BC871 /* DishFoodData.m */,
 				708103541CEB832A009BC871 /* DishExpertData.h */,
 				708103551CEB832A009BC871 /* DishExpertData.m */,
+				70FD8E4E1CEC041400DA22E5 /* FoodDishData.h */,
+				70FD8E4F1CEC041400DA22E5 /* FoodDishData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1709,6 +1735,20 @@
 				708B53091CEB29520033C479 /* DishTabooTableCell.m */,
 				708B530B1CEB296C0033C479 /* DishExpertTableCell.h */,
 				708B530C1CEB296C0033C479 /* DishExpertTableCell.m */,
+				70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */,
+				70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */,
+				70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */,
+				70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */,
+				70FD8E421CEBFC8900DA22E5 /* FoodValueTableCell.h */,
+				70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */,
+				70FD8E511CEC0D1100DA22E5 /* FoodCookView.h */,
+				70FD8E521CEC0D1100DA22E5 /* FoodCookView.m */,
+				70FD8E451CEBFCA500DA22E5 /* FoodCookTableCell.h */,
+				70FD8E461CEBFCA500DA22E5 /* FoodCookTableCell.m */,
+				70FD8E481CEBFCC900DA22E5 /* FoodChooseTableCell.h */,
+				70FD8E491CEBFCC900DA22E5 /* FoodChooseTableCell.m */,
+				70FD8E4B1CEBFCDB00DA22E5 /* FoodTabooTableCell.h */,
+				70FD8E4C1CEBFCDB00DA22E5 /* FoodTabooTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2513,6 +2553,7 @@
 				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,
 				708FD5FD1CE086F5002CDFA8 /* CityModel.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
+				70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
@@ -2526,7 +2567,9 @@
 				70B4EB0A1CD8715300141E38 /* MRJingshenTableCell.m in Sources */,
 				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
+				70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */,
 				7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */,
+				70FD8E501CEC041400DA22E5 /* FoodDishData.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
 				70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */,
@@ -2538,6 +2581,7 @@
 				70B4EB4E1CDB10F700141E38 /* MRZhaopianCollectionCell.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
+				70FD8E531CEC0D1100DA22E5 /* FoodCookView.m in Sources */,
 				70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */,
 				7046ADC71CA10F7A00BB6818 /* ExpertInfoViewController.m in Sources */,
 				70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */,
@@ -2548,6 +2592,7 @@
 				70B4EB3A1CD8730300141E38 /* MRYizhuSoundTableCell.m in Sources */,
 				70C03DD61CA25D1E00DBA175 /* ExpertFootView.m in Sources */,
 				70B4EB191CD871CD00141E38 /* MRShexiangTableCell.m in Sources */,
+				70FD8E471CEBFCA500DA22E5 /* FoodCookTableCell.m in Sources */,
 				70265C741C858AA50091C01F /* main.m in Sources */,
 				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
 				708B52DC1CE9B5690033C479 /* StudioExpertTableCell.m in Sources */,
@@ -2598,6 +2643,7 @@
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
 				70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */,
+				70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */,
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
 				70B4EAE31CD8702500141E38 /* MRXianbingshiTableCell.m in Sources */,
 				70B4EB1C1CD871E000141E38 /* MRMaixiangTableCell.m in Sources */,
@@ -2615,6 +2661,7 @@
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
 				70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */,
 				70B4EB401CD8950300141E38 /* StringUtil.m in Sources */,
+				70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */,
 				7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */,
 				70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */,
 				708B52D91CE9B54F0033C479 /* StutioAdvantageTabelCell.m in Sources */,
@@ -2646,6 +2693,7 @@
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
+				70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,

@@ -10,4 +10,11 @@
 
 @interface DishExpertTableCell : UITableViewCell
 
+@property (strong,nonatomic)UIImageView *expertImageView;
+@property (strong,nonatomic)UILabel *expertNameLabel;
+@property (strong,nonatomic)UILabel *expertTitleLabel;
+@property (strong,nonatomic)UILabel *expertUnitLabel;
+
+@property (strong,nonatomic)UIView *lineView;
+
 @end
