@@ -29,8 +29,10 @@
 #import "HealthDishInfoViewController.h"
 #import "HealthFoodInfoViewController.h"
 #import "StudioInfoViewController.h"
+#import "AgreementViewController.h"
 
-@interface InfoViewController (){
+@interface InfoViewController ()<SDCycleScrollViewDelegate>
+{
     SDCycleScrollView *scrollView;
 }
 @property (strong,nonatomic)NSMutableDictionary *result;
@@ -129,6 +131,8 @@
 #pragma mark Lazy Loading
 -(void)lazyLoading{
     self.adArray = [NSMutableArray array];
+    self.adIdArray  = [NSMutableArray array];
+    self.adUrlArray = [NSMutableArray array];
     self.adImageArray = [NSMutableArray array];
     self.diseaseArray = [NSMutableArray array];
     self.diseaseIdArray = [NSMutableArray array];
@@ -204,6 +208,7 @@
     scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:self.localImageArray];
     scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     scrollView.autoScrollTimeInterval = 5;
+    scrollView.delegate = self;
     [self.headView addSubview:scrollView];
 }
 
@@ -441,6 +446,15 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark SDCycleScrollViewDelegate
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"点击了第%ld张图片", index);
+    AgreementViewController *webVC = [[AgreementViewController alloc] init];
+    webVC.hidesBottomBarWhenPushed = YES;
+    webVC.urlStr = self.adUrlArray[index];
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
 #pragma mark Target Action
 -(void)navBack{
     
@@ -455,6 +469,7 @@
 
 -(void)guominImageViewClicked{
     DLog(@"guominImageViewClicked");
+    
 }
 
 -(void)laotouImageViewClicked{

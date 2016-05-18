@@ -127,7 +127,7 @@
     
     self.foodImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     //    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:self.clinicImage] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
-    [self.foodImageView setImage:[UIImage imageNamed:@"default_image_big"]];
+//    [self.foodImageView setImage:[UIImage imageNamed:@"default_image_big"]];
     
     [self.headView addSubview:self.foodImageView];
 }
@@ -369,6 +369,9 @@
 #pragma mark Data Parse
 -(void)healthFoodInfoDataParse{
     self.foodImageString = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"cover_url"]];
+    
+    [self.foodImageView sd_setImageWithURL:[NSURL URLWithString:self.foodImageString] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+    
     self.commentNumber = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"admire"] integerValue];
     self.foodProperty = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_wx"]];
     self.foodFunction = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_season"]];

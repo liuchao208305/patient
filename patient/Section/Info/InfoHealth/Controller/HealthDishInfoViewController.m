@@ -144,7 +144,7 @@
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     
     self.dishImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
-//    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:self.clinicImage] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+//    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:self.dishImageString] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
     [self.dishImageView setImage:[UIImage imageNamed:@"default_image_big"]];
     
     [self.headView addSubview:self.dishImageView];
@@ -414,6 +414,9 @@
 #pragma mark Data Parse
 -(void)healthDishInfoDataParse{
     self.dishImageString = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"cover_url"]];
+    
+    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:self.dishImageString] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+    
     self.commentNumber = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"admire"] integerValue];
     self.dishProperty = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_wx"]];
     self.dishFunction = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_gx"]];
