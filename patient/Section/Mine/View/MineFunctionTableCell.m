@@ -36,7 +36,8 @@
 
 #pragma mark UICollectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 8;
+//    return 8;
+    return 6;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -47,19 +48,29 @@
     static NSString * cellName = @"MineFunctionCollectionCell";
     MineFunctionCollectionCell * cell = (MineFunctionCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
     //填充数据
-    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_favorite", @"mine_bottom_useful",@"mine_bottom_doctor",@"mine_bottom_coupon",@"mine_bottom_body",@"mine_bottom_service",@"mine_bottom_leave",@"mine_bottom_contact",nil];
-    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"有用",@"我的医生",@"我的优惠券",@"我的体质",@"联系客服",@"例假记录",@"常用联系人", nil];
-    for (int i = 0; i < 8; i++) {
+//    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_favorite", @"mine_bottom_useful",@"mine_bottom_doctor",@"mine_bottom_coupon",@"mine_bottom_body",@"mine_bottom_service",@"mine_bottom_leave",@"mine_bottom_contact",nil];
+//    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"有用",@"我的医生",@"我的优惠券",@"我的体质",@"联系客服",@"例假记录",@"常用联系人", nil];
+//    for (int i = 0; i < 8; i++) {
+//        if (indexPath.row == i) {
+//            [cell.imageView setImage:[UIImage imageNamed:imageArray[i]]];
+//            cell.label.text = labelArray[i];
+//        }
+//    }
+    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_favorite",@"mine_bottom_doctor",@"mine_bottom_coupon",@"mine_bottom_body",@"mine_bottom_service",@"mine_bottom_contact",nil];
+    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"我的医生",@"我的优惠券",@"我的体质",@"联系客服",@"常用联系人", nil];
+    for (int i = 0; i < 6; i++) {
         if (indexPath.row == i) {
             [cell.imageView setImage:[UIImage imageNamed:imageArray[i]]];
             cell.label.text = labelArray[i];
         }
     }
+    
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake((SCREEN_WIDTH-5)/4, 80);
+//    return CGSizeMake((SCREEN_WIDTH-5)/4, 80);
+    return CGSizeMake((SCREEN_WIDTH-4)/3, 80);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -100,15 +111,16 @@
         if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function6Clicked)]) {
             [self.functionDelegate function6Clicked];
         }
-    }else if (indexPath.row == 6){
-        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function7Clicked)]) {
-            [self.functionDelegate function7Clicked];
-        }
-    }else if (indexPath.row == 7){
-        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function8Clicked)]) {
-            [self.functionDelegate function8Clicked];
-        }
     }
+//    else if (indexPath.row == 6){
+//        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function7Clicked)]) {
+//            [self.functionDelegate function7Clicked];
+//        }
+//    }else if (indexPath.row == 7){
+//        if (self.functionDelegate && [self.functionDelegate respondsToSelector:@selector(function8Clicked)]) {
+//            [self.functionDelegate function8Clicked];
+//        }
+//    }
 }
 
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{

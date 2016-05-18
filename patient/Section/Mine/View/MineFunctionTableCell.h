@@ -16,8 +16,8 @@
 -(void)function4Clicked;
 -(void)function5Clicked;
 -(void)function6Clicked;
--(void)function7Clicked;
--(void)function8Clicked;
+//-(void)function7Clicked;
+//-(void)function8Clicked;
 
 @end
 

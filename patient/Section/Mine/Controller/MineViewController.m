@@ -25,6 +25,7 @@
 #import "ContactCheckViewController.h"
 #import "CouponCheckViewController.h"
 #import "OrderListViewController.h"
+#import "MineExpertViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
@@ -455,42 +456,50 @@
 
 -(void)function2Clicked{
     DLog(@"function2Clicked");
+    
+    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
+    mineExpertVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:mineExpertVC animated:YES];
 }
 
 -(void)function3Clicked{
     DLog(@"function3Clicked");
-}
-
--(void)function4Clicked{
-    DLog(@"function4Clicked");
+    
     CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
     couponCheckVC.hidesBottomBarWhenPushed = YES;
     couponCheckVC.isFromMineVC = YES;
     [self.navigationController pushViewController:couponCheckVC animated:YES];
 }
 
--(void)function5Clicked{
-    DLog(@"function5Clicked");
+-(void)function4Clicked{
+    DLog(@"function4Clicked");
+    
     TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
     listVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:listVC animated:YES];
 }
 
+-(void)function5Clicked{
+    DLog(@"function5Clicked");
+    
+}
+
 -(void)function6Clicked{
     DLog(@"function6Clicked");
-}
-
--(void)function7Clicked{
-    DLog(@"function7Clicked");
-}
-
--(void)function8Clicked{
-    DLog(@"function8Clicked");
+    
     ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
     contactCheckVC.hidesBottomBarWhenPushed = YES;
     contactCheckVC.isFromMineVC = YES;
     [self.navigationController pushViewController:contactCheckVC animated:YES];
 }
+
+//-(void)function7Clicked{
+//    DLog(@"function7Clicked");
+//}
+//
+//-(void)function8Clicked{
+//    DLog(@"function8Clicked");
+//}
 
 #pragma mark Network Request
 -(void)sendMineInfoRequest{

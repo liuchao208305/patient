@@ -74,6 +74,7 @@ typedef enum {
 #define kJZK_MINE_SETTING_INFOMATION_CONFIRM @"private/v1/user/updateSet?"//提交个人设置信息
 #define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
+#define kJZK_MINE_EXPERT_INFORMATION @"/private/v1/user/getUserDoctors?"//我的专家信息
 
 #define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
 #define kJZK_HEAD_IMAGE_UPLOAD @"private/v1/user/updateHeand?"//更改个人头像

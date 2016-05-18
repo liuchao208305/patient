@@ -360,6 +360,10 @@
 		70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E6A1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m */; };
 		70FD8E6E1CEC458900DA22E5 /* DiseaseExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E6D1CEC458900DA22E5 /* DiseaseExpertData.m */; };
 		70FD8E711CEC45B700DA22E5 /* DiseaseHealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E701CEC45B700DA22E5 /* DiseaseHealthData.m */; };
+		70FD8E741CEC78E500DA22E5 /* MineExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E731CEC78E500DA22E5 /* MineExpertViewController.m */; };
+		70FD8E771CEC791300DA22E5 /* MineFavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E761CEC791300DA22E5 /* MineFavouriteViewController.m */; };
+		70FD8E7A1CEC7CE900DA22E5 /* MineExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E791CEC7CE900DA22E5 /* MineExpertData.m */; };
+		70FD8E7D1CEC7E1700DA22E5 /* MineExpertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E7C1CEC7E1700DA22E5 /* MineExpertTableCell.m */; };
 		70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */; };
 		70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */; };
 		70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */; };
@@ -977,6 +981,14 @@
 		70FD8E6D1CEC458900DA22E5 /* DiseaseExpertData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseExpertData.m; sourceTree = "<group>"; };
 		70FD8E6F1CEC45B700DA22E5 /* DiseaseHealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseHealthData.h; sourceTree = "<group>"; };
 		70FD8E701CEC45B700DA22E5 /* DiseaseHealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseHealthData.m; sourceTree = "<group>"; };
+		70FD8E721CEC78E500DA22E5 /* MineExpertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertViewController.h; sourceTree = "<group>"; };
+		70FD8E731CEC78E500DA22E5 /* MineExpertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertViewController.m; sourceTree = "<group>"; };
+		70FD8E751CEC791300DA22E5 /* MineFavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineFavouriteViewController.h; sourceTree = "<group>"; };
+		70FD8E761CEC791300DA22E5 /* MineFavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineFavouriteViewController.m; sourceTree = "<group>"; };
+		70FD8E781CEC7CE900DA22E5 /* MineExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertData.h; sourceTree = "<group>"; };
+		70FD8E791CEC7CE900DA22E5 /* MineExpertData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertData.m; sourceTree = "<group>"; };
+		70FD8E7B1CEC7E1700DA22E5 /* MineExpertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertTableCell.h; sourceTree = "<group>"; };
+		70FD8E7C1CEC7E1700DA22E5 /* MineExpertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertTableCell.m; sourceTree = "<group>"; };
 		70FEAD901CA45959006A044A /* bg_media_default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_media_default@2x.jpg"; sourceTree = "<group>"; };
 		70FEAD921CA51F76006A044A /* info_expert_guanzhu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_guanzhu_selected.png; sourceTree = "<group>"; };
 		70FEAD931CA51F76006A044A /* info_expert_jingli_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_jingli_image.png; sourceTree = "<group>"; };
@@ -1997,6 +2009,10 @@
 				70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */,
 				70B4EAB21CD088FA00141E38 /* OrderListViewController.h */,
 				70B4EAB31CD088FB00141E38 /* OrderListViewController.m */,
+				70FD8E721CEC78E500DA22E5 /* MineExpertViewController.h */,
+				70FD8E731CEC78E500DA22E5 /* MineExpertViewController.m */,
+				70FD8E751CEC791300DA22E5 /* MineFavouriteViewController.h */,
+				70FD8E761CEC791300DA22E5 /* MineFavouriteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2008,6 +2024,8 @@
 				70B4EA8C1CCD1D9600141E38 /* RecordData.m */,
 				70B4EAB51CD08DE000141E38 /* OrderData.h */,
 				70B4EAB61CD08DE000141E38 /* OrderData.m */,
+				70FD8E781CEC7CE900DA22E5 /* MineExpertData.h */,
+				70FD8E791CEC7CE900DA22E5 /* MineExpertData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2031,6 +2049,8 @@
 				705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */,
 				70B4EAB81CD0A52600141E38 /* OrderListTableCell.h */,
 				70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */,
+				70FD8E7B1CEC7E1700DA22E5 /* MineExpertTableCell.h */,
+				70FD8E7C1CEC7E1700DA22E5 /* MineExpertTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2580,6 +2600,7 @@
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				707E5BC21C96C03A00101B30 /* StudioData.m in Sources */,
 				70B4EB101CD8718400141E38 /* MRDaixiaTableCell.m in Sources */,
+				70FD8E7D1CEC7E1700DA22E5 /* MineExpertTableCell.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
@@ -2614,6 +2635,7 @@
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				708B52F31CEB07C30033C479 /* MoreHealthTableCell.m in Sources */,
 				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
+				70FD8E771CEC791300DA22E5 /* MineFavouriteViewController.m in Sources */,
 				70B4EAFB1CD870E200141E38 /* MRDabianTableCell.m in Sources */,
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
 				70B4EB0A1CD8715300141E38 /* MRJingshenTableCell.m in Sources */,
@@ -2673,6 +2695,7 @@
 				70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
+				70FD8E7A1CEC7CE900DA22E5 /* MineExpertData.m in Sources */,
 				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
@@ -2699,6 +2722,7 @@
 				70B4EA921CCE2E5700141E38 /* MineChangePasswordViewController.m in Sources */,
 				702939181C8E677B008280E2 /* AnalyticUtil.m in Sources */,
 				707E5BB91C96A67E00101B30 /* InfoHeaderView.m in Sources */,
+				70FD8E741CEC78E500DA22E5 /* MineExpertViewController.m in Sources */,
 				70B4EAC61CD2688200141E38 /* MorePersonTableCell.m in Sources */,
 				70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */,
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
