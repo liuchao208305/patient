@@ -26,6 +26,7 @@
 #import "CouponCheckViewController.h"
 #import "OrderListViewController.h"
 #import "MineExpertViewController.h"
+#import "MineFavouriteViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
@@ -452,6 +453,10 @@
 #pragma mark FunctionDelegate
 -(void)function1Clicked{
     DLog(@"function1Clicked");
+    
+    MineFavouriteViewController *mineFavouriteVC = [[MineFavouriteViewController alloc] init];
+    mineFavouriteVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:mineFavouriteVC animated:YES];
 }
 
 -(void)function2Clicked{
@@ -670,7 +675,7 @@
 #pragma mark Data Filling
 -(void)mineInfoDataFilling{
     [self.patientImageView sd_setImageWithURL:[NSURL URLWithString:self.heand_url] placeholderImage:[UIImage imageNamed:@"mine_top_patient_image"]];
-    self.patientLabel.text = [self.real_name isEqualToString:@""] ? @"暂无" : self.real_name;
+    self.patientLabel.text = [self.user_name isEqualToString:@""] ? @"暂无" : self.user_name;
 }
 
 @end

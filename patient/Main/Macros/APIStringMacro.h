@@ -42,13 +42,13 @@ typedef enum {
 #define kJZK_DISEASE_INFOMATION @"/public/v1/getSpecialDetail?"//疾病专题信息
 #define kJZK_MORE_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicAppPage?"//健康饮食列表
 #define kJZK_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicDetail?"//健康饮食信息
-#define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"/private/v1/user/likeOrAtteation"//健康点赞和收藏
+#define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"/private/v1/user/likeOrAtteation?"//健康点赞和收藏
 #define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表
 #define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg"//工作室信息
 #define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/doctorPage?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
-#define kJZK_EXPERT_FOCUS @"/private/v1/user/atteationOrexit"//专家关注
+#define kJZK_EXPERT_FOCUS @"/private/v1/user/atteationOrexit?"//专家关注
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息
 #define kJZK_SCHEDULE_INFORMATION @"public/v1/user/selDoctorPaiban?"//时间表信息
 
@@ -77,6 +77,7 @@ typedef enum {
 #define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
 #define kJZK_MINE_EXPERT_INFORMATION @"/private/v1/user/getUserDoctors?"//我的专家信息
+#define kJZK_MINE_FAVOURITE_INFORMATION @"/private/v1/user/getUserLikePage?"//我的收藏夹信息
 
 #define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
 #define kJZK_HEAD_IMAGE_UPLOAD @"private/v1/user/updateHeand?"//更改个人头像
