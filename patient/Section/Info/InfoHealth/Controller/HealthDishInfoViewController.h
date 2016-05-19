@@ -18,7 +18,9 @@
 @property (strong,nonatomic)UIView *headView;
 @property (strong,nonatomic)UIView *footView;
 
-@property (strong,nonatomic)UIButton *leftButton;
-@property (strong,nonatomic)UIButton *rightButton;
+@property (assign,nonatomic)BOOL isCommented;
+@property (assign,nonatomic)BOOL isFavourited;
+@property (strong,nonatomic)UIButton *commentButton;
+@property (strong,nonatomic)UIButton *favouriteButton;
 
 @end

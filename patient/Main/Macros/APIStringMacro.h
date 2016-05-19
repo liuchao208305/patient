@@ -19,8 +19,8 @@
 #define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
 #else
 //Release状态下的线上API
-//#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
-//#define kServerAddressPay   @"http://www.jiuzhekan.com/jiuzhekan_pay/"//外网上线地址—支付
+#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
+#define kServerAddressPay   @"http://www.jiuzhekan.com/jiuzhekan_pay/"//外网上线地址—支付
 #endif
 
 #define	kCODE	    @"code"
@@ -42,11 +42,13 @@ typedef enum {
 #define kJZK_DISEASE_INFOMATION @"/public/v1/getSpecialDetail?"//疾病专题信息
 #define kJZK_MORE_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicAppPage?"//健康饮食列表
 #define kJZK_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicDetail?"//健康饮食信息
+#define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"/private/v1/user/likeOrAtteation"//健康点赞和收藏
 #define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表
 #define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg"//工作室信息
 #define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/doctorPage?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
+#define kJZK_EXPERT_FOCUS @"/private/v1/user/atteationOrexit"//专家关注
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息
 #define kJZK_SCHEDULE_INFORMATION @"public/v1/user/selDoctorPaiban?"//时间表信息
 

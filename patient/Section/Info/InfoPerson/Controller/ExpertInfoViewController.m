@@ -41,6 +41,12 @@
 @property (strong,nonatomic)NSMutableArray *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
+
 @property (strong,nonatomic)FMGVideoPlayView *playView;
 @property (strong,nonatomic)NSString *videoUrl;
 
@@ -48,6 +54,7 @@
 @property (strong,nonatomic)NSString *detailLabel2;
 @property (strong,nonatomic)NSString *detailLabel3;
 @property (assign,nonatomic)NSInteger detailNumber;
+@property (assign,nonatomic)BOOL isFocused;
 @property (strong,nonatomic)NSString *detailMoney;
 
 @property (strong,nonatomic)NSString *advantageLabel1;
@@ -212,10 +219,12 @@
 #pragma mark Target Action
 -(void)focusButtonClicked:(BOOL)isFocus{
     DLog(@"focusButtonClicked");
-    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] isEqualToString:@""]) {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self presentViewController:navController animated:YES completion:nil];
+    }else{
+        [self sendExpertFocusRequest];
     }
 }
 
@@ -378,11 +387,21 @@
         cell.label1_1.text = [NullUtil judgeStringNull:self.detailLabel1];
         cell.label1_2.text = [NullUtil judgeStringNull:self.detailLabel2];
         cell.label1_3.text = [NullUtil judgeStringNull:self.detailLabel3];
-        if (self.detailNumber == 1) {
+//        if (self.detailNumber == 1) {
+//            //已关注
+//            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
+//            cell.label2_1.text = @"已关注";
+//        }else{
+//            //未关注
+//            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
+//            cell.label2_1.text = @"未关注";
+//        }
+        
+        if (self.isFocused == YES) {
             //已关注
             [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
             cell.label2_1.text = @"已关注";
-        }else{
+        }else if(self.isFocused == NO){
             //未关注
             [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
             cell.label2_1.text = @"未关注";
@@ -676,6 +695,55 @@
     }];
 }
 
+-(void)sendExpertFocusRequest{
+    DLog(@"sendExpertFocusRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.expertId forKey:@"doctor_id"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    
+    DLog(@"parameter-->%@",parameter);
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_FOCUS] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            self.isFocused = !self.isFocused;
+            DLog(@"self.isFocused-->%@",self.isFocused ? @"YES" : @"NO");
+            if (self.isFocused == YES) {
+                [HudUtil showSimpleTextOnlyHUD:@"关注成功！" withDelaySeconds:kHud_DelayTime];
+            }else if (self.isFocused == NO){
+                [HudUtil showSimpleTextOnlyHUD:@"取消关注成功！" withDelaySeconds:kHud_DelayTime];
+            }
+            
+            [self.tableView reloadData];
+        }else{
+            DLog(@"%@",self.message3);
+            [HudUtil showSimpleTextOnlyHUD:self.message3 withDelaySeconds:kHud_DelayTime];
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)expertInfoDataParse{
     self.videoUrl = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"vedioURL"];
@@ -686,6 +754,12 @@
     self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
     
     self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
+    if (self.detailNumber == 0) {
+        self.isFocused = NO;
+    }else{
+        self.isFocused = YES;
+    }
+    
     self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
     
     self.advantageLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"mainly"];
