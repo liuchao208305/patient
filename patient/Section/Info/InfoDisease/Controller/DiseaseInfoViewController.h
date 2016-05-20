@@ -15,4 +15,9 @@
 
 @property (strong,nonatomic)UITableView *tableView;
 
+@property (assign,nonatomic)BOOL isCommented;
+@property (assign,nonatomic)BOOL isFavourited;
+@property (strong,nonatomic)UIButton *commentButton;
+@property (strong,nonatomic)UIButton *favouriteButton;
+
 @end

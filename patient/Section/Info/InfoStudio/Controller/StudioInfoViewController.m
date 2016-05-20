@@ -343,10 +343,10 @@
     
     self.expertArray = [StudioExpertData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctorList"]];
     for (StudioExpertData *studioExpertData in self.expertArray) {
-        [self.expertIdArray addObject:studioExpertData.doctor_id];
-        [self.expertNameArray addObject:studioExpertData.doctor_name];
-        [self.expertImageArray addObject:studioExpertData.heand_url];
-        [self.expertDiseaseArray addObject:studioExpertData.diseaseName];
+        [self.expertIdArray addObject:[NullUtil judgeStringNull:studioExpertData.doctor_id]];
+        [self.expertNameArray addObject:[NullUtil judgeStringNull:studioExpertData.doctor_name]];
+        [self.expertImageArray addObject:[NullUtil judgeStringNull:studioExpertData.heand_url]];
+        [self.expertDiseaseArray addObject:[NullUtil judgeStringNull:studioExpertData.diseaseName]];
     }
     
     DLog(@"self.expertArray.count-->%lu",(unsigned long)self.expertArray.count);

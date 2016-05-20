@@ -33,7 +33,15 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
+
 @property (strong,nonatomic)DiseaseHeaderView *diseaseHeaderView;
+
+@property (strong,nonatomic)NSString *diseaseIdFix;
 
 @property (strong,nonatomic)NSString *diseaseDetail;
 
@@ -58,6 +66,9 @@
 @property (strong,nonatomic)NSMutableArray *healthFunctionArray;
 @property (strong,nonatomic)NSMutableArray *healthSeasonArray;
 @property (strong,nonatomic)NSMutableArray *healthCommentArray;
+
+@property (assign,nonatomic)NSInteger commentFlag;
+@property (assign,nonatomic)NSInteger favouriteFlag;
 
 @end
 
@@ -141,10 +152,11 @@
 
 -(void)initView{
     [self initTableView];
+    [self initBottomView];
 }
 
 -(void)initTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-140+STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-140+STATUS_AND_NAVIGATION_HEIGHT-55) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -153,11 +165,30 @@
     [self.view addSubview:self.tableView];
 }
 
+-(void)initBottomView{
+    self.commentButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/3*2, 68)];
+    [self.commentButton addTarget:self action:@selector(commentButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.commentButton];
+    
+    self.favouriteButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, self.tableView.size.height, SCREEN_WIDTH/3, 68)];
+    [self.favouriteButton addTarget:self action:@selector(favouriteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.favouriteButton];
+}
+
 -(void)initRecognizer{
     
 }
 
 #pragma mark Target Action
+-(void)commentButtonClicked{
+    DLog(@"commentButtonClicked");
+    [self sendHealthCommentAndFavouriteRequest:1];
+}
+
+-(void)favouriteButtonClicked{
+    DLog(@"favouriteButtonClicked");
+    [self sendHealthCommentAndFavouriteRequest:2];
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -404,8 +435,74 @@
     }];
 }
 
+-(void)sendHealthCommentAndFavouriteRequest:(NSInteger)type{
+    DLog(@"sendHealthCommentAndFavouriteRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.diseaseIdFix forKey:@"disease_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)type] forKey:@"type"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    
+    DLog(@"parameter-->%@",parameter);
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_COMMENT_AND_FAVOURITE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            if (type == 1) {
+                self.isCommented = !self.isCommented;
+                DLog(@"self.isCommented-->%@",self.isCommented ? @"YES" : @"NO");
+                if (self.isCommented == YES) {
+                    [HudUtil showSimpleTextOnlyHUD:@"点赞成功！" withDelaySeconds:kHud_DelayTime];
+                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+                }else if (self.isCommented == NO){
+                    [HudUtil showSimpleTextOnlyHUD:@"取消点赞成功！" withDelaySeconds:kHud_DelayTime];
+                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+                }
+            }else if (type == 2){
+                self.isFavourited = !self.isFavourited;
+                DLog(@"self.isFavourited-->%@",self.isFavourited ? @"YES" : @"NO");
+                if (self.isFavourited == YES) {
+                    [HudUtil showSimpleTextOnlyHUD:@"收藏成功！" withDelaySeconds:kHud_DelayTime];
+                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
+                }else if (self.isFavourited == NO){
+                    [HudUtil showSimpleTextOnlyHUD:@"取消收藏成功！" withDelaySeconds:kHud_DelayTime];
+                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+                }
+            }
+            
+            
+        }else{
+            DLog(@"%@",self.message2);
+            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)diseaseInfoDataParse{
+    self.diseaseIdFix = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"disease_id"]];
+    
     self.diseaseDetail = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"clinical"]];
     
     self.diseaseCause = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"reason"]];
@@ -434,6 +531,24 @@
             [self.healthSeasonArray addObject:diseaseHealthData.season_id];
             [self.healthCommentArray addObject:[NSString stringWithFormat:@"%ld",(long)diseaseHealthData.admire]];
         }
+    }
+    
+    self.commentFlag = [[[self.data objectForKey:@"diseaseKey"] objectForKey:@"is_like"] integerValue];
+    if (self.commentFlag == 0) {
+        self.isCommented = NO;
+        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+    }else{
+        self.isCommented = YES;
+        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+    }
+    
+    self.favouriteFlag = [[[self.data objectForKey:@"diseaseKey"] objectForKey:@"is_shouchan"] integerValue];
+    if (self.favouriteFlag == 0) {
+        self.isFavourited = NO;
+        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+    }else{
+        self.isFavourited = YES;
+        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
     }
     
     [self.tableView reloadData];

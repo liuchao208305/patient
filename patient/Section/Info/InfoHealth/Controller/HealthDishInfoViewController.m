@@ -450,7 +450,11 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.healthId forKey:@"food_id"];
+    if (type == 1) {
+        [parameter setValue:self.healthId forKey:@"food_id"];
+    }else if(type ==2){
+        [parameter setValue:self.healthId forKey:@"cook_id"];
+    }
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)type] forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
