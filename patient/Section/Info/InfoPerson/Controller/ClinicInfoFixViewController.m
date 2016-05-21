@@ -453,6 +453,7 @@
 //        self.doctorView.doctorImage.layer.cornerRadius = 69/2;
         [self.doctorView.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.doctorImageArray[i]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         if (self.defaultDoctorId == self.doctorIdArray[i]) {
+            self.doctorId = self.defaultDoctorId;
             self.doctorView.doctorImage.layer.borderWidth = 2;
             self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
         }
@@ -1065,18 +1066,57 @@
 #pragma mark Target Action
 -(void)doctorViewClicked:(UIGestureRecognizer *)sender{
     NSLog(@"%ld",sender.view.tag);
+//    for (int i = 0; i<self.doctorArray.count; i++) {
+//        self.doctorView = [[ClinicDoctorView alloc] init];
+//        self.doctorView.tag = i;
+//        self.doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
+//        
+//        if (sender.view.tag == i) {
+//            self.doctorView.doctorImage.layer.borderWidth = 2;
+//            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+//        }
+//        
+//        [self.doctorScrollView addSubview:self.doctorView];
+//    }
+    [self initDoctorScrollView2:sender.view.tag];
+}
+
+-(void)initDoctorScrollView2:(NSInteger)number{
+    self.doctorScrollView2 = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 175)];
+    
+    self.doctorScrollView2.contentSize = CGSizeMake(2*SCREEN_WIDTH, 0);
+    self.doctorScrollView2.userInteractionEnabled = YES;
+    self.doctorScrollView2.directionalLockEnabled = YES;
+    self.doctorScrollView2.pagingEnabled = NO;
+    self.doctorScrollView2.bounces = NO;
+    self.doctorScrollView2.showsHorizontalScrollIndicator = NO;
+    self.doctorScrollView2.showsVerticalScrollIndicator = NO;
+    
+    [self.doctorBackView addSubview:self.doctorScrollView2];
+    
     for (int i = 0; i<self.doctorArray.count; i++) {
-        self.doctorView = [[ClinicDoctorView alloc] init];
-        self.doctorView.tag = i;
-        self.doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
+        self.doctorView2 = [[ClinicDoctorView alloc] init];
+        self.doctorView2.tag = i;
+        self.doctorView2.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
         
-        if (sender.view.tag == i) {
-            self.doctorView.doctorImage.layer.borderWidth = 2;
-            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.doctorView2.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.doctorImageArray[i]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        if (number == i) {
+            self.doctorId = self.doctorIdArray[i];
+            self.doctorView2.doctorImage.layer.borderWidth = 2;
+            self.doctorView2.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+            [self sendClinicScheduleRequest1];
         }
         
-        [self.doctorScrollView addSubview:self.doctorView];
+        self.doctorView2.doctorName.text = self.doctorNameArray[i];
+        //            self.doctorView.doctorDomain.text = self.doctorDiseaseArray[i];
+        [self.doctorScrollView2 addSubview:self.doctorView2];
+        
+        UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doctorViewClicked:)];
+        [self.doctorView2 addGestureRecognizer:recognizer];
     }
+    
+    self.doctorScrollView2.contentSize = CGSizeMake(self.doctorArray.count*(27+69)+27, 0);
+    
 }
 
 -(void)reservationButtonClicked:(UIButton *)sender{
@@ -1154,7 +1194,8 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+//    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+    [parameter setValue:self.doctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getFirstTime] forKey:@"date"];
     
@@ -1195,7 +1236,8 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+//    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+    [parameter setValue:self.doctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getSecondTime] forKey:@"date"];
     
@@ -1236,7 +1278,8 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+//    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+    [parameter setValue:self.doctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getThirdTime] forKey:@"date"];
     
@@ -1277,7 +1320,8 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+//    [parameter setValue:self.defaultDoctorId forKey:@"minDoctorId"];
+    [parameter setValue:self.doctorId forKey:@"minDoctorId"];
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getFourthTime] forKey:@"date"];
     

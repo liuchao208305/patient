@@ -21,7 +21,6 @@
 @property (strong,nonatomic)NSString *clinicName;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
-@property (strong,nonatomic)ClinicDoctorView *doctorView;
 
 @property (strong,nonatomic)UIView *backView1;
 @property (strong,nonatomic)UIImageView *clinicImageView;
@@ -50,6 +49,9 @@
 @property (strong,nonatomic)UIView *doctorLineView;
 @property (strong,nonatomic)UIView *doctorBackView;
 @property (strong,nonatomic)UIScrollView *doctorScrollView;
+@property (strong,nonatomic)ClinicDoctorView *doctorView;
+@property (strong,nonatomic)UIScrollView *doctorScrollView2;
+@property (strong,nonatomic)ClinicDoctorView *doctorView2;
 
 @property (strong,nonatomic)UIView *backView4;
 @property (strong,nonatomic)YJSegmentedControl *segmentControl;
