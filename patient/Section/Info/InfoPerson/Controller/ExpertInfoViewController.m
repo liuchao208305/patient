@@ -778,10 +778,10 @@
     
     self.commentArray = [ExpertCommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
     for (ExpertCommentData *commentData in self.commentArray) {
-        [self.commentExpertIdArray addObject:commentData.doctor_id];
-        [self.commentPatientArray addObject:commentData.user_name];
-        [self.commentExpertArray addObject:commentData.doctor_name];
-        [self.commentPraiseArray addObject:commentData.flag_name];
+        [self.commentExpertIdArray addObject:[NullUtil judgeStringNull:commentData.doctor_id]];
+        [self.commentPatientArray addObject:[NullUtil judgeStringNull:commentData.user_name]];
+        [self.commentExpertArray addObject:[NullUtil judgeStringNull:commentData.doctor_name]];
+        [self.commentPraiseArray addObject:[NullUtil judgeStringNull:commentData.flag_name]];
     }
     
     if (!self.fiterType) {
