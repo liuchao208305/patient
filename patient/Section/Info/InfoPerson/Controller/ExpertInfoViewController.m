@@ -731,7 +731,11 @@
             [self.tableView reloadData];
         }else{
             DLog(@"%@",self.message3);
-            [HudUtil showSimpleTextOnlyHUD:self.message3 withDelaySeconds:kHud_DelayTime];
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

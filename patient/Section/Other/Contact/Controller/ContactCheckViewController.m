@@ -13,6 +13,7 @@
 #import "AnalyticUtil.h"
 #import "ContactAddViewController.h"
 #import "ContactChangeViewController.h"
+#import "LoginViewController.h"
 
 @interface ContactCheckViewController ()
 
@@ -229,6 +230,11 @@
         }else{
             DLog(@"%@",self.message);
             [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -269,7 +275,11 @@
             [HudUtil showSimpleTextOnlyHUD:@"删除成功！" withDelaySeconds:kHud_DelayTime];
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

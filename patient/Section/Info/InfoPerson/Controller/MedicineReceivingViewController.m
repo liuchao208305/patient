@@ -7,6 +7,7 @@
 //
 
 #import "MedicineReceivingViewController.h"
+#import "LoginViewController.h"
 #import "NetworkUtil.h"
 #import "AlertUtil.h"
 #import "HudUtil.h"
@@ -1012,6 +1013,11 @@
             [self medicineReceivingDataParse];
         }else{
             DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

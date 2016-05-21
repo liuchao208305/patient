@@ -15,6 +15,7 @@
 #import "AnalyticUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "LoginViewController.h"
 
 @interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate,WXApiDelegate>
 
@@ -654,6 +655,11 @@
             [self treatmentDetailDataParse];
         }else{
             DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -696,6 +702,11 @@
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             DLog(@"%@",self.message3);
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -750,6 +761,11 @@
             }
         }else{
             DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

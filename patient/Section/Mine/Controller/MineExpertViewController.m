@@ -15,6 +15,7 @@
 #import "MineExpertData.h"
 #import "MineExpertTableCell.h"
 #import "ExpertInfoViewController.h"
+#import "LoginViewController.h"
 
 @interface MineExpertViewController ()
 
@@ -177,7 +178,11 @@
             [self mineExpertDataParse];
         }else{
             DLog(@"%@",self.message);
-            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

@@ -17,6 +17,7 @@
 #import "AnalyticUtil.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "LoginViewController.h"
 
 @interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate,WXApiDelegate>
 
@@ -609,7 +610,11 @@
             }
         }else{
             DLog(@"%@",self.message);
-            [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

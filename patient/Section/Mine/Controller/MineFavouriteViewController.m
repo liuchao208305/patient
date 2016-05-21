@@ -15,6 +15,7 @@
 #import "MineFavouriteHealthTableCell.h"
 #import "MineFavouriteDiseaseTableCell.h"
 #import "MineFavouriteData.h"
+#import "LoginViewController.h"
 
 @interface MineFavouriteViewController ()<FavouriteDiseaseDelegate>
 
@@ -463,7 +464,11 @@
             [self mineFavouriteDataParse1];
         }else{
             DLog(@"%@",self.message1);
-            [HudUtil showSimpleTextOnlyHUD:self.message1 withDelaySeconds:kHud_DelayTime];
+            if (self.code1 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -507,7 +512,11 @@
             [self mineFavouriteDataParse2];
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -551,7 +560,11 @@
             [self mineFavouriteDataParse3];
         }else{
             DLog(@"%@",self.message3);
-            [HudUtil showSimpleTextOnlyHUD:self.message3 withDelaySeconds:kHud_DelayTime];
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -595,7 +608,11 @@
             [self mineFavouriteDataParse4];
         }else{
             DLog(@"%@",self.message4);
-            [HudUtil showSimpleTextOnlyHUD:self.message4 withDelaySeconds:kHud_DelayTime];
+            if (self.code4 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

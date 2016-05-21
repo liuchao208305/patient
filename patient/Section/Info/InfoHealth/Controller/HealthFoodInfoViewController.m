@@ -19,6 +19,7 @@
 #import "FoodChooseTableCell.h"
 #import "FoodTabooTableCell.h"
 #import "FoodDishData.h"
+#import "LoginViewController.h"
 
 @interface HealthFoodInfoViewController ()<UITableViewDelegate,UITableViewDataSource,FoodDishViewDelegate>
 
@@ -460,7 +461,11 @@
             
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){

@@ -17,6 +17,7 @@
 #import "TreatmentDetailViewController.h"
 #import "TreatmentFinishViewController.h"
 #import "MedicineReceivingViewController.h"
+#import "LoginViewController.h"
 
 @interface OrderListViewController ()
 
@@ -638,7 +639,11 @@
             [self orderListDataParse1];
         }else{
             DLog(@"%@",self.message1);
-            [HudUtil showSimpleTextOnlyHUD:self.message1 withDelaySeconds:kHud_DelayTime];
+            if (self.code1 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -681,7 +686,11 @@
             [self orderListDataParse2];
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -724,7 +733,11 @@
             [self orderListDataParse3];
         }else{
             DLog(@"%@",self.message3);
-            [HudUtil showSimpleTextOnlyHUD:self.message3 withDelaySeconds:kHud_DelayTime];
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -767,7 +780,11 @@
             [self orderListDataParse4];
         }else{
             DLog(@"%@",self.message4);
-            [HudUtil showSimpleTextOnlyHUD:self.message4 withDelaySeconds:kHud_DelayTime];
+            if (self.code4 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -810,7 +827,11 @@
             [self orderListDataParse5];
         }else{
             DLog(@"%@",self.message5);
-            [HudUtil showSimpleTextOnlyHUD:self.message5 withDelaySeconds:kHud_DelayTime];
+            if (self.code5 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
