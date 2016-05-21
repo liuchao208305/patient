@@ -19,7 +19,7 @@
 
 @interface MineFavouriteDiseaseTableCell : UITableViewCell<YJSegmentedControlDelegate>
 
--(void)initView:(NSInteger)number detail:(NSMutableArray *)detailArray symptom:(NSMutableArray *)symtomArray cause:(NSMutableArray *)causeArray;
+-(void)initView:(NSInteger)number index:(NSIndexPath *)index detail:(NSMutableArray *)detailArray symptom:(NSMutableArray *)symtomArray cause:(NSMutableArray *)causeArray;
 
 @property (strong,nonatomic)UIView *titleView;
 @property (strong,nonatomic)UILabel *titleLabel;
@@ -27,6 +27,7 @@
 @property (strong,nonatomic)UIView *bodyView;
 @property (strong,nonatomic)UILabel *bodyLabel;
 
+@property (strong,nonatomic)NSIndexPath *index;
 @property (strong,nonatomic)NSArray *detailArray;
 @property (strong,nonatomic)NSArray *symtomArray;
 @property (strong,nonatomic)NSArray *causeArray;

@@ -19,7 +19,8 @@
 }
 
 #pragma mark Init Section
--(void)initView:(NSInteger)number detail:(NSMutableArray *)detailArray symptom:(NSMutableArray *)symtomArray cause:(NSMutableArray *)causeArray{
+-(void)initView:(NSInteger)number index:(NSIndexPath *)index detail:(NSMutableArray *)detailArray symptom:(NSMutableArray *)symtomArray cause:(NSMutableArray *)causeArray{
+    self.index = index;
     self.detailArray = [detailArray copy];
     self.symtomArray = [symtomArray copy];
     self.causeArray = [causeArray copy];
@@ -47,7 +48,7 @@
     
     self.bodyLabel = [[UILabel alloc] init];
     self.bodyLabel.numberOfLines = 0;
-    self.bodyLabel.text = detailArray[0];
+    self.bodyLabel.text = detailArray[index.section];
     [self.bodyView addSubview:self.bodyLabel];
     
     [self.bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,17 +66,17 @@
 //        if (self.favouriteDiseaseDelegate && [self.favouriteDiseaseDelegate respondsToSelector:@selector(diseaseDetailClicked)]) {
 //            [self.favouriteDiseaseDelegate diseaseDetailClicked];
 //        }
-        self.bodyLabel.text = self.detailArray[0];
+        self.bodyLabel.text = self.detailArray[self.index.section];
     }else if (selection == 1){
 //        if (self.favouriteDiseaseDelegate && [self.favouriteDiseaseDelegate respondsToSelector:@selector(diseaseSymptomClicked)]) {
 //            [self.favouriteDiseaseDelegate diseaseSymptomClicked];
 //        }
-        self.bodyLabel.text = self.symtomArray[0];
+        self.bodyLabel.text = self.symtomArray[self.index.section];
     }else if (selection == 2){
 //        if (self.favouriteDiseaseDelegate && [self.favouriteDiseaseDelegate respondsToSelector:@selector(diseaseCauseClicked)]) {
 //            [self.favouriteDiseaseDelegate diseaseCauseClicked];
 //        }
-        self.bodyLabel.text = self.causeArray[0];
+        self.bodyLabel.text = self.causeArray[self.index.section];
     }
 }
 

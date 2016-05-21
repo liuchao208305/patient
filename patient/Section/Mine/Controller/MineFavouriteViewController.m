@@ -322,7 +322,7 @@
             return cell;
         }else{
             MineFavouriteDiseaseTableCell *cell = [[MineFavouriteDiseaseTableCell alloc] init];
-            [cell initView:0 detail:self.favouriteDiseaseDetailAllArray symptom:self.favouriteDiseaseSymptomAllArray cause:self.favouriteDiseaseCauseAllArray];
+            [cell initView:0 index:indexPath detail:self.favouriteDiseaseDetailAllArray symptom:self.favouriteDiseaseSymptomAllArray cause:self.favouriteDiseaseCauseAllArray];
             cell.favouriteDiseaseDelegate = self;
             
             cell.titleLabel.text = self.favouriteDiseaseNameAllArray[indexPath.section];
@@ -361,7 +361,7 @@
         return cell;
     }else if (self.flag4){
         MineFavouriteDiseaseTableCell *cell = [[MineFavouriteDiseaseTableCell alloc] init];
-        [cell initView:0 detail:self.favouriteDiseaseDetailDiseaseArray symptom:self.favouriteDiseaseSymptomDiseaseArray cause:self.favouriteDiseaseCauseDiseaseArray];
+        [cell initView:0 index:indexPath detail:self.favouriteDiseaseDetailDiseaseArray symptom:self.favouriteDiseaseSymptomDiseaseArray cause:self.favouriteDiseaseCauseDiseaseArray];
         cell.favouriteDiseaseDelegate = self;
         
         cell.titleLabel.text = self.favouriteDiseaseNameDiseaseArray[indexPath.section];
