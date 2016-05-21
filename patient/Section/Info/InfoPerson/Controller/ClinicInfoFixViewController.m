@@ -1066,10 +1066,16 @@
 -(void)doctorViewClicked:(UIGestureRecognizer *)sender{
     NSLog(@"%ld",sender.view.tag);
     for (int i = 0; i<self.doctorArray.count; i++) {
+        self.doctorView = [[ClinicDoctorView alloc] init];
+        self.doctorView.tag = i;
+        self.doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
+        
         if (sender.view.tag == i) {
-            DLog(@"i-->%d",i);
-//            self.doctorView.doctorImage.backgroundColor = [UIColor redColor];
+            self.doctorView.doctorImage.layer.borderWidth = 2;
+            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
         }
+        
+        [self.doctorScrollView addSubview:self.doctorView];
     }
 }
 
