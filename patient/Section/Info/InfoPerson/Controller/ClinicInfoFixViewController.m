@@ -8,8 +8,10 @@
 
 #import "ClinicInfoFixViewController.h"
 #import "HudUtil.h"
+#import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "TreatmentInfoViewController.h"
+#import "ClinicDoctorData.h"
 
 @interface ClinicInfoFixViewController ()
 
@@ -56,6 +58,13 @@
 @property (assign,nonatomic)double latterMoney;
 
 @property (strong,nonatomic)NSString *defaultDoctorId;
+@property (strong,nonatomic)NSString *doctorId;
+
+@property (strong,nonatomic)NSMutableArray *doctorArray;
+@property (strong,nonatomic)NSMutableArray *doctorIdArray;
+@property (strong,nonatomic)NSMutableArray *doctorImageArray;
+@property (strong,nonatomic)NSMutableArray *doctorNameArray;
+@property (strong,nonatomic)NSMutableArray *doctorDiseaseArray;
 
 @property (strong,nonatomic)NSString *appointmentUpTime;
 @property (strong,nonatomic)NSString *appointmentDownTime;
@@ -119,7 +128,11 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.doctorArray = [NSMutableArray array];
+    self.doctorIdArray = [NSMutableArray array];
+    self.doctorImageArray = [NSMutableArray array];
+    self.doctorNameArray = [NSMutableArray array];
+    self.doctorDiseaseArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -257,11 +270,11 @@
 
 -(void)initBackView2{
     self.expertTitleImageView = [[UIImageView alloc] init];
-    [self.expertTitleImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+//    [self.expertTitleImageView setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.backView2 addSubview:self.expertTitleImageView];
     
     self.expertTitleLabel = [[UILabel alloc] init];
-    self.expertTitleLabel.text = @"test";
+//    self.expertTitleLabel.text = @"test";
     [self.backView2 addSubview:self.expertTitleLabel];
     
     self.expertLineView = [[UIView alloc] init];
@@ -269,27 +282,28 @@
     [self.backView2 addSubview:self.expertLineView];
     
     self.expertImageView = [[UIImageView alloc] init];
-    [self.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertImageView.layer.cornerRadius = 39;
+//    [self.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.backView2 addSubview:self.expertImageView];
     
     self.expertLabel1 = [[UILabel alloc] init];
-    self.expertLabel1.text = @"test";
+//    self.expertLabel1.text = @"test";
     [self.backView2 addSubview:self.expertLabel1];
     
     self.expertLabel2 = [[UILabel alloc] init];
-    self.expertLabel2.text = @"test";
+//    self.expertLabel2.text = @"test";
     [self.backView2 addSubview:self.expertLabel2];
     
     self.expertLabel3 = [[UILabel alloc] init];
-    self.expertLabel3.text = @"test";
+//    self.expertLabel3.text = @"test";
     [self.backView2 addSubview:self.expertLabel3];
     
     self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
+//    self.moneyLabel1.text = @"test";
     [self.backView2 addSubview:self.moneyLabel1];
     
     self.moneyLabel2 = [[UILabel alloc] init];
-    self.moneyLabel2.text = @"test";
+//    self.moneyLabel2.text = @"test";
     [self.backView2 addSubview:self.moneyLabel2];
     
     [self.expertTitleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -371,7 +385,7 @@
     
     self.doctorBackView = [[UIView alloc] init];
     self.doctorBackView.backgroundColor = kWHITE_COLOR;
-    [self initDoctorScrollView];
+//    [self initDoctorScrollView];
     [self.backView3 addSubview:self.doctorBackView];
     
     [self.doctorTitleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -416,20 +430,43 @@
     
     [self.doctorBackView addSubview:self.doctorScrollView];
     
-    for (int i = 0; i<10; i++) {
-        ClinicDoctorView *doctorView = [[ClinicDoctorView alloc] init];
-        doctorView.tag = i;
-        doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
-        [doctorView.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
-        doctorView.doctorName.text = @"test";
-        doctorView.doctorDomain.text = @"test";
-        [self.doctorScrollView addSubview:doctorView];
+//    for (int i = 0; i<10; i++) {
+//        ClinicDoctorView *doctorView = [[ClinicDoctorView alloc] init];
+//        doctorView.tag = i;
+//        doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
+//        [doctorView.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
+//        doctorView.doctorName.text = @"test";
+//        doctorView.doctorDomain.text = @"test";
+//        [self.doctorScrollView addSubview:doctorView];
+//        
+//        UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doctorViewClicked:)];
+//        [doctorView addGestureRecognizer:recognizer];
+//    }
+//    
+//    self.doctorScrollView.contentSize = CGSizeMake(10*(27+69)+27, 0);
+    
+    for (int i = 0; i<self.doctorArray.count; i++) {
+        self.doctorView = [[ClinicDoctorView alloc] init];
+        self.doctorView.tag = i;
+        self.doctorView.frame = CGRectMake((i+1)*(SCREEN_WIDTH-69*3)/4+i*69, 16, 69, 150);
+        
+//        self.doctorView.doctorImage.layer.cornerRadius = 69/2;
+        [self.doctorView.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.doctorImageArray[i]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        if (self.defaultDoctorId == self.doctorIdArray[i]) {
+            self.doctorView.doctorImage.layer.borderWidth = 2;
+            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+        }
+
+        self.doctorView.doctorName.text = self.doctorNameArray[i];
+        //            self.doctorView.doctorDomain.text = self.doctorDiseaseArray[i];
+        [self.doctorScrollView addSubview:self.doctorView];
         
         UITapGestureRecognizer *recognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doctorViewClicked:)];
-        [doctorView addGestureRecognizer:recognizer];
+        [self.doctorView addGestureRecognizer:recognizer];
     }
     
-    self.doctorScrollView.contentSize = CGSizeMake(10*(27+69)+27, 0);
+    self.doctorScrollView.contentSize = CGSizeMake(self.doctorArray.count*(27+69)+27, 0);
+    
 }
 
 -(void)initBackView4{
@@ -1028,6 +1065,12 @@
 #pragma mark Target Action
 -(void)doctorViewClicked:(UIGestureRecognizer *)sender{
     NSLog(@"%ld",sender.view.tag);
+    for (int i = 0; i<self.doctorArray.count; i++) {
+        if (sender.view.tag == i) {
+            DLog(@"i-->%d",i);
+//            self.doctorView.doctorImage.backgroundColor = [UIColor redColor];
+        }
+    }
 }
 
 -(void)reservationButtonClicked:(UIButton *)sender{
@@ -1263,7 +1306,6 @@
 
 #pragma mark Data Parse
 -(void)clinicDoctorDataParse{
-    
     self.clinicImage = [[self.data objectForKey:@"outpats"] objectForKey:@"coverUrl"];
     self.clinicAdress = [[self.data objectForKey:@"outpats"] objectForKey:@"address"];
     self.clinicComment = [[self.data objectForKey:@"outpats"] objectForKey:@"commonResult"];
@@ -1281,13 +1323,25 @@
     self.defaultDoctorId = [self.data objectForKey:@"default_doctorId"];
     DLog(@"%@",self.defaultDoctorId);
     
+    self.doctorArray = [ClinicDoctorData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctors"]];
+    for (ClinicDoctorData *clinicDoctorData in self.doctorArray) {
+        [self.doctorIdArray addObject:[NullUtil judgeStringNull:clinicDoctorData.doctor_id]];
+        [self.doctorImageArray addObject:[NullUtil judgeStringNull:clinicDoctorData.heandUrl]];
+        [self.doctorNameArray addObject:[NullUtil judgeStringNull:clinicDoctorData.doctor_name]];
+//        [self.doctorDiseaseArray addObject:[NullUtil judgeStringNull:clinicDoctorData.cook_wx]];
+    }
+    
     self.appointmentUpTime = [[self.data objectForKey:@"outpats"] objectForKey:@"up_date"];
     self.appointmentDownTime = [[self.data objectForKey:@"outpats"] objectForKey:@"down_date"];
     
     [self clinicDoctorDataFilling];
     
-    [self initSubBackView1];
-    [self sendClinicScheduleRequest1];
+    if (self.doctorArray.count > 0) {
+        [self initSubBackView1];
+        [self sendClinicScheduleRequest1];
+    }else{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"此门诊暂时没有门诊医生！"];
+    }
 }
 
 -(void)clinicScheduleDataParse1{
@@ -1411,6 +1465,7 @@
     
     [self.doctorTitleImageView setImage:[UIImage imageNamed:@"info_clinic_doctor_title_image"]];
     self.doctorTitleLabel.text = @"线下门诊医生";
+    [self initDoctorScrollView];
 }
 
 -(void)clinicScheduleDataFilling1{

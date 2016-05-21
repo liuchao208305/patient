@@ -21,6 +21,7 @@
 @property (strong,nonatomic)NSString *clinicName;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
+@property (strong,nonatomic)ClinicDoctorView *doctorView;
 
 @property (strong,nonatomic)UIView *backView1;
 @property (strong,nonatomic)UIImageView *clinicImageView;

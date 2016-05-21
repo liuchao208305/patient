@@ -36,27 +36,28 @@
 
 -(void)initMainView{
     self.expertImage = [[UIImageView alloc] init];
-    [self.expertImage setImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertImage.layer.cornerRadius = 39;
+//    [self.expertImage setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.backView addSubview:self.expertImage];
     
     self.expertLabel1 = [[UILabel alloc] init];
-    self.expertLabel1.text = @"test";
+//    self.expertLabel1.text = @"test";
     [self.backView addSubview:self.expertLabel1];
     
     self.expertLabel2 = [[UILabel alloc] init];
-    self.expertLabel2.text = @"test";
+//    self.expertLabel2.text = @"test";
     [self.backView addSubview:self.expertLabel2];
     
     self.expertLabel3 = [[UILabel alloc] init];
-    self.expertLabel3.text = @"test";
+//    self.expertLabel3.text = @"test";
     [self.backView addSubview:self.expertLabel3];
     
     self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
+//    self.moneyLabel1.text = @"test";
     [self.backView addSubview:self.moneyLabel1];
     
     self.moneyLabel2 = [[UILabel alloc] init];
-    self.expertLabel2.text =@"test";
+//    self.expertLabel2.text =@"test";
     [self.backView addSubview:self.moneyLabel2];
     
     [self.expertImage mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -20,16 +20,17 @@
 
 -(void)initView{
     self.doctorImage = [[UIImageView alloc] init];
-    [self.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
+//    self.doctorImage.layer.cornerRadius = 69/2;
+//    [self.doctorImage setImage:[UIImage imageNamed:@"default_image_small"]];
     [self addSubview:self.doctorImage];
     
     self.doctorName = [[UILabel alloc] init];
-    self.doctorName.text = @"test";
+//    self.doctorName.text = @"test";
     self.doctorName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.doctorName];
     
     self.doctorDomain = [[UILabel alloc] init];
-    self.doctorDomain.text = @"test";
+//    self.doctorDomain.text = @"test";
     self.doctorDomain.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.doctorDomain];
     
@@ -43,14 +44,14 @@
     [self.doctorName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.doctorImage).offset(0);
         make.top.equalTo(self.doctorImage).offset(69+7);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(SCREEN_WIDTH/3);
         make.height.mas_equalTo(15);
     }];
     
     [self.doctorDomain mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.doctorName).offset(0);
         make.top.equalTo(self.doctorName).offset(15+5);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(SCREEN_WIDTH/3);
         make.height.mas_equalTo(14);
     }];
 }
