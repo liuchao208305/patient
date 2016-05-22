@@ -25,6 +25,11 @@
 +(NSString *)getThirdTime;
 +(NSString *)getFourthTime;
 
++(NSString *)getFirstTimeFix;
++(NSString *)getSecondTimeFix;
++(NSString *)getThirdTimeFix;
++(NSString *)getFourthTimeFix;
+
 +(NSString *)getFirstDate;
 +(NSString *)getSecondDate;
 +(NSString *)getThirdDate;

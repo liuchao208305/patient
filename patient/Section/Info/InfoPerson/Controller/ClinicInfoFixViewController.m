@@ -457,6 +457,12 @@
             self.doctorView.doctorImage.layer.borderWidth = 2;
             self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
         }
+        
+        if (self.doctorId == self.doctorIdArray[i]) {
+            self.doctorId = self.doctorId;
+            self.doctorView.doctorImage.layer.borderWidth = 2;
+            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+        }
 
         self.doctorView.doctorName.text = self.doctorNameArray[i];
         //            self.doctorView.doctorDomain.text = self.doctorDiseaseArray[i];
@@ -1119,29 +1125,82 @@
     
 }
 
--(void)reservationButtonClicked:(UIButton *)sender{
+-(void)reservationButton1_1Clicked{
     TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
-    treatVC.doctorId = self.defaultDoctorId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getFirstTime];
     
-    if (sender.tag == 1000+1) {
-        treatVC.appointmentTime = [DateUtil getFirstTime];
-    }else if (sender.tag == 1000+2){
-        treatVC.appointmentTime = [DateUtil getFirstTime];
-    }else if (sender.tag == 1000+3){
-        treatVC.appointmentTime = [DateUtil getSecondTime];
-    }else if (sender.tag == 1000+4){
-        treatVC.appointmentTime = [DateUtil getSecondTime];
-    }else if (sender.tag == 1000+5){
-        treatVC.appointmentTime = [DateUtil getThirdTime];
-    }else if (sender.tag == 1000+6){
-        treatVC.appointmentTime = [DateUtil getThirdTime];
-    }else if (sender.tag == 1000+7){
-        treatVC.appointmentTime = [DateUtil getFourthTime];
-    }else if (sender.tag == 1000+8){
-        treatVC.appointmentTime = [DateUtil getFourthTime];
-    }
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton1_2Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton2_1Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getSecondTime];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton2_2Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton3_1Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getThirdTime];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton3_2Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton4_1Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getFourthTime];
+    
+    [self.navigationController pushViewController:treatVC animated:YES];
+}
+
+-(void)reservationButton4_2Clicked{
+    TreatmentInfoViewController *treatVC = [[TreatmentInfoViewController alloc] init];
+    treatVC.expertId = self.expertId;
+    treatVC.clinicId = self.clinicId;
+    treatVC.doctorId = self.doctorId;
+    treatVC.appointmentTime = [DateUtil getFourthTimeFix];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1527,7 +1586,7 @@
         [self.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button1_1.tag = 1000+1;
-        [self.button1_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button1_1 addTarget:self action:@selector(reservationButton1_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus1 integerValue] == 1){
         [self.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1550,7 +1609,7 @@
         [self.button1_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button1_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button1_2.tag = 1000+2;
-        [self.button1_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button1_2 addTarget:self action:@selector(reservationButton1_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus1 integerValue] == 1){
         [self.button1_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1575,7 +1634,7 @@
         [self.button2_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button2_1.tag = 1000+3;
-        [self.button2_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button2_1 addTarget:self action:@selector(reservationButton2_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus2 integerValue] == 1){
         [self.button2_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1598,7 +1657,7 @@
         [self.button2_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button2_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button2_2.tag = 1000+4;
-        [self.button2_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button2_2 addTarget:self action:@selector(reservationButton2_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus2 integerValue] == 1){
         [self.button2_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1623,7 +1682,7 @@
         [self.button3_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button3_1.tag = 1000+5;
-        [self.button3_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button3_1 addTarget:self action:@selector(reservationButton3_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus3 integerValue] == 1){
         [self.button3_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1646,7 +1705,7 @@
         [self.button3_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button3_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button3_2.tag = 1000+6;
-        [self.button3_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button3_2 addTarget:self action:@selector(reservationButton3_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus3 integerValue] == 1){
         [self.button3_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1671,7 +1730,7 @@
         [self.button4_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button4_1.tag = 1000+7;
-        [self.button4_1 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button4_1 addTarget:self action:@selector(reservationButton4_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.forenoonBookStatus4 integerValue] == 1){
         [self.button4_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
@@ -1694,7 +1753,7 @@
         [self.button4_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         [self.button4_2 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
 //        self.button4_2.tag = 1000+8;
-        [self.button4_2 addTarget:self action:@selector(reservationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.button4_2 addTarget:self action:@selector(reservationButton4_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     }else if ([self.afternoonBookStatus4 integerValue] == 1){
         [self.button4_2 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];

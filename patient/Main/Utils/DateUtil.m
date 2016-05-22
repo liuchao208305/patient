@@ -56,8 +56,24 @@
     return currentTime;
 }
 
++(NSString *)getFirstTimeFix{
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:0.5*24*60*60];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentTime = [formatter stringFromDate:currentDate];
+    return currentTime;
+}
+
 +(NSString *)getSecondTime{
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentTime = [formatter stringFromDate:currentDate];
+    return currentTime;
+}
+
++(NSString *)getSecondTimeFix{
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:1.5*24*60*60];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *currentTime = [formatter stringFromDate:currentDate];
@@ -72,8 +88,24 @@
     return currentTime;
 }
 
++(NSString *)getThirdTimeFix{
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:2.5*24*60*60];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentTime = [formatter stringFromDate:currentDate];
+    return currentTime;
+}
+
 +(NSString *)getFourthTime{
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:3*24*60*60];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentTime = [formatter stringFromDate:currentDate];
+    return currentTime;
+}
+
++(NSString *)getFourthTimeFix{
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:3.5*24*60*60];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *currentTime = [formatter stringFromDate:currentDate];
