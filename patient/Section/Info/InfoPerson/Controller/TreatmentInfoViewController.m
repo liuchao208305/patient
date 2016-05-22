@@ -648,6 +648,16 @@
     self.contactView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactViewClicked)];
     [self.contactView addGestureRecognizer:tap];
+    
+    [self.button6_1 addTarget:self action:@selector(button6_1Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_2 addTarget:self action:@selector(button6_2Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_3 addTarget:self action:@selector(button6_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_4 addTarget:self action:@selector(button6_4Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_5 addTarget:self action:@selector(button6_5Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_6 addTarget:self action:@selector(button6_6Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_7 addTarget:self action:@selector(button6_7Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_8 addTarget:self action:@selector(button6_8Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_9 addTarget:self action:@selector(button6_9Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark Target Action
@@ -677,6 +687,42 @@
     [self.button5_2 setTitle:@"女" forState:UIControlStateNormal];
     [self.button5_2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
     [self.button5_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_selected_button"] forState:UIControlStateNormal];
+}
+
+-(void)button6_1Clicked{
+    DLog(@"button6_1Clicked");
+}
+
+-(void)button6_2Clicked{
+    DLog(@"button6_2Clicked");
+}
+
+-(void)button6_3Clicked{
+    DLog(@"button6_3Clicked");
+}
+
+-(void)button6_4Clicked{
+    DLog(@"button6_4Clicked");
+}
+
+-(void)button6_5Clicked{
+    DLog(@"button6_5Clicked");
+}
+
+-(void)button6_6Clicked{
+    DLog(@"button6_6Clicked");
+}
+
+-(void)button6_7Clicked{
+    DLog(@"button6_7Clicked");
+}
+
+-(void)button6_8Clicked{
+    DLog(@"button6_8Clicked");
+}
+
+-(void)button6_9Clicked{
+    DLog(@"button6_9Clicked");
 }
 
 -(void)confirmButtonClicked{
@@ -826,6 +872,9 @@
     self.latterMoney = self.formerMoney - self.couponMoney;
     self.appiontmentTime1 = [[self.data objectForKey:@"infos"] objectForKey:@"dates"];
     self.appiontmentTime2 = [[self.data objectForKey:@"infos"] objectForKey:@"upOrdown"];
+    
+    self.patientSymptom = [self.data objectForKey:@"symptom"];
+    DLog(@"self.patientSymptom-->%@",self.patientSymptom);
     
     [self treatmentInfoDataFilling];
 }
