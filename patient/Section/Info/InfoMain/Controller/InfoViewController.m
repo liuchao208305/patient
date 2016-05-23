@@ -229,6 +229,15 @@
     
     self.tableView.tableHeaderView = self.headView;
     self.tableView.tableFooterView = self.footView;
+    
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendInfoRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendInfoRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -742,6 +751,9 @@
 //    }
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

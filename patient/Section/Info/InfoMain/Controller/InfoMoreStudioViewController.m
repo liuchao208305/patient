@@ -24,6 +24,9 @@
 @property (strong,nonatomic)NSMutableArray *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (assign,nonatomic)NSInteger currentPage;
+@property (assign,nonatomic)NSInteger pageSize;
+
 @end
 
 @implementation InfoMoreStudioViewController
@@ -112,6 +115,14 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMoreStudioRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMoreStudioRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -171,6 +182,8 @@
 -(void)sendMoreStudioRequest{
     DLog(@"sendCouponExchangeRequest");
     
+    self.pageSize += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -178,7 +191,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"" forKey:@"name"];
     [parameter setValue:@"1" forKey:@"pageNo"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MORE_STUDIO_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -221,6 +234,9 @@
     }
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

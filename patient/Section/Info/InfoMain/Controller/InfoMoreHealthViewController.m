@@ -25,6 +25,9 @@
 @property (strong,nonatomic)NSMutableArray *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (assign,nonatomic)NSInteger currentPage;
+@property (assign,nonatomic)NSInteger pageSize;
+
 @end
 
 @implementation InfoMoreHealthViewController
@@ -103,6 +106,14 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMoreHealthRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMoreHealthRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -165,6 +176,8 @@
 -(void)sendMoreHealthRequest{
     DLog(@"sendMoreHealthRequest");
     
+    self.pageSize += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -172,7 +185,9 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"" forKey:@"seach"];
     [parameter setValue:@"1" forKey:@"pageNo"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
+    
+    DLog(@"%@",parameter);
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MORE_HEALTH_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -218,6 +233,9 @@
     }
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

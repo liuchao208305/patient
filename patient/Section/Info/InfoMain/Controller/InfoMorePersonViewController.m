@@ -25,6 +25,11 @@
 @property (strong,nonatomic)NSMutableArray *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (assign,nonatomic)NSInteger currentPage;
+@property (assign,nonatomic)NSInteger pageSize;
+
+@property (strong,nonatomic)NSString *area;
+
 @end
 
 @implementation InfoMorePersonViewController
@@ -137,6 +142,44 @@
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.pageSize += 10;
+        if ([self.sourceVC isEqualToString:@"personHeadViewClicked"] || [self.sourceVC isEqualToString:@"laotouImageViewClicked"]) {
+            [self sendMorePersonRequestWithDepartID:nil area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.pageSize += 10;
+        if ([self.sourceVC isEqualToString:@"personHeadViewClicked"] || [self.sourceVC isEqualToString:@"laotouImageViewClicked"]) {
+            [self sendMorePersonRequestWithDepartID:nil area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
+            DLog(@"%@",self.departID);
+            [self sendMorePersonRequestWithDepartID:self.departID area:self.area currentPage:1 pageSize:self.pageSize seach:nil];
+        }
+    }];
     
     [self.view addSubview:self.tableView];
 }
@@ -301,6 +344,8 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
+    self.area = @"";
+    
     if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
         [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
@@ -326,6 +371,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    self.area = @"北京";
     
     if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
@@ -355,6 +402,8 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
+    self.area = @"杭州";
+    
     if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
         [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
@@ -383,6 +432,8 @@
     self.label5.textColor = kLIGHT_GRAY_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
     
+    self.area = @"上海";
+    
     if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
         [self sendMorePersonRequestWithDepartID:self.departID area:@"上海" currentPage:1 pageSize:10 seach:nil];
@@ -410,6 +461,8 @@
     self.label4.textColor = kLIGHT_GRAY_COLOR;
     self.label5.textColor = kBLACK_COLOR;
     self.label6.textColor = kLIGHT_GRAY_COLOR;
+    
+    self.area = @"四川";
     
     if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
@@ -443,6 +496,7 @@
     controller.currentCityString = [[NSUserDefaults standardUserDefaults] objectForKey:kJZK_city];
     controller.selectString = ^(NSString *string){
         DLog(@"%@",string);
+        self.area = string;
         
         if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
             DLog(@"%@",self.departID);
@@ -531,7 +585,9 @@
             [self morePersonDataParse];
         }else{
             DLog(@"%@",self.message);
-            [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
+            [self.expertArray removeAllObjects];
+            [self.tableView reloadData];
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
@@ -558,6 +614,9 @@
     }
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end
