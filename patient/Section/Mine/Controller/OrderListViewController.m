@@ -51,6 +51,21 @@
 @property (strong,nonatomic)NSMutableArray *data5;
 @property (assign,nonatomic)NSError *error5;
 
+@property (assign,nonatomic)NSInteger currentPage1;
+@property (assign,nonatomic)NSInteger pageSize1;
+
+@property (assign,nonatomic)NSInteger currentPage2;
+@property (assign,nonatomic)NSInteger pageSize2;
+
+@property (assign,nonatomic)NSInteger currentPage3;
+@property (assign,nonatomic)NSInteger pageSize3;
+
+@property (assign,nonatomic)NSInteger currentPage4;
+@property (assign,nonatomic)NSInteger pageSize4;
+
+@property (assign,nonatomic)NSInteger currentPage5;
+@property (assign,nonatomic)NSInteger pageSize5;
+
 @end
 
 @implementation OrderListViewController
@@ -276,6 +291,14 @@
     self.tableView1.showsVerticalScrollIndicator = YES;
     self.tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView1.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendOrderListRequest1];
+    }];
+    
+    self.tableView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendOrderListRequest1];
+    }];
+    
     [self.view addSubview:self.tableView1];
 }
 
@@ -285,6 +308,14 @@
     self.tableView2.dataSource = self;
     self.tableView2.showsVerticalScrollIndicator = YES;
     self.tableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView2.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendOrderListRequest2];
+    }];
+    
+    self.tableView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendOrderListRequest2];
+    }];
     
     [self.view addSubview:self.tableView2];
 }
@@ -296,6 +327,14 @@
     self.tableView3.showsVerticalScrollIndicator = YES;
     self.tableView3.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView3.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendOrderListRequest3];
+    }];
+    
+    self.tableView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendOrderListRequest3];
+    }];
+    
     [self.view addSubview:self.tableView3];
 }
 
@@ -306,6 +345,14 @@
     self.tableView4.showsVerticalScrollIndicator = YES;
     self.tableView4.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView4.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendOrderListRequest4];
+    }];
+    
+    self.tableView4.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendOrderListRequest4];
+    }];
+    
     [self.view addSubview:self.tableView4];
 }
 
@@ -315,6 +362,14 @@
     self.tableView5.dataSource = self;
     self.tableView5.showsVerticalScrollIndicator = YES;
     self.tableView5.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView5.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendOrderListRequest5];
+    }];
+    
+    self.tableView5.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendOrderListRequest5];
+    }];
     
     [self.view addSubview:self.tableView5];
 }
@@ -614,6 +669,8 @@
 -(void)sendOrderListRequest1{
     DLog(@"sendOrderListRequest1");
     
+    self.pageSize1 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -621,7 +678,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"100" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -660,6 +717,8 @@
 -(void)sendOrderListRequest2{
     DLog(@"sendOrderListRequest2");
     
+    self.pageSize2 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -668,7 +727,7 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"1" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"100" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -707,6 +766,8 @@
 -(void)sendOrderListRequest3{
     DLog(@"sendOrderListRequest3");
     
+    self.pageSize3 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -715,7 +776,7 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"2" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"100" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize3] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -754,6 +815,8 @@
 -(void)sendOrderListRequest4{
     DLog(@"sendOrderListRequest4");
     
+    self.pageSize4 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -762,7 +825,7 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"5" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"100" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize4] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -801,6 +864,8 @@
 -(void)sendOrderListRequest5{
     DLog(@"sendOrderListRequest5");
     
+    self.pageSize5 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
@@ -809,7 +874,7 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:@"6" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"100" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize5] forKey:@"pageSize"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -870,6 +935,9 @@
     }
     
     [self.tableView1 reloadData];
+    
+    [self.tableView1.mj_header endRefreshing];
+    [self.tableView1.mj_footer endRefreshing];
 }
 
 -(void)orderListDataParse2{
@@ -896,6 +964,9 @@
     }
     
     [self.tableView2 reloadData];
+    
+    [self.tableView2.mj_header endRefreshing];
+    [self.tableView2.mj_footer endRefreshing];
 }
 
 -(void)orderListDataParse3{
@@ -922,6 +993,9 @@
     }
     
     [self.tableView3 reloadData];
+    
+    [self.tableView3.mj_header endRefreshing];
+    [self.tableView3.mj_footer endRefreshing];
 }
 
 -(void)orderListDataParse4{
@@ -948,6 +1022,9 @@
     }
     
     [self.tableView4 reloadData];
+    
+    [self.tableView4.mj_header endRefreshing];
+    [self.tableView4.mj_footer endRefreshing];
 }
 
 -(void)orderListDataParse5{
@@ -974,6 +1051,9 @@
     }
     
     [self.tableView5 reloadData];
+    
+    [self.tableView5.mj_header endRefreshing];
+    [self.tableView5.mj_footer endRefreshing];
 }
 
 @end

@@ -170,6 +170,14 @@
     self.tableView1.tableHeaderView = self.headView;
     self.tableView1.tableFooterView = self.footView;
     
+    self.tableView1.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest1];
+    }];
+    
+    self.tableView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest1];
+    }];
+    
     [self.view addSubview:self.tableView1];
 }
 
@@ -183,6 +191,14 @@
     self.tableView2.tableHeaderView = self.headView;
     self.tableView2.tableFooterView = self.footView;
     
+    self.tableView2.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest2];
+    }];
+    
+    self.tableView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest2];
+    }];
+    
     [self.view addSubview:self.tableView2];
 }
 
@@ -195,6 +211,14 @@
     
     self.tableView3.tableHeaderView = self.headView;
     self.tableView3.tableFooterView = self.footView;
+    
+    self.tableView3.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest3];
+    }];
+    
+    self.tableView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendCouponCheckRequest3];
+    }];
     
     [self.view addSubview:self.tableView3];
 }
@@ -543,6 +567,9 @@
     }
     
     [self.tableView1 reloadData];
+    
+    [self.tableView1.mj_header endRefreshing];
+    [self.tableView1.mj_footer endRefreshing];
 }
 
 -(void)couponCheckDataParse2{
@@ -562,6 +589,9 @@
     }
     
     [self.tableView2 reloadData];
+    
+    [self.tableView2.mj_header endRefreshing];
+    [self.tableView2.mj_footer endRefreshing];
 }
 
 -(void)couponCheckDataParse3{
@@ -581,6 +611,9 @@
     }
     
     [self.tableView3 reloadData];
+    
+    [self.tableView3.mj_header endRefreshing];
+    [self.tableView3.mj_footer endRefreshing];
 }
 
 @end

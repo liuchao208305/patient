@@ -117,6 +117,14 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendContactCheckRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendContactCheckRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -308,6 +316,9 @@
     }
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

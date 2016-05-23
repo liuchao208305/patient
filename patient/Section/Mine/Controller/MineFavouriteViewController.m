@@ -43,6 +43,18 @@
 @property (strong,nonatomic)NSMutableArray *data4;
 @property (assign,nonatomic)NSError *error4;
 
+@property (assign,nonatomic)NSInteger currentPage1;
+@property (assign,nonatomic)NSInteger pageSize1;
+
+@property (assign,nonatomic)NSInteger currentPage2;
+@property (assign,nonatomic)NSInteger pageSize2;
+
+@property (assign,nonatomic)NSInteger currentPage3;
+@property (assign,nonatomic)NSInteger pageSize3;
+
+@property (assign,nonatomic)NSInteger currentPage4;
+@property (assign,nonatomic)NSInteger pageSize4;
+
 @end
 
 @implementation MineFavouriteViewController
@@ -212,6 +224,14 @@
     self.tableView1.showsVerticalScrollIndicator = YES;
     self.tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView1.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest1];
+    }];
+    
+    self.tableView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest1];
+    }];
+    
     [self.view addSubview:self.tableView1];
 }
 
@@ -221,6 +241,14 @@
     self.tableView2.dataSource = self;
     self.tableView2.showsVerticalScrollIndicator = YES;
     self.tableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView2.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest2];
+    }];
+    
+    self.tableView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest2];
+    }];
     
     [self.view addSubview:self.tableView2];
 }
@@ -232,6 +260,14 @@
     self.tableView3.showsVerticalScrollIndicator = YES;
     self.tableView3.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView3.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest3];
+    }];
+    
+    self.tableView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest3];
+    }];
+    
     [self.view addSubview:self.tableView3];
 }
 
@@ -241,6 +277,14 @@
     self.tableView4.dataSource = self;
     self.tableView4.showsVerticalScrollIndicator = YES;
     self.tableView4.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView4.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest4];
+    }];
+    
+    self.tableView4.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMineFavouriteRequest4];
+    }];
     
     [self.view addSubview:self.tableView4];
 }
@@ -437,13 +481,15 @@
 -(void)sendMineFavouriteRequest1{
     DLog(@"sendMineFavouriteRequest1");
     
+    self.pageSize1 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
     [parameter setValue:@"" forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
@@ -485,13 +531,15 @@
 -(void)sendMineFavouriteRequest2{
     DLog(@"sendMineFavouriteRequest2");
     
+    self.pageSize2 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
     [parameter setValue:@"1" forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
@@ -533,13 +581,15 @@
 -(void)sendMineFavouriteRequest3{
     DLog(@"sendMineFavouriteRequest3");
     
+    self.pageSize3 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize3] forKey:@"pageSize"];
     [parameter setValue:@"2" forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
@@ -581,13 +631,15 @@
 -(void)sendMineFavouriteRequest4{
     DLog(@"sendMineFavouriteRequest4");
     
+    self.pageSize4 += 10;
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:@"10" forKey:@"pageSize"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize4] forKey:@"pageSize"];
     [parameter setValue:@"3" forKey:@"type"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
@@ -653,6 +705,9 @@
     }
     
     [self.tableView1 reloadData];
+    
+    [self.tableView1.mj_header endRefreshing];
+    [self.tableView1.mj_footer endRefreshing];
 }
 
 -(void)mineFavouriteDataParse2{
@@ -681,6 +736,9 @@
     }
     
     [self.tableView2 reloadData];
+    
+    [self.tableView2.mj_header endRefreshing];
+    [self.tableView2.mj_footer endRefreshing];
 }
 
 -(void)mineFavouriteDataParse3{
@@ -709,6 +767,9 @@
     }
     
     [self.tableView3 reloadData];
+    
+    [self.tableView3.mj_header endRefreshing];
+    [self.tableView3.mj_footer endRefreshing];
 }
 
 -(void)mineFavouriteDataParse4{
@@ -737,6 +798,9 @@
     }
     
     [self.tableView4 reloadData];
+    
+    [self.tableView4.mj_header endRefreshing];
+    [self.tableView4.mj_footer endRefreshing];
 }
 
 @end

@@ -66,6 +66,8 @@
 
 @property (strong,nonatomic)NSMutableArray *desicsbook;
 
+@property (assign,nonatomic)BOOL isRecordArrayAdded;
+@property (assign,nonatomic)NSInteger recordCount;
 
 @end
 
@@ -79,8 +81,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
-#warning 此处还存在刷新的问题
-    [self sendMineInfoRequest];
     
     [self initNavBar];
     [self initTabBar];
@@ -95,7 +95,7 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
-//    [self sendMineInfoRequest];
+    [self sendMineInfoRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -213,6 +213,15 @@
     
     self.tableView.tableHeaderView = self.headView;
     self.tableView.tableFooterView = self.footView;
+    
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendMineInfoRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendMineInfoRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -667,14 +676,27 @@
     
     self.desicsbook = [self.data objectForKey:@"desicsbook"];
     self.recordArray = [RecordData mj_objectArrayWithKeyValuesArray:self.desicsbook];
-    for (RecordData *recordData in self.recordArray) {
-        [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
-        [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
-        [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
-        [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
+    if (!self.isRecordArrayAdded) {
+        self.isRecordArrayAdded = YES;
+        for (RecordData *recordData in self.recordArray) {
+            [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
+            [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
+            [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
+            [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
+        }
     }
     
+//    for (RecordData *recordData in self.recordArray) {
+//        [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
+//        [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
+//        [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
+//        [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
+//    }
+    
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark Data Filling
