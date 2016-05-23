@@ -172,6 +172,8 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+    self.zhaopianArray = [NSMutableArray array];
+    
     self.chufangArray = [NSMutableArray array];
     self.chufangIdArray = [NSMutableArray array];
     self.chufangNameArray = [NSMutableArray array];
@@ -1043,7 +1045,7 @@
     self.clinicAddress = [NullUtil judgeStringNull:[self.data objectForKey:@"address"]];
     self.bookTime = [NullUtil judgeStringNull:[self.data objectForKey:@"bespoke_date"]];
     self.formerMoney = [[self.data objectForKey:@"price"] doubleValue];
-    self.couponMoney = [[self.data objectForKey:@"conpou_money"] doubleValue];
+    self.couponMoney = [[NullUtil judgeStringNull:[self.data objectForKey:@"conpou_money"]] doubleValue];
     self.latterMoney = self.formerMoney - self.couponMoney;
     
     self.patientName = [NullUtil judgeStringNull:[self.data objectForKey:@"userName"]];
@@ -1078,11 +1080,11 @@
     self.xiyizhenduan = [NullUtil judgeStringNull:[self.kaifangResult objectForKey:@"westdiagnosis"]];
     
     
-//    if ([self.data objectForKey:@"photos_url"] != [NSNull null]) {
-//        self.zhaopianImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"photos_url"]];
-//        NSArray *zhaopianArrayTemp = [self.zhaopianImageString componentsSeparatedByString:@","];
-//        self.zhaopianArray = [NSMutableArray arrayWithArray:zhaopianArrayTemp];
-//    }
+    if ([self.data objectForKey:@"photos_url"] != [NSNull null]) {
+        self.zhaopianImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"photos_url"]];
+        NSArray *zhaopianArrayTemp = [self.zhaopianImageString componentsSeparatedByString:@","];
+        self.zhaopianArray = [NSMutableArray arrayWithArray:zhaopianArrayTemp];
+    }
     
 //    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
     
@@ -1090,7 +1092,7 @@
     
 //    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg",@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
     
-    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
+//    self.zhaopianArray = (NSMutableArray *)@[@"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg", @"http://img1.cache.netease.com/3g/2015/10/10/2015101012415520685.jpg"];
     
     DLog(@"self.zhaopianArray.count-->%lu",(unsigned long)self.zhaopianArray.count);
     
