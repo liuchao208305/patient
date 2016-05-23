@@ -426,7 +426,7 @@
     [self.label5_2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label4_2).offset(0);
         make.centerY.equalTo(self.label5_1).offset(0);
-        make.width.mas_equalTo(160);
+        make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(15);
     }];
 }
@@ -610,6 +610,7 @@
             }
         }else{
             DLog(@"%@",self.message);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
             if (self.code == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];

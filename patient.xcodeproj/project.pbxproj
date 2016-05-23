@@ -2982,7 +2982,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed991af1-60ab-4248-9003-756cbc3cf516";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3011,7 +3011,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiuzhekan.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed991af1-60ab-4248-9003-756cbc3cf516";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
