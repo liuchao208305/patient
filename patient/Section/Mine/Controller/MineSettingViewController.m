@@ -639,8 +639,10 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:self.textField1_1.text forKey:@"user_name"];
     [parameter setValue:self.textField1_2.text forKey:@"real_name"];
-    [parameter setValue:self.textField1_3.text forKey:@"ID_number"];
-    [parameter setValue:self.textField1_4.text forKey:@"ID_medical"];
+    [parameter setValue:self.publicIdNumber forKey:@"ID_number"];
+    [parameter setValue:self.publicSsNumber forKey:@"ID_medical"];
+    [parameter setValue:self.textField1_3.text forKey:@"newIDNumber"];
+    [parameter setValue:self.textField1_4.text forKey:@"newIDMedical"];
     [parameter setValue:self.textField1_6.text forKey:@"user_age"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.patientSexFix] forKey:@"user_sex"];
     
