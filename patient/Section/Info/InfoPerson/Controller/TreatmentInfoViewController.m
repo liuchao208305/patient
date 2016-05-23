@@ -977,7 +977,7 @@
         reservationVC.publicPatientSexFix = self.patientSexFix;
         
         if (self.isButton6_9Clicked == YES) {
-            self.patientSymptomNew = @"以上均无";
+            self.patientSymptomNew = @"无可疑症状";
         }else{
             if (self.symptomCount == 1) {
                 self.patientSymptomNew = [NSString stringWithFormat:@"%@",self.patientSymptomArrayNew[0]];
