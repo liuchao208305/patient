@@ -16,6 +16,7 @@
 #import "ContactCheckViewController.h"
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
+#import "AdaptionUtil.h"
 
 @interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
 
@@ -84,11 +85,11 @@
 //    DLog(@"%@",self.doctorId);
 //    DLog(@"%@",[DateUtil getFirstTime]);
 //    DLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token]);
-    if ([CommonUtil judgeIsLoginSuccess] == NO) {
-        LoginViewController *loginVC = [[LoginViewController alloc] init];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [self presentViewController:navController animated:YES completion:nil];
-    }
+//    if ([CommonUtil judgeIsLoginSuccess] == NO) {
+//        LoginViewController *loginVC = [[LoginViewController alloc] init];
+//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+//        [self presentViewController:navController animated:YES completion:nil];
+//    }
     
     [self sendTreatmentInfoRequest];
 }
@@ -143,7 +144,12 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.scrollView.contentSize = CGSizeMake(0, 1.3*SCREEN_HEIGHT);
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    }
+    
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
@@ -205,27 +211,29 @@
     }];
 /*=======================================================================*/
     self.expertLabel = [[UILabel alloc] init];
-    self.expertLabel.text = @"test";
+//    self.expertLabel.text = @"test";
     [self.backView1 addSubview:self.expertLabel];
     
     self.doctorLabel = [[UILabel alloc] init];
-    self.doctorLabel.text = @"test";
+//    self.doctorLabel.text = @"test";
     [self.backView1 addSubview:self.doctorLabel];
     
     self.clinicLabel = [[UILabel alloc] init];
-    self.clinicLabel.text = @"test";
+//    self.clinicLabel.text = @"test";
     [self.backView1 addSubview:self.clinicLabel];
     
     self.addressLabel = [[UILabel alloc] init];
-    self.addressLabel.text = @"test";
+//    self.addressLabel.text = @"test";
     [self.backView1 addSubview:self.addressLabel];
     
     self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
+//    self.moneyLabel1.text = @"test";
+    self.moneyLabel1.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel1];
     
     self.moneyLabel2  = [[UILabel alloc] init];
-    self.moneyLabel2.text = @"test";
+//    self.moneyLabel2.text = @"test";
+    self.moneyLabel2.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel2];
     
     [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,16 +254,28 @@
     [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.imageBackView).offset(90);
         make.top.equalTo(self.doctorLabel).offset(15+5);
-        make.width.mas_equalTo(300);
+//        make.width.mas_equalTo(300);
+        make.trailing.equalTo(self.backView1).offset(-10);
         make.height.mas_equalTo(15);
     }];
     
-    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.backView1).offset(-25);
-        make.top.equalTo(self.clinicLabel).offset(15+5);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(15);
-    }];
+//    self.addressLabel.numberOfLines = 0;
+//    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+////        make.trailing.equalTo(self.backView1).offset(-25);
+//        make.trailing.equalTo(self.backView1).offset(-10);
+//        make.leading.equalTo(self.clinicLabel).offset(0);
+//        make.top.equalTo(self.clinicLabel).offset(15+5);
+////        make.width.mas_equalTo(300);
+////        make.height.mas_equalTo(15);
+//        make.bottom.equalTo(self.lineView).offset(-5);
+//    }];
+    
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]){
+        self.expertLabel.font = [UIFont systemFontOfSize:13];
+        self.doctorLabel.font = [UIFont systemFontOfSize:13];
+        self.clinicLabel.font = [UIFont systemFontOfSize:13];
+        self.addressLabel.font = [UIFont systemFontOfSize:13];
+    }
     
     [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.expertLabel).offset(0);
@@ -275,6 +295,17 @@
     self.lineView.backgroundColor = kBACKGROUND_COLOR;
     [self.backView1 addSubview:self.lineView];
     
+    self.addressLabel.numberOfLines = 0;
+    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        //        make.trailing.equalTo(self.backView1).offset(-25);
+        make.trailing.equalTo(self.backView1).offset(-10);
+        make.leading.equalTo(self.clinicLabel).offset(0);
+        make.top.equalTo(self.clinicLabel).offset(15+5);
+        //        make.width.mas_equalTo(300);
+//                make.height.mas_equalTo(15);
+        make.bottom.equalTo(self.lineView).offset(5);
+    }];
+    
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imageBackView).offset(115);
         make.leading.equalTo(self.backView1).offset(0);
@@ -284,6 +315,7 @@
     
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.text = @"test";
+    self.timeLabel.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.timeLabel];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {

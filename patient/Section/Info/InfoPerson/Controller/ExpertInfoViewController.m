@@ -596,6 +596,7 @@
             cell.label3.text = [NSString stringWithFormat:@"距离%@km",self.clinicDistanceArray[indexPath.row]];
             cell.label4.text = @"特需服务费";
             cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
+            
             [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
         }
         

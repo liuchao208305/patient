@@ -70,6 +70,7 @@
     [self.mainView addSubview:self.starImageView5];
     
     self.label3 = [[UILabel alloc] init];
+    self.label3.textAlignment = NSTextAlignmentRight;
     [self.mainView addSubview:self.label3];
     
     self.label4 = [[UILabel alloc] init];
@@ -134,7 +135,7 @@
     [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.mainView).offset(-10);
         make.centerY.equalTo(self.starImageView5).offset(0);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(150);
         make.height.mas_equalTo(15);
     }];
     
@@ -148,12 +149,12 @@
     [self.label5 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label4).offset(100+10);
         make.centerY.equalTo(self.label4).offset(0);
-        make.width.mas_equalTo(45);
+        make.width.mas_equalTo(50);
         make.height.mas_equalTo(15);
     }];
     
     [self.couponButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label5).offset(45+10);
+        make.leading.equalTo(self.label5).offset(50+10);
         make.centerY.equalTo(self.label5).offset(0);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(15);

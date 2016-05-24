@@ -12,6 +12,7 @@
 #import "AnalyticUtil.h"
 #import "TreatmentInfoViewController.h"
 #import "ClinicDoctorData.h"
+#import "AdaptionUtil.h"
 
 @interface ClinicInfoFixViewController ()
 
@@ -152,7 +153,11 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 1.25*SCREEN_HEIGHT);
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.scrollView.contentSize = CGSizeMake(0, 1.6*SCREEN_HEIGHT);
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.scrollView.contentSize = CGSizeMake(0, 1.25*SCREEN_HEIGHT);
+    }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
@@ -300,10 +305,12 @@
     
     self.moneyLabel1 = [[UILabel alloc] init];
 //    self.moneyLabel1.text = @"test";
+    self.moneyLabel1.textAlignment = NSTextAlignmentRight;
     [self.backView2 addSubview:self.moneyLabel1];
     
     self.moneyLabel2 = [[UILabel alloc] init];
 //    self.moneyLabel2.text = @"test";
+    self.moneyLabel2.textAlignment = NSTextAlignmentRight;
     [self.backView2 addSubview:self.moneyLabel2];
     
     [self.expertTitleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -341,12 +348,21 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertLabel1).offset(100+10);
-        make.centerY.equalTo(self.expertLabel1).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
-    }];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.expertLabel1).offset(60+10);
+            make.centerY.equalTo(self.expertLabel1).offset(0);
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(13);
+        }];
+    }else if ([AdaptionUtil isIphoneFive] || [AdaptionUtil isIphoneSixPlus]){
+        [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.expertLabel1).offset(100+10);
+            make.centerY.equalTo(self.expertLabel1).offset(0);
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(13);
+        }];
+    }
     
     [self.expertLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertLabel1).offset(0);
@@ -368,6 +384,8 @@
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(14);
     }];
+    
+    
 }
 
 -(void)initBackView3{
@@ -478,9 +496,13 @@
 
 -(void)initBackView4{
     NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:[DateUtil getFirstDate], [DateUtil getSecondDate], [DateUtil getThirdDate],[DateUtil getFourthDate],nil];
-    self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:[UIColor whiteColor] titleColor:[UIColor blackColor] titleFont:[UIFont systemFontOfSize:15] selectColor:kMAIN_COLOR buttonDownColor:kMAIN_COLOR Delegate:self selectSeugment:0];
-    [self.backView4 addSubview:self.segmentControl];
-    
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:[UIColor whiteColor] titleColor:[UIColor blackColor] titleFont:[UIFont systemFontOfSize:13] selectColor:kMAIN_COLOR buttonDownColor:kMAIN_COLOR Delegate:self selectSeugment:0];
+        [self.backView4 addSubview:self.segmentControl];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:[UIColor whiteColor] titleColor:[UIColor blackColor] titleFont:[UIFont systemFontOfSize:15] selectColor:kMAIN_COLOR buttonDownColor:kMAIN_COLOR Delegate:self selectSeugment:0];
+        [self.backView4 addSubview:self.segmentControl];
+    }
     self.segmentBottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 42, SCREEN_WIDTH, 1)];
     self.segmentBottomLineView.backgroundColor = ColorWithHexRGB(0xe8e8e8);
     [self.backView4 addSubview:self.segmentBottomLineView];

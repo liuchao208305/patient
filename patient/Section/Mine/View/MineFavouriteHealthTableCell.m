@@ -75,7 +75,7 @@
     }];
     
     [self.healthCommentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.healthNameLabel).offset(100+54);
+        make.leading.equalTo(self.healthNameLabel).offset(80+54);
         make.centerY.equalTo(self.healthNameLabel).offset(0);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);

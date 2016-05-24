@@ -17,6 +17,7 @@
 #import "TestResultListViewController.h"
 #import "TestResultDetailViewController.h"
 #import "LoginViewController.h"
+#import "AdaptionUtil.h"
 
 @interface TestFixViewController ()
 
@@ -121,6 +122,11 @@
     self.presentationLabel2.text = @"回答以下问题";
     self.presentationLabel2.textColor = [UIColor lightGrayColor];
     [self.topFixedView addSubview:self.presentationLabel2];
+    
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.presentationLabel1.font = [UIFont systemFontOfSize:15];
+        self.presentationLabel2.font = [UIFont systemFontOfSize:15];
+    }
     
     self.quantityLabel = [[UILabel alloc] init];
     self.quantityLabel.text = @"0/60";

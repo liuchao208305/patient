@@ -18,6 +18,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "LoginViewController.h"
+#import "AdaptionUtil.h"
 
 @interface ReservationListViewController ()<CouponDelegate,UIActionSheetDelegate,WXApiDelegate>
 
@@ -214,10 +215,12 @@
     
     self.moneyLabel1 = [[UILabel alloc] init];
     self.moneyLabel1.text = @"test";
+    self.moneyLabel1.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel1];
     
     self.moneyLabel2  = [[UILabel alloc] init];
     self.moneyLabel2.text = @"test";
+    self.moneyLabel2.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel2];
     
     [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -242,12 +245,19 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.backView1).offset(-25);
-        make.top.equalTo(self.clinicLabel).offset(15+5);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(15);
-    }];
+//    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.trailing.equalTo(self.backView1).offset(-25);
+//        make.top.equalTo(self.clinicLabel).offset(15+5);
+//        make.width.mas_equalTo(300);
+//        make.height.mas_equalTo(15);
+//    }];
+    
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]){
+        self.expertLabel.font = [UIFont systemFontOfSize:13];
+        self.doctorLabel.font = [UIFont systemFontOfSize:13];
+        self.clinicLabel.font = [UIFont systemFontOfSize:13];
+        self.addressLabel.font = [UIFont systemFontOfSize:13];
+    }
     
     [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.expertLabel).offset(0);
@@ -267,6 +277,17 @@
     self.lineView.backgroundColor = kBACKGROUND_COLOR;
     [self.backView1 addSubview:self.lineView];
     
+    self.addressLabel.numberOfLines = 0;
+    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        //        make.trailing.equalTo(self.backView1).offset(-25);
+        make.trailing.equalTo(self.backView1).offset(-10);
+        make.leading.equalTo(self.clinicLabel).offset(0);
+        make.top.equalTo(self.clinicLabel).offset(15+5);
+        //        make.width.mas_equalTo(300);
+        //                make.height.mas_equalTo(15);
+        make.bottom.equalTo(self.lineView).offset(5);
+    }];
+    
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imageBackView).offset(115);
         make.leading.equalTo(self.backView1).offset(0);
@@ -280,11 +301,12 @@
     
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.text = @"test";
+    self.timeLabel.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.timeLabel];
     
     [self.timeImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lineView).offset(1+10);
-        make.trailing.equalTo(self.timeLabel).offset(-200-5);
+        make.trailing.equalTo(self.timeLabel).offset(-150-5);
         make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
@@ -714,9 +736,12 @@
 -(void)reservationListDataFilling{
     [self.expertImage sd_setImageWithURL:[NSURL URLWithString:self.publicExpertImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
     [self.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.publicDoctorImage] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    self.expertLabel.text = self.publicExpertName;
-    self.doctorLabel.text = self.publicDoctorName;
-    self.clinicLabel.text = self.publicClinicName;
+//    self.expertLabel.text = self.publicExpertName;
+//    self.doctorLabel.text = self.publicDoctorName;
+//    self.clinicLabel.text = self.publicClinicName;
+    self.expertLabel.text = [NSString stringWithFormat:@"特需专家：%@",self.publicExpertName];
+    self.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.self.publicDoctorName];
+    self.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.publicClinicName];
     self.addressLabel.text = self.publicClinicAddress;
     self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
     self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];

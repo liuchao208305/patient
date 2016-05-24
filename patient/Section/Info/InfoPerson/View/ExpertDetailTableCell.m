@@ -7,6 +7,7 @@
 //
 
 #import "ExpertDetailTableCell.h"
+#import "AdaptionUtil.h"
 
 @interface ExpertDetailTableCell ()
 
@@ -85,20 +86,35 @@
     self.label2_1 = [[UILabel alloc] init];
     [self.backView2 addSubview:self.label2_1];
     
-    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.backView2).offset(0);
-        make.leading.equalTo(self.backView2).offset(28);
-        make.top.equalTo(self.backView2).offset(10);
-        make.width.mas_equalTo(32);
-        make.height.mas_equalTo(32);
-    }];
-    
-    [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.button).offset(32/2);
-        make.top.equalTo(self.button).offset(32+5);
-        make.width.mas_equalTo(80);
-        make.bottom.equalTo(self.backView2).offset(-10);
-    }];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView2).offset(20);
+            make.top.equalTo(self.backView2).offset(10);
+            make.width.mas_equalTo(32);
+            make.height.mas_equalTo(32);
+        }];
+        
+        [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.button).offset(32/2);
+            make.top.equalTo(self.button).offset(32+5);
+            make.width.mas_equalTo(80);
+            make.bottom.equalTo(self.backView2).offset(-10);
+        }];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView2).offset(28);
+            make.top.equalTo(self.backView2).offset(10);
+            make.width.mas_equalTo(32);
+            make.height.mas_equalTo(32);
+        }];
+        
+        [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.button).offset(32/2);
+            make.top.equalTo(self.button).offset(32+5);
+            make.width.mas_equalTo(80);
+            make.bottom.equalTo(self.backView2).offset(-10);
+        }];
+    }
 }
 
 -(void)initBackView3{

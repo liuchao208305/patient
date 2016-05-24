@@ -16,6 +16,7 @@
 #import "AnalyticUtil.h"
 #import "CityViewController.h"
 #import "ExpertInfoViewController.h"
+#import "AdaptionUtil.h"
 
 @interface InfoMorePersonViewController ()
 
@@ -293,19 +294,35 @@
     [self.imageView6 setImage:[UIImage imageNamed:@"info_expert_xiangxia_image"]];
     [self.citySubView6 addSubview:self.imageView6];
     
-    [self.label6 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.citySubView6).offset(13);
-        make.leading.equalTo(self.citySubView6).offset(10);
-        make.width.mas_equalTo(35);
-        make.height.mas_equalTo(14);
-    }];
-    
-    [self.imageView6 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.label6).offset(0);
-        make.leading.equalTo(self.label6).offset(35+5);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(14);
-    }];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        [self.label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.citySubView6).offset(13);
+            make.leading.equalTo(self.citySubView6).offset(2);
+            make.width.mas_equalTo(35);
+            make.height.mas_equalTo(14);
+        }];
+        
+        [self.imageView6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.label6).offset(0);
+            make.leading.equalTo(self.label6).offset(35);
+            make.width.mas_equalTo(13);
+            make.height.mas_equalTo(12);
+        }];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        [self.label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.citySubView6).offset(13);
+            make.leading.equalTo(self.citySubView6).offset(10);
+            make.width.mas_equalTo(35);
+            make.height.mas_equalTo(14);
+        }];
+        
+        [self.imageView6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.label6).offset(0);
+            make.leading.equalTo(self.label6).offset(35+5);
+            make.width.mas_equalTo(15);
+            make.height.mas_equalTo(14);
+        }];
+    }
 }
 
 -(void)initRecognizer{

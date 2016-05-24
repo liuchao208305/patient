@@ -7,6 +7,7 @@
 //
 
 #import "ContactTableCell.h"
+#import "AdaptionUtil.h"
 
 @implementation ContactTableCell
 
@@ -67,12 +68,21 @@
         make.height.mas_equalTo(16);
     }];
     
-    [self.ageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.sexLabel).offset(50+30);
-        make.centerY.equalTo(self.sexLabel).offset(0);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(16);
-    }];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        [self.ageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.sexLabel).offset(50);
+            make.centerY.equalTo(self.sexLabel).offset(0);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(16);
+        }];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        [self.ageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.sexLabel).offset(50+30);
+            make.centerY.equalTo(self.sexLabel).offset(0);
+            make.width.mas_equalTo(50);
+            make.height.mas_equalTo(16);
+        }];
+    }
     
     [self.recordStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-12);
