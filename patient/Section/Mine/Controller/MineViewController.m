@@ -229,9 +229,9 @@
 }
 
 -(void)initTableView{
-    if ([AdaptionUtil isIphoneFive]) {
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 181+20, SCREEN_WIDTH, SCREEN_HEIGHT-181-20-50) style:UITableViewStyleGrouped];
-    }else if ([AdaptionUtil isIphoneSix]){
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 181+20, SCREEN_WIDTH, SCREEN_HEIGHT-181-20) style:UITableViewStyleGrouped];
     }
     
