@@ -782,7 +782,7 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_COUPON_INFORMATION);
+        DLog(@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION);
         DLog(@"responseObject-->%@",responseObject);
         self.result3 = (NSMutableDictionary *)responseObject;
         
