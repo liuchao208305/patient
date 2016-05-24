@@ -30,6 +30,8 @@
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
+@property (assign,nonatomic)BOOL loginFlag;
+
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
 @property (strong,nonatomic)NSString *message;
@@ -95,7 +97,9 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
-    [self sendMineInfoRequest];
+    if (!self.loginFlag) {
+        [self sendMineInfoRequest];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -110,6 +114,10 @@
 
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void)dealloc{
+    self.loginFlag = NO;
 }
 
 #pragma mark Lazy Loading
@@ -546,6 +554,8 @@
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
+                
+                self.loginFlag = YES;
             }
             
 //            if ([self.message isEqualToString:@"token未传"]) {
