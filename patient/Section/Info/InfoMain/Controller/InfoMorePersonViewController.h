@@ -47,5 +47,7 @@
 @property (strong,nonatomic)NSMutableArray *expertTitleArray;
 @property (strong,nonatomic)NSMutableArray *expertUnitArray;
 @property (strong,nonatomic)NSMutableArray *expertFlagArray;
+@property (strong,nonatomic)NSMutableArray *expertFlagNameArray;
+@property (strong,nonatomic)NSMutableArray *expertFlagNumberArray;
 
 @end

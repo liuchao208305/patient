@@ -98,7 +98,9 @@
     self.expertNameArray = [NSMutableArray array];
     self.expertTitleArray = [NSMutableArray array];
     self.expertUnitArray = [NSMutableArray array];
-    self.expertFlagArray = [NSMutableArray array];
+//    self.expertFlagArray = [NSMutableArray array];
+    self.expertFlagNameArray = [NSMutableArray array];
+    self.expertFlagNumberArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -557,6 +559,84 @@
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
     
+    if ([self.expertFlagArray[indexPath.row] isKindOfClass:[NSNull class]]) {
+        cell.expertFlagImageView1.hidden = YES;
+        cell.expertFlagImageView2.hidden = YES;
+        cell.expertFlagImageView3.hidden = YES;
+        cell.expertFlagImageView4.hidden = YES;
+        cell.expertFlagImageView5.hidden = YES;
+    }else{
+        if ([self.expertFlagArray[indexPath.row] count] == 1){
+            cell.expertFlagImageView1.hidden = NO;
+            cell.expertFlagImageView2.hidden = YES;
+            cell.expertFlagImageView3.hidden = YES;
+            cell.expertFlagImageView4.hidden = YES;
+            cell.expertFlagImageView5.hidden = YES;
+        }else if ([self.expertFlagArray[indexPath.row] count] == 2){
+            cell.expertFlagImageView1.hidden = NO;
+            cell.expertFlagImageView2.hidden = NO;
+            cell.expertFlagImageView3.hidden = YES;
+            cell.expertFlagImageView4.hidden = YES;
+            cell.expertFlagImageView5.hidden = YES;
+        }else if ([self.expertFlagArray[indexPath.row] count] == 3){
+            cell.expertFlagImageView1.hidden = NO;
+            cell.expertFlagImageView2.hidden = NO;
+            cell.expertFlagImageView3.hidden = NO;
+            cell.expertFlagImageView4.hidden = YES;
+            cell.expertFlagImageView5.hidden = YES;
+        }else if ([self.expertFlagArray[indexPath.row] count] == 4){
+            cell.expertFlagImageView1.hidden = NO;
+            cell.expertFlagImageView2.hidden = NO;
+            cell.expertFlagImageView3.hidden = NO;
+            cell.expertFlagImageView4.hidden = NO;
+            cell.expertFlagImageView5.hidden = YES;
+        }else if ([self.expertFlagArray[indexPath.row] count] == 5){
+            cell.expertFlagImageView1.hidden = NO;
+            cell.expertFlagImageView2.hidden = NO;
+            cell.expertFlagImageView3.hidden = NO;
+            cell.expertFlagImageView4.hidden = NO;
+            cell.expertFlagImageView5.hidden = NO;
+        }
+    }
+    
+//    if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 0) {
+//        cell.expertFlagImageView1.hidden = YES;
+//        cell.expertFlagImageView2.hidden = YES;
+//        cell.expertFlagImageView3.hidden = YES;
+//        cell.expertFlagImageView4.hidden = YES;
+//        cell.expertFlagImageView5.hidden = YES;
+//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 1){
+//        cell.expertFlagImageView1.hidden = NO;
+//        cell.expertFlagImageView2.hidden = YES;
+//        cell.expertFlagImageView3.hidden = YES;
+//        cell.expertFlagImageView4.hidden = YES;
+//        cell.expertFlagImageView5.hidden = YES;
+//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 2){
+//        cell.expertFlagImageView1.hidden = NO;
+//        cell.expertFlagImageView2.hidden = NO;
+//        cell.expertFlagImageView3.hidden = YES;
+//        cell.expertFlagImageView4.hidden = YES;
+//        cell.expertFlagImageView5.hidden = YES;
+//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 3){
+//        cell.expertFlagImageView1.hidden = NO;
+//        cell.expertFlagImageView2.hidden = NO;
+//        cell.expertFlagImageView3.hidden = NO;
+//        cell.expertFlagImageView4.hidden = YES;
+//        cell.expertFlagImageView5.hidden = YES;
+//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 4){
+//        cell.expertFlagImageView1.hidden = NO;
+//        cell.expertFlagImageView2.hidden = NO;
+//        cell.expertFlagImageView3.hidden = NO;
+//        cell.expertFlagImageView4.hidden = NO;
+//        cell.expertFlagImageView5.hidden = YES;
+//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 5){
+//        cell.expertFlagImageView1.hidden = NO;
+//        cell.expertFlagImageView2.hidden = NO;
+//        cell.expertFlagImageView3.hidden = NO;
+//        cell.expertFlagImageView4.hidden = NO;
+//        cell.expertFlagImageView5.hidden = NO;
+//    }
+    
     return cell;
 }
 
@@ -627,8 +707,66 @@
         [self.expertNameArray addObject:[NullUtil judgeStringNull:morePersonData.doctorName]];
         [self.expertTitleArray addObject:[NullUtil judgeStringNull:morePersonData.titleName]];
         [self.expertUnitArray addObject:[NullUtil judgeStringNull:morePersonData.company]];
-        [self.expertFlagArray addObject:[NullUtil judgeStringNull:morePersonData.flags]];
     }
+    
+//    NSMutableArray *test1 = [self.data[3] objectForKey:@"flags"];
+//    DLog(@"%@",test1);
+//    DLog(@"%lu",(unsigned long)test1.count);
+//    
+//    NSString *test2 = [test1[0] objectForKey:@"flag"];
+//    DLog(@"%@",test2);
+//    
+//    NSString *test3 = [test1[0] objectForKey:@"number"];
+//    DLog(@"%@",test3);
+//    
+//    NSString *test4 = [test1[1] objectForKey:@"flag"];
+//    DLog(@"%@",test4);
+//    
+//    NSString *test5 = [test1[1] objectForKey:@"number"];
+//    DLog(@"%@",test5);
+    
+//    NSMutableArray *test = [[NSMutableArray alloc] initWithCapacity:self.expertArray.count];
+//    for (int i = 0; i < self.expertArray.count; i++) {
+//        [test addObject:[self.data[i] objectForKey:@"flags"]];
+//        DLog(@"%@",test[i]);
+//        if ([test[i] isKindOfClass:[NSNull class]]) {
+//            DLog(@"~~~~~~~");
+//            [self.expertFlagNameArray addObject:@""];
+//            [self.expertFlagNumberArray addObject:@""];
+//        }else{
+//            DLog(@"%lu",(unsigned long)[test[i] count]);
+//            for (int j = 0; j < [test[i] count] ; j++) {
+//                DLog(@"%d",j);
+////                NSString *test1 = [test[i][j] objectForKey:@"flag"];
+////                DLog(@"%@",test1);
+////                NSString *test2 = [test[i][j] objectForKey:@"number"];
+////                DLog(@"%@",test2);
+//                [self.expertFlagNameArray addObject:[test[i][j] objectForKey:@"flag"]];
+//                [self.expertFlagNumberArray addObject:[test[i][j] objectForKey:@"number"]];
+//            }
+//        }
+//    }
+//    DLog(@"%@",self.expertFlagNameArray);
+//    DLog(@"%@",self.expertFlagNumberArray);
+    
+    self.expertFlagArray = [[NSMutableArray alloc] initWithCapacity:self.expertArray.count];
+    for (int i = 0; i < self.expertArray.count; i++) {
+        [self.expertFlagArray addObject:[self.data[i] objectForKey:@"flags"]];
+        DLog(@"%@",self.expertFlagArray[i]);
+        if ([self.expertFlagArray[i] isKindOfClass:[NSNull class]]) {
+            [self.expertFlagNameArray addObject:@""];
+            [self.expertFlagNumberArray addObject:@""];
+        }else{
+            DLog(@"%lu",(unsigned long)[self.expertFlagArray[i] count]);
+            for (int j = 0; j < [self.expertFlagArray[i] count] ; j++) {
+                DLog(@"%d",j);
+                [self.expertFlagNameArray addObject:[self.expertFlagArray[i][j] objectForKey:@"flag"]];
+                [self.expertFlagNumberArray addObject:[self.expertFlagArray[i][j] objectForKey:@"number"]];
+            }
+        }
+    }
+    DLog(@"%@",self.expertFlagNameArray);
+    DLog(@"%@",self.expertFlagNumberArray);
     
     [self.tableView reloadData];
     

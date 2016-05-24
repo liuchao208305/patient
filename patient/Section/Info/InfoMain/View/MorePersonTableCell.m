@@ -42,6 +42,19 @@
     [self.expertFlagImageView1 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.contentView addSubview:self.expertFlagImageView1];
     
+    self.expertFlagNameLabel1 = [[UILabel alloc] init];
+    self.expertFlagNameLabel1.numberOfLines = 0;
+//    self.expertFlagNameLabel1.text = @"妙手回春";
+    self.expertFlagNameLabel1.font = [UIFont systemFontOfSize:10];
+    [self.expertFlagImageView1 addSubview:self.expertFlagNameLabel1];
+    
+    [self.expertFlagNameLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.expertFlagImageView1).offset(5);
+        make.bottom.equalTo(self.expertFlagImageView1).offset(-5);
+        make.leading.equalTo(self.expertFlagImageView1).offset(5);
+        make.trailing.equalTo(self.expertFlagImageView1).offset(-5);
+    }];
+    
     self.expertFlagImageView2 = [[UIImageView alloc] init];
     [self.expertFlagImageView2 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.contentView addSubview:self.expertFlagImageView2];
