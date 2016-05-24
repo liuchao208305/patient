@@ -56,7 +56,8 @@
 
 //----------------------颜色类---------------------------
 //主色调（碧绿色）
-#define kMAIN_COLOR [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
+//#define kMAIN_COLOR [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1]
+#define kMAIN_COLOR [UIColor colorWithRed:43/255.0 green:217/255.0 blue:150/255.0 alpha:1]
 //白色
 #define kWHITE_COLOR [UIColor whiteColor]
 //黑色
