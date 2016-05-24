@@ -73,6 +73,8 @@ typedef enum {
 #define kJZK_TEST_RESULT_DETAIL_INFORMATION @"public/v1/getAnalyResultDetail?"//获取体质测试结构详情信息
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
+#define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息
+#define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"/private/v1/user/messageDatailByID?"//消息详情信息
 #define kJZK_MINE_SETTING_INFOMATION_CONFIRM @"private/v1/user/updateSet?"//提交个人设置信息
 #define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认

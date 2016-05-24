@@ -27,6 +27,7 @@
 #import "OrderListViewController.h"
 #import "MineExpertViewController.h"
 #import "MineFavouriteViewController.h"
+#import "MineMessageViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
@@ -60,6 +61,8 @@
 
 @property (strong,nonatomic)NSString *heand_url;
 @property (strong,nonatomic)NSString *real_name;
+
+@property (assign,nonatomic)NSInteger messageNum;
 
 @property (assign,nonatomic)NSInteger bespoke;
 @property (assign,nonatomic)NSInteger runs;
@@ -160,6 +163,18 @@
         make.top.equalTo(self.backImageView).offset(10+20);
         make.width.mas_equalTo(20);
         make.height.mas_equalTo(20);
+    }];
+    
+    self.leftButtonImageView = [[UIImageView alloc] init];
+    self.leftButtonImageView.layer.cornerRadius = 2.5;
+    self.leftButtonImageView.backgroundColor = [UIColor redColor];
+    [self.backImageView addSubview:self.leftButtonImageView];
+    
+    [self.leftButtonImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.leftButton).offset(0);
+        make.trailing.equalTo(self.leftButton).offset(0);
+        make.width.mas_equalTo(5);
+        make.height.mas_equalTo(5);
     }];
     
     self.rightButton = [[UIButton alloc] init];
@@ -356,7 +371,9 @@
 
 #pragma mark Target Action
 -(void)leftButtonClicked{
-    
+    MineMessageViewController *messageVC = [[MineMessageViewController alloc] init];
+    messageVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 -(void)rightButtonClicked{
@@ -677,6 +694,12 @@
     
     self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"heand_url"]];
     self.real_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"real_name"]];
+    
+    self.messageNum = [[[self.data objectForKey:@"user"] objectForKey:@"messageNum"] integerValue];
+    
+    if (self.messageNum == 0) {
+        self.leftButtonImageView.hidden = YES;
+    }
     
     [self mineInfoDataFilling];
 }

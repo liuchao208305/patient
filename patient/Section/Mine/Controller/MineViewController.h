@@ -14,6 +14,7 @@
 
 @property (strong,nonatomic)UIImageView *backImageView;
 @property (strong,nonatomic)UIButton *leftButton;
+@property (strong,nonatomic)UIImageView *leftButtonImageView;
 @property (strong,nonatomic)UIButton *rightButton;
 @property (strong,nonatomic)UIImageView *patientImageView;
 @property (strong,nonatomic)UILabel *patientLabel;
