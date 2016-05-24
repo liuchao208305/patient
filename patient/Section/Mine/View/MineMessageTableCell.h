@@ -15,4 +15,6 @@
 @property (strong,nonatomic)UILabel *messageTitleLabel;
 @property (strong,nonatomic)UILabel *messageTimeLabel;
 
+@property (strong,nonatomic)UIView *lineView;
+
 @end
