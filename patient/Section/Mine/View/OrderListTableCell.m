@@ -7,6 +7,7 @@
 //
 
 #import "OrderListTableCell.h"
+#import "AdaptionUtil.h"
 
 @implementation OrderListTableCell
 
@@ -51,10 +52,12 @@
     [self.contentView addSubview:self.label2_3];
     
     self.imageView1 = [[UIImageView alloc] init];
+    self.imageView1.layer.cornerRadius = 35;
 //    [self.imageView1 setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.contentView addSubview:self.imageView1];
     
     self.imageView2 = [[UIImageView alloc] init];
+    self.imageView2.layer.cornerRadius = 15;
 //    [self.imageView2 setImage:[UIImage imageNamed:@"default_image_small"]];
     [self.contentView addSubview:self.imageView2];
     
@@ -107,7 +110,8 @@
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_1).offset(80+10);
+//        make.leading.equalTo(self.label1_1).offset(80+10);
+        make.centerX.equalTo(self.contentView).offset(0);
         make.centerY.equalTo(self.label1_1).offset(0);
         make.width.mas_equalTo(200);
         make.height.mas_equalTo(14);
@@ -127,89 +131,188 @@
         make.height.mas_equalTo(1);
     }];
     
-    [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.lineView1).offset(1+16);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(13);
-    }];
+    if ([AdaptionUtil isIphoneFive] || [AdaptionUtil isIphoneFour]) {
+        self.label2_1.font = [UIFont systemFontOfSize:13];
+        [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.lineView1).offset(1+16);
+            make.width.mas_equalTo(40);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_2.font = [UIFont systemFontOfSize:13];
+        [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.label2_1).offset(13+13);
+            make.width.mas_equalTo(40);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_3.font = [UIFont systemFontOfSize:13];
+        [self.label2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.label2_2).offset(13+16);
+            make.width.mas_equalTo(40);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_2).offset(40);
+            make.top.equalTo(self.lineView1).offset(1+11);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(70);
+        }];
+        
+        [self.imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.imageView1).offset(0);
+            make.bottom.equalTo(self.imageView1).offset(0);
+            make.width.mas_equalTo(30);
+            make.height.mas_equalTo(30);
+        }];
+        
+        self.label2_4.font = [UIFont systemFontOfSize:13];
+        [self.label2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageView1).offset(70+10);
+            make.top.equalTo(self.lineView1).offset(1+16);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_5.font = [UIFont systemFontOfSize:13];
+        [self.label2_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_4).offset(0);
+            make.top.equalTo(self.label2_4).offset(13+12);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_6.font = [UIFont systemFontOfSize:13];
+        [self.label2_6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_5).offset(0);
+            make.top.equalTo(self.label2_5).offset(13+12);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_7.font = [UIFont systemFontOfSize:13];
+        [self.label2_7 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_4).offset(60);
+            make.centerY.equalTo(self.label2_4).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_8.font = [UIFont systemFontOfSize:13];
+        [self.label2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_5).offset(60);
+            make.centerY.equalTo(self.label2_5).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        self.label2_9.font = [UIFont systemFontOfSize:13];
+        self.label2_9.numberOfLines = 0;
+        [self.label2_9 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_6).offset(60);
+            make.centerY.equalTo(self.label2_6).offset(0);
+            make.trailing.equalTo(self.contentView).offset(-12);
+            make.bottom.equalTo(self.contentView).offset(-5);
+        }];
+        
+        self.label2_10.font = [UIFont systemFontOfSize:13];
+        [self.label2_10 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.contentView).offset(-12);
+            make.centerY.equalTo(self.label2_4).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(15);
+        }];
+    }else if ([AdaptionUtil isIphoneSixPlus] || [AdaptionUtil isIphoneSix]){
+        [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.lineView1).offset(1+16);
+            make.width.mas_equalTo(60);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.label2_1).offset(13+13);
+            make.width.mas_equalTo(60);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.label2_2).offset(13+16);
+            make.width.mas_equalTo(60);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_2).offset(60);
+            make.top.equalTo(self.lineView1).offset(1+11);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(70);
+        }];
+        
+        [self.imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.imageView1).offset(0);
+            make.bottom.equalTo(self.imageView1).offset(0);
+            make.width.mas_equalTo(30);
+            make.height.mas_equalTo(30);
+        }];
+        
+        [self.label2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageView1).offset(70+10);
+            make.top.equalTo(self.lineView1).offset(1+16);
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_4).offset(0);
+            make.top.equalTo(self.label2_4).offset(13+12);
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_5).offset(0);
+            make.top.equalTo(self.label2_5).offset(13+12);
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_7 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_4).offset(80);
+            make.centerY.equalTo(self.label2_4).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_5).offset(80);
+            make.centerY.equalTo(self.label2_5).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_9 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label2_6).offset(80);
+            make.centerY.equalTo(self.label2_6).offset(0);
+            make.trailing.equalTo(self.contentView).offset(-12);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label2_10 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.contentView).offset(-12);
+            make.centerY.equalTo(self.label2_4).offset(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(15);
+        }];
+    }
     
-    [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.label2_1).offset(13+13);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(13);
-    }];
     
-    [self.label2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.label2_2).offset(13+16);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_2).offset(60);
-        make.top.equalTo(self.lineView1).offset(1+11);
-        make.width.mas_equalTo(70);
-        make.height.mas_equalTo(70);
-    }];
-    
-    [self.imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.imageView1).offset(0);
-        make.bottom.equalTo(self.imageView1).offset(0);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(30);
-    }];
-    
-    [self.label2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageView1).offset(70+10);
-        make.top.equalTo(self.lineView1).offset(1+16);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_4).offset(0);
-        make.top.equalTo(self.label2_4).offset(13+12);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_6 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_5).offset(0);
-        make.top.equalTo(self.label2_5).offset(13+12);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_7 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_4).offset(100);
-        make.centerY.equalTo(self.label2_4).offset(0);
-        make.width.mas_equalTo(80);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_5).offset(100);
-        make.centerY.equalTo(self.label2_5).offset(0);
-        make.width.mas_equalTo(80);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_9 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label2_6).offset(100);
-        make.centerY.equalTo(self.label2_6).offset(0);
-        make.trailing.equalTo(self.contentView).offset(-12);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label2_10 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.contentView).offset(-12);
-        make.centerY.equalTo(self.label2_4).offset(0);
-        make.width.mas_equalTo(80);
-        make.height.mas_equalTo(15);
-    }];
     
     [self.lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.imageView1).offset(0);
