@@ -556,6 +556,9 @@
                 [self presentViewController:navController animated:YES completion:nil];
                 
                 self.loginFlag = YES;
+                
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView.mj_footer endRefreshing];
             }
             
 //            if ([self.message isEqualToString:@"token未传"]) {
