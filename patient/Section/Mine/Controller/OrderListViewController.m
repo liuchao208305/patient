@@ -534,9 +534,11 @@
         cell.lineView2.hidden = YES;
         cell.button.hidden = YES;
         
-        cell.label2_1.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringToIndex:4];
-        cell.label2_2.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-        cell.label2_3.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+        if (![self.orderCreatTimeArrayProceeding[indexPath.section] isEqualToString:@""]) {
+            cell.label2_1.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringToIndex:4];
+            cell.label2_2.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+            cell.label2_3.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+        }
         
         [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
