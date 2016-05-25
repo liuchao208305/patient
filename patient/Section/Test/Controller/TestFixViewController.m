@@ -505,7 +505,7 @@
     [self.subDownView1 addSubview:self.button1_1];
     
     [self.button1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView1).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView1).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView1).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -519,7 +519,7 @@
     [self.subDownView1 addSubview:self.button1_2];
     
     [self.button1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button1_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button1_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView1).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -533,7 +533,21 @@
     [self.subDownView1 addSubview:self.button1_3];
     
     [self.button1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button1_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button1_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView1).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button1_3Fix = [[UIButton alloc] init];
+    self.button1_3Fix.layer.cornerRadius = 25;
+    [self.button1_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button1_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView1 addSubview:self.button1_3Fix];
+    
+    [self.button1_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button1_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView1).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -547,7 +561,7 @@
     [self.subDownView1 addSubview:self.button1_4];
     
     [self.button1_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView1).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView1).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView1).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -577,6 +591,7 @@
     [self.button1_1 addTarget:self action:@selector(button1_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button1_2 addTarget:self action:@selector(button1_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button1_3 addTarget:self action:@selector(button1_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button1_3Fix addTarget:self action:@selector(button1_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button1_4 addTarget:self action:@selector(button1_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -614,7 +629,7 @@
     [self.subDownView2 addSubview:self.button2_1];
     
     [self.button2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView2).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView2).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView2).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -628,7 +643,7 @@
     [self.subDownView2 addSubview:self.button2_2];
     
     [self.button2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button2_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button2_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView2).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -642,7 +657,21 @@
     [self.subDownView2 addSubview:self.button2_3];
     
     [self.button2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button2_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button2_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView2).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button2_3Fix = [[UIButton alloc] init];
+    self.button2_3Fix.layer.cornerRadius = 25;
+    [self.button2_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button2_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView2 addSubview:self.button2_3Fix];
+    
+    [self.button2_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button2_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView2).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -656,7 +685,7 @@
     [self.subDownView2 addSubview:self.button2_4];
     
     [self.button2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView2).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView2).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView2).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -686,6 +715,7 @@
     [self.button2_1 addTarget:self action:@selector(button2_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button2_2 addTarget:self action:@selector(button2_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button2_3 addTarget:self action:@selector(button2_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button2_3Fix addTarget:self action:@selector(button2_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button2_4 addTarget:self action:@selector(button2_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -722,7 +752,7 @@
     [self.subDownView3 addSubview:self.button3_1];
     
     [self.button3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView3).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView3).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView3).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -736,7 +766,7 @@
     [self.subDownView3 addSubview:self.button3_2];
     
     [self.button3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button3_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button3_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView3).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -750,7 +780,21 @@
     [self.subDownView3 addSubview:self.button3_3];
     
     [self.button3_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button3_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button3_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView3).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button3_3Fix = [[UIButton alloc] init];
+    self.button3_3Fix.layer.cornerRadius = 25;
+    [self.button3_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button3_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView3 addSubview:self.button3_3Fix];
+    
+    [self.button3_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button3_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView3).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -764,7 +808,7 @@
     [self.subDownView3 addSubview:self.button3_4];
     
     [self.button3_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView3).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView3).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView3).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -794,6 +838,7 @@
     [self.button3_1 addTarget:self action:@selector(button3_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button3_2 addTarget:self action:@selector(button3_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button3_3 addTarget:self action:@selector(button3_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button3_3Fix addTarget:self action:@selector(button3_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button3_4 addTarget:self action:@selector(button3_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -830,7 +875,7 @@
     [self.subDownView4 addSubview:self.button4_1];
     
     [self.button4_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView4).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView4).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView4).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -844,7 +889,7 @@
     [self.subDownView4 addSubview:self.button4_2];
     
     [self.button4_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button4_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button4_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView4).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -858,7 +903,21 @@
     [self.subDownView4 addSubview:self.button4_3];
     
     [self.button4_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button4_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button4_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView4).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button4_3Fix = [[UIButton alloc] init];
+    self.button4_3Fix.layer.cornerRadius = 25;
+    [self.button4_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button4_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView4 addSubview:self.button4_3Fix];
+    
+    [self.button4_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button4_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView4).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -872,7 +931,7 @@
     [self.subDownView4 addSubview:self.button4_4];
     
     [self.button4_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView4).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView4).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView4).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -902,6 +961,7 @@
     [self.button4_1 addTarget:self action:@selector(button4_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button4_2 addTarget:self action:@selector(button4_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button4_3 addTarget:self action:@selector(button4_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button4_3Fix addTarget:self action:@selector(button4_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button4_4 addTarget:self action:@selector(button4_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -938,7 +998,7 @@
     [self.subDownView5 addSubview:self.button5_1];
     
     [self.button5_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView5).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView5).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView5).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -952,7 +1012,7 @@
     [self.subDownView5 addSubview:self.button5_2];
     
     [self.button5_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button5_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button5_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView5).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -966,7 +1026,21 @@
     [self.subDownView5 addSubview:self.button5_3];
     
     [self.button5_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button5_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button5_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView5).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button5_3Fix = [[UIButton alloc] init];
+    self.button5_3Fix.layer.cornerRadius = 25;
+    [self.button5_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button5_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView5 addSubview:self.button5_3Fix];
+    
+    [self.button5_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button5_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView5).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -980,7 +1054,7 @@
     [self.subDownView5 addSubview:self.button5_4];
     
     [self.button5_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView5).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView5).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView5).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1010,6 +1084,7 @@
     [self.button5_1 addTarget:self action:@selector(button5_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button5_2 addTarget:self action:@selector(button5_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button5_3 addTarget:self action:@selector(button5_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button5_3Fix addTarget:self action:@selector(button5_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button5_4 addTarget:self action:@selector(button5_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1046,7 +1121,7 @@
     [self.subDownView6 addSubview:self.button6_1];
     
     [self.button6_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView6).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView6).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView6).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1060,7 +1135,7 @@
     [self.subDownView6 addSubview:self.button6_2];
     
     [self.button6_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button6_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button6_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView6).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1074,7 +1149,21 @@
     [self.subDownView6 addSubview:self.button6_3];
     
     [self.button6_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button6_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button6_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView6).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button6_3Fix = [[UIButton alloc] init];
+    self.button6_3Fix.layer.cornerRadius = 25;
+    [self.button6_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button6_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView6 addSubview:self.button6_3Fix];
+    
+    [self.button6_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button6_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView6).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1088,7 +1177,7 @@
     [self.subDownView6 addSubview:self.button6_4];
     
     [self.button6_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView6).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView6).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView6).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1118,6 +1207,7 @@
     [self.button6_1 addTarget:self action:@selector(button6_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button6_2 addTarget:self action:@selector(button6_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button6_3 addTarget:self action:@selector(button6_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button6_3Fix addTarget:self action:@selector(button6_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button6_4 addTarget:self action:@selector(button6_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1154,7 +1244,7 @@
     [self.subDownView7 addSubview:self.button7_1];
     
     [self.button7_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView7).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView7).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView7).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1168,7 +1258,7 @@
     [self.subDownView7 addSubview:self.button7_2];
     
     [self.button7_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button7_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button7_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView7).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1182,7 +1272,21 @@
     [self.subDownView7 addSubview:self.button7_3];
     
     [self.button7_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button7_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button7_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView7).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button7_3Fix = [[UIButton alloc] init];
+    self.button7_3Fix.layer.cornerRadius = 25;
+    [self.button7_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button7_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView7 addSubview:self.button7_3Fix];
+    
+    [self.button7_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button7_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView7).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1196,7 +1300,7 @@
     [self.subDownView7 addSubview:self.button7_4];
     
     [self.button7_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView7).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView7).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView7).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1226,6 +1330,7 @@
     [self.button7_1 addTarget:self action:@selector(button7_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button7_2 addTarget:self action:@selector(button7_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button7_3 addTarget:self action:@selector(button7_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button7_3Fix addTarget:self action:@selector(button7_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button7_4 addTarget:self action:@selector(button7_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }/*===========================================================================================================*/
 -(void)initSubView8{
@@ -1261,7 +1366,7 @@
     [self.subDownView8 addSubview:self.button8_1];
     
     [self.button8_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView8).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView8).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView8).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1275,7 +1380,7 @@
     [self.subDownView8 addSubview:self.button8_2];
     
     [self.button8_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button8_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button8_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView8).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1289,7 +1394,21 @@
     [self.subDownView8 addSubview:self.button8_3];
     
     [self.button8_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button8_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button8_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView8).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button8_3Fix = [[UIButton alloc] init];
+    self.button8_3Fix.layer.cornerRadius = 25;
+    [self.button8_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button8_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView8 addSubview:self.button8_3Fix];
+    
+    [self.button8_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button8_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView8).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1303,7 +1422,7 @@
     [self.subDownView8 addSubview:self.button8_4];
     
     [self.button8_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView8).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView8).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView8).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1333,6 +1452,7 @@
     [self.button8_1 addTarget:self action:@selector(button8_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button8_2 addTarget:self action:@selector(button8_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button8_3 addTarget:self action:@selector(button8_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button8_3Fix addTarget:self action:@selector(button8_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button8_4 addTarget:self action:@selector(button8_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1369,7 +1489,7 @@
     [self.subDownView9 addSubview:self.button9_1];
     
     [self.button9_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView9).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView9).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView9).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1383,7 +1503,7 @@
     [self.subDownView9 addSubview:self.button9_2];
     
     [self.button9_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button9_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button9_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView9).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1397,7 +1517,21 @@
     [self.subDownView9 addSubview:self.button9_3];
     
     [self.button9_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button9_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button9_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView9).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button9_3Fix = [[UIButton alloc] init];
+    self.button9_3Fix.layer.cornerRadius = 25;
+    [self.button9_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button9_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView9 addSubview:self.button9_3Fix];
+    
+    [self.button9_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button9_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView9).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1411,7 +1545,7 @@
     [self.subDownView9 addSubview:self.button9_4];
     
     [self.button9_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView9).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView9).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView9).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1441,6 +1575,7 @@
     [self.button9_1 addTarget:self action:@selector(button9_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button9_2 addTarget:self action:@selector(button9_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button9_3 addTarget:self action:@selector(button9_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button9_3Fix addTarget:self action:@selector(button9_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button9_4 addTarget:self action:@selector(button9_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1477,7 +1612,7 @@
     [self.subDownView10 addSubview:self.button10_1];
     
     [self.button10_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView10).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView10).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView10).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1491,7 +1626,7 @@
     [self.subDownView10 addSubview:self.button10_2];
     
     [self.button10_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button10_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button10_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView10).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1505,7 +1640,21 @@
     [self.subDownView10 addSubview:self.button10_3];
     
     [self.button10_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button10_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button10_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView10).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button10_3Fix = [[UIButton alloc] init];
+    self.button10_3Fix.layer.cornerRadius = 25;
+    [self.button10_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button10_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView10 addSubview:self.button10_3Fix];
+    
+    [self.button10_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button10_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView10).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1519,7 +1668,7 @@
     [self.subDownView10 addSubview:self.button10_4];
     
     [self.button10_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView10).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView10).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView10).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1549,6 +1698,7 @@
     [self.button10_1 addTarget:self action:@selector(button10_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button10_2 addTarget:self action:@selector(button10_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button10_3 addTarget:self action:@selector(button10_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button10_3Fix addTarget:self action:@selector(button10_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button10_4 addTarget:self action:@selector(button10_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1585,7 +1735,7 @@
     [self.subDownView11 addSubview:self.button11_1];
     
     [self.button11_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView11).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView11).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView11).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1599,7 +1749,7 @@
     [self.subDownView11 addSubview:self.button11_2];
     
     [self.button11_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button11_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button11_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView11).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1613,7 +1763,21 @@
     [self.subDownView11 addSubview:self.button11_3];
     
     [self.button11_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button11_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button11_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView11).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button11_3Fix = [[UIButton alloc] init];
+    self.button11_3Fix.layer.cornerRadius = 25;
+    [self.button11_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button11_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView11 addSubview:self.button11_3Fix];
+    
+    [self.button11_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button11_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView11).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1627,7 +1791,7 @@
     [self.subDownView11 addSubview:self.button11_4];
     
     [self.button11_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView11).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView11).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView11).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1657,6 +1821,7 @@
     [self.button11_1 addTarget:self action:@selector(button11_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button11_2 addTarget:self action:@selector(button11_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button11_3 addTarget:self action:@selector(button11_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button11_3Fix addTarget:self action:@selector(button11_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button11_4 addTarget:self action:@selector(button11_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1693,7 +1858,7 @@
     [self.subDownView12 addSubview:self.button12_1];
     
     [self.button12_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView12).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView12).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView12).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1707,7 +1872,7 @@
     [self.subDownView12 addSubview:self.button12_2];
     
     [self.button12_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button12_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button12_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView12).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1721,7 +1886,21 @@
     [self.subDownView12 addSubview:self.button12_3];
     
     [self.button12_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button12_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button12_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView12).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button12_3Fix = [[UIButton alloc] init];
+    self.button12_3Fix.layer.cornerRadius = 25;
+    [self.button12_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button12_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView12 addSubview:self.button12_3Fix];
+    
+    [self.button12_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button12_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView12).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1735,7 +1914,7 @@
     [self.subDownView12 addSubview:self.button12_4];
     
     [self.button12_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView12).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView12).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView12).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1765,6 +1944,7 @@
     [self.button12_1 addTarget:self action:@selector(button12_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button12_2 addTarget:self action:@selector(button12_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button12_3 addTarget:self action:@selector(button12_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button12_3Fix addTarget:self action:@selector(button12_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button12_4 addTarget:self action:@selector(button12_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1801,7 +1981,7 @@
     [self.subDownView13 addSubview:self.button13_1];
     
     [self.button13_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView13).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView13).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView13).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1815,7 +1995,7 @@
     [self.subDownView13 addSubview:self.button13_2];
     
     [self.button13_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button13_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button13_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView13).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1829,7 +2009,21 @@
     [self.subDownView13 addSubview:self.button13_3];
     
     [self.button13_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button13_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button13_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView13).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button13_3Fix = [[UIButton alloc] init];
+    self.button13_3Fix.layer.cornerRadius = 25;
+    [self.button13_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button13_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView13 addSubview:self.button13_3Fix];
+    
+    [self.button13_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button13_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView13).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1843,7 +2037,7 @@
     [self.subDownView13 addSubview:self.button13_4];
     
     [self.button13_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView13).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView13).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView13).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1873,6 +2067,7 @@
     [self.button13_1 addTarget:self action:@selector(button13_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button13_2 addTarget:self action:@selector(button13_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button13_3 addTarget:self action:@selector(button13_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button13_3Fix addTarget:self action:@selector(button13_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button13_4 addTarget:self action:@selector(button13_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -1909,7 +2104,7 @@
     [self.subDownView14 addSubview:self.button14_1];
     
     [self.button14_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView14).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView14).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView14).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1923,7 +2118,7 @@
     [self.subDownView14 addSubview:self.button14_2];
     
     [self.button14_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button14_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button14_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView14).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1937,7 +2132,21 @@
     [self.subDownView14 addSubview:self.button14_3];
     
     [self.button14_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button14_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button14_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView14).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button14_3Fix = [[UIButton alloc] init];
+    self.button14_3Fix.layer.cornerRadius = 25;
+    [self.button14_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button14_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView14 addSubview:self.button14_3Fix];
+    
+    [self.button14_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button14_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView14).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1951,7 +2160,7 @@
     [self.subDownView14 addSubview:self.button14_4];
     
     [self.button14_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView14).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView14).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView14).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -1981,6 +2190,7 @@
     [self.button14_1 addTarget:self action:@selector(button14_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button14_2 addTarget:self action:@selector(button14_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button14_3 addTarget:self action:@selector(button14_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button14_3Fix addTarget:self action:@selector(button14_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button14_4 addTarget:self action:@selector(button14_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2017,7 +2227,7 @@
     [self.subDownView15 addSubview:self.button15_1];
     
     [self.button15_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView15).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView15).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView15).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2031,7 +2241,7 @@
     [self.subDownView15 addSubview:self.button15_2];
     
     [self.button15_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button15_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button15_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView15).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2045,7 +2255,21 @@
     [self.subDownView15 addSubview:self.button15_3];
     
     [self.button15_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button15_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button15_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView15).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button15_3Fix = [[UIButton alloc] init];
+    self.button15_3Fix.layer.cornerRadius = 25;
+    [self.button15_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button15_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView15 addSubview:self.button15_3Fix];
+    
+    [self.button15_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button15_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView15).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2059,7 +2283,7 @@
     [self.subDownView15 addSubview:self.button15_4];
     
     [self.button15_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView15).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView15).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView15).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2089,6 +2313,7 @@
     [self.button15_1 addTarget:self action:@selector(button15_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button15_2 addTarget:self action:@selector(button15_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button15_3 addTarget:self action:@selector(button15_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button15_3Fix addTarget:self action:@selector(button15_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button15_4 addTarget:self action:@selector(button15_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2125,7 +2350,7 @@
     [self.subDownView16 addSubview:self.button16_1];
     
     [self.button16_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView16).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView16).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView16).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2139,7 +2364,7 @@
     [self.subDownView16 addSubview:self.button16_2];
     
     [self.button16_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button16_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button16_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView16).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2153,7 +2378,21 @@
     [self.subDownView16 addSubview:self.button16_3];
     
     [self.button16_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button16_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button16_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView16).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button16_3Fix = [[UIButton alloc] init];
+    self.button16_3Fix.layer.cornerRadius = 25;
+    [self.button16_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button16_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView16 addSubview:self.button16_3Fix];
+    
+    [self.button16_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button16_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView16).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2167,7 +2406,7 @@
     [self.subDownView16 addSubview:self.button16_4];
     
     [self.button16_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView16).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView16).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView16).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2197,6 +2436,7 @@
     [self.button16_1 addTarget:self action:@selector(button16_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button16_2 addTarget:self action:@selector(button16_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button16_3 addTarget:self action:@selector(button16_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button16_3Fix addTarget:self action:@selector(button16_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button16_4 addTarget:self action:@selector(button16_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2233,7 +2473,7 @@
     [self.subDownView17 addSubview:self.button17_1];
     
     [self.button17_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView17).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView17).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView17).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2247,7 +2487,7 @@
     [self.subDownView17 addSubview:self.button17_2];
     
     [self.button17_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button17_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button17_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView17).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2261,7 +2501,21 @@
     [self.subDownView17 addSubview:self.button17_3];
     
     [self.button17_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button17_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button17_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView17).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button17_3Fix = [[UIButton alloc] init];
+    self.button17_3Fix.layer.cornerRadius = 25;
+    [self.button17_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button17_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView17 addSubview:self.button17_3Fix];
+    
+    [self.button17_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button17_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView17).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2275,7 +2529,7 @@
     [self.subDownView17 addSubview:self.button17_4];
     
     [self.button17_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView17).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView17).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView17).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2305,6 +2559,7 @@
     [self.button17_1 addTarget:self action:@selector(button17_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button17_2 addTarget:self action:@selector(button17_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button17_3 addTarget:self action:@selector(button17_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button17_3Fix addTarget:self action:@selector(button17_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button17_4 addTarget:self action:@selector(button17_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2341,7 +2596,7 @@
     [self.subDownView18 addSubview:self.button18_1];
     
     [self.button18_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView18).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView18).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView18).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2355,7 +2610,7 @@
     [self.subDownView18 addSubview:self.button18_2];
     
     [self.button18_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button18_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button18_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView18).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2369,7 +2624,21 @@
     [self.subDownView18 addSubview:self.button18_3];
     
     [self.button18_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button18_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button18_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView18).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button18_3Fix = [[UIButton alloc] init];
+    self.button18_3Fix.layer.cornerRadius = 25;
+    [self.button18_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button18_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView18 addSubview:self.button18_3Fix];
+    
+    [self.button18_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button18_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView18).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2383,7 +2652,7 @@
     [self.subDownView18 addSubview:self.button18_4];
     
     [self.button18_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView18).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView18).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView18).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2413,6 +2682,7 @@
     [self.button18_1 addTarget:self action:@selector(button18_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button18_2 addTarget:self action:@selector(button18_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button18_3 addTarget:self action:@selector(button18_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button18_3Fix addTarget:self action:@selector(button18_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button18_4 addTarget:self action:@selector(button18_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2449,7 +2719,7 @@
     [self.subDownView19 addSubview:self.button19_1];
     
     [self.button19_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView19).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView19).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView19).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2463,7 +2733,7 @@
     [self.subDownView19 addSubview:self.button19_2];
     
     [self.button19_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button19_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button19_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView19).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2477,7 +2747,21 @@
     [self.subDownView19 addSubview:self.button19_3];
     
     [self.button19_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button19_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button19_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView19).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button19_3Fix = [[UIButton alloc] init];
+    self.button19_3Fix.layer.cornerRadius = 25;
+    [self.button19_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button19_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView19 addSubview:self.button19_3Fix];
+    
+    [self.button19_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button19_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView19).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2491,7 +2775,7 @@
     [self.subDownView19 addSubview:self.button19_4];
     
     [self.button19_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView19).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView19).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView19).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2521,6 +2805,7 @@
     [self.button19_1 addTarget:self action:@selector(button19_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button19_2 addTarget:self action:@selector(button19_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button19_3 addTarget:self action:@selector(button19_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button19_3Fix addTarget:self action:@selector(button19_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button19_4 addTarget:self action:@selector(button19_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2557,7 +2842,7 @@
     [self.subDownView20 addSubview:self.button20_1];
     
     [self.button20_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView20).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView20).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView20).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2571,7 +2856,7 @@
     [self.subDownView20 addSubview:self.button20_2];
     
     [self.button20_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button20_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button20_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView20).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2585,7 +2870,21 @@
     [self.subDownView20 addSubview:self.button20_3];
     
     [self.button20_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button20_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button20_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView20).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button20_3Fix = [[UIButton alloc] init];
+    self.button20_3Fix.layer.cornerRadius = 25;
+    [self.button20_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button20_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView20 addSubview:self.button20_3Fix];
+    
+    [self.button20_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button20_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView20).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2599,7 +2898,7 @@
     [self.subDownView20 addSubview:self.button20_4];
     
     [self.button20_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView20).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView20).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView20).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2629,6 +2928,7 @@
     [self.button20_1 addTarget:self action:@selector(button20_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button20_2 addTarget:self action:@selector(button20_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button20_3 addTarget:self action:@selector(button20_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button20_3Fix addTarget:self action:@selector(button20_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button20_4 addTarget:self action:@selector(button20_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2665,7 +2965,7 @@
     [self.subDownView21 addSubview:self.button21_1];
     
     [self.button21_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView21).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView21).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView21).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2679,7 +2979,7 @@
     [self.subDownView21 addSubview:self.button21_2];
     
     [self.button21_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button21_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button21_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView21).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2693,7 +2993,21 @@
     [self.subDownView21 addSubview:self.button21_3];
     
     [self.button21_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button21_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button21_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView21).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button21_3Fix = [[UIButton alloc] init];
+    self.button21_3Fix.layer.cornerRadius = 25;
+    [self.button21_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button21_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView21 addSubview:self.button21_3Fix];
+    
+    [self.button21_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button21_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView21).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2707,7 +3021,7 @@
     [self.subDownView21 addSubview:self.button21_4];
     
     [self.button21_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView21).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView21).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView21).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2737,6 +3051,7 @@
     [self.button21_1 addTarget:self action:@selector(button21_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button21_2 addTarget:self action:@selector(button21_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button21_3 addTarget:self action:@selector(button21_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button21_3Fix addTarget:self action:@selector(button21_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button21_4 addTarget:self action:@selector(button21_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2773,7 +3088,7 @@
     [self.subDownView22 addSubview:self.button22_1];
     
     [self.button22_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView22).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView22).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView22).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2787,7 +3102,7 @@
     [self.subDownView22 addSubview:self.button22_2];
     
     [self.button22_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button22_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button22_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView22).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2801,7 +3116,21 @@
     [self.subDownView22 addSubview:self.button22_3];
     
     [self.button22_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button22_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button22_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView22).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button22_3Fix = [[UIButton alloc] init];
+    self.button22_3Fix.layer.cornerRadius = 25;
+    [self.button22_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button22_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView22 addSubview:self.button22_3Fix];
+    
+    [self.button22_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button22_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView22).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2815,7 +3144,7 @@
     [self.subDownView22 addSubview:self.button22_4];
     
     [self.button22_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView22).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView22).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView22).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2845,6 +3174,7 @@
     [self.button22_1 addTarget:self action:@selector(button22_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button22_2 addTarget:self action:@selector(button22_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button22_3 addTarget:self action:@selector(button22_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button22_3Fix addTarget:self action:@selector(button22_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button22_4 addTarget:self action:@selector(button22_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2881,7 +3211,7 @@
     [self.subDownView23 addSubview:self.button23_1];
     
     [self.button23_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView23).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView23).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView23).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2895,7 +3225,7 @@
     [self.subDownView23 addSubview:self.button23_2];
     
     [self.button23_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button23_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button23_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView23).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2909,7 +3239,21 @@
     [self.subDownView23 addSubview:self.button23_3];
     
     [self.button23_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button23_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button23_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView23).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button23_3Fix = [[UIButton alloc] init];
+    self.button23_3Fix.layer.cornerRadius = 25;
+    [self.button23_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button23_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView23 addSubview:self.button23_3Fix];
+    
+    [self.button23_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button23_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView23).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2923,7 +3267,7 @@
     [self.subDownView23 addSubview:self.button23_4];
     
     [self.button23_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView23).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView23).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView23).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -2953,6 +3297,7 @@
     [self.button23_1 addTarget:self action:@selector(button23_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button23_2 addTarget:self action:@selector(button23_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button23_3 addTarget:self action:@selector(button23_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button23_3Fix addTarget:self action:@selector(button23_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button23_4 addTarget:self action:@selector(button23_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -2989,7 +3334,7 @@
     [self.subDownView24 addSubview:self.button24_1];
     
     [self.button24_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView24).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView24).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView24).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3003,7 +3348,7 @@
     [self.subDownView24 addSubview:self.button24_2];
     
     [self.button24_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button24_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button24_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView24).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3017,7 +3362,21 @@
     [self.subDownView24 addSubview:self.button24_3];
     
     [self.button24_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button24_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button24_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView24).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button24_3Fix = [[UIButton alloc] init];
+    self.button24_3Fix.layer.cornerRadius = 25;
+    [self.button24_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button24_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView24 addSubview:self.button24_3Fix];
+    
+    [self.button24_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button24_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView24).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3031,7 +3390,7 @@
     [self.subDownView24 addSubview:self.button24_4];
     
     [self.button24_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView24).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView24).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView24).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3061,6 +3420,7 @@
     [self.button24_1 addTarget:self action:@selector(button24_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button24_2 addTarget:self action:@selector(button24_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button24_3 addTarget:self action:@selector(button24_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button24_3Fix addTarget:self action:@selector(button24_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button24_4 addTarget:self action:@selector(button24_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3097,7 +3457,7 @@
     [self.subDownView25 addSubview:self.button25_1];
     
     [self.button25_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView25).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView25).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView25).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3111,7 +3471,7 @@
     [self.subDownView25 addSubview:self.button25_2];
     
     [self.button25_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button25_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button25_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView25).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3125,7 +3485,21 @@
     [self.subDownView25 addSubview:self.button25_3];
     
     [self.button25_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button25_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button25_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView25).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button25_3Fix = [[UIButton alloc] init];
+    self.button25_3Fix.layer.cornerRadius = 25;
+    [self.button25_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button25_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView25 addSubview:self.button25_3Fix];
+    
+    [self.button25_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button25_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView25).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3139,7 +3513,7 @@
     [self.subDownView25 addSubview:self.button25_4];
     
     [self.button25_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView25).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView25).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView25).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3169,6 +3543,7 @@
     [self.button25_1 addTarget:self action:@selector(button25_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button25_2 addTarget:self action:@selector(button25_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button25_3 addTarget:self action:@selector(button25_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button25_3Fix addTarget:self action:@selector(button25_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button25_4 addTarget:self action:@selector(button25_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3205,7 +3580,7 @@
     [self.subDownView26 addSubview:self.button26_1];
     
     [self.button26_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView26).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView26).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView26).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3219,7 +3594,7 @@
     [self.subDownView26 addSubview:self.button26_2];
     
     [self.button26_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button26_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button26_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView26).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3233,7 +3608,21 @@
     [self.subDownView26 addSubview:self.button26_3];
     
     [self.button26_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button26_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button26_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView26).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button26_3Fix = [[UIButton alloc] init];
+    self.button26_3Fix.layer.cornerRadius = 25;
+    [self.button26_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button26_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView26 addSubview:self.button26_3Fix];
+    
+    [self.button26_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button26_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView26).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3247,7 +3636,7 @@
     [self.subDownView26 addSubview:self.button26_4];
     
     [self.button26_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView26).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView26).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView26).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3277,6 +3666,7 @@
     [self.button26_1 addTarget:self action:@selector(button26_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button26_2 addTarget:self action:@selector(button26_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button26_3 addTarget:self action:@selector(button26_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button26_3Fix addTarget:self action:@selector(button26_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button26_4 addTarget:self action:@selector(button26_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3313,7 +3703,7 @@
     [self.subDownView27 addSubview:self.button27_1];
     
     [self.button27_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView27).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView27).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView27).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3327,7 +3717,7 @@
     [self.subDownView27 addSubview:self.button27_2];
     
     [self.button27_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button27_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button27_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView27).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3341,7 +3731,21 @@
     [self.subDownView27 addSubview:self.button27_3];
     
     [self.button27_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button27_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button27_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView27).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button27_3Fix = [[UIButton alloc] init];
+    self.button27_3Fix.layer.cornerRadius = 25;
+    [self.button27_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button27_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView27 addSubview:self.button27_3Fix];
+    
+    [self.button27_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button27_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView27).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3355,7 +3759,7 @@
     [self.subDownView27 addSubview:self.button27_4];
     
     [self.button27_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView27).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView27).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView27).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3385,6 +3789,7 @@
     [self.button27_1 addTarget:self action:@selector(button27_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button27_2 addTarget:self action:@selector(button27_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button27_3 addTarget:self action:@selector(button27_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button27_3Fix addTarget:self action:@selector(button27_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button27_4 addTarget:self action:@selector(button27_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3421,7 +3826,7 @@
     [self.subDownView28 addSubview:self.button28_1];
     
     [self.button28_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView28).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView28).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView28).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3435,7 +3840,7 @@
     [self.subDownView28 addSubview:self.button28_2];
     
     [self.button28_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button28_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button28_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView28).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3449,7 +3854,21 @@
     [self.subDownView28 addSubview:self.button28_3];
     
     [self.button28_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button28_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button28_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView28).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button28_3Fix = [[UIButton alloc] init];
+    self.button28_3Fix.layer.cornerRadius = 25;
+    [self.button28_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button28_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView28 addSubview:self.button28_3Fix];
+    
+    [self.button28_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button28_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView28).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3463,7 +3882,7 @@
     [self.subDownView28 addSubview:self.button28_4];
     
     [self.button28_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView28).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView28).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView28).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3493,6 +3912,7 @@
     [self.button28_1 addTarget:self action:@selector(button28_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button28_2 addTarget:self action:@selector(button28_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button28_3 addTarget:self action:@selector(button28_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button28_3Fix addTarget:self action:@selector(button28_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button28_4 addTarget:self action:@selector(button28_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3529,7 +3949,7 @@
     [self.subDownView29 addSubview:self.button29_1];
     
     [self.button29_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView29).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView29).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView29).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3543,7 +3963,7 @@
     [self.subDownView29 addSubview:self.button29_2];
     
     [self.button29_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button29_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button29_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView29).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3557,7 +3977,21 @@
     [self.subDownView29 addSubview:self.button29_3];
     
     [self.button29_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button29_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button29_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView29).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button29_3Fix = [[UIButton alloc] init];
+    self.button29_3Fix.layer.cornerRadius = 25;
+    [self.button29_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button29_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView29 addSubview:self.button29_3Fix];
+    
+    [self.button29_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button29_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView29).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3571,7 +4005,7 @@
     [self.subDownView29 addSubview:self.button29_4];
     
     [self.button29_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView29).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView29).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView29).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3601,6 +4035,7 @@
     [self.button29_1 addTarget:self action:@selector(button29_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button29_2 addTarget:self action:@selector(button29_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button29_3 addTarget:self action:@selector(button29_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button29_3Fix addTarget:self action:@selector(button29_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button29_4 addTarget:self action:@selector(button29_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3637,7 +4072,7 @@
     [self.subDownView30 addSubview:self.button30_1];
     
     [self.button30_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView30).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView30).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView30).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3651,7 +4086,7 @@
     [self.subDownView30 addSubview:self.button30_2];
     
     [self.button30_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button30_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button30_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView30).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3665,7 +4100,21 @@
     [self.subDownView30 addSubview:self.button30_3];
     
     [self.button30_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button30_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button30_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView30).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button30_3Fix = [[UIButton alloc] init];
+    self.button30_3Fix.layer.cornerRadius = 25;
+    [self.button30_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button30_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView30 addSubview:self.button30_3Fix];
+    
+    [self.button30_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button30_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView30).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3679,7 +4128,7 @@
     [self.subDownView30 addSubview:self.button30_4];
     
     [self.button30_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView30).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView30).offset(-(SCREEN_WIDTH-250)/5);
         make.centerY.equalTo(self.subDownView30).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3709,6 +4158,7 @@
     [self.button30_1 addTarget:self action:@selector(button30_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button30_2 addTarget:self action:@selector(button30_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button30_3 addTarget:self action:@selector(button30_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button30_3Fix addTarget:self action:@selector(button30_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button30_4 addTarget:self action:@selector(button30_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3745,7 +4195,7 @@
     [self.subDownView31 addSubview:self.button31_1];
     
     [self.button31_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView31).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView31).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView31).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3759,7 +4209,7 @@
     [self.subDownView31 addSubview:self.button31_2];
     
     [self.button31_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button31_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button31_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView31).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3773,7 +4223,21 @@
     [self.subDownView31 addSubview:self.button31_3];
     
     [self.button31_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button31_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button31_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView31).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button31_3Fix = [[UIButton alloc] init];
+    self.button31_3Fix.layer.cornerRadius = 25;
+    [self.button31_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button31_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView31 addSubview:self.button31_3Fix];
+    
+    [self.button31_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button31_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView31).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3787,7 +4251,7 @@
     [self.subDownView31 addSubview:self.button31_4];
     
     [self.button31_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView31).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView31).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView31).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3817,6 +4281,7 @@
     [self.button31_1 addTarget:self action:@selector(button31_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button31_2 addTarget:self action:@selector(button31_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button31_3 addTarget:self action:@selector(button31_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button31_3Fix addTarget:self action:@selector(button31_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button31_4 addTarget:self action:@selector(button31_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3853,7 +4318,7 @@
     [self.subDownView32 addSubview:self.button32_1];
     
     [self.button32_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView32).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView32).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView32).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3867,7 +4332,7 @@
     [self.subDownView32 addSubview:self.button32_2];
     
     [self.button32_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button32_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button32_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView32).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3881,7 +4346,21 @@
     [self.subDownView32 addSubview:self.button32_3];
     
     [self.button32_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button32_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button32_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView32).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button32_3Fix = [[UIButton alloc] init];
+    self.button32_3Fix.layer.cornerRadius = 25;
+    [self.button32_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button32_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView32 addSubview:self.button32_3Fix];
+    
+    [self.button32_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button32_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView32).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3895,7 +4374,7 @@
     [self.subDownView32 addSubview:self.button32_4];
     
     [self.button32_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView32).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView32).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView32).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3925,6 +4404,7 @@
     [self.button32_1 addTarget:self action:@selector(button32_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button32_2 addTarget:self action:@selector(button32_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button32_3 addTarget:self action:@selector(button32_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button32_3Fix addTarget:self action:@selector(button32_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button32_4 addTarget:self action:@selector(button32_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -3961,7 +4441,7 @@
     [self.subDownView33 addSubview:self.button33_1];
     
     [self.button33_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView33).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView33).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView33).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3975,7 +4455,7 @@
     [self.subDownView33 addSubview:self.button33_2];
     
     [self.button33_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button33_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button33_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView33).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -3989,7 +4469,21 @@
     [self.subDownView33 addSubview:self.button33_3];
     
     [self.button33_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button33_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button33_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView33).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button33_3Fix = [[UIButton alloc] init];
+    self.button33_3Fix.layer.cornerRadius = 25;
+    [self.button33_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button33_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView33 addSubview:self.button33_3Fix];
+    
+    [self.button33_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button33_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView33).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4003,7 +4497,7 @@
     [self.subDownView33 addSubview:self.button33_4];
     
     [self.button33_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView33).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView33).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView33).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4033,6 +4527,7 @@
     [self.button33_1 addTarget:self action:@selector(button33_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button33_2 addTarget:self action:@selector(button33_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button33_3 addTarget:self action:@selector(button33_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button33_3Fix addTarget:self action:@selector(button33_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button33_4 addTarget:self action:@selector(button33_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4069,7 +4564,7 @@
     [self.subDownView34 addSubview:self.button34_1];
     
     [self.button34_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView34).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView34).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView34).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4083,7 +4578,7 @@
     [self.subDownView34 addSubview:self.button34_2];
     
     [self.button34_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button34_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button34_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView34).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4097,7 +4592,21 @@
     [self.subDownView34 addSubview:self.button34_3];
     
     [self.button34_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button34_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button34_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView34).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button34_3Fix = [[UIButton alloc] init];
+    self.button34_3Fix.layer.cornerRadius = 25;
+    [self.button34_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button34_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView34 addSubview:self.button34_3Fix];
+    
+    [self.button34_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button34_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView34).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4111,7 +4620,7 @@
     [self.subDownView34 addSubview:self.button34_4];
     
     [self.button34_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView34).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView34).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView34).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4141,6 +4650,7 @@
     [self.button34_1 addTarget:self action:@selector(button34_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button34_2 addTarget:self action:@selector(button34_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button34_3 addTarget:self action:@selector(button34_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button34_3Fix addTarget:self action:@selector(button34_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button34_4 addTarget:self action:@selector(button34_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4176,7 +4686,7 @@
     [self.subDownView35 addSubview:self.button35_1];
     
     [self.button35_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView35).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView35).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView35).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4190,7 +4700,7 @@
     [self.subDownView35 addSubview:self.button35_2];
     
     [self.button35_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button35_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button35_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView35).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4204,7 +4714,21 @@
     [self.subDownView35 addSubview:self.button35_3];
     
     [self.button35_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button35_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button35_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView35).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button35_3Fix = [[UIButton alloc] init];
+    self.button35_3Fix.layer.cornerRadius = 25;
+    [self.button35_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button35_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView35 addSubview:self.button35_3Fix];
+    
+    [self.button35_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button35_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView35).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4218,7 +4742,7 @@
     [self.subDownView35 addSubview:self.button35_4];
     
     [self.button35_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView35).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView35).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView35).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4248,6 +4772,7 @@
     [self.button35_1 addTarget:self action:@selector(button35_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button35_2 addTarget:self action:@selector(button35_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button35_3 addTarget:self action:@selector(button35_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button35_3Fix addTarget:self action:@selector(button35_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button35_4 addTarget:self action:@selector(button35_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4284,7 +4809,7 @@
     [self.subDownView36 addSubview:self.button36_1];
     
     [self.button36_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView36).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView36).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView36).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4298,7 +4823,7 @@
     [self.subDownView36 addSubview:self.button36_2];
     
     [self.button36_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button36_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button36_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView36).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4312,7 +4837,21 @@
     [self.subDownView36 addSubview:self.button36_3];
     
     [self.button36_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button36_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button36_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView36).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button36_3Fix = [[UIButton alloc] init];
+    self.button36_3Fix.layer.cornerRadius = 25;
+    [self.button36_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button36_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView36 addSubview:self.button36_3Fix];
+    
+    [self.button36_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button36_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView36).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4326,7 +4865,7 @@
     [self.subDownView36 addSubview:self.button36_4];
     
     [self.button36_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView36).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView36).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView36).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4356,6 +4895,7 @@
     [self.button36_1 addTarget:self action:@selector(button36_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button36_2 addTarget:self action:@selector(button36_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button36_3 addTarget:self action:@selector(button36_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button36_3Fix addTarget:self action:@selector(button36_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button36_4 addTarget:self action:@selector(button36_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4392,7 +4932,7 @@
     [self.subDownView37 addSubview:self.button37_1];
     
     [self.button37_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView37).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView37).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView37).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4406,7 +4946,7 @@
     [self.subDownView37 addSubview:self.button37_2];
     
     [self.button37_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button37_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button37_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView37).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4420,7 +4960,21 @@
     [self.subDownView37 addSubview:self.button37_3];
     
     [self.button37_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button37_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button37_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView37).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button37_3Fix = [[UIButton alloc] init];
+    self.button37_3Fix.layer.cornerRadius = 25;
+    [self.button37_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button37_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView37 addSubview:self.button37_3Fix];
+    
+    [self.button37_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button37_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView37).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4434,7 +4988,7 @@
     [self.subDownView37 addSubview:self.button37_4];
     
     [self.button37_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView37).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView37).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView37).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4464,6 +5018,7 @@
     [self.button37_1 addTarget:self action:@selector(button37_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button37_2 addTarget:self action:@selector(button37_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button37_3 addTarget:self action:@selector(button37_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button37_3Fix addTarget:self action:@selector(button37_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button37_4 addTarget:self action:@selector(button37_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4500,7 +5055,7 @@
     [self.subDownView38 addSubview:self.button38_1];
     
     [self.button38_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView38).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView38).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView38).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4514,7 +5069,7 @@
     [self.subDownView38 addSubview:self.button38_2];
     
     [self.button38_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button38_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button38_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView38).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4528,7 +5083,21 @@
     [self.subDownView38 addSubview:self.button38_3];
     
     [self.button38_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button38_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button38_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView38).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button38_3Fix = [[UIButton alloc] init];
+    self.button38_3Fix.layer.cornerRadius = 25;
+    [self.button38_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button38_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView38 addSubview:self.button38_3Fix];
+    
+    [self.button38_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button38_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView38).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4542,7 +5111,7 @@
     [self.subDownView38 addSubview:self.button38_4];
     
     [self.button38_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView38).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView38).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView38).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4572,6 +5141,7 @@
     [self.button38_1 addTarget:self action:@selector(button38_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button38_2 addTarget:self action:@selector(button38_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button38_3 addTarget:self action:@selector(button38_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button38_3Fix addTarget:self action:@selector(button38_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button38_4 addTarget:self action:@selector(button38_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4608,7 +5178,7 @@
     [self.subDownView39 addSubview:self.button39_1];
     
     [self.button39_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView39).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView39).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView39).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4622,7 +5192,7 @@
     [self.subDownView39 addSubview:self.button39_2];
     
     [self.button39_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button39_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button39_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView39).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4636,7 +5206,21 @@
     [self.subDownView39 addSubview:self.button39_3];
     
     [self.button39_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button39_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button39_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView39).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button39_3Fix = [[UIButton alloc] init];
+    self.button39_3Fix.layer.cornerRadius = 25;
+    [self.button39_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button39_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView39 addSubview:self.button39_3Fix];
+    
+    [self.button39_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button39_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView39).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4650,7 +5234,7 @@
     [self.subDownView39 addSubview:self.button39_4];
     
     [self.button39_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView39).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView39).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView39).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4680,6 +5264,7 @@
     [self.button39_1 addTarget:self action:@selector(button39_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button39_2 addTarget:self action:@selector(button39_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button39_3 addTarget:self action:@selector(button39_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button39_3Fix addTarget:self action:@selector(button39_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button39_4 addTarget:self action:@selector(button39_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4716,7 +5301,7 @@
     [self.subDownView40 addSubview:self.button40_1];
     
     [self.button40_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView40).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView40).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView40).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4730,7 +5315,7 @@
     [self.subDownView40 addSubview:self.button40_2];
     
     [self.button40_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button40_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button40_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView40).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4744,7 +5329,21 @@
     [self.subDownView40 addSubview:self.button40_3];
     
     [self.button40_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button40_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button40_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView40).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button40_3Fix = [[UIButton alloc] init];
+    self.button40_3Fix.layer.cornerRadius = 25;
+    [self.button40_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button40_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView40 addSubview:self.button40_3Fix];
+    
+    [self.button40_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button40_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView40).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4758,7 +5357,7 @@
     [self.subDownView40 addSubview:self.button40_4];
     
     [self.button40_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView40).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView40).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView40).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4788,6 +5387,7 @@
     [self.button40_1 addTarget:self action:@selector(button40_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button40_2 addTarget:self action:@selector(button40_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button40_3 addTarget:self action:@selector(button40_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button40_3Fix addTarget:self action:@selector(button40_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button40_4 addTarget:self action:@selector(button40_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4824,7 +5424,7 @@
     [self.subDownView41 addSubview:self.button41_1];
     
     [self.button41_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView41).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView41).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView41).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4838,7 +5438,7 @@
     [self.subDownView41 addSubview:self.button41_2];
     
     [self.button41_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button41_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button41_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView41).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4852,7 +5452,21 @@
     [self.subDownView41 addSubview:self.button41_3];
     
     [self.button41_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button41_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button41_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView41).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button41_3Fix = [[UIButton alloc] init];
+    self.button41_3Fix.layer.cornerRadius = 25;
+    [self.button41_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button41_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView41 addSubview:self.button41_3Fix];
+    
+    [self.button41_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button41_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView41).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4866,7 +5480,7 @@
     [self.subDownView41 addSubview:self.button41_4];
     
     [self.button41_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView41).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView41).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView41).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4896,6 +5510,7 @@
     [self.button41_1 addTarget:self action:@selector(button41_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button41_2 addTarget:self action:@selector(button41_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button41_3 addTarget:self action:@selector(button41_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button41_3Fix addTarget:self action:@selector(button41_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button41_4 addTarget:self action:@selector(button41_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -4932,7 +5547,7 @@
     [self.subDownView42 addSubview:self.button42_1];
     
     [self.button42_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView42).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView42).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView42).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4946,7 +5561,7 @@
     [self.subDownView42 addSubview:self.button42_2];
     
     [self.button42_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button42_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button42_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView42).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4960,7 +5575,21 @@
     [self.subDownView42 addSubview:self.button42_3];
     
     [self.button42_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button42_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button42_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView42).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button42_3Fix = [[UIButton alloc] init];
+    self.button42_3Fix.layer.cornerRadius = 25;
+    [self.button42_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button42_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView42 addSubview:self.button42_3Fix];
+    
+    [self.button42_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button42_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView42).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -4974,7 +5603,7 @@
     [self.subDownView42 addSubview:self.button42_4];
     
     [self.button42_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView42).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView42).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView42).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5004,6 +5633,7 @@
     [self.button42_1 addTarget:self action:@selector(button42_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button42_2 addTarget:self action:@selector(button42_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button42_3 addTarget:self action:@selector(button42_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button42_3Fix addTarget:self action:@selector(button42_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button42_4 addTarget:self action:@selector(button42_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5040,7 +5670,7 @@
     [self.subDownView43 addSubview:self.button43_1];
     
     [self.button43_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView43).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView43).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView43).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5054,7 +5684,7 @@
     [self.subDownView43 addSubview:self.button43_2];
     
     [self.button43_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button43_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button43_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView43).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5068,7 +5698,21 @@
     [self.subDownView43 addSubview:self.button43_3];
     
     [self.button43_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button43_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button43_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView43).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button43_3Fix = [[UIButton alloc] init];
+    self.button43_3Fix.layer.cornerRadius = 25;
+    [self.button43_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button43_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView43 addSubview:self.button43_3Fix];
+    
+    [self.button43_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button43_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView43).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5082,7 +5726,7 @@
     [self.subDownView43 addSubview:self.button43_4];
     
     [self.button43_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView43).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView43).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView43).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5112,6 +5756,7 @@
     [self.button43_1 addTarget:self action:@selector(button43_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button43_2 addTarget:self action:@selector(button43_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button43_3 addTarget:self action:@selector(button43_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button43_3Fix addTarget:self action:@selector(button43_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button43_4 addTarget:self action:@selector(button43_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5148,7 +5793,7 @@
     [self.subDownView44 addSubview:self.button44_1];
     
     [self.button44_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView44).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView44).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView44).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5162,7 +5807,7 @@
     [self.subDownView44 addSubview:self.button44_2];
     
     [self.button44_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button44_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button44_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView44).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5176,7 +5821,21 @@
     [self.subDownView44 addSubview:self.button44_3];
     
     [self.button44_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button44_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button44_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView44).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button44_3Fix = [[UIButton alloc] init];
+    self.button44_3Fix.layer.cornerRadius = 25;
+    [self.button44_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button44_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView44 addSubview:self.button44_3Fix];
+    
+    [self.button44_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button44_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView44).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5190,7 +5849,7 @@
     [self.subDownView44 addSubview:self.button44_4];
     
     [self.button44_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView44).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView44).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView44).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5220,6 +5879,7 @@
     [self.button44_1 addTarget:self action:@selector(button44_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button44_2 addTarget:self action:@selector(button44_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button44_3 addTarget:self action:@selector(button44_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button44_3Fix addTarget:self action:@selector(button44_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button44_4 addTarget:self action:@selector(button44_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5256,7 +5916,7 @@
     [self.subDownView45 addSubview:self.button45_1];
     
     [self.button45_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView45).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView45).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView45).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5270,7 +5930,7 @@
     [self.subDownView45 addSubview:self.button45_2];
     
     [self.button45_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button45_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button45_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView45).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5284,7 +5944,21 @@
     [self.subDownView45 addSubview:self.button45_3];
     
     [self.button45_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button45_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button45_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView45).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button45_3Fix = [[UIButton alloc] init];
+    self.button45_3Fix.layer.cornerRadius = 25;
+    [self.button45_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button45_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView45 addSubview:self.button45_3Fix];
+    
+    [self.button45_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button45_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView45).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5298,7 +5972,7 @@
     [self.subDownView45 addSubview:self.button45_4];
     
     [self.button45_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView45).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView45).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView45).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5328,6 +6002,7 @@
     [self.button45_1 addTarget:self action:@selector(button45_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button45_2 addTarget:self action:@selector(button45_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button45_3 addTarget:self action:@selector(button45_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button45_3Fix addTarget:self action:@selector(button45_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button45_4 addTarget:self action:@selector(button45_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5364,7 +6039,7 @@
     [self.subDownView46 addSubview:self.button46_1];
     
     [self.button46_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView46).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView46).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView46).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5378,7 +6053,7 @@
     [self.subDownView46 addSubview:self.button46_2];
     
     [self.button46_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button46_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button46_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView46).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5392,7 +6067,21 @@
     [self.subDownView46 addSubview:self.button46_3];
     
     [self.button46_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button46_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button46_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView46).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button46_3Fix = [[UIButton alloc] init];
+    self.button46_3Fix.layer.cornerRadius = 25;
+    [self.button46_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button46_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView46 addSubview:self.button46_3Fix];
+    
+    [self.button46_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button46_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView46).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5406,7 +6095,7 @@
     [self.subDownView46 addSubview:self.button46_4];
     
     [self.button46_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView46).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView46).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView46).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5436,6 +6125,7 @@
     [self.button46_1 addTarget:self action:@selector(button46_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button46_2 addTarget:self action:@selector(button46_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button46_3 addTarget:self action:@selector(button46_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button46_3Fix addTarget:self action:@selector(button46_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button46_4 addTarget:self action:@selector(button46_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5472,7 +6162,7 @@
     [self.subDownView47 addSubview:self.button47_1];
     
     [self.button47_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView47).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView47).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView47).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5486,7 +6176,7 @@
     [self.subDownView47 addSubview:self.button47_2];
     
     [self.button47_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button47_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button47_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView47).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5500,7 +6190,21 @@
     [self.subDownView47 addSubview:self.button47_3];
     
     [self.button47_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button47_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button47_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView47).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button47_3Fix = [[UIButton alloc] init];
+    self.button47_3Fix.layer.cornerRadius = 25;
+    [self.button47_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button47_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView47 addSubview:self.button47_3Fix];
+    
+    [self.button47_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button47_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView47).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5514,7 +6218,7 @@
     [self.subDownView47 addSubview:self.button47_4];
     
     [self.button47_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView47).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView47).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView47).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5544,6 +6248,7 @@
     [self.button47_1 addTarget:self action:@selector(button47_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button47_2 addTarget:self action:@selector(button47_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button47_3 addTarget:self action:@selector(button47_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button47_3Fix addTarget:self action:@selector(button47_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button47_4 addTarget:self action:@selector(button47_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5580,7 +6285,7 @@
     [self.subDownView48 addSubview:self.button48_1];
     
     [self.button48_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView48).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView48).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView48).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5594,7 +6299,7 @@
     [self.subDownView48 addSubview:self.button48_2];
     
     [self.button48_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button48_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button48_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView48).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5608,7 +6313,21 @@
     [self.subDownView48 addSubview:self.button48_3];
     
     [self.button48_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button48_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button48_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView48).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button48_3Fix = [[UIButton alloc] init];
+    self.button48_3Fix.layer.cornerRadius = 25;
+    [self.button48_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button48_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView48 addSubview:self.button48_3Fix];
+    
+    [self.button48_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button48_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView48).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5622,7 +6341,7 @@
     [self.subDownView48 addSubview:self.button48_4];
     
     [self.button48_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView48).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView48).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView48).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5652,6 +6371,7 @@
     [self.button48_1 addTarget:self action:@selector(button48_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button48_2 addTarget:self action:@selector(button48_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button48_3 addTarget:self action:@selector(button48_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button48_3Fix addTarget:self action:@selector(button48_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button48_4 addTarget:self action:@selector(button48_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5688,7 +6408,7 @@
     [self.subDownView49 addSubview:self.button49_1];
     
     [self.button49_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView49).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView49).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView49).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5702,7 +6422,7 @@
     [self.subDownView49 addSubview:self.button49_2];
     
     [self.button49_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button49_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button49_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView49).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5716,7 +6436,21 @@
     [self.subDownView49 addSubview:self.button49_3];
     
     [self.button49_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button49_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button49_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView49).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button49_3Fix = [[UIButton alloc] init];
+    self.button49_3Fix.layer.cornerRadius = 25;
+    [self.button49_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button49_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView49 addSubview:self.button49_3Fix];
+    
+    [self.button49_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button49_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView49).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5730,7 +6464,7 @@
     [self.subDownView49 addSubview:self.button49_4];
     
     [self.button49_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView49).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView49).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView49).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5760,6 +6494,7 @@
     [self.button49_1 addTarget:self action:@selector(button49_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button49_2 addTarget:self action:@selector(button49_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button49_3 addTarget:self action:@selector(button49_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button49_3Fix addTarget:self action:@selector(button49_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button49_4 addTarget:self action:@selector(button49_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5796,7 +6531,7 @@
     [self.subDownView50 addSubview:self.button50_1];
     
     [self.button50_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView50).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView50).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView50).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5810,7 +6545,7 @@
     [self.subDownView50 addSubview:self.button50_2];
     
     [self.button50_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button50_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button50_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView50).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5824,7 +6559,21 @@
     [self.subDownView50 addSubview:self.button50_3];
     
     [self.button50_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button50_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button50_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView50).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button50_3Fix = [[UIButton alloc] init];
+    self.button50_3Fix.layer.cornerRadius = 25;
+    [self.button50_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button50_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView50 addSubview:self.button50_3Fix];
+    
+    [self.button50_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button50_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView50).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5838,7 +6587,7 @@
     [self.subDownView50 addSubview:self.button50_4];
     
     [self.button50_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView50).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView50).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView50).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5868,6 +6617,7 @@
     [self.button50_1 addTarget:self action:@selector(button50_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button50_2 addTarget:self action:@selector(button50_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button50_3 addTarget:self action:@selector(button50_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button50_3Fix addTarget:self action:@selector(button50_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button50_4 addTarget:self action:@selector(button50_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -5904,7 +6654,7 @@
     [self.subDownView51 addSubview:self.button51_1];
     
     [self.button51_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView51).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView51).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView51).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5918,7 +6668,7 @@
     [self.subDownView51 addSubview:self.button51_2];
     
     [self.button51_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button51_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button51_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView51).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5932,7 +6682,21 @@
     [self.subDownView51 addSubview:self.button51_3];
     
     [self.button51_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button51_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button51_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView51).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button51_3Fix = [[UIButton alloc] init];
+    self.button51_3Fix.layer.cornerRadius = 25;
+    [self.button51_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button51_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView51 addSubview:self.button51_3Fix];
+    
+    [self.button51_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button51_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView51).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5946,7 +6710,7 @@
     [self.subDownView51 addSubview:self.button51_4];
     
     [self.button51_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView51).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView51).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView51).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -5976,6 +6740,7 @@
     [self.button51_1 addTarget:self action:@selector(button51_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button51_2 addTarget:self action:@selector(button51_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button51_3 addTarget:self action:@selector(button51_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button51_3Fix addTarget:self action:@selector(button51_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button51_4 addTarget:self action:@selector(button51_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6012,7 +6777,7 @@
     [self.subDownView52 addSubview:self.button52_1];
     
     [self.button52_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView52).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView52).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView52).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6026,7 +6791,7 @@
     [self.subDownView52 addSubview:self.button52_2];
     
     [self.button52_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button52_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button52_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView52).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6040,7 +6805,21 @@
     [self.subDownView52 addSubview:self.button52_3];
     
     [self.button52_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button52_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button52_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView52).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button52_3Fix = [[UIButton alloc] init];
+    self.button52_3Fix.layer.cornerRadius = 25;
+    [self.button52_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button52_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView52 addSubview:self.button52_3Fix];
+    
+    [self.button52_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button52_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView52).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6054,7 +6833,7 @@
     [self.subDownView52 addSubview:self.button52_4];
     
     [self.button52_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView52).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView52).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView52).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6084,6 +6863,7 @@
     [self.button52_1 addTarget:self action:@selector(button52_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button52_2 addTarget:self action:@selector(button52_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button52_3 addTarget:self action:@selector(button52_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button52_3Fix addTarget:self action:@selector(button52_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button52_4 addTarget:self action:@selector(button52_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6120,7 +6900,7 @@
     [self.subDownView53 addSubview:self.button53_1];
     
     [self.button53_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView53).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView53).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView53).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6134,7 +6914,7 @@
     [self.subDownView53 addSubview:self.button53_2];
     
     [self.button53_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button53_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button53_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView53).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6148,7 +6928,21 @@
     [self.subDownView53 addSubview:self.button53_3];
     
     [self.button53_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button53_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button53_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView53).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button53_3Fix = [[UIButton alloc] init];
+    self.button53_3Fix.layer.cornerRadius = 25;
+    [self.button53_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button53_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView53 addSubview:self.button53_3Fix];
+    
+    [self.button53_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button53_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView53).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6162,7 +6956,7 @@
     [self.subDownView53 addSubview:self.button53_4];
     
     [self.button53_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView53).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView53).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView53).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6192,6 +6986,7 @@
     [self.button53_1 addTarget:self action:@selector(button53_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button53_2 addTarget:self action:@selector(button53_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button53_3 addTarget:self action:@selector(button53_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button53_3Fix addTarget:self action:@selector(button53_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button53_4 addTarget:self action:@selector(button53_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6228,7 +7023,7 @@
     [self.subDownView54 addSubview:self.button54_1];
     
     [self.button54_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView54).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView54).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView54).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6242,7 +7037,7 @@
     [self.subDownView54 addSubview:self.button54_2];
     
     [self.button54_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button54_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button54_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView54).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6256,7 +7051,21 @@
     [self.subDownView54 addSubview:self.button54_3];
     
     [self.button54_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button54_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button54_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView54).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button54_3Fix = [[UIButton alloc] init];
+    self.button54_3Fix.layer.cornerRadius = 25;
+    [self.button54_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button54_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView54 addSubview:self.button54_3Fix];
+    
+    [self.button54_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button54_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView54).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6270,7 +7079,7 @@
     [self.subDownView54 addSubview:self.button54_4];
     
     [self.button54_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView54).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView54).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView54).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6300,6 +7109,7 @@
     [self.button54_1 addTarget:self action:@selector(button54_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button54_2 addTarget:self action:@selector(button54_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button54_3 addTarget:self action:@selector(button54_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button54_3Fix addTarget:self action:@selector(button54_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button54_4 addTarget:self action:@selector(button54_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6336,7 +7146,7 @@
     [self.subDownView55 addSubview:self.button55_1];
     
     [self.button55_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView55).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView55).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView55).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6350,7 +7160,7 @@
     [self.subDownView55 addSubview:self.button55_2];
     
     [self.button55_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button55_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button55_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView55).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6364,7 +7174,21 @@
     [self.subDownView55 addSubview:self.button55_3];
     
     [self.button55_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button55_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button55_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView55).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button55_3Fix = [[UIButton alloc] init];
+    self.button55_3Fix.layer.cornerRadius = 25;
+    [self.button55_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button55_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView55 addSubview:self.button55_3Fix];
+    
+    [self.button55_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button55_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView55).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6378,7 +7202,7 @@
     [self.subDownView55 addSubview:self.button55_4];
     
     [self.button55_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView55).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView55).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView55).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6408,6 +7232,7 @@
     [self.button55_1 addTarget:self action:@selector(button55_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button55_2 addTarget:self action:@selector(button55_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button55_3 addTarget:self action:@selector(button55_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button55_3Fix addTarget:self action:@selector(button55_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button55_4 addTarget:self action:@selector(button55_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6444,7 +7269,7 @@
     [self.subDownView56 addSubview:self.button56_1];
     
     [self.button56_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView56).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView56).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView56).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6458,7 +7283,7 @@
     [self.subDownView56 addSubview:self.button56_2];
     
     [self.button56_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button56_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button56_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView56).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6472,7 +7297,21 @@
     [self.subDownView56 addSubview:self.button56_3];
     
     [self.button56_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button56_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button56_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView56).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button56_3Fix = [[UIButton alloc] init];
+    self.button56_3Fix.layer.cornerRadius = 25;
+    [self.button56_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button56_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView56 addSubview:self.button56_3Fix];
+    
+    [self.button56_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button56_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView56).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6486,7 +7325,7 @@
     [self.subDownView56 addSubview:self.button56_4];
     
     [self.button56_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView56).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView56).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView56).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6516,6 +7355,7 @@
     [self.button56_1 addTarget:self action:@selector(button56_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button56_2 addTarget:self action:@selector(button56_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button56_3 addTarget:self action:@selector(button56_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button56_3Fix addTarget:self action:@selector(button56_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button56_4 addTarget:self action:@selector(button56_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6552,7 +7392,7 @@
     [self.subDownView57 addSubview:self.button57_1];
     
     [self.button57_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView57).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView57).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView57).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6566,7 +7406,7 @@
     [self.subDownView57 addSubview:self.button57_2];
     
     [self.button57_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button57_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button57_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView57).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6580,7 +7420,21 @@
     [self.subDownView57 addSubview:self.button57_3];
     
     [self.button57_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button57_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button57_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView57).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button57_3Fix = [[UIButton alloc] init];
+    self.button57_3Fix.layer.cornerRadius = 25;
+    [self.button57_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button57_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView57 addSubview:self.button57_3Fix];
+    
+    [self.button57_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button57_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView57).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6594,7 +7448,7 @@
     [self.subDownView57 addSubview:self.button57_4];
     
     [self.button57_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView57).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView57).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView57).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6624,6 +7478,7 @@
     [self.button57_1 addTarget:self action:@selector(button57_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button57_2 addTarget:self action:@selector(button57_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button57_3 addTarget:self action:@selector(button57_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button57_3Fix addTarget:self action:@selector(button57_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button57_4 addTarget:self action:@selector(button57_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6660,7 +7515,7 @@
     [self.subDownView58 addSubview:self.button58_1];
     
     [self.button58_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView58).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView58).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView58).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6674,7 +7529,7 @@
     [self.subDownView58 addSubview:self.button58_2];
     
     [self.button58_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button58_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button58_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView58).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6688,7 +7543,21 @@
     [self.subDownView58 addSubview:self.button58_3];
     
     [self.button58_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button58_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button58_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView58).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button58_3Fix = [[UIButton alloc] init];
+    self.button58_3Fix.layer.cornerRadius = 25;
+    [self.button58_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button58_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView58 addSubview:self.button58_3Fix];
+    
+    [self.button58_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button58_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView58).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6702,7 +7571,7 @@
     [self.subDownView58 addSubview:self.button58_4];
     
     [self.button58_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView58).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView58).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView58).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6732,6 +7601,7 @@
     [self.button58_1 addTarget:self action:@selector(button58_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button58_2 addTarget:self action:@selector(button58_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button58_3 addTarget:self action:@selector(button58_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button58_3Fix addTarget:self action:@selector(button58_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button58_4 addTarget:self action:@selector(button58_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6768,7 +7638,7 @@
     [self.subDownView59 addSubview:self.button59_1];
     
     [self.button59_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView59).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView59).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView59).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6782,7 +7652,7 @@
     [self.subDownView59 addSubview:self.button59_2];
     
     [self.button59_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button59_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button59_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView59).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6796,7 +7666,21 @@
     [self.subDownView59 addSubview:self.button59_3];
     
     [self.button59_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button59_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button59_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView59).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button59_3Fix = [[UIButton alloc] init];
+    self.button59_3Fix.layer.cornerRadius = 25;
+    [self.button59_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button59_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView59 addSubview:self.button59_3Fix];
+    
+    [self.button59_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button59_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView59).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6810,7 +7694,7 @@
     [self.subDownView59 addSubview:self.button59_4];
     
     [self.button59_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView59).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView59).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView59).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6840,6 +7724,7 @@
     [self.button59_1 addTarget:self action:@selector(button59_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button59_2 addTarget:self action:@selector(button59_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button59_3 addTarget:self action:@selector(button59_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button59_3Fix addTarget:self action:@selector(button59_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button59_4 addTarget:self action:@selector(button59_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 /*===========================================================================================================*/
@@ -6876,7 +7761,7 @@
     [self.subDownView60 addSubview:self.button60_1];
     
     [self.button60_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.subDownView60).offset((SCREEN_WIDTH-200)/5);
+        make.leading.equalTo(self.subDownView60).offset((SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView60).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6890,7 +7775,7 @@
     [self.subDownView60 addSubview:self.button60_2];
     
     [self.button60_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button60_1).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button60_1).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView60).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6904,7 +7789,21 @@
     [self.subDownView60 addSubview:self.button60_3];
     
     [self.button60_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.button60_2).offset((SCREEN_WIDTH-200)/5+50);
+        make.leading.equalTo(self.button60_2).offset((SCREEN_WIDTH-250)/6+50);
+        make.centerY.equalTo(self.subDownView60).offset(0);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    self.button60_3Fix = [[UIButton alloc] init];
+    self.button60_3Fix.layer.cornerRadius = 25;
+    [self.button60_3Fix setTitle:@"经常" forState:UIControlStateNormal];
+    [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [self.button60_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.subDownView60 addSubview:self.button60_3Fix];
+    
+    [self.button60_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.button60_3).offset((SCREEN_WIDTH-250)/6+50);
         make.centerY.equalTo(self.subDownView60).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6918,7 +7817,7 @@
     [self.subDownView60 addSubview:self.button60_4];
     
     [self.button60_4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.subDownView60).offset(-(SCREEN_WIDTH-200)/5);
+        make.trailing.equalTo(self.subDownView60).offset(-(SCREEN_WIDTH-250)/6);
         make.centerY.equalTo(self.subDownView60).offset(0);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(50);
@@ -6948,6 +7847,7 @@
     [self.button60_1 addTarget:self action:@selector(button60_1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button60_2 addTarget:self action:@selector(button60_2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button60_3 addTarget:self action:@selector(button60_3Clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.button60_3Fix addTarget:self action:@selector(button60_3FixClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.button60_4 addTarget:self action:@selector(button60_4Clicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -6962,6 +7862,7 @@
     self.isButton1_1Clicked = YES;
     self.isButton1_2Clicked = NO;
     self.isButton1_3Clicked = NO;
+    self.isButton1_3FixClicked = NO;
     self.isButton1_4Clicked = NO;
     [self changeQuestion1Presentation];
     [self recordQuestion1AnsweredStatus];
@@ -6971,6 +7872,7 @@
     self.isButton1_1Clicked = NO;
     self.isButton1_2Clicked = YES;
     self.isButton1_3Clicked = NO;
+    self.isButton1_3FixClicked = NO;
     self.isButton1_4Clicked = NO;
     [self changeQuestion1Presentation];
     [self recordQuestion1AnsweredStatus];
@@ -6980,6 +7882,16 @@
     self.isButton1_1Clicked = NO;
     self.isButton1_2Clicked = NO;
     self.isButton1_3Clicked = YES;
+    self.isButton1_3FixClicked = NO;
+    self.isButton1_4Clicked = NO;
+    [self changeQuestion1Presentation];
+    [self recordQuestion1AnsweredStatus];
+}
+-(void)button1_3FixClicked{
+    self.isButton1_1Clicked = NO;
+    self.isButton1_2Clicked = NO;
+    self.isButton1_3Clicked = NO;
+    self.isButton1_3FixClicked = YES;
     self.isButton1_4Clicked = NO;
     [self changeQuestion1Presentation];
     [self recordQuestion1AnsweredStatus];
@@ -6989,6 +7901,7 @@
     self.isButton1_1Clicked = NO;
     self.isButton1_2Clicked = NO;
     self.isButton1_3Clicked = NO;
+    self.isButton1_3FixClicked = NO;
     self.isButton1_4Clicked = YES;
     [self changeQuestion1Presentation];
     [self recordQuestion1AnsweredStatus];
@@ -7003,6 +7916,8 @@
         [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton1_2Clicked){
@@ -7013,6 +7928,8 @@
         [self.button1_2 setBackgroundColor:kMAIN_COLOR];
         [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton1_3Clicked){
@@ -7023,6 +7940,20 @@
         [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton1_3FixClicked){
+        self.answer1 = @"经常";
+        [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton1_4Clicked){
@@ -7033,6 +7964,8 @@
         [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button1_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7062,6 +7995,13 @@
     }
     
     if (!self.isQuestion1Answered) {
+        if (self.isButton1_3FixClicked) {
+            self.isQuestion1Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion1Answered];
+        }
+    }
+    
+    if (!self.isQuestion1Answered) {
         if (self.isButton1_4Clicked) {
             self.isQuestion1Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion1Answered];
@@ -7073,6 +8013,7 @@
     self.isButton2_1Clicked = YES;
     self.isButton2_2Clicked = NO;
     self.isButton2_3Clicked = NO;
+    self.isButton2_3FixClicked = NO;
     self.isButton2_4Clicked = NO;
     [self changeQuestion2Presentation];
     [self recordQuestion2AnsweredStatus];
@@ -7082,6 +8023,7 @@
     self.isButton2_1Clicked = NO;
     self.isButton2_2Clicked = YES;
     self.isButton2_3Clicked = NO;
+    self.isButton2_3FixClicked = NO;
     self.isButton2_4Clicked = NO;
     [self changeQuestion2Presentation];
     [self recordQuestion2AnsweredStatus];
@@ -7091,6 +8033,17 @@
     self.isButton2_1Clicked = NO;
     self.isButton2_2Clicked = NO;
     self.isButton2_3Clicked = YES;
+    self.isButton2_3FixClicked = NO;
+    self.isButton2_4Clicked = NO;
+    [self changeQuestion2Presentation];
+    [self recordQuestion2AnsweredStatus];
+}
+
+-(void)button2_3FixClicked{
+    self.isButton2_1Clicked = NO;
+    self.isButton2_2Clicked = NO;
+    self.isButton2_3Clicked = NO;
+    self.isButton2_3FixClicked = YES;
     self.isButton2_4Clicked = NO;
     [self changeQuestion2Presentation];
     [self recordQuestion2AnsweredStatus];
@@ -7100,6 +8053,7 @@
     self.isButton2_1Clicked = NO;
     self.isButton2_2Clicked = NO;
     self.isButton2_3Clicked = NO;
+    self.isButton2_3FixClicked = NO;
     self.isButton2_4Clicked = YES;
     [self changeQuestion2Presentation];
     [self recordQuestion2AnsweredStatus];
@@ -7114,6 +8068,8 @@
         [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton2_2Clicked){
@@ -7124,6 +8080,8 @@
         [self.button2_2 setBackgroundColor:kMAIN_COLOR];
         [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton2_3Clicked){
@@ -7134,6 +8092,20 @@
         [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton2_3FixClicked){
+        self.answer2 = @"经常";
+        [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton2_4Clicked){
@@ -7144,6 +8116,8 @@
         [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button2_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7173,6 +8147,13 @@
     }
     
     if (!self.isQuestion2Answered) {
+        if (self.isButton2_3FixClicked) {
+            self.isQuestion2Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion2Answered];
+        }
+    }
+    
+    if (!self.isQuestion2Answered) {
         if (self.isButton2_4Clicked) {
             self.isQuestion2Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion2Answered];
@@ -7184,6 +8165,7 @@
     self.isButton3_1Clicked = YES;
     self.isButton3_2Clicked = NO;
     self.isButton3_3Clicked = NO;
+    self.isButton3_3FixClicked = NO;
     self.isButton3_4Clicked = NO;
     [self changeQuestion3Presentation];
     [self recordQuestion3AnsweredStatus];
@@ -7193,6 +8175,7 @@
     self.isButton3_1Clicked = NO;
     self.isButton3_2Clicked = YES;
     self.isButton3_3Clicked = NO;
+    self.isButton3_3FixClicked = NO;
     self.isButton3_4Clicked = NO;
     [self changeQuestion3Presentation];
     [self recordQuestion3AnsweredStatus];
@@ -7202,6 +8185,17 @@
     self.isButton3_1Clicked = NO;
     self.isButton3_2Clicked = NO;
     self.isButton3_3Clicked = YES;
+    self.isButton3_3FixClicked = NO;
+    self.isButton3_4Clicked = NO;
+    [self changeQuestion3Presentation];
+    [self recordQuestion3AnsweredStatus];
+}
+
+-(void)button3_3FixClicked{
+    self.isButton3_1Clicked = NO;
+    self.isButton3_2Clicked = NO;
+    self.isButton3_3Clicked = NO;
+    self.isButton3_3FixClicked = YES;
     self.isButton3_4Clicked = NO;
     [self changeQuestion3Presentation];
     [self recordQuestion3AnsweredStatus];
@@ -7211,6 +8205,7 @@
     self.isButton3_1Clicked = NO;
     self.isButton3_2Clicked = NO;
     self.isButton3_3Clicked = NO;
+    self.isButton3_3FixClicked = NO;
     self.isButton3_4Clicked = YES;
     [self changeQuestion3Presentation];
     [self recordQuestion3AnsweredStatus];
@@ -7225,6 +8220,8 @@
         [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton3_2Clicked){
@@ -7235,6 +8232,8 @@
         [self.button3_2 setBackgroundColor:kMAIN_COLOR];
         [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton3_3Clicked){
@@ -7245,6 +8244,20 @@
         [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton3_3FixClicked){
+        self.answer3 = @"经常";
+        [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton3_4Clicked){
@@ -7255,6 +8268,8 @@
         [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7284,6 +8299,13 @@
     }
     
     if (!self.isQuestion3Answered) {
+        if (self.isButton3_3FixClicked) {
+            self.isQuestion3Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion3Answered];
+        }
+    }
+    
+    if (!self.isQuestion3Answered) {
         if (self.isButton3_4Clicked) {
             self.isQuestion3Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion3Answered];
@@ -7295,6 +8317,7 @@
     self.isButton4_1Clicked = YES;
     self.isButton4_2Clicked = NO;
     self.isButton4_3Clicked = NO;
+    self.isButton4_3FixClicked = NO;
     self.isButton4_4Clicked = NO;
     [self changeQuestion4Presentation];
     [self recordQuestion4AnsweredStatus];
@@ -7304,6 +8327,7 @@
     self.isButton4_1Clicked = NO;
     self.isButton4_2Clicked = YES;
     self.isButton4_3Clicked = NO;
+    self.isButton4_3FixClicked = NO;
     self.isButton4_4Clicked = NO;
     [self changeQuestion4Presentation];
     [self recordQuestion4AnsweredStatus];
@@ -7313,6 +8337,17 @@
     self.isButton4_1Clicked = NO;
     self.isButton4_2Clicked = NO;
     self.isButton4_3Clicked = YES;
+    self.isButton4_3FixClicked = NO;
+    self.isButton4_4Clicked = NO;
+    [self changeQuestion4Presentation];
+    [self recordQuestion4AnsweredStatus];
+}
+
+-(void)button4_3FixClicked{
+    self.isButton4_1Clicked = NO;
+    self.isButton4_2Clicked = NO;
+    self.isButton4_3Clicked = NO;
+    self.isButton4_3FixClicked = YES;
     self.isButton4_4Clicked = NO;
     [self changeQuestion4Presentation];
     [self recordQuestion4AnsweredStatus];
@@ -7322,6 +8357,7 @@
     self.isButton4_1Clicked = NO;
     self.isButton4_2Clicked = NO;
     self.isButton4_3Clicked = NO;
+    self.isButton4_3FixClicked = NO;
     self.isButton4_4Clicked = YES;
     [self changeQuestion4Presentation];
     [self recordQuestion4AnsweredStatus];
@@ -7336,6 +8372,8 @@
         [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton4_2Clicked){
@@ -7346,6 +8384,8 @@
         [self.button4_2 setBackgroundColor:kMAIN_COLOR];
         [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton4_3Clicked){
@@ -7356,6 +8396,20 @@
         [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton4_3FixClicked){
+        self.answer4 = @"经常";
+        [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton4_4Clicked){
@@ -7366,6 +8420,8 @@
         [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button4_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7395,6 +8451,13 @@
     }
     
     if (!self.isQuestion4Answered) {
+        if (self.isButton4_3FixClicked) {
+            self.isQuestion4Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion4Answered];
+        }
+    }
+    
+    if (!self.isQuestion4Answered) {
         if (self.isButton4_4Clicked) {
             self.isQuestion4Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion4Answered];
@@ -7406,6 +8469,7 @@
     self.isButton5_1Clicked = YES;
     self.isButton5_2Clicked = NO;
     self.isButton5_3Clicked = NO;
+    self.isButton5_3FixClicked = NO;
     self.isButton5_4Clicked = NO;
     [self changeQuestion5Presentation];
     [self recordQuestion5AnsweredStatus];
@@ -7415,6 +8479,7 @@
     self.isButton5_1Clicked = NO;
     self.isButton5_2Clicked = YES;
     self.isButton5_3Clicked = NO;
+    self.isButton5_3FixClicked = NO;
     self.isButton5_4Clicked = NO;
     [self changeQuestion5Presentation];
     [self recordQuestion5AnsweredStatus];
@@ -7424,6 +8489,17 @@
     self.isButton5_1Clicked = NO;
     self.isButton5_2Clicked = NO;
     self.isButton5_3Clicked = YES;
+    self.isButton5_3FixClicked = NO;
+    self.isButton5_4Clicked = NO;
+    [self changeQuestion5Presentation];
+    [self recordQuestion5AnsweredStatus];
+}
+
+-(void)button5_3FixClicked{
+    self.isButton5_1Clicked = NO;
+    self.isButton5_2Clicked = NO;
+    self.isButton5_3Clicked = NO;
+    self.isButton5_3FixClicked = YES;
     self.isButton5_4Clicked = NO;
     [self changeQuestion5Presentation];
     [self recordQuestion5AnsweredStatus];
@@ -7433,6 +8509,7 @@
     self.isButton5_1Clicked = NO;
     self.isButton5_2Clicked = NO;
     self.isButton5_3Clicked = NO;
+    self.isButton5_3FixClicked = NO;
     self.isButton5_4Clicked = YES;
     [self changeQuestion5Presentation];
     [self recordQuestion5AnsweredStatus];
@@ -7447,6 +8524,8 @@
         [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton5_2Clicked){
@@ -7457,6 +8536,8 @@
         [self.button5_2 setBackgroundColor:kMAIN_COLOR];
         [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton5_3Clicked){
@@ -7467,6 +8548,20 @@
         [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton5_3FixClicked){
+        self.answer5 = @"经常";
+        [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton5_4Clicked){
@@ -7477,6 +8572,8 @@
         [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button5_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7506,6 +8603,13 @@
     }
     
     if (!self.isQuestion5Answered) {
+        if (self.isButton5_3FixClicked) {
+            self.isQuestion5Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion5Answered];
+        }
+    }
+    
+    if (!self.isQuestion5Answered) {
         if (self.isButton5_4Clicked) {
             self.isQuestion5Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion5Answered];
@@ -7517,6 +8621,7 @@
     self.isButton6_1Clicked = YES;
     self.isButton6_2Clicked = NO;
     self.isButton6_3Clicked = NO;
+    self.isButton6_3FixClicked = NO;
     self.isButton6_4Clicked = NO;
     [self changeQuestion6Presentation];
     [self recordQuestion6AnsweredStatus];
@@ -7526,6 +8631,7 @@
     self.isButton6_1Clicked = NO;
     self.isButton6_2Clicked = YES;
     self.isButton6_3Clicked = NO;
+    self.isButton6_3FixClicked = NO;
     self.isButton6_4Clicked = NO;
     [self changeQuestion6Presentation];
     [self recordQuestion6AnsweredStatus];
@@ -7535,6 +8641,17 @@
     self.isButton6_1Clicked = NO;
     self.isButton6_2Clicked = NO;
     self.isButton6_3Clicked = YES;
+    self.isButton6_3FixClicked = NO;
+    self.isButton6_4Clicked = NO;
+    [self changeQuestion6Presentation];
+    [self recordQuestion6AnsweredStatus];
+}
+
+-(void)button6_3FixClicked{
+    self.isButton6_1Clicked = NO;
+    self.isButton6_2Clicked = NO;
+    self.isButton6_3Clicked = NO;
+    self.isButton6_3FixClicked = YES;
     self.isButton6_4Clicked = NO;
     [self changeQuestion6Presentation];
     [self recordQuestion6AnsweredStatus];
@@ -7544,6 +8661,7 @@
     self.isButton6_1Clicked = NO;
     self.isButton6_2Clicked = NO;
     self.isButton6_3Clicked = NO;
+    self.isButton6_3FixClicked = NO;
     self.isButton6_4Clicked = YES;
     [self changeQuestion6Presentation];
     [self recordQuestion6AnsweredStatus];
@@ -7558,6 +8676,8 @@
         [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton6_2Clicked){
@@ -7568,6 +8688,8 @@
         [self.button6_2 setBackgroundColor:kMAIN_COLOR];
         [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton6_3Clicked){
@@ -7578,6 +8700,20 @@
         [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton6_3FixClicked){
+        self.answer6 = @"经常";
+        [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton6_4Clicked){
@@ -7588,6 +8724,8 @@
         [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button6_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7617,6 +8755,13 @@
     }
     
     if (!self.isQuestion6Answered) {
+        if (self.isButton6_3FixClicked) {
+            self.isQuestion6Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion6Answered];
+        }
+    }
+    
+    if (!self.isQuestion6Answered) {
         if (self.isButton6_4Clicked) {
             self.isQuestion6Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion6Answered];
@@ -7628,6 +8773,7 @@
     self.isButton7_1Clicked = YES;
     self.isButton7_2Clicked = NO;
     self.isButton7_3Clicked = NO;
+    self.isButton7_3FixClicked = NO;
     self.isButton7_4Clicked = NO;
     [self changeQuestion7Presentation];
     [self recordQuestion7AnsweredStatus];
@@ -7637,6 +8783,7 @@
     self.isButton7_1Clicked = NO;
     self.isButton7_2Clicked = YES;
     self.isButton7_3Clicked = NO;
+    self.isButton7_3FixClicked = NO;
     self.isButton7_4Clicked = NO;
     [self changeQuestion7Presentation];
     [self recordQuestion7AnsweredStatus];
@@ -7646,6 +8793,17 @@
     self.isButton7_1Clicked = NO;
     self.isButton7_2Clicked = NO;
     self.isButton7_3Clicked = YES;
+    self.isButton7_3FixClicked = NO;
+    self.isButton7_4Clicked = NO;
+    [self changeQuestion7Presentation];
+    [self recordQuestion7AnsweredStatus];
+}
+
+-(void)button7_3FixClicked{
+    self.isButton7_1Clicked = NO;
+    self.isButton7_2Clicked = NO;
+    self.isButton7_3Clicked = NO;
+    self.isButton7_3FixClicked = YES;
     self.isButton7_4Clicked = NO;
     [self changeQuestion7Presentation];
     [self recordQuestion7AnsweredStatus];
@@ -7655,6 +8813,7 @@
     self.isButton7_1Clicked = NO;
     self.isButton7_2Clicked = NO;
     self.isButton7_3Clicked = NO;
+    self.isButton7_3FixClicked = NO;
     self.isButton7_4Clicked = YES;
     [self changeQuestion7Presentation];
     [self recordQuestion7AnsweredStatus];
@@ -7669,6 +8828,8 @@
         [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton7_2Clicked){
@@ -7679,6 +8840,8 @@
         [self.button7_2 setBackgroundColor:kMAIN_COLOR];
         [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton7_3Clicked){
@@ -7689,6 +8852,20 @@
         [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton7_3FixClicked){
+        self.answer7 = @"经常";
+        [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton7_4Clicked){
@@ -7699,6 +8876,8 @@
         [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button7_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7728,6 +8907,13 @@
     }
     
     if (!self.isQuestion7Answered) {
+        if (self.isButton7_3FixClicked) {
+            self.isQuestion7Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion7Answered];
+        }
+    }
+    
+    if (!self.isQuestion7Answered) {
         if (self.isButton7_4Clicked) {
             self.isQuestion7Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion7Answered];
@@ -7739,6 +8925,7 @@
     self.isButton8_1Clicked = YES;
     self.isButton8_2Clicked = NO;
     self.isButton8_3Clicked = NO;
+    self.isButton8_3FixClicked = NO;
     self.isButton8_4Clicked = NO;
     [self changeQuestion8Presentation];
     [self recordQuestion8AnsweredStatus];
@@ -7748,6 +8935,7 @@
     self.isButton8_1Clicked = NO;
     self.isButton8_2Clicked = YES;
     self.isButton8_3Clicked = NO;
+    self.isButton8_3FixClicked = NO;
     self.isButton8_4Clicked = NO;
     [self changeQuestion8Presentation];
     [self recordQuestion8AnsweredStatus];
@@ -7757,6 +8945,17 @@
     self.isButton8_1Clicked = NO;
     self.isButton8_2Clicked = NO;
     self.isButton8_3Clicked = YES;
+    self.isButton8_3FixClicked = NO;
+    self.isButton8_4Clicked = NO;
+    [self changeQuestion8Presentation];
+    [self recordQuestion8AnsweredStatus];
+}
+
+-(void)button8_3FixClicked{
+    self.isButton8_1Clicked = NO;
+    self.isButton8_2Clicked = NO;
+    self.isButton8_3Clicked = NO;
+    self.isButton8_3FixClicked = YES;
     self.isButton8_4Clicked = NO;
     [self changeQuestion8Presentation];
     [self recordQuestion8AnsweredStatus];
@@ -7766,6 +8965,7 @@
     self.isButton8_1Clicked = NO;
     self.isButton8_2Clicked = NO;
     self.isButton8_3Clicked = NO;
+    self.isButton8_3FixClicked = NO;
     self.isButton8_4Clicked = YES;
     [self changeQuestion8Presentation];
     [self recordQuestion8AnsweredStatus];
@@ -7780,6 +8980,8 @@
         [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton8_2Clicked){
@@ -7790,6 +8992,8 @@
         [self.button8_2 setBackgroundColor:kMAIN_COLOR];
         [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton8_3Clicked){
@@ -7800,6 +9004,20 @@
         [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton8_3FixClicked){
+        self.answer8 = @"经常";
+        [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton8_4Clicked){
@@ -7810,6 +9028,8 @@
         [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button8_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7839,6 +9059,13 @@
     }
     
     if (!self.isQuestion8Answered) {
+        if (self.isButton8_3FixClicked) {
+            self.isQuestion8Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion8Answered];
+        }
+    }
+    
+    if (!self.isQuestion8Answered) {
         if (self.isButton8_4Clicked) {
             self.isQuestion8Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion8Answered];
@@ -7850,6 +9077,7 @@
     self.isButton9_1Clicked = YES;
     self.isButton9_2Clicked = NO;
     self.isButton9_3Clicked = NO;
+    self.isButton9_3FixClicked = NO;
     self.isButton9_4Clicked = NO;
     [self changeQuestion9Presentation];
     [self recordQuestion9AnsweredStatus];
@@ -7859,6 +9087,7 @@
     self.isButton9_1Clicked = NO;
     self.isButton9_2Clicked = YES;
     self.isButton9_3Clicked = NO;
+    self.isButton9_3FixClicked = NO;
     self.isButton9_4Clicked = NO;
     [self changeQuestion9Presentation];
     [self recordQuestion9AnsweredStatus];
@@ -7868,6 +9097,17 @@
     self.isButton9_1Clicked = NO;
     self.isButton9_2Clicked = NO;
     self.isButton9_3Clicked = YES;
+    self.isButton9_3FixClicked = NO;
+    self.isButton9_4Clicked = NO;
+    [self changeQuestion9Presentation];
+    [self recordQuestion9AnsweredStatus];
+}
+
+-(void)button9_3FixClicked{
+    self.isButton9_1Clicked = NO;
+    self.isButton9_2Clicked = NO;
+    self.isButton9_3Clicked = NO;
+    self.isButton9_3FixClicked = YES;
     self.isButton9_4Clicked = NO;
     [self changeQuestion9Presentation];
     [self recordQuestion9AnsweredStatus];
@@ -7877,6 +9117,7 @@
     self.isButton9_1Clicked = NO;
     self.isButton9_2Clicked = NO;
     self.isButton9_3Clicked = NO;
+    self.isButton9_3FixClicked = NO;
     self.isButton9_4Clicked = YES;
     [self changeQuestion9Presentation];
     [self recordQuestion9AnsweredStatus];
@@ -7891,6 +9132,8 @@
         [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton9_2Clicked){
@@ -7901,6 +9144,8 @@
         [self.button9_2 setBackgroundColor:kMAIN_COLOR];
         [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton9_3Clicked){
@@ -7911,6 +9156,20 @@
         [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton9_3FixClicked){
+        self.answer9 = @"经常";
+        [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton9_4Clicked){
@@ -7921,6 +9180,8 @@
         [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button9_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -7950,6 +9211,13 @@
     }
     
     if (!self.isQuestion9Answered) {
+        if (self.isButton9_3FixClicked) {
+            self.isQuestion9Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion9Answered];
+        }
+    }
+    
+    if (!self.isQuestion9Answered) {
         if (self.isButton9_4Clicked) {
             self.isQuestion9Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion9Answered];
@@ -7961,6 +9229,7 @@
     self.isButton10_1Clicked = YES;
     self.isButton10_2Clicked = NO;
     self.isButton10_3Clicked = NO;
+    self.isButton10_3FixClicked = NO;
     self.isButton10_4Clicked = NO;
     [self changeQuestion10Presentation];
     [self recordQuestion10AnsweredStatus];
@@ -7970,6 +9239,7 @@
     self.isButton10_1Clicked = NO;
     self.isButton10_2Clicked = YES;
     self.isButton10_3Clicked = NO;
+    self.isButton10_3FixClicked = NO;
     self.isButton10_4Clicked = NO;
     [self changeQuestion10Presentation];
     [self recordQuestion10AnsweredStatus];
@@ -7979,6 +9249,17 @@
     self.isButton10_1Clicked = NO;
     self.isButton10_2Clicked = NO;
     self.isButton10_3Clicked = YES;
+    self.isButton10_3FixClicked = NO;
+    self.isButton10_4Clicked = NO;
+    [self changeQuestion10Presentation];
+    [self recordQuestion10AnsweredStatus];
+}
+
+-(void)button10_3FixClicked{
+    self.isButton10_1Clicked = NO;
+    self.isButton10_2Clicked = NO;
+    self.isButton10_3Clicked = NO;
+    self.isButton10_3FixClicked = YES;
     self.isButton10_4Clicked = NO;
     [self changeQuestion10Presentation];
     [self recordQuestion10AnsweredStatus];
@@ -7988,6 +9269,7 @@
     self.isButton10_1Clicked = NO;
     self.isButton10_2Clicked = NO;
     self.isButton10_3Clicked = NO;
+    self.isButton10_3FixClicked = NO;
     self.isButton10_4Clicked = YES;
     [self changeQuestion10Presentation];
     [self recordQuestion10AnsweredStatus];
@@ -8002,6 +9284,8 @@
         [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton10_2Clicked){
@@ -8012,6 +9296,8 @@
         [self.button10_2 setBackgroundColor:kMAIN_COLOR];
         [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton10_3Clicked){
@@ -8022,6 +9308,20 @@
         [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton10_3FixClicked){
+        self.answer10 = @"经常";
+        [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton10_4Clicked){
@@ -8032,6 +9332,8 @@
         [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button10_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8061,6 +9363,13 @@
     }
     
     if (!self.isQuestion10Answered) {
+        if (self.isButton10_3FixClicked) {
+            self.isQuestion10Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion10Answered];
+        }
+    }
+    
+    if (!self.isQuestion10Answered) {
         if (self.isButton10_4Clicked) {
             self.isQuestion10Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion10Answered];
@@ -8072,6 +9381,7 @@
     self.isButton11_1Clicked = YES;
     self.isButton11_2Clicked = NO;
     self.isButton11_3Clicked = NO;
+    self.isButton11_3FixClicked = NO;
     self.isButton11_4Clicked = NO;
     [self changeQuestion11Presentation];
     [self recordQuestion11AnsweredStatus];
@@ -8081,6 +9391,7 @@
     self.isButton11_1Clicked = NO;
     self.isButton11_2Clicked = YES;
     self.isButton11_3Clicked = NO;
+    self.isButton11_3FixClicked = NO;
     self.isButton11_4Clicked = NO;
     [self changeQuestion11Presentation];
     [self recordQuestion11AnsweredStatus];
@@ -8090,6 +9401,17 @@
     self.isButton11_1Clicked = NO;
     self.isButton11_2Clicked = NO;
     self.isButton11_3Clicked = YES;
+    self.isButton11_3FixClicked = NO;
+    self.isButton11_4Clicked = NO;
+    [self changeQuestion11Presentation];
+    [self recordQuestion11AnsweredStatus];
+}
+
+-(void)button11_3FixClicked{
+    self.isButton11_1Clicked = NO;
+    self.isButton11_2Clicked = NO;
+    self.isButton11_3Clicked = NO;
+    self.isButton11_3FixClicked = YES;
     self.isButton11_4Clicked = NO;
     [self changeQuestion11Presentation];
     [self recordQuestion11AnsweredStatus];
@@ -8099,6 +9421,7 @@
     self.isButton11_1Clicked = NO;
     self.isButton11_2Clicked = NO;
     self.isButton11_3Clicked = NO;
+    self.isButton11_3FixClicked = NO;
     self.isButton11_4Clicked = YES;
     [self changeQuestion11Presentation];
     [self recordQuestion11AnsweredStatus];
@@ -8113,6 +9436,8 @@
         [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton11_2Clicked){
@@ -8123,6 +9448,8 @@
         [self.button11_2 setBackgroundColor:kMAIN_COLOR];
         [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton11_3Clicked){
@@ -8133,6 +9460,20 @@
         [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton11_3FixClicked){
+        self.answer11 = @"经常";
+        [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton11_4Clicked){
@@ -8143,6 +9484,8 @@
         [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button11_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8172,6 +9515,13 @@
     }
     
     if (!self.isQuestion11Answered) {
+        if (self.isButton11_3FixClicked) {
+            self.isQuestion11Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion11Answered];
+        }
+    }
+    
+    if (!self.isQuestion11Answered) {
         if (self.isButton11_4Clicked) {
             self.isQuestion11Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion11Answered];
@@ -8183,6 +9533,7 @@
     self.isButton12_1Clicked = YES;
     self.isButton12_2Clicked = NO;
     self.isButton12_3Clicked = NO;
+    self.isButton12_3FixClicked = NO;
     self.isButton12_4Clicked = NO;
     [self changeQuestion12Presentation];
     [self recordQuestion12AnsweredStatus];
@@ -8192,6 +9543,7 @@
     self.isButton12_1Clicked = NO;
     self.isButton12_2Clicked = YES;
     self.isButton12_3Clicked = NO;
+    self.isButton12_3FixClicked = NO;
     self.isButton12_4Clicked = NO;
     [self changeQuestion12Presentation];
     [self recordQuestion12AnsweredStatus];
@@ -8201,6 +9553,17 @@
     self.isButton12_1Clicked = NO;
     self.isButton12_2Clicked = NO;
     self.isButton12_3Clicked = YES;
+    self.isButton12_3FixClicked = NO;
+    self.isButton12_4Clicked = NO;
+    [self changeQuestion12Presentation];
+    [self recordQuestion12AnsweredStatus];
+}
+
+-(void)button12_3FixClicked{
+    self.isButton12_1Clicked = NO;
+    self.isButton12_2Clicked = NO;
+    self.isButton12_3Clicked = NO;
+    self.isButton12_3FixClicked = YES;
     self.isButton12_4Clicked = NO;
     [self changeQuestion12Presentation];
     [self recordQuestion12AnsweredStatus];
@@ -8210,6 +9573,7 @@
     self.isButton12_1Clicked = NO;
     self.isButton12_2Clicked = NO;
     self.isButton12_3Clicked = NO;
+    self.isButton12_3FixClicked = NO;
     self.isButton12_4Clicked = YES;
     [self changeQuestion12Presentation];
     [self recordQuestion12AnsweredStatus];
@@ -8224,6 +9588,8 @@
         [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton12_2Clicked){
@@ -8234,6 +9600,8 @@
         [self.button12_2 setBackgroundColor:kMAIN_COLOR];
         [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton12_3Clicked){
@@ -8244,6 +9612,20 @@
         [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton12_3FixClicked){
+        self.answer12 = @"经常";
+        [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton12_4Clicked){
@@ -8254,6 +9636,8 @@
         [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button12_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8283,6 +9667,13 @@
     }
     
     if (!self.isQuestion12Answered) {
+        if (self.isButton12_3FixClicked) {
+            self.isQuestion12Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion12Answered];
+        }
+    }
+    
+    if (!self.isQuestion12Answered) {
         if (self.isButton12_4Clicked) {
             self.isQuestion12Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion12Answered];
@@ -8294,6 +9685,7 @@
     self.isButton13_1Clicked = YES;
     self.isButton13_2Clicked = NO;
     self.isButton13_3Clicked = NO;
+    self.isButton13_3FixClicked = NO;
     self.isButton13_4Clicked = NO;
     [self changeQuestion13Presentation];
     [self recordQuestion13AnsweredStatus];
@@ -8303,6 +9695,7 @@
     self.isButton13_1Clicked = NO;
     self.isButton13_2Clicked = YES;
     self.isButton13_3Clicked = NO;
+    self.isButton13_3FixClicked = NO;
     self.isButton13_4Clicked = NO;
     [self changeQuestion13Presentation];
     [self recordQuestion13AnsweredStatus];
@@ -8312,6 +9705,17 @@
     self.isButton13_1Clicked = NO;
     self.isButton13_2Clicked = NO;
     self.isButton13_3Clicked = YES;
+    self.isButton13_3FixClicked = NO;
+    self.isButton13_4Clicked = NO;
+    [self changeQuestion13Presentation];
+    [self recordQuestion13AnsweredStatus];
+}
+
+-(void)button13_3FixClicked{
+    self.isButton13_1Clicked = NO;
+    self.isButton13_2Clicked = NO;
+    self.isButton13_3Clicked = NO;
+    self.isButton13_3FixClicked = YES;
     self.isButton13_4Clicked = NO;
     [self changeQuestion13Presentation];
     [self recordQuestion13AnsweredStatus];
@@ -8321,6 +9725,7 @@
     self.isButton13_1Clicked = NO;
     self.isButton13_2Clicked = NO;
     self.isButton13_3Clicked = NO;
+    self.isButton13_3FixClicked = NO;
     self.isButton13_4Clicked = YES;
     [self changeQuestion13Presentation];
     [self recordQuestion13AnsweredStatus];
@@ -8335,6 +9740,8 @@
         [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton13_2Clicked){
@@ -8345,6 +9752,8 @@
         [self.button13_2 setBackgroundColor:kMAIN_COLOR];
         [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton13_3Clicked){
@@ -8355,6 +9764,20 @@
         [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton13_3FixClicked){
+        self.answer13 = @"经常";
+        [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton13_4Clicked){
@@ -8365,6 +9788,8 @@
         [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button13_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8394,6 +9819,13 @@
     }
     
     if (!self.isQuestion13Answered) {
+        if (self.isButton13_3FixClicked) {
+            self.isQuestion13Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion13Answered];
+        }
+    }
+    
+    if (!self.isQuestion13Answered) {
         if (self.isButton13_4Clicked) {
             self.isQuestion13Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion13Answered];
@@ -8405,6 +9837,7 @@
     self.isButton14_1Clicked = YES;
     self.isButton14_2Clicked = NO;
     self.isButton14_3Clicked = NO;
+    self.isButton14_3FixClicked = NO;
     self.isButton14_4Clicked = NO;
     [self changeQuestion14Presentation];
     [self recordQuestion14AnsweredStatus];
@@ -8414,6 +9847,7 @@
     self.isButton14_1Clicked = NO;
     self.isButton14_2Clicked = YES;
     self.isButton14_3Clicked = NO;
+    self.isButton14_3FixClicked = NO;
     self.isButton14_4Clicked = NO;
     [self changeQuestion14Presentation];
     [self recordQuestion14AnsweredStatus];
@@ -8423,6 +9857,17 @@
     self.isButton14_1Clicked = NO;
     self.isButton14_2Clicked = NO;
     self.isButton14_3Clicked = YES;
+    self.isButton14_3FixClicked = NO;
+    self.isButton14_4Clicked = NO;
+    [self changeQuestion14Presentation];
+    [self recordQuestion14AnsweredStatus];
+}
+
+-(void)button14_3FixClicked{
+    self.isButton14_1Clicked = NO;
+    self.isButton14_2Clicked = NO;
+    self.isButton14_3Clicked = NO;
+    self.isButton14_3FixClicked = YES;
     self.isButton14_4Clicked = NO;
     [self changeQuestion14Presentation];
     [self recordQuestion14AnsweredStatus];
@@ -8432,6 +9877,7 @@
     self.isButton14_1Clicked = NO;
     self.isButton14_2Clicked = NO;
     self.isButton14_3Clicked = NO;
+    self.isButton14_3FixClicked = NO;
     self.isButton14_4Clicked = YES;
     [self changeQuestion14Presentation];
     [self recordQuestion14AnsweredStatus];
@@ -8446,6 +9892,8 @@
         [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton14_2Clicked){
@@ -8456,6 +9904,8 @@
         [self.button14_2 setBackgroundColor:kMAIN_COLOR];
         [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton14_3Clicked){
@@ -8466,6 +9916,20 @@
         [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton14_3FixClicked){
+        self.answer14 = @"经常";
+        [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton14_4Clicked){
@@ -8476,6 +9940,8 @@
         [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button14_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8505,6 +9971,13 @@
     }
     
     if (!self.isQuestion14Answered) {
+        if (self.isButton14_3FixClicked) {
+            self.isQuestion14Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion14Answered];
+        }
+    }
+    
+    if (!self.isQuestion14Answered) {
         if (self.isButton14_4Clicked) {
             self.isQuestion14Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion14Answered];
@@ -8516,6 +9989,7 @@
     self.isButton15_1Clicked = YES;
     self.isButton15_2Clicked = NO;
     self.isButton15_3Clicked = NO;
+    self.isButton15_3FixClicked = NO;
     self.isButton15_4Clicked = NO;
     [self changeQuestion15Presentation];
     [self recordQuestion15AnsweredStatus];
@@ -8525,6 +9999,7 @@
     self.isButton15_1Clicked = NO;
     self.isButton15_2Clicked = YES;
     self.isButton15_3Clicked = NO;
+    self.isButton15_3FixClicked = NO;
     self.isButton15_4Clicked = NO;
     [self changeQuestion15Presentation];
     [self recordQuestion15AnsweredStatus];
@@ -8534,6 +10009,17 @@
     self.isButton15_1Clicked = NO;
     self.isButton15_2Clicked = NO;
     self.isButton15_3Clicked = YES;
+    self.isButton15_3FixClicked = NO;
+    self.isButton15_4Clicked = NO;
+    [self changeQuestion15Presentation];
+    [self recordQuestion15AnsweredStatus];
+}
+
+-(void)button15_3FixClicked{
+    self.isButton15_1Clicked = NO;
+    self.isButton15_2Clicked = NO;
+    self.isButton15_3Clicked = NO;
+    self.isButton15_3FixClicked = YES;
     self.isButton15_4Clicked = NO;
     [self changeQuestion15Presentation];
     [self recordQuestion15AnsweredStatus];
@@ -8543,6 +10029,7 @@
     self.isButton15_1Clicked = NO;
     self.isButton15_2Clicked = NO;
     self.isButton15_3Clicked = NO;
+    self.isButton15_3FixClicked = NO;
     self.isButton15_4Clicked = YES;
     [self changeQuestion15Presentation];
     [self recordQuestion15AnsweredStatus];
@@ -8557,6 +10044,8 @@
         [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton15_2Clicked){
@@ -8567,6 +10056,8 @@
         [self.button15_2 setBackgroundColor:kMAIN_COLOR];
         [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton15_3Clicked){
@@ -8577,6 +10068,20 @@
         [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton15_3FixClicked){
+        self.answer15 = @"经常";
+        [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton15_4Clicked){
@@ -8587,6 +10092,8 @@
         [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button15_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8616,6 +10123,13 @@
     }
     
     if (!self.isQuestion15Answered) {
+        if (self.isButton15_3FixClicked) {
+            self.isQuestion15Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion15Answered];
+        }
+    }
+    
+    if (!self.isQuestion15Answered) {
         if (self.isButton15_4Clicked) {
             self.isQuestion15Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion15Answered];
@@ -8627,6 +10141,7 @@
     self.isButton16_1Clicked = YES;
     self.isButton16_2Clicked = NO;
     self.isButton16_3Clicked = NO;
+    self.isButton16_3FixClicked = NO;
     self.isButton16_4Clicked = NO;
     [self changeQuestion16Presentation];
     [self recordQuestion16AnsweredStatus];
@@ -8636,6 +10151,7 @@
     self.isButton16_1Clicked = NO;
     self.isButton16_2Clicked = YES;
     self.isButton16_3Clicked = NO;
+    self.isButton16_3FixClicked = NO;
     self.isButton16_4Clicked = NO;
     [self changeQuestion16Presentation];
     [self recordQuestion16AnsweredStatus];
@@ -8645,6 +10161,17 @@
     self.isButton16_1Clicked = NO;
     self.isButton16_2Clicked = NO;
     self.isButton16_3Clicked = YES;
+    self.isButton16_3FixClicked = NO;
+    self.isButton16_4Clicked = NO;
+    [self changeQuestion16Presentation];
+    [self recordQuestion16AnsweredStatus];
+}
+
+-(void)button16_3FixClicked{
+    self.isButton16_1Clicked = NO;
+    self.isButton16_2Clicked = NO;
+    self.isButton16_3Clicked = NO;
+    self.isButton16_3FixClicked = YES;
     self.isButton16_4Clicked = NO;
     [self changeQuestion16Presentation];
     [self recordQuestion16AnsweredStatus];
@@ -8654,6 +10181,7 @@
     self.isButton16_1Clicked = NO;
     self.isButton16_2Clicked = NO;
     self.isButton16_3Clicked = NO;
+    self.isButton16_3FixClicked = NO;
     self.isButton16_4Clicked = YES;
     [self changeQuestion16Presentation];
     [self recordQuestion16AnsweredStatus];
@@ -8668,6 +10196,8 @@
         [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton16_2Clicked){
@@ -8678,6 +10208,8 @@
         [self.button16_2 setBackgroundColor:kMAIN_COLOR];
         [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton16_3Clicked){
@@ -8688,6 +10220,20 @@
         [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton16_3FixClicked){
+        self.answer16 = @"经常";
+        [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton16_4Clicked){
@@ -8698,6 +10244,8 @@
         [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button16_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8727,6 +10275,13 @@
     }
     
     if (!self.isQuestion16Answered) {
+        if (self.isButton16_3FixClicked) {
+            self.isQuestion16Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion16Answered];
+        }
+    }
+    
+    if (!self.isQuestion16Answered) {
         if (self.isButton16_4Clicked) {
             self.isQuestion16Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion16Answered];
@@ -8738,6 +10293,7 @@
     self.isButton17_1Clicked = YES;
     self.isButton17_2Clicked = NO;
     self.isButton17_3Clicked = NO;
+    self.isButton17_3FixClicked = NO;
     self.isButton17_4Clicked = NO;
     [self changeQuestion17Presentation];
     [self recordQuestion17AnsweredStatus];
@@ -8747,6 +10303,7 @@
     self.isButton17_1Clicked = NO;
     self.isButton17_2Clicked = YES;
     self.isButton17_3Clicked = NO;
+    self.isButton17_3FixClicked = NO;
     self.isButton17_4Clicked = NO;
     [self changeQuestion17Presentation];
     [self recordQuestion17AnsweredStatus];
@@ -8756,6 +10313,17 @@
     self.isButton17_1Clicked = NO;
     self.isButton17_2Clicked = NO;
     self.isButton17_3Clicked = YES;
+    self.isButton17_3FixClicked = NO;
+    self.isButton17_4Clicked = NO;
+    [self changeQuestion17Presentation];
+    [self recordQuestion17AnsweredStatus];
+}
+
+-(void)button17_3FixClicked{
+    self.isButton17_1Clicked = NO;
+    self.isButton17_2Clicked = NO;
+    self.isButton17_3Clicked = NO;
+    self.isButton17_3FixClicked = YES;
     self.isButton17_4Clicked = NO;
     [self changeQuestion17Presentation];
     [self recordQuestion17AnsweredStatus];
@@ -8765,6 +10333,7 @@
     self.isButton17_1Clicked = NO;
     self.isButton17_2Clicked = NO;
     self.isButton17_3Clicked = NO;
+    self.isButton17_3FixClicked = NO;
     self.isButton17_4Clicked = YES;
     [self changeQuestion17Presentation];
     [self recordQuestion17AnsweredStatus];
@@ -8779,6 +10348,8 @@
         [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton17_2Clicked){
@@ -8789,6 +10360,8 @@
         [self.button17_2 setBackgroundColor:kMAIN_COLOR];
         [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton17_3Clicked){
@@ -8799,6 +10372,20 @@
         [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton17_3FixClicked){
+        self.answer17 = @"经常";
+        [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton17_4Clicked){
@@ -8809,6 +10396,8 @@
         [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button17_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8838,6 +10427,13 @@
     }
     
     if (!self.isQuestion17Answered) {
+        if (self.isButton17_3FixClicked) {
+            self.isQuestion17Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion17Answered];
+        }
+    }
+    
+    if (!self.isQuestion17Answered) {
         if (self.isButton17_4Clicked) {
             self.isQuestion17Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion17Answered];
@@ -8849,6 +10445,7 @@
     self.isButton18_1Clicked = YES;
     self.isButton18_2Clicked = NO;
     self.isButton18_3Clicked = NO;
+    self.isButton18_3FixClicked = NO;
     self.isButton18_4Clicked = NO;
     [self changeQuestion18Presentation];
     [self recordQuestion18AnsweredStatus];
@@ -8858,6 +10455,7 @@
     self.isButton18_1Clicked = NO;
     self.isButton18_2Clicked = YES;
     self.isButton18_3Clicked = NO;
+    self.isButton18_3FixClicked = NO;
     self.isButton18_4Clicked = NO;
     [self changeQuestion18Presentation];
     [self recordQuestion18AnsweredStatus];
@@ -8867,6 +10465,17 @@
     self.isButton18_1Clicked = NO;
     self.isButton18_2Clicked = NO;
     self.isButton18_3Clicked = YES;
+    self.isButton18_3FixClicked = NO;
+    self.isButton18_4Clicked = NO;
+    [self changeQuestion18Presentation];
+    [self recordQuestion18AnsweredStatus];
+}
+
+-(void)button18_3FixClicked{
+    self.isButton18_1Clicked = NO;
+    self.isButton18_2Clicked = NO;
+    self.isButton18_3Clicked = NO;
+    self.isButton18_3FixClicked = YES;
     self.isButton18_4Clicked = NO;
     [self changeQuestion18Presentation];
     [self recordQuestion18AnsweredStatus];
@@ -8876,6 +10485,7 @@
     self.isButton18_1Clicked = NO;
     self.isButton18_2Clicked = NO;
     self.isButton18_3Clicked = NO;
+    self.isButton18_3FixClicked = NO;
     self.isButton18_4Clicked = YES;
     [self changeQuestion18Presentation];
     [self recordQuestion18AnsweredStatus];
@@ -8890,6 +10500,8 @@
         [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton18_2Clicked){
@@ -8900,6 +10512,8 @@
         [self.button18_2 setBackgroundColor:kMAIN_COLOR];
         [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton18_3Clicked){
@@ -8910,6 +10524,20 @@
         [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton18_3FixClicked){
+        self.answer18 = @"经常";
+        [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton18_4Clicked){
@@ -8920,6 +10548,8 @@
         [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button18_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8949,6 +10579,13 @@
     }
     
     if (!self.isQuestion18Answered) {
+        if (self.isButton18_3FixClicked) {
+            self.isQuestion18Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion18Answered];
+        }
+    }
+    
+    if (!self.isQuestion18Answered) {
         if (self.isButton18_4Clicked) {
             self.isQuestion18Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion18Answered];
@@ -8960,6 +10597,7 @@
     self.isButton19_1Clicked = YES;
     self.isButton19_2Clicked = NO;
     self.isButton19_3Clicked = NO;
+    self.isButton19_3FixClicked = NO;
     self.isButton19_4Clicked = NO;
     [self changeQuestion19Presentation];
     [self recordQuestion19AnsweredStatus];
@@ -8969,6 +10607,7 @@
     self.isButton19_1Clicked = NO;
     self.isButton19_2Clicked = YES;
     self.isButton19_3Clicked = NO;
+    self.isButton19_3FixClicked = NO;
     self.isButton19_4Clicked = NO;
     [self changeQuestion19Presentation];
     [self recordQuestion19AnsweredStatus];
@@ -8978,6 +10617,17 @@
     self.isButton19_1Clicked = NO;
     self.isButton19_2Clicked = NO;
     self.isButton19_3Clicked = YES;
+    self.isButton19_3FixClicked = NO;
+    self.isButton19_4Clicked = NO;
+    [self changeQuestion19Presentation];
+    [self recordQuestion19AnsweredStatus];
+}
+
+-(void)button19_3FixClicked{
+    self.isButton19_1Clicked = NO;
+    self.isButton19_2Clicked = NO;
+    self.isButton19_3Clicked = NO;
+    self.isButton19_3FixClicked = YES;
     self.isButton19_4Clicked = NO;
     [self changeQuestion19Presentation];
     [self recordQuestion19AnsweredStatus];
@@ -8987,6 +10637,7 @@
     self.isButton19_1Clicked = NO;
     self.isButton19_2Clicked = NO;
     self.isButton19_3Clicked = NO;
+    self.isButton19_3FixClicked = NO;
     self.isButton19_4Clicked = YES;
     [self changeQuestion19Presentation];
     [self recordQuestion19AnsweredStatus];
@@ -9001,6 +10652,8 @@
         [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton19_2Clicked){
@@ -9011,6 +10664,8 @@
         [self.button19_2 setBackgroundColor:kMAIN_COLOR];
         [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton19_3Clicked){
@@ -9021,6 +10676,20 @@
         [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton19_3FixClicked){
+        self.answer19 = @"经常";
+        [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton19_4Clicked){
@@ -9031,6 +10700,8 @@
         [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button19_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9060,6 +10731,13 @@
     }
     
     if (!self.isQuestion19Answered) {
+        if (self.isButton19_3FixClicked) {
+            self.isQuestion19Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion19Answered];
+        }
+    }
+    
+    if (!self.isQuestion19Answered) {
         if (self.isButton19_4Clicked) {
             self.isQuestion19Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion19Answered];
@@ -9071,6 +10749,7 @@
     self.isButton20_1Clicked = YES;
     self.isButton20_2Clicked = NO;
     self.isButton20_3Clicked = NO;
+    self.isButton20_3FixClicked = NO;
     self.isButton20_4Clicked = NO;
     [self changeQuestion20Presentation];
     [self recordQuestion20AnsweredStatus];
@@ -9080,6 +10759,7 @@
     self.isButton20_1Clicked = NO;
     self.isButton20_2Clicked = YES;
     self.isButton20_3Clicked = NO;
+    self.isButton20_3FixClicked = NO;
     self.isButton20_4Clicked = NO;
     [self changeQuestion20Presentation];
     [self recordQuestion20AnsweredStatus];
@@ -9089,6 +10769,17 @@
     self.isButton20_1Clicked = NO;
     self.isButton20_2Clicked = NO;
     self.isButton20_3Clicked = YES;
+    self.isButton20_3FixClicked = NO;
+    self.isButton20_4Clicked = NO;
+    [self changeQuestion20Presentation];
+    [self recordQuestion20AnsweredStatus];
+}
+
+-(void)button20_3FixClicked{
+    self.isButton20_1Clicked = NO;
+    self.isButton20_2Clicked = NO;
+    self.isButton20_3Clicked = NO;
+    self.isButton20_3FixClicked = YES;
     self.isButton20_4Clicked = NO;
     [self changeQuestion20Presentation];
     [self recordQuestion20AnsweredStatus];
@@ -9098,6 +10789,7 @@
     self.isButton20_1Clicked = NO;
     self.isButton20_2Clicked = NO;
     self.isButton20_3Clicked = NO;
+    self.isButton20_3FixClicked = NO;
     self.isButton20_4Clicked = YES;
     [self changeQuestion20Presentation];
     [self recordQuestion20AnsweredStatus];
@@ -9112,6 +10804,8 @@
         [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton20_2Clicked){
@@ -9122,6 +10816,8 @@
         [self.button20_2 setBackgroundColor:kMAIN_COLOR];
         [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton20_3Clicked){
@@ -9132,6 +10828,20 @@
         [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton20_3FixClicked){
+        self.answer20 = @"经常";
+        [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton20_4Clicked){
@@ -9142,6 +10852,8 @@
         [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button20_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9171,6 +10883,13 @@
     }
     
     if (!self.isQuestion20Answered) {
+        if (self.isButton20_3FixClicked) {
+            self.isQuestion20Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion20Answered];
+        }
+    }
+    
+    if (!self.isQuestion20Answered) {
         if (self.isButton20_4Clicked) {
             self.isQuestion20Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion20Answered];
@@ -9182,6 +10901,7 @@
     self.isButton21_1Clicked = YES;
     self.isButton21_2Clicked = NO;
     self.isButton21_3Clicked = NO;
+    self.isButton21_3FixClicked = NO;
     self.isButton21_4Clicked = NO;
     [self changeQuestion21Presentation];
     [self recordQuestion21AnsweredStatus];
@@ -9191,6 +10911,7 @@
     self.isButton21_1Clicked = NO;
     self.isButton21_2Clicked = YES;
     self.isButton21_3Clicked = NO;
+    self.isButton21_3FixClicked = NO;
     self.isButton21_4Clicked = NO;
     [self changeQuestion21Presentation];
     [self recordQuestion21AnsweredStatus];
@@ -9200,6 +10921,17 @@
     self.isButton21_1Clicked = NO;
     self.isButton21_2Clicked = NO;
     self.isButton21_3Clicked = YES;
+    self.isButton21_3FixClicked = NO;
+    self.isButton21_4Clicked = NO;
+    [self changeQuestion21Presentation];
+    [self recordQuestion21AnsweredStatus];
+}
+
+-(void)button21_3FixClicked{
+    self.isButton21_1Clicked = NO;
+    self.isButton21_2Clicked = NO;
+    self.isButton21_3Clicked = NO;
+    self.isButton21_3FixClicked = YES;
     self.isButton21_4Clicked = NO;
     [self changeQuestion21Presentation];
     [self recordQuestion21AnsweredStatus];
@@ -9209,6 +10941,7 @@
     self.isButton21_1Clicked = NO;
     self.isButton21_2Clicked = NO;
     self.isButton21_3Clicked = NO;
+    self.isButton21_3FixClicked = NO;
     self.isButton21_4Clicked = YES;
     [self changeQuestion21Presentation];
     [self recordQuestion21AnsweredStatus];
@@ -9223,6 +10956,8 @@
         [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton21_2Clicked){
@@ -9233,6 +10968,8 @@
         [self.button21_2 setBackgroundColor:kMAIN_COLOR];
         [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton21_3Clicked){
@@ -9243,6 +10980,20 @@
         [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton21_3FixClicked){
+        self.answer21 = @"经常";
+        [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton21_4Clicked){
@@ -9253,6 +11004,8 @@
         [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button21_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9282,6 +11035,13 @@
     }
     
     if (!self.isQuestion21Answered) {
+        if (self.isButton21_3FixClicked) {
+            self.isQuestion21Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion21Answered];
+        }
+    }
+    
+    if (!self.isQuestion21Answered) {
         if (self.isButton21_4Clicked) {
             self.isQuestion21Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion21Answered];
@@ -9293,6 +11053,7 @@
     self.isButton22_1Clicked = YES;
     self.isButton22_2Clicked = NO;
     self.isButton22_3Clicked = NO;
+    self.isButton22_3FixClicked = NO;
     self.isButton22_4Clicked = NO;
     [self changeQuestion22Presentation];
     [self recordQuestion22AnsweredStatus];
@@ -9302,6 +11063,7 @@
     self.isButton22_1Clicked = NO;
     self.isButton22_2Clicked = YES;
     self.isButton22_3Clicked = NO;
+    self.isButton22_3FixClicked = NO;
     self.isButton22_4Clicked = NO;
     [self changeQuestion22Presentation];
     [self recordQuestion22AnsweredStatus];
@@ -9311,6 +11073,17 @@
     self.isButton22_1Clicked = NO;
     self.isButton22_2Clicked = NO;
     self.isButton22_3Clicked = YES;
+    self.isButton22_3FixClicked = NO;
+    self.isButton22_4Clicked = NO;
+    [self changeQuestion22Presentation];
+    [self recordQuestion22AnsweredStatus];
+}
+
+-(void)button22_3FixClicked{
+    self.isButton22_1Clicked = NO;
+    self.isButton22_2Clicked = NO;
+    self.isButton22_3Clicked = NO;
+    self.isButton22_3FixClicked = YES;
     self.isButton22_4Clicked = NO;
     [self changeQuestion22Presentation];
     [self recordQuestion22AnsweredStatus];
@@ -9320,6 +11093,7 @@
     self.isButton22_1Clicked = NO;
     self.isButton22_2Clicked = NO;
     self.isButton22_3Clicked = NO;
+    self.isButton22_3FixClicked = NO;
     self.isButton22_4Clicked = YES;
     [self changeQuestion22Presentation];
     [self recordQuestion22AnsweredStatus];
@@ -9334,6 +11108,8 @@
         [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton22_2Clicked){
@@ -9344,6 +11120,8 @@
         [self.button22_2 setBackgroundColor:kMAIN_COLOR];
         [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton22_3Clicked){
@@ -9354,6 +11132,20 @@
         [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton22_3FixClicked){
+        self.answer22 = @"经常";
+        [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton22_4Clicked){
@@ -9364,6 +11156,8 @@
         [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button22_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9393,6 +11187,13 @@
     }
     
     if (!self.isQuestion22Answered) {
+        if (self.isButton22_3FixClicked) {
+            self.isQuestion22Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion22Answered];
+        }
+    }
+    
+    if (!self.isQuestion22Answered) {
         if (self.isButton22_4Clicked) {
             self.isQuestion22Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion22Answered];
@@ -9404,6 +11205,7 @@
     self.isButton23_1Clicked = YES;
     self.isButton23_2Clicked = NO;
     self.isButton23_3Clicked = NO;
+    self.isButton23_3FixClicked = NO;
     self.isButton23_4Clicked = NO;
     [self changeQuestion23Presentation];
     [self recordQuestion23AnsweredStatus];
@@ -9413,6 +11215,7 @@
     self.isButton23_1Clicked = NO;
     self.isButton23_2Clicked = YES;
     self.isButton23_3Clicked = NO;
+    self.isButton23_3FixClicked = NO;
     self.isButton23_4Clicked = NO;
     [self changeQuestion23Presentation];
     [self recordQuestion23AnsweredStatus];
@@ -9422,6 +11225,17 @@
     self.isButton23_1Clicked = NO;
     self.isButton23_2Clicked = NO;
     self.isButton23_3Clicked = YES;
+    self.isButton23_3FixClicked = NO;
+    self.isButton23_4Clicked = NO;
+    [self changeQuestion23Presentation];
+    [self recordQuestion23AnsweredStatus];
+}
+
+-(void)button23_3FixClicked{
+    self.isButton23_1Clicked = NO;
+    self.isButton23_2Clicked = NO;
+    self.isButton23_3Clicked = NO;
+    self.isButton23_3FixClicked = YES;
     self.isButton23_4Clicked = NO;
     [self changeQuestion23Presentation];
     [self recordQuestion23AnsweredStatus];
@@ -9431,6 +11245,7 @@
     self.isButton23_1Clicked = NO;
     self.isButton23_2Clicked = NO;
     self.isButton23_3Clicked = NO;
+    self.isButton23_3FixClicked = NO;
     self.isButton23_4Clicked = YES;
     [self changeQuestion23Presentation];
     [self recordQuestion23AnsweredStatus];
@@ -9445,6 +11260,8 @@
         [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton23_2Clicked){
@@ -9455,6 +11272,8 @@
         [self.button23_2 setBackgroundColor:kMAIN_COLOR];
         [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton23_3Clicked){
@@ -9465,6 +11284,20 @@
         [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton23_3FixClicked){
+        self.answer23 = @"经常";
+        [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton23_4Clicked){
@@ -9475,6 +11308,8 @@
         [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button23_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9504,6 +11339,13 @@
     }
     
     if (!self.isQuestion23Answered) {
+        if (self.isButton23_3FixClicked) {
+            self.isQuestion23Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion23Answered];
+        }
+    }
+    
+    if (!self.isQuestion23Answered) {
         if (self.isButton23_4Clicked) {
             self.isQuestion23Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion23Answered];
@@ -9515,6 +11357,7 @@
     self.isButton24_1Clicked = YES;
     self.isButton24_2Clicked = NO;
     self.isButton24_3Clicked = NO;
+    self.isButton24_3FixClicked = NO;
     self.isButton24_4Clicked = NO;
     [self changeQuestion24Presentation];
     [self recordQuestion24AnsweredStatus];
@@ -9524,6 +11367,7 @@
     self.isButton24_1Clicked = NO;
     self.isButton24_2Clicked = YES;
     self.isButton24_3Clicked = NO;
+    self.isButton24_3FixClicked = NO;
     self.isButton24_4Clicked = NO;
     [self changeQuestion24Presentation];
     [self recordQuestion24AnsweredStatus];
@@ -9533,6 +11377,17 @@
     self.isButton24_1Clicked = NO;
     self.isButton24_2Clicked = NO;
     self.isButton24_3Clicked = YES;
+    self.isButton24_3FixClicked = NO;
+    self.isButton24_4Clicked = NO;
+    [self changeQuestion24Presentation];
+    [self recordQuestion24AnsweredStatus];
+}
+
+-(void)button24_3FixClicked{
+    self.isButton24_1Clicked = NO;
+    self.isButton24_2Clicked = NO;
+    self.isButton24_3Clicked = NO;
+    self.isButton24_3FixClicked = YES;
     self.isButton24_4Clicked = NO;
     [self changeQuestion24Presentation];
     [self recordQuestion24AnsweredStatus];
@@ -9542,6 +11397,7 @@
     self.isButton24_1Clicked = NO;
     self.isButton24_2Clicked = NO;
     self.isButton24_3Clicked = NO;
+    self.isButton24_3FixClicked = NO;
     self.isButton24_4Clicked = YES;
     [self changeQuestion24Presentation];
     [self recordQuestion24AnsweredStatus];
@@ -9556,6 +11412,8 @@
         [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton24_2Clicked){
@@ -9566,6 +11424,8 @@
         [self.button24_2 setBackgroundColor:kMAIN_COLOR];
         [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton24_3Clicked){
@@ -9576,6 +11436,20 @@
         [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton24_3FixClicked){
+        self.answer24 = @"经常";
+        [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton24_4Clicked){
@@ -9586,6 +11460,8 @@
         [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button24_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9615,6 +11491,13 @@
     }
     
     if (!self.isQuestion24Answered) {
+        if (self.isButton24_3FixClicked) {
+            self.isQuestion24Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion24Answered];
+        }
+    }
+    
+    if (!self.isQuestion24Answered) {
         if (self.isButton24_4Clicked) {
             self.isQuestion24Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion24Answered];
@@ -9626,6 +11509,7 @@
     self.isButton25_1Clicked = YES;
     self.isButton25_2Clicked = NO;
     self.isButton25_3Clicked = NO;
+    self.isButton25_3FixClicked = NO;
     self.isButton25_4Clicked = NO;
     [self changeQuestion25Presentation];
     [self recordQuestion25AnsweredStatus];
@@ -9635,6 +11519,7 @@
     self.isButton25_1Clicked = NO;
     self.isButton25_2Clicked = YES;
     self.isButton25_3Clicked = NO;
+    self.isButton25_3FixClicked = NO;
     self.isButton25_4Clicked = NO;
     [self changeQuestion25Presentation];
     [self recordQuestion25AnsweredStatus];
@@ -9644,6 +11529,17 @@
     self.isButton25_1Clicked = NO;
     self.isButton25_2Clicked = NO;
     self.isButton25_3Clicked = YES;
+    self.isButton25_3FixClicked = NO;
+    self.isButton25_4Clicked = NO;
+    [self changeQuestion25Presentation];
+    [self recordQuestion25AnsweredStatus];
+}
+
+-(void)button25_3FixClicked{
+    self.isButton25_1Clicked = NO;
+    self.isButton25_2Clicked = NO;
+    self.isButton25_3Clicked = NO;
+    self.isButton25_3FixClicked = YES;
     self.isButton25_4Clicked = NO;
     [self changeQuestion25Presentation];
     [self recordQuestion25AnsweredStatus];
@@ -9653,6 +11549,7 @@
     self.isButton25_1Clicked = NO;
     self.isButton25_2Clicked = NO;
     self.isButton25_3Clicked = NO;
+    self.isButton25_3FixClicked = NO;
     self.isButton25_4Clicked = YES;
     [self changeQuestion25Presentation];
     [self recordQuestion25AnsweredStatus];
@@ -9667,6 +11564,8 @@
         [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton25_2Clicked){
@@ -9677,6 +11576,8 @@
         [self.button25_2 setBackgroundColor:kMAIN_COLOR];
         [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton25_3Clicked){
@@ -9687,6 +11588,20 @@
         [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton25_3FixClicked){
+        self.answer25 = @"经常";
+        [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton25_4Clicked){
@@ -9697,6 +11612,8 @@
         [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button25_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9726,6 +11643,13 @@
     }
     
     if (!self.isQuestion25Answered) {
+        if (self.isButton25_3FixClicked) {
+            self.isQuestion25Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion25Answered];
+        }
+    }
+    
+    if (!self.isQuestion25Answered) {
         if (self.isButton25_4Clicked) {
             self.isQuestion25Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion25Answered];
@@ -9737,6 +11661,7 @@
     self.isButton26_1Clicked = YES;
     self.isButton26_2Clicked = NO;
     self.isButton26_3Clicked = NO;
+    self.isButton26_3FixClicked = NO;
     self.isButton26_4Clicked = NO;
     [self changeQuestion26Presentation];
     [self recordQuestion26AnsweredStatus];
@@ -9746,6 +11671,7 @@
     self.isButton26_1Clicked = NO;
     self.isButton26_2Clicked = YES;
     self.isButton26_3Clicked = NO;
+    self.isButton26_3FixClicked = NO;
     self.isButton26_4Clicked = NO;
     [self changeQuestion26Presentation];
     [self recordQuestion26AnsweredStatus];
@@ -9755,6 +11681,17 @@
     self.isButton26_1Clicked = NO;
     self.isButton26_2Clicked = NO;
     self.isButton26_3Clicked = YES;
+    self.isButton26_3FixClicked = NO;
+    self.isButton26_4Clicked = NO;
+    [self changeQuestion26Presentation];
+    [self recordQuestion26AnsweredStatus];
+}
+
+-(void)button26_3FixClicked{
+    self.isButton26_1Clicked = NO;
+    self.isButton26_2Clicked = NO;
+    self.isButton26_3Clicked = NO;
+    self.isButton26_3FixClicked = YES;
     self.isButton26_4Clicked = NO;
     [self changeQuestion26Presentation];
     [self recordQuestion26AnsweredStatus];
@@ -9764,6 +11701,7 @@
     self.isButton26_1Clicked = NO;
     self.isButton26_2Clicked = NO;
     self.isButton26_3Clicked = NO;
+    self.isButton26_3FixClicked = NO;
     self.isButton26_4Clicked = YES;
     [self changeQuestion26Presentation];
     [self recordQuestion26AnsweredStatus];
@@ -9778,6 +11716,8 @@
         [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton26_2Clicked){
@@ -9788,6 +11728,8 @@
         [self.button26_2 setBackgroundColor:kMAIN_COLOR];
         [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton26_3Clicked){
@@ -9798,6 +11740,20 @@
         [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton26_3FixClicked){
+        self.answer26 = @"经常";
+        [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton26_4Clicked){
@@ -9808,6 +11764,8 @@
         [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button26_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9837,6 +11795,13 @@
     }
     
     if (!self.isQuestion26Answered) {
+        if (self.isButton26_3FixClicked) {
+            self.isQuestion26Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion26Answered];
+        }
+    }
+    
+    if (!self.isQuestion26Answered) {
         if (self.isButton26_4Clicked) {
             self.isQuestion26Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion26Answered];
@@ -9848,6 +11813,7 @@
     self.isButton27_1Clicked = YES;
     self.isButton27_2Clicked = NO;
     self.isButton27_3Clicked = NO;
+    self.isButton27_3FixClicked = NO;
     self.isButton27_4Clicked = NO;
     [self changeQuestion27Presentation];
     [self recordQuestion27AnsweredStatus];
@@ -9857,6 +11823,7 @@
     self.isButton27_1Clicked = NO;
     self.isButton27_2Clicked = YES;
     self.isButton27_3Clicked = NO;
+    self.isButton27_3FixClicked = NO;
     self.isButton27_4Clicked = NO;
     [self changeQuestion27Presentation];
     [self recordQuestion27AnsweredStatus];
@@ -9866,6 +11833,17 @@
     self.isButton27_1Clicked = NO;
     self.isButton27_2Clicked = NO;
     self.isButton27_3Clicked = YES;
+    self.isButton27_3FixClicked = NO;
+    self.isButton27_4Clicked = NO;
+    [self changeQuestion27Presentation];
+    [self recordQuestion27AnsweredStatus];
+}
+
+-(void)button27_3FixClicked{
+    self.isButton27_1Clicked = NO;
+    self.isButton27_2Clicked = NO;
+    self.isButton27_3Clicked = NO;
+    self.isButton27_3FixClicked = YES;
     self.isButton27_4Clicked = NO;
     [self changeQuestion27Presentation];
     [self recordQuestion27AnsweredStatus];
@@ -9875,6 +11853,7 @@
     self.isButton27_1Clicked = NO;
     self.isButton27_2Clicked = NO;
     self.isButton27_3Clicked = NO;
+    self.isButton27_3FixClicked = NO;
     self.isButton27_4Clicked = YES;
     [self changeQuestion27Presentation];
     [self recordQuestion27AnsweredStatus];
@@ -9889,6 +11868,8 @@
         [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton27_2Clicked){
@@ -9899,6 +11880,8 @@
         [self.button27_2 setBackgroundColor:kMAIN_COLOR];
         [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton27_3Clicked){
@@ -9909,6 +11892,20 @@
         [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton27_3FixClicked){
+        self.answer27 = @"经常";
+        [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton27_4Clicked){
@@ -9919,6 +11916,8 @@
         [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button27_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9948,6 +11947,13 @@
     }
     
     if (!self.isQuestion27Answered) {
+        if (self.isButton27_3FixClicked) {
+            self.isQuestion27Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion27Answered];
+        }
+    }
+    
+    if (!self.isQuestion27Answered) {
         if (self.isButton27_4Clicked) {
             self.isQuestion27Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion27Answered];
@@ -9959,6 +11965,7 @@
     self.isButton28_1Clicked = YES;
     self.isButton28_2Clicked = NO;
     self.isButton28_3Clicked = NO;
+    self.isButton28_3FixClicked = NO;
     self.isButton28_4Clicked = NO;
     [self changeQuestion28Presentation];
     [self recordQuestion28AnsweredStatus];
@@ -9968,6 +11975,7 @@
     self.isButton28_1Clicked = NO;
     self.isButton28_2Clicked = YES;
     self.isButton28_3Clicked = NO;
+    self.isButton28_3FixClicked = NO;
     self.isButton28_4Clicked = NO;
     [self changeQuestion28Presentation];
     [self recordQuestion28AnsweredStatus];
@@ -9977,15 +11985,28 @@
     self.isButton28_1Clicked = NO;
     self.isButton28_2Clicked = NO;
     self.isButton28_3Clicked = YES;
+    self.isButton28_3FixClicked = NO;
     self.isButton28_4Clicked = NO;
     [self changeQuestion28Presentation];
     [self recordQuestion28AnsweredStatus];
 }
 
+-(void)button28_3FixClicked{
+    self.isButton28_1Clicked = NO;
+    self.isButton28_2Clicked = NO;
+    self.isButton28_3Clicked = NO;
+    self.isButton28_3FixClicked = YES;
+    self.isButton28_4Clicked = NO;
+    [self changeQuestion28Presentation];
+    [self recordQuestion28AnsweredStatus];
+}
+
+
 -(void)button28_4Clicked{
     self.isButton28_1Clicked = NO;
     self.isButton28_2Clicked = NO;
     self.isButton28_3Clicked = NO;
+    self.isButton28_3FixClicked = NO;
     self.isButton28_4Clicked = YES;
     [self changeQuestion28Presentation];
     [self recordQuestion28AnsweredStatus];
@@ -10000,6 +12021,8 @@
         [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton28_2Clicked){
@@ -10010,6 +12033,8 @@
         [self.button28_2 setBackgroundColor:kMAIN_COLOR];
         [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton28_3Clicked){
@@ -10020,6 +12045,20 @@
         [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton28_3FixClicked){
+        self.answer28 = @"经常";
+        [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton28_4Clicked){
@@ -10030,6 +12069,8 @@
         [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button28_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10059,6 +12100,13 @@
     }
     
     if (!self.isQuestion28Answered) {
+        if (self.isButton28_3FixClicked) {
+            self.isQuestion28Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion28Answered];
+        }
+    }
+    
+    if (!self.isQuestion28Answered) {
         if (self.isButton28_4Clicked) {
             self.isQuestion28Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion28Answered];
@@ -10070,6 +12118,7 @@
     self.isButton29_1Clicked = YES;
     self.isButton29_2Clicked = NO;
     self.isButton29_3Clicked = NO;
+    self.isButton29_3FixClicked = NO;
     self.isButton29_4Clicked = NO;
     [self changeQuestion29Presentation];
     [self recordQuestion29AnsweredStatus];
@@ -10079,6 +12128,7 @@
     self.isButton29_1Clicked = NO;
     self.isButton29_2Clicked = YES;
     self.isButton29_3Clicked = NO;
+    self.isButton29_3FixClicked = NO;
     self.isButton29_4Clicked = NO;
     [self changeQuestion29Presentation];
     [self recordQuestion29AnsweredStatus];
@@ -10088,15 +12138,28 @@
     self.isButton29_1Clicked = NO;
     self.isButton29_2Clicked = NO;
     self.isButton29_3Clicked = YES;
+    self.isButton29_3FixClicked = NO;
     self.isButton29_4Clicked = NO;
     [self changeQuestion29Presentation];
     [self recordQuestion29AnsweredStatus];
 }
 
+-(void)button29_3FixClicked{
+    self.isButton29_1Clicked = NO;
+    self.isButton29_2Clicked = NO;
+    self.isButton29_3Clicked = NO;
+    self.isButton29_3FixClicked = YES;
+    self.isButton29_4Clicked = NO;
+    [self changeQuestion29Presentation];
+    [self recordQuestion29AnsweredStatus];
+}
+
+
 -(void)button29_4Clicked{
     self.isButton29_1Clicked = NO;
     self.isButton29_2Clicked = NO;
     self.isButton29_3Clicked = NO;
+    self.isButton29_3FixClicked = NO;
     self.isButton29_4Clicked = YES;
     [self changeQuestion29Presentation];
     [self recordQuestion29AnsweredStatus];
@@ -10111,6 +12174,8 @@
         [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton29_2Clicked){
@@ -10121,6 +12186,8 @@
         [self.button29_2 setBackgroundColor:kMAIN_COLOR];
         [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton29_3Clicked){
@@ -10131,6 +12198,20 @@
         [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton29_3FixClicked){
+        self.answer29 = @"经常";
+        [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton29_4Clicked){
@@ -10141,6 +12222,8 @@
         [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button29_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10170,6 +12253,13 @@
     }
     
     if (!self.isQuestion29Answered) {
+        if (self.isButton29_3FixClicked) {
+            self.isQuestion29Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion29Answered];
+        }
+    }
+    
+    if (!self.isQuestion29Answered) {
         if (self.isButton29_4Clicked) {
             self.isQuestion29Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion29Answered];
@@ -10181,6 +12271,7 @@
     self.isButton30_1Clicked = YES;
     self.isButton30_2Clicked = NO;
     self.isButton30_3Clicked = NO;
+    self.isButton30_3FixClicked = NO;
     self.isButton30_4Clicked = NO;
     [self changeQuestion30Presentation];
     [self recordQuestion30AnsweredStatus];
@@ -10190,6 +12281,7 @@
     self.isButton30_1Clicked = NO;
     self.isButton30_2Clicked = YES;
     self.isButton30_3Clicked = NO;
+    self.isButton30_3FixClicked = NO;
     self.isButton30_4Clicked = NO;
     [self changeQuestion30Presentation];
     [self recordQuestion30AnsweredStatus];
@@ -10199,6 +12291,17 @@
     self.isButton30_1Clicked = NO;
     self.isButton30_2Clicked = NO;
     self.isButton30_3Clicked = YES;
+    self.isButton30_3FixClicked = NO;
+    self.isButton30_4Clicked = NO;
+    [self changeQuestion30Presentation];
+    [self recordQuestion30AnsweredStatus];
+}
+
+-(void)button30_3FixClicked{
+    self.isButton30_1Clicked = NO;
+    self.isButton30_2Clicked = NO;
+    self.isButton30_3Clicked = NO;
+    self.isButton30_3FixClicked = YES;
     self.isButton30_4Clicked = NO;
     [self changeQuestion30Presentation];
     [self recordQuestion30AnsweredStatus];
@@ -10208,6 +12311,7 @@
     self.isButton30_1Clicked = NO;
     self.isButton30_2Clicked = NO;
     self.isButton30_3Clicked = NO;
+    self.isButton30_3FixClicked = NO;
     self.isButton30_4Clicked = YES;
     [self changeQuestion30Presentation];
     [self recordQuestion30AnsweredStatus];
@@ -10222,6 +12326,8 @@
         [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton30_2Clicked){
@@ -10232,6 +12338,8 @@
         [self.button30_2 setBackgroundColor:kMAIN_COLOR];
         [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton30_3Clicked){
@@ -10242,6 +12350,20 @@
         [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton30_3FixClicked){
+        self.answer30 = @"经常";
+        [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton30_4Clicked){
@@ -10252,6 +12374,8 @@
         [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button30_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10281,6 +12405,13 @@
     }
     
     if (!self.isQuestion30Answered) {
+        if (self.isButton30_3FixClicked) {
+            self.isQuestion30Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion30Answered];
+        }
+    }
+    
+    if (!self.isQuestion30Answered) {
         if (self.isButton30_4Clicked) {
             self.isQuestion30Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion30Answered];
@@ -10292,6 +12423,7 @@
     self.isButton31_1Clicked = YES;
     self.isButton31_2Clicked = NO;
     self.isButton31_3Clicked = NO;
+    self.isButton31_3FixClicked = NO;
     self.isButton31_4Clicked = NO;
     [self changeQuestion31Presentation];
     [self recordQuestion31AnsweredStatus];
@@ -10301,6 +12433,7 @@
     self.isButton31_1Clicked = NO;
     self.isButton31_2Clicked = YES;
     self.isButton31_3Clicked = NO;
+    self.isButton31_3FixClicked = NO;
     self.isButton31_4Clicked = NO;
     [self changeQuestion31Presentation];
     [self recordQuestion31AnsweredStatus];
@@ -10310,6 +12443,17 @@
     self.isButton31_1Clicked = NO;
     self.isButton31_2Clicked = NO;
     self.isButton31_3Clicked = YES;
+    self.isButton31_3FixClicked = NO;
+    self.isButton31_4Clicked = NO;
+    [self changeQuestion31Presentation];
+    [self recordQuestion31AnsweredStatus];
+}
+
+-(void)button31_3FixClicked{
+    self.isButton31_1Clicked = NO;
+    self.isButton31_2Clicked = NO;
+    self.isButton31_3Clicked = NO;
+    self.isButton31_3FixClicked = YES;
     self.isButton31_4Clicked = NO;
     [self changeQuestion31Presentation];
     [self recordQuestion31AnsweredStatus];
@@ -10319,6 +12463,7 @@
     self.isButton31_1Clicked = NO;
     self.isButton31_2Clicked = NO;
     self.isButton31_3Clicked = NO;
+    self.isButton31_3FixClicked = NO;
     self.isButton31_4Clicked = YES;
     [self changeQuestion31Presentation];
     [self recordQuestion31AnsweredStatus];
@@ -10333,6 +12478,8 @@
         [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton31_2Clicked){
@@ -10343,6 +12490,8 @@
         [self.button31_2 setBackgroundColor:kMAIN_COLOR];
         [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton31_3Clicked){
@@ -10353,6 +12502,20 @@
         [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton31_3FixClicked){
+        self.answer31 = @"经常";
+        [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton31_4Clicked){
@@ -10363,6 +12526,8 @@
         [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button31_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10392,6 +12557,13 @@
     }
     
     if (!self.isQuestion31Answered) {
+        if (self.isButton31_3FixClicked) {
+            self.isQuestion31Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion31Answered];
+        }
+    }
+    
+    if (!self.isQuestion31Answered) {
         if (self.isButton31_4Clicked) {
             self.isQuestion31Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion31Answered];
@@ -10403,6 +12575,7 @@
     self.isButton32_1Clicked = YES;
     self.isButton32_2Clicked = NO;
     self.isButton32_3Clicked = NO;
+    self.isButton32_3FixClicked = NO;
     self.isButton32_4Clicked = NO;
     [self changeQuestion32Presentation];
     [self recordQuestion32AnsweredStatus];
@@ -10412,6 +12585,7 @@
     self.isButton32_1Clicked = NO;
     self.isButton32_2Clicked = YES;
     self.isButton32_3Clicked = NO;
+    self.isButton32_3FixClicked = NO;
     self.isButton32_4Clicked = NO;
     [self changeQuestion32Presentation];
     [self recordQuestion32AnsweredStatus];
@@ -10421,6 +12595,17 @@
     self.isButton32_1Clicked = NO;
     self.isButton32_2Clicked = NO;
     self.isButton32_3Clicked = YES;
+    self.isButton32_3FixClicked = NO;
+    self.isButton32_4Clicked = NO;
+    [self changeQuestion32Presentation];
+    [self recordQuestion32AnsweredStatus];
+}
+
+-(void)button32_3FixClicked{
+    self.isButton32_1Clicked = NO;
+    self.isButton32_2Clicked = NO;
+    self.isButton32_3Clicked = NO;
+    self.isButton32_3FixClicked = YES;
     self.isButton32_4Clicked = NO;
     [self changeQuestion32Presentation];
     [self recordQuestion32AnsweredStatus];
@@ -10430,6 +12615,7 @@
     self.isButton32_1Clicked = NO;
     self.isButton32_2Clicked = NO;
     self.isButton32_3Clicked = NO;
+    self.isButton32_3FixClicked = NO;
     self.isButton32_4Clicked = YES;
     [self changeQuestion32Presentation];
     [self recordQuestion32AnsweredStatus];
@@ -10444,6 +12630,8 @@
         [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton32_2Clicked){
@@ -10454,6 +12642,8 @@
         [self.button32_2 setBackgroundColor:kMAIN_COLOR];
         [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton32_3Clicked){
@@ -10464,6 +12654,20 @@
         [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton32_3FixClicked){
+        self.answer32 = @"经常";
+        [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton32_4Clicked){
@@ -10474,6 +12678,8 @@
         [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button3_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10503,6 +12709,13 @@
     }
     
     if (!self.isQuestion32Answered) {
+        if (self.isButton32_3FixClicked) {
+            self.isQuestion32Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion32Answered];
+        }
+    }
+    
+    if (!self.isQuestion32Answered) {
         if (self.isButton32_4Clicked) {
             self.isQuestion32Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion32Answered];
@@ -10514,6 +12727,7 @@
     self.isButton33_1Clicked = YES;
     self.isButton33_2Clicked = NO;
     self.isButton33_3Clicked = NO;
+    self.isButton33_3FixClicked = NO;
     self.isButton33_4Clicked = NO;
     [self changeQuestion33Presentation];
     [self recordQuestion33AnsweredStatus];
@@ -10523,6 +12737,7 @@
     self.isButton33_1Clicked = NO;
     self.isButton33_2Clicked = YES;
     self.isButton33_3Clicked = NO;
+    self.isButton33_3FixClicked = NO;
     self.isButton33_4Clicked = NO;
     [self changeQuestion33Presentation];
     [self recordQuestion33AnsweredStatus];
@@ -10532,6 +12747,17 @@
     self.isButton33_1Clicked = NO;
     self.isButton33_2Clicked = NO;
     self.isButton33_3Clicked = YES;
+    self.isButton33_3FixClicked = NO;
+    self.isButton33_4Clicked = NO;
+    [self changeQuestion33Presentation];
+    [self recordQuestion33AnsweredStatus];
+}
+
+-(void)button33_3FixClicked{
+    self.isButton33_1Clicked = NO;
+    self.isButton33_2Clicked = NO;
+    self.isButton33_3Clicked = NO;
+    self.isButton33_3FixClicked = YES;
     self.isButton33_4Clicked = NO;
     [self changeQuestion33Presentation];
     [self recordQuestion33AnsweredStatus];
@@ -10541,6 +12767,7 @@
     self.isButton33_1Clicked = NO;
     self.isButton33_2Clicked = NO;
     self.isButton33_3Clicked = NO;
+    self.isButton33_3FixClicked = NO;
     self.isButton33_4Clicked = YES;
     [self changeQuestion33Presentation];
     [self recordQuestion33AnsweredStatus];
@@ -10555,6 +12782,8 @@
         [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton33_2Clicked){
@@ -10565,6 +12794,8 @@
         [self.button33_2 setBackgroundColor:kMAIN_COLOR];
         [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton33_3Clicked){
@@ -10575,6 +12806,20 @@
         [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton33_3FixClicked){
+        self.answer33 = @"经常";
+        [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton33_4Clicked){
@@ -10585,6 +12830,8 @@
         [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button33_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10614,6 +12861,13 @@
     }
     
     if (!self.isQuestion33Answered) {
+        if (self.isButton33_3FixClicked) {
+            self.isQuestion33Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion33Answered];
+        }
+    }
+    
+    if (!self.isQuestion33Answered) {
         if (self.isButton33_4Clicked) {
             self.isQuestion33Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion33Answered];
@@ -10625,6 +12879,7 @@
     self.isButton34_1Clicked = YES;
     self.isButton34_2Clicked = NO;
     self.isButton34_3Clicked = NO;
+    self.isButton34_3FixClicked = NO;
     self.isButton34_4Clicked = NO;
     [self changeQuestion34Presentation];
     [self recordQuestion34AnsweredStatus];
@@ -10634,6 +12889,7 @@
     self.isButton34_1Clicked = NO;
     self.isButton34_2Clicked = YES;
     self.isButton34_3Clicked = NO;
+    self.isButton34_3FixClicked = NO;
     self.isButton34_4Clicked = NO;
     [self changeQuestion34Presentation];
     [self recordQuestion34AnsweredStatus];
@@ -10643,6 +12899,17 @@
     self.isButton34_1Clicked = NO;
     self.isButton34_2Clicked = NO;
     self.isButton34_3Clicked = YES;
+    self.isButton34_3FixClicked = NO;
+    self.isButton34_4Clicked = NO;
+    [self changeQuestion34Presentation];
+    [self recordQuestion34AnsweredStatus];
+}
+
+-(void)button34_3FixClicked{
+    self.isButton34_1Clicked = NO;
+    self.isButton34_2Clicked = NO;
+    self.isButton34_3Clicked = NO;
+    self.isButton34_3FixClicked = YES;
     self.isButton34_4Clicked = NO;
     [self changeQuestion34Presentation];
     [self recordQuestion34AnsweredStatus];
@@ -10652,6 +12919,7 @@
     self.isButton34_1Clicked = NO;
     self.isButton34_2Clicked = NO;
     self.isButton34_3Clicked = NO;
+    self.isButton34_3FixClicked = NO;
     self.isButton34_4Clicked = YES;
     [self changeQuestion34Presentation];
     [self recordQuestion34AnsweredStatus];
@@ -10666,6 +12934,8 @@
         [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton34_2Clicked){
@@ -10676,6 +12946,8 @@
         [self.button34_2 setBackgroundColor:kMAIN_COLOR];
         [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton34_3Clicked){
@@ -10686,6 +12958,20 @@
         [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton34_3FixClicked){
+        self.answer34 = @"经常";
+        [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton34_4Clicked){
@@ -10696,6 +12982,8 @@
         [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button34_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10725,6 +13013,13 @@
     }
     
     if (!self.isQuestion34Answered) {
+        if (self.isButton34_3FixClicked) {
+            self.isQuestion34Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion34Answered];
+        }
+    }
+    
+    if (!self.isQuestion34Answered) {
         if (self.isButton34_4Clicked) {
             self.isQuestion34Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion34Answered];
@@ -10736,6 +13031,7 @@
     self.isButton35_1Clicked = YES;
     self.isButton35_2Clicked = NO;
     self.isButton35_3Clicked = NO;
+    self.isButton35_3FixClicked = NO;
     self.isButton35_4Clicked = NO;
     [self changeQuestion35Presentation];
     [self recordQuestion35AnsweredStatus];
@@ -10745,6 +13041,7 @@
     self.isButton35_1Clicked = NO;
     self.isButton35_2Clicked = YES;
     self.isButton35_3Clicked = NO;
+    self.isButton35_3FixClicked = NO;
     self.isButton35_4Clicked = NO;
     [self changeQuestion35Presentation];
     [self recordQuestion35AnsweredStatus];
@@ -10754,6 +13051,17 @@
     self.isButton35_1Clicked = NO;
     self.isButton35_2Clicked = NO;
     self.isButton35_3Clicked = YES;
+    self.isButton35_3FixClicked = NO;
+    self.isButton35_4Clicked = NO;
+    [self changeQuestion35Presentation];
+    [self recordQuestion35AnsweredStatus];
+}
+
+-(void)button35_3FixClicked{
+    self.isButton35_1Clicked = NO;
+    self.isButton35_2Clicked = NO;
+    self.isButton35_3Clicked = NO;
+    self.isButton35_3FixClicked = YES;
     self.isButton35_4Clicked = NO;
     [self changeQuestion35Presentation];
     [self recordQuestion35AnsweredStatus];
@@ -10763,6 +13071,7 @@
     self.isButton35_1Clicked = NO;
     self.isButton35_2Clicked = NO;
     self.isButton35_3Clicked = NO;
+    self.isButton35_3FixClicked = NO;
     self.isButton35_4Clicked = YES;
     [self changeQuestion35Presentation];
     [self recordQuestion35AnsweredStatus];
@@ -10777,6 +13086,8 @@
         [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton35_2Clicked){
@@ -10787,6 +13098,8 @@
         [self.button35_2 setBackgroundColor:kMAIN_COLOR];
         [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton35_3Clicked){
@@ -10797,6 +13110,20 @@
         [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton35_3FixClicked){
+        self.answer35 = @"经常";
+        [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton35_4Clicked){
@@ -10807,6 +13134,8 @@
         [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button35_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10836,6 +13165,13 @@
     }
     
     if (!self.isQuestion35Answered) {
+        if (self.isButton35_3FixClicked) {
+            self.isQuestion35Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion35Answered];
+        }
+    }
+    
+    if (!self.isQuestion35Answered) {
         if (self.isButton35_4Clicked) {
             self.isQuestion35Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion35Answered];
@@ -10847,6 +13183,7 @@
     self.isButton36_1Clicked = YES;
     self.isButton36_2Clicked = NO;
     self.isButton36_3Clicked = NO;
+    self.isButton36_3FixClicked = NO;
     self.isButton36_4Clicked = NO;
     [self changeQuestion36Presentation];
     [self recordQuestion36AnsweredStatus];
@@ -10856,6 +13193,7 @@
     self.isButton36_1Clicked = NO;
     self.isButton36_2Clicked = YES;
     self.isButton36_3Clicked = NO;
+    self.isButton36_3FixClicked = NO;
     self.isButton36_4Clicked = NO;
     [self changeQuestion36Presentation];
     [self recordQuestion36AnsweredStatus];
@@ -10865,6 +13203,17 @@
     self.isButton36_1Clicked = NO;
     self.isButton36_2Clicked = NO;
     self.isButton36_3Clicked = YES;
+    self.isButton36_3FixClicked = NO;
+    self.isButton36_4Clicked = NO;
+    [self changeQuestion36Presentation];
+    [self recordQuestion36AnsweredStatus];
+}
+
+-(void)button36_3FixClicked{
+    self.isButton36_1Clicked = NO;
+    self.isButton36_2Clicked = NO;
+    self.isButton36_3Clicked = NO;
+    self.isButton36_3FixClicked = YES;
     self.isButton36_4Clicked = NO;
     [self changeQuestion36Presentation];
     [self recordQuestion36AnsweredStatus];
@@ -10874,6 +13223,7 @@
     self.isButton36_1Clicked = NO;
     self.isButton36_2Clicked = NO;
     self.isButton36_3Clicked = NO;
+    self.isButton36_3FixClicked = NO;
     self.isButton36_4Clicked = YES;
     [self changeQuestion36Presentation];
     [self recordQuestion36AnsweredStatus];
@@ -10888,6 +13238,8 @@
         [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton36_2Clicked){
@@ -10898,6 +13250,8 @@
         [self.button36_2 setBackgroundColor:kMAIN_COLOR];
         [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton36_3Clicked){
@@ -10908,6 +13262,20 @@
         [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton36_3FixClicked){
+        self.answer36 = @"经常";
+        [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton36_4Clicked){
@@ -10918,6 +13286,8 @@
         [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button36_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10947,6 +13317,13 @@
     }
     
     if (!self.isQuestion36Answered) {
+        if (self.isButton36_3FixClicked) {
+            self.isQuestion36Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion36Answered];
+        }
+    }
+    
+    if (!self.isQuestion36Answered) {
         if (self.isButton36_4Clicked) {
             self.isQuestion36Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion36Answered];
@@ -10958,6 +13335,7 @@
     self.isButton37_1Clicked = YES;
     self.isButton37_2Clicked = NO;
     self.isButton37_3Clicked = NO;
+    self.isButton37_3FixClicked = NO;
     self.isButton37_4Clicked = NO;
     [self changeQuestion37Presentation];
     [self recordQuestion37AnsweredStatus];
@@ -10967,6 +13345,7 @@
     self.isButton37_1Clicked = NO;
     self.isButton37_2Clicked = YES;
     self.isButton37_3Clicked = NO;
+    self.isButton37_3FixClicked = NO;
     self.isButton37_4Clicked = NO;
     [self changeQuestion37Presentation];
     [self recordQuestion37AnsweredStatus];
@@ -10976,6 +13355,17 @@
     self.isButton37_1Clicked = NO;
     self.isButton37_2Clicked = NO;
     self.isButton37_3Clicked = YES;
+    self.isButton37_3FixClicked = NO;
+    self.isButton37_4Clicked = NO;
+    [self changeQuestion37Presentation];
+    [self recordQuestion37AnsweredStatus];
+}
+
+-(void)button37_3FixClicked{
+    self.isButton37_1Clicked = NO;
+    self.isButton37_2Clicked = NO;
+    self.isButton37_3Clicked = NO;
+    self.isButton37_3FixClicked = YES;
     self.isButton37_4Clicked = NO;
     [self changeQuestion37Presentation];
     [self recordQuestion37AnsweredStatus];
@@ -10985,6 +13375,7 @@
     self.isButton37_1Clicked = NO;
     self.isButton37_2Clicked = NO;
     self.isButton37_3Clicked = NO;
+    self.isButton37_3FixClicked = NO;
     self.isButton37_4Clicked = YES;
     [self changeQuestion37Presentation];
     [self recordQuestion37AnsweredStatus];
@@ -10999,6 +13390,8 @@
         [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton37_2Clicked){
@@ -11009,6 +13402,8 @@
         [self.button37_2 setBackgroundColor:kMAIN_COLOR];
         [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton37_3Clicked){
@@ -11019,6 +13414,20 @@
         [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton37_3FixClicked){
+        self.answer37 = @"经常";
+        [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton37_4Clicked){
@@ -11029,6 +13438,8 @@
         [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button37_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11058,6 +13469,13 @@
     }
     
     if (!self.isQuestion37Answered) {
+        if (self.isButton37_3FixClicked) {
+            self.isQuestion37Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion37Answered];
+        }
+    }
+    
+    if (!self.isQuestion37Answered) {
         if (self.isButton37_4Clicked) {
             self.isQuestion37Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion37Answered];
@@ -11069,6 +13487,7 @@
     self.isButton38_1Clicked = YES;
     self.isButton38_2Clicked = NO;
     self.isButton38_3Clicked = NO;
+    self.isButton38_3FixClicked = NO;
     self.isButton38_4Clicked = NO;
     [self changeQuestion38Presentation];
     [self recordQuestion38AnsweredStatus];
@@ -11078,6 +13497,7 @@
     self.isButton38_1Clicked = NO;
     self.isButton38_2Clicked = YES;
     self.isButton38_3Clicked = NO;
+    self.isButton38_3FixClicked = NO;
     self.isButton38_4Clicked = NO;
     [self changeQuestion38Presentation];
     [self recordQuestion38AnsweredStatus];
@@ -11087,6 +13507,17 @@
     self.isButton38_1Clicked = NO;
     self.isButton38_2Clicked = NO;
     self.isButton38_3Clicked = YES;
+    self.isButton38_3FixClicked = NO;
+    self.isButton38_4Clicked = NO;
+    [self changeQuestion38Presentation];
+    [self recordQuestion38AnsweredStatus];
+}
+
+-(void)button38_3FixClicked{
+    self.isButton38_1Clicked = NO;
+    self.isButton38_2Clicked = NO;
+    self.isButton38_3Clicked = NO;
+    self.isButton38_3FixClicked = YES;
     self.isButton38_4Clicked = NO;
     [self changeQuestion38Presentation];
     [self recordQuestion38AnsweredStatus];
@@ -11096,6 +13527,7 @@
     self.isButton38_1Clicked = NO;
     self.isButton38_2Clicked = NO;
     self.isButton38_3Clicked = NO;
+    self.isButton38_3FixClicked = NO;
     self.isButton38_4Clicked = YES;
     [self changeQuestion38Presentation];
     [self recordQuestion38AnsweredStatus];
@@ -11110,6 +13542,8 @@
         [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton38_2Clicked){
@@ -11120,6 +13554,8 @@
         [self.button38_2 setBackgroundColor:kMAIN_COLOR];
         [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton38_3Clicked){
@@ -11130,6 +13566,20 @@
         [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton38_3FixClicked){
+        self.answer38 = @"经常";
+        [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton38_4Clicked){
@@ -11140,6 +13590,8 @@
         [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button38_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11169,6 +13621,13 @@
     }
     
     if (!self.isQuestion38Answered) {
+        if (self.isButton38_3FixClicked) {
+            self.isQuestion38Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion38Answered];
+        }
+    }
+    
+    if (!self.isQuestion38Answered) {
         if (self.isButton38_4Clicked) {
             self.isQuestion38Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion38Answered];
@@ -11180,6 +13639,7 @@
     self.isButton39_1Clicked = YES;
     self.isButton39_2Clicked = NO;
     self.isButton39_3Clicked = NO;
+    self.isButton39_3FixClicked = NO;
     self.isButton39_4Clicked = NO;
     [self changeQuestion39Presentation];
     [self recordQuestion39AnsweredStatus];
@@ -11189,6 +13649,7 @@
     self.isButton39_1Clicked = NO;
     self.isButton39_2Clicked = YES;
     self.isButton39_3Clicked = NO;
+    self.isButton39_3FixClicked = NO;
     self.isButton39_4Clicked = NO;
     [self changeQuestion39Presentation];
     [self recordQuestion39AnsweredStatus];
@@ -11198,6 +13659,17 @@
     self.isButton39_1Clicked = NO;
     self.isButton39_2Clicked = NO;
     self.isButton39_3Clicked = YES;
+    self.isButton39_3FixClicked = NO;
+    self.isButton39_4Clicked = NO;
+    [self changeQuestion39Presentation];
+    [self recordQuestion39AnsweredStatus];
+}
+
+-(void)button39_3FixClicked{
+    self.isButton39_1Clicked = NO;
+    self.isButton39_2Clicked = NO;
+    self.isButton39_3Clicked = NO;
+    self.isButton39_3FixClicked = YES;
     self.isButton39_4Clicked = NO;
     [self changeQuestion39Presentation];
     [self recordQuestion39AnsweredStatus];
@@ -11207,6 +13679,7 @@
     self.isButton39_1Clicked = NO;
     self.isButton39_2Clicked = NO;
     self.isButton39_3Clicked = NO;
+    self.isButton39_3FixClicked = NO;
     self.isButton39_4Clicked = YES;
     [self changeQuestion39Presentation];
     [self recordQuestion39AnsweredStatus];
@@ -11221,6 +13694,8 @@
         [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton39_2Clicked){
@@ -11231,6 +13706,8 @@
         [self.button39_2 setBackgroundColor:kMAIN_COLOR];
         [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton39_3Clicked){
@@ -11241,6 +13718,20 @@
         [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton39_3FixClicked){
+        self.answer39 = @"经常";
+        [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton39_4Clicked){
@@ -11251,6 +13742,8 @@
         [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button39_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11280,6 +13773,13 @@
     }
     
     if (!self.isQuestion39Answered) {
+        if (self.isButton39_3FixClicked) {
+            self.isQuestion39Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion39Answered];
+        }
+    }
+    
+    if (!self.isQuestion39Answered) {
         if (self.isButton39_4Clicked) {
             self.isQuestion39Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion39Answered];
@@ -11291,6 +13791,7 @@
     self.isButton40_1Clicked = YES;
     self.isButton40_2Clicked = NO;
     self.isButton40_3Clicked = NO;
+    self.isButton40_3FixClicked = NO;
     self.isButton40_4Clicked = NO;
     [self changeQuestion40Presentation];
     [self recordQuestion40AnsweredStatus];
@@ -11300,6 +13801,7 @@
     self.isButton40_1Clicked = NO;
     self.isButton40_2Clicked = YES;
     self.isButton40_3Clicked = NO;
+    self.isButton40_3FixClicked = NO;
     self.isButton40_4Clicked = NO;
     [self changeQuestion40Presentation];
     [self recordQuestion40AnsweredStatus];
@@ -11309,6 +13811,17 @@
     self.isButton40_1Clicked = NO;
     self.isButton40_2Clicked = NO;
     self.isButton40_3Clicked = YES;
+    self.isButton40_3FixClicked = NO;
+    self.isButton40_4Clicked = NO;
+    [self changeQuestion40Presentation];
+    [self recordQuestion40AnsweredStatus];
+}
+
+-(void)button40_3FixClicked{
+    self.isButton40_1Clicked = NO;
+    self.isButton40_2Clicked = NO;
+    self.isButton40_3Clicked = NO;
+    self.isButton40_3FixClicked = YES;
     self.isButton40_4Clicked = NO;
     [self changeQuestion40Presentation];
     [self recordQuestion40AnsweredStatus];
@@ -11318,6 +13831,7 @@
     self.isButton40_1Clicked = NO;
     self.isButton40_2Clicked = NO;
     self.isButton40_3Clicked = NO;
+    self.isButton40_3FixClicked = NO;
     self.isButton40_4Clicked = YES;
     [self changeQuestion40Presentation];
     [self recordQuestion40AnsweredStatus];
@@ -11332,6 +13846,8 @@
         [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton40_2Clicked){
@@ -11342,6 +13858,8 @@
         [self.button40_2 setBackgroundColor:kMAIN_COLOR];
         [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton40_3Clicked){
@@ -11352,6 +13870,20 @@
         [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton40_3FixClicked){
+        self.answer40 = @"经常";
+        [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton40_4Clicked){
@@ -11362,6 +13894,8 @@
         [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button40_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11391,6 +13925,13 @@
     }
     
     if (!self.isQuestion40Answered) {
+        if (self.isButton40_3FixClicked) {
+            self.isQuestion40Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion40Answered];
+        }
+    }
+    
+    if (!self.isQuestion40Answered) {
         if (self.isButton40_4Clicked) {
             self.isQuestion40Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion40Answered];
@@ -11402,6 +13943,7 @@
     self.isButton41_1Clicked = YES;
     self.isButton41_2Clicked = NO;
     self.isButton41_3Clicked = NO;
+    self.isButton41_3FixClicked = NO;
     self.isButton41_4Clicked = NO;
     [self changeQuestion41Presentation];
     [self recordQuestion41AnsweredStatus];
@@ -11411,6 +13953,7 @@
     self.isButton41_1Clicked = NO;
     self.isButton41_2Clicked = YES;
     self.isButton41_3Clicked = NO;
+    self.isButton41_3FixClicked = NO;
     self.isButton41_4Clicked = NO;
     [self changeQuestion41Presentation];
     [self recordQuestion41AnsweredStatus];
@@ -11420,15 +13963,28 @@
     self.isButton41_1Clicked = NO;
     self.isButton41_2Clicked = NO;
     self.isButton41_3Clicked = YES;
+    self.isButton41_3FixClicked = NO;
     self.isButton41_4Clicked = NO;
     [self changeQuestion41Presentation];
     [self recordQuestion41AnsweredStatus];
 }
 
+-(void)button41_3FixClicked{
+    self.isButton41_1Clicked = NO;
+    self.isButton41_2Clicked = NO;
+    self.isButton41_3Clicked = NO;
+    self.isButton41_3FixClicked = YES;
+    self.isButton41_4Clicked = NO;
+    [self changeQuestion41Presentation];
+    [self recordQuestion41AnsweredStatus];
+}
+
+
 -(void)button41_4Clicked{
     self.isButton41_1Clicked = NO;
     self.isButton41_2Clicked = NO;
     self.isButton41_3Clicked = NO;
+    self.isButton41_3FixClicked = NO;
     self.isButton41_4Clicked = YES;
     [self changeQuestion41Presentation];
     [self recordQuestion41AnsweredStatus];
@@ -11443,6 +13999,8 @@
         [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton41_2Clicked){
@@ -11453,6 +14011,8 @@
         [self.button41_2 setBackgroundColor:kMAIN_COLOR];
         [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton41_3Clicked){
@@ -11463,6 +14023,20 @@
         [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton41_3FixClicked){
+        self.answer41 = @"经常";
+        [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton41_4Clicked){
@@ -11473,6 +14047,8 @@
         [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button41_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11502,6 +14078,13 @@
     }
     
     if (!self.isQuestion41Answered) {
+        if (self.isButton41_3FixClicked) {
+            self.isQuestion41Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion41Answered];
+        }
+    }
+    
+    if (!self.isQuestion41Answered) {
         if (self.isButton41_4Clicked) {
             self.isQuestion41Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion41Answered];
@@ -11513,6 +14096,7 @@
     self.isButton42_1Clicked = YES;
     self.isButton42_2Clicked = NO;
     self.isButton42_3Clicked = NO;
+    self.isButton42_3FixClicked = NO;
     self.isButton42_4Clicked = NO;
     [self changeQuestion42Presentation];
     [self recordQuestion42AnsweredStatus];
@@ -11522,6 +14106,7 @@
     self.isButton42_1Clicked = NO;
     self.isButton42_2Clicked = YES;
     self.isButton42_3Clicked = NO;
+    self.isButton42_3FixClicked = NO;
     self.isButton42_4Clicked = NO;
     [self changeQuestion42Presentation];
     [self recordQuestion42AnsweredStatus];
@@ -11531,15 +14116,28 @@
     self.isButton42_1Clicked = NO;
     self.isButton42_2Clicked = NO;
     self.isButton42_3Clicked = YES;
+    self.isButton42_3FixClicked = NO;
     self.isButton42_4Clicked = NO;
     [self changeQuestion42Presentation];
     [self recordQuestion42AnsweredStatus];
 }
 
+-(void)button42_3FixClicked{
+    self.isButton42_1Clicked = NO;
+    self.isButton42_2Clicked = NO;
+    self.isButton42_3Clicked = NO;
+    self.isButton42_3FixClicked = YES;
+    self.isButton42_4Clicked = NO;
+    [self changeQuestion42Presentation];
+    [self recordQuestion42AnsweredStatus];
+}
+
+
 -(void)button42_4Clicked{
     self.isButton42_1Clicked = NO;
     self.isButton42_2Clicked = NO;
     self.isButton42_3Clicked = NO;
+    self.isButton42_3FixClicked = NO;
     self.isButton42_4Clicked = YES;
     [self changeQuestion42Presentation];
     [self recordQuestion42AnsweredStatus];
@@ -11554,6 +14152,8 @@
         [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton42_2Clicked){
@@ -11564,6 +14164,8 @@
         [self.button42_2 setBackgroundColor:kMAIN_COLOR];
         [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton42_3Clicked){
@@ -11574,6 +14176,20 @@
         [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton42_3FixClicked){
+        self.answer42 = @"经常";
+        [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton42_4Clicked){
@@ -11584,6 +14200,8 @@
         [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button42_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11613,6 +14231,13 @@
     }
     
     if (!self.isQuestion42Answered) {
+        if (self.isButton42_3FixClicked) {
+            self.isQuestion42Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion42Answered];
+        }
+    }
+    
+    if (!self.isQuestion42Answered) {
         if (self.isButton42_4Clicked) {
             self.isQuestion42Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion42Answered];
@@ -11624,6 +14249,7 @@
     self.isButton43_1Clicked = YES;
     self.isButton43_2Clicked = NO;
     self.isButton43_3Clicked = NO;
+    self.isButton43_3FixClicked = NO;
     self.isButton43_4Clicked = NO;
     [self changeQuestion43Presentation];
     [self recordQuestion43AnsweredStatus];
@@ -11633,6 +14259,7 @@
     self.isButton43_1Clicked = NO;
     self.isButton43_2Clicked = YES;
     self.isButton43_3Clicked = NO;
+    self.isButton43_3FixClicked = NO;
     self.isButton43_4Clicked = NO;
     [self changeQuestion43Presentation];
     [self recordQuestion43AnsweredStatus];
@@ -11642,15 +14269,28 @@
     self.isButton43_1Clicked = NO;
     self.isButton43_2Clicked = NO;
     self.isButton43_3Clicked = YES;
+    self.isButton43_3FixClicked = NO;
     self.isButton43_4Clicked = NO;
     [self changeQuestion43Presentation];
     [self recordQuestion43AnsweredStatus];
 }
 
+-(void)button43_3FixClicked{
+    self.isButton43_1Clicked = NO;
+    self.isButton43_2Clicked = NO;
+    self.isButton43_3Clicked = NO;
+    self.isButton43_3FixClicked = YES;
+    self.isButton43_4Clicked = NO;
+    [self changeQuestion43Presentation];
+    [self recordQuestion43AnsweredStatus];
+}
+
+
 -(void)button43_4Clicked{
     self.isButton43_1Clicked = NO;
     self.isButton43_2Clicked = NO;
     self.isButton43_3Clicked = NO;
+    self.isButton43_3FixClicked = NO;
     self.isButton43_4Clicked = YES;
     [self changeQuestion43Presentation];
     [self recordQuestion43AnsweredStatus];
@@ -11665,6 +14305,8 @@
         [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton43_2Clicked){
@@ -11675,6 +14317,8 @@
         [self.button43_2 setBackgroundColor:kMAIN_COLOR];
         [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton43_3Clicked){
@@ -11685,6 +14329,20 @@
         [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton43_3FixClicked){
+        self.answer43 = @"经常";
+        [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton43_4Clicked){
@@ -11695,6 +14353,8 @@
         [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button43_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11724,6 +14384,13 @@
     }
     
     if (!self.isQuestion43Answered) {
+        if (self.isButton43_3FixClicked) {
+            self.isQuestion43Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion43Answered];
+        }
+    }
+    
+    if (!self.isQuestion43Answered) {
         if (self.isButton43_4Clicked) {
             self.isQuestion43Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion43Answered];
@@ -11735,6 +14402,7 @@
     self.isButton44_1Clicked = YES;
     self.isButton44_2Clicked = NO;
     self.isButton44_3Clicked = NO;
+    self.isButton44_3FixClicked = NO;
     self.isButton44_4Clicked = NO;
     [self changeQuestion44Presentation];
     [self recordQuestion44AnsweredStatus];
@@ -11744,6 +14412,7 @@
     self.isButton44_1Clicked = NO;
     self.isButton44_2Clicked = YES;
     self.isButton44_3Clicked = NO;
+    self.isButton44_3FixClicked = NO;
     self.isButton44_4Clicked = NO;
     [self changeQuestion44Presentation];
     [self recordQuestion44AnsweredStatus];
@@ -11753,6 +14422,17 @@
     self.isButton44_1Clicked = NO;
     self.isButton44_2Clicked = NO;
     self.isButton44_3Clicked = YES;
+    self.isButton44_3FixClicked = NO;
+    self.isButton44_4Clicked = NO;
+    [self changeQuestion44Presentation];
+    [self recordQuestion44AnsweredStatus];
+}
+
+-(void)button44_3FixClicked{
+    self.isButton44_1Clicked = NO;
+    self.isButton44_2Clicked = NO;
+    self.isButton44_3Clicked = NO;
+    self.isButton44_3FixClicked = YES;
     self.isButton44_4Clicked = NO;
     [self changeQuestion44Presentation];
     [self recordQuestion44AnsweredStatus];
@@ -11762,6 +14442,7 @@
     self.isButton44_1Clicked = NO;
     self.isButton44_2Clicked = NO;
     self.isButton44_3Clicked = NO;
+    self.isButton44_3FixClicked = NO;
     self.isButton44_4Clicked = YES;
     [self changeQuestion44Presentation];
     [self recordQuestion44AnsweredStatus];
@@ -11776,6 +14457,8 @@
         [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton44_2Clicked){
@@ -11786,6 +14469,8 @@
         [self.button44_2 setBackgroundColor:kMAIN_COLOR];
         [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton44_3Clicked){
@@ -11796,6 +14481,20 @@
         [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton44_3FixClicked){
+        self.answer44 = @"经常";
+        [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton44_4Clicked){
@@ -11806,6 +14505,8 @@
         [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button44_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11835,6 +14536,13 @@
     }
     
     if (!self.isQuestion44Answered) {
+        if (self.isButton44_3FixClicked) {
+            self.isQuestion44Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion44Answered];
+        }
+    }
+    
+    if (!self.isQuestion44Answered) {
         if (self.isButton44_4Clicked) {
             self.isQuestion44Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion44Answered];
@@ -11846,6 +14554,7 @@
     self.isButton45_1Clicked = YES;
     self.isButton45_2Clicked = NO;
     self.isButton45_3Clicked = NO;
+    self.isButton45_3FixClicked = NO;
     self.isButton45_4Clicked = NO;
     [self changeQuestion45Presentation];
     [self recordQuestion45AnsweredStatus];
@@ -11855,6 +14564,7 @@
     self.isButton45_1Clicked = NO;
     self.isButton45_2Clicked = YES;
     self.isButton45_3Clicked = NO;
+    self.isButton45_3FixClicked = NO;
     self.isButton45_4Clicked = NO;
     [self changeQuestion45Presentation];
     [self recordQuestion45AnsweredStatus];
@@ -11864,6 +14574,17 @@
     self.isButton45_1Clicked = NO;
     self.isButton45_2Clicked = NO;
     self.isButton45_3Clicked = YES;
+    self.isButton45_3FixClicked = NO;
+    self.isButton45_4Clicked = NO;
+    [self changeQuestion45Presentation];
+    [self recordQuestion45AnsweredStatus];
+}
+
+-(void)button45_3FixClicked{
+    self.isButton45_1Clicked = NO;
+    self.isButton45_2Clicked = NO;
+    self.isButton45_3Clicked = NO;
+    self.isButton45_3FixClicked = YES;
     self.isButton45_4Clicked = NO;
     [self changeQuestion45Presentation];
     [self recordQuestion45AnsweredStatus];
@@ -11873,6 +14594,7 @@
     self.isButton45_1Clicked = NO;
     self.isButton45_2Clicked = NO;
     self.isButton45_3Clicked = NO;
+    self.isButton45_3FixClicked = NO;
     self.isButton45_4Clicked = YES;
     [self changeQuestion45Presentation];
     [self recordQuestion45AnsweredStatus];
@@ -11887,6 +14609,8 @@
         [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton45_2Clicked){
@@ -11897,6 +14621,8 @@
         [self.button45_2 setBackgroundColor:kMAIN_COLOR];
         [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton45_3Clicked){
@@ -11907,6 +14633,20 @@
         [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton45_3FixClicked){
+        self.answer45 = @"经常";
+        [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton45_4Clicked){
@@ -11917,6 +14657,8 @@
         [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button45_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11946,6 +14688,13 @@
     }
     
     if (!self.isQuestion45Answered) {
+        if (self.isButton45_3FixClicked) {
+            self.isQuestion45Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion45Answered];
+        }
+    }
+    
+    if (!self.isQuestion45Answered) {
         if (self.isButton45_4Clicked) {
             self.isQuestion45Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion45Answered];
@@ -11957,6 +14706,7 @@
     self.isButton46_1Clicked = YES;
     self.isButton46_2Clicked = NO;
     self.isButton46_3Clicked = NO;
+    self.isButton46_3FixClicked = NO;
     self.isButton46_4Clicked = NO;
     [self changeQuestion46Presentation];
     [self recordQuestion46AnsweredStatus];
@@ -11966,6 +14716,7 @@
     self.isButton46_1Clicked = NO;
     self.isButton46_2Clicked = YES;
     self.isButton46_3Clicked = NO;
+    self.isButton46_3FixClicked = NO;
     self.isButton46_4Clicked = NO;
     [self changeQuestion46Presentation];
     [self recordQuestion46AnsweredStatus];
@@ -11975,6 +14726,17 @@
     self.isButton46_1Clicked = NO;
     self.isButton46_2Clicked = NO;
     self.isButton46_3Clicked = YES;
+    self.isButton46_3FixClicked = NO;
+    self.isButton46_4Clicked = NO;
+    [self changeQuestion46Presentation];
+    [self recordQuestion46AnsweredStatus];
+}
+
+-(void)button46_3FixClicked{
+    self.isButton46_1Clicked = NO;
+    self.isButton46_2Clicked = NO;
+    self.isButton46_3Clicked = NO;
+    self.isButton46_3FixClicked = YES;
     self.isButton46_4Clicked = NO;
     [self changeQuestion46Presentation];
     [self recordQuestion46AnsweredStatus];
@@ -11984,6 +14746,7 @@
     self.isButton46_1Clicked = NO;
     self.isButton46_2Clicked = NO;
     self.isButton46_3Clicked = NO;
+    self.isButton46_3FixClicked = NO;
     self.isButton46_4Clicked = YES;
     [self changeQuestion46Presentation];
     [self recordQuestion46AnsweredStatus];
@@ -11998,6 +14761,8 @@
         [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton46_2Clicked){
@@ -12008,6 +14773,8 @@
         [self.button46_2 setBackgroundColor:kMAIN_COLOR];
         [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton46_3Clicked){
@@ -12018,6 +14785,20 @@
         [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton46_3FixClicked){
+        self.answer46 = @"经常";
+        [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton46_4Clicked){
@@ -12028,6 +14809,8 @@
         [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button46_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12057,6 +14840,13 @@
     }
     
     if (!self.isQuestion46Answered) {
+        if (self.isButton46_3FixClicked) {
+            self.isQuestion46Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion46Answered];
+        }
+    }
+    
+    if (!self.isQuestion46Answered) {
         if (self.isButton46_4Clicked) {
             self.isQuestion46Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion46Answered];
@@ -12068,6 +14858,7 @@
     self.isButton47_1Clicked = YES;
     self.isButton47_2Clicked = NO;
     self.isButton47_3Clicked = NO;
+    self.isButton47_3FixClicked = NO;
     self.isButton47_4Clicked = NO;
     [self changeQuestion47Presentation];
     [self recordQuestion47AnsweredStatus];
@@ -12077,6 +14868,7 @@
     self.isButton47_1Clicked = NO;
     self.isButton47_2Clicked = YES;
     self.isButton47_3Clicked = NO;
+    self.isButton47_3FixClicked = NO;
     self.isButton47_4Clicked = NO;
     [self changeQuestion47Presentation];
     [self recordQuestion47AnsweredStatus];
@@ -12086,6 +14878,17 @@
     self.isButton47_1Clicked = NO;
     self.isButton47_2Clicked = NO;
     self.isButton47_3Clicked = YES;
+    self.isButton47_3FixClicked = NO;
+    self.isButton47_4Clicked = NO;
+    [self changeQuestion47Presentation];
+    [self recordQuestion47AnsweredStatus];
+}
+
+-(void)button47_3FixClicked{
+    self.isButton47_1Clicked = NO;
+    self.isButton47_2Clicked = NO;
+    self.isButton47_3Clicked = NO;
+    self.isButton47_3FixClicked = YES;
     self.isButton47_4Clicked = NO;
     [self changeQuestion47Presentation];
     [self recordQuestion47AnsweredStatus];
@@ -12095,6 +14898,7 @@
     self.isButton47_1Clicked = NO;
     self.isButton47_2Clicked = NO;
     self.isButton47_3Clicked = NO;
+    self.isButton47_3FixClicked = NO;
     self.isButton47_4Clicked = YES;
     [self changeQuestion47Presentation];
     [self recordQuestion47AnsweredStatus];
@@ -12109,6 +14913,8 @@
         [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton47_2Clicked){
@@ -12119,6 +14925,8 @@
         [self.button47_2 setBackgroundColor:kMAIN_COLOR];
         [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton47_3Clicked){
@@ -12129,6 +14937,20 @@
         [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton47_3FixClicked){
+        self.answer47 = @"经常";
+        [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton47_4Clicked){
@@ -12139,6 +14961,8 @@
         [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button47_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12168,6 +14992,13 @@
     }
     
     if (!self.isQuestion47Answered) {
+        if (self.isButton47_3FixClicked) {
+            self.isQuestion47Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion47Answered];
+        }
+    }
+    
+    if (!self.isQuestion47Answered) {
         if (self.isButton47_4Clicked) {
             self.isQuestion47Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion47Answered];
@@ -12179,6 +15010,7 @@
     self.isButton48_1Clicked = YES;
     self.isButton48_2Clicked = NO;
     self.isButton48_3Clicked = NO;
+    self.isButton48_3FixClicked = NO;
     self.isButton48_4Clicked = NO;
     [self changeQuestion48Presentation];
     [self recordQuestion48AnsweredStatus];
@@ -12188,6 +15020,7 @@
     self.isButton48_1Clicked = NO;
     self.isButton48_2Clicked = YES;
     self.isButton48_3Clicked = NO;
+    self.isButton48_3FixClicked = NO;
     self.isButton48_4Clicked = NO;
     [self changeQuestion48Presentation];
     [self recordQuestion48AnsweredStatus];
@@ -12197,6 +15030,17 @@
     self.isButton48_1Clicked = NO;
     self.isButton48_2Clicked = NO;
     self.isButton48_3Clicked = YES;
+    self.isButton48_3FixClicked = NO;
+    self.isButton48_4Clicked = NO;
+    [self changeQuestion48Presentation];
+    [self recordQuestion48AnsweredStatus];
+}
+
+-(void)button48_3FixClicked{
+    self.isButton48_1Clicked = NO;
+    self.isButton48_2Clicked = NO;
+    self.isButton48_3Clicked = NO;
+    self.isButton48_3FixClicked = YES;
     self.isButton48_4Clicked = NO;
     [self changeQuestion48Presentation];
     [self recordQuestion48AnsweredStatus];
@@ -12206,6 +15050,7 @@
     self.isButton48_1Clicked = NO;
     self.isButton48_2Clicked = NO;
     self.isButton48_3Clicked = NO;
+    self.isButton48_3FixClicked = NO;
     self.isButton48_4Clicked = YES;
     [self changeQuestion48Presentation];
     [self recordQuestion48AnsweredStatus];
@@ -12220,6 +15065,8 @@
         [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton48_2Clicked){
@@ -12230,6 +15077,8 @@
         [self.button48_2 setBackgroundColor:kMAIN_COLOR];
         [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton48_3Clicked){
@@ -12240,6 +15089,20 @@
         [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton48_3FixClicked){
+        self.answer48 = @"经常";
+        [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton48_4Clicked){
@@ -12250,6 +15113,8 @@
         [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button48_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12279,6 +15144,13 @@
     }
     
     if (!self.isQuestion48Answered) {
+        if (self.isButton48_3FixClicked) {
+            self.isQuestion48Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion48Answered];
+        }
+    }
+    
+    if (!self.isQuestion48Answered) {
         if (self.isButton48_4Clicked) {
             self.isQuestion48Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion48Answered];
@@ -12290,6 +15162,7 @@
     self.isButton49_1Clicked = YES;
     self.isButton49_2Clicked = NO;
     self.isButton49_3Clicked = NO;
+    self.isButton49_3FixClicked = NO;
     self.isButton49_4Clicked = NO;
     [self changeQuestion49Presentation];
     [self recordQuestion49AnsweredStatus];
@@ -12299,6 +15172,7 @@
     self.isButton49_1Clicked = NO;
     self.isButton49_2Clicked = YES;
     self.isButton49_3Clicked = NO;
+    self.isButton49_3FixClicked = NO;
     self.isButton49_4Clicked = NO;
     [self changeQuestion49Presentation];
     [self recordQuestion49AnsweredStatus];
@@ -12308,15 +15182,28 @@
     self.isButton49_1Clicked = NO;
     self.isButton49_2Clicked = NO;
     self.isButton49_3Clicked = YES;
+    self.isButton49_3FixClicked = NO;
     self.isButton49_4Clicked = NO;
     [self changeQuestion49Presentation];
     [self recordQuestion49AnsweredStatus];
 }
 
+-(void)button49_3FixClicked{
+    self.isButton49_1Clicked = NO;
+    self.isButton49_2Clicked = NO;
+    self.isButton49_3Clicked = NO;
+    self.isButton49_3FixClicked = YES;
+    self.isButton49_4Clicked = NO;
+    [self changeQuestion49Presentation];
+    [self recordQuestion49AnsweredStatus];
+}
+
+
 -(void)button49_4Clicked{
     self.isButton49_1Clicked = NO;
     self.isButton49_2Clicked = NO;
     self.isButton49_3Clicked = NO;
+    self.isButton49_3FixClicked = NO;
     self.isButton49_4Clicked = YES;
     [self changeQuestion49Presentation];
     [self recordQuestion49AnsweredStatus];
@@ -12331,6 +15218,8 @@
         [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton49_2Clicked){
@@ -12341,6 +15230,8 @@
         [self.button49_2 setBackgroundColor:kMAIN_COLOR];
         [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton49_3Clicked){
@@ -12351,6 +15242,20 @@
         [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton49_3FixClicked){
+        self.answer49 = @"经常";
+        [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton49_4Clicked){
@@ -12361,6 +15266,8 @@
         [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button49_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12390,6 +15297,13 @@
     }
     
     if (!self.isQuestion49Answered) {
+        if (self.isButton49_3FixClicked) {
+            self.isQuestion49Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion49Answered];
+        }
+    }
+    
+    if (!self.isQuestion49Answered) {
         if (self.isButton49_4Clicked) {
             self.isQuestion49Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion49Answered];
@@ -12401,6 +15315,7 @@
     self.isButton50_1Clicked = YES;
     self.isButton50_2Clicked = NO;
     self.isButton50_3Clicked = NO;
+    self.isButton50_3FixClicked = NO;
     self.isButton50_4Clicked = NO;
     [self changeQuestion50Presentation];
     [self recordQuestion50AnsweredStatus];
@@ -12410,6 +15325,7 @@
     self.isButton50_1Clicked = NO;
     self.isButton50_2Clicked = YES;
     self.isButton50_3Clicked = NO;
+    self.isButton50_3FixClicked = NO;
     self.isButton50_4Clicked = NO;
     [self changeQuestion50Presentation];
     [self recordQuestion50AnsweredStatus];
@@ -12419,6 +15335,17 @@
     self.isButton50_1Clicked = NO;
     self.isButton50_2Clicked = NO;
     self.isButton50_3Clicked = YES;
+    self.isButton50_3FixClicked = NO;
+    self.isButton50_4Clicked = NO;
+    [self changeQuestion50Presentation];
+    [self recordQuestion50AnsweredStatus];
+}
+
+-(void)button50_3FixClicked{
+    self.isButton50_1Clicked = NO;
+    self.isButton50_2Clicked = NO;
+    self.isButton50_3Clicked = NO;
+    self.isButton50_3FixClicked = YES;
     self.isButton50_4Clicked = NO;
     [self changeQuestion50Presentation];
     [self recordQuestion50AnsweredStatus];
@@ -12428,6 +15355,7 @@
     self.isButton50_1Clicked = NO;
     self.isButton50_2Clicked = NO;
     self.isButton50_3Clicked = NO;
+    self.isButton50_3FixClicked = NO;
     self.isButton50_4Clicked = YES;
     [self changeQuestion50Presentation];
     [self recordQuestion50AnsweredStatus];
@@ -12442,6 +15370,8 @@
         [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton50_2Clicked){
@@ -12452,6 +15382,8 @@
         [self.button50_2 setBackgroundColor:kMAIN_COLOR];
         [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton50_3Clicked){
@@ -12462,6 +15394,20 @@
         [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton50_3FixClicked){
+        self.answer50 = @"经常";
+        [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton50_4Clicked){
@@ -12472,6 +15418,8 @@
         [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button50_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12501,6 +15449,13 @@
     }
     
     if (!self.isQuestion50Answered) {
+        if (self.isButton5_3FixClicked) {
+            self.isQuestion50Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion50Answered];
+        }
+    }
+    
+    if (!self.isQuestion50Answered) {
         if (self.isButton50_4Clicked) {
             self.isQuestion50Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion50Answered];
@@ -12512,6 +15467,7 @@
     self.isButton51_1Clicked = YES;
     self.isButton51_2Clicked = NO;
     self.isButton51_3Clicked = NO;
+    self.isButton51_3FixClicked = NO;
     self.isButton51_4Clicked = NO;
     [self changeQuestion51Presentation];
     [self recordQuestion51AnsweredStatus];
@@ -12521,6 +15477,7 @@
     self.isButton51_1Clicked = NO;
     self.isButton51_2Clicked = YES;
     self.isButton51_3Clicked = NO;
+    self.isButton51_3FixClicked = NO;
     self.isButton51_4Clicked = NO;
     [self changeQuestion51Presentation];
     [self recordQuestion51AnsweredStatus];
@@ -12530,6 +15487,17 @@
     self.isButton51_1Clicked = NO;
     self.isButton51_2Clicked = NO;
     self.isButton51_3Clicked = YES;
+    self.isButton51_3FixClicked = NO;
+    self.isButton51_4Clicked = NO;
+    [self changeQuestion51Presentation];
+    [self recordQuestion51AnsweredStatus];
+}
+
+-(void)button51_3FixClicked{
+    self.isButton51_1Clicked = NO;
+    self.isButton51_2Clicked = NO;
+    self.isButton51_3Clicked = NO;
+    self.isButton51_3FixClicked = YES;
     self.isButton51_4Clicked = NO;
     [self changeQuestion51Presentation];
     [self recordQuestion51AnsweredStatus];
@@ -12539,6 +15507,7 @@
     self.isButton51_1Clicked = NO;
     self.isButton51_2Clicked = NO;
     self.isButton51_3Clicked = NO;
+    self.isButton51_3FixClicked = NO;
     self.isButton51_4Clicked = YES;
     [self changeQuestion51Presentation];
     [self recordQuestion51AnsweredStatus];
@@ -12553,6 +15522,8 @@
         [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton51_2Clicked){
@@ -12563,6 +15534,8 @@
         [self.button51_2 setBackgroundColor:kMAIN_COLOR];
         [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton51_3Clicked){
@@ -12573,6 +15546,20 @@
         [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton51_3FixClicked){
+        self.answer51 = @"经常";
+        [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton51_4Clicked){
@@ -12583,6 +15570,8 @@
         [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button51_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12612,6 +15601,13 @@
     }
     
     if (!self.isQuestion51Answered) {
+        if (self.isButton51_3FixClicked) {
+            self.isQuestion51Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion51Answered];
+        }
+    }
+    
+    if (!self.isQuestion51Answered) {
         if (self.isButton51_4Clicked) {
             self.isQuestion51Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion51Answered];
@@ -12623,6 +15619,7 @@
     self.isButton52_1Clicked = YES;
     self.isButton52_2Clicked = NO;
     self.isButton52_3Clicked = NO;
+    self.isButton52_3FixClicked = NO;
     self.isButton52_4Clicked = NO;
     [self changeQuestion52Presentation];
     [self recordQuestion52AnsweredStatus];
@@ -12632,6 +15629,7 @@
     self.isButton52_1Clicked = NO;
     self.isButton52_2Clicked = YES;
     self.isButton52_3Clicked = NO;
+    self.isButton52_3FixClicked = NO;
     self.isButton52_4Clicked = NO;
     [self changeQuestion52Presentation];
     [self recordQuestion52AnsweredStatus];
@@ -12641,6 +15639,17 @@
     self.isButton52_1Clicked = NO;
     self.isButton52_2Clicked = NO;
     self.isButton52_3Clicked = YES;
+    self.isButton52_3FixClicked = NO;
+    self.isButton52_4Clicked = NO;
+    [self changeQuestion52Presentation];
+    [self recordQuestion52AnsweredStatus];
+}
+
+-(void)button52_3FixClicked{
+    self.isButton52_1Clicked = NO;
+    self.isButton52_2Clicked = NO;
+    self.isButton52_3Clicked = NO;
+    self.isButton52_3FixClicked = YES;
     self.isButton52_4Clicked = NO;
     [self changeQuestion52Presentation];
     [self recordQuestion52AnsweredStatus];
@@ -12650,6 +15659,7 @@
     self.isButton52_1Clicked = NO;
     self.isButton52_2Clicked = NO;
     self.isButton52_3Clicked = NO;
+    self.isButton52_3FixClicked = NO;
     self.isButton52_4Clicked = YES;
     [self changeQuestion52Presentation];
     [self recordQuestion52AnsweredStatus];
@@ -12664,6 +15674,8 @@
         [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton52_2Clicked){
@@ -12674,6 +15686,8 @@
         [self.button52_2 setBackgroundColor:kMAIN_COLOR];
         [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton52_3Clicked){
@@ -12684,6 +15698,20 @@
         [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton52_3FixClicked){
+        self.answer52 = @"经常";
+        [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton52_4Clicked){
@@ -12694,6 +15722,8 @@
         [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button52_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12723,6 +15753,13 @@
     }
     
     if (!self.isQuestion52Answered) {
+        if (self.isButton52_3FixClicked) {
+            self.isQuestion52Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion52Answered];
+        }
+    }
+    
+    if (!self.isQuestion52Answered) {
         if (self.isButton52_4Clicked) {
             self.isQuestion52Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion52Answered];
@@ -12734,6 +15771,7 @@
     self.isButton53_1Clicked = YES;
     self.isButton53_2Clicked = NO;
     self.isButton53_3Clicked = NO;
+    self.isButton53_3FixClicked = NO;
     self.isButton53_4Clicked = NO;
     [self changeQuestion53Presentation];
     [self recordQuestion53AnsweredStatus];
@@ -12743,6 +15781,7 @@
     self.isButton53_1Clicked = NO;
     self.isButton53_2Clicked = YES;
     self.isButton53_3Clicked = NO;
+    self.isButton53_3FixClicked = NO;
     self.isButton53_4Clicked = NO;
     [self changeQuestion53Presentation];
     [self recordQuestion53AnsweredStatus];
@@ -12752,6 +15791,17 @@
     self.isButton53_1Clicked = NO;
     self.isButton53_2Clicked = NO;
     self.isButton53_3Clicked = YES;
+    self.isButton53_3FixClicked = NO;
+    self.isButton53_4Clicked = NO;
+    [self changeQuestion53Presentation];
+    [self recordQuestion53AnsweredStatus];
+}
+
+-(void)button53_3FixClicked{
+    self.isButton53_1Clicked = NO;
+    self.isButton53_2Clicked = NO;
+    self.isButton53_3Clicked = NO;
+    self.isButton53_3FixClicked = YES;
     self.isButton53_4Clicked = NO;
     [self changeQuestion53Presentation];
     [self recordQuestion53AnsweredStatus];
@@ -12761,6 +15811,7 @@
     self.isButton53_1Clicked = NO;
     self.isButton53_2Clicked = NO;
     self.isButton53_3Clicked = NO;
+    self.isButton53_3FixClicked = NO;
     self.isButton53_4Clicked = YES;
     [self changeQuestion53Presentation];
     [self recordQuestion53AnsweredStatus];
@@ -12775,6 +15826,8 @@
         [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton53_2Clicked){
@@ -12785,6 +15838,8 @@
         [self.button53_2 setBackgroundColor:kMAIN_COLOR];
         [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton53_3Clicked){
@@ -12795,6 +15850,20 @@
         [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton53_3FixClicked){
+        self.answer53 = @"经常";
+        [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton53_4Clicked){
@@ -12805,6 +15874,8 @@
         [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button53_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12834,6 +15905,13 @@
     }
     
     if (!self.isQuestion53Answered) {
+        if (self.isButton53_3FixClicked) {
+            self.isQuestion53Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion53Answered];
+        }
+    }
+    
+    if (!self.isQuestion53Answered) {
         if (self.isButton53_4Clicked) {
             self.isQuestion53Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion53Answered];
@@ -12845,6 +15923,7 @@
     self.isButton54_1Clicked = YES;
     self.isButton54_2Clicked = NO;
     self.isButton54_3Clicked = NO;
+    self.isButton54_3FixClicked = NO;
     self.isButton54_4Clicked = NO;
     [self changeQuestion54Presentation];
     [self recordQuestion54AnsweredStatus];
@@ -12854,6 +15933,7 @@
     self.isButton54_1Clicked = NO;
     self.isButton54_2Clicked = YES;
     self.isButton54_3Clicked = NO;
+    self.isButton54_3FixClicked = NO;
     self.isButton54_4Clicked = NO;
     [self changeQuestion54Presentation];
     [self recordQuestion54AnsweredStatus];
@@ -12863,6 +15943,17 @@
     self.isButton54_1Clicked = NO;
     self.isButton54_2Clicked = NO;
     self.isButton54_3Clicked = YES;
+    self.isButton54_3FixClicked = NO;
+    self.isButton54_4Clicked = NO;
+    [self changeQuestion54Presentation];
+    [self recordQuestion54AnsweredStatus];
+}
+
+-(void)button54_3FixClicked{
+    self.isButton54_1Clicked = NO;
+    self.isButton54_2Clicked = NO;
+    self.isButton54_3Clicked = NO;
+    self.isButton54_3FixClicked = YES;
     self.isButton54_4Clicked = NO;
     [self changeQuestion54Presentation];
     [self recordQuestion54AnsweredStatus];
@@ -12872,6 +15963,7 @@
     self.isButton54_1Clicked = NO;
     self.isButton54_2Clicked = NO;
     self.isButton54_3Clicked = NO;
+    self.isButton54_3FixClicked = NO;
     self.isButton54_4Clicked = YES;
     [self changeQuestion54Presentation];
     [self recordQuestion54AnsweredStatus];
@@ -12886,6 +15978,8 @@
         [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton54_2Clicked){
@@ -12896,6 +15990,8 @@
         [self.button54_2 setBackgroundColor:kMAIN_COLOR];
         [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton54_3Clicked){
@@ -12906,6 +16002,20 @@
         [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton54_3FixClicked){
+        self.answer54 = @"经常";
+        [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton54_4Clicked){
@@ -12916,6 +16026,8 @@
         [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button54_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12945,6 +16057,13 @@
     }
     
     if (!self.isQuestion54Answered) {
+        if (self.isButton54_3FixClicked) {
+            self.isQuestion54Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion54Answered];
+        }
+    }
+    
+    if (!self.isQuestion54Answered) {
         if (self.isButton54_4Clicked) {
             self.isQuestion54Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion54Answered];
@@ -12956,6 +16075,7 @@
     self.isButton55_1Clicked = YES;
     self.isButton55_2Clicked = NO;
     self.isButton55_3Clicked = NO;
+    self.isButton55_3FixClicked = NO;
     self.isButton55_4Clicked = NO;
     [self changeQuestion55Presentation];
     [self recordQuestion55AnsweredStatus];
@@ -12965,6 +16085,7 @@
     self.isButton55_1Clicked = NO;
     self.isButton55_2Clicked = YES;
     self.isButton55_3Clicked = NO;
+    self.isButton55_3FixClicked = NO;
     self.isButton55_4Clicked = NO;
     [self changeQuestion55Presentation];
     [self recordQuestion55AnsweredStatus];
@@ -12974,6 +16095,17 @@
     self.isButton55_1Clicked = NO;
     self.isButton55_2Clicked = NO;
     self.isButton55_3Clicked = YES;
+    self.isButton55_3FixClicked = NO;
+    self.isButton55_4Clicked = NO;
+    [self changeQuestion55Presentation];
+    [self recordQuestion55AnsweredStatus];
+}
+
+-(void)button55_3FixClicked{
+    self.isButton55_1Clicked = NO;
+    self.isButton55_2Clicked = NO;
+    self.isButton55_3Clicked = NO;
+    self.isButton55_3FixClicked = YES;
     self.isButton55_4Clicked = NO;
     [self changeQuestion55Presentation];
     [self recordQuestion55AnsweredStatus];
@@ -12983,6 +16115,7 @@
     self.isButton55_1Clicked = NO;
     self.isButton55_2Clicked = NO;
     self.isButton55_3Clicked = NO;
+    self.isButton55_3FixClicked = NO;
     self.isButton55_4Clicked = YES;
     [self changeQuestion55Presentation];
     [self recordQuestion55AnsweredStatus];
@@ -12997,6 +16130,8 @@
         [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton55_2Clicked){
@@ -13007,6 +16142,8 @@
         [self.button55_2 setBackgroundColor:kMAIN_COLOR];
         [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton55_3Clicked){
@@ -13017,6 +16154,20 @@
         [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton55_3FixClicked){
+        self.answer55 = @"经常";
+        [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton55_4Clicked){
@@ -13027,6 +16178,8 @@
         [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button55_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13056,6 +16209,13 @@
     }
     
     if (!self.isQuestion55Answered) {
+        if (self.isButton55_3FixClicked) {
+            self.isQuestion55Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion55Answered];
+        }
+    }
+    
+    if (!self.isQuestion55Answered) {
         if (self.isButton55_4Clicked) {
             self.isQuestion55Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion55Answered];
@@ -13067,6 +16227,7 @@
     self.isButton56_1Clicked = YES;
     self.isButton56_2Clicked = NO;
     self.isButton56_3Clicked = NO;
+    self.isButton56_3FixClicked = NO;
     self.isButton56_4Clicked = NO;
     [self changeQuestion56Presentation];
     [self recordQuestion56AnsweredStatus];
@@ -13076,6 +16237,7 @@
     self.isButton56_1Clicked = NO;
     self.isButton56_2Clicked = YES;
     self.isButton56_3Clicked = NO;
+    self.isButton56_3FixClicked = NO;
     self.isButton56_4Clicked = NO;
     [self changeQuestion56Presentation];
     [self recordQuestion56AnsweredStatus];
@@ -13085,6 +16247,17 @@
     self.isButton56_1Clicked = NO;
     self.isButton56_2Clicked = NO;
     self.isButton56_3Clicked = YES;
+    self.isButton56_3FixClicked = NO;
+    self.isButton56_4Clicked = NO;
+    [self changeQuestion56Presentation];
+    [self recordQuestion56AnsweredStatus];
+}
+
+-(void)button56_3FixClicked{
+    self.isButton56_1Clicked = NO;
+    self.isButton56_2Clicked = NO;
+    self.isButton56_3Clicked = NO;
+    self.isButton56_3FixClicked = YES;
     self.isButton56_4Clicked = NO;
     [self changeQuestion56Presentation];
     [self recordQuestion56AnsweredStatus];
@@ -13094,6 +16267,7 @@
     self.isButton56_1Clicked = NO;
     self.isButton56_2Clicked = NO;
     self.isButton56_3Clicked = NO;
+    self.isButton56_3FixClicked = NO;
     self.isButton56_4Clicked = YES;
     [self changeQuestion56Presentation];
     [self recordQuestion56AnsweredStatus];
@@ -13108,6 +16282,8 @@
         [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton56_2Clicked){
@@ -13118,6 +16294,8 @@
         [self.button56_2 setBackgroundColor:kMAIN_COLOR];
         [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton56_3Clicked){
@@ -13128,6 +16306,20 @@
         [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton56_3FixClicked){
+        self.answer56 = @"经常";
+        [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton56_4Clicked){
@@ -13138,6 +16330,8 @@
         [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button56_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13167,6 +16361,13 @@
     }
     
     if (!self.isQuestion56Answered) {
+        if (self.isButton56_3FixClicked) {
+            self.isQuestion56Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion56Answered];
+        }
+    }
+    
+    if (!self.isQuestion56Answered) {
         if (self.isButton56_4Clicked) {
             self.isQuestion56Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion56Answered];
@@ -13178,6 +16379,7 @@
     self.isButton57_1Clicked = YES;
     self.isButton57_2Clicked = NO;
     self.isButton57_3Clicked = NO;
+    self.isButton57_3FixClicked = NO;
     self.isButton57_4Clicked = NO;
     [self changeQuestion57Presentation];
     [self recordQuestion57AnsweredStatus];
@@ -13187,6 +16389,7 @@
     self.isButton57_1Clicked = NO;
     self.isButton57_2Clicked = YES;
     self.isButton57_3Clicked = NO;
+    self.isButton57_3FixClicked = NO;
     self.isButton57_4Clicked = NO;
     [self changeQuestion57Presentation];
     [self recordQuestion57AnsweredStatus];
@@ -13196,15 +16399,28 @@
     self.isButton57_1Clicked = NO;
     self.isButton57_2Clicked = NO;
     self.isButton57_3Clicked = YES;
+    self.isButton57_3FixClicked = NO;
     self.isButton57_4Clicked = NO;
     [self changeQuestion57Presentation];
     [self recordQuestion57AnsweredStatus];
 }
 
+-(void)button57_3FixClicked{
+    self.isButton57_1Clicked = NO;
+    self.isButton57_2Clicked = NO;
+    self.isButton57_3Clicked = NO;
+    self.isButton57_3FixClicked = YES;
+    self.isButton57_4Clicked = NO;
+    [self changeQuestion57Presentation];
+    [self recordQuestion57AnsweredStatus];
+}
+
+
 -(void)button57_4Clicked{
     self.isButton57_1Clicked = NO;
     self.isButton57_2Clicked = NO;
     self.isButton57_3Clicked = NO;
+    self.isButton57_3FixClicked = NO;
     self.isButton57_4Clicked = YES;
     [self changeQuestion57Presentation];
     [self recordQuestion57AnsweredStatus];
@@ -13219,6 +16435,8 @@
         [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton57_2Clicked){
@@ -13229,6 +16447,8 @@
         [self.button57_2 setBackgroundColor:kMAIN_COLOR];
         [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton57_3Clicked){
@@ -13239,6 +16459,20 @@
         [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton57_3FixClicked){
+        self.answer57 = @"经常";
+        [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton57_4Clicked){
@@ -13249,6 +16483,8 @@
         [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button57_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13278,6 +16514,13 @@
     }
     
     if (!self.isQuestion57Answered) {
+        if (self.isButton57_3FixClicked) {
+            self.isQuestion57Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion57Answered];
+        }
+    }
+    
+    if (!self.isQuestion57Answered) {
         if (self.isButton57_4Clicked) {
             self.isQuestion57Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion57Answered];
@@ -13289,6 +16532,7 @@
     self.isButton58_1Clicked = YES;
     self.isButton58_2Clicked = NO;
     self.isButton58_3Clicked = NO;
+    self.isButton58_3FixClicked = NO;
     self.isButton58_4Clicked = NO;
     [self changeQuestion58Presentation];
     [self recordQuestion58AnsweredStatus];
@@ -13298,6 +16542,7 @@
     self.isButton58_1Clicked = NO;
     self.isButton58_2Clicked = YES;
     self.isButton58_3Clicked = NO;
+    self.isButton58_3FixClicked = NO;
     self.isButton58_4Clicked = NO;
     [self changeQuestion58Presentation];
     [self recordQuestion58AnsweredStatus];
@@ -13307,6 +16552,17 @@
     self.isButton58_1Clicked = NO;
     self.isButton58_2Clicked = NO;
     self.isButton58_3Clicked = YES;
+    self.isButton58_3FixClicked = NO;
+    self.isButton58_4Clicked = NO;
+    [self changeQuestion58Presentation];
+    [self recordQuestion58AnsweredStatus];
+}
+
+-(void)button58_3FixClicked{
+    self.isButton58_1Clicked = NO;
+    self.isButton58_2Clicked = NO;
+    self.isButton58_3Clicked = NO;
+    self.isButton58_3FixClicked = YES;
     self.isButton58_4Clicked = NO;
     [self changeQuestion58Presentation];
     [self recordQuestion58AnsweredStatus];
@@ -13316,6 +16572,7 @@
     self.isButton58_1Clicked = NO;
     self.isButton58_2Clicked = NO;
     self.isButton58_3Clicked = NO;
+    self.isButton58_3FixClicked = NO;
     self.isButton58_4Clicked = YES;
     [self changeQuestion58Presentation];
     [self recordQuestion58AnsweredStatus];
@@ -13330,6 +16587,8 @@
         [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton58_2Clicked){
@@ -13340,6 +16599,8 @@
         [self.button58_2 setBackgroundColor:kMAIN_COLOR];
         [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton58_3Clicked){
@@ -13350,6 +16611,20 @@
         [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton58_3FixClicked){
+        self.answer58 = @"经常";
+        [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton58_4Clicked){
@@ -13360,6 +16635,8 @@
         [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button58_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13389,6 +16666,13 @@
     }
     
     if (!self.isQuestion58Answered) {
+        if (self.isButton58_3FixClicked) {
+            self.isQuestion58Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion58Answered];
+        }
+    }
+    
+    if (!self.isQuestion58Answered) {
         if (self.isButton58_4Clicked) {
             self.isQuestion58Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion58Answered];
@@ -13400,6 +16684,7 @@
     self.isButton59_1Clicked = YES;
     self.isButton59_2Clicked = NO;
     self.isButton59_3Clicked = NO;
+    self.isButton59_3FixClicked = NO;
     self.isButton59_4Clicked = NO;
     [self changeQuestion59Presentation];
     [self recordQuestion59AnsweredStatus];
@@ -13409,6 +16694,7 @@
     self.isButton59_1Clicked = NO;
     self.isButton59_2Clicked = YES;
     self.isButton59_3Clicked = NO;
+    self.isButton59_3FixClicked = NO;
     self.isButton59_4Clicked = NO;
     [self changeQuestion59Presentation];
     [self recordQuestion59AnsweredStatus];
@@ -13418,6 +16704,17 @@
     self.isButton59_1Clicked = NO;
     self.isButton59_2Clicked = NO;
     self.isButton59_3Clicked = YES;
+    self.isButton59_3FixClicked = NO;
+    self.isButton59_4Clicked = NO;
+    [self changeQuestion59Presentation];
+    [self recordQuestion59AnsweredStatus];
+}
+
+-(void)button59_3FixClicked{
+    self.isButton59_1Clicked = NO;
+    self.isButton59_2Clicked = NO;
+    self.isButton59_3Clicked = NO;
+    self.isButton59_3FixClicked = YES;
     self.isButton59_4Clicked = NO;
     [self changeQuestion59Presentation];
     [self recordQuestion59AnsweredStatus];
@@ -13427,6 +16724,7 @@
     self.isButton59_1Clicked = NO;
     self.isButton59_2Clicked = NO;
     self.isButton59_3Clicked = NO;
+    self.isButton59_3FixClicked = NO;
     self.isButton59_4Clicked = YES;
     [self changeQuestion59Presentation];
     [self recordQuestion59AnsweredStatus];
@@ -13441,6 +16739,8 @@
         [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton59_2Clicked){
@@ -13451,6 +16751,8 @@
         [self.button59_2 setBackgroundColor:kMAIN_COLOR];
         [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton59_3Clicked){
@@ -13461,6 +16763,20 @@
         [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton59_3FixClicked){
+        self.answer59 = @"经常";
+        [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton59_4Clicked){
@@ -13471,6 +16787,8 @@
         [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button59_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13500,6 +16818,13 @@
     }
     
     if (!self.isQuestion59Answered) {
+        if (self.isButton59_3FixClicked) {
+            self.isQuestion59Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion59Answered];
+        }
+    }
+    
+    if (!self.isQuestion59Answered) {
         if (self.isButton59_4Clicked) {
             self.isQuestion59Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion59Answered];
@@ -13511,6 +16836,7 @@
     self.isButton60_1Clicked = YES;
     self.isButton60_2Clicked = NO;
     self.isButton60_3Clicked = NO;
+    self.isButton60_3FixClicked = NO;
     self.isButton60_4Clicked = NO;
     [self changeQuestion60Presentation];
     [self recordQuestion60AnsweredStatus];
@@ -13520,6 +16846,7 @@
     self.isButton60_1Clicked = NO;
     self.isButton60_2Clicked = YES;
     self.isButton60_3Clicked = NO;
+    self.isButton60_3FixClicked = NO;
     self.isButton60_4Clicked = NO;
     [self changeQuestion60Presentation];
     [self recordQuestion60AnsweredStatus];
@@ -13529,6 +16856,17 @@
     self.isButton60_1Clicked = NO;
     self.isButton60_2Clicked = NO;
     self.isButton60_3Clicked = YES;
+    self.isButton60_3FixClicked = NO;
+    self.isButton60_4Clicked = NO;
+    [self changeQuestion60Presentation];
+    [self recordQuestion60AnsweredStatus];
+}
+
+-(void)button60_3FixClicked{
+    self.isButton60_1Clicked = NO;
+    self.isButton60_2Clicked = NO;
+    self.isButton60_3Clicked = NO;
+    self.isButton60_3FixClicked = YES;
     self.isButton60_4Clicked = NO;
     [self changeQuestion60Presentation];
     [self recordQuestion60AnsweredStatus];
@@ -13538,6 +16876,7 @@
     self.isButton60_1Clicked = NO;
     self.isButton60_2Clicked = NO;
     self.isButton60_3Clicked = NO;
+    self.isButton60_3FixClicked = NO;
     self.isButton60_4Clicked = YES;
     [self changeQuestion60Presentation];
     [self recordQuestion60AnsweredStatus];
@@ -13552,6 +16891,8 @@
         [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton60_2Clicked){
@@ -13562,6 +16903,8 @@
         [self.button60_2 setBackgroundColor:kMAIN_COLOR];
         [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton60_3Clicked){
@@ -13572,6 +16915,20 @@
         [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_3 setBackgroundColor:kMAIN_COLOR];
+        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+    }else if (self.isButton60_3FixClicked){
+        self.answer60 = @"经常";
+        [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:kMAIN_COLOR];
         [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
     }else if (self.isButton60_4Clicked){
@@ -13582,6 +16939,8 @@
         [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
         [self.button60_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13605,6 +16964,13 @@
     
     if (!self.isQuestion60Answered) {
         if (self.isButton60_3Clicked) {
+            self.isQuestion60Answered = YES;
+            [self changeAnsweredQuestionQuantity:self.isQuestion60Answered];
+        }
+    }
+    
+    if (!self.isQuestion60Answered) {
+        if (self.isButton60_3FixClicked) {
             self.isQuestion60Answered = YES;
             [self changeAnsweredQuestionQuantity:self.isQuestion60Answered];
         }
