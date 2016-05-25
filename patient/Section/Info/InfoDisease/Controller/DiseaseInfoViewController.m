@@ -50,6 +50,8 @@
 
 @property (strong,nonatomic)NSString *diseaseAttention;
 
+@property (strong,nonatomic)NSString *diseaseDescription;
+
 @property (strong,nonatomic)NSMutableArray *expertArray;
 @property (strong,nonatomic)NSMutableArray *expertIdArray;
 @property (strong,nonatomic)NSMutableArray *expertImageArray;
@@ -191,10 +193,15 @@
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56df91e4e0f55a811e002783"
-                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能"
+                                      shareText:self.diseaseDescription
                                      shareImage:[UIImage imageNamed:@"default_image_small"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                        delegate:self];
+    
+    [UMSocialData defaultData].extConfig.qqData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.qzoneData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.shareUrl;
 }
 
 -(void)commentButtonClicked{
@@ -529,6 +536,8 @@
     self.diseaseCause = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"reason"]];
     
     self.diseaseAttention = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"matters"]];
+    
+    self.diseaseDescription = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"descr"]];
     
     self.expertArray = [DiseaseExpertData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctorsKey"]];
     for (DiseaseExpertData *diseaseExpertData in self.expertArray) {
