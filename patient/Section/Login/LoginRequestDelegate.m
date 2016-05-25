@@ -27,6 +27,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:phone forKey:@"phone"];
     [parameter setValue:code forKey:@"code"];
+    [parameter setValue:@"ios" forKey:@"equ"];
     
     [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_QUICK_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -55,6 +56,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:username forKey:@"user"];
     [parameter setValue:password forKey:@"password"];
+    [parameter setValue:@"ios" forKey:@"equ"];
     
     [[NetworkUtil sharedInstance]postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_NORMAL_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
