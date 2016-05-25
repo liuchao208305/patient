@@ -68,6 +68,8 @@
 @property (assign,nonatomic)NSInteger commentFlag;
 @property (assign,nonatomic)NSInteger favouriteFlag;
 
+@property (strong,nonatomic)NSString *shareUrl;
+
 @end
 
 @implementation HealthDishInfoViewController
@@ -567,6 +569,8 @@
         self.isFavourited = YES;
         [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
     }
+    
+    self.shareUrl = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"fenxURL"]];
     
     [self.tableView reloadData];
 }
