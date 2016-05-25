@@ -19,8 +19,8 @@
 #define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
 #else
 //Release状态下的线上API
-#define kServerAddress     @"http://www.jiuzhekan.com/jiuzhekan_http/"//外网上线地址
-#define kServerAddressPay   @"http://www.jiuzhekan.com/jiuzhekan_pay/"//外网上线地址—支付
+#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"//外网上线地址
+#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网上线地址—支付
 #endif
 
 #define	kCODE	    @"code"
