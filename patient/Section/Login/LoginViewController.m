@@ -342,6 +342,7 @@
     
     secondTextField2 = [[UITextField alloc] init];
     secondTextField2.placeholder = @"请输入密码";
+    secondTextField2.secureTextEntry = YES;
     [secondBackView2 addSubview:secondTextField2];
     
     [secondTextField2 mas_updateConstraints:^(MASConstraintMaker *make){
