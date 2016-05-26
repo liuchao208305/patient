@@ -494,12 +494,20 @@
 }
 
 -(void)onlineButtonClicked{
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+//                                  initWithTitle:@"请选择支付方式"
+//                                  delegate:self
+//                                  cancelButtonTitle:@"取消"
+//                                  destructiveButtonTitle:nil
+//                                  otherButtonTitles:@"支付宝支付", @"微信支付",@"银联支付",nil];
+//    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+//    [actionSheet showInView:self.view];
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择支付方式"
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"支付宝支付", @"微信支付",@"银联支付",nil];
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
 }
@@ -559,13 +567,16 @@
         self.paymentType = 3;
         [self sendPaymentInfoRequest];
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
-    }else if(buttonIndex == 2){
-//        self.paymentType =4;
-//        [self sendPaymentInfoRequest];
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
-    }else if (buttonIndex == 3){
+    }else if (buttonIndex == 2){
         //取消
     }
+//    else if(buttonIndex == 2){
+////        self.paymentType =4;
+////        [self sendPaymentInfoRequest];
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂未开通，敬请期待！"];
+//    }else if (buttonIndex == 3){
+//        //取消
+//    }
 }
 
 #pragma mark Network Request
