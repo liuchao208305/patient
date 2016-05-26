@@ -13,6 +13,7 @@
 #import "AdaptionUtil.h"
 #import "EncyptionUtil.h"
 #import "AnalyticUtil.h"
+#import "AlertUtil.h"
 
 @interface MineChangePasswordViewController (){
     int timeCount;

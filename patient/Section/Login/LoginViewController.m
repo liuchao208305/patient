@@ -15,6 +15,7 @@
 #import "CommonUtil.h"
 #import "HudUtil.h"
 #import "AnalyticUtil.h"
+#import "AlertUtil.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -460,12 +461,16 @@
 }
 
 -(void)getCaptchaButtonClicked{
-    [self getCaptchaRequest];
-    
-    [firstButton1 setEnabled:NO];
-    
-    thread= [[NSThread alloc]initWithTarget:self selector:@selector(beginCountDown) object:nil];
-    [thread start];
+    if ([firstTextField1.text isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入手机号码！"];
+    }else{
+        [self getCaptchaRequest];
+        
+        [firstButton1 setEnabled:NO];
+        
+        thread= [[NSThread alloc]initWithTarget:self selector:@selector(beginCountDown) object:nil];
+        [thread start];
+    }
 }
 
 -(void)beginCountDown{
