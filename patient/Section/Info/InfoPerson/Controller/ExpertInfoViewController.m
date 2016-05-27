@@ -670,8 +670,8 @@
     self.pageSize += 10;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.longtitude forKey:@"x"];
-    [parameter setValue:self.latitude forKey:@"y"];
+    [parameter setValue:self.latitude forKey:@"x"];
+    [parameter setValue:self.longtitude forKey:@"y"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.fiterType] forKey:@"type"];
@@ -797,7 +797,7 @@
         [self.clinicIdArray addObject:clinicData.outpat_id];
         [self.clinicNameArray addObject:clinicData.outpat_name];
         [self.clinicStarArray addObject:clinicData.commenResult];
-        [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%.1f",clinicData.juli]];
+        [self.clinicDistanceArray addObject:[NSString stringWithFormat:@"%.1f",clinicData.juli/1000]];
         [self.clinicCouponArray addObject:[NSString stringWithFormat:@"%ld",(long)clinicData.money]];
     }
     

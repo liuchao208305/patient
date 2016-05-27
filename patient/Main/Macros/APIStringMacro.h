@@ -71,7 +71,7 @@ typedef enum {
 #define kJZK_TEST_INFORMATION_GET @"public/v1/pageAnalysis?"//获取体质测试信息
 #define kJZK_TEST_INFORMATION_CONFIRM @"public/v1/commitAnalysis?"//提交体质测试信息
 #define kJZK_TEST_RESULT_LIST_INFORMATION @"private/v1/getAnalysisResultPage?"//分页获取体质测试结果列表信息
-#define kJZK_TEST_RESULT_DETAIL_INFORMATION @"public/v1/getAnalyResultDetail?"//获取体质测试结构详情信息
+#define kJZK_TEST_RESULT_DETAIL_INFORMATION @"public/v1/getAnalyResultDetail?"//获取体质测试结果详情信息
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息

@@ -218,6 +218,8 @@
 		708274D91CF7E7B70016AE3C /* RDDoctorTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */; };
 		708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */; };
 		708274E11CF7F5A50016AE3C /* mine_record_detail_patient_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */; };
+		708274E41CF8222D0016AE3C /* TestChooseContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */; };
+		708274E71CF8227F0016AE3C /* TestContactCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -757,6 +759,10 @@
 		708274DD1CF7ECE00016AE3C /* RDZhaopianCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDZhaopianCollectionCell.h; sourceTree = "<group>"; };
 		708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDZhaopianCollectionCell.m; sourceTree = "<group>"; };
 		708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_record_detail_patient_image.png; sourceTree = "<group>"; };
+		708274E21CF8222D0016AE3C /* TestChooseContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestChooseContactViewController.h; sourceTree = "<group>"; };
+		708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChooseContactViewController.m; sourceTree = "<group>"; };
+		708274E51CF8227F0016AE3C /* TestContactCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContactCollectionCell.h; sourceTree = "<group>"; };
+		708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContactCollectionCell.m; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -2291,6 +2297,8 @@
 			children = (
 				70926D9D1CC77C3E00CB0416 /* TestViewController.h */,
 				70926D9E1CC77C3E00CB0416 /* TestViewController.m */,
+				708274E21CF8222D0016AE3C /* TestChooseContactViewController.h */,
+				708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */,
 				70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */,
 				70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */,
 				70B4EA6D1CCB57F000141E38 /* TestResultListViewController.h */,
@@ -2319,6 +2327,8 @@
 				70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */,
 				70B4EA731CCB6A8A00141E38 /* TestResultListTableCell.h */,
 				70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */,
+				708274E51CF8227F0016AE3C /* TestContactCollectionCell.h */,
+				708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2887,6 +2897,7 @@
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
 				708274D31CF7E75D0016AE3C /* RDYizhuTextTableCell.m in Sources */,
+				708274E71CF8227F0016AE3C /* TestContactCollectionCell.m in Sources */,
 				70FD8E561CEC399000DA22E5 /* DiseaseInfoViewController.m in Sources */,
 				708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
@@ -2974,6 +2985,7 @@
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
+				708274E41CF8222D0016AE3C /* TestChooseContactViewController.m in Sources */,
 				70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,

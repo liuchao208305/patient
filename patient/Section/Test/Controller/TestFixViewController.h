@@ -10,6 +10,8 @@
 
 @interface TestFixViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *contactId;
+
 @property (strong,nonatomic)UIView *topFixedView;
 @property (strong,nonatomic)UILabel *presentationLabel1;
 @property (strong,nonatomic)UILabel *presentationLabel2;

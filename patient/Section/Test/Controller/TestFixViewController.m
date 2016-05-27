@@ -18,6 +18,7 @@
 #import "TestResultDetailViewController.h"
 #import "LoginViewController.h"
 #import "AdaptionUtil.h"
+#import "TestChooseContactViewController.h"
 
 @interface TestFixViewController ()
 
@@ -102,6 +103,14 @@
     label.font = [UIFont systemFontOfSize:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择联系人" style:(UIBarButtonItemStylePlain) target:self action:@selector(chooseContactButtonClicked)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+-(void)chooseContactButtonClicked{
+    TestChooseContactViewController *chooseContactVC = [[TestChooseContactViewController alloc] init];
+    [self.navigationController pushViewController:chooseContactVC animated:YES];
 }
 
 -(void)initTabBar{
