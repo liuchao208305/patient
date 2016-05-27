@@ -1045,7 +1045,7 @@
     self.clinicAddress = [NullUtil judgeStringNull:[self.data objectForKey:@"address"]];
     self.bookTime = [NullUtil judgeStringNull:[self.data objectForKey:@"bespoke_date"]];
     self.formerMoney = [[self.data objectForKey:@"price"] doubleValue];
-    self.couponMoney = [[NullUtil judgeStringNull:[self.data objectForKey:@"conpou_money"]] doubleValue];
+    self.couponMoney = [[self.data objectForKey:@"conpou_money"] doubleValue];
     self.latterMoney = self.formerMoney - self.couponMoney;
     
     self.patientName = [NullUtil judgeStringNull:[self.data objectForKey:@"userName"]];
