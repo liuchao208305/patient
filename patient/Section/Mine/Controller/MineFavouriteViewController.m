@@ -369,7 +369,11 @@
             [cell initView:0 index:indexPath detail:self.favouriteDiseaseDetailAllArray symptom:self.favouriteDiseaseSymptomAllArray cause:self.favouriteDiseaseCauseAllArray];
             cell.favouriteDiseaseDelegate = self;
             
-            cell.titleLabel.text = self.favouriteDiseaseNameAllArray[indexPath.section];
+//            cell.titleLabel.text = self.favouriteDiseaseNameAllArray[indexPath.section];
+            NSUInteger length = [self.favouriteDiseaseNameAllArray[indexPath.section] length];
+            NSMutableAttributedString *afterString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@_症状百科",self.favouriteDiseaseNameAllArray[indexPath.section]]];
+            [afterString addAttribute:NSForegroundColorAttributeName value:kMAIN_COLOR range:NSMakeRange(0,length)];
+            cell.titleLabel.attributedText = afterString;
             
             return cell;
         }
@@ -408,7 +412,12 @@
         [cell initView:0 index:indexPath detail:self.favouriteDiseaseDetailDiseaseArray symptom:self.favouriteDiseaseSymptomDiseaseArray cause:self.favouriteDiseaseCauseDiseaseArray];
         cell.favouriteDiseaseDelegate = self;
         
-        cell.titleLabel.text = self.favouriteDiseaseNameDiseaseArray[indexPath.section];
+        NSUInteger length = [self.favouriteDiseaseNameDiseaseArray[indexPath.section] length];
+        NSMutableAttributedString *afterString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@_症状百科",self.favouriteDiseaseNameDiseaseArray[indexPath.section]]];
+        [afterString addAttribute:NSForegroundColorAttributeName value:kMAIN_COLOR range:NSMakeRange(0,length)];
+        cell.titleLabel.attributedText = afterString;
+        
+//        cell.titleLabel.text = [NSString stringWithFormat:@"%@_症状百科",self.favouriteDiseaseNameDiseaseArray[indexPath.section]];
         
         return cell;
     }
