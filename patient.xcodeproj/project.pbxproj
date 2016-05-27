@@ -202,6 +202,21 @@
 		708274A91CF7086E0016AE3C /* RecordListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274A81CF7086E0016AE3C /* RecordListData.m */; };
 		708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */; };
 		708274AF1CF710060016AE3C /* RecordListTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274AE1CF710060016AE3C /* RecordListTestTableCell.m */; };
+		708274B21CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274B11CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m */; };
+		708274B51CF7E62B0016AE3C /* RDShexiangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274B41CF7E62B0016AE3C /* RDShexiangTableCell.m */; };
+		708274B81CF7E64C0016AE3C /* RDMaixiangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274B71CF7E64C0016AE3C /* RDMaixiangTableCell.m */; };
+		708274BB1CF7E6690016AE3C /* RDZhongyiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274BA1CF7E6690016AE3C /* RDZhongyiTableCell.m */; };
+		708274BE1CF7E67F0016AE3C /* RDXiyiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274BD1CF7E67F0016AE3C /* RDXiyiTableCell.m */; };
+		708274C11CF7E6960016AE3C /* RDQitaTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274C01CF7E6960016AE3C /* RDQitaTableCell.m */; };
+		708274C41CF7E6AC0016AE3C /* RDZhaopianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274C31CF7E6AC0016AE3C /* RDZhaopianTableCell.m */; };
+		708274C71CF7E7040016AE3C /* RDChufangTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274C61CF7E7040016AE3C /* RDChufangTableCell.m */; };
+		708274CA1CF7E71D0016AE3C /* RDFYfangfaTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274C91CF7E71D0016AE3C /* RDFYfangfaTableCell.m */; };
+		708274CD1CF7E7300016AE3C /* RDFYshijianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274CC1CF7E7300016AE3C /* RDFYshijianTableCell.m */; };
+		708274D01CF7E7460016AE3C /* RDFYcishuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274CF1CF7E7460016AE3C /* RDFYcishuTableCell.m */; };
+		708274D31CF7E75D0016AE3C /* RDYizhuTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D21CF7E75D0016AE3C /* RDYizhuTextTableCell.m */; };
+		708274D61CF7E7710016AE3C /* RDYizhuSoundTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D51CF7E7710016AE3C /* RDYizhuSoundTableCell.m */; };
+		708274D91CF7E7B70016AE3C /* RDDoctorTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */; };
+		708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -710,6 +725,36 @@
 		708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListRecordTableCell.m; sourceTree = "<group>"; };
 		708274AD1CF710060016AE3C /* RecordListTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListTestTableCell.h; sourceTree = "<group>"; };
 		708274AE1CF710060016AE3C /* RecordListTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListTestTableCell.m; sourceTree = "<group>"; };
+		708274B01CF7E5D00016AE3C /* RDTemplateGeneralTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDTemplateGeneralTableCell.h; sourceTree = "<group>"; };
+		708274B11CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDTemplateGeneralTableCell.m; sourceTree = "<group>"; };
+		708274B31CF7E62B0016AE3C /* RDShexiangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDShexiangTableCell.h; sourceTree = "<group>"; };
+		708274B41CF7E62B0016AE3C /* RDShexiangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDShexiangTableCell.m; sourceTree = "<group>"; };
+		708274B61CF7E64C0016AE3C /* RDMaixiangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDMaixiangTableCell.h; sourceTree = "<group>"; };
+		708274B71CF7E64C0016AE3C /* RDMaixiangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDMaixiangTableCell.m; sourceTree = "<group>"; };
+		708274B91CF7E6690016AE3C /* RDZhongyiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDZhongyiTableCell.h; sourceTree = "<group>"; };
+		708274BA1CF7E6690016AE3C /* RDZhongyiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDZhongyiTableCell.m; sourceTree = "<group>"; };
+		708274BC1CF7E67F0016AE3C /* RDXiyiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXiyiTableCell.h; sourceTree = "<group>"; };
+		708274BD1CF7E67F0016AE3C /* RDXiyiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXiyiTableCell.m; sourceTree = "<group>"; };
+		708274BF1CF7E6960016AE3C /* RDQitaTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDQitaTableCell.h; sourceTree = "<group>"; };
+		708274C01CF7E6960016AE3C /* RDQitaTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDQitaTableCell.m; sourceTree = "<group>"; };
+		708274C21CF7E6AC0016AE3C /* RDZhaopianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDZhaopianTableCell.h; sourceTree = "<group>"; };
+		708274C31CF7E6AC0016AE3C /* RDZhaopianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDZhaopianTableCell.m; sourceTree = "<group>"; };
+		708274C51CF7E7040016AE3C /* RDChufangTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDChufangTableCell.h; sourceTree = "<group>"; };
+		708274C61CF7E7040016AE3C /* RDChufangTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDChufangTableCell.m; sourceTree = "<group>"; };
+		708274C81CF7E71D0016AE3C /* RDFYfangfaTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDFYfangfaTableCell.h; sourceTree = "<group>"; };
+		708274C91CF7E71D0016AE3C /* RDFYfangfaTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDFYfangfaTableCell.m; sourceTree = "<group>"; };
+		708274CB1CF7E7300016AE3C /* RDFYshijianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDFYshijianTableCell.h; sourceTree = "<group>"; };
+		708274CC1CF7E7300016AE3C /* RDFYshijianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDFYshijianTableCell.m; sourceTree = "<group>"; };
+		708274CE1CF7E7460016AE3C /* RDFYcishuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDFYcishuTableCell.h; sourceTree = "<group>"; };
+		708274CF1CF7E7460016AE3C /* RDFYcishuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDFYcishuTableCell.m; sourceTree = "<group>"; };
+		708274D11CF7E75D0016AE3C /* RDYizhuTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDYizhuTextTableCell.h; sourceTree = "<group>"; };
+		708274D21CF7E75D0016AE3C /* RDYizhuTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDYizhuTextTableCell.m; sourceTree = "<group>"; };
+		708274D41CF7E7710016AE3C /* RDYizhuSoundTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDYizhuSoundTableCell.h; sourceTree = "<group>"; };
+		708274D51CF7E7710016AE3C /* RDYizhuSoundTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDYizhuSoundTableCell.m; sourceTree = "<group>"; };
+		708274D71CF7E7B70016AE3C /* RDDoctorTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDDoctorTableCell.h; sourceTree = "<group>"; };
+		708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDDoctorTableCell.m; sourceTree = "<group>"; };
+		708274DD1CF7ECE00016AE3C /* RDZhaopianCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDZhaopianCollectionCell.h; sourceTree = "<group>"; };
+		708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDZhaopianCollectionCell.m; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -2128,6 +2173,36 @@
 				708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */,
 				708274AD1CF710060016AE3C /* RecordListTestTableCell.h */,
 				708274AE1CF710060016AE3C /* RecordListTestTableCell.m */,
+				708274B01CF7E5D00016AE3C /* RDTemplateGeneralTableCell.h */,
+				708274B11CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m */,
+				708274B31CF7E62B0016AE3C /* RDShexiangTableCell.h */,
+				708274B41CF7E62B0016AE3C /* RDShexiangTableCell.m */,
+				708274B61CF7E64C0016AE3C /* RDMaixiangTableCell.h */,
+				708274B71CF7E64C0016AE3C /* RDMaixiangTableCell.m */,
+				708274B91CF7E6690016AE3C /* RDZhongyiTableCell.h */,
+				708274BA1CF7E6690016AE3C /* RDZhongyiTableCell.m */,
+				708274BC1CF7E67F0016AE3C /* RDXiyiTableCell.h */,
+				708274BD1CF7E67F0016AE3C /* RDXiyiTableCell.m */,
+				708274BF1CF7E6960016AE3C /* RDQitaTableCell.h */,
+				708274C01CF7E6960016AE3C /* RDQitaTableCell.m */,
+				708274C21CF7E6AC0016AE3C /* RDZhaopianTableCell.h */,
+				708274C31CF7E6AC0016AE3C /* RDZhaopianTableCell.m */,
+				708274DD1CF7ECE00016AE3C /* RDZhaopianCollectionCell.h */,
+				708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */,
+				708274C51CF7E7040016AE3C /* RDChufangTableCell.h */,
+				708274C61CF7E7040016AE3C /* RDChufangTableCell.m */,
+				708274C81CF7E71D0016AE3C /* RDFYfangfaTableCell.h */,
+				708274C91CF7E71D0016AE3C /* RDFYfangfaTableCell.m */,
+				708274CB1CF7E7300016AE3C /* RDFYshijianTableCell.h */,
+				708274CC1CF7E7300016AE3C /* RDFYshijianTableCell.m */,
+				708274CE1CF7E7460016AE3C /* RDFYcishuTableCell.h */,
+				708274CF1CF7E7460016AE3C /* RDFYcishuTableCell.m */,
+				708274D11CF7E75D0016AE3C /* RDYizhuTextTableCell.h */,
+				708274D21CF7E75D0016AE3C /* RDYizhuTextTableCell.m */,
+				708274D41CF7E7710016AE3C /* RDYizhuSoundTableCell.h */,
+				708274D51CF7E7710016AE3C /* RDYizhuSoundTableCell.m */,
+				708274D71CF7E7B70016AE3C /* RDDoctorTableCell.h */,
+				708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */,
 				70FD8E7B1CEC7E1700DA22E5 /* MineExpertTableCell.h */,
 				70FD8E7C1CEC7E1700DA22E5 /* MineExpertTableCell.m */,
 				70FD8E861CEDD25400DA22E5 /* MineFavouriteHealthTableCell.h */,
@@ -2673,6 +2748,7 @@
 				708B53101CEB2DD30033C479 /* DishHeaderView.m in Sources */,
 				70FEADE81CA8D069006A044A /* ClinicDoctorTableCell.m in Sources */,
 				70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */,
+				708274CD1CF7E7300016AE3C /* RDFYshijianTableCell.m in Sources */,
 				704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */,
 				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
 				708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */,
@@ -2720,6 +2796,7 @@
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
 				70B4EAF21CD8709F00141E38 /* MRShuimianTableCell.m in Sources */,
+				708274B81CF7E64C0016AE3C /* RDMaixiangTableCell.m in Sources */,
 				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,
 				708FD5FD1CE086F5002CDFA8 /* CityModel.m in Sources */,
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
@@ -2737,6 +2814,7 @@
 				70B4EAFB1CD870E200141E38 /* MRDabianTableCell.m in Sources */,
 				70C03DFE1CA2920E00DBA175 /* FullViewController.m in Sources */,
 				70B4EB0A1CD8715300141E38 /* MRJingshenTableCell.m in Sources */,
+				708274CA1CF7E71D0016AE3C /* RDFYfangfaTableCell.m in Sources */,
 				7046AD881C9F1D2900BB6818 /* LoginRequestDelegate.m in Sources */,
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */,
@@ -2746,6 +2824,7 @@
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
 				70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */,
 				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
+				708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
 				708103531CEB831F009BC871 /* DishFoodData.m in Sources */,
@@ -2755,6 +2834,7 @@
 				70B4EA951CCE56F800141E38 /* ImageUtil.m in Sources */,
 				70FD8E531CEC0D1100DA22E5 /* FoodCookView.m in Sources */,
 				70B4EADD1CD86FCA00141E38 /* MRCouponTableCell.m in Sources */,
+				708274BB1CF7E6690016AE3C /* RDZhongyiTableCell.m in Sources */,
 				70FD8E5C1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m in Sources */,
 				7046ADC71CA10F7A00BB6818 /* ExpertInfoViewController.m in Sources */,
 				70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */,
@@ -2770,6 +2850,7 @@
 				70FEADEB1CA8D0AC006A044A /* ClinicScheduleTableCell.m in Sources */,
 				708B52DC1CE9B5690033C479 /* StudioExpertTableCell.m in Sources */,
 				7046AC721C974C7E00BB6818 /* StudioTableCell.m in Sources */,
+				708274B51CF7E62B0016AE3C /* RDShexiangTableCell.m in Sources */,
 				70B4EB4B1CDAD58300141E38 /* MRTemplateGeneralTableCell.m in Sources */,
 				70C03E171CA3D0FE00DBA175 /* NullUtil.m in Sources */,
 				708B52E51CEA5A670033C479 /* StudioExpertCollectionCell.m in Sources */,
@@ -2777,10 +2858,12 @@
 				70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */,
+				708274C41CF7E6AC0016AE3C /* RDZhaopianTableCell.m in Sources */,
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
 				708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */,
+				708274C11CF7E6960016AE3C /* RDQitaTableCell.m in Sources */,
 				708B52F01CEB077C0033C479 /* InfoMoreHealthViewController.m in Sources */,
 				7046ADD01CA10FD700BB6818 /* TreatmentInfoViewController.m in Sources */,
 				70B4EA8A1CCD0A9600141E38 /* MineSettingViewController.m in Sources */,
@@ -2799,15 +2882,18 @@
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
 				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
+				708274D31CF7E75D0016AE3C /* RDYizhuTextTableCell.m in Sources */,
 				70FD8E561CEC399000DA22E5 /* DiseaseInfoViewController.m in Sources */,
 				708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
 				708B52DF1CE9BB630033C479 /* StudioExpertData.m in Sources */,
+				708274D91CF7E7B70016AE3C /* RDDoctorTableCell.m in Sources */,
 				70A9BD341C8800A20035B5E0 /* DateUtil.m in Sources */,
 				70FD8E6E1CEC458900DA22E5 /* DiseaseExpertData.m in Sources */,
 				7005E3851CC0D14C002CA541 /* ContactChangeViewController.m in Sources */,
+				708274D61CF7E7710016AE3C /* RDYizhuSoundTableCell.m in Sources */,
 				70FD8E881CEDD25400DA22E5 /* MineFavouriteHealthTableCell.m in Sources */,
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
 				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
@@ -2831,6 +2917,7 @@
 				70FD8E621CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m in Sources */,
 				707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */,
 				7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */,
+				708274C71CF7E7040016AE3C /* RDChufangTableCell.m in Sources */,
 				70B4EB2E1CD8728000141E38 /* MRFYshijianTableCell.m in Sources */,
 				70B4EA751CCB6A8A00141E38 /* TestResultListTableCell.m in Sources */,
 				7089956E1CF3E54D00B40F97 /* MineMessageDetailTableCell.m in Sources */,
@@ -2856,9 +2943,11 @@
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
 				70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */,
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
+				708274BE1CF7E67F0016AE3C /* RDXiyiTableCell.m in Sources */,
 				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				708B52FB1CEB19070033C479 /* HealthDishInfoViewController.m in Sources */,
+				708274D01CF7E7460016AE3C /* RDFYcishuTableCell.m in Sources */,
 				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
 				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
@@ -2877,6 +2966,7 @@
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
+				708274B21CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,

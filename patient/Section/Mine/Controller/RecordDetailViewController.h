@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
-@interface RecordDetailViewController : BaseViewController
+@interface RecordDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (strong,nonatomic)NSString *orderNumber;
+
+@property (strong,nonatomic)UILabel *navTitleLabel;
+
+@property (strong,nonatomic)UITableView *tableView;
 
 @end
