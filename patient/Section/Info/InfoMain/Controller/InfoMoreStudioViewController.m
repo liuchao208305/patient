@@ -170,8 +170,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
-    studioVC.studioId = self.studioIdArray[indexPath.row];
-    studioVC.studioName = self.studioNameArray[indexPath.row];
+    studioVC.studioId = self.studioIdArray[indexPath.section];
+    studioVC.studioName = self.studioNameArray[indexPath.section];
     studioVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:studioVC animated:YES];
     
