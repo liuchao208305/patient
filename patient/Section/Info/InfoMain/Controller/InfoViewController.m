@@ -470,6 +470,7 @@
     AgreementViewController *webVC = [[AgreementViewController alloc] init];
     webVC.hidesBottomBarWhenPushed = YES;
     webVC.urlStr = self.adUrlArray[index];
+    webVC.titleStr = @"首页轮播图";
     [self.navigationController pushViewController:webVC animated:YES];
 }
 

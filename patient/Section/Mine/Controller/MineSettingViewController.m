@@ -415,7 +415,7 @@
     [self.backView3 addSubview:self.subBackView3_2];
     
     self.label3_2 = [[UILabel alloc] init];
-    self.label3_2.text = @"联系客户";
+    self.label3_2.text = @"联系客服";
     [self.subBackView3_2 addSubview:self.label3_2];
     
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -584,15 +584,24 @@
     DLog(@"subBackView3_1Clicked");
     AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
     agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.titleStr = @"服务条款";
     [self.navigationController pushViewController:agreementVC animated:YES];
 }
 
 -(void)subBackView3_2Clicked{
     DLog(@"subBackView3_2Clicked");
+    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
+    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.titleStr = @"联系客服";
+    [self.navigationController pushViewController:agreementVC animated:YES];
 }
 
 -(void)subBackView3_3Clicked{
     DLog(@"subBackView3_3Clicked");
+    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
+    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.titleStr = @"关于我们";
+    [self.navigationController pushViewController:agreementVC animated:YES];
 }
 
 -(void)subBackView3_4Clicked{

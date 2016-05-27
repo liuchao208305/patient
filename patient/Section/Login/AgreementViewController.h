@@ -10,6 +10,7 @@
 
 @interface AgreementViewController : BaseViewController
 
-@property (nonatomic, strong) NSString *urlStr;
+@property (strong,nonatomic)NSString *urlStr;
+@property (strong,nonatomic)NSString *titleStr;
 
 @end

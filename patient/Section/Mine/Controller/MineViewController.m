@@ -30,6 +30,7 @@
 #import "MineMessageViewController.h"
 #import "AdaptionUtil.h"
 #import "RecordListViewController.h"
+#import "AgreementViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
@@ -532,7 +533,11 @@
 
 -(void)function5Clicked{
     DLog(@"function5Clicked");
-    
+    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
+    agreementVC.hidesBottomBarWhenPushed = YES;
+    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.titleStr = @"联系客服";
+    [self.navigationController pushViewController:agreementVC animated:YES];
 }
 
 -(void)function6Clicked{

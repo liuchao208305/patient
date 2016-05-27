@@ -500,6 +500,7 @@
 -(void)agreementButtonClicked{
     AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
     agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.titleStr = @"用户协议";
     [self.navigationController pushViewController:agreementVC animated:YES];
 }
 
