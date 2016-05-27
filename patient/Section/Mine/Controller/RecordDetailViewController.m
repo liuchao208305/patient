@@ -43,7 +43,18 @@
 
 @property (strong,nonatomic)NSString *navTitle;
 
+@property (strong,nonatomic)UIImageView *patientBackView;
 @property (strong,nonatomic)UIImageView *patientImageView;
+@property (strong,nonatomic)UILabel *label1_1;
+@property (strong,nonatomic)UILabel *label2_1;
+@property (strong,nonatomic)UILabel *label3_1;
+@property (strong,nonatomic)UILabel *label4_1;
+@property (strong,nonatomic)UILabel *label5_1;
+@property (strong,nonatomic)UILabel *label1_2;
+@property (strong,nonatomic)UILabel *label2_2;
+@property (strong,nonatomic)UILabel *label3_2;
+@property (strong,nonatomic)UILabel *label4_2;
+@property (strong,nonatomic)UILabel *label5_2;
 
 @property (strong,nonatomic)NSString *expertImageString;
 @property (strong,nonatomic)NSString *doctorImageString;
@@ -168,15 +179,147 @@
 }
 
 -(void)initView{
+    [self initHeadView];
+    [self initFootView];
+    [self initTableView];
+}
+
+-(void)initHeadView{
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 527)];
     
-    self.patientImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 527)];
-    [self.patientImageView setImage:[UIImage imageNamed:@"mine_record_detail_patient_image"]];
+    self.patientBackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 527)];
+    [self.patientBackView setImage:[UIImage imageNamed:@"mine_record_detail_patient_image"]];
     
-    [self.headView addSubview:self.patientImageView];
+    [self.headView addSubview:self.patientBackView];
     
+    self.patientImageView = [[UIImageView alloc] init];
+    self.patientImageView.layer.cornerRadius = 35;
+    [self.patientImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.patientBackView addSubview:self.patientImageView];
+    
+    self.label1_1 = [[UILabel alloc] init];
+    self.label1_1.text = @"姓名";
+    [self.patientBackView addSubview:self.label1_1];
+    
+    self.label2_1 = [[UILabel alloc] init];
+    self.label2_1.text = @"性别";
+    [self.patientBackView addSubview:self.label2_1];
+    
+    self.label3_1 = [[UILabel alloc] init];
+    self.label3_1.text = @"年龄";
+    [self.patientBackView addSubview:self.label3_1];
+    
+    self.label4_1 = [[UILabel alloc] init];
+    self.label4_1.text = @"手机号码";
+    [self.patientBackView addSubview:self.label4_1];
+    
+    self.label5_1 = [[UILabel alloc] init];
+    self.label5_1.text = @"身份证号";
+    [self.patientBackView addSubview:self.label5_1];
+    
+    self.label1_2 = [[UILabel alloc] init];
+    self.label1_2.text = @"张三疯";
+    [self.patientBackView addSubview:self.label1_2];
+    
+    self.label2_2 = [[UILabel alloc] init];
+    self.label2_2.text = @"女";
+    [self.patientBackView addSubview:self.label2_2];
+    
+    self.label3_2 = [[UILabel alloc] init];
+    self.label3_2.text = @"20";
+    [self.patientBackView addSubview:self.label3_2];
+    
+    self.label4_2 = [[UILabel alloc] init];
+    self.label4_2.text = @"11111111111";
+    [self.patientBackView addSubview:self.label4_2];
+    
+    self.label5_2 = [[UILabel alloc] init];
+    self.label5_2.text = @"111111111111111111";
+    [self.patientBackView addSubview:self.label5_2];
+    
+    [self.patientImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.patientBackView).offset(160);
+        make.centerX.equalTo(self.patientBackView).offset(0);
+        make.width.mas_equalTo(70);
+        make.height.mas_equalTo(70);
+    }];
+    
+    [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.patientImageView).offset(70+22);
+        make.leading.equalTo(self.patientBackView).offset(60+10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1_1).offset(15+15);
+        make.leading.equalTo(self.patientBackView).offset(60+10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label2_1).offset(15+15);
+        make.leading.equalTo(self.patientBackView).offset(60+10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label4_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label3_1).offset(15+15);
+        make.leading.equalTo(self.patientBackView).offset(60+10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label5_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label4_1).offset(15+15);
+        make.leading.equalTo(self.patientBackView).offset(60+10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.label1_1).offset(0);
+        make.leading.equalTo(self.patientImageView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.label2_1).offset(0);
+        make.leading.equalTo(self.patientImageView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.label3_1).offset(0);
+        make.leading.equalTo(self.patientImageView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label4_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.label4_1).offset(0);
+        make.leading.equalTo(self.patientImageView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.label5_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.label5_1).offset(0);
+        make.leading.equalTo(self.patientImageView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+}
+
+-(void)initFootView{
     self.footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    
+}
+
+-(void)initTableView{
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -673,6 +816,12 @@
 -(void)medicineReceivingDataFilling{
     DLog(@"medicineReceivingDataFilling");
     self.navTitleLabel.text = self.navTitle;
+    
+    self.label1_2.text = self.patientName;
+    self.label2_2.text = self.patientSexFix == 1 ? @"男" : @"女";
+    self.label3_2.text = [NSString stringWithFormat:@"%ld",(long)self.patientAgeFix];
+    self.label4_2.text = self.patientMobile;
+    self.label5_2.text = self.patientIdNumber;
 }
 
 @end

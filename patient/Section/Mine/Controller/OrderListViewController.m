@@ -18,6 +18,7 @@
 #import "TreatmentFinishViewController.h"
 #import "MedicineReceivingViewController.h"
 #import "LoginViewController.h"
+#import "RecordDetailViewController.h"
 
 @interface OrderListViewController ()
 
@@ -613,6 +614,10 @@
         MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
         medicineVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
         [self.navigationController pushViewController:medicineVC animated:YES];
+        
+//        RecordDetailViewController *recordDetailVC = [[RecordDetailViewController alloc] init];
+//        recordDetailVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
+//        [self.navigationController pushViewController:recordDetailVC animated:YES];
         
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
