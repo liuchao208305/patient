@@ -145,6 +145,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"%ld",(long)indexPath.row);
+    if (self.chooseContactDelegate && [self.chooseContactDelegate respondsToSelector:@selector(chooseContactSelected:)]) {
+        [self.chooseContactDelegate chooseContactSelected:self.contactArray[indexPath.row]];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

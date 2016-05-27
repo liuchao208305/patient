@@ -20,7 +20,7 @@
 #import "AdaptionUtil.h"
 #import "TestChooseContactViewController.h"
 
-@interface TestFixViewController ()
+@interface TestFixViewController ()<ChooseContactDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -110,7 +110,14 @@
 
 -(void)chooseContactButtonClicked{
     TestChooseContactViewController *chooseContactVC = [[TestChooseContactViewController alloc] init];
+    chooseContactVC.chooseContactDelegate = self;
     [self.navigationController pushViewController:chooseContactVC animated:YES];
+}
+
+#pragma mark ContactDelegate
+-(void)chooseContactSelected:(ContactData *)contactData{
+    self.contactId = contactData.contact_id;
+    DLog(@"self.contactId-->%@",self.contactId);
 }
 
 -(void)initTabBar{
@@ -17063,6 +17070,7 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:self.contactId forKey:@"contact_id"];
     /*====================================================================================*/
     [parameter setValue:self.questionGroupIdArray[0] forKey:@"items[0].group_id"];
     [parameter setValue:self.questionItemIdArray[0] forKey:@"items[0].item_id"];

@@ -7,6 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "ContactData.h"
+
+@protocol ChooseContactDelegate <NSObject>
+
+-(void)chooseContactSelected:(ContactData *)contactData;
+
+@end
 
 @interface TestChooseContactViewController : BaseViewController
 
@@ -15,5 +22,7 @@
 @property (strong,nonatomic)NSMutableArray *contactArray;
 @property (strong,nonatomic)NSMutableArray *contactIdArray;
 @property (strong,nonatomic)NSMutableArray *contactNameArray;
+
+@property (weak,nonatomic)id<ChooseContactDelegate> chooseContactDelegate;
 
 @end
