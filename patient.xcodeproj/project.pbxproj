@@ -197,6 +197,11 @@
 		7081036F1CEB8BDF009BC871 /* info_health_dish_step5.png in Resources */ = {isa = PBXBuildFile; fileRef = 708103621CEB8BDF009BC871 /* info_health_dish_step5.png */; };
 		708103701CEB8BDF009BC871 /* info_health_dish_step6.png in Resources */ = {isa = PBXBuildFile; fileRef = 708103631CEB8BDF009BC871 /* info_health_dish_step6.png */; };
 		708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708103721CEB9229009BC871 /* HealthFoodInfoViewController.m */; };
+		708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274A21CF6F1B80016AE3C /* RecordListViewController.m */; };
+		708274A61CF6F1DE0016AE3C /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274A51CF6F1DE0016AE3C /* RecordDetailViewController.m */; };
+		708274A91CF7086E0016AE3C /* RecordListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274A81CF7086E0016AE3C /* RecordListData.m */; };
+		708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */; };
+		708274AF1CF710060016AE3C /* RecordListTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274AE1CF710060016AE3C /* RecordListTestTableCell.m */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -695,6 +700,16 @@
 		708103631CEB8BDF009BC871 /* info_health_dish_step6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_health_dish_step6.png; sourceTree = "<group>"; };
 		708103711CEB9229009BC871 /* HealthFoodInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthFoodInfoViewController.h; sourceTree = "<group>"; };
 		708103721CEB9229009BC871 /* HealthFoodInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthFoodInfoViewController.m; sourceTree = "<group>"; };
+		708274A11CF6F1B80016AE3C /* RecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListViewController.h; sourceTree = "<group>"; };
+		708274A21CF6F1B80016AE3C /* RecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListViewController.m; sourceTree = "<group>"; };
+		708274A41CF6F1DE0016AE3C /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
+		708274A51CF6F1DE0016AE3C /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
+		708274A71CF7086E0016AE3C /* RecordListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListData.h; sourceTree = "<group>"; };
+		708274A81CF7086E0016AE3C /* RecordListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListData.m; sourceTree = "<group>"; };
+		708274AA1CF70FE60016AE3C /* RecordListRecordTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListRecordTableCell.h; sourceTree = "<group>"; };
+		708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListRecordTableCell.m; sourceTree = "<group>"; };
+		708274AD1CF710060016AE3C /* RecordListTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListTestTableCell.h; sourceTree = "<group>"; };
+		708274AE1CF710060016AE3C /* RecordListTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListTestTableCell.m; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -2053,6 +2068,10 @@
 				70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */,
 				70B4EAB21CD088FA00141E38 /* OrderListViewController.h */,
 				70B4EAB31CD088FB00141E38 /* OrderListViewController.m */,
+				708274A11CF6F1B80016AE3C /* RecordListViewController.h */,
+				708274A21CF6F1B80016AE3C /* RecordListViewController.m */,
+				708274A41CF6F1DE0016AE3C /* RecordDetailViewController.h */,
+				708274A51CF6F1DE0016AE3C /* RecordDetailViewController.m */,
 				70FD8E721CEC78E500DA22E5 /* MineExpertViewController.h */,
 				70FD8E731CEC78E500DA22E5 /* MineExpertViewController.m */,
 				70FD8E751CEC791300DA22E5 /* MineFavouriteViewController.h */,
@@ -2072,6 +2091,8 @@
 				70B4EA8C1CCD1D9600141E38 /* RecordData.m */,
 				70B4EAB51CD08DE000141E38 /* OrderData.h */,
 				70B4EAB61CD08DE000141E38 /* OrderData.m */,
+				708274A71CF7086E0016AE3C /* RecordListData.h */,
+				708274A81CF7086E0016AE3C /* RecordListData.m */,
 				70FD8E781CEC7CE900DA22E5 /* MineExpertData.h */,
 				70FD8E791CEC7CE900DA22E5 /* MineExpertData.m */,
 				70FD8E8C1CEDD35800DA22E5 /* MineFavouriteData.h */,
@@ -2103,6 +2124,10 @@
 				705EF8101CBDD41D00732886 /* MineFunctionCollectionCell.m */,
 				70B4EAB81CD0A52600141E38 /* OrderListTableCell.h */,
 				70B4EAB91CD0A52600141E38 /* OrderListTableCell.m */,
+				708274AA1CF70FE60016AE3C /* RecordListRecordTableCell.h */,
+				708274AB1CF70FE60016AE3C /* RecordListRecordTableCell.m */,
+				708274AD1CF710060016AE3C /* RecordListTestTableCell.h */,
+				708274AE1CF710060016AE3C /* RecordListTestTableCell.m */,
 				70FD8E7B1CEC7E1700DA22E5 /* MineExpertTableCell.h */,
 				70FD8E7C1CEC7E1700DA22E5 /* MineExpertTableCell.m */,
 				70FD8E861CEDD25400DA22E5 /* MineFavouriteHealthTableCell.h */,
@@ -2681,10 +2706,12 @@
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70FD8E5F1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m in Sources */,
 				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
+				708274A91CF7086E0016AE3C /* RecordListData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
 				708FD5FA1CE086EE002CDFA8 /* CustomTopView.m in Sources */,
 				70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */,
 				70A9BD3A1C8801A00035B5E0 /* EncyptionUtil.m in Sources */,
+				708274A61CF6F1DE0016AE3C /* RecordDetailViewController.m in Sources */,
 				70B4EB011CD8710D00141E38 /* MRHanreTableCell.m in Sources */,
 				708B52FE1CEB28460033C479 /* DishBasicTableCell.m in Sources */,
 				7005E38C1CC0D199002CA541 /* RecordAddViewController.m in Sources */,
@@ -2699,6 +2726,7 @@
 				70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
+				708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */,
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */,
@@ -2850,6 +2878,7 @@
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
+				708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */,
 				7005E36F1CBF656B002CA541 /* ClinicInfoFixViewController.m in Sources */,
 				70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
@@ -2862,6 +2891,7 @@
 				708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				708995711CF3E5DF00B40F97 /* MineMessageData.m in Sources */,
+				708274AF1CF710060016AE3C /* RecordListTestTableCell.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 				70FD8E911CF02BC900DA22E5 /* ClinicDoctorData.m in Sources */,
 				708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */,

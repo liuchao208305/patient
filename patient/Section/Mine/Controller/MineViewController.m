@@ -29,6 +29,7 @@
 #import "MineFavouriteViewController.h"
 #import "MineMessageViewController.h"
 #import "AdaptionUtil.h"
+#import "RecordListViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
 
@@ -488,6 +489,11 @@
     DLog(@"%@",self.recordImageArray[tag]);
     DLog(@"%@",self.recordNameArray[tag]);
     DLog(@"%@",self.recordPatientNameArray[tag]);
+    
+    RecordListViewController *recordListVC = [[RecordListViewController alloc] init];
+    recordListVC.hidesBottomBarWhenPushed = YES;
+    recordListVC.recordId = self.recordIdArray[tag];
+    [self.navigationController pushViewController:recordListVC animated:YES];
 }
 
 #pragma mark FunctionDelegate

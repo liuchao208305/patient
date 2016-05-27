@@ -62,6 +62,7 @@ typedef enum {
 #define KJZK_CONTACT_INFORMATION_DELETE @"private/v1/user/deleteContact?"//删除常用联系人
 #define kJZK_ID_INFORMATION @"private/v1/user/getKeyExists?"//身份证或者医保信息
 #define kJZK_RECORD_INFORMATION_ADD @"private/v1/user/addContactBook?"//添加病历本
+#define kJZK_RECORD_LIST_INFORMATION @"/private/v1/user/memberBookDetails?"//病历本列表信息
 #define kJZK_COUPON_INFORMATION @"private/v1/user/getUserConpou?"//优惠券信息
 #define kJZK_COUPON_INFORAMTION_EXCHANGE @"private/v1/user/getCouponByCode?"//优惠券兑换
 #define kJZK_ORDER_INFORMATION @"private/v1/user/getConuListPage?"//订单列表信息
