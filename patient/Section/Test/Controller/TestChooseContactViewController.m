@@ -32,7 +32,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.view.backgroundColor = kBACKGROUND_COLOR;
+    self.view.backgroundColor = kWHITE_COLOR;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self lazyLoading];
@@ -93,6 +93,19 @@
 }
 
 -(void)initView{
+    self.chooseLabel = [[UILabel alloc] init];
+    self.chooseLabel.text = @"请选择进行测试的联系人";
+    self.chooseLabel.textColor = kLIGHT_GRAY_COLOR;
+    self.chooseLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.chooseLabel];
+    
+    [self.chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(50);
+        make.centerX.equalTo(self.view).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(15);
+    }];
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 340) collectionViewLayout:flowLayout];
     self.collectionView.dataSource=self;

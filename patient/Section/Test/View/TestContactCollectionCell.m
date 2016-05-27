@@ -26,6 +26,7 @@
     [self.contentView addSubview:self.imageView];
     
     self.label1 = [[UILabel alloc] init];
+    self.label1.textColor = kLIGHT_GRAY_COLOR;
     self.label1.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label1];
     

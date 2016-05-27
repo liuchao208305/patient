@@ -17,6 +17,7 @@
 
 @interface TestChooseContactViewController : BaseViewController
 
+@property (strong,nonatomic)UILabel *chooseLabel;
 @property (strong,nonatomic)UICollectionView *collectionView;
 
 @property (strong,nonatomic)NSMutableArray *contactArray;

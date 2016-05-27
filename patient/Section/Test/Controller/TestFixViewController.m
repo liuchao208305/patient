@@ -110,6 +110,7 @@
 
 -(void)chooseContactButtonClicked{
     TestChooseContactViewController *chooseContactVC = [[TestChooseContactViewController alloc] init];
+    chooseContactVC.hidesBottomBarWhenPushed = YES;
     chooseContactVC.chooseContactDelegate = self;
     [self.navigationController pushViewController:chooseContactVC animated:YES];
 }
