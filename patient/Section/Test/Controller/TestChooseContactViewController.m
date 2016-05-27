@@ -29,6 +29,7 @@
 
 @implementation TestChooseContactViewController
 
+#pragma mark Life Circle
 -(void)viewDidLoad{
     [super viewDidLoad];
     

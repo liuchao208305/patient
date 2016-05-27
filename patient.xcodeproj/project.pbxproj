@@ -220,6 +220,8 @@
 		708274E11CF7F5A50016AE3C /* mine_record_detail_patient_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */; };
 		708274E41CF8222D0016AE3C /* TestChooseContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */; };
 		708274E71CF8227F0016AE3C /* TestContactCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */; };
+		708274F01CF846EA0016AE3C /* MineAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */; };
+		708274F21CF84D880016AE3C /* mine_aboutus_logo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -763,6 +765,9 @@
 		708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChooseContactViewController.m; sourceTree = "<group>"; };
 		708274E51CF8227F0016AE3C /* TestContactCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestContactCollectionCell.h; sourceTree = "<group>"; };
 		708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestContactCollectionCell.m; sourceTree = "<group>"; };
+		708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineAboutUsViewController.h; sourceTree = "<group>"; };
+		708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineAboutUsViewController.m; sourceTree = "<group>"; };
+		708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_aboutus_logo_image.png; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1472,6 +1477,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */,
 				708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */,
 				70FD8E7E1CED80ED00DA22E5 /* info_health_comment_after.png */,
 				70FD8E7F1CED80ED00DA22E5 /* info_health_comment_before.png */,
@@ -2118,6 +2124,8 @@
 				702939911C9273FA008280E2 /* MineViewController.m */,
 				70B4EA881CCD0A9600141E38 /* MineSettingViewController.h */,
 				70B4EA891CCD0A9600141E38 /* MineSettingViewController.m */,
+				708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */,
+				708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */,
 				70B4EA901CCE2E5700141E38 /* MineChangePasswordViewController.h */,
 				70B4EA911CCE2E5700141E38 /* MineChangePasswordViewController.m */,
 				70B4EAB21CD088FA00141E38 /* OrderListViewController.h */,
@@ -2625,6 +2633,7 @@
 				7002D85F1CACC19F0074426A /* info_clinic_clinic_title_image.png in Resources */,
 				70C03E021CA2924000DBA175 /* full_pause_btn222@2x.png in Resources */,
 				70926CE31CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png in Resources */,
+				708274F21CF84D880016AE3C /* mine_aboutus_logo_image.png in Resources */,
 				7081036E1CEB8BDF009BC871 /* info_health_dish_step4.png in Resources */,
 				70FEAE071CABBC89006A044A /* info_expert_xingxing_full.png in Resources */,
 				7046AD1E1C97E5D700BB6818 /* cell_person_more_button.png in Resources */,
@@ -2768,6 +2777,7 @@
 				708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */,
 				70FD8E681CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m in Sources */,
 				7005E3821CC0D138002CA541 /* ContactAddViewController.m in Sources */,
+				708274F01CF846EA0016AE3C /* MineAboutUsViewController.m in Sources */,
 				708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */,
 				70FEADEE1CA8E26A006A044A /* ClinicHeaderView.m in Sources */,
 				70FEADE21CA8CFDB006A044A /* ClinicDetailTableCell.m in Sources */,
