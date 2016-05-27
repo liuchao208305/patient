@@ -15,5 +15,7 @@
 @property (strong,nonatomic)UILabel *navTitleLabel;
 
 @property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIView *footView;
 
 @end

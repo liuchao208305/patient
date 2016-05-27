@@ -43,6 +43,8 @@
 
 @property (strong,nonatomic)NSString *navTitle;
 
+@property (strong,nonatomic)UIImageView *patientImageView;
+
 @property (strong,nonatomic)NSString *expertImageString;
 @property (strong,nonatomic)NSString *doctorImageString;
 @property (strong,nonatomic)NSString *expertName;
@@ -166,11 +168,23 @@
 }
 
 -(void)initView{
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 527)];
+    
+    self.patientImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 527)];
+    [self.patientImageView setImage:[UIImage imageNamed:@"mine_record_detail_patient_image"]];
+    
+    [self.headView addSubview:self.patientImageView];
+    
+    self.footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.tableHeaderView = self.headView;
+    self.tableView.tableFooterView = self.footView;
     
     [self.view addSubview:self.tableView];
 }
@@ -226,7 +240,7 @@
     }else if (indexPath.section == 7){
         //        return 150;
         return 40;
-    }else if (indexPath.section == 11){
+    }else if (indexPath.section == 13){
         return 100;
     }
     else{
@@ -256,10 +270,6 @@
         cell.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.doctorName];
         cell.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.clinicName];
         cell.addressLabel.text = [NSString stringWithFormat:@"                   %@",self.clinicAddress];
-        cell.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
-        cell.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.latterMoney];
-        [cell.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
-        cell.timeLabel.text = self.bookTime;
         
         return cell;
     }
@@ -549,7 +559,7 @@
 #pragma mark Data Parse
 -(void)medicineReceivingDataParse{
     DLog(@"medicineReceivingDataParse");
-    self.navTitle = [NSString stringWithFormat:@"%@的病历本",self.patientName];
+    self.navTitle = [NSString stringWithFormat:@"%@的病历本",[NullUtil judgeStringNull:[self.data objectForKey:@"userName"]]];
     
     self.expertImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"maxHeand"]];
     self.doctorImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"minHeand"]];

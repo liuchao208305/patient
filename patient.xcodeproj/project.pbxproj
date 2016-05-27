@@ -217,6 +217,7 @@
 		708274D61CF7E7710016AE3C /* RDYizhuSoundTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D51CF7E7710016AE3C /* RDYizhuSoundTableCell.m */; };
 		708274D91CF7E7B70016AE3C /* RDDoctorTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */; };
 		708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */; };
+		708274E11CF7F5A50016AE3C /* mine_record_detail_patient_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -755,6 +756,7 @@
 		708274D81CF7E7B70016AE3C /* RDDoctorTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDDoctorTableCell.m; sourceTree = "<group>"; };
 		708274DD1CF7ECE00016AE3C /* RDZhaopianCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDZhaopianCollectionCell.h; sourceTree = "<group>"; };
 		708274DE1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDZhaopianCollectionCell.m; sourceTree = "<group>"; };
+		708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_record_detail_patient_image.png; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1464,6 +1466,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */,
 				70FD8E7E1CED80ED00DA22E5 /* info_health_comment_after.png */,
 				70FD8E7F1CED80ED00DA22E5 /* info_health_comment_before.png */,
 				70FD8E801CED80ED00DA22E5 /* info_health_favourite_after.png */,
@@ -2538,6 +2541,7 @@
 				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
 				708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */,
+				708274E11CF7F5A50016AE3C /* mine_record_detail_patient_image.png in Resources */,
 				70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
 				7002D8611CACC19F0074426A /* info_clinic_expert_title_image.png in Resources */,

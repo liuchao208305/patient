@@ -28,7 +28,7 @@
         make.leading.equalTo(self.contentView).offset(0);
         make.top.equalTo(self.contentView).offset(0);
         make.width.mas_equalTo(90);
-        make.height.mas_equalTo(115);
+        make.height.mas_equalTo(100);
     }];
     
     self.expertImageView = [[UIImageView alloc] init];
@@ -69,14 +69,6 @@
     self.addressLabel.text = @"test";
     [self.contentView addSubview:self.addressLabel];
     
-    self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
-    [self.contentView addSubview:self.moneyLabel1];
-    
-    self.moneyLabel2  = [[UILabel alloc] init];
-    self.moneyLabel2.text = @"test";
-    [self.contentView addSubview:self.moneyLabel2];
-    
     [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(90);
         make.top.equalTo(self.contentView).offset(20);
@@ -103,53 +95,6 @@
         make.trailing.equalTo(self.contentView).offset(-25);
         make.top.equalTo(self.clinicLabel).offset(15+5);
         make.width.mas_equalTo(SCREEN_WIDTH-90);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.expertLabel).offset(0);
-        make.trailing.equalTo(self.contentView).offset(-10);
-        make.width.mas_equalTo(70);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.doctorLabel).offset(0);
-        make.trailing.equalTo(self.contentView).offset(-10);
-        make.width.mas_equalTo(70);
-        make.height.mas_equalTo(15);
-    }];
-    
-    self.lineView = [[UIView alloc] init];
-    self.lineView.backgroundColor = kBACKGROUND_COLOR;
-    [self.contentView addSubview:self.lineView];
-    
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(115);
-        make.leading.equalTo(self.contentView).offset(0);
-        make.trailing.equalTo(self.contentView).offset(0);
-        make.height.mas_equalTo(1);
-    }];
-    
-    self.timeImage = [[UIImageView alloc] init];
-    [self.timeImage setImage:[UIImage imageNamed:@"default_image_small"]];
-    [self.contentView addSubview:self.timeImage];
-    
-    self.timeLabel = [[UILabel alloc] init];
-    self.timeLabel.text = @"test";
-    [self.contentView addSubview:self.timeLabel];
-    
-    [self.timeImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView).offset(1+10);
-        make.trailing.equalTo(self.timeLabel).offset(-200-5);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView).offset(1+10);
-        make.trailing.equalTo(self.contentView).offset(-10);
-        make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);
     }];
 }

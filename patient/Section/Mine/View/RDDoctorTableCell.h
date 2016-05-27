@@ -17,10 +17,5 @@
 @property (strong,nonatomic)UILabel *doctorLabel;
 @property (strong,nonatomic)UILabel *clinicLabel;
 @property (strong,nonatomic)UILabel *addressLabel;
-@property (strong,nonatomic)UILabel *moneyLabel1;
-@property (strong,nonatomic)UILabel *moneyLabel2;
-@property (strong,nonatomic)UIView *lineView;
-@property (strong,nonatomic)UIImageView *timeImage;
-@property (strong,nonatomic)UILabel *timeLabel;
 
 @end
