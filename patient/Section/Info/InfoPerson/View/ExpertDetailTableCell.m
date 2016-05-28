@@ -47,35 +47,67 @@
 }
 
 -(void)initBackView1{
-    self.label1_1 = [[UILabel alloc] init];
-    [self.backView1 addSubview:self.label1_1];
-    
-    self.label1_2 = [[UILabel alloc] init];
-    [self.backView1 addSubview:self.label1_2];
-    
-    self.label1_3 = [[UILabel alloc] init];
-    [self.backView1 addSubview:self.label1_3];
-    
-    [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.backView1).offset(12);
-        make.top.equalTo(self.backView1).offset(16);
-        make.width.mas_equalTo(90);
-        make.height.mas_equalTo(18);
-    }];
-    
-    [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label1_1).offset(90+13);
-        make.centerY.equalTo(self.label1_1).offset(0);
-        make.width.mas_equalTo(150);
-        make.height.mas_equalTo(13);
-    }];
-    
-    [self.label1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.backView1).offset(12);
-        make.bottom.equalTo(self.backView1).offset(-16);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(20);
-    }];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.label1_1 = [[UILabel alloc] init];
+        [self.backView1 addSubview:self.label1_1];
+        
+        self.label1_2 = [[UILabel alloc] init];
+        [self.backView1 addSubview:self.label1_2];
+        
+        self.label1_3 = [[UILabel alloc] init];
+        self.label1_3.numberOfLines = 0;
+        [self.backView1 addSubview:self.label1_3];
+        
+        [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView1).offset(12);
+            make.top.equalTo(self.backView1).offset(5);
+            make.width.mas_equalTo(90);
+            make.height.mas_equalTo(18);
+        }];
+        
+        [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label1_1).offset(90+13);
+            make.centerY.equalTo(self.label1_1).offset(0);
+            make.width.mas_equalTo(150);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView1).offset(12);
+            make.trailing.equalTo(self.backView1).offset(-12);
+            make.bottom.equalTo(self.backView1).offset(-5);
+        }];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.label1_1 = [[UILabel alloc] init];
+        [self.backView1 addSubview:self.label1_1];
+        
+        self.label1_2 = [[UILabel alloc] init];
+        [self.backView1 addSubview:self.label1_2];
+        
+        self.label1_3 = [[UILabel alloc] init];
+        [self.backView1 addSubview:self.label1_3];
+        
+        [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView1).offset(12);
+            make.top.equalTo(self.backView1).offset(16);
+            make.width.mas_equalTo(90);
+            make.height.mas_equalTo(18);
+        }];
+        
+        [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.label1_1).offset(90+13);
+            make.centerY.equalTo(self.label1_1).offset(0);
+            make.width.mas_equalTo(150);
+            make.height.mas_equalTo(13);
+        }];
+        
+        [self.label1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.backView1).offset(12);
+            make.bottom.equalTo(self.backView1).offset(-16);
+            make.width.mas_equalTo(300);
+            make.height.mas_equalTo(20);
+        }];
+    }
 }
 
 -(void)initBackView2{
