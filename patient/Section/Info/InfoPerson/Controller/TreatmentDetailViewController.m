@@ -16,6 +16,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "LoginViewController.h"
+#import "AdaptionUtil.h"
 
 @interface TreatmentDetailViewController ()<CouponDelegate,UIActionSheetDelegate,UIAlertViewDelegate,WXApiDelegate>
 
@@ -155,7 +156,7 @@
         UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonClicked)];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
     }else{
-        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
+        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消该订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
         self.navigationItem.rightBarButtonItem = rightButtonItem;
     }
 }
@@ -167,7 +168,11 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.scrollView.contentSize = CGSizeMake(0, 1.35*SCREEN_HEIGHT);
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
@@ -236,72 +241,153 @@
         make.height.mas_equalTo(32);
     }];
     /*=======================================================================*/
-    self.expertLabel = [[UILabel alloc] init];
-    self.expertLabel.text = @"test";
-    [self.backView1 addSubview:self.expertLabel];
-    
-    self.doctorLabel = [[UILabel alloc] init];
-    self.doctorLabel.text = @"test";
-    [self.backView1 addSubview:self.doctorLabel];
-    
-    self.clinicLabel = [[UILabel alloc] init];
-    self.clinicLabel.text = @"test";
-    [self.backView1 addSubview:self.clinicLabel];
-    
-    self.addressLabel = [[UILabel alloc] init];
-    self.addressLabel.text = @"test";
-    [self.backView1 addSubview:self.addressLabel];
-    
-    self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
-    [self.backView1 addSubview:self.moneyLabel1];
-    
-    self.moneyLabel2  = [[UILabel alloc] init];
-    self.moneyLabel2.text = @"test";
-    [self.backView1 addSubview:self.moneyLabel2];
-    
-    [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageBackView).offset(90);
-        make.top.equalTo(self.backView1).offset(20);
-        make.width.mas_equalTo(200);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.doctorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageBackView).offset(90);
-        make.top.equalTo(self.expertLabel).offset(15+5);
-        make.width.mas_equalTo(200);
-        make.height.mas_equalTo(15);
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.expertLabel = [[UILabel alloc] init];
+        self.expertLabel.font = [UIFont systemFontOfSize:13];
+//        self.expertLabel.text = @"test";
+        [self.backView1 addSubview:self.expertLabel];
         
-    }];
-    
-    [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.imageBackView).offset(90);
-        make.top.equalTo(self.doctorLabel).offset(15+5);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.backView1).offset(-25);
-        make.top.equalTo(self.clinicLabel).offset(15+5);
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.expertLabel).offset(0);
-        make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(70);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.doctorLabel).offset(0);
-        make.trailing.equalTo(self.backView1).offset(-10);
-        make.width.mas_equalTo(70);
-        make.height.mas_equalTo(15);
-    }];
+        self.doctorLabel = [[UILabel alloc] init];
+        self.doctorLabel.font = [UIFont systemFontOfSize:13];
+//        self.doctorLabel.text = @"test";
+        [self.backView1 addSubview:self.doctorLabel];
+        
+        self.clinicLabel = [[UILabel alloc] init];
+        self.clinicLabel.font = [UIFont systemFontOfSize:13];
+        self.clinicLabel.numberOfLines = 0;
+//        self.clinicLabel.text = @"test";
+        [self.backView1 addSubview:self.clinicLabel];
+        
+        self.addressLabel = [[UILabel alloc] init];
+        self.addressLabel.font = [UIFont systemFontOfSize:13];
+        self.addressLabel.numberOfLines = 0;
+//        self.addressLabel.text = @"test";
+        [self.backView1 addSubview:self.addressLabel];
+        
+        self.moneyLabel1 = [[UILabel alloc] init];
+        self.moneyLabel1.font = [UIFont systemFontOfSize:13];
+        self.moneyLabel1.textAlignment = NSTextAlignmentRight;
+//        self.moneyLabel1.text = @"test";
+        [self.backView1 addSubview:self.moneyLabel1];
+        
+        self.moneyLabel2  = [[UILabel alloc] init];
+        self.moneyLabel2.font = [UIFont systemFontOfSize:13];
+        self.moneyLabel2.textAlignment = NSTextAlignmentRight;
+//        self.moneyLabel2.text = @"test";
+        [self.backView1 addSubview:self.moneyLabel2];
+        
+        [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.top.equalTo(self.backView1).offset(20);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.doctorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.top.equalTo(self.expertLabel).offset(15+5);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(15);
+            
+        }];
+        
+        [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.trailing.equalTo(self.backView1).offset(-12);
+            make.top.equalTo(self.doctorLabel).offset(15+5);
+//            make.width.mas_equalTo(300);
+//            make.height.mas_equalTo(15);
+        }];
+        
+        [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.trailing.equalTo(self.backView1).offset(-12);
+            make.top.equalTo(self.clinicLabel).offset(15);
+            //            make.width.mas_equalTo(300);
+            //            make.height.mas_equalTo(15);
+        }];
+        
+        [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.expertLabel).offset(0);
+            make.trailing.equalTo(self.backView1).offset(-10);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.doctorLabel).offset(0);
+            make.trailing.equalTo(self.backView1).offset(-10);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(15);
+        }];
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+        self.expertLabel = [[UILabel alloc] init];
+//        self.expertLabel.text = @"test";
+        [self.backView1 addSubview:self.expertLabel];
+        
+        self.doctorLabel = [[UILabel alloc] init];
+//        self.doctorLabel.text = @"test";
+        [self.backView1 addSubview:self.doctorLabel];
+        
+        self.clinicLabel = [[UILabel alloc] init];
+//        self.clinicLabel.text = @"test";
+        [self.backView1 addSubview:self.clinicLabel];
+        
+        self.addressLabel = [[UILabel alloc] init];
+//        self.addressLabel.text = @"test";
+        [self.backView1 addSubview:self.addressLabel];
+        
+        self.moneyLabel1 = [[UILabel alloc] init];
+//        self.moneyLabel1.text = @"test";
+        [self.backView1 addSubview:self.moneyLabel1];
+        
+        self.moneyLabel2  = [[UILabel alloc] init];
+//        self.moneyLabel2.text = @"test";
+        [self.backView1 addSubview:self.moneyLabel2];
+        
+        [self.expertLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.top.equalTo(self.backView1).offset(20);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.doctorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.top.equalTo(self.expertLabel).offset(15+5);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(15);
+            
+        }];
+        
+        [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
+            make.top.equalTo(self.doctorLabel).offset(15+5);
+            make.width.mas_equalTo(300);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.backView1).offset(-25);
+            make.top.equalTo(self.clinicLabel).offset(15+5);
+            make.width.mas_equalTo(300);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.expertLabel).offset(0);
+            make.trailing.equalTo(self.backView1).offset(-10);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(15);
+        }];
+        
+        [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.doctorLabel).offset(0);
+            make.trailing.equalTo(self.backView1).offset(-10);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(15);
+        }];
+    }
     /*=======================================================================*/
     self.lineView = [[UIView alloc] init];
     self.lineView.backgroundColor = kBACKGROUND_COLOR;
@@ -319,7 +405,7 @@
     [self.backView1 addSubview:self.timeImage];
     
     self.timeLabel = [[UILabel alloc] init];
-    self.timeLabel.text = @"test";
+//    self.timeLabel.text = @"test";
     [self.backView1 addSubview:self.timeLabel];
     
     [self.timeImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -339,51 +425,51 @@
 
 -(void)initBackView2{
     self.label1_1 = [[UILabel alloc] init];
-    self.label1_1.text = @"test";
+//    self.label1_1.text = @"test";
     [self.backView2 addSubview:self.label1_1];
     
     self.label1_2 = [[UILabel alloc] init];
-    self.label1_2.text = @"test";
+//    self.label1_2.text = @"test";
     [self.backView2 addSubview:self.label1_2];
     
     self.label2_1 = [[UILabel alloc] init];
-    self.label2_1.text = @"test";
+//    self.label2_1.text = @"test";
     [self.backView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
-    self.label2_2.text = @"test";
+//    self.label2_2.text = @"test";
     [self.backView2 addSubview:self.label2_2];
     
     self.label3_1 = [[UILabel alloc] init];
-    self.label3_1.text = @"test";
+//    self.label3_1.text = @"test";
     [self.backView2 addSubview:self.label3_1];
     
     self.label3_2 = [[UILabel alloc] init];
-    self.label3_2.text = @"test";
+//    self.label3_2.text = @"test";
     [self.backView2 addSubview:self.label3_2];
     
     self.label4_1 = [[UILabel alloc] init];
-    self.label4_1.text = @"test";
+//    self.label4_1.text = @"test";
     [self.backView2 addSubview:self.label4_1];
     
     self.label4_2 = [[UILabel alloc] init];
-    self.label4_2.text = @"test";
+//    self.label4_2.text = @"test";
     [self.backView2 addSubview:self.label4_2];
     
     self.label4_3 = [[UILabel alloc] init];
-    self.label4_3.text = @"test";
+//    self.label4_3.text = @"test";
     [self.backView2 addSubview:self.label4_3];
     
     self.label4_4 = [[UILabel alloc] init];
-    self.label4_4.text = @"test";
+//    self.label4_4.text = @"test";
     [self.backView2 addSubview:self.label4_4];
     
     self.label5_1 = [[UILabel alloc] init];
-    self.label5_1.text = @"test";
+//    self.label5_1.text = @"test";
     [self.backView2 addSubview:self.label5_1];
     
     self.label5_2 = [[UILabel alloc] init];
-    self.label5_2.text = @"test";
+//    self.label5_2.text = @"test";
     [self.backView2 addSubview:self.label5_2];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
