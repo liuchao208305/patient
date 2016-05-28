@@ -100,12 +100,14 @@
 -(void)initNavBar{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
-    label.text = @"病历本列表";
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:20];
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+//    label.text = @"病历本列表";
+//    label.textColor = [UIColor whiteColor];
+//    label.font = [UIFont systemFontOfSize:20];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    self.navigationItem.titleView = label;
+    self.title=@"病历本列表";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
 }
 
 -(void)initTabBar{

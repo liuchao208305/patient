@@ -133,12 +133,14 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
-    label.text = self.healthName;
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:20];
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+//    label.text = self.healthName;
+//    label.textColor = [UIColor whiteColor];
+//    label.font = [UIFont systemFontOfSize:20];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    self.navigationItem.titleView = label;
+    self.title = self.healthName;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"test_result_detail_share_button"] style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClicked)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;

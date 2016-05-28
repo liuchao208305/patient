@@ -98,12 +98,14 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
-    label.text = @"预约单确认";
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:20];
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
+//    label.text = @"预约单确认";
+//    label.textColor = [UIColor whiteColor];
+//    label.font = [UIFont systemFontOfSize:20];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    self.navigationItem.titleView = label;
+    self.title=@"预约单确认";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回首页" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonClicked)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;

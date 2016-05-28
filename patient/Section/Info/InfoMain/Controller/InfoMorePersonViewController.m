@@ -118,12 +118,8 @@
 //    
 //    self.navigationItem.titleView = self.searchView;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
-    label.text = @"专家列表";
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:20];
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
+    self.title=@"专家列表";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
 }
 
 -(void)initTabBar{

@@ -138,7 +138,7 @@
     
     [self lazyLoading];
     
-    [self initNavBar];
+//    [self initNavBar];
     [self initTabBar];
     [self initView];
     [self initRecognizer];
@@ -184,11 +184,13 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    self.navTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 20)];
-    self.navTitleLabel.textColor = [UIColor whiteColor];
-    self.navTitleLabel.font = [UIFont systemFontOfSize:20];
-    self.navTitleLabel.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = self.navTitleLabel;
+//    self.navTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 20)];
+//    self.navTitleLabel.textColor = [UIColor whiteColor];
+//    self.navTitleLabel.font = [UIFont systemFontOfSize:20];
+//    self.navTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    self.navigationItem.titleView = self.navTitleLabel;
+    self.title = self.navTitle;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
 }
 
 -(void)initTabBar{
@@ -1151,7 +1153,8 @@
 #pragma mark Data Filling
 -(void)medicineReceivingDataFilling{
     DLog(@"medicineReceivingDataFilling");
-    self.navTitleLabel.text = self.navTitle;
+//    self.navTitleLabel.text = self.navTitle;
+    [self initNavBar];
 }
 
 @end
