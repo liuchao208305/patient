@@ -172,6 +172,8 @@
     self.tableView1.tableHeaderView = self.headView;
     self.tableView1.tableFooterView = self.footView;
     
+    [self.tableView1.mj_header beginRefreshing];
+    
     self.tableView1.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self sendCouponCheckRequest1];
     }];
@@ -193,6 +195,8 @@
     self.tableView2.tableHeaderView = self.headView;
     self.tableView2.tableFooterView = self.footView;
     
+    [self.tableView2.mj_header beginRefreshing];
+    
     self.tableView2.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self sendCouponCheckRequest2];
     }];
@@ -213,6 +217,8 @@
     
     self.tableView3.tableHeaderView = self.headView;
     self.tableView3.tableFooterView = self.footView;
+    
+    [self.tableView3.mj_header beginRefreshing];
     
     self.tableView3.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self sendCouponCheckRequest3];
@@ -395,13 +401,18 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            
+            [HudUtil showSimpleTextOnlyHUD:@"兑换成功！" withDelaySeconds:kHud_DelayTime];
+            [self.tableView1.mj_header beginRefreshing];
+            [self.tableView2.mj_header beginRefreshing];
+            [self.tableView3.mj_header beginRefreshing];
         }else{
             DLog(@"%@",self.message);
             if (self.code == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
+            }else{
+                [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
             }
         }
         
