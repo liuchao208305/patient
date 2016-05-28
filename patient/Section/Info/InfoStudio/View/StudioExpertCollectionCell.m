@@ -8,6 +8,7 @@
 //
 
 #import "StudioExpertCollectionCell.h"
+#import "AdaptionUtil.h"
 
 @implementation StudioExpertCollectionCell
 
@@ -31,6 +32,8 @@
     [self.contentView addSubview:self.label1];
     
     self.label2 = [[UILabel alloc] init];
+    self.label2.numberOfLines = 0;
+    self.label2.font = [UIFont systemFontOfSize:12];
     self.label2.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label2];
     
@@ -49,10 +52,13 @@
     }];
     
     [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.contentView).offset(0);
+//        make.centerX.equalTo(self.contentView).offset(0);
         make.top.equalTo(self.label1).offset(15+12);
-        make.width.mas_equalTo(SCREEN_WIDTH/3);
-        make.height.mas_equalTo(15);
+        make.leading.equalTo(self.contentView).offset(10);
+        make.trailing.equalTo(self.contentView).offset(-10);
+        make.bottom.equalTo(self.contentView).offset(-5);
+//        make.width.mas_equalTo(SCREEN_WIDTH/3);
+//        make.height.mas_equalTo(15);
     }];
 }
 
