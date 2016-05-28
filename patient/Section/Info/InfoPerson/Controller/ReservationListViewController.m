@@ -200,28 +200,30 @@
     }];
     /*=======================================================================*/
     self.expertLabel = [[UILabel alloc] init];
-    self.expertLabel.text = @"test";
+//    self.expertLabel.text = @"test";
     [self.backView1 addSubview:self.expertLabel];
     
     self.doctorLabel = [[UILabel alloc] init];
-    self.doctorLabel.text = @"test";
+//    self.doctorLabel.text = @"test";
     [self.backView1 addSubview:self.doctorLabel];
     
     self.clinicLabel = [[UILabel alloc] init];
-    self.clinicLabel.text = @"test";
+//    self.clinicLabel.text = @"test";
     [self.backView1 addSubview:self.clinicLabel];
     
     self.addressLabel = [[UILabel alloc] init];
-    self.addressLabel.text = @"test";
+//    self.addressLabel.text = @"test";
     [self.backView1 addSubview:self.addressLabel];
     
     self.moneyLabel1 = [[UILabel alloc] init];
-    self.moneyLabel1.text = @"test";
+    self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
+//    self.moneyLabel1.text = @"test";
     self.moneyLabel1.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel1];
     
     self.moneyLabel2  = [[UILabel alloc] init];
-    self.moneyLabel2.text = @"test";
+    self.moneyLabel2.textColor = [UIColor redColor];
+//    self.moneyLabel2.text = @"test";
     self.moneyLabel2.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel2];
     
@@ -302,7 +304,7 @@
     [self.backView1 addSubview:self.timeImage];
     
     self.timeLabel = [[UILabel alloc] init];
-    self.timeLabel.text = @"test";
+//    self.timeLabel.text = @"test";
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.timeLabel];
     
@@ -323,51 +325,51 @@
 
 -(void)initBackView2{
     self.label1_1 = [[UILabel alloc] init];
-    self.label1_1.text = @"test";
+//    self.label1_1.text = @"test";
     [self.backView2 addSubview:self.label1_1];
     
     self.label1_2 = [[UILabel alloc] init];
-    self.label1_2.text = @"test";
+//    self.label1_2.text = @"test";
     [self.backView2 addSubview:self.label1_2];
     
     self.label2_1 = [[UILabel alloc] init];
-    self.label2_1.text = @"test";
+//    self.label2_1.text = @"test";
     [self.backView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
-    self.label2_2.text = @"test";
+//    self.label2_2.text = @"test";
     [self.backView2 addSubview:self.label2_2];
     
     self.label3_1 = [[UILabel alloc] init];
-    self.label3_1.text = @"test";
+//    self.label3_1.text = @"test";
     [self.backView2 addSubview:self.label3_1];
     
     self.label3_2 = [[UILabel alloc] init];
-    self.label3_2.text = @"test";
+//    self.label3_2.text = @"test";
     [self.backView2 addSubview:self.label3_2];
     
     self.label4_1 = [[UILabel alloc] init];
-    self.label4_1.text = @"test";
+//    self.label4_1.text = @"test";
     [self.backView2 addSubview:self.label4_1];
     
     self.label4_2 = [[UILabel alloc] init];
-    self.label4_2.text = @"test";
+//    self.label4_2.text = @"test";
     [self.backView2 addSubview:self.label4_2];
     
     self.label4_3 = [[UILabel alloc] init];
-    self.label4_3.text = @"test";
+//    self.label4_3.text = @"test";
     [self.backView2 addSubview:self.label4_3];
     
     self.label4_4 = [[UILabel alloc] init];
-    self.label4_4.text = @"test";
+//    self.label4_4.text = @"test";
     [self.backView2 addSubview:self.label4_4];
     
     self.label5_1 = [[UILabel alloc] init];
-    self.label5_1.text = @"test";
+//    self.label5_1.text = @"test";
     [self.backView2 addSubview:self.label5_1];
     
     self.label5_2 = [[UILabel alloc] init];
-    self.label5_2.text = @"test";
+//    self.label5_2.text = @"test";
     [self.backView2 addSubview:self.label5_2];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -756,7 +758,16 @@
     self.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.self.publicDoctorName];
     self.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.publicClinicName];
     self.addressLabel.text = self.publicClinicAddress;
-    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
+//    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
+    
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %ld",(long)self.publicFormerMoney];
+    NSUInteger length = [oldPrice length];
+    
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+    [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(2, length-2)];
+    [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
+    [self.moneyLabel1 setAttributedText:attri];
+    
     self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
     [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
     self.timeLabel.text = self.publicAppiontmentTime;

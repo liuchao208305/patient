@@ -712,8 +712,17 @@
         cell.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.doctorName];
         cell.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.clinicName];
         cell.addressLabel.text = [NSString stringWithFormat:@"                   %@",self.clinicAddress];
-        cell.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
-        cell.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.latterMoney];
+//        cell.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
+        
+        NSString *oldPrice = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
+        NSUInteger length = [oldPrice length];
+        
+        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+        [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(2, length-2)];
+        [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
+        [cell.moneyLabel1 setAttributedText:attri];
+        
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.latterMoney];
         [cell.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
         cell.timeLabel.text = self.bookTime;
         

@@ -78,12 +78,14 @@
         [self.contentView addSubview:self.addressLabel];
         
         self.moneyLabel1 = [[UILabel alloc] init];
+        self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
         self.moneyLabel1.font = [UIFont systemFontOfSize:13];
         self.moneyLabel1.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel1.text = @"test";
         [self.contentView addSubview:self.moneyLabel1];
         
         self.moneyLabel2  = [[UILabel alloc] init];
+        self.moneyLabel2.textColor = [UIColor redColor];
         self.moneyLabel2.font = [UIFont systemFontOfSize:13];
         self.moneyLabel2.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel2.text = @"test";
@@ -151,10 +153,14 @@
         [self.contentView addSubview:self.addressLabel];
         
         self.moneyLabel1 = [[UILabel alloc] init];
+        self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
+        self.moneyLabel1.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel1.text = @"test";
         [self.contentView addSubview:self.moneyLabel1];
         
         self.moneyLabel2  = [[UILabel alloc] init];
+        self.moneyLabel2.textColor = [UIColor redColor];
+        self.moneyLabel2.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel2.text = @"test";
         [self.contentView addSubview:self.moneyLabel2];
         

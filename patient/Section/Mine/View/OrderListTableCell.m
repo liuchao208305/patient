@@ -40,14 +40,17 @@
     [self.contentView addSubview:self.lineView1];
     
     self.label2_1 = [[UILabel alloc] init];
+    self.label2_1.textColor = kLIGHT_GRAY_COLOR;
 //    self.label2_1.text = @"今年";
     [self.contentView addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
+    self.label2_2.textColor = kLIGHT_GRAY_COLOR;
 //    self.label2_2.text = @"01-26";
     [self.contentView addSubview:self.label2_2];
     
     self.label2_3 = [[UILabel alloc] init];
+    self.label2_3.textColor = kLIGHT_GRAY_COLOR;
 //    self.label2_3.text = @"13:35";
     [self.contentView addSubview:self.label2_3];
     
@@ -220,6 +223,7 @@
         }];
         
         self.label2_10.font = [UIFont systemFontOfSize:13];
+        [self.label2_10 setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
         [self.label2_10 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(self.contentView).offset(-12);
             make.centerY.equalTo(self.label2_4).offset(0);
@@ -286,7 +290,7 @@
         [self.label2_7 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.label2_4).offset(80);
             make.centerY.equalTo(self.label2_4).offset(0);
-            make.width.mas_equalTo(80);
+            make.width.mas_equalTo(100);
             make.height.mas_equalTo(13);
         }];
         
@@ -304,6 +308,7 @@
             make.height.mas_equalTo(13);
         }];
         
+        [self.label2_10 setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
         [self.label2_10 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(self.contentView).offset(-12);
             make.centerY.equalTo(self.label2_4).offset(0);

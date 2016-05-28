@@ -266,11 +266,13 @@
         
         self.moneyLabel1 = [[UILabel alloc] init];
         self.moneyLabel1.font = [UIFont systemFontOfSize:13];
+        self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
         self.moneyLabel1.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel1.text = @"test";
         [self.backView1 addSubview:self.moneyLabel1];
         
         self.moneyLabel2  = [[UILabel alloc] init];
+        self.moneyLabel2.textColor = [UIColor redColor];
         self.moneyLabel2.font = [UIFont systemFontOfSize:13];
         self.moneyLabel2.textAlignment = NSTextAlignmentRight;
 //        self.moneyLabel2.text = @"test";
@@ -338,10 +340,12 @@
         [self.backView1 addSubview:self.addressLabel];
         
         self.moneyLabel1 = [[UILabel alloc] init];
+        self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
 //        self.moneyLabel1.text = @"test";
         [self.backView1 addSubview:self.moneyLabel1];
         
         self.moneyLabel2  = [[UILabel alloc] init];
+        self.moneyLabel2.textColor = [UIColor redColor];
 //        self.moneyLabel2.text = @"test";
         [self.backView1 addSubview:self.moneyLabel2];
         
@@ -1023,7 +1027,16 @@
     self.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.fixDoctorName];
     self.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.fixClinicName];
     self.addressLabel.text = [NSString stringWithFormat:@"                   %@",self.fixClinicAddress];
-    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.fixFormerMoney];
+//    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.2f",self.fixFormerMoney];
+    
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %.2f",self.fixFormerMoney];
+    NSUInteger length = [oldPrice length];
+    
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+    [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(2, length-2)];
+    [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
+    [self.moneyLabel1 setAttributedText:attri];
+    
     self.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.fixLatterMoney];
     [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
     self.timeLabel.text = self.fixAppiontmentTime;

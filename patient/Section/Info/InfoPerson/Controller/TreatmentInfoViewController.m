@@ -229,12 +229,14 @@
     [self.backView1 addSubview:self.addressLabel];
     
     self.moneyLabel1 = [[UILabel alloc] init];
+    self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
 //    self.moneyLabel1.text = @"test";
     self.moneyLabel1.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel1];
     
     self.moneyLabel2  = [[UILabel alloc] init];
 //    self.moneyLabel2.text = @"test";
+    self.moneyLabel2.textColor = [UIColor redColor];
     self.moneyLabel2.textAlignment = NSTextAlignmentRight;
     [self.backView1 addSubview:self.moneyLabel2];
     
@@ -1153,7 +1155,16 @@
     self.doctorLabel.text = [NSString stringWithFormat:@"门诊医生：%@",self.doctorName];
     self.clinicLabel.text = [NSString stringWithFormat:@"门诊地址：%@",self.clinicName];
     self.addressLabel.text = self.clinicAddress;
-    self.moneyLabel1.text = [NSString stringWithFormat:@"%.0f",self.formerMoney];
+//    self.moneyLabel1.text = [NSString stringWithFormat:@"%.0f",self.formerMoney];
+    
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %ld",(long)self.formerMoney];
+    NSUInteger length = [oldPrice length];
+    
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+    [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(2, length-2)];
+    [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
+    [self.moneyLabel1 setAttributedText:attri];
+    
     self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.latterMoney];
     if ([self.appiontmentTime2 intValue] == 1) {
         self.timeLabel.text = [NSString stringWithFormat:@"%@  上午",self.appiontmentTime1];
