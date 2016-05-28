@@ -382,20 +382,41 @@
 }
 
 #pragma mark Target Action
--(void)allButtonClicked{
+-(void)allButtonClicked:(UIButton *)sender{
     DLog(@"allButtonClicked");
+    DLog(@"%ld",(long)sender.tag);
+    DLog(@"%@",sender.titleLabel.text);
+    if ([sender.titleLabel.text isEqualToString:@"立即支付"]) {
+        TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+        detaiVC.isFromOrderListVC = YES;
+        detaiVC.orderNumber = self.orderPayIdArrayAll[sender.tag-10000];
+        [self.navigationController pushViewController:detaiVC animated:YES];
+    }else{
+        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+        medicineVC.orderNumber = self.orderIdArrayAll[sender.tag-10000];
+        [self.navigationController pushViewController:medicineVC animated:YES];
+    }
 }
 
--(void)bookedButtonClicked{
+-(void)bookedButtonClicked:(UIButton *)sender{
     DLog(@"bookedButtonClicked");
+    DLog(@"%ld",(long)sender.tag);
+    TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+    detaiVC.isFromOrderListVC = YES;
+    detaiVC.orderNumber = self.orderPayIdArrayBooked[sender.tag-20000];
+    [self.navigationController pushViewController:detaiVC animated:YES];
 }
 
 -(void)proceedingButtonClicked{
     DLog(@"proceedingButtonClicked");
 }
 
--(void)evaluatingButtonClicked{
+-(void)evaluatingButtonClicked:(UIButton *)sender{
     DLog(@"evaluatingButtonClicked");
+    DLog(@"%ld",(long)sender.tag);
+    MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+    medicineVC.orderNumber = self.orderIdArrayEvaluating[sender.tag-40000];
+    [self.navigationController pushViewController:medicineVC animated:YES];
 }
 
 -(void)completedButtonClicked{
@@ -468,8 +489,9 @@
         if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1){
             if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 0) {
                 cell.label1_3.text = @"未支付";
+                cell.button.tag = 10000+indexPath.section;
                 [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
-                [cell.button addTarget:self action:@selector(bookedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+                [cell.button addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1){
                 cell.label1_3.text = @"已支付";
                 cell.lineView2.hidden = YES;
@@ -509,8 +531,9 @@
         
         if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
             cell.label1_3.text = @"未支付";
+            cell.button.tag = 20000+indexPath.section;
             [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
-            [cell.button addTarget:self action:@selector(bookedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
             cell.label1_3.text = @"已支付";
             cell.lineView2.hidden = YES;
@@ -556,8 +579,9 @@
         cell.label1_2.text = self.orderBookTimeArrayEvaluating[indexPath.section];
         
         cell.label1_3.text = @"待评价";
+        cell.button.tag = 40000+indexPath.section;
         [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
-        [cell.button addTarget:self action:@selector(evaluatingButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button addTarget:self action:@selector(evaluatingButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.label2_1.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringToIndex:4];
         cell.label2_2.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
@@ -599,6 +623,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
+        
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
 #warning 跳转回来，页面重新初始化，触发不了此方法
