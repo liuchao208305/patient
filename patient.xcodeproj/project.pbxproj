@@ -222,6 +222,9 @@
 		708274E71CF8227F0016AE3C /* TestContactCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274E61CF8227F0016AE3C /* TestContactCollectionCell.m */; };
 		708274F01CF846EA0016AE3C /* MineAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */; };
 		708274F21CF84D880016AE3C /* mine_aboutus_logo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */; };
+		708274F51CF936080016AE3C /* MineCustomServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274F41CF936080016AE3C /* MineCustomServiceViewController.m */; };
+		708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */; };
+		708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -768,6 +771,10 @@
 		708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineAboutUsViewController.h; sourceTree = "<group>"; };
 		708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineAboutUsViewController.m; sourceTree = "<group>"; };
 		708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_aboutus_logo_image.png; sourceTree = "<group>"; };
+		708274F31CF936080016AE3C /* MineCustomServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCustomServiceViewController.h; sourceTree = "<group>"; };
+		708274F41CF936080016AE3C /* MineCustomServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCustomServiceViewController.m; sourceTree = "<group>"; };
+		708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_customservice_hotline_image.png; sourceTree = "<group>"; };
+		708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_customservice_logo_image.png; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1477,6 +1484,8 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */,
+				708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */,
 				708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */,
 				708274E01CF7F5A50016AE3C /* mine_record_detail_patient_image.png */,
 				70FD8E7E1CED80ED00DA22E5 /* info_health_comment_after.png */,
@@ -2124,6 +2133,8 @@
 				702939911C9273FA008280E2 /* MineViewController.m */,
 				70B4EA881CCD0A9600141E38 /* MineSettingViewController.h */,
 				70B4EA891CCD0A9600141E38 /* MineSettingViewController.m */,
+				708274F31CF936080016AE3C /* MineCustomServiceViewController.h */,
+				708274F41CF936080016AE3C /* MineCustomServiceViewController.m */,
 				708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */,
 				708274EF1CF846EA0016AE3C /* MineAboutUsViewController.m */,
 				70B4EA901CCE2E5700141E38 /* MineChangePasswordViewController.h */,
@@ -2620,6 +2631,7 @@
 				7046AD2B1C97E5D700BB6818 /* navbar_right_item.png in Resources */,
 				705EF80B1CBD02A300732886 /* mine_top_patient_image.png in Resources */,
 				7046AD181C97E5D700BB6818 /* cell_disease_pifuke_button.png in Resources */,
+				708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */,
 				7002D8721CB3BBBF0074426A /* info_treatment_unselected_button.png in Resources */,
 				7046AD331C97E5D700BB6818 /* tabbar_test_selected.png in Resources */,
 				7046AD261C97E5D700BB6818 /* guideview3.jpg in Resources */,
@@ -2679,6 +2691,7 @@
 				70FEADF91CAB7710006A044A /* info_expert_guanzhu_normal.png in Resources */,
 				7046AD741C9A426100BB6818 /* login_third_login_qq.png in Resources */,
 				7046AD371C97E8D300BB6818 /* launchimage.jpg in Resources */,
+				708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */,
 				70926CE21CC4DA4600CB0416 /* info_coupon_blue_back_image.png in Resources */,
 				7046ADB91CA0F8B400BB6818 /* info_scrollview1.png in Resources */,
 				7002D87A1CB49F7F0074426A /* info_treatment_online_normal.png in Resources */,
@@ -2972,6 +2985,7 @@
 				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				708B52FB1CEB19070033C479 /* HealthDishInfoViewController.m in Sources */,
+				708274F51CF936080016AE3C /* MineCustomServiceViewController.m in Sources */,
 				708274D01CF7E7460016AE3C /* RDFYcishuTableCell.m in Sources */,
 				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
 				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,

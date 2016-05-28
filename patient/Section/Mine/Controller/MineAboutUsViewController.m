@@ -107,15 +107,15 @@
     self.contentLabel.numberOfLines = 0;
     [self.view addSubview:self.contentLabel];
     
-    self.hotLineLabel = [[UILabel alloc] init];
-    self.hotLineLabel.text = @"咨询热线：400-800-1801";
-    self.hotLineLabel.textColor = kMAIN_COLOR;
-    self.hotLineLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.hotLineLabel];
-    
+//    self.hotLineLabel = [[UILabel alloc] init];
+//    self.hotLineLabel.text = @"咨询热线：400-800-1801";
+//    self.hotLineLabel.textColor = kMAIN_COLOR;
+//    self.hotLineLabel.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:self.hotLineLabel];
+//    
     self.companyLabel = [[UILabel alloc] init];
     self.companyLabel.text = @"©杭州聪宝科技有限公司";
-    self.companyLabel.font = [UIFont systemFontOfSize:11];
+//    self.companyLabel.font = [UIFont systemFontOfSize:11];
     self.companyLabel.textColor = kLIGHT_GRAY_COLOR;
     self.companyLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.companyLabel];
@@ -147,13 +147,13 @@
         make.trailing.equalTo(self.view).offset(-30);
     }];
     
-    [self.hotLineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.companyLabel).offset(-15-15);
-        make.centerX.equalTo(self.view).offset(0);
-        make.width.mas_equalTo(SCREEN_WIDTH);
-        make.height.mas_equalTo(15);
-    }];
-    
+//    [self.hotLineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.companyLabel).offset(-15-15);
+//        make.centerX.equalTo(self.view).offset(0);
+//        make.width.mas_equalTo(SCREEN_WIDTH);
+//        make.height.mas_equalTo(15);
+//    }];
+ 
     [self.companyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-34);
         make.centerX.equalTo(self.view).offset(0);

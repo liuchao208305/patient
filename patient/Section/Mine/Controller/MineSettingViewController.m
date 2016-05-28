@@ -18,6 +18,7 @@
 #import "BaseTabBarController.h"
 #import "MineChangePasswordViewController.h"
 #import "MineAboutUsViewController.h"
+#import "MineCustomServiceViewController.h"
 
 @interface MineSettingViewController ()
 
@@ -593,10 +594,12 @@
 
 -(void)subBackView3_2Clicked{
     DLog(@"subBackView3_2Clicked");
-    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
-    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
-    agreementVC.titleStr = @"联系客服";
-    [self.navigationController pushViewController:agreementVC animated:YES];
+//    AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
+//    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+//    agreementVC.titleStr = @"联系客服";
+//    [self.navigationController pushViewController:agreementVC animated:YES];
+    MineCustomServiceViewController *customServiceVC = [[MineCustomServiceViewController alloc] init];
+    [self.navigationController pushViewController:customServiceVC animated:YES];
 }
 
 -(void)subBackView3_3Clicked{
