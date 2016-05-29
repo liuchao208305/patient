@@ -85,7 +85,7 @@
     [self.expertNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertImageView).offset(60+10);
         make.top.equalTo(self.contentView).offset(25);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(14);
     }];
     
