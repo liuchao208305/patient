@@ -434,7 +434,7 @@
     [parameter setValue:self.textfield2.text forKey:@"newID_number"];
     [parameter setValue:self.textfield4.text forKey:@"phone"];
     [parameter setValue:self.textfield5.text forKey:@"age"];
-    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"user_sex"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"sex"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,KJZK_CONTACT_INFORMATION_ADD] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -481,9 +481,9 @@
     self.textfield4.text = self.contactMobile;
     self.textfield5.text = self.contactAge;
     
-    if ([self.contactSex integerValue] == 0) {
+    if ([self.contactSex integerValue] == 1) {
         [self button6_1Clicked];
-    }else if ([self.contactSex integerValue] == 1){
+    }else if ([self.contactSex integerValue] == 2){
         [self button6_2Clicked];
     }
     

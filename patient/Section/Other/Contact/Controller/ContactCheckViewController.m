@@ -57,7 +57,8 @@
     
     self.navigationController.navigationBar.hidden = NO;
     
-    [self sendContactCheckRequest];
+//    [self sendContactCheckRequest];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -158,22 +159,40 @@
     }
     
     for (int i = 0; i<self.contactArray.count; i++) {
-        cell.nameLabel.text = self.contactNameArray[indexPath.row];
-        if ([self.contactSexArray[indexPath.row] isEqualToString:@"0"]) {
-            cell.sexLabel.text = @"男";
-        }else{
-            cell.sexLabel.text = @"女";
+        if (indexPath.row == i) {
+            cell.nameLabel.text = self.contactNameArray[indexPath.row];
+            if ([self.contactSexArray[indexPath.row] isEqualToString:@"1"]) {
+                cell.sexLabel.text = @"男";
+            }else if ([self.contactSexArray[indexPath.row] isEqualToString:@"2"]){
+                cell.sexLabel.text = @"女";
+            }
+            cell.ageLabel.text = self.contactAgeArray[indexPath.row];
+            if ([self.contactRecordStatusArray[indexPath.row] isEqualToString:@"1"]) {
+                cell.recordStatusLabel.text = @"已有病历本";
+            }else if ([self.contactRecordStatusArray[indexPath.row] isEqualToString:@"0"]){
+                cell.recordStatusLabel.text = @"未建病历本";
+                cell.recordStatusLabel.textColor = kMAIN_COLOR;
+            }
+            cell.idTitleLabel.text = @"身份证号";
+            cell.idNumberLabel.text = self.contactIdNumberArray[indexPath.row];
         }
-        cell.ageLabel.text = self.contactAgeArray[indexPath.row];
-        if ([self.contactRecordStatusArray[indexPath.row] isEqualToString:@"1"]) {
-            cell.recordStatusLabel.text = @"已有病历本";
-        }else{
-            cell.recordStatusLabel.text = @"未建病历本";
-            cell.recordStatusLabel.textColor = kMAIN_COLOR;
-        }
-        cell.idTitleLabel.text = @"身份证号";
-        cell.idNumberLabel.text = self.contactIdNumberArray[indexPath.row];
     }
+    
+//    cell.nameLabel.text = self.contactNameArray[indexPath.row];
+//    if ([self.contactSexArray[indexPath.row] isEqualToString:@"1"]) {
+//        cell.sexLabel.text = @"男";
+//    }else if ([self.contactSexArray[indexPath.row] isEqualToString:@"2"]){
+//        cell.sexLabel.text = @"女";
+//    }
+//    cell.ageLabel.text = self.contactAgeArray[indexPath.row];
+//    if ([self.contactRecordStatusArray[indexPath.row] isEqualToString:@"1"]) {
+//        cell.recordStatusLabel.text = @"已有病历本";
+//    }else if ([self.contactRecordStatusArray[indexPath.row] isEqualToString:@"0"]){
+//        cell.recordStatusLabel.text = @"未建病历本";
+//        cell.recordStatusLabel.textColor = kMAIN_COLOR;
+//    }
+//    cell.idTitleLabel.text = @"身份证号";
+//    cell.idNumberLabel.text = self.contactIdNumberArray[indexPath.row];
     
     return cell;
 }
@@ -306,6 +325,14 @@
 #pragma mark Data Parse
 -(void)contactCheckDataParse{
     self.contactArray = [ContactData mj_objectArrayWithKeyValuesArray:self.data];
+    [self.contactPatientIdArray removeAllObjects];
+    [self.contactIdArray removeAllObjects];
+    [self.contactNameArray removeAllObjects];
+    [self.contactSexArray removeAllObjects];
+    [self.contactAgeArray removeAllObjects];
+    [self.contactRecordStatusArray removeAllObjects];
+    [self.contactIdNumberArray removeAllObjects];
+    [self.contactPhoneArray removeAllObjects];
     for (ContactData *contactData in self.contactArray) {
         [self.contactPatientIdArray addObject:contactData.user_id];
         [self.contactIdArray addObject:contactData.contact_id];
