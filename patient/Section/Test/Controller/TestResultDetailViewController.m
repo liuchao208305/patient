@@ -45,6 +45,8 @@
 @property (strong,nonatomic)NSString *tt_prescription;
 @property (strong,nonatomic)NSString *lzjj;
 
+@property (strong,nonatomic)NSString *shareUrl;
+
 @end
 
 @implementation TestResultDetailViewController
@@ -365,10 +367,15 @@
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                              appKey:@"56df91e4e0f55a811e002783"
-                                          shareText:@"友盟社会化分享让您快速实现分享等社会化功能"
+                                      shareText:[NSString stringWithFormat:@"我的体质是：%@",self.main_result]
                                          shareImage:[UIImage imageNamed:@"default_image_small"]
                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                            delegate:self];
+    
+    [UMSocialData defaultData].extConfig.qqData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.qzoneData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.shareUrl;
 }
 
 #pragma mark Network Request
@@ -433,6 +440,8 @@
     
     self.tt_prescription = [NullUtil judgeStringNull:[self.data objectForKey:@"tt_prescription"]];
     self.lzjj = [NullUtil judgeStringNull:[self.data objectForKey:@"lzjj"]];
+    
+    self.shareUrl = [NullUtil judgeStringNull:[self.data objectForKey:@"fenxURL"]];
     
     [self testResultDetailDataFilling];
 }
