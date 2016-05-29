@@ -286,6 +286,9 @@
     }else if (indexPath.section == 2){
         return 50;
     }
+    else if (indexPath.section == 3){
+        return 40+[StringUtil cellWithStr:self.recordDetailResult[indexPath.row][@"content"] fontSize:15 width:SCREEN_WIDTH]+20;
+    }
     else if (indexPath.section == 7){
         return 40;
     }else if (indexPath.section == 9){
@@ -772,12 +775,24 @@
         if (!cell) {
             cell = [[MRTemplateGeneralTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
-        
-        for (int i = 0; i<self.recordDetailResult.count; i++) {
-            if (indexPath.row == i) {
-                cell.titleLabel.text = [self.recordDetailResult[i][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"title"];
-                cell.contentLabel.text = [self.recordDetailResult[i][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"content"];
-            }
+//
+//        for (int i = 0; i<self.recordDetailResult.count; i++) {
+//            if (indexPath.row == i) {
+//                cell.titleLabel.text = [self.recordDetailResult[i][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"title"];
+//                cell.contentLabel.text = [self.recordDetailResult[i][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[i][@"content"];
+//            }
+//        }
+//        
+//        return cell;
+        cell.titleLabel.text = [self.recordDetailResult[indexPath.row][@"title"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[indexPath.row][@"title"];
+        cell.contentLabel.text = [self.recordDetailResult[indexPath.row][@"content"] isEqualToString:@""] ? @"暂无" : self.recordDetailResult[indexPath.row][@"content"];
+        if ([self.recordDetailResult[indexPath.row][@"content"] rangeOfString:@"#"].location !=NSNotFound) {
+            NSArray *strArr = [self.recordDetailResult[indexPath.row][@"content"] componentsSeparatedByString:@"#"];
+            // 获取16进制颜色值
+            NSString *colorValue = [NSString stringWithFormat:@"#%@",[strArr lastObject]];
+            cell.detailImageView.backgroundColor = [UIColor getColor:colorValue];
+        }else{
+            cell.detailImageView.hidden = YES;
         }
         
         return cell;
