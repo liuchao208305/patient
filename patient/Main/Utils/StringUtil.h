@@ -12,4 +12,6 @@
 
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
++(CGFloat)cellWithStr:(NSString *)str fontSize:(CGFloat)fontSize width:(CGFloat)width;
+
 @end
