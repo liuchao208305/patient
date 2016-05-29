@@ -226,6 +226,7 @@
 		708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */; };
 		708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */; };
 		708274FC1CFACE650016AE3C /* DishFoodCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274FB1CFACE650016AE3C /* DishFoodCollectionCell.m */; };
+		708274FE1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274FD1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -778,6 +779,7 @@
 		708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_customservice_logo_image.png; sourceTree = "<group>"; };
 		708274FA1CFACE650016AE3C /* DishFoodCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishFoodCollectionCell.h; sourceTree = "<group>"; };
 		708274FB1CFACE650016AE3C /* DishFoodCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishFoodCollectionCell.m; sourceTree = "<group>"; };
+		708274FD1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_xiangshang_image.png; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1487,6 +1489,7 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708274FD1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png */,
 				708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */,
 				708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */,
 				708274F11CF84D880016AE3C /* mine_aboutus_logo_image.png */,
@@ -2671,6 +2674,7 @@
 				705EF7E71CBC947600732886 /* mine_bottom_contact.png in Resources */,
 				70FEADFF1CAB80B5006A044A /* info_expert_shaixuan_di.png in Resources */,
 				7046AC6E1C974C5100BB6818 /* HealthTableCell.xib in Resources */,
+				708274FE1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png in Resources */,
 				70FEAD9B1CA51F76006A044A /* info_expert_xiangxia_image.png in Resources */,
 				7046AD2C1C97E5D700BB6818 /* tabbar_info_normal.png in Resources */,
 				7046AC731C974C7E00BB6818 /* StudioTableCell.xib in Resources */,

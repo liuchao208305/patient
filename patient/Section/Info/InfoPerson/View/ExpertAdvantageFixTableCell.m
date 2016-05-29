@@ -117,6 +117,7 @@
         [_textContent setFrame:CGRectMake(12, 16+15+5, SCREEN_WIDTH - 24, size.height)];
         
         [_moreTextBtn2 setFrame:CGRectMake(SCREEN_WIDTH/2, 16+15+size.height, 15, 15)];
+        [_moreTextBtn2 setImage:[UIImage imageNamed:@"info_expert_xiangshang_image"] forState:UIControlStateNormal];
         
         [_moreTextBtn setTitle:@"收起" forState:UIControlStateNormal];
         _moreTextBtn.titleLabel.font = [UIFont systemFontOfSize:16];
