@@ -19,6 +19,7 @@
 #import "MedicineReceivingViewController.h"
 #import "LoginViewController.h"
 #import "RecordDetailViewController.h"
+#import "TreatmentFinishViewController.h"
 
 @interface OrderListViewController ()
 
@@ -634,7 +635,9 @@
 
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
-        
+        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
+        finishVC.orderNumber = self.orderIdArrayProceeding[indexPath.section];
+        [self.navigationController pushViewController:finishVC animated:YES];
         
         [self.tableView3 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag4){
