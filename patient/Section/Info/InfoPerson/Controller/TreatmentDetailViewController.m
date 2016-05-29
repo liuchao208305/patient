@@ -333,10 +333,14 @@
         
         self.clinicLabel = [[UILabel alloc] init];
 //        self.clinicLabel.text = @"test";
+        self.clinicLabel.font = [UIFont systemFontOfSize:15];
+        self.clinicLabel.numberOfLines = 0;
         [self.backView1 addSubview:self.clinicLabel];
         
         self.addressLabel = [[UILabel alloc] init];
 //        self.addressLabel.text = @"test";
+        self.addressLabel.font = [UIFont systemFontOfSize:15];
+        self.addressLabel.numberOfLines = 0;
         [self.backView1 addSubview:self.addressLabel];
         
         self.moneyLabel1 = [[UILabel alloc] init];
@@ -366,16 +370,18 @@
         
         [self.clinicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.imageBackView).offset(90);
+            make.trailing.equalTo(self.backView1).offset(-10);
             make.top.equalTo(self.doctorLabel).offset(15+5);
-            make.width.mas_equalTo(300);
-            make.height.mas_equalTo(15);
+//            make.width.mas_equalTo(300);
+//            make.height.mas_equalTo(15);
         }];
         
         [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.imageBackView).offset(90);
             make.trailing.equalTo(self.backView1).offset(-25);
             make.top.equalTo(self.clinicLabel).offset(15+5);
-            make.width.mas_equalTo(300);
-            make.height.mas_equalTo(15);
+//            make.width.mas_equalTo(300);
+//            make.height.mas_equalTo(15);
         }];
         
         [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
