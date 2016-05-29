@@ -10,4 +10,6 @@
 
 @interface DishStepTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *label;
+
 @end

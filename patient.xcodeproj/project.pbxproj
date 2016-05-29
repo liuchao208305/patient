@@ -225,6 +225,7 @@
 		708274F51CF936080016AE3C /* MineCustomServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274F41CF936080016AE3C /* MineCustomServiceViewController.m */; };
 		708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */; };
 		708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */; };
+		708274FC1CFACE650016AE3C /* DishFoodCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708274FB1CFACE650016AE3C /* DishFoodCollectionCell.m */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -775,6 +776,8 @@
 		708274F41CF936080016AE3C /* MineCustomServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCustomServiceViewController.m; sourceTree = "<group>"; };
 		708274F61CF939E00016AE3C /* mine_customservice_hotline_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_customservice_hotline_image.png; sourceTree = "<group>"; };
 		708274F71CF939E00016AE3C /* mine_customservice_logo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_customservice_logo_image.png; sourceTree = "<group>"; };
+		708274FA1CFACE650016AE3C /* DishFoodCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishFoodCollectionCell.h; sourceTree = "<group>"; };
+		708274FB1CFACE650016AE3C /* DishFoodCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishFoodCollectionCell.m; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1917,6 +1920,8 @@
 				708B53001CEB28890033C479 /* DishDetailTableCell.m */,
 				708B53021CEB28CE0033C479 /* DishFoodTableCell.h */,
 				708B53031CEB28CE0033C479 /* DishFoodTableCell.m */,
+				708274FA1CFACE650016AE3C /* DishFoodCollectionCell.h */,
+				708274FB1CFACE650016AE3C /* DishFoodCollectionCell.m */,
 				708B53051CEB28F00033C479 /* DishStepTableCell.h */,
 				708B53061CEB28F00033C479 /* DishStepTableCell.m */,
 				708B53081CEB29520033C479 /* DishTabooTableCell.h */,
@@ -2832,6 +2837,7 @@
 				708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */,
 				705EF8011CBCA40600732886 /* MineOrderTableCell.m in Sources */,
 				707E5BBF1C96C02D00101B30 /* HealthData.m in Sources */,
+				708274FC1CFACE650016AE3C /* DishFoodCollectionCell.m in Sources */,
 				70B4EAF21CD8709F00141E38 /* MRShuimianTableCell.m in Sources */,
 				708274B81CF7E64C0016AE3C /* RDMaixiangTableCell.m in Sources */,
 				70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */,

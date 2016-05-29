@@ -23,4 +23,6 @@
 @property (strong,nonatomic)UIButton *commentButton;
 @property (strong,nonatomic)UIButton *favouriteButton;
 
+@property (strong,nonatomic)UICollectionView *collectionView;
+
 @end

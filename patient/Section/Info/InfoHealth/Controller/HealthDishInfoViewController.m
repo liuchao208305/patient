@@ -24,8 +24,9 @@
 #import "ExpertInfoViewController.h"
 #import "LoginViewController.h"
 #import "StringUtil.h"
+#import "DishFoodCollectionCell.h"
 
-@interface HealthDishInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthDishInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -268,7 +269,8 @@
             return [StringUtil cellWithStr:self.dishDetail fontSize:15 width:SCREEN_WIDTH]*1.6;
             break;
         case 2:
-            return 145;
+//            return 145;
+            return self.foodArray.count/3*49;
             break;
         case 3:
 //            return 46;
@@ -367,6 +369,15 @@
         if (!cell) {
             cell = [[DishFoodTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 340) collectionViewLayout:flowLayout];
+        self.collectionView.dataSource=self;
+        self.collectionView.delegate=self;
+        [self.collectionView setBackgroundColor:kWHITE_COLOR];
+        [self.collectionView registerClass:[DishFoodCollectionCell class] forCellWithReuseIdentifier:@"DishFoodCollectionCell"];
+        [cell.contentView addSubview:self.collectionView];
+        
         //填充数据
         return cell;
     }else if (indexPath.section == 3){
@@ -376,6 +387,7 @@
             cell = [[DishStepTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        cell.label.text = self.dishStep;
         
         return cell;
     }else if (indexPath.section == 4){
@@ -413,6 +425,49 @@
         [self.navigationController pushViewController:expertVC animated:YES];
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.foodArray.count == 0 ? 0 : self.foodArray.count;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellName = @"DishFoodCollectionCell";
+    DishFoodCollectionCell * cell = (DishFoodCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
+    
+    [cell.button setTitle:[NSString stringWithFormat:@"%@ %@",self.foodNameArray[indexPath.row],self.foodQuantityArray[indexPath.row]] forState:UIControlStateNormal];
+    [cell.button setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(SCREEN_WIDTH/3, 35+14);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"%ld",(long)indexPath.row);
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
 }
 
 #pragma mark Network Request
