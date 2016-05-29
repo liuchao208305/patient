@@ -59,6 +59,8 @@
 @property (assign,nonatomic)NSInteger commentFlag;
 @property (assign,nonatomic)NSInteger favouriteFlag;
 
+@property (strong,nonatomic)NSString *shareUrl;
+
 @end
 
 @implementation HealthFoodInfoViewController
@@ -186,10 +188,15 @@
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56df91e4e0f55a811e002783"
-                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能"
+                                      shareText:self.foodValue
                                      shareImage:[UIImage imageNamed:@"default_image_small"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,nil]
                                        delegate:self];
+    
+    [UMSocialData defaultData].extConfig.qqData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.qzoneData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.shareUrl;
 }
 
 -(void)commentButtonClicked{
@@ -527,6 +534,8 @@
         self.isFavourited = YES;
         [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
     }
+    
+    self.shareUrl = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"fenxURL"]];
     
     [self.tableView reloadData];
 }
