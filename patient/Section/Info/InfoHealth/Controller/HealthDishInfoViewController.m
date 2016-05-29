@@ -57,6 +57,7 @@
 @property (strong,nonatomic)NSMutableArray *foodImageArray;
 
 @property (strong,nonatomic)NSString *dishStep;
+@property (strong,nonatomic)NSString *dishStepFix;
 
 @property (strong,nonatomic)NSString *dishTaboo;
 
@@ -274,7 +275,8 @@
             break;
         case 3:
 //            return 46;
-            return [StringUtil cellWithStr:self.dishStep fontSize:15 width:SCREEN_WIDTH]*1.6;
+//            return [StringUtil cellWithStr:self.dishStep fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.dishStepFix fontSize:15 width:SCREEN_WIDTH]*1.6;
             break;
         case 4:
 //            return 145;
@@ -387,7 +389,8 @@
             cell = [[DishStepTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
-        cell.label.text = self.dishStep;
+//        cell.label.text = self.dishStep;
+        cell.label.text = self.dishStepFix;
         
         return cell;
     }else if (indexPath.section == 4){
@@ -607,6 +610,10 @@
     }
     
     self.dishStep = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"buzhou"]];
+    DLog(@"self.dishStep-->%@",self.dishStep);
+    
+    self.dishStepFix = [self.dishStep stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n"];
+    DLog(@"self.dishStepFix-->%@",self.dishStepFix);
     
     self.dishTaboo = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"food_jj"]];
     
