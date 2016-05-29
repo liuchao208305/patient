@@ -624,6 +624,20 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
+        if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"1"]) {
+            TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+            detaiVC.isFromOrderListVC = YES;
+            detaiVC.orderNumber = self.orderPayIdArrayAll[indexPath.section];
+            [self.navigationController pushViewController:detaiVC animated:YES];
+        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"5"]){
+            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+            [self.navigationController pushViewController:medicineVC animated:YES];
+        }else{
+            TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
+            finishVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+            [self.navigationController pushViewController:finishVC animated:YES];
+        }
         
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
