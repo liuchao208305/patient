@@ -13,6 +13,7 @@
 #import "NullUtil.h"
 #import "AnalyticUtil.h"
 #import "LoginViewController.h"
+#import "StringUtil.h"
 
 @interface MineMessageDetailViewController ()
 
@@ -40,7 +41,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+//    [self initView];
     [self initRecognizer];
 }
 
@@ -115,7 +116,8 @@
         make.leading.equalTo(self.view).offset(12);
         make.trailing.equalTo(self.view).offset(-12);
         make.top.equalTo(self.timeLabel).offset(15+10);
-        make.height.mas_equalTo(200);
+//        make.height.mas_equalTo(200);
+        make.height.mas_equalTo([StringUtil cellWithStr:self.detailContent fontSize:15 width:SCREEN_WIDTH]*2);
     }];
     
     self.contentLabel = [[UILabel alloc] init];
@@ -187,6 +189,8 @@
 -(void)mineMessageDetailDataParse{
     self.detailTime = [NullUtil judgeStringNull:[self.data objectForKey:@"create_date"]];
     self.detailContent = [NullUtil judgeStringNull:[self.data objectForKey:@"content"]];
+    
+    [self initView];
     
     [self mineMessageDetailDataFilling];
 }
