@@ -23,6 +23,7 @@
 #import "DishExpertData.h"
 #import "ExpertInfoViewController.h"
 #import "LoginViewController.h"
+#import "StringUtil.h"
 
 @interface HealthDishInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -263,16 +264,19 @@
             return 66;
             break;
         case 1:
-            return 260;
+//            return 260;
+            return [StringUtil cellWithStr:self.dishDetail fontSize:15 width:SCREEN_WIDTH]*1.6;
             break;
         case 2:
             return 145;
             break;
         case 3:
-            return 46;
+//            return 46;
+            return [StringUtil cellWithStr:self.dishStep fontSize:15 width:SCREEN_WIDTH]*1.6;
             break;
         case 4:
-            return 145;
+//            return 145;
+            return [StringUtil cellWithStr:self.dishTaboo fontSize:15 width:SCREEN_WIDTH]*1.6;
             break;
         case 5:
             return 90;
@@ -372,6 +376,7 @@
             cell = [[DishStepTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        
         return cell;
     }else if (indexPath.section == 4){
         static NSString *cellName = @"DishTabooTableCell";
