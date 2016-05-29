@@ -21,7 +21,7 @@
 #pragma mark Init Section
 -(void)initView{
     self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.text = @"test";
+//    self.titleLabel.text = @"test";
     self.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.titleLabel];
     
@@ -30,10 +30,14 @@
     [self.contentView addSubview:self.lineView];
     
     self.contentLabel = [[UILabel alloc] init];
-    self.contentLabel.text = @"test";
+//    self.contentLabel.text = @"test";
+    self.contentLabel.numberOfLines = 0;
     self.contentLabel.textColor = kLIGHT_GRAY_COLOR;
     self.contentLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:self.contentLabel];
+    
+    self.detailImageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:self.detailImageView];
     
     self.lineViewFix = [[UIView alloc] init];
     self.lineViewFix.backgroundColor = kBACKGROUND_COLOR;
@@ -57,7 +61,14 @@
         make.top.equalTo(self.lineView).offset(1+5);
         make.leading.equalTo(self.contentView).offset(12);
         make.trailing.equalTo(self.contentView).offset(-12);
+        make.bottom.equalTo(self.lineViewFix).offset(-2-5-12-5);
+    }];
+    
+    [self.detailImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(12);
         make.bottom.equalTo(self.lineViewFix).offset(-2-5);
+        make.width.mas_equalTo(20);
+        make.height.mas_equalTo(12);
     }];
     
     [self.lineViewFix mas_makeConstraints:^(MASConstraintMaker *make) {

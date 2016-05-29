@@ -15,4 +15,6 @@
 @property (strong,nonatomic)UILabel *contentLabel;
 @property (strong,nonatomic)UIView *lineViewFix;
 
+@property (strong,nonatomic)UIImageView *detailImageView;
+
 @end
