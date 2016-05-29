@@ -184,6 +184,14 @@
     self.tableView.tableHeaderView = self.headView;
     self.tableView.tableFooterView = self.footView;
     
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendHealthDishInfoRequest];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendHealthDishInfoRequest];
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -549,25 +557,25 @@
                 self.isCommented = !self.isCommented;
                 DLog(@"self.isCommented-->%@",self.isCommented ? @"YES" : @"NO");
                 if (self.isCommented == YES) {
-                    [HudUtil showSimpleTextOnlyHUD:@"点赞成功！" withDelaySeconds:kHud_DelayTime];
+//                    [HudUtil showSimpleTextOnlyHUD:@"点赞成功！" withDelaySeconds:kHud_DelayTime];
                     [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
                 }else if (self.isCommented == NO){
-                    [HudUtil showSimpleTextOnlyHUD:@"取消点赞成功！" withDelaySeconds:kHud_DelayTime];
+//                    [HudUtil showSimpleTextOnlyHUD:@"取消点赞成功！" withDelaySeconds:kHud_DelayTime];
                     [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
                 }
             }else if (type == 2){
                 self.isFavourited = !self.isFavourited;
                 DLog(@"self.isFavourited-->%@",self.isFavourited ? @"YES" : @"NO");
                 if (self.isFavourited == YES) {
-                    [HudUtil showSimpleTextOnlyHUD:@"收藏成功！" withDelaySeconds:kHud_DelayTime];
+//                    [HudUtil showSimpleTextOnlyHUD:@"收藏成功！" withDelaySeconds:kHud_DelayTime];
                     [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
                 }else if (self.isFavourited == NO){
-                    [HudUtil showSimpleTextOnlyHUD:@"取消收藏成功！" withDelaySeconds:kHud_DelayTime];
+//                    [HudUtil showSimpleTextOnlyHUD:@"取消收藏成功！" withDelaySeconds:kHud_DelayTime];
                     [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
                 }
             }
             
-            
+            [self.tableView.mj_header beginRefreshing];
         }else{
             DLog(@"%@",self.message2);
             if (self.code2 == kTOKENINVALID) {
@@ -647,6 +655,9 @@
     self.shareUrl = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"fenxURL"]];
     
     [self.tableView reloadData];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end
