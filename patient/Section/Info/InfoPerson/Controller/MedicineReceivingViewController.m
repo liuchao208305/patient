@@ -14,6 +14,7 @@
 #import "NullUtil.h"
 #import "StringUtil.h"
 #import "AnalyticUtil.h"
+#import "StringUtil.h"
 #import "MRChufangData.h"
 /*=============================*/
 #import "MRDoctorTableCell.h"
@@ -281,6 +282,8 @@
         return 240;
     }else if (indexPath.section == 2){
         return 50;
+    }else if (indexPath.section == 3){
+        return 40+[StringUtil cellWithStr:self.recordDetailResult[indexPath.row][@"content"] fontSize:15 width:SCREEN_WIDTH]*2;
     }
     else if (indexPath.section == 7){
         return 40;
