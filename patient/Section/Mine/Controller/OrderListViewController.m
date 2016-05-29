@@ -633,6 +633,10 @@
             MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
             medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
             [self.navigationController pushViewController:medicineVC animated:YES];
+        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"6"]){
+            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+            [self.navigationController pushViewController:medicineVC animated:YES];
         }else{
             TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
             finishVC.orderNumber = self.orderIdArrayAll[indexPath.section];
@@ -665,7 +669,9 @@
         
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
-        
+        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+        medicineVC.orderNumber = self.orderIdArrayCompleted[indexPath.section];
+        [self.navigationController pushViewController:medicineVC animated:YES];
         
         [self.tableView5 deselectRowAtIndexPath:indexPath animated:YES];
     }
