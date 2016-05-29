@@ -587,7 +587,7 @@
 -(void)subBackView3_1Clicked{
     DLog(@"subBackView3_1Clicked");
     AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
-    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
+    agreementVC.urlStr = @"http://101.68.79.26:83/jiuzhekan_http/service/jiuzhekanServiceDetail.html";
     agreementVC.titleStr = @"服务条款";
     [self.navigationController pushViewController:agreementVC animated:YES];
 }
