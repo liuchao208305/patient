@@ -13,6 +13,7 @@
 #import "HudUtil.h"
 #import "CommonUtil.h"
 #import "AnalyticUtil.h"
+#import "VerifyUtil.h"
 #import "LoginViewController.h"
 #import "AgreementViewController.h"
 #import "BaseTabBarController.h"
@@ -631,11 +632,20 @@
         [AlertUtil showSimpleAlertWithTitle:nil message:@"昵称不能为空！"];
     }else if ([self.textField1_2.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"姓名不能为空！"];
-    }else if ([self.textField1_3.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
-    }else if ([self.textField1_4.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
-    }else if ([self.textField1_6.text isEqualToString:@""]) {
+    }
+    else if (![VerifyUtil iDCardNumberCheck:self.textField1_3.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
+    }
+    else if (![VerifyUtil iDCardNumberCheck:self.textField1_4.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
+    }
+//    else if ([self.textField1_3.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
+//    }
+//    else if ([self.textField1_4.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
+//    }
+    else if ([self.textField1_6.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
     }else if ([self.patientSex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];

@@ -379,11 +379,19 @@
     
     if ([self.textfield1.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"姓名不能为空！"];
-    }else if ([self.textfield2.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
-    }else if ([self.textfield3.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
     }
+    else if (![VerifyUtil iDCardNumberCheck:self.textfield2.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
+    }
+    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
+    }
+//    else if ([self.textfield2.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
+//    }
+//    else if ([self.textfield3.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
+//    }
     else if (![VerifyUtil mobileNumberCheck:self.textfield4.text]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
     }
@@ -405,11 +413,18 @@
     
     if ([self.textfield1.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"姓名不能为空！"];
-    }else if ([self.textfield2.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
-    }else if ([self.textfield3.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
     }
+    else if (![VerifyUtil iDCardNumberCheck:self.textfield2.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
+    }
+    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
+    }
+//    else if ([self.textfield2.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
+//    }else if ([self.textfield3.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
+//    }
     else if (![VerifyUtil mobileNumberCheck:self.textfield4.text]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
     }

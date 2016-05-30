@@ -17,6 +17,7 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "AdaptionUtil.h"
+#import "VerifyUtil.h"
 
 @interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
 
@@ -977,11 +978,18 @@
 -(void)confirmButtonClicked{
     if ([self.textfield1.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"姓名不能为空！"];
-    }else if ([self.textfield2.text isEqualToString:@""]){
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证不能为空！"];
-    }else if ([self.textfield3.text isEqualToString:@""]){
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
-    }else if ([self.textfield4.text isEqualToString:@""]){
+    }
+    else if (![VerifyUtil iDCardNumberCheck:self.textfield2.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
+    }else if (![VerifyUtil mobileNumberCheck:self.textfield3.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+    }
+//    else if ([self.textfield2.text isEqualToString:@""]){
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证不能为空！"];
+//    }else if ([self.textfield3.text isEqualToString:@""]){
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
+//    }
+    else if ([self.textfield4.text isEqualToString:@""]){
         [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
     }else if ([self.patientSex isEqualToString:@""]){
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];

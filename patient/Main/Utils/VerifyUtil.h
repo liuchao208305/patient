@@ -11,5 +11,6 @@
 @interface VerifyUtil : NSObject
 
 +(BOOL)mobileNumberCheck:(NSString *)string;
++(BOOL)iDCardNumberCheck:(NSString *)value;
 
 @end
