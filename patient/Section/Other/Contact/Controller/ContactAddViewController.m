@@ -383,9 +383,9 @@
     else if (![VerifyUtil iDCardNumberCheck:self.textfield2.text]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
     }
-    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
-    }
+//    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
+//    }
 //    else if ([self.textfield2.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
 //    }
@@ -417,9 +417,9 @@
     else if (![VerifyUtil iDCardNumberCheck:self.textfield2.text]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
     }
-    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
-    }
+//    else if (![VerifyUtil iDCardNumberCheck:self.textfield3.text]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的社保号码！"];
+//    }
 //    else if ([self.textfield2.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
 //    }else if ([self.textfield3.text isEqualToString:@""]) {
