@@ -196,17 +196,71 @@
 }
 
 -(void)initBottomView{
-    self.commentButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/3*2, 68)];
-    [self.commentButton addTarget:self action:@selector(commentButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.commentButton];
+//    self.commentButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/3*2, 68)];
+//    [self.commentButton addTarget:self action:@selector(commentButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:self.commentButton];
+//    
+//    self.favouriteButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, self.tableView.size.height, SCREEN_WIDTH/3, 68)];
+//    [self.favouriteButton addTarget:self action:@selector(favouriteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:self.favouriteButton];
     
-    self.favouriteButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, self.tableView.size.height, SCREEN_WIDTH/3, 68)];
-    [self.favouriteButton addTarget:self action:@selector(favouriteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.favouriteButton];
+    self.commentBackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/3*2, 68)];
+    self.commentBackView.layer.borderWidth = 1;
+    self.commentBackView.layer.borderColor = ColorWithHexRGB(0xd6d6d6).CGColor;
+    [self.view addSubview:self.commentBackView];
+    
+    self.commentImageView = [[UIImageView alloc] init];
+    [self.commentBackView addSubview:self.commentImageView];
+    
+    self.commentLabel = [[UILabel alloc] init];
+    [self.commentBackView addSubview:self.commentLabel];
+    
+    [self.commentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.commentBackView).offset(-30-5);
+        make.centerY.equalTo(self.commentBackView).offset(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.commentBackView).offset(30+5);
+        make.centerY.equalTo(self.commentBackView).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    self.favouriteBackView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, self.tableView.size.height, SCREEN_WIDTH/3, 68)];
+    [self.view addSubview:self.favouriteBackView];
+    
+    self.favouriteImageView = [[UIImageView alloc] init];
+    [self.favouriteBackView addSubview:self.favouriteImageView];
+    
+    self.favouriteLabel = [[UILabel alloc] init];
+    [self.favouriteBackView addSubview:self.favouriteLabel];
+    
+    [self.favouriteImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.favouriteBackView).offset(-20-5);
+        make.centerY.equalTo(self.favouriteBackView).offset(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.favouriteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.favouriteBackView).offset(40+5);
+        make.centerY.equalTo(self.favouriteBackView).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
 }
 
 -(void)initRecognizer{
+    self.commentBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *commentTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentButtonClicked)];
+    [self.commentBackView addGestureRecognizer:commentTap];
     
+    self.favouriteBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *favouriteTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(favouriteButtonClicked)];
+    [self.favouriteBackView addGestureRecognizer:favouriteTap];
 }
 
 #pragma mark Target Action
@@ -558,20 +612,36 @@
                 DLog(@"self.isCommented-->%@",self.isCommented ? @"YES" : @"NO");
                 if (self.isCommented == YES) {
 //                    [HudUtil showSimpleTextOnlyHUD:@"点赞成功！" withDelaySeconds:kHud_DelayTime];
-                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+//                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+                    [self.commentImageView setImage:[UIImage imageNamed:@"info_health_comment_after_fix"]];
+                    self.commentLabel.text = @"已点赞";
+                    self.commentLabel.textColor  = kBLACK_COLOR;
+                    self.commentBackView.backgroundColor = ColorWithHexRGB(0xf5f5f5);
                 }else if (self.isCommented == NO){
 //                    [HudUtil showSimpleTextOnlyHUD:@"取消点赞成功！" withDelaySeconds:kHud_DelayTime];
-                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+//                    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+                    [self.commentImageView setImage:[UIImage imageNamed:@"info_health_comment_before_fix"]];
+                    self.commentLabel.text = @"点赞";
+                    self.commentLabel.textColor = kWHITE_COLOR;
+                    self.commentBackView.backgroundColor = ColorWithHexRGB(0x24b37c);
                 }
             }else if (type == 2){
                 self.isFavourited = !self.isFavourited;
                 DLog(@"self.isFavourited-->%@",self.isFavourited ? @"YES" : @"NO");
                 if (self.isFavourited == YES) {
 //                    [HudUtil showSimpleTextOnlyHUD:@"收藏成功！" withDelaySeconds:kHud_DelayTime];
-                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
+//                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
+                    [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
+                    self.favouriteLabel.text = @"已收藏";
+                    self.favouriteLabel.textColor = kWHITE_COLOR;
+                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
                 }else if (self.isFavourited == NO){
 //                    [HudUtil showSimpleTextOnlyHUD:@"取消收藏成功！" withDelaySeconds:kHud_DelayTime];
-                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+//                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+                    [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
+                    self.favouriteLabel.text = @"收藏";
+                    self.favouriteLabel.textColor = kWHITE_COLOR;
+                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
                 }
             }
             
@@ -637,19 +707,35 @@
     self.commentFlag = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"is_like"] integerValue];
     if (self.commentFlag == 0) {
         self.isCommented = NO;
-        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+//        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_before"] forState:UIControlStateNormal];
+        [self.commentImageView setImage:[UIImage imageNamed:@"info_health_comment_before_fix"]];
+        self.commentLabel.text = @"点赞";
+        self.commentLabel.textColor = kWHITE_COLOR;
+        self.commentBackView.backgroundColor = ColorWithHexRGB(0x24b37c);
     }else{
         self.isCommented = YES;
-        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+//        [self.commentButton setBackgroundImage:[UIImage imageNamed:@"info_health_comment_after"] forState:UIControlStateNormal];
+        [self.commentImageView setImage:[UIImage imageNamed:@"info_health_comment_after_fix"]];
+        self.commentLabel.text = @"已点赞";
+        self.commentLabel.textColor  = kBLACK_COLOR;
+        self.commentBackView.backgroundColor = ColorWithHexRGB(0xf5f5f5);
     }
     
     self.favouriteFlag = [[[self.data objectForKey:@"foodDetail"] objectForKey:@"is_shouchan"] integerValue];
     if (self.favouriteFlag == 0) {
         self.isFavourited = NO;
-        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+//        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
+        [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
+        self.favouriteLabel.text = @"收藏";
+        self.favouriteLabel.textColor = kWHITE_COLOR;
+        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
     }else{
         self.isFavourited = YES;
-        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
+//        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
+        [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
+        self.favouriteLabel.text = @"已收藏";
+        self.favouriteLabel.textColor = kWHITE_COLOR;
+        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
     }
     
     self.shareUrl = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"fenxURL"]];

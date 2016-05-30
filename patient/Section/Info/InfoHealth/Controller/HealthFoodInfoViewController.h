@@ -23,4 +23,11 @@
 @property (strong,nonatomic)UIButton *commentButton;
 @property (strong,nonatomic)UIButton *favouriteButton;
 
+@property (strong,nonatomic)UIImageView *commentBackView;
+@property (strong,nonatomic)UIImageView *commentImageView;
+@property (strong,nonatomic)UILabel *commentLabel;
+@property (strong,nonatomic)UIImageView *favouriteBackView;
+@property (strong,nonatomic)UIImageView *favouriteImageView;
+@property (strong,nonatomic)UILabel *favouriteLabel;
+
 @end
