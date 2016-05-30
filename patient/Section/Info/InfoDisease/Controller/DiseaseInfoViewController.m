@@ -199,9 +199,13 @@
 //    [self.favouriteButton addTarget:self action:@selector(favouriteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:self.favouriteButton];
     
+    self.bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.size.height-1, SCREEN_WIDTH, 1)];
+    self.bottomLineView.backgroundColor = ColorWithHexRGB(0xd6d6d6);
+    [self.view addSubview:self.bottomLineView];
+    
     self.commentBackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/3*2, 68)];
-    self.commentBackView.layer.borderWidth = 1;
-    self.commentBackView.layer.borderColor = ColorWithHexRGB(0xd6d6d6).CGColor;
+//    self.commentBackView.layer.borderWidth = 1;
+//    self.commentBackView.layer.borderColor = ColorWithHexRGB(0xd6d6d6).CGColor;
     [self.view addSubview:self.commentBackView];
     
     self.commentImageView = [[UIImageView alloc] init];
