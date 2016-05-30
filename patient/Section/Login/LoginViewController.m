@@ -16,6 +16,7 @@
 #import "HudUtil.h"
 #import "AnalyticUtil.h"
 #import "AlertUtil.h"
+#import "VerifyUtil.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -464,8 +465,8 @@
 }
 
 -(void)getCaptchaButtonClicked{
-    if ([firstTextField1.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入手机号码！"];
+    if (![VerifyUtil mobileNumberCheck:firstTextField1.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
     }else{
         [self getCaptchaRequest];
         
@@ -721,10 +722,22 @@
     
     if (self.loginType == quickLogin) {
         DLog(@"quickLogin");
-        [loginRequest quickLogin:firstTextField1.text pwd:secondTextField1.text];
+        if (![VerifyUtil mobileNumberCheck:firstTextField1.text]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+        }else if ([secondTextField1.text isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
+        }else{
+            [loginRequest quickLogin:firstTextField1.text pwd:secondTextField1.text];
+        }
     }else if (self.loginType == normalLogin){
         DLog(@"normalLogin");
-        [loginRequest normalLogin:firstTextField2.text pwd:[EncyptionUtil encrypt_md5:secondTextField2.text]];
+        if (![VerifyUtil mobileNumberCheck:firstTextField2.text]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+        }else if ([secondTextField2.text isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"密码不能为空！"];
+        }else{
+            [loginRequest normalLogin:firstTextField2.text pwd:[EncyptionUtil encrypt_md5:secondTextField2.text]];
+        }
     }else if (self.loginType == thirdLogin){
         DLog(@"thirdLogin");
     }

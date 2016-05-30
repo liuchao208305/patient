@@ -14,6 +14,7 @@
 #import "EncyptionUtil.h"
 #import "AnalyticUtil.h"
 #import "AlertUtil.h"
+#import "VerifyUtil.h"
 
 @interface MineChangePasswordViewController (){
     int timeCount;
@@ -241,8 +242,8 @@
 }
 
 -(void)captchaButtonClicked{
-    if ([self.textField1_1.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号不能为空！"];
+    if (![VerifyUtil mobileNumberCheck:self.textField1_1.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
     }else{
         [self getCaptchaRequest];
         
@@ -277,10 +278,14 @@
 }
 
 -(void)confirmButtonClicked{
-    if ([self.textField2_1.text isEqualToString:@""]) {
+    if (![VerifyUtil mobileNumberCheck:self.textField1_1.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+    }else if ([self.textField1_2.text isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
+    }else if ([self.textField2_1.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"新密码不能为空！"];
     }else if (![self.textField2_1.text isEqualToString:self.textField2_2.text]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"新密码请保持一致！"];
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"新密码请和旧密码保持一致！"];
     }else{
         [self sendChangePasswordRequest];
     }
