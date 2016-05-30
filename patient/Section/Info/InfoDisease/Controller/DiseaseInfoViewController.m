@@ -26,8 +26,10 @@
 #import "HealthFoodInfoViewController.h"
 #import "LoginViewController.h"
 #import "StringUtil.h"
+#import "DiseaseSymtomCollectionCell.h"
+#import "DiseaseSymptomData.h"
 
-@interface DiseaseInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DiseaseInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -123,6 +125,10 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+    self.symptomArray = [NSMutableArray array];
+    self.symptomIdArray = [NSMutableArray array];
+    self.symptomNameArray = [NSMutableArray array];
+    
     self.expertArray = [NSMutableArray array];
     self.expertIdArray = [NSMutableArray array];
     self.expertImageArray = [NSMutableArray array];
@@ -318,7 +324,8 @@
             return [StringUtil cellWithStr:self.diseaseDetail fontSize:14 width:SCREEN_WIDTH]+40;
             break;
         case 1:
-            return 150;
+//            return 150;
+            return self.symptomArray.count/3*49;
             break;
         case 2:
 //            return 250;
@@ -408,6 +415,13 @@
             cell = [[DiseaseSymptomTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         //填充数据
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 340) collectionViewLayout:flowLayout];
+        self.collectionView.dataSource=self;
+        self.collectionView.delegate=self;
+        [self.collectionView setBackgroundColor:kWHITE_COLOR];
+        [self.collectionView registerClass:[DiseaseSymtomCollectionCell class] forCellWithReuseIdentifier:@"DiseaseSymtomCollectionCell"];
+        [cell.contentView addSubview:self.collectionView];
         
         return cell;
     }else if (indexPath.section == 2){
@@ -484,6 +498,49 @@
         }
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.symptomArray.count == 0 ? 0 : self.symptomArray.count;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellName = @"DiseaseSymtomCollectionCell";
+    DiseaseSymtomCollectionCell * cell = (DiseaseSymtomCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
+    
+    [cell.button setTitle:self.symptomNameArray[indexPath.row] forState:UIControlStateNormal];
+    [cell.button setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(SCREEN_WIDTH/3, 35+14);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"%ld",(long)indexPath.row);
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
 }
 
 #pragma mark Network Request
@@ -617,6 +674,12 @@
 #pragma mark Data Parse
 -(void)diseaseInfoDataParse{
     self.diseaseIdFix = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"disease_id"]];
+    
+    self.symptomArray = [DiseaseSymptomData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"symptomListKey"]];
+    for (DiseaseSymptomData *diseaseSymptomData in self.symptomArray) {
+        [self.symptomIdArray addObject:[NullUtil judgeStringNull:diseaseSymptomData.symptom_id]];
+        [self.symptomNameArray addObject:[NullUtil judgeStringNull:diseaseSymptomData.name]];
+    }
     
     self.diseaseDetail = [NullUtil judgeStringNull:[[self.data objectForKey:@"diseaseKey"] objectForKey:@"clinical"]];
     

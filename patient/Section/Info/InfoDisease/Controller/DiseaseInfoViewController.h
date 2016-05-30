@@ -27,4 +27,10 @@
 @property (strong,nonatomic)UIImageView *favouriteImageView;
 @property (strong,nonatomic)UILabel *favouriteLabel;
 
+@property (strong,nonatomic)UICollectionView *collectionView;
+
+@property (strong,nonatomic)NSMutableArray *symptomArray;
+@property (strong,nonatomic)NSMutableArray *symptomIdArray;
+@property (strong,nonatomic)NSMutableArray *symptomNameArray;
+
 @end
