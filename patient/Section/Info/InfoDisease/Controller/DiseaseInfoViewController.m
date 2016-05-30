@@ -261,18 +261,18 @@
     switch (indexPath.section) {
         case 0:
 //            return 80;
-            return [StringUtil cellWithStr:self.diseaseDetail fontSize:15 width:SCREEN_WIDTH]+80;
+            return [StringUtil cellWithStr:self.diseaseDetail fontSize:14 width:SCREEN_WIDTH]+40;
             break;
         case 1:
             return 150;
             break;
         case 2:
 //            return 250;
-            return [StringUtil cellWithStr:self.diseaseCause fontSize:15 width:SCREEN_WIDTH]+40;
+            return [StringUtil cellWithStr:self.diseaseCause fontSize:14 width:SCREEN_WIDTH]+40;
             break;
         case 3:
 //            return 100;
-            return [StringUtil cellWithStr:self.diseaseAttention fontSize:15 width:SCREEN_WIDTH]+60;
+            return [StringUtil cellWithStr:self.diseaseAttention fontSize:14 width:SCREEN_WIDTH]+40;
             break;
         case 4:
             return 85;

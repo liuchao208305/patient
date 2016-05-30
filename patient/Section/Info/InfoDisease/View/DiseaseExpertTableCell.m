@@ -31,6 +31,7 @@
     [self.contentView addSubview:self.expertTitleLabel];
     
     self.expertUnitLabel = [[UILabel alloc] init];
+    self.expertUnitLabel.textColor = ColorWithHexRGB(0x646464);
     [self.contentView addSubview:self.expertUnitLabel];
     
     self.lineView = [[UIView alloc] init];

@@ -21,6 +21,8 @@
 #pragma mark Init Section
 -(void)initView{
     self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont systemFontOfSize:14];
+    self.label.textColor = ColorWithHexRGB(0x646464);
     self.label.numberOfLines = 0;
     [self.contentView addSubview:self.label];
     

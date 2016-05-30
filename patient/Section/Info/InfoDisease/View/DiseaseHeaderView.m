@@ -46,6 +46,7 @@
 
 -(void)initMainView{
     self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont systemFontOfSize:18];
     //    self.titleLabel.text = @"test";
     [self.mainView addSubview:self.titleLabel];
     
