@@ -202,14 +202,14 @@
 }
 
 -(void)initHeadView{
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.25)];
     self.localImageArray = [NSMutableArray array];
     for (int i = 1; i<4; i++) {
         NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.png",i];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.localImageArray addObject:image];
     }
-    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:self.localImageArray];
+    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.25) imageNamesGroup:self.localImageArray];
     scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     scrollView.autoScrollTimeInterval = 5;
     scrollView.delegate = self;
