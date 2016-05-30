@@ -12,6 +12,7 @@
 #import "AlertUtil.h"
 #import "NullUtil.h"
 #import "AdaptionUtil.h"
+#import "VerifyUtil.h"
 #import "LoginViewController.h"
 
 @interface ContactChangeViewController ()
@@ -384,9 +385,14 @@
         [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
     }else if ([self.textfield3.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
-    }else if ([self.textfield4.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
-    }else if ([self.textfield5.text isEqualToString:@""]) {
+    }
+    else if (![VerifyUtil mobileNumberCheck:self.textfield4.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+    }
+//    else if ([self.textfield4.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
+//    }
+    else if ([self.textfield5.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
     }else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
@@ -405,9 +411,14 @@
         [AlertUtil showSimpleAlertWithTitle:nil message:@"身份证号码不能为空！"];
     }else if ([self.textfield3.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
-    }else if ([self.textfield4.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
-    }else if ([self.textfield5.text isEqualToString:@""]) {
+    }
+    else if (![VerifyUtil mobileNumberCheck:self.textfield4.text]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+    }
+//    else if ([self.textfield4.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
+//    }
+    else if ([self.textfield5.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
     }else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
