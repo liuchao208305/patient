@@ -108,6 +108,8 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [self.tableView.mj_header beginRefreshing];
+    
     self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self sendMoreHealthRequest];
     }];
@@ -224,6 +226,12 @@
 #pragma mark Data Parse
 -(void)moreHealthDataPase{
     self.healthArray = [MoreHealthData mj_objectArrayWithKeyValuesArray:self.data];
+    [self.healthIdArray removeAllObjects];
+    [self.healthImageArray removeAllObjects];
+    [self.healthNameArray removeAllObjects];
+    [self.healthPropertyArray removeAllObjects];
+    [self.healthFunctionArray removeAllObjects];
+    [self.healthCommentArray removeAllObjects];
     for (MoreHealthData *moreHealthData in self.healthArray) {
         [self.healthTypeArray addObject:[NullUtil judgeStringNull:[NSString stringWithFormat:@"%ld",(long)moreHealthData.type]]];
         [self.healthIdArray addObject:[NullUtil judgeStringNull:moreHealthData.food_id]];

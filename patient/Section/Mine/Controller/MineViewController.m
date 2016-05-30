@@ -344,10 +344,18 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 2) {
-        return 0;
+//    if (section == 2) {
+//        return 0;
+//    }
+//    return 40;
+    if (section == 0) {
+        return 40;
+    }else if (section == 1){
+        return 40;
+    }else if (section == 2){
+        return 0.01;
     }
-    return 40;
+    return 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
