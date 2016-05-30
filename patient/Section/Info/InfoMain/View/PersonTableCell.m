@@ -56,7 +56,7 @@
     [self.backView1 addSubview:self.label1_1];
     
     self.label1_2 = [[UILabel alloc] init];
-    self.label1_2.textColor = ColorWithHexRGB(0x909090);
+    self.label1_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label1_2.numberOfLines = 0;
     self.label1_2.font = [UIFont systemFontOfSize:12];
     self.label1_2.textAlignment = NSTextAlignmentCenter;
@@ -94,7 +94,7 @@
     [self.backView2 addSubview:self.label2_1];
     
     self.label2_2 = [[UILabel alloc] init];
-    self.label2_2.textColor = ColorWithHexRGB(0x909090);
+    self.label2_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label2_2.numberOfLines = 0;
     self.label2_2.font = [UIFont systemFontOfSize:12];
     self.label2_2.textAlignment = NSTextAlignmentCenter;
@@ -131,7 +131,7 @@
     [self.backView3 addSubview:self.label3_1];
     
     self.label3_2 = [[UILabel alloc] init];
-    self.label3_2.textColor = ColorWithHexRGB(0x909090);
+    self.label3_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label3_2.numberOfLines = 0;
     self.label3_2.font = [UIFont systemFontOfSize:12];
     self.label3_2.textAlignment = NSTextAlignmentCenter;
