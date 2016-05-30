@@ -428,7 +428,7 @@
     [parameter setValue:self.textfield2.text forKey:@"ID_number"];
     [parameter setValue:self.textfield4.text forKey:@"phone"];
     [parameter setValue:self.textfield5.text forKey:@"age"];
-    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"user_sex"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"sex"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.type] forKey:@"type"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,KJZK_CONTACT_INFORMATION_ADD] successBlock:^(NSURLSessionDataTask *task,id responseObject){
