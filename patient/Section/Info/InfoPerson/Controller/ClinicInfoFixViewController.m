@@ -82,6 +82,9 @@
 @property (strong,nonatomic)NSString *forenoonBookStatus4;
 @property (strong,nonatomic)NSString *afternoonBookStatus4;
 
+@property (assign,nonatomic)NSInteger currentHour;
+@property (assign,nonatomic)BOOL isAfterNoon;
+
 @end
 
 @implementation ClinicInfoFixViewController
@@ -99,6 +102,13 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.currentHour = [[[DateUtil getCurrentTime] substringWithRange:NSMakeRange(11, 2)] integerValue];
+    if (self.currentHour>0 && self.currentHour<12) {
+        self.isAfterNoon = NO;
+    }else if (self.currentHour>12 && self.currentHour<24){
+        self.isAfterNoon = YES;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -1168,7 +1178,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getFirstTime];
+    }else{
+        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1178,7 +1193,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getSecondTime];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+    }else{
+        treatVC.appointmentTime = [DateUtil getSecondTime];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1188,7 +1208,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getSecondTime];
+    }else{
+        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1198,7 +1223,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getThirdTime];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+    }else{
+        treatVC.appointmentTime = [DateUtil getThirdTime];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1208,7 +1238,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getThirdTime];
+    }else{
+        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1218,7 +1253,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getFourthTime];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+    }else{
+        treatVC.appointmentTime = [DateUtil getFourthTime];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1228,7 +1268,12 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getFourthTimeFix];
+    
+    if (self.isAfterNoon) {
+        treatVC.appointmentTime = [DateUtil getFourthTime];
+    }else{
+        treatVC.appointmentTime = [DateUtil getFourthTimeFix];
+    }
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1618,24 +1663,31 @@
     self.label1_1.text = @"上午";
     self.label1_2.text = @"预计";
     self.label1_3.text = self.appointmentUpTime;
-    if ([self.forenoonBookStatus1 integerValue] == 0) {
+    
+    if (self.isAfterNoon) {
         [self.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
-        [self.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
-//        self.button1_1.tag = 1000+1;
-        [self.button1_1 addTarget:self action:@selector(reservationButton1_1Clicked) forControlEvents:UIControlEventTouchUpInside];
-    }else if ([self.forenoonBookStatus1 integerValue] == 1){
-        [self.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-    }else if ([self.forenoonBookStatus1 integerValue] == 2){
-        [self.button1_1 setTitle:@"未排班" forState:UIControlStateNormal];
-        [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
-    }else if ([self.forenoonBookStatus1 integerValue] == 3){
-        [self.button1_1 setTitle:@"已请假" forState:UIControlStateNormal];
-        [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+    }else{
+        if ([self.forenoonBookStatus1 integerValue] == 0) {
+            [self.button1_1 setTitle:@"预约" forState:UIControlStateNormal];
+            [self.button1_1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_bookable_button"] forState:UIControlStateNormal];
+            //        self.button1_1.tag = 1000+1;
+            [self.button1_1 addTarget:self action:@selector(reservationButton1_1Clicked) forControlEvents:UIControlEventTouchUpInside];
+        }else if ([self.forenoonBookStatus1 integerValue] == 1){
+            [self.button1_1 setTitle:@"已约满" forState:UIControlStateNormal];
+            [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.forenoonBookStatus1 integerValue] == 2){
+            [self.button1_1 setTitle:@"未排班" forState:UIControlStateNormal];
+            [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }else if ([self.forenoonBookStatus1 integerValue] == 3){
+            [self.button1_1 setTitle:@"已请假" forState:UIControlStateNormal];
+            [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+            [self.button1_1 setBackgroundImage:[UIImage imageNamed:@"info_clinic_schedule_unbookable_button"] forState:UIControlStateNormal];
+        }
     }
     
     self.label1_4.text = @"下午";
