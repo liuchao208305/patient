@@ -39,7 +39,7 @@
         make.centerX.equalTo(self.recordImage).offset(0);
         make.top.equalTo(self.recordImage).offset(55+7);
         make.width.mas_equalTo(80);
-        make.height.mas_equalTo(15);
+//        make.height.mas_equalTo(15);
     }];
 }
 
