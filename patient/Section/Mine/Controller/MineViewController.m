@@ -743,20 +743,31 @@
     
     self.desicsbook = [self.data objectForKey:@"desicsbook"];
     self.recordArray = [RecordData mj_objectArrayWithKeyValuesArray:self.desicsbook];
-    if (self.recordCount == self.recordArray.count) {
-        
-    }else{
-        [self.recordIdArray removeAllObjects];
-        [self.recordImageArray removeAllObjects];
-        [self.recordNameArray removeAllObjects];
-        [self.recordPatientNameArray removeAllObjects];
-        for (RecordData *recordData in self.recordArray) {
-            [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
-            [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
-            [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
-            [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
-        }
-        self.recordCount = self.recordArray.count;
+//    if (self.recordCount == self.recordArray.count) {
+//        
+//    }else{
+//        [self.recordIdArray removeAllObjects];
+//        [self.recordImageArray removeAllObjects];
+//        [self.recordNameArray removeAllObjects];
+//        [self.recordPatientNameArray removeAllObjects];
+//        for (RecordData *recordData in self.recordArray) {
+//            [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
+//            [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
+//            [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
+//            [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
+//        }
+//        self.recordCount = self.recordArray.count;
+//    }
+    
+    [self.recordIdArray removeAllObjects];
+    [self.recordImageArray removeAllObjects];
+    [self.recordNameArray removeAllObjects];
+    [self.recordPatientNameArray removeAllObjects];
+    for (RecordData *recordData in self.recordArray) {
+        [self.recordIdArray addObject:[NullUtil judgeStringNull:recordData.cast_id]];
+        [self.recordImageArray addObject:[NullUtil judgeStringNull:recordData.cast_url]];
+        [self.recordNameArray addObject:[NullUtil judgeStringNull:recordData.cast_name]];
+        [self.recordPatientNameArray addObject:[NullUtil judgeStringNull:recordData.real_name]];
     }
     
     [self.tableView reloadData];
