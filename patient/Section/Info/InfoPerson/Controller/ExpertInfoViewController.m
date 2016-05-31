@@ -269,7 +269,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -277,11 +277,13 @@
         return 1;
     }else if (section == 1){
         return 4;
-    }else if (section == 2){
-        return 1;
-    }else if (section == 3){
-        return 1;
-    }else if (section == 4){
+    }
+//    else if (section == 2){
+//        return 1;
+//    }else if (section == 3){
+//        return 1;
+//    }
+    else if (section == 2){
         return self.clinicArray.count;
     }
     return 0;
@@ -319,11 +321,13 @@
             }
             return 0;
         }
-    }else if (indexPath.section == 2){
-        return 106;
-    }else if (indexPath.section == 3){
-        return 200;
-    }else if (indexPath.section == 4){
+    }
+//    else if (indexPath.section == 2){
+//        return 106;
+//    }else if (indexPath.section == 3){
+//        return 200;
+//    }
+    else if (indexPath.section == 2){
         return 150;
     }
     return 0;
@@ -334,11 +338,13 @@
         return 0.1;
     }else if (section == 1){
         return 0.1;
-    }else if (section == 2){
-        return 0.1;
-    }else if (section == 3){
-        return 0.1;
-    }else if (section == 4){
+    }
+//    else if (section == 2){
+//        return 0.1;
+//    }else if (section == 3){
+//        return 0.1;
+//    }
+    else if (section == 2){
         return 46;
     }
     return 0;
@@ -351,7 +357,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     self.expertHeadView = [[ExpertHeadView alloc] init];
     self.expertHeadView.tag = section;
-    if (section == 4) {
+    if (section == 2) {
         self.expertHeadView.fiterViewClickDelegate = self;
         
         if (self.fiterType == 1) {
@@ -491,27 +497,29 @@
             
         }
 //        return cell;
-    }else if (indexPath.section == 2){
-        static NSString *cellName = @"ExpertCommentTableCell";
-        ExpertCommentTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[ExpertCommentTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        //填充数据
-        
-        return cell;
-    }else if (indexPath.section == 3){
-        static NSString *cellName = @"ExpertProcessTableCell";
-        ExpertProcessTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[ExpertProcessTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        //填充数据
-        cell.ProcessLabel.text = @"看病流程介绍图";
-        [cell.ProcessImageView setImage:[UIImage imageNamed:@"default_image_big"]];
-        
-        return cell;
-    }else if (indexPath.section == 4){
+    }
+//    else if (indexPath.section == 2){
+//        static NSString *cellName = @"ExpertCommentTableCell";
+//        ExpertCommentTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[ExpertCommentTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        //填充数据
+//        
+//        return cell;
+//    }else if (indexPath.section == 3){
+//        static NSString *cellName = @"ExpertProcessTableCell";
+//        ExpertProcessTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[ExpertProcessTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        //填充数据
+//        cell.ProcessLabel.text = @"看病流程介绍图";
+//        [cell.ProcessImageView setImage:[UIImage imageNamed:@"default_image_big"]];
+//        
+//        return cell;
+//    }
+    else if (indexPath.section == 2){
         static NSString *cellName = @"ExpertClinicTableCell";
         ExpertClinicTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -609,7 +617,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 4) {
+    if (indexPath.section == 2) {
 //        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
 //        clincInfoVC.expertId = self.expertId;
 //        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
