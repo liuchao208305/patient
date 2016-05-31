@@ -795,6 +795,11 @@
 
 -(void)clinicInfoDataParse{
     self.clinicArray = [ExpertClinicData mj_objectArrayWithKeyValuesArray:self.data2];
+    [self.clinicIdArray removeAllObjects];
+    [self.clinicNameArray removeAllObjects];
+    [self.clinicStarArray removeAllObjects];
+    [self.clinicDistanceArray removeAllObjects];
+    [self.clinicCouponArray removeAllObjects];
     for (ExpertClinicData *clinicData in self.clinicArray) {
         [self.clinicIdArray addObject:clinicData.outpat_id];
         [self.clinicNameArray addObject:clinicData.outpat_name];
