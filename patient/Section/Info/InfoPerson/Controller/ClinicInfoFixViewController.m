@@ -1519,6 +1519,7 @@
     [self clinicDoctorDataFilling];
     
     if (self.doctorArray.count > 0) {
+        [self initBackView4];
         [self initSubBackView1];
         [self sendClinicScheduleRequest1];
     }else{
