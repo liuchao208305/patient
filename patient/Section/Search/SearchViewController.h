@@ -10,4 +10,8 @@
 
 @interface SearchViewController : BaseViewController
 
+@property (strong,nonatomic)UIImageView *tempImageView;
+@property (strong,nonatomic)UILabel *tempLabel1;
+@property (strong,nonatomic)UILabel *tempLabel2;
+
 @end
