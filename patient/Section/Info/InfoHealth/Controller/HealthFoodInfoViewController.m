@@ -310,18 +310,18 @@
             break;
         case 1:
 //            return 300;
-            return [StringUtil cellWithStr:self.foodValue fontSize:15 width:SCREEN_WIDTH]*2;
+            return [StringUtil cellWithStr:self.foodValue fontSize:16 width:SCREEN_WIDTH]*1.5;
             break;
         case 2:
             return 110;
             break;
         case 3:
 //            return 80;
-            return [StringUtil cellWithStr:self.foodChoose fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.foodChoose fontSize:16 width:SCREEN_WIDTH]*1.4;
             break;
         case 4:
 //            return 465;
-            return [StringUtil cellWithStr:self.foodTaboo fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.foodTaboo fontSize:16 width:SCREEN_WIDTH]*1.4;
             break;
         default:
             break;

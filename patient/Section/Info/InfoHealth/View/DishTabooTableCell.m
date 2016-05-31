@@ -21,7 +21,9 @@
 #pragma mark Init Section
 -(void)initView{
     self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont systemFontOfSize:16];
     self.label.numberOfLines = 0;
+    self.label.textColor = ColorWithHexRGB(0x646464);
     [self.contentView addSubview:self.label];
     
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {

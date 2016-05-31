@@ -333,7 +333,7 @@
             break;
         case 1:
 //            return 260;
-            return [StringUtil cellWithStr:self.dishDetail fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.dishDetail fontSize:16 width:SCREEN_WIDTH]*1.2;
             break;
         case 2:
 //            return 145;
@@ -342,11 +342,11 @@
         case 3:
 //            return 46;
 //            return [StringUtil cellWithStr:self.dishStep fontSize:15 width:SCREEN_WIDTH]*1.6;
-            return [StringUtil cellWithStr:self.dishStepFix fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.dishStepFix fontSize:16 width:SCREEN_WIDTH]*1.4;
             break;
         case 4:
 //            return 145;
-            return [StringUtil cellWithStr:self.dishTaboo fontSize:15 width:SCREEN_WIDTH]*1.6;
+            return [StringUtil cellWithStr:self.dishTaboo fontSize:16 width:SCREEN_WIDTH]*1.4;
             break;
         case 5:
             return 90;
@@ -510,7 +510,7 @@
     DishFoodCollectionCell * cell = (DishFoodCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
     
     [cell.button setTitle:[NSString stringWithFormat:@"%@ %@",self.foodNameArray[indexPath.row],self.foodQuantityArray[indexPath.row]] forState:UIControlStateNormal];
-    [cell.button setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+    [cell.button setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
     
     return cell;
 }

@@ -47,6 +47,7 @@
 -(void)initMainView{
     self.titleLabel = [[UILabel alloc] init];
 //    self.titleLabel.text = @"test";
+    self.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.mainView addSubview:self.titleLabel];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

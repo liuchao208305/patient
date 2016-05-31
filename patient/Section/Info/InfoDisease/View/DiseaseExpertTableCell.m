@@ -28,10 +28,12 @@
     [self.contentView addSubview:self.expertNameLabel];
     
     self.expertTitleLabel = [[UILabel alloc] init];
+    self.expertTitleLabel.textColor = ColorWithHexRGB(0x646464);
     [self.contentView addSubview:self.expertTitleLabel];
     
     self.expertUnitLabel = [[UILabel alloc] init];
-    self.expertUnitLabel.textColor = ColorWithHexRGB(0x646464);
+    self.expertUnitLabel.font = [UIFont systemFontOfSize:14];
+    self.expertUnitLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.expertUnitLabel];
     
     self.lineView = [[UIView alloc] init];
@@ -53,7 +55,7 @@
     }];
     
     [self.expertTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertNameLabel).offset(80+10);
+        make.leading.equalTo(self.expertNameLabel).offset(70);
         make.centerY.equalTo(self.expertNameLabel).offset(0);
         make.width.mas_equalTo(200);
         make.height.mas_equalTo(15);

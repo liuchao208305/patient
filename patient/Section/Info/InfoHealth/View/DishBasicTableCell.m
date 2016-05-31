@@ -24,6 +24,7 @@
     [self.contentView addSubview:self.commentImageView];
     
     self.commentLabel = [[UILabel alloc] init];
+    self.commentLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.commentLabel];
     
     self.propertyLabel = [[UILabel alloc] init];
@@ -51,7 +52,7 @@
     
     [self.propertyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
-        make.bottom.equalTo(self.contentView).offset(-15);
+        make.bottom.equalTo(self.contentView).offset(-10);
         make.width.mas_equalTo(150);
         make.height.mas_equalTo(15);
     }];
