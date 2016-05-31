@@ -639,6 +639,7 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.expertId forKey:@"doctorId"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -768,8 +769,7 @@
 //        self.isFocused = YES;
 //    }
     
-    self.detailNumberFix = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"atteation"];
-    self.detailNumber = [self.detailNumberFix intValue];
+    self.detailNumber = [[[self.data objectForKey:@"docotrDetail"] objectForKey:@"attention"] intValue];
     if (self.detailNumber == 0) {
         self.isFocused = NO;
     }else if (self.detailNumber == 1) {
