@@ -152,7 +152,7 @@
     cell.healthNameLabel.text = self.healthNameArray[indexPath.row];
     cell.healthPropertyLabel.text = [NSString stringWithFormat:@"物性：%@",self.healthPropertyArray[indexPath.row]];
     cell.healthFunctionLabel.text = [NSString stringWithFormat:@"适用于：%@",self.healthFunctionArray[indexPath.row]];
-    [cell.healthCommentImageView setImage:[UIImage imageNamed:@"info_health_comment_image"]];
+    [cell.healthCommentImageView setImage:[UIImage imageNamed:@"info_health_comment_after_fix"]];
     cell.healthCommentLabel.text = [NSString stringWithFormat:@"%@人点赞",self.healthCommentArray[indexPath.row]];
     
     return cell;

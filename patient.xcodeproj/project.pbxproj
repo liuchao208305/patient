@@ -271,6 +271,8 @@
 		7082755F1CFC35F90016AE3C /* info_health_comment_before_fix@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275591CFC35F90016AE3C /* info_health_comment_before_fix@3x.png */; };
 		708275621CFC52BC0016AE3C /* DiseaseSymptomData.m in Sources */ = {isa = PBXBuildFile; fileRef = 708275611CFC52BC0016AE3C /* DiseaseSymptomData.m */; };
 		708275651CFC54040016AE3C /* DiseaseSymtomCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708275641CFC54040016AE3C /* DiseaseSymtomCollectionCell.m */; };
+		708275681CFD62230016AE3C /* info_health_dish_comment_yellow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275661CFD62230016AE3C /* info_health_dish_comment_yellow@3x.png */; };
+		708275691CFD62230016AE3C /* info_health_dish_comment_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275671CFD62230016AE3C /* info_health_dish_comment_yellow@2x.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -871,6 +873,8 @@
 		708275611CFC52BC0016AE3C /* DiseaseSymptomData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseSymptomData.m; sourceTree = "<group>"; };
 		708275631CFC54040016AE3C /* DiseaseSymtomCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiseaseSymtomCollectionCell.h; sourceTree = "<group>"; };
 		708275641CFC54040016AE3C /* DiseaseSymtomCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseSymtomCollectionCell.m; sourceTree = "<group>"; };
+		708275661CFD62230016AE3C /* info_health_dish_comment_yellow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_health_dish_comment_yellow@3x.png"; sourceTree = "<group>"; };
+		708275671CFD62230016AE3C /* info_health_dish_comment_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_health_dish_comment_yellow@2x.png"; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1582,6 +1586,8 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708275661CFD62230016AE3C /* info_health_dish_comment_yellow@3x.png */,
+				708275671CFD62230016AE3C /* info_health_dish_comment_yellow@2x.png */,
 				708275541CFC35F90016AE3C /* info_health_comment_after_fix.png */,
 				708275551CFC35F90016AE3C /* info_health_comment_after_fix@2x.png */,
 				708275561CFC35F90016AE3C /* info_health_comment_after_fix@3x.png */,
@@ -2699,6 +2705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C03DFA1CA2920E00DBA175 /* FMGAVPlayer.bundle in Resources */,
+				708275681CFD62230016AE3C /* info_health_dish_comment_yellow@3x.png in Resources */,
 				7002D8791CB49F7F0074426A /* info_treatment_offline_selected.png in Resources */,
 				70B4EB591CDB36E400141E38 /* info_person_mr_record_image3.png in Resources */,
 				7046AD231C97E5D700BB6818 /* cell_studio_title_button.png in Resources */,
@@ -2872,6 +2879,7 @@
 				705EF7EE1CBC947600732886 /* mine_default_medical_record.png in Resources */,
 				708275311CFC15E50016AE3C /* tabbar_info_selected@3x.png in Resources */,
 				70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */,
+				708275691CFD62230016AE3C /* info_health_dish_comment_yellow@2x.png in Resources */,
 				70FEADF91CAB7710006A044A /* info_expert_guanzhu_normal.png in Resources */,
 				7046AD741C9A426100BB6818 /* login_third_login_qq.png in Resources */,
 				7046AD371C97E8D300BB6818 /* launchimage.jpg in Resources */,
