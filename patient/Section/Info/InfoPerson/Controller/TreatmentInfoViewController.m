@@ -708,6 +708,9 @@
 }
 
 -(void)initRecognizer{
+    UITapGestureRecognizer *scrollViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewClicked:)];
+    [self.scrollView addGestureRecognizer:scrollViewTap];
+    
     self.contactView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactViewClicked)];
     [self.contactView addGestureRecognizer:tap];
@@ -724,6 +727,13 @@
 }
 
 #pragma mark Target Action
+- (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [self.textfield1 resignFirstResponder];
+    [self.textfield2 resignFirstResponder];
+    [self.textfield3 resignFirstResponder];
+    [self.textfield4 resignFirstResponder];
+}
+
 -(void)contactViewClicked{
     ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
     contactCheckVC.contactDelegate = self;

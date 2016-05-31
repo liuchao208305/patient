@@ -118,7 +118,11 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    if ([AdaptionUtil isIphoneFour]) {
+        self.scrollView.contentSize = CGSizeMake(0, 1.4*SCREEN_HEIGHT);
+    }else{
+        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+    }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
