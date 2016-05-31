@@ -56,12 +56,12 @@
     BaseNaviController *TestFixNavC = [[BaseNaviController alloc] initWithRootViewController:TestFixVC];
     [childVCArray addObject:TestFixNavC];
     
-//    SearchViewController *SearchVC = [[SearchViewController alloc] init];
-//    [SearchVC.tabBarItem setTitle:@"搜索"];
-//    [SearchVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_search_normal"]];
-//    [SearchVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_search_selected"]];
-//    BaseNaviController *SearchNavC = [[BaseNaviController alloc] initWithRootViewController:SearchVC];
-//    [childVCArray addObject:SearchNavC];
+    SearchViewController *SearchVC = [[SearchViewController alloc] init];
+    [SearchVC.tabBarItem setTitle:@"搜索"];
+    [SearchVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_search_normal"]];
+    [SearchVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_search_selected"]];
+    BaseNaviController *SearchNavC = [[BaseNaviController alloc] initWithRootViewController:SearchVC];
+    [childVCArray addObject:SearchNavC];
     
     MineViewController *MineVC = [[MineViewController alloc] init];
     [MineVC.tabBarItem setTitle:@"我的"];
