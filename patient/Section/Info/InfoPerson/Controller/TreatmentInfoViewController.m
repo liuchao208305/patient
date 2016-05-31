@@ -147,7 +147,9 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+    if ([AdaptionUtil isIphoneFour]) {
+        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
+    }else if ([AdaptionUtil isIphoneFive]){
         self.scrollView.contentSize = CGSizeMake(0, 1.3*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
         self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
