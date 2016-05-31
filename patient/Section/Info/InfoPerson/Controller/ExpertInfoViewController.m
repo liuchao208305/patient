@@ -53,7 +53,8 @@
 @property (strong,nonatomic)NSString *detailLabel1;
 @property (strong,nonatomic)NSString *detailLabel2;
 @property (strong,nonatomic)NSString *detailLabel3;
-@property (assign,nonatomic)NSInteger detailNumber;
+@property (assign,nonatomic)int detailNumber;
+@property (strong,nonatomic)NSString *detailNumberFix;
 @property (assign,nonatomic)BOOL isFocused;
 @property (strong,nonatomic)NSString *detailMoney;
 
@@ -760,10 +761,18 @@
     self.detailLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"title_name"];
     self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
     
-    self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
+//    self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
+//    if (self.detailNumber == 0) {
+//        self.isFocused = NO;
+//    }else if (self.detailNumber == 1) {
+//        self.isFocused = YES;
+//    }
+    
+    self.detailNumberFix = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"atteation"];
+    self.detailNumber = [self.detailNumberFix intValue];
     if (self.detailNumber == 0) {
         self.isFocused = NO;
-    }else{
+    }else if (self.detailNumber == 1) {
         self.isFocused = YES;
     }
     
