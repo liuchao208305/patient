@@ -24,7 +24,8 @@
     self.button = [[UIButton alloc] init];
     self.button.layer.cornerRadius = 5;
     self.button.layer.borderWidth = 1;
-    self.button.layer.borderColor = kBLACK_COLOR.CGColor;
+//    self.button.layer.borderColor = kBLACK_COLOR.CGColor;
+    self.button.layer.borderColor = ColorWithHexRGB(0x646464).CGColor;
     [self.contentView addSubview:self.button];
     
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {

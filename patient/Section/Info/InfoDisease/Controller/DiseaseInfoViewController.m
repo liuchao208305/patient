@@ -518,7 +518,7 @@
     DiseaseSymtomCollectionCell * cell = (DiseaseSymtomCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
     
     [cell.button setTitle:self.symptomNameArray[indexPath.row] forState:UIControlStateNormal];
-    [cell.button setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+    [cell.button setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
     
     return cell;
 }
