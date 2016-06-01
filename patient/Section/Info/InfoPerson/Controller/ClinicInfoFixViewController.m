@@ -1333,6 +1333,8 @@
     [parameter setValue:self.expertId forKey:@"maxDoctorId"];
     [parameter setValue:[DateUtil getFirstTime] forKey:@"date"];
     
+    DLog(@"parameter-->%@",parameter);
+    
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_SCHEDULE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
