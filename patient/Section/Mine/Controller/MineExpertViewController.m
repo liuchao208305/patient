@@ -149,6 +149,12 @@
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
     
+    cell.expertFlagImageView1.hidden = YES;
+    cell.expertFlagImageView2.hidden = YES;
+    cell.expertFlagImageView3.hidden = YES;
+    cell.expertFlagImageView4.hidden = YES;
+    cell.expertFlagImageView5.hidden = YES;
+    
     return cell;
 }
 

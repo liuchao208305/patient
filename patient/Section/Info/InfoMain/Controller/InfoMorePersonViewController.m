@@ -555,83 +555,51 @@
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
     
-    if ([self.expertFlagArray[indexPath.row] isKindOfClass:[NSNull class]]) {
-        cell.expertFlagImageView1.hidden = YES;
-        cell.expertFlagImageView2.hidden = YES;
-        cell.expertFlagImageView3.hidden = YES;
-        cell.expertFlagImageView4.hidden = YES;
-        cell.expertFlagImageView5.hidden = YES;
-    }else{
-        if ([self.expertFlagArray[indexPath.row] count] == 1){
-            cell.expertFlagImageView1.hidden = NO;
-            cell.expertFlagImageView2.hidden = YES;
-            cell.expertFlagImageView3.hidden = YES;
-            cell.expertFlagImageView4.hidden = YES;
-            cell.expertFlagImageView5.hidden = YES;
-        }else if ([self.expertFlagArray[indexPath.row] count] == 2){
-            cell.expertFlagImageView1.hidden = NO;
-            cell.expertFlagImageView2.hidden = NO;
-            cell.expertFlagImageView3.hidden = YES;
-            cell.expertFlagImageView4.hidden = YES;
-            cell.expertFlagImageView5.hidden = YES;
-        }else if ([self.expertFlagArray[indexPath.row] count] == 3){
-            cell.expertFlagImageView1.hidden = NO;
-            cell.expertFlagImageView2.hidden = NO;
-            cell.expertFlagImageView3.hidden = NO;
-            cell.expertFlagImageView4.hidden = YES;
-            cell.expertFlagImageView5.hidden = YES;
-        }else if ([self.expertFlagArray[indexPath.row] count] == 4){
-            cell.expertFlagImageView1.hidden = NO;
-            cell.expertFlagImageView2.hidden = NO;
-            cell.expertFlagImageView3.hidden = NO;
-            cell.expertFlagImageView4.hidden = NO;
-            cell.expertFlagImageView5.hidden = YES;
-        }else if ([self.expertFlagArray[indexPath.row] count] == 5){
-            cell.expertFlagImageView1.hidden = NO;
-            cell.expertFlagImageView2.hidden = NO;
-            cell.expertFlagImageView3.hidden = NO;
-            cell.expertFlagImageView4.hidden = NO;
-            cell.expertFlagImageView5.hidden = NO;
-        }
-    }
-    
-//    if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 0) {
+//    if ([self.expertFlagArray[indexPath.row] isKindOfClass:[NSNull class]]) {
 //        cell.expertFlagImageView1.hidden = YES;
 //        cell.expertFlagImageView2.hidden = YES;
 //        cell.expertFlagImageView3.hidden = YES;
 //        cell.expertFlagImageView4.hidden = YES;
 //        cell.expertFlagImageView5.hidden = YES;
-//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 1){
-//        cell.expertFlagImageView1.hidden = NO;
-//        cell.expertFlagImageView2.hidden = YES;
-//        cell.expertFlagImageView3.hidden = YES;
-//        cell.expertFlagImageView4.hidden = YES;
-//        cell.expertFlagImageView5.hidden = YES;
-//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 2){
-//        cell.expertFlagImageView1.hidden = NO;
-//        cell.expertFlagImageView2.hidden = NO;
-//        cell.expertFlagImageView3.hidden = YES;
-//        cell.expertFlagImageView4.hidden = YES;
-//        cell.expertFlagImageView5.hidden = YES;
-//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 3){
-//        cell.expertFlagImageView1.hidden = NO;
-//        cell.expertFlagImageView2.hidden = NO;
-//        cell.expertFlagImageView3.hidden = NO;
-//        cell.expertFlagImageView4.hidden = YES;
-//        cell.expertFlagImageView5.hidden = YES;
-//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 4){
-//        cell.expertFlagImageView1.hidden = NO;
-//        cell.expertFlagImageView2.hidden = NO;
-//        cell.expertFlagImageView3.hidden = NO;
-//        cell.expertFlagImageView4.hidden = NO;
-//        cell.expertFlagImageView5.hidden = YES;
-//    }else if ([self.expertFlagNumberArray[indexPath.row] integerValue] == 5){
-//        cell.expertFlagImageView1.hidden = NO;
-//        cell.expertFlagImageView2.hidden = NO;
-//        cell.expertFlagImageView3.hidden = NO;
-//        cell.expertFlagImageView4.hidden = NO;
-//        cell.expertFlagImageView5.hidden = NO;
+//    }else{
+//        if ([self.expertFlagArray[indexPath.row] count] == 1){
+//            cell.expertFlagImageView1.hidden = NO;
+//            cell.expertFlagImageView2.hidden = YES;
+//            cell.expertFlagImageView3.hidden = YES;
+//            cell.expertFlagImageView4.hidden = YES;
+//            cell.expertFlagImageView5.hidden = YES;
+//        }else if ([self.expertFlagArray[indexPath.row] count] == 2){
+//            cell.expertFlagImageView1.hidden = NO;
+//            cell.expertFlagImageView2.hidden = NO;
+//            cell.expertFlagImageView3.hidden = YES;
+//            cell.expertFlagImageView4.hidden = YES;
+//            cell.expertFlagImageView5.hidden = YES;
+//        }else if ([self.expertFlagArray[indexPath.row] count] == 3){
+//            cell.expertFlagImageView1.hidden = NO;
+//            cell.expertFlagImageView2.hidden = NO;
+//            cell.expertFlagImageView3.hidden = NO;
+//            cell.expertFlagImageView4.hidden = YES;
+//            cell.expertFlagImageView5.hidden = YES;
+//        }else if ([self.expertFlagArray[indexPath.row] count] == 4){
+//            cell.expertFlagImageView1.hidden = NO;
+//            cell.expertFlagImageView2.hidden = NO;
+//            cell.expertFlagImageView3.hidden = NO;
+//            cell.expertFlagImageView4.hidden = NO;
+//            cell.expertFlagImageView5.hidden = YES;
+//        }else if ([self.expertFlagArray[indexPath.row] count] == 5){
+//            cell.expertFlagImageView1.hidden = NO;
+//            cell.expertFlagImageView2.hidden = NO;
+//            cell.expertFlagImageView3.hidden = NO;
+//            cell.expertFlagImageView4.hidden = NO;
+//            cell.expertFlagImageView5.hidden = NO;
+//        }
 //    }
+    
+    cell.expertFlagImageView1.hidden = YES;
+    cell.expertFlagImageView2.hidden = YES;
+    cell.expertFlagImageView3.hidden = YES;
+    cell.expertFlagImageView4.hidden = YES;
+    cell.expertFlagImageView5.hidden = YES;
     
     return cell;
 }
