@@ -50,7 +50,22 @@
     
     [AnalyticUtil UMBeginLogPageView:@"MineMessageDetailViewController"];
     
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    }else{
+        self.navigationItem.leftBarButtonItem=nil;
+    }
+    
     [self sendMineMessageDetailRequest];
+}
+
+- (void)rebackToRootViewAction {
+    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@""forKey:@"push"];
+    [pushJudge synchronize];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

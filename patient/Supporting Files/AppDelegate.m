@@ -19,7 +19,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "WXApiManager.h"
-
+#import "MineMessageDetailViewController.h"
 #import "GuideViewController.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -190,9 +190,25 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [UMessage didReceiveRemoteNotification:userInfo];
-    DLog(@"userInfo-->%@",userInfo);
-    DLog(@"message_id-->%@",[userInfo objectForKey:@"message_id"]);
-    DLog(@"type-->%@",[userInfo objectForKey:@"type"]);
+    
+    [self goToMssageViewControllerWith:userInfo];
+}
+
+- (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
+    DLog(@"userInfo-->%@",msgDic);
+    DLog(@"message_id-->%@",[msgDic objectForKey:@"message_id"]);
+    DLog(@"type-->%@",[msgDic objectForKey:@"type"]);
+    
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@"push"forKey:@"push"];
+    [pushJudge synchronize];
+    
+    NSString *messageId = [msgDic objectForKey:@"message_id"];
+    
+    MineMessageDetailViewController * messageDetailVC = [[MineMessageDetailViewController alloc]init];
+    messageDetailVC.messageId = messageId;
+    UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:messageDetailVC];
+    [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
 }
 
 /*
