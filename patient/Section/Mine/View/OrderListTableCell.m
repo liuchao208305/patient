@@ -297,7 +297,8 @@
         [self.label2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.label2_5).offset(80);
             make.centerY.equalTo(self.label2_5).offset(0);
-            make.width.mas_equalTo(80);
+//            make.width.mas_equalTo(80);
+            make.trailing.equalTo(self.contentView).offset(-12);
             make.height.mas_equalTo(13);
         }];
         
