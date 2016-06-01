@@ -1071,7 +1071,7 @@
     self.textfield2.text = contactData.id_number;
     self.textfield3.text = contactData.phone;
     self.textfield4.text = [NSString stringWithFormat:@"%ld",(long)contactData.age];
-    if (contactData.sex == 0) {
+    if (contactData.sex == 1) {
         self.patientSex = @"男";
         self.patientSexFix = 1;
         [self.button5_1 setTitle:@"男" forState:UIControlStateNormal];
