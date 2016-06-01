@@ -190,6 +190,9 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [UMessage didReceiveRemoteNotification:userInfo];
+    DLog(@"userInfo-->%@",userInfo);
+    DLog(@"message_id-->%@",[userInfo objectForKey:@"message_id"]);
+    DLog(@"type-->%@",[userInfo objectForKey:@"type"]);
 }
 
 /*
