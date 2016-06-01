@@ -1649,7 +1649,7 @@
     self.expertLabel3.text = self.expertGroup;
 //    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %ld",(long)self.formerMoney];
     
-    NSString *oldPrice = [NSString stringWithFormat:@"¥ %ld",(long)self.formerMoney];
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
     NSUInteger length = [oldPrice length];
     
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
@@ -1657,7 +1657,7 @@
     [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
     [self.moneyLabel1 setAttributedText:attri];
     
-    self.moneyLabel2.text = [NSString stringWithFormat:@"%ld",(long)self.latterMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.latterMoney];
     
     [self.doctorTitleImageView setImage:[UIImage imageNamed:@"info_clinic_doctor_title_image"]];
     self.doctorTitleLabel.text = @"线下门诊医生";
