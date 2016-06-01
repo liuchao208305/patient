@@ -1177,7 +1177,7 @@
     self.addressLabel.text = self.clinicAddress;
 //    self.moneyLabel1.text = [NSString stringWithFormat:@"%.0f",self.formerMoney];
     
-    NSString *oldPrice = [NSString stringWithFormat:@"¥ %ld",(long)self.formerMoney];
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %.2f",self.formerMoney];
     NSUInteger length = [oldPrice length];
     
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
@@ -1185,7 +1185,7 @@
     [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
     [self.moneyLabel1 setAttributedText:attri];
     
-    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.latterMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.latterMoney];
     if ([self.appiontmentTime2 intValue] == 1) {
         self.timeLabel.text = [NSString stringWithFormat:@"%@  上午",self.appiontmentTime1];
     }else{
