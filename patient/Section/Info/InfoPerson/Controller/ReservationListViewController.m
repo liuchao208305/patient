@@ -609,7 +609,7 @@
     [parameter setValue:self.publicPatientSymptom forKey:@"symptom_ids"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.paymentType] forKey:@"pay_type"];
     [parameter setValue:self.publicCouponId forKey:@"coupon_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%f",self.publicLatterMoney] forKey:@"price"];
+    [parameter setValue:[NSString stringWithFormat:@"%.2f",self.publicLatterMoney] forKey:@"price"];
     
 //    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
 //    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
@@ -764,7 +764,7 @@
     self.addressLabel.text = self.publicClinicAddress;
 //    self.moneyLabel1.text = [NSString stringWithFormat:@"¥ %.0f",self.publicFormerMoney];
     
-    NSString *oldPrice = [NSString stringWithFormat:@"¥ %ld",(long)self.publicFormerMoney];
+    NSString *oldPrice = [NSString stringWithFormat:@"¥ %.2f",self.publicFormerMoney];
     NSUInteger length = [oldPrice length];
     
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
@@ -772,7 +772,7 @@
     [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
     [self.moneyLabel1 setAttributedText:attri];
     
-    self.moneyLabel2.text = [NSString stringWithFormat:@"%.0f",self.publicLatterMoney];
+    self.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.publicLatterMoney];
     [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
     self.timeLabel.text = self.publicAppiontmentTime;
     
