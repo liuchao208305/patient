@@ -645,7 +645,6 @@
         
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
-#warning 跳转回来，页面重新初始化，触发不了此方法
         TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
         detaiVC.isFromOrderListVC = YES;
         detaiVC.orderNumber = self.orderPayIdArrayBooked[indexPath.section];
