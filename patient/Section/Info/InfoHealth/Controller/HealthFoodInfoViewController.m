@@ -541,14 +541,14 @@
                     [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
                     self.favouriteLabel.text = @"已收藏";
                     self.favouriteLabel.textColor = kWHITE_COLOR;
-                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
+                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
                 }else if (self.isFavourited == NO){
 //                    [HudUtil showSimpleTextOnlyHUD:@"取消收藏成功！" withDelaySeconds:kHud_DelayTime];
 //                    [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_before"] forState:UIControlStateNormal];
                     [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
                     self.favouriteLabel.text = @"收藏";
                     self.favouriteLabel.textColor = kWHITE_COLOR;
-                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
+                    self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
                 }
             }
             
@@ -622,14 +622,14 @@
         [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
         self.favouriteLabel.text = @"收藏";
         self.favouriteLabel.textColor = kWHITE_COLOR;
-        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
+        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
     }else{
         self.isFavourited = YES;
 //        [self.favouriteButton setBackgroundImage:[UIImage imageNamed:@"info_health_favourite_after"] forState:UIControlStateNormal];
         [self.favouriteImageView setImage:[UIImage imageNamed:@"info_health_favourite_fix"]];
         self.favouriteLabel.text = @"已收藏";
         self.favouriteLabel.textColor = kWHITE_COLOR;
-        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0xf4bc4f);
+        self.favouriteBackView.backgroundColor = ColorWithHexRGB(0x1f996a);
     }
     
     self.shareUrl = [NullUtil judgeStringNull:[[self.data objectForKey:@"foodDetail"] objectForKey:@"fenxURL"]];
