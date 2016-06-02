@@ -134,12 +134,12 @@
     
     self.presentationLabel1 = [[UILabel alloc] init];
     self.presentationLabel1.text = @"请根据最近一年的体验和感觉";
-    self.presentationLabel1.textColor = [UIColor lightGrayColor];
+    self.presentationLabel1.textColor = kLIGHT_GRAY_COLOR;
     [self.topFixedView addSubview:self.presentationLabel1];
     
     self.presentationLabel2 = [[UILabel alloc] init];
     self.presentationLabel2.text = @"回答以下问题";
-    self.presentationLabel2.textColor = [UIColor lightGrayColor];
+    self.presentationLabel2.textColor = kLIGHT_GRAY_COLOR;
     [self.topFixedView addSubview:self.presentationLabel2];
     
     if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
@@ -150,7 +150,7 @@
     self.quantityLabel = [[UILabel alloc] init];
     self.quantityLabel.text = @"0/60";
     self.quantityLabel.textAlignment = NSTextAlignmentRight;
-    self.quantityLabel.textColor = [UIColor lightGrayColor];
+    self.quantityLabel.textColor = kLIGHT_GRAY_COLOR;
     [self.topFixedView addSubview:self.quantityLabel];
     
     [self.presentationLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -520,8 +520,8 @@
     self.button1_1 = [[UIButton alloc] init];
     self.button1_1.layer.cornerRadius = 25;
     [self.button1_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button1_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button1_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button1_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView1 addSubview:self.button1_1];
     
     [self.button1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -534,8 +534,8 @@
     self.button1_2 = [[UIButton alloc] init];
     self.button1_2.layer.cornerRadius = 25;
     [self.button1_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button1_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button1_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button1_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView1 addSubview:self.button1_2];
     
     [self.button1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -548,8 +548,8 @@
     self.button1_3 = [[UIButton alloc] init];
     self.button1_3.layer.cornerRadius = 25;
     [self.button1_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button1_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button1_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button1_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView1 addSubview:self.button1_3];
     
     [self.button1_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -562,8 +562,8 @@
     self.button1_3Fix = [[UIButton alloc] init];
     self.button1_3Fix.layer.cornerRadius = 25;
     [self.button1_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button1_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button1_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button1_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView1 addSubview:self.button1_3Fix];
     
     [self.button1_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -576,8 +576,8 @@
     self.button1_4 = [[UIButton alloc] init];
     self.button1_4.layer.cornerRadius = 25;
     [self.button1_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button1_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button1_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button1_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView1 addSubview:self.button1_4];
     
     [self.button1_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -645,8 +645,8 @@
     self.button2_1 = [[UIButton alloc] init];
     self.button2_1.layer.cornerRadius = 25;
     [self.button2_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button2_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button2_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button2_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView2 addSubview:self.button2_1];
     
     [self.button2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -659,8 +659,8 @@
     self.button2_2 = [[UIButton alloc] init];
     self.button2_2.layer.cornerRadius = 25;
     [self.button2_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button2_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button2_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button2_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView2 addSubview:self.button2_2];
     
     [self.button2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -673,8 +673,8 @@
     self.button2_3 = [[UIButton alloc] init];
     self.button2_3.layer.cornerRadius = 25;
     [self.button2_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button2_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button2_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button2_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView2 addSubview:self.button2_3];
     
     [self.button2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -687,8 +687,8 @@
     self.button2_3Fix = [[UIButton alloc] init];
     self.button2_3Fix.layer.cornerRadius = 25;
     [self.button2_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button2_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button2_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button2_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView2 addSubview:self.button2_3Fix];
     
     [self.button2_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -701,8 +701,8 @@
     self.button2_4 = [[UIButton alloc] init];
     self.button2_4.layer.cornerRadius = 25;
     [self.button2_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button2_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button2_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button2_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView2 addSubview:self.button2_4];
     
     [self.button2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -769,8 +769,8 @@
     self.button3_1 = [[UIButton alloc] init];
     self.button3_1.layer.cornerRadius = 25;
     [self.button3_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button3_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button3_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button3_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView3 addSubview:self.button3_1];
     
     [self.button3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -783,8 +783,8 @@
     self.button3_2 = [[UIButton alloc] init];
     self.button3_2.layer.cornerRadius = 25;
     [self.button3_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button3_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button3_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button3_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView3 addSubview:self.button3_2];
     
     [self.button3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -797,8 +797,8 @@
     self.button3_3 = [[UIButton alloc] init];
     self.button3_3.layer.cornerRadius = 25;
     [self.button3_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button3_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button3_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button3_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView3 addSubview:self.button3_3];
     
     [self.button3_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -811,8 +811,8 @@
     self.button3_3Fix = [[UIButton alloc] init];
     self.button3_3Fix.layer.cornerRadius = 25;
     [self.button3_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button3_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button3_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button3_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView3 addSubview:self.button3_3Fix];
     
     [self.button3_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -825,8 +825,8 @@
     self.button3_4 = [[UIButton alloc] init];
     self.button3_4.layer.cornerRadius = 25;
     [self.button3_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button3_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button3_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button3_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView3 addSubview:self.button3_4];
     
     [self.button3_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -893,8 +893,8 @@
     self.button4_1 = [[UIButton alloc] init];
     self.button4_1.layer.cornerRadius = 25;
     [self.button4_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button4_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button4_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button4_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView4 addSubview:self.button4_1];
     
     [self.button4_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -907,8 +907,8 @@
     self.button4_2 = [[UIButton alloc] init];
     self.button4_2.layer.cornerRadius = 25;
     [self.button4_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button4_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button4_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button4_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView4 addSubview:self.button4_2];
     
     [self.button4_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -921,8 +921,8 @@
     self.button4_3 = [[UIButton alloc] init];
     self.button4_3.layer.cornerRadius = 25;
     [self.button4_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button4_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button4_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button4_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView4 addSubview:self.button4_3];
     
     [self.button4_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -935,8 +935,8 @@
     self.button4_3Fix = [[UIButton alloc] init];
     self.button4_3Fix.layer.cornerRadius = 25;
     [self.button4_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button4_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button4_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button4_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView4 addSubview:self.button4_3Fix];
     
     [self.button4_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -949,8 +949,8 @@
     self.button4_4 = [[UIButton alloc] init];
     self.button4_4.layer.cornerRadius = 25;
     [self.button4_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button4_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button4_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button4_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView4 addSubview:self.button4_4];
     
     [self.button4_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1017,8 +1017,8 @@
     self.button5_1 = [[UIButton alloc] init];
     self.button5_1.layer.cornerRadius = 25;
     [self.button5_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button5_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button5_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button5_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView5 addSubview:self.button5_1];
     
     [self.button5_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1031,8 +1031,8 @@
     self.button5_2 = [[UIButton alloc] init];
     self.button5_2.layer.cornerRadius = 25;
     [self.button5_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button5_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button5_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button5_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView5 addSubview:self.button5_2];
     
     [self.button5_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1045,8 +1045,8 @@
     self.button5_3 = [[UIButton alloc] init];
     self.button5_3.layer.cornerRadius = 25;
     [self.button5_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button5_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button5_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button5_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView5 addSubview:self.button5_3];
     
     [self.button5_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1059,8 +1059,8 @@
     self.button5_3Fix = [[UIButton alloc] init];
     self.button5_3Fix.layer.cornerRadius = 25;
     [self.button5_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button5_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button5_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button5_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView5 addSubview:self.button5_3Fix];
     
     [self.button5_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1073,8 +1073,8 @@
     self.button5_4 = [[UIButton alloc] init];
     self.button5_4.layer.cornerRadius = 25;
     [self.button5_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button5_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button5_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button5_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView5 addSubview:self.button5_4];
     
     [self.button5_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1141,8 +1141,8 @@
     self.button6_1 = [[UIButton alloc] init];
     self.button6_1.layer.cornerRadius = 25;
     [self.button6_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button6_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button6_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button6_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView6 addSubview:self.button6_1];
     
     [self.button6_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1155,8 +1155,8 @@
     self.button6_2 = [[UIButton alloc] init];
     self.button6_2.layer.cornerRadius = 25;
     [self.button6_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button6_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button6_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button6_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView6 addSubview:self.button6_2];
     
     [self.button6_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1169,8 +1169,8 @@
     self.button6_3 = [[UIButton alloc] init];
     self.button6_3.layer.cornerRadius = 25;
     [self.button6_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button6_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button6_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button6_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView6 addSubview:self.button6_3];
     
     [self.button6_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1183,8 +1183,8 @@
     self.button6_3Fix = [[UIButton alloc] init];
     self.button6_3Fix.layer.cornerRadius = 25;
     [self.button6_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button6_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button6_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button6_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView6 addSubview:self.button6_3Fix];
     
     [self.button6_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1197,8 +1197,8 @@
     self.button6_4 = [[UIButton alloc] init];
     self.button6_4.layer.cornerRadius = 25;
     [self.button6_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button6_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button6_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button6_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView6 addSubview:self.button6_4];
     
     [self.button6_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1265,8 +1265,8 @@
     self.button7_1 = [[UIButton alloc] init];
     self.button7_1.layer.cornerRadius = 25;
     [self.button7_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button7_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button7_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button7_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView7 addSubview:self.button7_1];
     
     [self.button7_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1279,8 +1279,8 @@
     self.button7_2 = [[UIButton alloc] init];
     self.button7_2.layer.cornerRadius = 25;
     [self.button7_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button7_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button7_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button7_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView7 addSubview:self.button7_2];
     
     [self.button7_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1293,8 +1293,8 @@
     self.button7_3 = [[UIButton alloc] init];
     self.button7_3.layer.cornerRadius = 25;
     [self.button7_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button7_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button7_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button7_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView7 addSubview:self.button7_3];
     
     [self.button7_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1307,8 +1307,8 @@
     self.button7_3Fix = [[UIButton alloc] init];
     self.button7_3Fix.layer.cornerRadius = 25;
     [self.button7_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button7_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button7_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button7_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView7 addSubview:self.button7_3Fix];
     
     [self.button7_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1321,8 +1321,8 @@
     self.button7_4 = [[UIButton alloc] init];
     self.button7_4.layer.cornerRadius = 25;
     [self.button7_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button7_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button7_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button7_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView7 addSubview:self.button7_4];
     
     [self.button7_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1388,8 +1388,8 @@
     self.button8_1 = [[UIButton alloc] init];
     self.button8_1.layer.cornerRadius = 25;
     [self.button8_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button8_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button8_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button8_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView8 addSubview:self.button8_1];
     
     [self.button8_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1402,8 +1402,8 @@
     self.button8_2 = [[UIButton alloc] init];
     self.button8_2.layer.cornerRadius = 25;
     [self.button8_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button8_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button8_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button8_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView8 addSubview:self.button8_2];
     
     [self.button8_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1416,8 +1416,8 @@
     self.button8_3 = [[UIButton alloc] init];
     self.button8_3.layer.cornerRadius = 25;
     [self.button8_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button8_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button8_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button8_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView8 addSubview:self.button8_3];
     
     [self.button8_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1430,8 +1430,8 @@
     self.button8_3Fix = [[UIButton alloc] init];
     self.button8_3Fix.layer.cornerRadius = 25;
     [self.button8_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button8_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button8_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button8_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView8 addSubview:self.button8_3Fix];
     
     [self.button8_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1444,8 +1444,8 @@
     self.button8_4 = [[UIButton alloc] init];
     self.button8_4.layer.cornerRadius = 25;
     [self.button8_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button8_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button8_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button8_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView8 addSubview:self.button8_4];
     
     [self.button8_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1512,8 +1512,8 @@
     self.button9_1 = [[UIButton alloc] init];
     self.button9_1.layer.cornerRadius = 25;
     [self.button9_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button9_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button9_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button9_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView9 addSubview:self.button9_1];
     
     [self.button9_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1526,8 +1526,8 @@
     self.button9_2 = [[UIButton alloc] init];
     self.button9_2.layer.cornerRadius = 25;
     [self.button9_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button9_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button9_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button9_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView9 addSubview:self.button9_2];
     
     [self.button9_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1540,8 +1540,8 @@
     self.button9_3 = [[UIButton alloc] init];
     self.button9_3.layer.cornerRadius = 25;
     [self.button9_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button9_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button9_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button9_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView9 addSubview:self.button9_3];
     
     [self.button9_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1554,8 +1554,8 @@
     self.button9_3Fix = [[UIButton alloc] init];
     self.button9_3Fix.layer.cornerRadius = 25;
     [self.button9_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button9_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button9_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button9_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView9 addSubview:self.button9_3Fix];
     
     [self.button9_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1568,8 +1568,8 @@
     self.button9_4 = [[UIButton alloc] init];
     self.button9_4.layer.cornerRadius = 25;
     [self.button9_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button9_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button9_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button9_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView9 addSubview:self.button9_4];
     
     [self.button9_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1636,8 +1636,8 @@
     self.button10_1 = [[UIButton alloc] init];
     self.button10_1.layer.cornerRadius = 25;
     [self.button10_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button10_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button10_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button10_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView10 addSubview:self.button10_1];
     
     [self.button10_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1650,8 +1650,8 @@
     self.button10_2 = [[UIButton alloc] init];
     self.button10_2.layer.cornerRadius = 25;
     [self.button10_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button10_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button10_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button10_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView10 addSubview:self.button10_2];
     
     [self.button10_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1664,8 +1664,8 @@
     self.button10_3 = [[UIButton alloc] init];
     self.button10_3.layer.cornerRadius = 25;
     [self.button10_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button10_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button10_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button10_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView10 addSubview:self.button10_3];
     
     [self.button10_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1678,8 +1678,8 @@
     self.button10_3Fix = [[UIButton alloc] init];
     self.button10_3Fix.layer.cornerRadius = 25;
     [self.button10_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button10_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button10_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button10_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView10 addSubview:self.button10_3Fix];
     
     [self.button10_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1692,8 +1692,8 @@
     self.button10_4 = [[UIButton alloc] init];
     self.button10_4.layer.cornerRadius = 25;
     [self.button10_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button10_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button10_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button10_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView10 addSubview:self.button10_4];
     
     [self.button10_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1760,8 +1760,8 @@
     self.button11_1 = [[UIButton alloc] init];
     self.button11_1.layer.cornerRadius = 25;
     [self.button11_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button11_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button11_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button11_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView11 addSubview:self.button11_1];
     
     [self.button11_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1774,8 +1774,8 @@
     self.button11_2 = [[UIButton alloc] init];
     self.button11_2.layer.cornerRadius = 25;
     [self.button11_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button11_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button11_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button11_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView11 addSubview:self.button11_2];
     
     [self.button11_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1788,8 +1788,8 @@
     self.button11_3 = [[UIButton alloc] init];
     self.button11_3.layer.cornerRadius = 25;
     [self.button11_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button11_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button11_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button11_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView11 addSubview:self.button11_3];
     
     [self.button11_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1802,8 +1802,8 @@
     self.button11_3Fix = [[UIButton alloc] init];
     self.button11_3Fix.layer.cornerRadius = 25;
     [self.button11_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button11_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button11_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button11_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView11 addSubview:self.button11_3Fix];
     
     [self.button11_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1816,8 +1816,8 @@
     self.button11_4 = [[UIButton alloc] init];
     self.button11_4.layer.cornerRadius = 25;
     [self.button11_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button11_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button11_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button11_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView11 addSubview:self.button11_4];
     
     [self.button11_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1884,8 +1884,8 @@
     self.button12_1 = [[UIButton alloc] init];
     self.button12_1.layer.cornerRadius = 25;
     [self.button12_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button12_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button12_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button12_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView12 addSubview:self.button12_1];
     
     [self.button12_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1898,8 +1898,8 @@
     self.button12_2 = [[UIButton alloc] init];
     self.button12_2.layer.cornerRadius = 25;
     [self.button12_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button12_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button12_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button12_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView12 addSubview:self.button12_2];
     
     [self.button12_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1912,8 +1912,8 @@
     self.button12_3 = [[UIButton alloc] init];
     self.button12_3.layer.cornerRadius = 25;
     [self.button12_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button12_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button12_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button12_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView12 addSubview:self.button12_3];
     
     [self.button12_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1926,8 +1926,8 @@
     self.button12_3Fix = [[UIButton alloc] init];
     self.button12_3Fix.layer.cornerRadius = 25;
     [self.button12_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button12_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button12_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button12_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView12 addSubview:self.button12_3Fix];
     
     [self.button12_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1940,8 +1940,8 @@
     self.button12_4 = [[UIButton alloc] init];
     self.button12_4.layer.cornerRadius = 25;
     [self.button12_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button12_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button12_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button12_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView12 addSubview:self.button12_4];
     
     [self.button12_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2008,8 +2008,8 @@
     self.button13_1 = [[UIButton alloc] init];
     self.button13_1.layer.cornerRadius = 25;
     [self.button13_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button13_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button13_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button13_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView13 addSubview:self.button13_1];
     
     [self.button13_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2022,8 +2022,8 @@
     self.button13_2 = [[UIButton alloc] init];
     self.button13_2.layer.cornerRadius = 25;
     [self.button13_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button13_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button13_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button13_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView13 addSubview:self.button13_2];
     
     [self.button13_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2036,8 +2036,8 @@
     self.button13_3 = [[UIButton alloc] init];
     self.button13_3.layer.cornerRadius = 25;
     [self.button13_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button13_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button13_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button13_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView13 addSubview:self.button13_3];
     
     [self.button13_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2050,8 +2050,8 @@
     self.button13_3Fix = [[UIButton alloc] init];
     self.button13_3Fix.layer.cornerRadius = 25;
     [self.button13_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button13_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button13_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button13_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView13 addSubview:self.button13_3Fix];
     
     [self.button13_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2064,8 +2064,8 @@
     self.button13_4 = [[UIButton alloc] init];
     self.button13_4.layer.cornerRadius = 25;
     [self.button13_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button13_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button13_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button13_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView13 addSubview:self.button13_4];
     
     [self.button13_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2132,8 +2132,8 @@
     self.button14_1 = [[UIButton alloc] init];
     self.button14_1.layer.cornerRadius = 25;
     [self.button14_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button14_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button14_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button14_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView14 addSubview:self.button14_1];
     
     [self.button14_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2146,8 +2146,8 @@
     self.button14_2 = [[UIButton alloc] init];
     self.button14_2.layer.cornerRadius = 25;
     [self.button14_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button14_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button14_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button14_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView14 addSubview:self.button14_2];
     
     [self.button14_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2160,8 +2160,8 @@
     self.button14_3 = [[UIButton alloc] init];
     self.button14_3.layer.cornerRadius = 25;
     [self.button14_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button14_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button14_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button14_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView14 addSubview:self.button14_3];
     
     [self.button14_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2174,8 +2174,8 @@
     self.button14_3Fix = [[UIButton alloc] init];
     self.button14_3Fix.layer.cornerRadius = 25;
     [self.button14_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button14_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button14_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button14_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView14 addSubview:self.button14_3Fix];
     
     [self.button14_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2188,8 +2188,8 @@
     self.button14_4 = [[UIButton alloc] init];
     self.button14_4.layer.cornerRadius = 25;
     [self.button14_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button14_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button14_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button14_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView14 addSubview:self.button14_4];
     
     [self.button14_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2256,8 +2256,8 @@
     self.button15_1 = [[UIButton alloc] init];
     self.button15_1.layer.cornerRadius = 25;
     [self.button15_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button15_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button15_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button15_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView15 addSubview:self.button15_1];
     
     [self.button15_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2270,8 +2270,8 @@
     self.button15_2 = [[UIButton alloc] init];
     self.button15_2.layer.cornerRadius = 25;
     [self.button15_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button15_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button15_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button15_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView15 addSubview:self.button15_2];
     
     [self.button15_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2284,8 +2284,8 @@
     self.button15_3 = [[UIButton alloc] init];
     self.button15_3.layer.cornerRadius = 25;
     [self.button15_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button15_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button15_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button15_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView15 addSubview:self.button15_3];
     
     [self.button15_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2298,8 +2298,8 @@
     self.button15_3Fix = [[UIButton alloc] init];
     self.button15_3Fix.layer.cornerRadius = 25;
     [self.button15_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button15_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button15_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button15_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView15 addSubview:self.button15_3Fix];
     
     [self.button15_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2312,8 +2312,8 @@
     self.button15_4 = [[UIButton alloc] init];
     self.button15_4.layer.cornerRadius = 25;
     [self.button15_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button15_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button15_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button15_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView15 addSubview:self.button15_4];
     
     [self.button15_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2380,8 +2380,8 @@
     self.button16_1 = [[UIButton alloc] init];
     self.button16_1.layer.cornerRadius = 25;
     [self.button16_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button16_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button16_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button16_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView16 addSubview:self.button16_1];
     
     [self.button16_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2394,8 +2394,8 @@
     self.button16_2 = [[UIButton alloc] init];
     self.button16_2.layer.cornerRadius = 25;
     [self.button16_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button16_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button16_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button16_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView16 addSubview:self.button16_2];
     
     [self.button16_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2408,8 +2408,8 @@
     self.button16_3 = [[UIButton alloc] init];
     self.button16_3.layer.cornerRadius = 25;
     [self.button16_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button16_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button16_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button16_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView16 addSubview:self.button16_3];
     
     [self.button16_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2422,8 +2422,8 @@
     self.button16_3Fix = [[UIButton alloc] init];
     self.button16_3Fix.layer.cornerRadius = 25;
     [self.button16_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button16_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button16_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button16_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView16 addSubview:self.button16_3Fix];
     
     [self.button16_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2436,8 +2436,8 @@
     self.button16_4 = [[UIButton alloc] init];
     self.button16_4.layer.cornerRadius = 25;
     [self.button16_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button16_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button16_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button16_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView16 addSubview:self.button16_4];
     
     [self.button16_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2504,8 +2504,8 @@
     self.button17_1 = [[UIButton alloc] init];
     self.button17_1.layer.cornerRadius = 25;
     [self.button17_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button17_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button17_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button17_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView17 addSubview:self.button17_1];
     
     [self.button17_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2518,8 +2518,8 @@
     self.button17_2 = [[UIButton alloc] init];
     self.button17_2.layer.cornerRadius = 25;
     [self.button17_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button17_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button17_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button17_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView17 addSubview:self.button17_2];
     
     [self.button17_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2532,8 +2532,8 @@
     self.button17_3 = [[UIButton alloc] init];
     self.button17_3.layer.cornerRadius = 25;
     [self.button17_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button17_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button17_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button17_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView17 addSubview:self.button17_3];
     
     [self.button17_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2546,8 +2546,8 @@
     self.button17_3Fix = [[UIButton alloc] init];
     self.button17_3Fix.layer.cornerRadius = 25;
     [self.button17_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button17_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button17_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button17_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView17 addSubview:self.button17_3Fix];
     
     [self.button17_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2560,8 +2560,8 @@
     self.button17_4 = [[UIButton alloc] init];
     self.button17_4.layer.cornerRadius = 25;
     [self.button17_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button17_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button17_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button17_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView17 addSubview:self.button17_4];
     
     [self.button17_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2628,8 +2628,8 @@
     self.button18_1 = [[UIButton alloc] init];
     self.button18_1.layer.cornerRadius = 25;
     [self.button18_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button18_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button18_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button18_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView18 addSubview:self.button18_1];
     
     [self.button18_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2642,8 +2642,8 @@
     self.button18_2 = [[UIButton alloc] init];
     self.button18_2.layer.cornerRadius = 25;
     [self.button18_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button18_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button18_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button18_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView18 addSubview:self.button18_2];
     
     [self.button18_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2656,8 +2656,8 @@
     self.button18_3 = [[UIButton alloc] init];
     self.button18_3.layer.cornerRadius = 25;
     [self.button18_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button18_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button18_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button18_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView18 addSubview:self.button18_3];
     
     [self.button18_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2670,8 +2670,8 @@
     self.button18_3Fix = [[UIButton alloc] init];
     self.button18_3Fix.layer.cornerRadius = 25;
     [self.button18_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button18_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button18_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button18_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView18 addSubview:self.button18_3Fix];
     
     [self.button18_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2684,8 +2684,8 @@
     self.button18_4 = [[UIButton alloc] init];
     self.button18_4.layer.cornerRadius = 25;
     [self.button18_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button18_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button18_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button18_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView18 addSubview:self.button18_4];
     
     [self.button18_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2752,8 +2752,8 @@
     self.button19_1 = [[UIButton alloc] init];
     self.button19_1.layer.cornerRadius = 25;
     [self.button19_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button19_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button19_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button19_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView19 addSubview:self.button19_1];
     
     [self.button19_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2766,8 +2766,8 @@
     self.button19_2 = [[UIButton alloc] init];
     self.button19_2.layer.cornerRadius = 25;
     [self.button19_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button19_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button19_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button19_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView19 addSubview:self.button19_2];
     
     [self.button19_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2780,8 +2780,8 @@
     self.button19_3 = [[UIButton alloc] init];
     self.button19_3.layer.cornerRadius = 25;
     [self.button19_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button19_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button19_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button19_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView19 addSubview:self.button19_3];
     
     [self.button19_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2794,8 +2794,8 @@
     self.button19_3Fix = [[UIButton alloc] init];
     self.button19_3Fix.layer.cornerRadius = 25;
     [self.button19_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button19_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button19_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button19_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView19 addSubview:self.button19_3Fix];
     
     [self.button19_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2808,8 +2808,8 @@
     self.button19_4 = [[UIButton alloc] init];
     self.button19_4.layer.cornerRadius = 25;
     [self.button19_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button19_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button19_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button19_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView19 addSubview:self.button19_4];
     
     [self.button19_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2876,8 +2876,8 @@
     self.button20_1 = [[UIButton alloc] init];
     self.button20_1.layer.cornerRadius = 25;
     [self.button20_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button20_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button20_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button20_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView20 addSubview:self.button20_1];
     
     [self.button20_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2890,8 +2890,8 @@
     self.button20_2 = [[UIButton alloc] init];
     self.button20_2.layer.cornerRadius = 25;
     [self.button20_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button20_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button20_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button20_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView20 addSubview:self.button20_2];
     
     [self.button20_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2904,8 +2904,8 @@
     self.button20_3 = [[UIButton alloc] init];
     self.button20_3.layer.cornerRadius = 25;
     [self.button20_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button20_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button20_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button20_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView20 addSubview:self.button20_3];
     
     [self.button20_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2918,8 +2918,8 @@
     self.button20_3Fix = [[UIButton alloc] init];
     self.button20_3Fix.layer.cornerRadius = 25;
     [self.button20_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button20_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button20_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button20_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView20 addSubview:self.button20_3Fix];
     
     [self.button20_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -2932,8 +2932,8 @@
     self.button20_4 = [[UIButton alloc] init];
     self.button20_4.layer.cornerRadius = 25;
     [self.button20_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button20_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button20_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button20_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView20 addSubview:self.button20_4];
     
     [self.button20_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3000,8 +3000,8 @@
     self.button21_1 = [[UIButton alloc] init];
     self.button21_1.layer.cornerRadius = 25;
     [self.button21_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button21_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button21_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button21_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView21 addSubview:self.button21_1];
     
     [self.button21_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3014,8 +3014,8 @@
     self.button21_2 = [[UIButton alloc] init];
     self.button21_2.layer.cornerRadius = 25;
     [self.button21_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button21_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button21_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button21_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView21 addSubview:self.button21_2];
     
     [self.button21_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3028,8 +3028,8 @@
     self.button21_3 = [[UIButton alloc] init];
     self.button21_3.layer.cornerRadius = 25;
     [self.button21_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button21_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button21_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button21_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView21 addSubview:self.button21_3];
     
     [self.button21_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3042,8 +3042,8 @@
     self.button21_3Fix = [[UIButton alloc] init];
     self.button21_3Fix.layer.cornerRadius = 25;
     [self.button21_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button21_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button21_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button21_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView21 addSubview:self.button21_3Fix];
     
     [self.button21_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3056,8 +3056,8 @@
     self.button21_4 = [[UIButton alloc] init];
     self.button21_4.layer.cornerRadius = 25;
     [self.button21_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button21_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button21_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button21_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView21 addSubview:self.button21_4];
     
     [self.button21_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3124,8 +3124,8 @@
     self.button22_1 = [[UIButton alloc] init];
     self.button22_1.layer.cornerRadius = 25;
     [self.button22_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button22_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button22_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button22_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView22 addSubview:self.button22_1];
     
     [self.button22_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3138,8 +3138,8 @@
     self.button22_2 = [[UIButton alloc] init];
     self.button22_2.layer.cornerRadius = 25;
     [self.button22_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button22_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button22_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button22_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView22 addSubview:self.button22_2];
     
     [self.button22_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3152,8 +3152,8 @@
     self.button22_3 = [[UIButton alloc] init];
     self.button22_3.layer.cornerRadius = 25;
     [self.button22_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button22_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button22_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button22_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView22 addSubview:self.button22_3];
     
     [self.button22_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3166,8 +3166,8 @@
     self.button22_3Fix = [[UIButton alloc] init];
     self.button22_3Fix.layer.cornerRadius = 25;
     [self.button22_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button22_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button22_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button22_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView22 addSubview:self.button22_3Fix];
     
     [self.button22_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3180,8 +3180,8 @@
     self.button22_4 = [[UIButton alloc] init];
     self.button22_4.layer.cornerRadius = 25;
     [self.button22_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button22_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button22_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button22_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView22 addSubview:self.button22_4];
     
     [self.button22_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3248,8 +3248,8 @@
     self.button23_1 = [[UIButton alloc] init];
     self.button23_1.layer.cornerRadius = 25;
     [self.button23_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button23_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button23_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button23_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView23 addSubview:self.button23_1];
     
     [self.button23_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3262,8 +3262,8 @@
     self.button23_2 = [[UIButton alloc] init];
     self.button23_2.layer.cornerRadius = 25;
     [self.button23_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button23_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button23_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button23_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView23 addSubview:self.button23_2];
     
     [self.button23_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3276,8 +3276,8 @@
     self.button23_3 = [[UIButton alloc] init];
     self.button23_3.layer.cornerRadius = 25;
     [self.button23_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button23_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button23_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button23_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView23 addSubview:self.button23_3];
     
     [self.button23_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3290,8 +3290,8 @@
     self.button23_3Fix = [[UIButton alloc] init];
     self.button23_3Fix.layer.cornerRadius = 25;
     [self.button23_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button23_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button23_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button23_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView23 addSubview:self.button23_3Fix];
     
     [self.button23_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3304,8 +3304,8 @@
     self.button23_4 = [[UIButton alloc] init];
     self.button23_4.layer.cornerRadius = 25;
     [self.button23_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button23_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button23_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button23_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView23 addSubview:self.button23_4];
     
     [self.button23_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3372,8 +3372,8 @@
     self.button24_1 = [[UIButton alloc] init];
     self.button24_1.layer.cornerRadius = 25;
     [self.button24_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button24_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button24_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button24_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView24 addSubview:self.button24_1];
     
     [self.button24_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3386,8 +3386,8 @@
     self.button24_2 = [[UIButton alloc] init];
     self.button24_2.layer.cornerRadius = 25;
     [self.button24_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button24_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button24_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button24_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView24 addSubview:self.button24_2];
     
     [self.button24_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3400,8 +3400,8 @@
     self.button24_3 = [[UIButton alloc] init];
     self.button24_3.layer.cornerRadius = 25;
     [self.button24_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button24_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button24_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button24_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView24 addSubview:self.button24_3];
     
     [self.button24_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3414,8 +3414,8 @@
     self.button24_3Fix = [[UIButton alloc] init];
     self.button24_3Fix.layer.cornerRadius = 25;
     [self.button24_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button24_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button24_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button24_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView24 addSubview:self.button24_3Fix];
     
     [self.button24_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3428,8 +3428,8 @@
     self.button24_4 = [[UIButton alloc] init];
     self.button24_4.layer.cornerRadius = 25;
     [self.button24_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button24_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button24_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button24_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView24 addSubview:self.button24_4];
     
     [self.button24_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3496,8 +3496,8 @@
     self.button25_1 = [[UIButton alloc] init];
     self.button25_1.layer.cornerRadius = 25;
     [self.button25_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button25_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button25_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button25_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView25 addSubview:self.button25_1];
     
     [self.button25_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3510,8 +3510,8 @@
     self.button25_2 = [[UIButton alloc] init];
     self.button25_2.layer.cornerRadius = 25;
     [self.button25_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button25_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button25_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button25_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView25 addSubview:self.button25_2];
     
     [self.button25_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3524,8 +3524,8 @@
     self.button25_3 = [[UIButton alloc] init];
     self.button25_3.layer.cornerRadius = 25;
     [self.button25_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button25_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button25_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button25_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView25 addSubview:self.button25_3];
     
     [self.button25_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3538,8 +3538,8 @@
     self.button25_3Fix = [[UIButton alloc] init];
     self.button25_3Fix.layer.cornerRadius = 25;
     [self.button25_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button25_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button25_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button25_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView25 addSubview:self.button25_3Fix];
     
     [self.button25_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3552,8 +3552,8 @@
     self.button25_4 = [[UIButton alloc] init];
     self.button25_4.layer.cornerRadius = 25;
     [self.button25_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button25_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button25_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button25_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView25 addSubview:self.button25_4];
     
     [self.button25_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3620,8 +3620,8 @@
     self.button26_1 = [[UIButton alloc] init];
     self.button26_1.layer.cornerRadius = 25;
     [self.button26_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button26_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button26_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button26_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView26 addSubview:self.button26_1];
     
     [self.button26_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3634,8 +3634,8 @@
     self.button26_2 = [[UIButton alloc] init];
     self.button26_2.layer.cornerRadius = 25;
     [self.button26_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button26_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button26_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button26_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView26 addSubview:self.button26_2];
     
     [self.button26_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3648,8 +3648,8 @@
     self.button26_3 = [[UIButton alloc] init];
     self.button26_3.layer.cornerRadius = 25;
     [self.button26_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button26_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button26_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button26_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView26 addSubview:self.button26_3];
     
     [self.button26_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3662,8 +3662,8 @@
     self.button26_3Fix = [[UIButton alloc] init];
     self.button26_3Fix.layer.cornerRadius = 25;
     [self.button26_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button26_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button26_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button26_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView26 addSubview:self.button26_3Fix];
     
     [self.button26_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3676,8 +3676,8 @@
     self.button26_4 = [[UIButton alloc] init];
     self.button26_4.layer.cornerRadius = 25;
     [self.button26_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button26_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button26_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button26_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView26 addSubview:self.button26_4];
     
     [self.button26_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3744,8 +3744,8 @@
     self.button27_1 = [[UIButton alloc] init];
     self.button27_1.layer.cornerRadius = 25;
     [self.button27_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button27_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button27_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button27_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView27 addSubview:self.button27_1];
     
     [self.button27_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3758,8 +3758,8 @@
     self.button27_2 = [[UIButton alloc] init];
     self.button27_2.layer.cornerRadius = 25;
     [self.button27_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button27_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button27_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button27_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView27 addSubview:self.button27_2];
     
     [self.button27_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3772,8 +3772,8 @@
     self.button27_3 = [[UIButton alloc] init];
     self.button27_3.layer.cornerRadius = 25;
     [self.button27_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button27_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button27_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button27_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView27 addSubview:self.button27_3];
     
     [self.button27_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3786,8 +3786,8 @@
     self.button27_3Fix = [[UIButton alloc] init];
     self.button27_3Fix.layer.cornerRadius = 25;
     [self.button27_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button27_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button27_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button27_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView27 addSubview:self.button27_3Fix];
     
     [self.button27_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3800,8 +3800,8 @@
     self.button27_4 = [[UIButton alloc] init];
     self.button27_4.layer.cornerRadius = 25;
     [self.button27_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button27_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button27_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button27_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView27 addSubview:self.button27_4];
     
     [self.button27_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3868,8 +3868,8 @@
     self.button28_1 = [[UIButton alloc] init];
     self.button28_1.layer.cornerRadius = 25;
     [self.button28_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button28_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button28_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button28_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView28 addSubview:self.button28_1];
     
     [self.button28_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3882,8 +3882,8 @@
     self.button28_2 = [[UIButton alloc] init];
     self.button28_2.layer.cornerRadius = 25;
     [self.button28_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button28_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button28_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button28_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView28 addSubview:self.button28_2];
     
     [self.button28_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3896,8 +3896,8 @@
     self.button28_3 = [[UIButton alloc] init];
     self.button28_3.layer.cornerRadius = 25;
     [self.button28_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button28_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button28_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button28_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView28 addSubview:self.button28_3];
     
     [self.button28_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3910,8 +3910,8 @@
     self.button28_3Fix = [[UIButton alloc] init];
     self.button28_3Fix.layer.cornerRadius = 25;
     [self.button28_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button28_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button28_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button28_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView28 addSubview:self.button28_3Fix];
     
     [self.button28_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3924,8 +3924,8 @@
     self.button28_4 = [[UIButton alloc] init];
     self.button28_4.layer.cornerRadius = 25;
     [self.button28_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button28_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button28_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button28_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView28 addSubview:self.button28_4];
     
     [self.button28_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -3992,8 +3992,8 @@
     self.button29_1 = [[UIButton alloc] init];
     self.button29_1.layer.cornerRadius = 25;
     [self.button29_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button29_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button29_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button29_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView29 addSubview:self.button29_1];
     
     [self.button29_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4006,8 +4006,8 @@
     self.button29_2 = [[UIButton alloc] init];
     self.button29_2.layer.cornerRadius = 25;
     [self.button29_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button29_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button29_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button29_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView29 addSubview:self.button29_2];
     
     [self.button29_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4020,8 +4020,8 @@
     self.button29_3 = [[UIButton alloc] init];
     self.button29_3.layer.cornerRadius = 25;
     [self.button29_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button29_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button29_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button29_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView29 addSubview:self.button29_3];
     
     [self.button29_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4034,8 +4034,8 @@
     self.button29_3Fix = [[UIButton alloc] init];
     self.button29_3Fix.layer.cornerRadius = 25;
     [self.button29_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button29_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button29_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button29_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView29 addSubview:self.button29_3Fix];
     
     [self.button29_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4048,8 +4048,8 @@
     self.button29_4 = [[UIButton alloc] init];
     self.button29_4.layer.cornerRadius = 25;
     [self.button29_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button29_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button29_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button29_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView29 addSubview:self.button29_4];
     
     [self.button29_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4116,8 +4116,8 @@
     self.button30_1 = [[UIButton alloc] init];
     self.button30_1.layer.cornerRadius = 25;
     [self.button30_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button30_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button30_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button30_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView30 addSubview:self.button30_1];
     
     [self.button30_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4130,8 +4130,8 @@
     self.button30_2 = [[UIButton alloc] init];
     self.button30_2.layer.cornerRadius = 25;
     [self.button30_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button30_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button30_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button30_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView30 addSubview:self.button30_2];
     
     [self.button30_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4144,8 +4144,8 @@
     self.button30_3 = [[UIButton alloc] init];
     self.button30_3.layer.cornerRadius = 25;
     [self.button30_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button30_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button30_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button30_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView30 addSubview:self.button30_3];
     
     [self.button30_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4158,8 +4158,8 @@
     self.button30_3Fix = [[UIButton alloc] init];
     self.button30_3Fix.layer.cornerRadius = 25;
     [self.button30_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button30_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button30_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button30_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView30 addSubview:self.button30_3Fix];
     
     [self.button30_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4172,8 +4172,8 @@
     self.button30_4 = [[UIButton alloc] init];
     self.button30_4.layer.cornerRadius = 25;
     [self.button30_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button30_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button30_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button30_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView30 addSubview:self.button30_4];
     
     [self.button30_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4240,8 +4240,8 @@
     self.button31_1 = [[UIButton alloc] init];
     self.button31_1.layer.cornerRadius = 25;
     [self.button31_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button31_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button31_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button31_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView31 addSubview:self.button31_1];
     
     [self.button31_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4254,8 +4254,8 @@
     self.button31_2 = [[UIButton alloc] init];
     self.button31_2.layer.cornerRadius = 25;
     [self.button31_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button31_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button31_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button31_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView31 addSubview:self.button31_2];
     
     [self.button31_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4268,8 +4268,8 @@
     self.button31_3 = [[UIButton alloc] init];
     self.button31_3.layer.cornerRadius = 25;
     [self.button31_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button31_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button31_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button31_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView31 addSubview:self.button31_3];
     
     [self.button31_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4282,8 +4282,8 @@
     self.button31_3Fix = [[UIButton alloc] init];
     self.button31_3Fix.layer.cornerRadius = 25;
     [self.button31_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button31_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button31_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button31_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView31 addSubview:self.button31_3Fix];
     
     [self.button31_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4296,8 +4296,8 @@
     self.button31_4 = [[UIButton alloc] init];
     self.button31_4.layer.cornerRadius = 25;
     [self.button31_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button31_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button31_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button31_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView31 addSubview:self.button31_4];
     
     [self.button31_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4364,8 +4364,8 @@
     self.button32_1 = [[UIButton alloc] init];
     self.button32_1.layer.cornerRadius = 25;
     [self.button32_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button32_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button32_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button32_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView32 addSubview:self.button32_1];
     
     [self.button32_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4378,8 +4378,8 @@
     self.button32_2 = [[UIButton alloc] init];
     self.button32_2.layer.cornerRadius = 25;
     [self.button32_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button32_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button32_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button32_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView32 addSubview:self.button32_2];
     
     [self.button32_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4392,8 +4392,8 @@
     self.button32_3 = [[UIButton alloc] init];
     self.button32_3.layer.cornerRadius = 25;
     [self.button32_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button32_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button32_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button32_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView32 addSubview:self.button32_3];
     
     [self.button32_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4406,8 +4406,8 @@
     self.button32_3Fix = [[UIButton alloc] init];
     self.button32_3Fix.layer.cornerRadius = 25;
     [self.button32_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button32_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button32_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button32_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView32 addSubview:self.button32_3Fix];
     
     [self.button32_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4420,8 +4420,8 @@
     self.button32_4 = [[UIButton alloc] init];
     self.button32_4.layer.cornerRadius = 25;
     [self.button32_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button32_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button32_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button32_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView32 addSubview:self.button32_4];
     
     [self.button32_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4488,8 +4488,8 @@
     self.button33_1 = [[UIButton alloc] init];
     self.button33_1.layer.cornerRadius = 25;
     [self.button33_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button33_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button33_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button33_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView33 addSubview:self.button33_1];
     
     [self.button33_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4502,8 +4502,8 @@
     self.button33_2 = [[UIButton alloc] init];
     self.button33_2.layer.cornerRadius = 25;
     [self.button33_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button33_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button33_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button33_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView33 addSubview:self.button33_2];
     
     [self.button33_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4516,8 +4516,8 @@
     self.button33_3 = [[UIButton alloc] init];
     self.button33_3.layer.cornerRadius = 25;
     [self.button33_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button33_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button33_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button33_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView33 addSubview:self.button33_3];
     
     [self.button33_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4530,8 +4530,8 @@
     self.button33_3Fix = [[UIButton alloc] init];
     self.button33_3Fix.layer.cornerRadius = 25;
     [self.button33_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button33_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button33_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button33_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView33 addSubview:self.button33_3Fix];
     
     [self.button33_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4544,8 +4544,8 @@
     self.button33_4 = [[UIButton alloc] init];
     self.button33_4.layer.cornerRadius = 25;
     [self.button33_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button33_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button33_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button33_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView33 addSubview:self.button33_4];
     
     [self.button33_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4612,8 +4612,8 @@
     self.button34_1 = [[UIButton alloc] init];
     self.button34_1.layer.cornerRadius = 25;
     [self.button34_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button34_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button34_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button34_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView34 addSubview:self.button34_1];
     
     [self.button34_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4626,8 +4626,8 @@
     self.button34_2 = [[UIButton alloc] init];
     self.button34_2.layer.cornerRadius = 25;
     [self.button34_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button34_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button34_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button34_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView34 addSubview:self.button34_2];
     
     [self.button34_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4640,8 +4640,8 @@
     self.button34_3 = [[UIButton alloc] init];
     self.button34_3.layer.cornerRadius = 25;
     [self.button34_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button34_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button34_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button34_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView34 addSubview:self.button34_3];
     
     [self.button34_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4654,8 +4654,8 @@
     self.button34_3Fix = [[UIButton alloc] init];
     self.button34_3Fix.layer.cornerRadius = 25;
     [self.button34_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button34_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button34_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button34_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView34 addSubview:self.button34_3Fix];
     
     [self.button34_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4668,8 +4668,8 @@
     self.button34_4 = [[UIButton alloc] init];
     self.button34_4.layer.cornerRadius = 25;
     [self.button34_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button34_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button34_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button34_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView34 addSubview:self.button34_4];
     
     [self.button34_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4735,8 +4735,8 @@
     self.button35_1 = [[UIButton alloc] init];
     self.button35_1.layer.cornerRadius = 25;
     [self.button35_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button35_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button35_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button35_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView35 addSubview:self.button35_1];
     
     [self.button35_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4749,8 +4749,8 @@
     self.button35_2 = [[UIButton alloc] init];
     self.button35_2.layer.cornerRadius = 25;
     [self.button35_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button35_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button35_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button35_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView35 addSubview:self.button35_2];
     
     [self.button35_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4763,8 +4763,8 @@
     self.button35_3 = [[UIButton alloc] init];
     self.button35_3.layer.cornerRadius = 25;
     [self.button35_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button35_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button35_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button35_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView35 addSubview:self.button35_3];
     
     [self.button35_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4777,8 +4777,8 @@
     self.button35_3Fix = [[UIButton alloc] init];
     self.button35_3Fix.layer.cornerRadius = 25;
     [self.button35_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button35_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button35_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button35_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView35 addSubview:self.button35_3Fix];
     
     [self.button35_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4791,8 +4791,8 @@
     self.button35_4 = [[UIButton alloc] init];
     self.button35_4.layer.cornerRadius = 25;
     [self.button35_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button35_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button35_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button35_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView35 addSubview:self.button35_4];
     
     [self.button35_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4859,8 +4859,8 @@
     self.button36_1 = [[UIButton alloc] init];
     self.button36_1.layer.cornerRadius = 25;
     [self.button36_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button36_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button36_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button36_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView36 addSubview:self.button36_1];
     
     [self.button36_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4873,8 +4873,8 @@
     self.button36_2 = [[UIButton alloc] init];
     self.button36_2.layer.cornerRadius = 25;
     [self.button36_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button36_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button36_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button36_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView36 addSubview:self.button36_2];
     
     [self.button36_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4887,8 +4887,8 @@
     self.button36_3 = [[UIButton alloc] init];
     self.button36_3.layer.cornerRadius = 25;
     [self.button36_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button36_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button36_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button36_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView36 addSubview:self.button36_3];
     
     [self.button36_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4901,8 +4901,8 @@
     self.button36_3Fix = [[UIButton alloc] init];
     self.button36_3Fix.layer.cornerRadius = 25;
     [self.button36_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button36_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button36_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button36_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView36 addSubview:self.button36_3Fix];
     
     [self.button36_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4915,8 +4915,8 @@
     self.button36_4 = [[UIButton alloc] init];
     self.button36_4.layer.cornerRadius = 25;
     [self.button36_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button36_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button36_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button36_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView36 addSubview:self.button36_4];
     
     [self.button36_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4983,8 +4983,8 @@
     self.button37_1 = [[UIButton alloc] init];
     self.button37_1.layer.cornerRadius = 25;
     [self.button37_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button37_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button37_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button37_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView37 addSubview:self.button37_1];
     
     [self.button37_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -4997,8 +4997,8 @@
     self.button37_2 = [[UIButton alloc] init];
     self.button37_2.layer.cornerRadius = 25;
     [self.button37_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button37_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button37_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button37_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView37 addSubview:self.button37_2];
     
     [self.button37_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5011,8 +5011,8 @@
     self.button37_3 = [[UIButton alloc] init];
     self.button37_3.layer.cornerRadius = 25;
     [self.button37_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button37_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button37_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button37_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView37 addSubview:self.button37_3];
     
     [self.button37_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5025,8 +5025,8 @@
     self.button37_3Fix = [[UIButton alloc] init];
     self.button37_3Fix.layer.cornerRadius = 25;
     [self.button37_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button37_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button37_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button37_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView37 addSubview:self.button37_3Fix];
     
     [self.button37_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5039,8 +5039,8 @@
     self.button37_4 = [[UIButton alloc] init];
     self.button37_4.layer.cornerRadius = 25;
     [self.button37_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button37_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button37_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button37_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView37 addSubview:self.button37_4];
     
     [self.button37_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5107,8 +5107,8 @@
     self.button38_1 = [[UIButton alloc] init];
     self.button38_1.layer.cornerRadius = 25;
     [self.button38_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button38_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button38_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button38_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView38 addSubview:self.button38_1];
     
     [self.button38_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5121,8 +5121,8 @@
     self.button38_2 = [[UIButton alloc] init];
     self.button38_2.layer.cornerRadius = 25;
     [self.button38_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button38_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button38_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button38_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView38 addSubview:self.button38_2];
     
     [self.button38_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5135,8 +5135,8 @@
     self.button38_3 = [[UIButton alloc] init];
     self.button38_3.layer.cornerRadius = 25;
     [self.button38_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button38_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button38_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button38_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView38 addSubview:self.button38_3];
     
     [self.button38_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5149,8 +5149,8 @@
     self.button38_3Fix = [[UIButton alloc] init];
     self.button38_3Fix.layer.cornerRadius = 25;
     [self.button38_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button38_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button38_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button38_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView38 addSubview:self.button38_3Fix];
     
     [self.button38_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5163,8 +5163,8 @@
     self.button38_4 = [[UIButton alloc] init];
     self.button38_4.layer.cornerRadius = 25;
     [self.button38_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button38_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button38_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button38_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView38 addSubview:self.button38_4];
     
     [self.button38_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5231,8 +5231,8 @@
     self.button39_1 = [[UIButton alloc] init];
     self.button39_1.layer.cornerRadius = 25;
     [self.button39_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button39_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button39_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button39_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView39 addSubview:self.button39_1];
     
     [self.button39_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5245,8 +5245,8 @@
     self.button39_2 = [[UIButton alloc] init];
     self.button39_2.layer.cornerRadius = 25;
     [self.button39_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button39_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button39_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button39_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView39 addSubview:self.button39_2];
     
     [self.button39_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5259,8 +5259,8 @@
     self.button39_3 = [[UIButton alloc] init];
     self.button39_3.layer.cornerRadius = 25;
     [self.button39_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button39_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button39_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button39_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView39 addSubview:self.button39_3];
     
     [self.button39_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5273,8 +5273,8 @@
     self.button39_3Fix = [[UIButton alloc] init];
     self.button39_3Fix.layer.cornerRadius = 25;
     [self.button39_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button39_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button39_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button39_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView39 addSubview:self.button39_3Fix];
     
     [self.button39_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5287,8 +5287,8 @@
     self.button39_4 = [[UIButton alloc] init];
     self.button39_4.layer.cornerRadius = 25;
     [self.button39_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button39_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button39_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button39_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView39 addSubview:self.button39_4];
     
     [self.button39_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5355,8 +5355,8 @@
     self.button40_1 = [[UIButton alloc] init];
     self.button40_1.layer.cornerRadius = 25;
     [self.button40_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button40_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button40_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button40_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView40 addSubview:self.button40_1];
     
     [self.button40_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5369,8 +5369,8 @@
     self.button40_2 = [[UIButton alloc] init];
     self.button40_2.layer.cornerRadius = 25;
     [self.button40_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button40_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button40_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button40_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView40 addSubview:self.button40_2];
     
     [self.button40_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5383,8 +5383,8 @@
     self.button40_3 = [[UIButton alloc] init];
     self.button40_3.layer.cornerRadius = 25;
     [self.button40_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button40_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button40_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button40_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView40 addSubview:self.button40_3];
     
     [self.button40_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5397,8 +5397,8 @@
     self.button40_3Fix = [[UIButton alloc] init];
     self.button40_3Fix.layer.cornerRadius = 25;
     [self.button40_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button40_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button40_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button40_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView40 addSubview:self.button40_3Fix];
     
     [self.button40_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5411,8 +5411,8 @@
     self.button40_4 = [[UIButton alloc] init];
     self.button40_4.layer.cornerRadius = 25;
     [self.button40_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button40_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button40_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button40_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView40 addSubview:self.button40_4];
     
     [self.button40_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5479,8 +5479,8 @@
     self.button41_1 = [[UIButton alloc] init];
     self.button41_1.layer.cornerRadius = 25;
     [self.button41_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button41_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button41_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button41_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView41 addSubview:self.button41_1];
     
     [self.button41_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5493,8 +5493,8 @@
     self.button41_2 = [[UIButton alloc] init];
     self.button41_2.layer.cornerRadius = 25;
     [self.button41_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button41_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button41_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button41_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView41 addSubview:self.button41_2];
     
     [self.button41_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5507,8 +5507,8 @@
     self.button41_3 = [[UIButton alloc] init];
     self.button41_3.layer.cornerRadius = 25;
     [self.button41_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button41_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button41_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button41_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView41 addSubview:self.button41_3];
     
     [self.button41_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5521,8 +5521,8 @@
     self.button41_3Fix = [[UIButton alloc] init];
     self.button41_3Fix.layer.cornerRadius = 25;
     [self.button41_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button41_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button41_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button41_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView41 addSubview:self.button41_3Fix];
     
     [self.button41_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5535,8 +5535,8 @@
     self.button41_4 = [[UIButton alloc] init];
     self.button41_4.layer.cornerRadius = 25;
     [self.button41_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button41_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button41_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button41_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView41 addSubview:self.button41_4];
     
     [self.button41_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5603,8 +5603,8 @@
     self.button42_1 = [[UIButton alloc] init];
     self.button42_1.layer.cornerRadius = 25;
     [self.button42_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button42_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button42_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button42_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView42 addSubview:self.button42_1];
     
     [self.button42_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5617,8 +5617,8 @@
     self.button42_2 = [[UIButton alloc] init];
     self.button42_2.layer.cornerRadius = 25;
     [self.button42_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button42_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button42_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button42_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView42 addSubview:self.button42_2];
     
     [self.button42_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5631,8 +5631,8 @@
     self.button42_3 = [[UIButton alloc] init];
     self.button42_3.layer.cornerRadius = 25;
     [self.button42_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button42_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button42_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button42_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView42 addSubview:self.button42_3];
     
     [self.button42_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5645,8 +5645,8 @@
     self.button42_3Fix = [[UIButton alloc] init];
     self.button42_3Fix.layer.cornerRadius = 25;
     [self.button42_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button42_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button42_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button42_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView42 addSubview:self.button42_3Fix];
     
     [self.button42_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5659,8 +5659,8 @@
     self.button42_4 = [[UIButton alloc] init];
     self.button42_4.layer.cornerRadius = 25;
     [self.button42_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button42_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button42_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button42_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView42 addSubview:self.button42_4];
     
     [self.button42_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5727,8 +5727,8 @@
     self.button43_1 = [[UIButton alloc] init];
     self.button43_1.layer.cornerRadius = 25;
     [self.button43_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button43_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button43_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button43_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView43 addSubview:self.button43_1];
     
     [self.button43_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5741,8 +5741,8 @@
     self.button43_2 = [[UIButton alloc] init];
     self.button43_2.layer.cornerRadius = 25;
     [self.button43_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button43_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button43_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button43_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView43 addSubview:self.button43_2];
     
     [self.button43_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5755,8 +5755,8 @@
     self.button43_3 = [[UIButton alloc] init];
     self.button43_3.layer.cornerRadius = 25;
     [self.button43_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button43_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button43_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button43_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView43 addSubview:self.button43_3];
     
     [self.button43_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5769,8 +5769,8 @@
     self.button43_3Fix = [[UIButton alloc] init];
     self.button43_3Fix.layer.cornerRadius = 25;
     [self.button43_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button43_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button43_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button43_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView43 addSubview:self.button43_3Fix];
     
     [self.button43_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5783,8 +5783,8 @@
     self.button43_4 = [[UIButton alloc] init];
     self.button43_4.layer.cornerRadius = 25;
     [self.button43_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button43_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button43_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button43_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView43 addSubview:self.button43_4];
     
     [self.button43_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5851,8 +5851,8 @@
     self.button44_1 = [[UIButton alloc] init];
     self.button44_1.layer.cornerRadius = 25;
     [self.button44_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button44_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button44_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button44_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView44 addSubview:self.button44_1];
     
     [self.button44_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5865,8 +5865,8 @@
     self.button44_2 = [[UIButton alloc] init];
     self.button44_2.layer.cornerRadius = 25;
     [self.button44_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button44_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button44_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button44_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView44 addSubview:self.button44_2];
     
     [self.button44_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5879,8 +5879,8 @@
     self.button44_3 = [[UIButton alloc] init];
     self.button44_3.layer.cornerRadius = 25;
     [self.button44_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button44_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button44_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button44_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView44 addSubview:self.button44_3];
     
     [self.button44_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5893,8 +5893,8 @@
     self.button44_3Fix = [[UIButton alloc] init];
     self.button44_3Fix.layer.cornerRadius = 25;
     [self.button44_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button44_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button44_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button44_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView44 addSubview:self.button44_3Fix];
     
     [self.button44_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5907,8 +5907,8 @@
     self.button44_4 = [[UIButton alloc] init];
     self.button44_4.layer.cornerRadius = 25;
     [self.button44_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button44_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button44_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button44_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView44 addSubview:self.button44_4];
     
     [self.button44_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5975,8 +5975,8 @@
     self.button45_1 = [[UIButton alloc] init];
     self.button45_1.layer.cornerRadius = 25;
     [self.button45_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button45_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button45_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button45_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView45 addSubview:self.button45_1];
     
     [self.button45_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -5989,8 +5989,8 @@
     self.button45_2 = [[UIButton alloc] init];
     self.button45_2.layer.cornerRadius = 25;
     [self.button45_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button45_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button45_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button45_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView45 addSubview:self.button45_2];
     
     [self.button45_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6003,8 +6003,8 @@
     self.button45_3 = [[UIButton alloc] init];
     self.button45_3.layer.cornerRadius = 25;
     [self.button45_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button45_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button45_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button45_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView45 addSubview:self.button45_3];
     
     [self.button45_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6017,8 +6017,8 @@
     self.button45_3Fix = [[UIButton alloc] init];
     self.button45_3Fix.layer.cornerRadius = 25;
     [self.button45_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button45_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button45_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button45_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView45 addSubview:self.button45_3Fix];
     
     [self.button45_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6031,8 +6031,8 @@
     self.button45_4 = [[UIButton alloc] init];
     self.button45_4.layer.cornerRadius = 25;
     [self.button45_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button45_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button45_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button45_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView45 addSubview:self.button45_4];
     
     [self.button45_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6099,8 +6099,8 @@
     self.button46_1 = [[UIButton alloc] init];
     self.button46_1.layer.cornerRadius = 25;
     [self.button46_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button46_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button46_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button46_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView46 addSubview:self.button46_1];
     
     [self.button46_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6113,8 +6113,8 @@
     self.button46_2 = [[UIButton alloc] init];
     self.button46_2.layer.cornerRadius = 25;
     [self.button46_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button46_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button46_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button46_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView46 addSubview:self.button46_2];
     
     [self.button46_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6127,8 +6127,8 @@
     self.button46_3 = [[UIButton alloc] init];
     self.button46_3.layer.cornerRadius = 25;
     [self.button46_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button46_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button46_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button46_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView46 addSubview:self.button46_3];
     
     [self.button46_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6141,8 +6141,8 @@
     self.button46_3Fix = [[UIButton alloc] init];
     self.button46_3Fix.layer.cornerRadius = 25;
     [self.button46_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button46_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button46_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button46_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView46 addSubview:self.button46_3Fix];
     
     [self.button46_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6155,8 +6155,8 @@
     self.button46_4 = [[UIButton alloc] init];
     self.button46_4.layer.cornerRadius = 25;
     [self.button46_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button46_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button46_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button46_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView46 addSubview:self.button46_4];
     
     [self.button46_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6223,8 +6223,8 @@
     self.button47_1 = [[UIButton alloc] init];
     self.button47_1.layer.cornerRadius = 25;
     [self.button47_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button47_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button47_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button47_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView47 addSubview:self.button47_1];
     
     [self.button47_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6237,8 +6237,8 @@
     self.button47_2 = [[UIButton alloc] init];
     self.button47_2.layer.cornerRadius = 25;
     [self.button47_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button47_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button47_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button47_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView47 addSubview:self.button47_2];
     
     [self.button47_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6251,8 +6251,8 @@
     self.button47_3 = [[UIButton alloc] init];
     self.button47_3.layer.cornerRadius = 25;
     [self.button47_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button47_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button47_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button47_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView47 addSubview:self.button47_3];
     
     [self.button47_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6265,8 +6265,8 @@
     self.button47_3Fix = [[UIButton alloc] init];
     self.button47_3Fix.layer.cornerRadius = 25;
     [self.button47_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button47_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button47_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button47_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView47 addSubview:self.button47_3Fix];
     
     [self.button47_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6279,8 +6279,8 @@
     self.button47_4 = [[UIButton alloc] init];
     self.button47_4.layer.cornerRadius = 25;
     [self.button47_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button47_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button47_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button47_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView47 addSubview:self.button47_4];
     
     [self.button47_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6347,8 +6347,8 @@
     self.button48_1 = [[UIButton alloc] init];
     self.button48_1.layer.cornerRadius = 25;
     [self.button48_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button48_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button48_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button48_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView48 addSubview:self.button48_1];
     
     [self.button48_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6361,8 +6361,8 @@
     self.button48_2 = [[UIButton alloc] init];
     self.button48_2.layer.cornerRadius = 25;
     [self.button48_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button48_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button48_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button48_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView48 addSubview:self.button48_2];
     
     [self.button48_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6375,8 +6375,8 @@
     self.button48_3 = [[UIButton alloc] init];
     self.button48_3.layer.cornerRadius = 25;
     [self.button48_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button48_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button48_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button48_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView48 addSubview:self.button48_3];
     
     [self.button48_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6389,8 +6389,8 @@
     self.button48_3Fix = [[UIButton alloc] init];
     self.button48_3Fix.layer.cornerRadius = 25;
     [self.button48_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button48_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button48_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button48_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView48 addSubview:self.button48_3Fix];
     
     [self.button48_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6403,8 +6403,8 @@
     self.button48_4 = [[UIButton alloc] init];
     self.button48_4.layer.cornerRadius = 25;
     [self.button48_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button48_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button48_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button48_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView48 addSubview:self.button48_4];
     
     [self.button48_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6471,8 +6471,8 @@
     self.button49_1 = [[UIButton alloc] init];
     self.button49_1.layer.cornerRadius = 25;
     [self.button49_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button49_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button49_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button49_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView49 addSubview:self.button49_1];
     
     [self.button49_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6485,8 +6485,8 @@
     self.button49_2 = [[UIButton alloc] init];
     self.button49_2.layer.cornerRadius = 25;
     [self.button49_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button49_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button49_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button49_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView49 addSubview:self.button49_2];
     
     [self.button49_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6499,8 +6499,8 @@
     self.button49_3 = [[UIButton alloc] init];
     self.button49_3.layer.cornerRadius = 25;
     [self.button49_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button49_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button49_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button49_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView49 addSubview:self.button49_3];
     
     [self.button49_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6513,8 +6513,8 @@
     self.button49_3Fix = [[UIButton alloc] init];
     self.button49_3Fix.layer.cornerRadius = 25;
     [self.button49_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button49_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button49_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button49_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView49 addSubview:self.button49_3Fix];
     
     [self.button49_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6527,8 +6527,8 @@
     self.button49_4 = [[UIButton alloc] init];
     self.button49_4.layer.cornerRadius = 25;
     [self.button49_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button49_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button49_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button49_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView49 addSubview:self.button49_4];
     
     [self.button49_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6595,8 +6595,8 @@
     self.button50_1 = [[UIButton alloc] init];
     self.button50_1.layer.cornerRadius = 25;
     [self.button50_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button50_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button50_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button50_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView50 addSubview:self.button50_1];
     
     [self.button50_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6609,8 +6609,8 @@
     self.button50_2 = [[UIButton alloc] init];
     self.button50_2.layer.cornerRadius = 25;
     [self.button50_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button50_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button50_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button50_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView50 addSubview:self.button50_2];
     
     [self.button50_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6623,8 +6623,8 @@
     self.button50_3 = [[UIButton alloc] init];
     self.button50_3.layer.cornerRadius = 25;
     [self.button50_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button50_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button50_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button50_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView50 addSubview:self.button50_3];
     
     [self.button50_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6637,8 +6637,8 @@
     self.button50_3Fix = [[UIButton alloc] init];
     self.button50_3Fix.layer.cornerRadius = 25;
     [self.button50_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button50_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button50_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button50_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView50 addSubview:self.button50_3Fix];
     
     [self.button50_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6651,8 +6651,8 @@
     self.button50_4 = [[UIButton alloc] init];
     self.button50_4.layer.cornerRadius = 25;
     [self.button50_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button50_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button50_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button50_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView50 addSubview:self.button50_4];
     
     [self.button50_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6719,8 +6719,8 @@
     self.button51_1 = [[UIButton alloc] init];
     self.button51_1.layer.cornerRadius = 25;
     [self.button51_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button51_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button51_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button51_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView51 addSubview:self.button51_1];
     
     [self.button51_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6733,8 +6733,8 @@
     self.button51_2 = [[UIButton alloc] init];
     self.button51_2.layer.cornerRadius = 25;
     [self.button51_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button51_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button51_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button51_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView51 addSubview:self.button51_2];
     
     [self.button51_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6747,8 +6747,8 @@
     self.button51_3 = [[UIButton alloc] init];
     self.button51_3.layer.cornerRadius = 25;
     [self.button51_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button51_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button51_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button51_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView51 addSubview:self.button51_3];
     
     [self.button51_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6761,8 +6761,8 @@
     self.button51_3Fix = [[UIButton alloc] init];
     self.button51_3Fix.layer.cornerRadius = 25;
     [self.button51_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button51_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button51_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button51_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView51 addSubview:self.button51_3Fix];
     
     [self.button51_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6775,8 +6775,8 @@
     self.button51_4 = [[UIButton alloc] init];
     self.button51_4.layer.cornerRadius = 25;
     [self.button51_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button51_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button51_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button51_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView51 addSubview:self.button51_4];
     
     [self.button51_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6843,8 +6843,8 @@
     self.button52_1 = [[UIButton alloc] init];
     self.button52_1.layer.cornerRadius = 25;
     [self.button52_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button52_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button52_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button52_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView52 addSubview:self.button52_1];
     
     [self.button52_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6857,8 +6857,8 @@
     self.button52_2 = [[UIButton alloc] init];
     self.button52_2.layer.cornerRadius = 25;
     [self.button52_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button52_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button52_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button52_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView52 addSubview:self.button52_2];
     
     [self.button52_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6871,8 +6871,8 @@
     self.button52_3 = [[UIButton alloc] init];
     self.button52_3.layer.cornerRadius = 25;
     [self.button52_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button52_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button52_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button52_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView52 addSubview:self.button52_3];
     
     [self.button52_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6885,8 +6885,8 @@
     self.button52_3Fix = [[UIButton alloc] init];
     self.button52_3Fix.layer.cornerRadius = 25;
     [self.button52_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button52_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button52_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button52_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView52 addSubview:self.button52_3Fix];
     
     [self.button52_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6899,8 +6899,8 @@
     self.button52_4 = [[UIButton alloc] init];
     self.button52_4.layer.cornerRadius = 25;
     [self.button52_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button52_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button52_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button52_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView52 addSubview:self.button52_4];
     
     [self.button52_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6967,8 +6967,8 @@
     self.button53_1 = [[UIButton alloc] init];
     self.button53_1.layer.cornerRadius = 25;
     [self.button53_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button53_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button53_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button53_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView53 addSubview:self.button53_1];
     
     [self.button53_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6981,8 +6981,8 @@
     self.button53_2 = [[UIButton alloc] init];
     self.button53_2.layer.cornerRadius = 25;
     [self.button53_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button53_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button53_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button53_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView53 addSubview:self.button53_2];
     
     [self.button53_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -6995,8 +6995,8 @@
     self.button53_3 = [[UIButton alloc] init];
     self.button53_3.layer.cornerRadius = 25;
     [self.button53_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button53_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button53_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button53_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView53 addSubview:self.button53_3];
     
     [self.button53_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7009,8 +7009,8 @@
     self.button53_3Fix = [[UIButton alloc] init];
     self.button53_3Fix.layer.cornerRadius = 25;
     [self.button53_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button53_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button53_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button53_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView53 addSubview:self.button53_3Fix];
     
     [self.button53_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7023,8 +7023,8 @@
     self.button53_4 = [[UIButton alloc] init];
     self.button53_4.layer.cornerRadius = 25;
     [self.button53_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button53_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button53_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button53_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView53 addSubview:self.button53_4];
     
     [self.button53_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7091,8 +7091,8 @@
     self.button54_1 = [[UIButton alloc] init];
     self.button54_1.layer.cornerRadius = 25;
     [self.button54_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button54_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button54_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button54_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView54 addSubview:self.button54_1];
     
     [self.button54_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7105,8 +7105,8 @@
     self.button54_2 = [[UIButton alloc] init];
     self.button54_2.layer.cornerRadius = 25;
     [self.button54_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button54_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button54_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button54_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView54 addSubview:self.button54_2];
     
     [self.button54_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7119,8 +7119,8 @@
     self.button54_3 = [[UIButton alloc] init];
     self.button54_3.layer.cornerRadius = 25;
     [self.button54_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button54_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button54_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button54_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView54 addSubview:self.button54_3];
     
     [self.button54_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7133,8 +7133,8 @@
     self.button54_3Fix = [[UIButton alloc] init];
     self.button54_3Fix.layer.cornerRadius = 25;
     [self.button54_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button54_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button54_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button54_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView54 addSubview:self.button54_3Fix];
     
     [self.button54_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7147,8 +7147,8 @@
     self.button54_4 = [[UIButton alloc] init];
     self.button54_4.layer.cornerRadius = 25;
     [self.button54_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button54_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button54_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button54_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView54 addSubview:self.button54_4];
     
     [self.button54_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7215,8 +7215,8 @@
     self.button55_1 = [[UIButton alloc] init];
     self.button55_1.layer.cornerRadius = 25;
     [self.button55_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button55_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button55_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button55_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView55 addSubview:self.button55_1];
     
     [self.button55_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7229,8 +7229,8 @@
     self.button55_2 = [[UIButton alloc] init];
     self.button55_2.layer.cornerRadius = 25;
     [self.button55_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button55_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button55_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button55_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView55 addSubview:self.button55_2];
     
     [self.button55_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7243,8 +7243,8 @@
     self.button55_3 = [[UIButton alloc] init];
     self.button55_3.layer.cornerRadius = 25;
     [self.button55_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button55_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button55_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button55_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView55 addSubview:self.button55_3];
     
     [self.button55_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7257,8 +7257,8 @@
     self.button55_3Fix = [[UIButton alloc] init];
     self.button55_3Fix.layer.cornerRadius = 25;
     [self.button55_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button55_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button55_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button55_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView55 addSubview:self.button55_3Fix];
     
     [self.button55_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7271,8 +7271,8 @@
     self.button55_4 = [[UIButton alloc] init];
     self.button55_4.layer.cornerRadius = 25;
     [self.button55_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button55_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button55_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button55_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView55 addSubview:self.button55_4];
     
     [self.button55_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7339,8 +7339,8 @@
     self.button56_1 = [[UIButton alloc] init];
     self.button56_1.layer.cornerRadius = 25;
     [self.button56_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button56_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button56_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button56_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView56 addSubview:self.button56_1];
     
     [self.button56_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7353,8 +7353,8 @@
     self.button56_2 = [[UIButton alloc] init];
     self.button56_2.layer.cornerRadius = 25;
     [self.button56_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button56_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button56_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button56_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView56 addSubview:self.button56_2];
     
     [self.button56_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7367,8 +7367,8 @@
     self.button56_3 = [[UIButton alloc] init];
     self.button56_3.layer.cornerRadius = 25;
     [self.button56_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button56_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button56_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button56_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView56 addSubview:self.button56_3];
     
     [self.button56_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7381,8 +7381,8 @@
     self.button56_3Fix = [[UIButton alloc] init];
     self.button56_3Fix.layer.cornerRadius = 25;
     [self.button56_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button56_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button56_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button56_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView56 addSubview:self.button56_3Fix];
     
     [self.button56_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7395,8 +7395,8 @@
     self.button56_4 = [[UIButton alloc] init];
     self.button56_4.layer.cornerRadius = 25;
     [self.button56_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button56_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button56_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button56_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView56 addSubview:self.button56_4];
     
     [self.button56_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7463,8 +7463,8 @@
     self.button57_1 = [[UIButton alloc] init];
     self.button57_1.layer.cornerRadius = 25;
     [self.button57_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button57_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button57_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button57_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView57 addSubview:self.button57_1];
     
     [self.button57_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7477,8 +7477,8 @@
     self.button57_2 = [[UIButton alloc] init];
     self.button57_2.layer.cornerRadius = 25;
     [self.button57_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button57_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button57_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button57_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView57 addSubview:self.button57_2];
     
     [self.button57_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7491,8 +7491,8 @@
     self.button57_3 = [[UIButton alloc] init];
     self.button57_3.layer.cornerRadius = 25;
     [self.button57_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button57_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button57_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button57_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView57 addSubview:self.button57_3];
     
     [self.button57_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7505,8 +7505,8 @@
     self.button57_3Fix = [[UIButton alloc] init];
     self.button57_3Fix.layer.cornerRadius = 25;
     [self.button57_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button57_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button57_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button57_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView57 addSubview:self.button57_3Fix];
     
     [self.button57_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7519,8 +7519,8 @@
     self.button57_4 = [[UIButton alloc] init];
     self.button57_4.layer.cornerRadius = 25;
     [self.button57_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button57_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button57_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button57_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView57 addSubview:self.button57_4];
     
     [self.button57_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7587,8 +7587,8 @@
     self.button58_1 = [[UIButton alloc] init];
     self.button58_1.layer.cornerRadius = 25;
     [self.button58_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button58_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button58_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button58_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView58 addSubview:self.button58_1];
     
     [self.button58_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7601,8 +7601,8 @@
     self.button58_2 = [[UIButton alloc] init];
     self.button58_2.layer.cornerRadius = 25;
     [self.button58_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button58_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button58_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button58_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView58 addSubview:self.button58_2];
     
     [self.button58_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7615,8 +7615,8 @@
     self.button58_3 = [[UIButton alloc] init];
     self.button58_3.layer.cornerRadius = 25;
     [self.button58_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button58_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button58_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button58_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView58 addSubview:self.button58_3];
     
     [self.button58_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7629,8 +7629,8 @@
     self.button58_3Fix = [[UIButton alloc] init];
     self.button58_3Fix.layer.cornerRadius = 25;
     [self.button58_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button58_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button58_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button58_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView58 addSubview:self.button58_3Fix];
     
     [self.button58_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7643,8 +7643,8 @@
     self.button58_4 = [[UIButton alloc] init];
     self.button58_4.layer.cornerRadius = 25;
     [self.button58_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button58_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button58_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button58_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView58 addSubview:self.button58_4];
     
     [self.button58_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7711,8 +7711,8 @@
     self.button59_1 = [[UIButton alloc] init];
     self.button59_1.layer.cornerRadius = 25;
     [self.button59_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button59_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button59_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button59_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView59 addSubview:self.button59_1];
     
     [self.button59_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7725,8 +7725,8 @@
     self.button59_2 = [[UIButton alloc] init];
     self.button59_2.layer.cornerRadius = 25;
     [self.button59_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button59_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button59_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button59_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView59 addSubview:self.button59_2];
     
     [self.button59_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7739,8 +7739,8 @@
     self.button59_3 = [[UIButton alloc] init];
     self.button59_3.layer.cornerRadius = 25;
     [self.button59_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button59_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button59_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button59_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView59 addSubview:self.button59_3];
     
     [self.button59_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7753,8 +7753,8 @@
     self.button59_3Fix = [[UIButton alloc] init];
     self.button59_3Fix.layer.cornerRadius = 25;
     [self.button59_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button59_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button59_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button59_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView59 addSubview:self.button59_3Fix];
     
     [self.button59_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7767,8 +7767,8 @@
     self.button59_4 = [[UIButton alloc] init];
     self.button59_4.layer.cornerRadius = 25;
     [self.button59_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button59_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button59_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button59_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView59 addSubview:self.button59_4];
     
     [self.button59_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7835,8 +7835,8 @@
     self.button60_1 = [[UIButton alloc] init];
     self.button60_1.layer.cornerRadius = 25;
     [self.button60_1 setTitle:@"没有" forState:UIControlStateNormal];
-    [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button60_1 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button60_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button60_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView60 addSubview:self.button60_1];
     
     [self.button60_1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7849,8 +7849,8 @@
     self.button60_2 = [[UIButton alloc] init];
     self.button60_2.layer.cornerRadius = 25;
     [self.button60_2 setTitle:@"很少" forState:UIControlStateNormal];
-    [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button60_2 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button60_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button60_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView60 addSubview:self.button60_2];
     
     [self.button60_2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7863,8 +7863,8 @@
     self.button60_3 = [[UIButton alloc] init];
     self.button60_3.layer.cornerRadius = 25;
     [self.button60_3 setTitle:@"有时" forState:UIControlStateNormal];
-    [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button60_3 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button60_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button60_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView60 addSubview:self.button60_3];
     
     [self.button60_3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7877,8 +7877,8 @@
     self.button60_3Fix = [[UIButton alloc] init];
     self.button60_3Fix.layer.cornerRadius = 25;
     [self.button60_3Fix setTitle:@"经常" forState:UIControlStateNormal];
-    [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button60_3Fix setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button60_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button60_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView60 addSubview:self.button60_3Fix];
     
     [self.button60_3Fix mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7891,8 +7891,8 @@
     self.button60_4 = [[UIButton alloc] init];
     self.button60_4.layer.cornerRadius = 25;
     [self.button60_4 setTitle:@"总是" forState:UIControlStateNormal];
-    [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.button60_4 setBackgroundColor:[UIColor lightGrayColor]];
+    [self.button60_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+    [self.button60_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.subDownView60 addSubview:self.button60_4];
     
     [self.button60_4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -7991,60 +7991,60 @@
         self.answer1 = @"没有";
         [self.button1_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton1_2Clicked){
         self.answer1 = @"很少";
-        [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button1_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton1_3Clicked){
         self.answer1 = @"有时";
-        [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button1_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton1_3FixClicked){
         self.answer1 = @"经常";
-        [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button1_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button1_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton1_4Clicked){
         self.answer1 = @"总是";
-        [self.button1_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button1_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button1_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button1_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button1_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button1_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button1_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button1_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8143,60 +8143,60 @@
         self.answer2 = @"没有";
         [self.button2_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton2_2Clicked){
         self.answer2 = @"很少";
-        [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button2_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton2_3Clicked){
         self.answer2 = @"有时";
-        [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button2_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton2_3FixClicked){
         self.answer2 = @"经常";
-        [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button2_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button2_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton2_4Clicked){
         self.answer2 = @"总是";
-        [self.button2_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button2_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button2_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button2_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button2_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button2_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button2_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button2_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8295,60 +8295,60 @@
         self.answer3 = @"没有";
         [self.button3_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton3_2Clicked){
         self.answer3 = @"很少";
-        [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button3_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton3_3Clicked){
         self.answer3 = @"有时";
-        [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button3_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton3_3FixClicked){
         self.answer3 = @"经常";
-        [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button3_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button3_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton3_4Clicked){
         self.answer3 = @"总是";
-        [self.button3_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button3_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button3_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button3_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button3_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button3_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button3_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button3_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8447,60 +8447,60 @@
         self.answer4 = @"没有";
         [self.button4_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton4_2Clicked){
         self.answer4 = @"很少";
-        [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button4_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton4_3Clicked){
         self.answer4 = @"有时";
-        [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button4_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton4_3FixClicked){
         self.answer4 = @"经常";
-        [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button4_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button4_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton4_4Clicked){
         self.answer4 = @"总是";
-        [self.button4_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button4_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button4_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button4_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button4_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button4_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button4_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button4_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8599,60 +8599,60 @@
         self.answer5 = @"没有";
         [self.button5_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton5_2Clicked){
         self.answer5 = @"很少";
-        [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button5_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton5_3Clicked){
         self.answer5 = @"有时";
-        [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button5_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton5_3FixClicked){
         self.answer5 = @"经常";
-        [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button5_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button5_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton5_4Clicked){
         self.answer5 = @"总是";
-        [self.button5_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button5_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button5_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button5_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button5_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button5_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button5_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button5_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8751,60 +8751,60 @@
         self.answer6 = @"没有";
         [self.button6_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton6_2Clicked){
         self.answer6 = @"很少";
-        [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button6_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton6_3Clicked){
         self.answer6 = @"有时";
-        [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button6_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton6_3FixClicked){
         self.answer6 = @"经常";
-        [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button6_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton6_4Clicked){
         self.answer6 = @"总是";
-        [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button6_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button6_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button6_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button6_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button6_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button6_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -8903,60 +8903,60 @@
         self.answer7 = @"没有";
         [self.button7_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton7_2Clicked){
         self.answer7 = @"很少";
-        [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button7_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton7_3Clicked){
         self.answer7 = @"有时";
-        [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button7_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton7_3FixClicked){
         self.answer7 = @"经常";
-        [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button7_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button7_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton7_4Clicked){
         self.answer7 = @"总是";
-        [self.button7_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button7_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button7_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button7_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button7_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button7_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button7_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button7_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9055,60 +9055,60 @@
         self.answer8 = @"没有";
         [self.button8_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton8_2Clicked){
         self.answer8 = @"很少";
-        [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button8_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton8_3Clicked){
         self.answer8 = @"有时";
-        [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button8_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton8_3FixClicked){
         self.answer8 = @"经常";
-        [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button8_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button8_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton8_4Clicked){
         self.answer8 = @"总是";
-        [self.button8_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button8_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button8_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button8_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button8_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button8_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button8_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button8_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9207,60 +9207,60 @@
         self.answer9 = @"没有";
         [self.button9_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton9_2Clicked){
         self.answer9 = @"很少";
-        [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button9_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton9_3Clicked){
         self.answer9 = @"有时";
-        [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button9_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton9_3FixClicked){
         self.answer9 = @"经常";
-        [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button9_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button9_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton9_4Clicked){
         self.answer9 = @"总是";
-        [self.button9_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button9_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button9_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button9_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button9_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button9_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button9_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button9_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9359,60 +9359,60 @@
         self.answer10 = @"没有";
         [self.button10_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton10_2Clicked){
         self.answer10 = @"很少";
-        [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button10_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton10_3Clicked){
         self.answer10 = @"有时";
-        [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button10_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton10_3FixClicked){
         self.answer10 = @"经常";
-        [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button10_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button10_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton10_4Clicked){
         self.answer10 = @"总是";
-        [self.button10_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button10_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button10_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button10_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button10_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button10_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button10_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button10_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9511,60 +9511,60 @@
         self.answer11 = @"没有";
         [self.button11_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton11_2Clicked){
         self.answer11 = @"很少";
-        [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button11_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton11_3Clicked){
         self.answer11 = @"有时";
-        [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button11_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton11_3FixClicked){
         self.answer11 = @"经常";
-        [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button11_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button11_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton11_4Clicked){
         self.answer11 = @"总是";
-        [self.button11_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button11_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button11_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button11_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button11_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button11_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button11_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button11_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9663,60 +9663,60 @@
         self.answer12 = @"没有";
         [self.button12_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton12_2Clicked){
         self.answer12 = @"很少";
-        [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button12_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton12_3Clicked){
         self.answer12 = @"有时";
-        [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button12_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton12_3FixClicked){
         self.answer12 = @"经常";
-        [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button12_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button12_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton12_4Clicked){
         self.answer12 = @"总是";
-        [self.button12_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button12_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button12_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button12_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button12_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button12_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button12_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button12_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9815,60 +9815,60 @@
         self.answer13 = @"没有";
         [self.button13_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton13_2Clicked){
         self.answer13 = @"很少";
-        [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button13_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton13_3Clicked){
         self.answer13 = @"有时";
-        [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button13_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton13_3FixClicked){
         self.answer13 = @"经常";
-        [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button13_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button13_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton13_4Clicked){
         self.answer13 = @"总是";
-        [self.button13_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button13_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button13_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button13_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button13_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button13_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button13_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button13_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -9967,60 +9967,60 @@
         self.answer14 = @"没有";
         [self.button14_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton14_2Clicked){
         self.answer14 = @"很少";
-        [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button14_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton14_3Clicked){
         self.answer14 = @"有时";
-        [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button14_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton14_3FixClicked){
         self.answer14 = @"经常";
-        [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button14_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button14_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton14_4Clicked){
         self.answer14 = @"总是";
-        [self.button14_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button14_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button14_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button14_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button14_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button14_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button14_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button14_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10119,60 +10119,60 @@
         self.answer15 = @"没有";
         [self.button15_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton15_2Clicked){
         self.answer15 = @"很少";
-        [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button15_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton15_3Clicked){
         self.answer15 = @"有时";
-        [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button15_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton15_3FixClicked){
         self.answer15 = @"经常";
-        [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button15_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button15_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton15_4Clicked){
         self.answer15 = @"总是";
-        [self.button15_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button15_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button15_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button15_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button15_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button15_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button15_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button15_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10271,60 +10271,60 @@
         self.answer16 = @"没有";
         [self.button16_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton16_2Clicked){
         self.answer16 = @"很少";
-        [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button16_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton16_3Clicked){
         self.answer16 = @"有时";
-        [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button16_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton16_3FixClicked){
         self.answer16 = @"经常";
-        [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button16_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button16_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton16_4Clicked){
         self.answer16 = @"总是";
-        [self.button16_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button16_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button16_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button16_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button16_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button16_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button16_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button16_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10423,60 +10423,60 @@
         self.answer17 = @"没有";
         [self.button17_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton17_2Clicked){
         self.answer17 = @"很少";
-        [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button17_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton17_3Clicked){
         self.answer17 = @"有时";
-        [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button17_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton17_3FixClicked){
         self.answer17 = @"经常";
-        [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button17_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button17_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton17_4Clicked){
         self.answer17 = @"总是";
-        [self.button17_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button17_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button17_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button17_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button17_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button17_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button17_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button17_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10575,60 +10575,60 @@
         self.answer18 = @"没有";
         [self.button18_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton18_2Clicked){
         self.answer18 = @"很少";
-        [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button18_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton18_3Clicked){
         self.answer18 = @"有时";
-        [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button18_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton18_3FixClicked){
         self.answer18 = @"经常";
-        [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button18_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button18_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton18_4Clicked){
         self.answer18 = @"总是";
-        [self.button18_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button18_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button18_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button18_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button18_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button18_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button18_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button18_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10727,60 +10727,60 @@
         self.answer19 = @"没有";
         [self.button19_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton19_2Clicked){
         self.answer19 = @"很少";
-        [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button19_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton19_3Clicked){
         self.answer19 = @"有时";
-        [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button19_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton19_3FixClicked){
         self.answer19 = @"经常";
-        [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button19_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button19_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton19_4Clicked){
         self.answer19 = @"总是";
-        [self.button19_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button19_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button19_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button19_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button19_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button19_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button19_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button19_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -10879,60 +10879,60 @@
         self.answer20 = @"没有";
         [self.button20_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton20_2Clicked){
         self.answer20 = @"很少";
-        [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button20_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton20_3Clicked){
         self.answer20 = @"有时";
-        [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button20_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton20_3FixClicked){
         self.answer20 = @"经常";
-        [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button20_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button20_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton20_4Clicked){
         self.answer20 = @"总是";
-        [self.button20_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button20_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button20_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button20_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button20_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button20_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button20_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button20_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11031,60 +11031,60 @@
         self.answer21 = @"没有";
         [self.button21_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton21_2Clicked){
         self.answer21 = @"很少";
-        [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button21_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton21_3Clicked){
         self.answer21 = @"有时";
-        [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button21_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton21_3FixClicked){
         self.answer21 = @"经常";
-        [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button21_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button21_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton21_4Clicked){
         self.answer21 = @"总是";
-        [self.button21_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button21_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button21_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button21_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button21_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button21_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button21_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button21_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11183,60 +11183,60 @@
         self.answer22 = @"没有";
         [self.button22_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton22_2Clicked){
         self.answer22 = @"很少";
-        [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button22_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton22_3Clicked){
         self.answer22 = @"有时";
-        [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button22_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton22_3FixClicked){
         self.answer22 = @"经常";
-        [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button22_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button22_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton22_4Clicked){
         self.answer22 = @"总是";
-        [self.button22_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button22_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button22_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button22_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button22_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button22_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button22_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button22_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11335,60 +11335,60 @@
         self.answer23 = @"没有";
         [self.button23_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton23_2Clicked){
         self.answer23 = @"很少";
-        [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button23_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton23_3Clicked){
         self.answer23 = @"有时";
-        [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button23_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton23_3FixClicked){
         self.answer23 = @"经常";
-        [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button23_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button23_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton23_4Clicked){
         self.answer23 = @"总是";
-        [self.button23_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button23_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button23_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button23_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button23_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button23_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button23_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button23_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11487,60 +11487,60 @@
         self.answer24 = @"没有";
         [self.button24_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton24_2Clicked){
         self.answer24 = @"很少";
-        [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button24_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton24_3Clicked){
         self.answer24 = @"有时";
-        [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button24_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton24_3FixClicked){
         self.answer24 = @"经常";
-        [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button24_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button24_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton24_4Clicked){
         self.answer24 = @"总是";
-        [self.button24_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button24_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button24_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button24_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button24_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button24_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button24_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button24_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11639,60 +11639,60 @@
         self.answer25 = @"没有";
         [self.button25_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton25_2Clicked){
         self.answer25 = @"很少";
-        [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button25_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton25_3Clicked){
         self.answer25 = @"有时";
-        [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button25_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton25_3FixClicked){
         self.answer25 = @"经常";
-        [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button25_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button25_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton25_4Clicked){
         self.answer25 = @"总是";
-        [self.button25_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button25_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button25_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button25_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button25_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button25_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button25_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button25_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11791,60 +11791,60 @@
         self.answer26 = @"没有";
         [self.button26_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton26_2Clicked){
         self.answer26 = @"很少";
-        [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button26_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton26_3Clicked){
         self.answer26 = @"有时";
-        [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button26_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton26_3FixClicked){
         self.answer26 = @"经常";
-        [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button26_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button26_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton26_4Clicked){
         self.answer26 = @"总是";
-        [self.button26_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button26_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button26_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button26_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button26_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button26_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button26_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button26_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -11943,60 +11943,60 @@
         self.answer27 = @"没有";
         [self.button27_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton27_2Clicked){
         self.answer27 = @"很少";
-        [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button27_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton27_3Clicked){
         self.answer27 = @"有时";
-        [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button27_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton27_3FixClicked){
         self.answer27 = @"经常";
-        [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button27_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button27_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton27_4Clicked){
         self.answer27 = @"总是";
-        [self.button27_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button27_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button27_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button27_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button27_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button27_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button27_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button27_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12096,60 +12096,60 @@
         self.answer28 = @"没有";
         [self.button28_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton28_2Clicked){
         self.answer28 = @"很少";
-        [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button28_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton28_3Clicked){
         self.answer28 = @"有时";
-        [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button28_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton28_3FixClicked){
         self.answer28 = @"经常";
-        [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button28_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button28_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton28_4Clicked){
         self.answer28 = @"总是";
-        [self.button28_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button28_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button28_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button28_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button28_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button28_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button28_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button28_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12249,60 +12249,60 @@
         self.answer29 = @"没有";
         [self.button29_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton29_2Clicked){
         self.answer29 = @"很少";
-        [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button29_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton29_3Clicked){
         self.answer29 = @"有时";
-        [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button29_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton29_3FixClicked){
         self.answer29 = @"经常";
-        [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button29_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button29_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton29_4Clicked){
         self.answer29 = @"总是";
-        [self.button29_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button29_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button29_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button29_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button29_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button29_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button29_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button29_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12401,60 +12401,60 @@
         self.answer30 = @"没有";
         [self.button30_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton30_2Clicked){
         self.answer30 = @"很少";
-        [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button30_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton30_3Clicked){
         self.answer30 = @"有时";
-        [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button30_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton30_3FixClicked){
         self.answer30 = @"经常";
-        [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button30_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button30_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton30_4Clicked){
         self.answer30 = @"总是";
-        [self.button30_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button30_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button30_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button30_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button30_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button30_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button30_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button30_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12553,60 +12553,60 @@
         self.answer31 = @"没有";
         [self.button31_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton31_2Clicked){
         self.answer31 = @"很少";
-        [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button31_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton31_3Clicked){
         self.answer31 = @"有时";
-        [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button31_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton31_3FixClicked){
         self.answer31 = @"经常";
-        [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button31_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button31_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton31_4Clicked){
         self.answer31 = @"总是";
-        [self.button31_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button31_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button31_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button31_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button31_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button31_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button31_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button31_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12705,60 +12705,60 @@
         self.answer32 = @"没有";
         [self.button32_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton32_2Clicked){
         self.answer32 = @"很少";
-        [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button32_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton32_3Clicked){
         self.answer32 = @"有时";
-        [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button32_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton32_3FixClicked){
         self.answer32 = @"经常";
-        [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button32_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button32_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton32_4Clicked){
         self.answer32 = @"总是";
-        [self.button32_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button32_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button32_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button32_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button32_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button32_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button3_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button32_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -12857,60 +12857,60 @@
         self.answer33 = @"没有";
         [self.button33_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton33_2Clicked){
         self.answer33 = @"很少";
-        [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button33_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton33_3Clicked){
         self.answer33 = @"有时";
-        [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button33_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton33_3FixClicked){
         self.answer33 = @"经常";
-        [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button33_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button33_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton33_4Clicked){
         self.answer33 = @"总是";
-        [self.button33_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button33_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button33_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button33_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button33_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button33_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button33_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button33_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13009,60 +13009,60 @@
         self.answer34 = @"没有";
         [self.button34_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton34_2Clicked){
         self.answer34 = @"很少";
-        [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button34_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton34_3Clicked){
         self.answer34 = @"有时";
-        [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button34_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton34_3FixClicked){
         self.answer34 = @"经常";
-        [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button34_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button34_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton34_4Clicked){
         self.answer34 = @"总是";
-        [self.button34_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button34_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button34_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button34_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button34_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button34_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button34_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button34_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13161,60 +13161,60 @@
         self.answer35 = @"没有";
         [self.button35_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton35_2Clicked){
         self.answer35 = @"很少";
-        [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button35_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton35_3Clicked){
         self.answer35 = @"有时";
-        [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button35_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton35_3FixClicked){
         self.answer35 = @"经常";
-        [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button35_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button35_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton35_4Clicked){
         self.answer35 = @"总是";
-        [self.button35_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button35_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button35_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button35_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button35_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button35_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button35_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button35_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13313,60 +13313,60 @@
         self.answer36 = @"没有";
         [self.button36_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton36_2Clicked){
         self.answer36 = @"很少";
-        [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button36_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton36_3Clicked){
         self.answer36 = @"有时";
-        [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button36_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton36_3FixClicked){
         self.answer36 = @"经常";
-        [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button36_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button36_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton36_4Clicked){
         self.answer36 = @"总是";
-        [self.button36_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button36_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button36_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button36_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button36_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button36_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button36_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button36_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13465,60 +13465,60 @@
         self.answer37 = @"没有";
         [self.button37_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton37_2Clicked){
         self.answer37 = @"很少";
-        [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button37_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton37_3Clicked){
         self.answer37 = @"有时";
-        [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button37_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton37_3FixClicked){
         self.answer37 = @"经常";
-        [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button37_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button37_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton37_4Clicked){
         self.answer37 = @"总是";
-        [self.button37_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button37_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button37_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button37_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button37_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button37_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button37_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button37_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13617,60 +13617,60 @@
         self.answer38 = @"没有";
         [self.button38_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton38_2Clicked){
         self.answer38 = @"很少";
-        [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button38_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton38_3Clicked){
         self.answer38 = @"有时";
-        [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button38_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton38_3FixClicked){
         self.answer38 = @"经常";
-        [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button38_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button38_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton38_4Clicked){
         self.answer38 = @"总是";
-        [self.button38_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button38_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button38_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button38_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button38_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button38_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button38_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button38_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13769,60 +13769,60 @@
         self.answer39 = @"没有";
         [self.button39_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton39_2Clicked){
         self.answer39 = @"很少";
-        [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button39_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton39_3Clicked){
         self.answer39 = @"有时";
-        [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button39_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton39_3FixClicked){
         self.answer39 = @"经常";
-        [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button39_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button39_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton39_4Clicked){
         self.answer39 = @"总是";
-        [self.button39_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button39_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button39_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button39_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button39_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button39_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button39_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button39_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -13921,60 +13921,60 @@
         self.answer40 = @"没有";
         [self.button40_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton40_2Clicked){
         self.answer40 = @"很少";
-        [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button40_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton40_3Clicked){
         self.answer40 = @"有时";
-        [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button40_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton40_3FixClicked){
         self.answer40 = @"经常";
-        [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button40_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button40_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton40_4Clicked){
         self.answer40 = @"总是";
-        [self.button40_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button40_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button40_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button40_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button40_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button40_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button40_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button40_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14074,60 +14074,60 @@
         self.answer41 = @"没有";
         [self.button41_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton41_2Clicked){
         self.answer41 = @"很少";
-        [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button41_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton41_3Clicked){
         self.answer41 = @"有时";
-        [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button41_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton41_3FixClicked){
         self.answer41 = @"经常";
-        [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button41_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button41_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton41_4Clicked){
         self.answer41 = @"总是";
-        [self.button41_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button41_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button41_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button41_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button41_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button41_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button41_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button41_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14227,60 +14227,60 @@
         self.answer42 = @"没有";
         [self.button42_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton42_2Clicked){
         self.answer42 = @"很少";
-        [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button42_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton42_3Clicked){
         self.answer42 = @"有时";
-        [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button42_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton42_3FixClicked){
         self.answer42 = @"经常";
-        [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button42_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button42_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton42_4Clicked){
         self.answer42 = @"总是";
-        [self.button42_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button42_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button42_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button42_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button42_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button42_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button42_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button42_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14380,60 +14380,60 @@
         self.answer43 = @"没有";
         [self.button43_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton43_2Clicked){
         self.answer43 = @"很少";
-        [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button43_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton43_3Clicked){
         self.answer43 = @"有时";
-        [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button43_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton43_3FixClicked){
         self.answer43 = @"经常";
-        [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button43_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button43_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton43_4Clicked){
         self.answer43 = @"总是";
-        [self.button43_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button43_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button43_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button43_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button43_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button43_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button43_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button43_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14532,60 +14532,60 @@
         self.answer44 = @"没有";
         [self.button44_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton44_2Clicked){
         self.answer44 = @"很少";
-        [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button44_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton44_3Clicked){
         self.answer44 = @"有时";
-        [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button44_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton44_3FixClicked){
         self.answer44 = @"经常";
-        [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button44_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button44_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton44_4Clicked){
         self.answer44 = @"总是";
-        [self.button44_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button44_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button44_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button44_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button44_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button44_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button44_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button44_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14684,60 +14684,60 @@
         self.answer45 = @"没有";
         [self.button45_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton45_2Clicked){
         self.answer45 = @"很少";
-        [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button45_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton45_3Clicked){
         self.answer45 = @"有时";
-        [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button45_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton45_3FixClicked){
         self.answer45 = @"经常";
-        [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button45_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button45_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton45_4Clicked){
         self.answer45 = @"总是";
-        [self.button45_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button45_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button45_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button45_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button45_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button45_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button45_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button45_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14836,60 +14836,60 @@
         self.answer46 = @"没有";
         [self.button46_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton46_2Clicked){
         self.answer46 = @"很少";
-        [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button46_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton46_3Clicked){
         self.answer46 = @"有时";
-        [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button46_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton46_3FixClicked){
         self.answer46 = @"经常";
-        [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button46_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button46_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton46_4Clicked){
         self.answer46 = @"总是";
-        [self.button46_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button46_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button46_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button46_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button46_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button46_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button46_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button46_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -14988,60 +14988,60 @@
         self.answer47 = @"没有";
         [self.button47_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton47_2Clicked){
         self.answer47 = @"很少";
-        [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button47_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton47_3Clicked){
         self.answer47 = @"有时";
-        [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button47_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton47_3FixClicked){
         self.answer47 = @"经常";
-        [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button47_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button47_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton47_4Clicked){
         self.answer47 = @"总是";
-        [self.button47_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button47_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button47_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button47_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button47_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button47_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button47_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button47_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15140,60 +15140,60 @@
         self.answer48 = @"没有";
         [self.button48_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton48_2Clicked){
         self.answer48 = @"很少";
-        [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button48_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton48_3Clicked){
         self.answer48 = @"有时";
-        [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button48_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton48_3FixClicked){
         self.answer48 = @"经常";
-        [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button48_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button48_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton48_4Clicked){
         self.answer48 = @"总是";
-        [self.button48_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button48_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button48_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button48_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button48_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button48_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button48_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button48_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15293,60 +15293,60 @@
         self.answer49 = @"没有";
         [self.button49_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton49_2Clicked){
         self.answer49 = @"很少";
-        [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button49_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton49_3Clicked){
         self.answer49 = @"有时";
-        [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button49_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton49_3FixClicked){
         self.answer49 = @"经常";
-        [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button49_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button49_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton49_4Clicked){
         self.answer49 = @"总是";
-        [self.button49_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button49_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button49_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button49_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button49_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button49_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button49_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button49_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15445,60 +15445,60 @@
         self.answer50 = @"没有";
         [self.button50_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton50_2Clicked){
         self.answer50 = @"很少";
-        [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button50_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton50_3Clicked){
         self.answer50 = @"有时";
-        [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button50_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton50_3FixClicked){
         self.answer50 = @"经常";
-        [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button50_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button50_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton50_4Clicked){
         self.answer50 = @"总是";
-        [self.button50_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button50_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button50_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button50_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button50_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button50_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button50_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button50_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15597,60 +15597,60 @@
         self.answer51 = @"没有";
         [self.button51_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton51_2Clicked){
         self.answer51 = @"很少";
-        [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button51_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton51_3Clicked){
         self.answer51 = @"有时";
-        [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button51_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton51_3FixClicked){
         self.answer51 = @"经常";
-        [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button51_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button51_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton51_4Clicked){
         self.answer51 = @"总是";
-        [self.button51_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button51_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button51_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button51_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button51_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button51_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button51_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button51_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15749,60 +15749,60 @@
         self.answer52 = @"没有";
         [self.button52_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton52_2Clicked){
         self.answer52 = @"很少";
-        [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button52_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton52_3Clicked){
         self.answer52 = @"有时";
-        [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button52_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton52_3FixClicked){
         self.answer52 = @"经常";
-        [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button52_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button52_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton52_4Clicked){
         self.answer52 = @"总是";
-        [self.button52_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button52_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button52_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button52_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button52_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button52_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button52_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button52_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -15901,60 +15901,60 @@
         self.answer53 = @"没有";
         [self.button53_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton53_2Clicked){
         self.answer53 = @"很少";
-        [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button53_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton53_3Clicked){
         self.answer53 = @"有时";
-        [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button53_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton53_3FixClicked){
         self.answer53 = @"经常";
-        [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button53_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button53_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton53_4Clicked){
         self.answer53 = @"总是";
-        [self.button53_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button53_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button53_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button53_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button53_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button53_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button53_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button53_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16053,60 +16053,60 @@
         self.answer54 = @"没有";
         [self.button54_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton54_2Clicked){
         self.answer54 = @"很少";
-        [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button54_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton54_3Clicked){
         self.answer54 = @"有时";
-        [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button54_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton54_3FixClicked){
         self.answer54 = @"经常";
-        [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button54_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button54_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton54_4Clicked){
         self.answer54 = @"总是";
-        [self.button54_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button54_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button54_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button54_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button54_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button54_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button54_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button54_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16205,60 +16205,60 @@
         self.answer55 = @"没有";
         [self.button55_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton55_2Clicked){
         self.answer55 = @"很少";
-        [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button55_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton55_3Clicked){
         self.answer55 = @"有时";
-        [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button55_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton55_3FixClicked){
         self.answer55 = @"经常";
-        [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button55_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button55_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton55_4Clicked){
         self.answer55 = @"总是";
-        [self.button55_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button55_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button55_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button55_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button55_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button55_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button55_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button55_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16357,60 +16357,60 @@
         self.answer56 = @"没有";
         [self.button56_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton56_2Clicked){
         self.answer56 = @"很少";
-        [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button56_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton56_3Clicked){
         self.answer56 = @"有时";
-        [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button56_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton56_3FixClicked){
         self.answer56 = @"经常";
-        [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button56_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button56_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton56_4Clicked){
         self.answer56 = @"总是";
-        [self.button56_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button56_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button56_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button56_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button56_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button56_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button56_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button56_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16510,60 +16510,60 @@
         self.answer57 = @"没有";
         [self.button57_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton57_2Clicked){
         self.answer57 = @"很少";
-        [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button57_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton57_3Clicked){
         self.answer57 = @"有时";
-        [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button57_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton57_3FixClicked){
         self.answer57 = @"经常";
-        [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button57_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button57_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton57_4Clicked){
         self.answer57 = @"总是";
-        [self.button57_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button57_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button57_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button57_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button57_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button57_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button57_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button57_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16662,60 +16662,60 @@
         self.answer58 = @"没有";
         [self.button58_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton58_2Clicked){
         self.answer58 = @"很少";
-        [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button58_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton58_3Clicked){
         self.answer58 = @"有时";
-        [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button58_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton58_3FixClicked){
         self.answer58 = @"经常";
-        [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button58_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button58_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton58_4Clicked){
         self.answer58 = @"总是";
-        [self.button58_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button58_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button58_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button58_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button58_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button58_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button58_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button58_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16814,60 +16814,60 @@
         self.answer59 = @"没有";
         [self.button59_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton59_2Clicked){
         self.answer59 = @"很少";
-        [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button59_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton59_3Clicked){
         self.answer59 = @"有时";
-        [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button59_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton59_3FixClicked){
         self.answer59 = @"经常";
-        [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button59_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button59_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton59_4Clicked){
         self.answer59 = @"总是";
-        [self.button59_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button59_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button59_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button59_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button59_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button59_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button59_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button59_4 setBackgroundColor:kMAIN_COLOR];
     }
@@ -16966,60 +16966,60 @@
         self.answer60 = @"没有";
         [self.button60_1 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_1 setBackgroundColor:kMAIN_COLOR];
-        [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton60_2Clicked){
         self.answer60 = @"很少";
-        [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button60_2 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_2 setBackgroundColor:kMAIN_COLOR];
-        [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton60_3Clicked){
         self.answer60 = @"有时";
-        [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button60_3 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_3 setBackgroundColor:kMAIN_COLOR];
-        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton60_3FixClicked){
         self.answer60 = @"经常";
-        [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button60_3Fix setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_3Fix setBackgroundColor:kMAIN_COLOR];
-        [self.button60_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_4 setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_4 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     }else if (self.isButton60_4Clicked){
         self.answer60 = @"总是";
-        [self.button60_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_1 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_2 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3 setBackgroundColor:kLIGHT_GRAY_COLOR];
-        [self.button60_3Fix setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        [self.button60_3Fix setBackgroundColor:kLIGHT_GRAY_COLOR];
+        [self.button60_1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_1 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_2 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3 setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.button60_3Fix setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.button60_3Fix setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
         [self.button60_4 setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
         [self.button60_4 setBackgroundColor:kMAIN_COLOR];
     }
