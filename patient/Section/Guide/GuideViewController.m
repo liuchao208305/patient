@@ -86,6 +86,7 @@
     self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
     self.pageControl.currentPageIndicatorTintColor = kMAIN_COLOR;
     self.pageControl.numberOfPages = imageArray.count;
+    self.pageControl.currentPage = 0;
     [self.view addSubview:self.pageControl];
 }
 
@@ -96,6 +97,12 @@
     [[UIApplication sharedApplication].delegate.window setRootViewController:rootVC];
     [[UIApplication sharedApplication].delegate.window addSubview:rootVC.view];
     [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
+}
+
+#pragma mark UIScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    int index = fabs(scrollView.contentOffset.x)/scrollView.frame.size.width;
+    self.pageControl.currentPage = index;
 }
 
 @end
