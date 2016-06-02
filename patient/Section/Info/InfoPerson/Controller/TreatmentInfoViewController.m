@@ -1208,26 +1208,26 @@
     self.label6.text = @"症状";
     
     if (self.patientSymptomArray.count == 0) {
-        [self.button6_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 1){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_1 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 2){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1236,12 +1236,12 @@
         [self.button6_2 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_2 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 3){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1253,11 +1253,11 @@
         [self.button6_3 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_3 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 4){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1272,10 +1272,10 @@
         [self.button6_4 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_4 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 5){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1293,9 +1293,9 @@
         [self.button6_5 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_5 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 6){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1316,8 +1316,8 @@
         [self.button6_6 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_6 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 7){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
@@ -1341,7 +1341,7 @@
         [self.button6_7 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
         [self.button6_7 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
         
-        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
+//        [self.button6_8 setBackgroundImage:[UIImage imageNamed:@"info_treatment_unselected_button"] forState:UIControlStateNormal];
     }else if (self.patientSymptomArray.count == 8){
         [self.button6_1 setTitle:self.patientSymptomArray[0] forState:UIControlStateNormal];
         [self.button6_1 setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
