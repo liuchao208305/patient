@@ -665,6 +665,11 @@
 #pragma mark Data Parse
 -(void)morePersonDataParse{
     self.expertArray = [MorePersonData mj_objectArrayWithKeyValuesArray:self.data];
+    [self.expertIdArray removeAllObjects];
+    [self.expertImageArray removeAllObjects];
+    [self.expertNameArray removeAllObjects];
+    [self.expertTitleArray removeAllObjects];
+    [self.expertUnitArray removeAllObjects];
     for (MorePersonData *morePersonData in self.expertArray) {
         [self.expertIdArray addObject:[NullUtil judgeStringNull:morePersonData.doctor_id]];
         [self.expertImageArray addObject:[NullUtil judgeStringNull:morePersonData.heandUrl]];
