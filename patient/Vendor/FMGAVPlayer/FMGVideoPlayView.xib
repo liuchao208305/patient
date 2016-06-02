@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -137,10 +137,10 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="bg_media_default.jpg" width="160" height="77"/>
+        <image name="bg_media_default.jpg" width="160" height="57"/>
         <image name="fast_back" width="100" height="100"/>
         <image name="fast_forward" width="100" height="100"/>
-        <image name="full_pause_btn.png" width="50" height="50"/>
+        <image name="full_pause_btn.png" width="16" height="16"/>
         <image name="full_play_btn_hl.png" width="16" height="16"/>
         <image name="mini_launchFullScreen_btn.png" width="50" height="40"/>
     </resources>
