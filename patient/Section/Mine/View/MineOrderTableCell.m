@@ -143,7 +143,7 @@
 
 -(void)initBackView3{
     self.imageBigView3 = [[UIImageView alloc] init];
-    [self.imageBigView3 setImage:[UIImage imageNamed:@"mine_orderstatus_completed"]];
+    [self.imageBigView3 setImage:[UIImage imageNamed:@"mine_orderstatus_tobeevaluated"]];
     [self.backView3 addSubview:self.imageBigView3];
     
     self.imageSmallView3 = [[UIImageView alloc] init];
@@ -194,7 +194,7 @@
 
 -(void)initBackView4{
     self.imageBigView4 = [[UIImageView alloc] init];
-    [self.imageBigView4 setImage:[UIImage imageNamed:@"mine_orderstatus_tobeevaluated"]];
+    [self.imageBigView4 setImage:[UIImage imageNamed:@"mine_orderstatus_completed"]];
     [self.backView4 addSubview:self.imageBigView4];
     
     self.imageSmallView4 = [[UIImageView alloc] init];
