@@ -351,6 +351,12 @@
 		708276031D0004930016AE3C /* info_clinic_doctor_title_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275F91D0004930016AE3C /* info_clinic_doctor_title_image@2x.png */; };
 		708276041D0004930016AE3C /* info_clinic_clinic_title_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275FA1D0004930016AE3C /* info_clinic_clinic_title_image@3x.png */; };
 		708276051D0004930016AE3C /* info_clinic_clinic_title_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708275FB1D0004930016AE3C /* info_clinic_clinic_title_image@2x.png */; };
+		7082760C1D00073D0016AE3C /* info_treatment_unselected_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276061D00073D0016AE3C /* info_treatment_unselected_button@3x.png */; };
+		7082760D1D00073D0016AE3C /* info_treatment_unselected_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276071D00073D0016AE3C /* info_treatment_unselected_button@2x.png */; };
+		7082760E1D00073D0016AE3C /* info_treatment_selected_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276081D00073D0016AE3C /* info_treatment_selected_button@3x.png */; };
+		7082760F1D00073D0016AE3C /* info_treatment_selected_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276091D00073D0016AE3C /* info_treatment_selected_button@2x.png */; };
+		708276101D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7082760A1D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png */; };
+		708276111D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7082760B1D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -1031,6 +1037,12 @@
 		708275F91D0004930016AE3C /* info_clinic_doctor_title_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_clinic_doctor_title_image@2x.png"; sourceTree = "<group>"; };
 		708275FA1D0004930016AE3C /* info_clinic_clinic_title_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_clinic_clinic_title_image@3x.png"; sourceTree = "<group>"; };
 		708275FB1D0004930016AE3C /* info_clinic_clinic_title_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_clinic_clinic_title_image@2x.png"; sourceTree = "<group>"; };
+		708276061D00073D0016AE3C /* info_treatment_unselected_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_unselected_button@3x.png"; sourceTree = "<group>"; };
+		708276071D00073D0016AE3C /* info_treatment_unselected_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_unselected_button@2x.png"; sourceTree = "<group>"; };
+		708276081D00073D0016AE3C /* info_treatment_selected_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_selected_button@3x.png"; sourceTree = "<group>"; };
+		708276091D00073D0016AE3C /* info_treatment_selected_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_selected_button@2x.png"; sourceTree = "<group>"; };
+		7082760A1D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_lianxiren_image@3x.png"; sourceTree = "<group>"; };
+		7082760B1D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_lianxiren_image@2x.png"; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1742,6 +1754,12 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708276061D00073D0016AE3C /* info_treatment_unselected_button@3x.png */,
+				708276071D00073D0016AE3C /* info_treatment_unselected_button@2x.png */,
+				708276081D00073D0016AE3C /* info_treatment_selected_button@3x.png */,
+				708276091D00073D0016AE3C /* info_treatment_selected_button@2x.png */,
+				7082760A1D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png */,
+				7082760B1D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png */,
 				708275F21D0004930016AE3C /* info_clinic_schedule_unbookable_button@3x.png */,
 				708275F31D0004930016AE3C /* info_clinic_schedule_unbookable_button@2x.png */,
 				708275F41D0004930016AE3C /* info_clinic_schedule_bookable_button@3x.png */,
@@ -2991,6 +3009,7 @@
 				708275BA1CFFFCDD0016AE3C /* info_coupon_pink_back_image@3x.png in Resources */,
 				7082759B1CFFF9D00016AE3C /* mine_default_medical_record@2x.png in Resources */,
 				705EF7F11CBC947600732886 /* mine_orderstatus_completed.png in Resources */,
+				7082760F1D00073D0016AE3C /* info_treatment_selected_button@2x.png in Resources */,
 				708275A91CFFF9D00016AE3C /* default_image_small@2x.png in Resources */,
 				708275E01D0001840016AE3C /* info_expert_xingxing_half@3x.png in Resources */,
 				705EF7EC1CBC947600732886 /* mine_bottom_service.png in Resources */,
@@ -2999,8 +3018,10 @@
 				7046AD321C97E5D700BB6818 /* tabbar_test_normal.png in Resources */,
 				7046AD171C97E5D700BB6818 /* cell_disease_nanke_button.png in Resources */,
 				708275511CFC32E80016AE3C /* info_health_favourite_fix.png in Resources */,
+				708276111D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png in Resources */,
 				708275DC1D0001840016AE3C /* info_expert_yanjiufangxiang_image@3x.png in Resources */,
 				708275FD1D0004930016AE3C /* info_clinic_schedule_unbookable_button@2x.png in Resources */,
+				7082760D1D00073D0016AE3C /* info_treatment_unselected_button@2x.png in Resources */,
 				705EF7F21CBC947600732886 /* mine_orderstatus_reserved.png in Resources */,
 				7046ADBB1CA0F8B400BB6818 /* info_scrollview3.png in Resources */,
 				7002D86F1CB3BBBF0074426A /* info_treatment_confirm_selected.png in Resources */,
@@ -3052,6 +3073,7 @@
 				70B4EA8F1CCDBF8C00141E38 /* test_result_detail_share_button.png in Resources */,
 				70FEAE031CAB80B5006A044A /* info_expert_shaixuan_up.png in Resources */,
 				708103641CEB8BDF009BC871 /* info_health_dish_collect_button_highlighted.png in Resources */,
+				7082760C1D00073D0016AE3C /* info_treatment_unselected_button@3x.png in Resources */,
 				708275091CFC12EB0016AE3C /* cell_person_title_button@3x.png in Resources */,
 				708275AE1CFFFBC20016AE3C /* mine_customservice_logo_image@3x.png in Resources */,
 				708103651CEB8BDF009BC871 /* info_health_dish_collect_button_normal.png in Resources */,
@@ -3131,6 +3153,7 @@
 				708275F01D0001840016AE3C /* info_expert_guanzhu_normal3x.png in Resources */,
 				7046AD2A1C97E5D700BB6818 /* navbar_left_item.png in Resources */,
 				708276011D0004930016AE3C /* info_clinic_expert_title_image@2x.png in Resources */,
+				7082760E1D00073D0016AE3C /* info_treatment_selected_button@3x.png in Resources */,
 				7081036D1CEB8BDF009BC871 /* info_health_dish_step3.png in Resources */,
 				70926D901CC7327300CB0416 /* AlipaySDK.bundle in Resources */,
 				705EF7F51CBC947600732886 /* mine_top_background.png in Resources */,
@@ -3191,6 +3214,7 @@
 				7046AD371C97E8D300BB6818 /* launchimage.jpg in Resources */,
 				708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */,
 				70926CE21CC4DA4600CB0416 /* info_coupon_blue_back_image.png in Resources */,
+				708276101D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png in Resources */,
 				7046ADB91CA0F8B400BB6818 /* info_scrollview1.png in Resources */,
 				708275E11D0001840016AE3C /* info_expert_xingxing_half@2x.png in Resources */,
 				7002D87A1CB49F7F0074426A /* info_treatment_online_normal.png in Resources */,
