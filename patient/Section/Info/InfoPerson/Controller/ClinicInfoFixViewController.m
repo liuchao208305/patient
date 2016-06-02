@@ -373,7 +373,7 @@
             make.width.mas_equalTo(100);
             make.height.mas_equalTo(13);
         }];
-    }else if ([AdaptionUtil isIphoneFive] || [AdaptionUtil isIphoneSixPlus]){
+    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
         [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.expertLabel1).offset(100+10);
             make.centerY.equalTo(self.expertLabel1).offset(0);
