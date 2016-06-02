@@ -357,6 +357,8 @@
 		7082760F1D00073D0016AE3C /* info_treatment_selected_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276091D00073D0016AE3C /* info_treatment_selected_button@2x.png */; };
 		708276101D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7082760A1D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png */; };
 		708276111D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7082760B1D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png */; };
+		708276141D0010970016AE3C /* info_treatment_shijian_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276121D0010970016AE3C /* info_treatment_shijian_image@3x.png */; };
+		708276151D0010970016AE3C /* info_treatment_shijian_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 708276131D0010970016AE3C /* info_treatment_shijian_image@2x.png */; };
 		708995651CF3E4B000B40F97 /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995641CF3E4B000B40F97 /* MineMessageViewController.m */; };
 		708995681CF3E4DA00B40F97 /* MineMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */; };
 		7089956B1CF3E53700B40F97 /* MineMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */; };
@@ -1043,6 +1045,8 @@
 		708276091D00073D0016AE3C /* info_treatment_selected_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_selected_button@2x.png"; sourceTree = "<group>"; };
 		7082760A1D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_lianxiren_image@3x.png"; sourceTree = "<group>"; };
 		7082760B1D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_lianxiren_image@2x.png"; sourceTree = "<group>"; };
+		708276121D0010970016AE3C /* info_treatment_shijian_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_shijian_image@3x.png"; sourceTree = "<group>"; };
+		708276131D0010970016AE3C /* info_treatment_shijian_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_treatment_shijian_image@2x.png"; sourceTree = "<group>"; };
 		708995631CF3E4B000B40F97 /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
 		708995641CF3E4B000B40F97 /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
 		708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageDetailViewController.h; sourceTree = "<group>"; };
@@ -1754,6 +1758,8 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				708276121D0010970016AE3C /* info_treatment_shijian_image@3x.png */,
+				708276131D0010970016AE3C /* info_treatment_shijian_image@2x.png */,
 				708276061D00073D0016AE3C /* info_treatment_unselected_button@3x.png */,
 				708276071D00073D0016AE3C /* info_treatment_unselected_button@2x.png */,
 				708276081D00073D0016AE3C /* info_treatment_selected_button@3x.png */,
@@ -2989,6 +2995,7 @@
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
 				708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */,
 				708274E11CF7F5A50016AE3C /* mine_record_detail_patient_image.png in Resources */,
+				708276141D0010970016AE3C /* info_treatment_shijian_image@3x.png in Resources */,
 				70B4EA831CCCC7E100141E38 /* 气泡.png in Resources */,
 				708275C01CFFFD470016AE3C /* mine_aboutus_logo_image@3x.png in Resources */,
 				7046AD731C9A426100BB6818 /* login_get_captcha_button.png in Resources */,
@@ -3082,6 +3089,7 @@
 				708275EB1D0001840016AE3C /* info_expert_shaixuan_down@2x.png in Resources */,
 				708275C11CFFFD470016AE3C /* mine_aboutus_logo_image@2x.png in Resources */,
 				7002D8681CACC19F0074426A /* navbar_back_image.png in Resources */,
+				708276151D0010970016AE3C /* info_treatment_shijian_image@2x.png in Resources */,
 				708275341CFC15E50016AE3C /* tabbar_mine_selected@2x.png in Resources */,
 				70FD8E841CED80ED00DA22E5 /* info_health_favourite_after.png in Resources */,
 				70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */,
