@@ -524,8 +524,11 @@
         cell.label2_8.text = self.orderDoctorNameArrayAll[indexPath.section];
         cell.label2_9.text = self.orderClinicNameArrayAll[indexPath.section];
         
-        cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayAll[indexPath.section]];
-        
+        if ([self.orderMoneyArrayAll[indexPath.section] doubleValue] < 0) {
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+        }else{
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayAll[indexPath.section]];
+        }
     }else if (self.flag2){
         cell.label1_1.text = self.orderPatientNameArrayBooked[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayBooked[indexPath.section];
@@ -552,7 +555,13 @@
         cell.label2_8.text = self.orderDoctorNameArrayBooked[indexPath.section];
         cell.label2_9.text = self.orderClinicNameArrayBooked[indexPath.section];
         
-        cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayBooked[indexPath.section]];
+        if ([self.orderMoneyArrayBooked[indexPath.section] doubleValue] < 0) {
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+        }else{
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayBooked[indexPath.section]];
+        }
+        
+        
     }else if (self.flag3){
         cell.label1_1.text = self.orderPatientNameArrayProceeding[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayProceeding[indexPath.section];
@@ -574,7 +583,11 @@
         cell.label2_8.text = self.orderDoctorNameArrayProceeding[indexPath.section];
         cell.label2_9.text = self.orderClinicNameArrayProceeding[indexPath.section];
         
-        cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayProceeding[indexPath.section]];
+        if ([self.orderMoneyArrayProceeding[indexPath.section] doubleValue] < 0) {
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+        }else{
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayProceeding[indexPath.section]];
+        }
     }else if (self.flag4){
         cell.label1_1.text = self.orderPatientNameArrayEvaluating[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayEvaluating[indexPath.section];
@@ -595,7 +608,11 @@
         cell.label2_8.text = self.orderDoctorNameArrayEvaluating[indexPath.section];
         cell.label2_9.text = self.orderClinicNameArrayEvaluating[indexPath.section];
         
-        cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayEvaluating[indexPath.section]];
+        if ([self.orderMoneyArrayEvaluating[indexPath.section] doubleValue] < 0) {
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+        }else{
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayEvaluating[indexPath.section]];
+        }
     }else if (self.flag5){
         cell.label1_1.text = self.orderPatientNameArrayCompleted[indexPath.section];
         cell.label1_2.text = self.orderBookTimeArrayCompleted[indexPath.section];
@@ -615,7 +632,11 @@
         cell.label2_8.text = self.orderDoctorNameArrayCompleted[indexPath.section];
         cell.label2_9.text = self.orderClinicNameArrayCompleted[indexPath.section];
         
-        cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayCompleted[indexPath.section]];
+        if ([self.orderMoneyArrayCompleted[indexPath.section] doubleValue] < 0) {
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+        }else{
+            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayCompleted[indexPath.section]];
+        }
     }
     
     return cell;

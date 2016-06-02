@@ -1049,7 +1049,12 @@
     [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
     [self.moneyLabel1 setAttributedText:attri];
     
-    self.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.fixLatterMoney];
+    if (self.fixLatterMoney < 0) {
+        self.moneyLabel2.text = @"0";
+    }else{
+        self.moneyLabel2.text = [NSString stringWithFormat:@"¥ %.2f",self.fixLatterMoney];
+    }
+    
     [self.timeImage setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
     self.timeLabel.text = self.fixAppiontmentTime;
     

@@ -1657,7 +1657,11 @@
     [attri addAttribute:NSStrikethroughColorAttributeName value:ColorWithHexRGB(0x909090) range:NSMakeRange(2, length-2)];
     [self.moneyLabel1 setAttributedText:attri];
     
-    self.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.latterMoney];
+    if (self.latterMoney < 0) {
+        self.moneyLabel2.text = @"0";
+    }else{
+        self.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.latterMoney];
+    }
     
     [self.doctorTitleImageView setImage:[UIImage imageNamed:@"info_clinic_doctor_title_image"]];
     self.doctorTitleLabel.text = @"线下门诊医生";
