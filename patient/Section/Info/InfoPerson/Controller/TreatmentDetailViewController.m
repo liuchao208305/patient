@@ -1081,8 +1081,8 @@
         self.label7_2.text = @"未支付";
         [self.payNowButton setTitle:@"立即支付" forState:UIControlStateNormal];
         [self.payNowButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-        [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
-        [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
+        [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateNormal];
+        [self.payNowButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateHighlighted];
     }else if (self.payStatusCode == 1){
         //已支付
         self.label7_2.text = @"已支付";

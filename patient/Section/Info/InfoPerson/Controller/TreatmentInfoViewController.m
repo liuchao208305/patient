@@ -1374,8 +1374,8 @@
     
     [self.confirmButton setTitle:@"确定" forState:UIControlStateNormal];
     [self.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_confirm_normal"] forState:UIControlStateNormal];
-    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_confirm_selected"] forState:UIControlStateHighlighted];
+    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateNormal];
+    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateHighlighted];
 }
 
 @end

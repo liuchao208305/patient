@@ -484,8 +484,8 @@
     self.confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(45, 135*60+33, SCREEN_WIDTH-90, 49)];
     [self.confirmButton setTitle:@"提交" forState:UIControlStateNormal];
     [self.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
-    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
+    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateNormal];
+    [self.confirmButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateHighlighted];
     [self.scrollView addSubview:self.confirmButton];
     
     [self.confirmButton addTarget:self action:@selector(confirmButtonClicked) forControlEvents:UIControlEventTouchUpInside];

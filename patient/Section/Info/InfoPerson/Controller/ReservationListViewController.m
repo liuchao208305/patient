@@ -799,13 +799,14 @@
 //    [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付  ¥ %.0f",self.publicLatterMoney] forState:UIControlStateNormal];
     [self.onlineButton setTitle:[NSString stringWithFormat:@"立即支付"] forState:UIControlStateNormal];
     [self.onlineButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_normal"] forState:UIControlStateNormal];
-    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_online_selected"] forState:UIControlStateHighlighted];
+    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateNormal];
+    [self.onlineButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateHighlighted];
     
     [self.offlineButton setTitle:@"线下支付" forState:UIControlStateNormal];
     [self.offlineButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_normal"] forState:UIControlStateNormal];
-    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_selected"] forState:UIControlStateHighlighted];
+    [self.offlineButton setBackgroundColor:kWHITE_COLOR];
+//    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_normal"] forState:UIControlStateNormal];
+//    [self.offlineButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_offline_selected"] forState:UIControlStateHighlighted];
 }
 
 @end

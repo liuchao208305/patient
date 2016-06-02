@@ -129,8 +129,8 @@
     self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 320-45+10+44+10+180+30, SCREEN_WIDTH-60, 50)];
     [self.saveButton setTitle:@"保存" forState:UIControlStateNormal];
     [self.saveButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [self.saveButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_normal"] forState:UIControlStateNormal];
-    [self.saveButton setBackgroundImage:[UIImage imageNamed:@"info_treatment_paynow_selected"] forState:UIControlStateHighlighted];
+    [self.saveButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateNormal];
+    [self.saveButton setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forState:UIControlStateHighlighted];
     [self.saveButton addTarget:self action:@selector(saveButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.saveButton];
 }
