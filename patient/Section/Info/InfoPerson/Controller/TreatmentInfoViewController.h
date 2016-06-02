@@ -49,7 +49,8 @@
 @property (strong,nonatomic)UITextField *textfield3;
 @property (strong,nonatomic)UIView *lineView4;
 @property (strong,nonatomic)UILabel *label4;
-@property (strong,nonatomic)UITextField *textfield4;
+//@property (strong,nonatomic)UITextField *textfield4;
+@property (strong,nonatomic)UILabel *label4Fix;
 @property (strong,nonatomic)UIView *lineView5;
 @property (strong,nonatomic)UILabel *label5;
 @property (strong,nonatomic)UIButton *button5_1;

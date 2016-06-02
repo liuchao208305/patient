@@ -359,7 +359,7 @@
     [self.textfield1 resignFirstResponder];
     [self.textfield2 resignFirstResponder];
     [self.textfield4 resignFirstResponder];
-    [self.textfield5 resignFirstResponder];
+//    [self.textfield5 resignFirstResponder];
 }
 
 
@@ -410,9 +410,10 @@
 //    else if ([self.textfield4.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
 //    }
-    else if ([self.textfield5.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.sex isEqualToString:@""]) {
+//    else if ([self.textfield5.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else{
         [self sendSaveContactRequest];
@@ -443,9 +444,10 @@
 //    else if ([self.textfield4.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
 //    }
-    else if ([self.textfield5.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.sex isEqualToString:@""]) {
+//    else if ([self.textfield5.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else{
         [self sendSaveContactRequest];
@@ -504,7 +506,7 @@
     [parameter setValue:self.textfield1.text forKey:@"real_name"];
     [parameter setValue:self.textfield2.text forKey:@"ID_number"];
     [parameter setValue:self.textfield4.text forKey:@"phone"];
-    [parameter setValue:self.textfield5.text forKey:@"age"];
+    [parameter setValue:self.label5Fix.text forKey:@"age"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"sex"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.type] forKey:@"type"];
     

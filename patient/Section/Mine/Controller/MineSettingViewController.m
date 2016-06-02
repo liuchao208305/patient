@@ -14,6 +14,7 @@
 #import "CommonUtil.h"
 #import "AnalyticUtil.h"
 #import "VerifyUtil.h"
+#import "DateUtil.h"
 #import "LoginViewController.h"
 #import "AgreementViewController.h"
 #import "BaseTabBarController.h"
@@ -21,7 +22,7 @@
 #import "MineAboutUsViewController.h"
 #import "MineCustomServiceViewController.h"
 
-@interface MineSettingViewController ()
+@interface MineSettingViewController ()<UITextViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -178,6 +179,7 @@
     
     self.textField1_4 = [[UITextField alloc] init];
     self.textField1_4.placeholder = @"请输入您的社保账号";
+    self.textField1_4.delegate = self;
     [self.backView1 addSubview:self.textField1_4];
     
     self.lineView1_4 = [[UIView alloc] init];
@@ -200,9 +202,11 @@
     self.label1_6.text = @"年龄";
     [self.backView1 addSubview:self.label1_6];
     
-    self.textField1_6 = [[UITextField alloc] init];
-    self.textField1_6.placeholder = @"请输入您的年龄";
-    [self.backView1 addSubview:self.textField1_6];
+//    self.textField1_6 = [[UITextField alloc] init];
+//    self.textField1_6.placeholder = @"请输入您的年龄";
+//    [self.backView1 addSubview:self.textField1_6];
+    self.label1_6Fix = [[UILabel alloc] init];
+    [self.backView1 addSubview:self.label1_6Fix];
     
     self.lineView1_6 = [[UIView alloc] init];
     self.lineView1_6.backgroundColor = kBACKGROUND_COLOR;
@@ -338,7 +342,13 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.textField1_6 mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.textField1_6 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.label1_6).offset(100);
+//        make.centerY.equalTo(self.label1_6).offset(0);
+//        make.width.mas_equalTo(SCREEN_WIDTH-100-15);
+//        make.height.mas_equalTo(30);
+//    }];
+    [self.label1_6Fix mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label1_6).offset(100);
         make.centerY.equalTo(self.label1_6).offset(0);
         make.width.mas_equalTo(SCREEN_WIDTH-100-15);
@@ -554,7 +564,7 @@
     [self.textField1_3 resignFirstResponder];
     [self.textField1_4 resignFirstResponder];
     [self.textField1_5 resignFirstResponder];
-    [self.textField1_6 resignFirstResponder];
+//    [self.textField1_6 resignFirstResponder];
 }
 
 -(void)button1_7_1Clicked{
@@ -645,13 +655,53 @@
 //    else if ([self.textField1_4.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"社保号码不能为空！"];
 //    }
-    else if ([self.textField1_6.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.patientSex isEqualToString:@""]) {
+//    else if ([self.label1_6Fix.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.patientSex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else{
         [self sendMineSettingRequest];
     }
+}
+
+#pragma mark UITextViewDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    DLog(@"textFieldDidBeginEditing");
+    
+    int birthYear = 0;
+    int birthMonth = 0;
+    int birthDay = 0;
+    if ([self.textField1_3.text length] == 15) {
+        birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
+        birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(8, 2)] intValue];
+        birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
+    }else if ([self.textField1_3.text length] == 18){
+        birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 4)] intValue];
+        birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
+        birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(12, 2)] intValue];
+    }
+    
+    int currentYear = [[DateUtil getCurrentYear] intValue];
+    int currentMonth = [[DateUtil getCurrentMonth] intValue];
+    int currentDay = [[DateUtil getCurrentDay] intValue];
+    
+    int age = 0;
+    if (currentMonth > birthMonth) {
+        age = currentYear - birthYear;
+    }else if(currentMonth < birthMonth){
+        age = currentYear - birthYear - 1;
+    }else if (currentMonth == birthMonth){
+        if (currentDay > birthDay) {
+            age = currentYear - birthYear;
+        }else if (currentDay < birthDay){
+            age = currentYear - birthYear - 1;
+        }else if (currentDay == birthDay){
+            age = currentYear - birthYear;
+        }
+    }
+    
+    self.label1_6Fix.text = [NSString stringWithFormat:@"%d",age];
 }
 
 #pragma mark Network Request
@@ -670,7 +720,7 @@
     [parameter setValue:self.publicSsNumber forKey:@"ID_medical"];
     [parameter setValue:self.textField1_3.text forKey:@"newIDNumber"];
     [parameter setValue:self.textField1_4.text forKey:@"newIDMedical"];
-    [parameter setValue:self.textField1_6.text forKey:@"user_age"];
+    [parameter setValue:self.label1_6Fix.text forKey:@"user_age"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.patientSexFix] forKey:@"user_sex"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_SETTING_INFOMATION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
@@ -717,7 +767,7 @@
     self.textField1_2.text = self.publicRealName;
     self.textField1_3.text = self.publicIdNumber;
     self.textField1_4.text = self.publicSsNumber;
-    self.textField1_6.text = self.publicUserAge;
+    self.label1_6Fix.text = self.publicUserAge;
     
     if (self.publicUserSex == 1) {
         [self button1_7_1Clicked];

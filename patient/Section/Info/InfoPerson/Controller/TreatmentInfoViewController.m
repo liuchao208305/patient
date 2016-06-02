@@ -18,8 +18,9 @@
 #import "AnalyticUtil.h"
 #import "AdaptionUtil.h"
 #import "VerifyUtil.h"
+#import "DateUtil.h"
 
-@interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate>
+@interface TreatmentInfoViewController ()<UITextFieldDelegate,ContactDelegate,UITextViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -505,12 +506,21 @@
         make.height.mas_equalTo(15);
     }];
     
-    self.textfield4 = [[UITextField alloc] init];
-//    self.textfield4.placeholder = @"test";
-    self.textfield4.delegate = self;
-    [self.backView2 addSubview:self.textfield4];
+//    self.textfield4 = [[UITextField alloc] init];
+////    self.textfield4.placeholder = @"test";
+//    self.textfield4.delegate = self;
+//    [self.backView2 addSubview:self.textfield4];
     
-    [self.textfield4 mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.label4Fix = [[UILabel alloc] init];
+    [self.backView2 addSubview:self.label4Fix];
+    
+//    [self.textfield4 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.label4).offset(70+5);
+//        make.centerY.equalTo(self.label4).offset(0);
+//        make.trailing.equalTo(self.backView2).offset(-10);
+//        make.height.mas_equalTo(15);
+//    }];
+    [self.label4Fix mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label4).offset(70+5);
         make.centerY.equalTo(self.label4).offset(0);
         make.trailing.equalTo(self.backView2).offset(-10);
@@ -731,7 +741,7 @@
     [self.textfield1 resignFirstResponder];
     [self.textfield2 resignFirstResponder];
     [self.textfield3 resignFirstResponder];
-    [self.textfield4 resignFirstResponder];
+//    [self.textfield4 resignFirstResponder];
 }
 
 -(void)contactViewClicked{
@@ -1001,9 +1011,10 @@
 //    }else if ([self.textfield3.text isEqualToString:@""]){
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
 //    }
-    else if ([self.textfield4.text isEqualToString:@""]){
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.patientSex isEqualToString:@""]){
+//    else if ([self.textfield4.text isEqualToString:@""]){
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.patientSex isEqualToString:@""]){
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else if (self.symptomCount > 3){
         [AlertUtil showSimpleAlertWithTitle:nil message:@"症状不能超过3个！"];
@@ -1028,7 +1039,7 @@
         reservationVC.publicPatientName = self.textfield1.text;
         reservationVC.publicPatientId = self.textfield2.text;
         reservationVC.publicPatientMobile = self.textfield3.text;
-        reservationVC.publicPatientAge = self.textfield4.text;
+        reservationVC.publicPatientAge = self.label4Fix.text;
         reservationVC.publicPatientSex = self.patientSex;
         reservationVC.publicPatientSexFix = self.patientSexFix;
         
@@ -1055,12 +1066,52 @@
     [self.textfield1 resignFirstResponder];
     [self.textfield2 resignFirstResponder];
     [self.textfield3 resignFirstResponder];
-    [self.textfield4 resignFirstResponder];
+//    [self.textfield4 resignFirstResponder];
     return YES;
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    DLog(@"textFieldDidBeginEditing");
+    
+    if (textField == self.textfield3) {
+        int birthYear = 0;
+        int birthMonth = 0;
+        int birthDay = 0;
+        if ([self.textfield2.text length] == 15) {
+            birthYear = [[self.textfield2.text substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
+            birthMonth = [[self.textfield2.text substringWithRange:NSMakeRange(8, 2)] intValue];
+            birthDay = [[self.textfield2.text substringWithRange:NSMakeRange(10, 2)] intValue];
+        }else if ([self.textfield2.text length] == 18){
+            birthYear = [[self.textfield2.text substringWithRange:NSMakeRange(6, 4)] intValue];
+            birthMonth = [[self.textfield2.text substringWithRange:NSMakeRange(10, 2)] intValue];
+            birthDay = [[self.textfield2.text substringWithRange:NSMakeRange(12, 2)] intValue];
+        }
+        
+        int currentYear = [[DateUtil getCurrentYear] intValue];
+        int currentMonth = [[DateUtil getCurrentMonth] intValue];
+        int currentDay = [[DateUtil getCurrentDay] intValue];
+        
+        int age = 0;
+        if (currentMonth > birthMonth) {
+            age = currentYear - birthYear;
+        }else if(currentMonth < birthMonth){
+            age = currentYear - birthYear - 1;
+        }else if (currentMonth == birthMonth){
+            if (currentDay > birthDay) {
+                age = currentYear - birthYear;
+            }else if (currentDay < birthDay){
+                age = currentYear - birthYear - 1;
+            }else if (currentDay == birthDay){
+                age = currentYear - birthYear;
+            }
+        }
+        
+        self.label4Fix.text = [NSString stringWithFormat:@"%d",age];
+    }
 }
 
 #pragma mark ContactDelegate
@@ -1070,7 +1121,7 @@
     self.textfield1.text = contactData.real_name;
     self.textfield2.text = contactData.id_number;
     self.textfield3.text = contactData.phone;
-    self.textfield4.text = [NSString stringWithFormat:@"%ld",(long)contactData.age];
+    self.label4Fix.text = [NSString stringWithFormat:@"%ld",(long)contactData.age];
     if (contactData.sex == 1) {
         self.patientSex = @"男";
         self.patientSexFix = 1;

@@ -37,7 +37,8 @@
 @property (strong,nonatomic)UITextField *textField1_5;
 @property (strong,nonatomic)UIView *lineView1_5;
 @property (strong,nonatomic)UILabel *label1_6;
-@property (strong,nonatomic)UITextField *textField1_6;
+//@property (strong,nonatomic)UITextField *textField1_6;
+@property (strong,nonatomic)UILabel *label1_6Fix;
 @property (strong,nonatomic)UIView *lineView1_6;
 @property (strong,nonatomic)UILabel *label1_7;
 @property (strong,nonatomic)UIButton *button1_7_1;

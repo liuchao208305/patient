@@ -13,9 +13,10 @@
 #import "NullUtil.h"
 #import "AdaptionUtil.h"
 #import "VerifyUtil.h"
+#import "DateUtil.h"
 #import "LoginViewController.h"
 
-@interface ContactChangeViewController ()
+@interface ContactChangeViewController ()<UITextViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -163,6 +164,7 @@
     
     self.textfield4 = [[UITextField alloc] init];
     self.textfield4.placeholder = @"请输入手机号码";
+    self.textfield4.delegate = self;
     [self.backView addSubview:self.textfield4];
     
     self.lineView4 = [[UIView alloc] init];
@@ -173,9 +175,12 @@
     self.label5.text = @"年龄";
     [self.backView addSubview:self.label5];
     
-    self.textfield5 = [[UITextField alloc] init];
-    self.textfield5.placeholder = @"请输入年龄";
-    [self.backView addSubview:self.textfield5];
+//    self.textfield5 = [[UITextField alloc] init];
+//    self.textfield5.placeholder = @"请输入年龄";
+//    [self.backView addSubview:self.textfield5];
+    
+    self.label5Fix = [[UILabel alloc] init];
+    [self.backView addSubview:self.label5Fix];
     
     self.lineView5 = [[UIView alloc] init];
     self.lineView5.backgroundColor = kBACKGROUND_COLOR;
@@ -290,7 +295,14 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.textfield5 mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.textfield5 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.label5).offset(100);
+//        make.centerY.equalTo(self.label5).offset(0);
+//        make.width.mas_equalTo(SCREEN_WIDTH-100-15);
+//        make.height.mas_equalTo(30);
+//    }];
+    
+    [self.label5Fix mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.label5).offset(100);
         make.centerY.equalTo(self.label5).offset(0);
         make.width.mas_equalTo(SCREEN_WIDTH-100-15);
@@ -349,7 +361,7 @@
     [self.textfield1 resignFirstResponder];
     [self.textfield2 resignFirstResponder];
     [self.textfield4 resignFirstResponder];
-    [self.textfield5 resignFirstResponder];
+//    [self.textfield5 resignFirstResponder];
 }
 
 
@@ -399,9 +411,10 @@
 //    else if ([self.textfield4.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
 //    }
-    else if ([self.textfield5.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.sex isEqualToString:@""]) {
+//    else if ([self.textfield5.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else{
         [self sendSaveContactRequest];
@@ -432,13 +445,53 @@
 //    else if ([self.textfield4.text isEqualToString:@""]) {
 //        [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号码不能为空！"];
 //    }
-    else if ([self.textfield5.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
-    }else if ([self.sex isEqualToString:@""]) {
+//    else if ([self.textfield5.text isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"年龄不能为空！"];
+//    }
+    else if ([self.sex isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"性别不能为空！"];
     }else{
         [self sendSaveContactRequest];
     }
+}
+
+#pragma mark UITextViewDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    DLog(@"textFieldDidBeginEditing");
+    
+    int birthYear = 0;
+    int birthMonth = 0;
+    int birthDay = 0;
+    if ([self.textfield2.text length] == 15) {
+        birthYear = [[self.textfield2.text substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
+        birthMonth = [[self.textfield2.text substringWithRange:NSMakeRange(8, 2)] intValue];
+        birthDay = [[self.textfield2.text substringWithRange:NSMakeRange(10, 2)] intValue];
+    }else if ([self.textfield2.text length] == 18){
+        birthYear = [[self.textfield2.text substringWithRange:NSMakeRange(6, 4)] intValue];
+        birthMonth = [[self.textfield2.text substringWithRange:NSMakeRange(10, 2)] intValue];
+        birthDay = [[self.textfield2.text substringWithRange:NSMakeRange(12, 2)] intValue];
+    }
+    
+    int currentYear = [[DateUtil getCurrentYear] intValue];
+    int currentMonth = [[DateUtil getCurrentMonth] intValue];
+    int currentDay = [[DateUtil getCurrentDay] intValue];
+    
+    int age = 0;
+    if (currentMonth > birthMonth) {
+        age = currentYear - birthYear;
+    }else if(currentMonth < birthMonth){
+        age = currentYear - birthYear - 1;
+    }else if (currentMonth == birthMonth){
+        if (currentDay > birthDay) {
+            age = currentYear - birthYear;
+        }else if (currentDay < birthDay){
+            age = currentYear - birthYear - 1;
+        }else if (currentDay == birthDay){
+            age = currentYear - birthYear;
+        }
+    }
+    
+    self.label5Fix.text = [NSString stringWithFormat:@"%d",age];
 }
 
 #pragma mark Network Request
@@ -458,7 +511,7 @@
     [parameter setValue:self.contactIdNumber forKey:@"ID_number"];
     [parameter setValue:self.textfield2.text forKey:@"newID_number"];
     [parameter setValue:self.textfield4.text forKey:@"phone"];
-    [parameter setValue:self.textfield5.text forKey:@"age"];
+    [parameter setValue:self.label5Fix.text forKey:@"age"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.sexFix] forKey:@"sex"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,KJZK_CONTACT_INFORMATION_ADD] successBlock:^(NSURLSessionDataTask *task,id responseObject){
@@ -504,7 +557,7 @@
     self.textfield1.text = self.contactName;
     self.textfield2.text = self.contactIdNumber;
     self.textfield4.text = self.contactMobile;
-    self.textfield5.text = self.contactAge;
+    self.label5Fix.text = self.contactAge;
     
     if ([self.contactSex integerValue] == 1) {
         [self button6_1Clicked];
