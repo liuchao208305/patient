@@ -991,6 +991,24 @@
 -(void)orderListDataParse1{
     DLog(@"orderListDataParse1");
     self.orderArrayAll = [OrderData mj_objectArrayWithKeyValuesArray:self.data1];
+    
+    [self.orderIdArrayAll removeAllObjects];
+    [self.orderStatusArrayAll removeAllObjects];
+    [self.orderCreatTimeArrayAll removeAllObjects];
+    [self.orderBookTimeArrayAll removeAllObjects];
+    [self.orderMoneyArrayAll removeAllObjects];
+    [self.orderExpertIdArrayAll removeAllObjects];
+    [self.orderExpertNameArrayAll removeAllObjects];
+    [self.orderExpertImageArrayAll removeAllObjects];
+    [self.orderClinicNameArrayAll removeAllObjects];
+    [self.orderClinicAddressArrayAll removeAllObjects];
+    [self.orderDoctorIdArrayAll removeAllObjects];
+    [self.orderDoctorNameArrayAll removeAllObjects];
+    [self.orderDoctorImageArrayAll removeAllObjects];
+    [self.orderPatientNameArrayAll removeAllObjects];
+    [self.orderPayIdArrayAll removeAllObjects];
+    [self.orderPayStatusArrayAll removeAllObjects];
+    
     for (OrderData *orderData in self.orderArrayAll) {
         [self.orderIdArrayAll addObject:[NullUtil judgeStringNull:orderData.consult_id]];
         [self.orderStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
@@ -1020,6 +1038,24 @@
 -(void)orderListDataParse2{
     DLog(@"orderListDataParse2");
     self.orderArrayBooked = [OrderData mj_objectArrayWithKeyValuesArray:self.data2];
+    
+    [self.orderIdArrayBooked removeAllObjects];
+    [self.orderStatusArrayBooked removeAllObjects];
+    [self.orderCreatTimeArrayBooked removeAllObjects];
+    [self.orderBookTimeArrayBooked removeAllObjects];
+    [self.orderMoneyArrayBooked removeAllObjects];
+    [self.orderExpertIdArrayBooked removeAllObjects];
+    [self.orderExpertNameArrayBooked removeAllObjects];
+    [self.orderExpertImageArrayBooked removeAllObjects];
+    [self.orderClinicNameArrayBooked removeAllObjects];
+    [self.orderClinicAddressArrayBooked removeAllObjects];
+    [self.orderDoctorIdArrayBooked removeAllObjects];
+    [self.orderDoctorNameArrayBooked removeAllObjects];
+    [self.orderDoctorImageArrayBooked removeAllObjects];
+    [self.orderPatientNameArrayBooked removeAllObjects];
+    [self.orderPayIdArrayBooked removeAllObjects];
+    [self.orderPayStatusArrayBooked removeAllObjects];
+    
     for (OrderData *orderData in self.orderArrayBooked) {
         [self.orderIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.consult_id]];
         [self.orderStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
@@ -1049,6 +1085,24 @@
 -(void)orderListDataParse3{
     DLog(@"orderListDataParse3");
     self.orderArrayProceeding = [OrderData mj_objectArrayWithKeyValuesArray:self.data3];
+    
+    [self.orderIdArrayProceeding  removeAllObjects];
+    [self.orderStatusArrayProceeding  removeAllObjects];
+    [self.orderCreatTimeArrayProceeding  removeAllObjects];
+    [self.orderBookTimeArrayProceeding  removeAllObjects];
+    [self.orderMoneyArrayProceeding  removeAllObjects];
+    [self.orderExpertIdArrayProceeding  removeAllObjects];
+    [self.orderExpertNameArrayProceeding  removeAllObjects];
+    [self.orderExpertImageArrayProceeding  removeAllObjects];
+    [self.orderClinicNameArrayProceeding  removeAllObjects];
+    [self.orderClinicAddressArrayProceeding  removeAllObjects];
+    [self.orderDoctorIdArrayProceeding  removeAllObjects];
+    [self.orderDoctorNameArrayProceeding  removeAllObjects];
+    [self.orderDoctorImageArrayProceeding  removeAllObjects];
+    [self.orderPatientNameArrayProceeding  removeAllObjects];
+    [self.orderPayIdArrayProceeding removeAllObjects];
+    [self.orderPayStatusArrayProceeding removeAllObjects];
+    
     for (OrderData *orderData in self.orderArrayProceeding ) {
         [self.orderIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.consult_id]];
         [self.orderStatusArrayProceeding  addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
@@ -1078,6 +1132,24 @@
 -(void)orderListDataParse4{
     DLog(@"orderListDataParse4");
     self.orderArrayEvaluating = [OrderData mj_objectArrayWithKeyValuesArray:self.data4];
+    
+    [self.orderIdArrayEvaluating removeAllObjects];
+    [self.orderStatusArrayEvaluating removeAllObjects];
+    [self.orderCreatTimeArrayEvaluating removeAllObjects];
+    [self.orderBookTimeArrayEvaluating removeAllObjects];
+    [self.orderMoneyArrayEvaluating removeAllObjects];
+    [self.orderExpertIdArrayEvaluating removeAllObjects];
+    [self.orderExpertNameArrayEvaluating removeAllObjects];
+    [self.orderExpertImageArrayEvaluating removeAllObjects];
+    [self.orderClinicNameArrayEvaluating removeAllObjects];
+    [self.orderClinicAddressArrayEvaluating removeAllObjects];
+    [self.orderDoctorIdArrayEvaluating removeAllObjects];
+    [self.orderDoctorNameArrayEvaluating removeAllObjects];
+    [self.orderDoctorImageArrayEvaluating removeAllObjects];
+    [self.orderPatientNameArrayEvaluating removeAllObjects];
+    [self.orderPayIdArrayEvaluating removeAllObjects];
+    [self.orderPayStatusArrayEvaluating removeAllObjects];
+    
     for (OrderData *orderData in self.orderArrayEvaluating) {
         [self.orderIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.consult_id]];
         [self.orderStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
@@ -1107,6 +1179,24 @@
 -(void)orderListDataParse5{
     DLog(@"orderListDataParse5");
     self.orderArrayCompleted = [OrderData mj_objectArrayWithKeyValuesArray:self.data5];
+    
+    [self.orderIdArrayCompleted removeAllObjects];
+    [self.orderStatusArrayCompleted removeAllObjects];
+    [self.orderCreatTimeArrayCompleted removeAllObjects];
+    [self.orderBookTimeArrayCompleted removeAllObjects];
+    [self.orderMoneyArrayCompleted removeAllObjects];
+    [self.orderExpertIdArrayCompleted removeAllObjects];
+    [self.orderExpertNameArrayCompleted removeAllObjects];
+    [self.orderExpertImageArrayCompleted removeAllObjects];
+    [self.orderClinicNameArrayCompleted removeAllObjects];
+    [self.orderClinicAddressArrayCompleted removeAllObjects];
+    [self.orderDoctorIdArrayCompleted removeAllObjects];
+    [self.orderDoctorNameArrayCompleted removeAllObjects];
+    [self.orderDoctorImageArrayCompleted removeAllObjects];
+    [self.orderPatientNameArrayCompleted removeAllObjects];
+    [self.orderPayIdArrayCompleted removeAllObjects];
+    [self.orderPayStatusArrayCompleted removeAllObjects];
+    
     for (OrderData *orderData in self.orderArrayCompleted) {
         [self.orderIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.consult_id]];
         [self.orderStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
