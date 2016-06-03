@@ -187,8 +187,8 @@
     self.timeLabel.font = [UIFont systemFontOfSize:13];
     self.navigationItem.titleView = self.timeLabel;
     
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navToScanViewController)];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+//    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_right_item"] style:UIBarButtonItemStylePlain target:self action:@selector(navToScanViewController)];
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 -(void)initTabBar{

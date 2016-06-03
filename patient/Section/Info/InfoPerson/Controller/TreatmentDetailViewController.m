@@ -168,13 +168,13 @@
 -(void)initView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
-    if ([AdaptionUtil isIphoneFour]) {
-        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
-    }else if ([AdaptionUtil isIphoneFive]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.35*SCREEN_HEIGHT);
-    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
-    }
+//    if ([AdaptionUtil isIphoneFour]) {
+//        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
+//    }else if ([AdaptionUtil isIphoneFive]){
+//        self.scrollView.contentSize = CGSizeMake(0, 1.35*SCREEN_HEIGHT);
+//    }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
+//        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+//    }    
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
@@ -203,14 +203,14 @@
     [self initBackView4];
     [self.scrollView addSubview:self.backView4];
     
-    if ([AdaptionUtil isIphoneFour]) {
-        self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 150+10+230+10+48+1+48+1, SCREEN_WIDTH, 1.4*SCREEN_HEIGHT-(150+10+230+10+48+1+48+1))];
-    }else{
-        self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 150+10+230+10+48+1+48+1, SCREEN_WIDTH, 1.2*SCREEN_HEIGHT-(150+10+230+10+48+1+48+1))];
-    }
-    self.backView5.backgroundColor = kWHITE_COLOR;
-    [self initBackView5];
-    [self.scrollView addSubview:self.backView5];
+//    if ([AdaptionUtil isIphoneFour]) {
+//        self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 150+10+230+10+48+1+48+1, SCREEN_WIDTH, 1.4*SCREEN_HEIGHT-(150+10+230+10+48+1+48+1))];
+//    }else{
+//        self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 150+10+230+10+48+1+48+1, SCREEN_WIDTH, 1.2*SCREEN_HEIGHT-(150+10+230+10+48+1+48+1))];
+//    }
+//    self.backView5.backgroundColor = kWHITE_COLOR;
+//    [self initBackView5];
+//    [self.scrollView addSubview:self.backView5];
 }
 
 -(void)initBackView1{
