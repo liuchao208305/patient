@@ -1182,7 +1182,8 @@
     treatVC.expertId = self.expertId;
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
-    treatVC.appointmentTime = [DateUtil getFirstTime];
+//    treatVC.appointmentTime = [DateUtil getFirstTime];
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 10:00:00",[[DateUtil getFirstTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1193,11 +1194,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getFirstTime];
-    }else{
-        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getFirstTime];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 15:00:00",[[DateUtil getFirstTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1208,11 +1210,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
-    }else{
-        treatVC.appointmentTime = [DateUtil getSecondTime];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getFirstTimeFix];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getSecondTime];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 10:00:00",[[DateUtil getSecondTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1223,11 +1226,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getSecondTime];
-    }else{
-        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getSecondTime];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 15:00:00",[[DateUtil getSecondTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1238,11 +1242,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
-    }else{
-        treatVC.appointmentTime = [DateUtil getThirdTime];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getSecondTimeFix];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getThirdTime];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 10:00:00",[[DateUtil getThirdTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1253,11 +1258,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getThirdTime];
-    }else{
-        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getThirdTime];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 15:00:00",[[DateUtil getThirdTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1268,11 +1274,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
-    }else{
-        treatVC.appointmentTime = [DateUtil getFourthTime];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getThirdTimeFix];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getFourthTime];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 10:00:00",[[DateUtil getFourthTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
@@ -1283,11 +1290,12 @@
     treatVC.clinicId = self.clinicId;
     treatVC.doctorId = self.doctorId;
     
-    if (self.isAfterNoon) {
-        treatVC.appointmentTime = [DateUtil getFourthTime];
-    }else{
-        treatVC.appointmentTime = [DateUtil getFourthTimeFix];
-    }
+//    if (self.isAfterNoon) {
+//        treatVC.appointmentTime = [DateUtil getFourthTime];
+//    }else{
+//        treatVC.appointmentTime = [DateUtil getFourthTimeFix];
+//    }
+    treatVC.appointmentTime = [NSString stringWithFormat:@"%@ 15:00:00",[[DateUtil getFourthTime] substringToIndex:10]];
     
     [self.navigationController pushViewController:treatVC animated:YES];
 }
