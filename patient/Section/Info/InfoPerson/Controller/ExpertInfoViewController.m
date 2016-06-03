@@ -608,13 +608,13 @@
             cell.label4.text = @"特需服务费";
             cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
             
-            if ([self.clinicCouponArray[indexPath.row] integerValue] == 0) {
-                cell.couponButton.hidden = YES;
-            }else{
-                [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
-            }
+//            if ([self.clinicCouponArray[indexPath.row] integerValue] == 0) {
+//                cell.couponButton.hidden = YES;
+//            }else{
+//                [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
+//            }
             
-//            [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
+            [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
         }
         
         return cell;

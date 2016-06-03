@@ -488,13 +488,25 @@
         
 //        self.doctorView.doctorImage.layer.cornerRadius = 69/2;
         [self.doctorView.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.doctorImageArray[i]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        if (self.defaultDoctorId == self.doctorIdArray[i]) {
+//        if (self.defaultDoctorId == self.doctorIdArray[i]) {
+//            self.doctorId = self.defaultDoctorId;
+//            self.doctorView.doctorImage.layer.borderWidth = 2;
+//            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+//        }
+        
+        if ([self.defaultDoctorId isEqualToString:self.doctorIdArray[i]]) {
             self.doctorId = self.defaultDoctorId;
             self.doctorView.doctorImage.layer.borderWidth = 2;
             self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
         }
         
-        if (self.doctorId == self.doctorIdArray[i]) {
+//        if (self.doctorId == self.doctorIdArray[i]) {
+//            self.doctorId = self.doctorId;
+//            self.doctorView.doctorImage.layer.borderWidth = 2;
+//            self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
+//        }
+        
+        if ([self.doctorId isEqualToString:self.doctorIdArray[i]]) {
             self.doctorId = self.doctorId;
             self.doctorView.doctorImage.layer.borderWidth = 2;
             self.doctorView.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
@@ -1495,7 +1507,7 @@
     self.clinicImage = [[self.data objectForKey:@"outpats"] objectForKey:@"coverUrl"];
     self.clinicAdress = [[self.data objectForKey:@"outpats"] objectForKey:@"address"];
     self.clinicComment = [[self.data objectForKey:@"outpats"] objectForKey:@"commonResult"];
-    self.couponMoney = [[[self.data objectForKey:@"outpats"] objectForKey:@"money"] doubleValue];
+//    self.couponMoney = [[[self.data objectForKey:@"outpats"] objectForKey:@"money"] doubleValue];
     
     self.expertImage = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"heandUrl"];
     self.expertName = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"doctorName"];
@@ -1504,7 +1516,8 @@
         self.expertGroup = [[self.data objectForKey:@"zhuanjia"] objectForKey:@"orgName"];
     }
     self.formerMoney = [[[self.data objectForKey:@"zhuanjia"] objectForKey:@"serviceMoney"] doubleValue];
-    self.latterMoney = self.formerMoney - self.couponMoney;
+//    self.latterMoney = self.formerMoney - self.couponMoney;
+    self.latterMoney = [[[self.data objectForKey:@"outpats"] objectForKey:@"money"] doubleValue];
     
     self.defaultDoctorId = [self.data objectForKey:@"default_doctorId"];
     DLog(@"%@",self.defaultDoctorId);

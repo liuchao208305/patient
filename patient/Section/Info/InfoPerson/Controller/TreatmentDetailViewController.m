@@ -850,6 +850,9 @@
     [parameter setValue:self.publicCouponId forKey:@"oldtext"];
     [parameter setValue:[NSString stringWithFormat:@"%.2f",self.fixLatterMoney] forKey:@"price"];
     
+    [parameter setValue:self.expertId forKey:@"max_doctor_id"];
+    [parameter setValue:self.doctorId forKey:@"min_doctor_id"];
+    
     DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW);
     DLog(@"%@",parameter);
     

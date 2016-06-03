@@ -651,11 +651,18 @@
             }
         }else{
             DLog(@"%@",self.message);
-            [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
             if (self.code == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
+            }else if (self.code == 2){
+                [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
+            }else if (self.code == 5){
+                [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
+                
+                self.orderNumber = [self.data objectForKey:@"orderNo"];
+                
+                [self pushTreatmentDetailViewController];
             }
         }
         

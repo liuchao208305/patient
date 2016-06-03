@@ -1205,8 +1205,9 @@
     self.clinicName = [[self.data objectForKey:@"infos"] objectForKey:@"outpatName"];
     self.clinicAddress = [[self.data objectForKey:@"infos"] objectForKey:@"address"];
     self.formerMoney = [[[self.data objectForKey:@"infos"] objectForKey:@"money"] doubleValue];
-    self.couponMoney = [[[self.data objectForKey:@"infos"] objectForKey:@"favorable_money"] doubleValue];
-    self.latterMoney = self.formerMoney - self.couponMoney;
+//    self.couponMoney = [[[self.data objectForKey:@"infos"] objectForKey:@"favorable_money"] doubleValue];
+//    self.latterMoney = self.formerMoney - self.couponMoney;
+    self.latterMoney = [[[self.data objectForKey:@"infos"] objectForKey:@"favorable_money"] doubleValue];
     self.appiontmentTime1 = [[self.data objectForKey:@"infos"] objectForKey:@"dates"];
     self.appiontmentTime2 = [[self.data objectForKey:@"infos"] objectForKey:@"upOrdown"];
     
