@@ -205,7 +205,7 @@
     [self.backView3 addSubview:self.label3_2];
     
     self.label3_3 = [[UILabel alloc] init];
-//    self.label3_3.text = @"（倾向阴虚质）";
+//    self.label3_3.text = @"（倾向阴虚质阴虚质）";
     self.label3_3.textColor = kLIGHT_GRAY_COLOR;
     [self.backView3 addSubview:self.label3_3];
     
@@ -242,9 +242,10 @@
     }];
     
     [self.label3_3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.label3_2).offset(100);
+        make.leading.equalTo(self.label3_2).offset(80);
+        make.trailing.equalTo(self.backView3).offset(-10);
         make.centerY.equalTo(self.label3_2).offset(0);
-        make.width.mas_equalTo(150);
+//        make.width.mas_equalTo(150);
         make.height.mas_equalTo(15);
     }];
     
