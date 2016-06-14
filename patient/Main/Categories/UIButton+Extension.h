@@ -10,4 +10,6 @@
 
 @interface UIButton (Extension)
 
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;
+
 @end
