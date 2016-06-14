@@ -368,7 +368,7 @@
     
     if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
         [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.expertLabel1).offset(60+10);
+            make.leading.equalTo(self.expertLabel1).offset(80+10);
             make.centerY.equalTo(self.expertLabel1).offset(0);
             make.width.mas_equalTo(100);
             make.height.mas_equalTo(13);
