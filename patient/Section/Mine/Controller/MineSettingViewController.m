@@ -672,36 +672,40 @@
     int birthYear = 0;
     int birthMonth = 0;
     int birthDay = 0;
-    if ([self.textField1_3.text length] == 15) {
-        birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
-        birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(8, 2)] intValue];
-        birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
-    }else if ([self.textField1_3.text length] == 18){
-        birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 4)] intValue];
-        birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
-        birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(12, 2)] intValue];
-    }
-    
-    int currentYear = [[DateUtil getCurrentYear] intValue];
-    int currentMonth = [[DateUtil getCurrentMonth] intValue];
-    int currentDay = [[DateUtil getCurrentDay] intValue];
-    
-    int age = 0;
-    if (currentMonth > birthMonth) {
-        age = currentYear - birthYear;
-    }else if(currentMonth < birthMonth){
-        age = currentYear - birthYear - 1;
-    }else if (currentMonth == birthMonth){
-        if (currentDay > birthDay) {
-            age = currentYear - birthYear;
-        }else if (currentDay < birthDay){
-            age = currentYear - birthYear - 1;
-        }else if (currentDay == birthDay){
-            age = currentYear - birthYear;
+    if ([VerifyUtil iDCardNumberCheck:self.textField1_3.text]){
+        if ([self.textField1_3.text length] == 15) {
+            birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
+            birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(8, 2)] intValue];
+            birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
+        }else if ([self.textField1_3.text length] == 18){
+            birthYear = [[self.textField1_3.text substringWithRange:NSMakeRange(6, 4)] intValue];
+            birthMonth = [[self.textField1_3.text substringWithRange:NSMakeRange(10, 2)] intValue];
+            birthDay = [[self.textField1_3.text substringWithRange:NSMakeRange(12, 2)] intValue];
         }
+        
+        int currentYear = [[DateUtil getCurrentYear] intValue];
+        int currentMonth = [[DateUtil getCurrentMonth] intValue];
+        int currentDay = [[DateUtil getCurrentDay] intValue];
+        
+        int age = 0;
+        if (currentMonth > birthMonth) {
+            age = currentYear - birthYear;
+        }else if(currentMonth < birthMonth){
+            age = currentYear - birthYear - 1;
+        }else if (currentMonth == birthMonth){
+            if (currentDay > birthDay) {
+                age = currentYear - birthYear;
+            }else if (currentDay < birthDay){
+                age = currentYear - birthYear - 1;
+            }else if (currentDay == birthDay){
+                age = currentYear - birthYear;
+            }
+        }
+        
+        self.label1_6Fix.text = [NSString stringWithFormat:@"%d",age];
+    }else{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
     }
-    
-    self.label1_6Fix.text = [NSString stringWithFormat:@"%d",age];
 }
 
 #pragma mark Network Request
