@@ -50,6 +50,8 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    [self mineSettingDataFilling];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -59,7 +61,7 @@
     
     self.navigationController.navigationBar.hidden = NO;
     
-    [self mineSettingDataFilling];
+//    [self mineSettingDataFilling];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
