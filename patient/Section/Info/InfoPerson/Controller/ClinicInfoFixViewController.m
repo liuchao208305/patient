@@ -456,6 +456,9 @@
 }
 
 -(void)initDoctorScrollView{
+    [self.doctorScrollView removeFromSuperview];
+    [self.doctorScrollView2 removeFromSuperview];
+    
     self.doctorScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 175)];
     
     self.doctorScrollView.contentSize = CGSizeMake(2*SCREEN_WIDTH, 0);
@@ -1138,6 +1141,9 @@
 //        
 //        [self.doctorScrollView addSubview:self.doctorView];
 //    }
+    [self.doctorScrollView removeFromSuperview];
+    [self.doctorScrollView2 removeFromSuperview];
+    
     [self initDoctorScrollView2:sender.view.tag];
 }
 
