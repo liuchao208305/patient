@@ -313,6 +313,7 @@
     
     self.expertLabel2 = [[UILabel alloc] init];
 //    self.expertLabel2.text = @"test";
+    self.expertLabel2.textAlignment = NSTextAlignmentCenter;
     [self.backView2 addSubview:self.expertLabel2];
     
     self.expertLabel3 = [[UILabel alloc] init];
@@ -369,8 +370,9 @@
     if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
         [self.expertLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.expertLabel1).offset(80+10);
+            make.trailing.equalTo(self.moneyLabel1).offset(-50-10);
             make.centerY.equalTo(self.expertLabel1).offset(0);
-            make.width.mas_equalTo(100);
+//            make.width.mas_equalTo(100);
             make.height.mas_equalTo(13);
         }];
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
