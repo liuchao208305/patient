@@ -14,6 +14,7 @@
 @property (strong,nonatomic)UILabel *expertNameLabel;
 @property (strong,nonatomic)UILabel *expertTitleLabel;
 @property (strong,nonatomic)UILabel *expertUnitLabel;
+@property (strong,nonatomic)UIButton *expertStatusButton;
 @property (strong,nonatomic)UIImageView *expertFlagImageView1;
 @property (strong,nonatomic)UILabel *expertFlagNameLabel1;
 @property (strong,nonatomic)UIImageView *expertFlagImageView2;

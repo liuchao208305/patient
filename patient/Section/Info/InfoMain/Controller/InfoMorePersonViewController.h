@@ -14,6 +14,9 @@
 @property (strong,nonatomic)NSString *departID;
 
 @property (strong,nonatomic)UIView *searchView;
+@property (strong,nonatomic)UIView *cityViewFix;
+@property (strong,nonatomic)UILabel *cityLabel;
+@property (strong,nonatomic)UIImageView *cityImage;
 
 @property (strong,nonatomic)UIView *cityView;
 
@@ -46,6 +49,7 @@
 @property (strong,nonatomic)NSMutableArray *expertNameArray;
 @property (strong,nonatomic)NSMutableArray *expertTitleArray;
 @property (strong,nonatomic)NSMutableArray *expertUnitArray;
+@property (strong,nonatomic)NSMutableArray *expertStopFlagArray;
 @property (strong,nonatomic)NSMutableArray *expertFlagArray;
 @property (strong,nonatomic)NSMutableArray *expertFlagNameArray;
 @property (strong,nonatomic)NSMutableArray *expertFlagNumberArray;

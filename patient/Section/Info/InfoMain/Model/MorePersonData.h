@@ -15,6 +15,7 @@
 @property (strong,nonatomic)NSString *doctorName;
 @property (strong,nonatomic)NSString *titleName;
 @property (strong,nonatomic)NSString *company;
+@property (strong,nonatomic)NSString *stopFlag;
 @property (strong,nonatomic)NSString *flags;
 
 @end

@@ -71,6 +71,12 @@
 		702939891C9273C4008280E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939881C9273C4008280E2 /* InfoViewController.m */; };
 		7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7029398E1C9273E4008280E2 /* SearchViewController.m */; };
 		702939921C9273FA008280E2 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939911C9273FA008280E2 /* MineViewController.m */; };
+		703150F51D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150F21D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png */; };
+		703150F61D0FA0290056CA5D /* info_expert_xiangxia_image_fix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150F31D0FA0290056CA5D /* info_expert_xiangxia_image_fix@2x.png */; };
+		703150F71D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150F41D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png */; };
+		703150FB1D0FA4410056CA5D /* info_expert_status_stop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150F81D0FA4410056CA5D /* info_expert_status_stop@3x.png */; };
+		703150FC1D0FA4410056CA5D /* info_expert_status_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150F91D0FA4410056CA5D /* info_expert_status_stop@2x.png */; };
+		703150FD1D0FA4410056CA5D /* info_expert_status_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 703150FA1D0FA4410056CA5D /* info_expert_status_stop.png */; };
 		704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040068F1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m */; };
 		704006931CE30DCC004E5D7E /* TextEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 704006921CE30DCC004E5D7E /* TextEntity.m */; };
 		704006951CE30FFB004E5D7E /* TextInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 704006941CE30FFB004E5D7E /* TextInfo.json */; };
@@ -683,6 +689,12 @@
 		7029398E1C9273E4008280E2 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		702939901C9273FA008280E2 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		702939911C9273FA008280E2 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		703150F21D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_expert_xiangxia_image_fix@3x.png"; sourceTree = "<group>"; };
+		703150F31D0FA0290056CA5D /* info_expert_xiangxia_image_fix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_expert_xiangxia_image_fix@2x.png"; sourceTree = "<group>"; };
+		703150F41D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_xiangxia_image_fix.png; sourceTree = "<group>"; };
+		703150F81D0FA4410056CA5D /* info_expert_status_stop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_expert_status_stop@3x.png"; sourceTree = "<group>"; };
+		703150F91D0FA4410056CA5D /* info_expert_status_stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_expert_status_stop@2x.png"; sourceTree = "<group>"; };
+		703150FA1D0FA4410056CA5D /* info_expert_status_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_expert_status_stop.png; sourceTree = "<group>"; };
 		7040068E1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertAdvantageFixTableCell.h; sourceTree = "<group>"; };
 		7040068F1CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertAdvantageFixTableCell.m; sourceTree = "<group>"; };
 		704006911CE30DCC004E5D7E /* TextEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntity.h; sourceTree = "<group>"; };
@@ -1758,6 +1770,12 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				703150F81D0FA4410056CA5D /* info_expert_status_stop@3x.png */,
+				703150F91D0FA4410056CA5D /* info_expert_status_stop@2x.png */,
+				703150FA1D0FA4410056CA5D /* info_expert_status_stop.png */,
+				703150F21D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png */,
+				703150F31D0FA0290056CA5D /* info_expert_xiangxia_image_fix@2x.png */,
+				703150F41D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png */,
 				708276121D0010970016AE3C /* info_treatment_shijian_image@3x.png */,
 				708276131D0010970016AE3C /* info_treatment_shijian_image@2x.png */,
 				708276061D00073D0016AE3C /* info_treatment_unselected_button@3x.png */,
@@ -2991,6 +3009,7 @@
 				708275E21D0001840016AE3C /* info_expert_xingxing_full@3x.png in Resources */,
 				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				708275411CFC17930016AE3C /* cell_studio_title_button@3x.png in Resources */,
+				703150FD1D0FA4410056CA5D /* info_expert_status_stop.png in Resources */,
 				708276041D0004930016AE3C /* info_clinic_clinic_title_image@3x.png in Resources */,
 				7046AD1C1C97E5D700BB6818 /* cell_health_title_button.png in Resources */,
 				708FD5E71CE086A6002CDFA8 /* cancelBtn@2x.png in Resources */,
@@ -3032,6 +3051,7 @@
 				705EF7F21CBC947600732886 /* mine_orderstatus_reserved.png in Resources */,
 				7046ADBB1CA0F8B400BB6818 /* info_scrollview3.png in Resources */,
 				7002D86F1CB3BBBF0074426A /* info_treatment_confirm_selected.png in Resources */,
+				703150F51D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png in Resources */,
 				70B4EB571CDB36E400141E38 /* info_person_mr_record_image1.png in Resources */,
 				7082758E1CFFF9D00016AE3C /* mine_orderstatus_tobecontinued@3x.png in Resources */,
 				708103661CEB8BDF009BC871 /* info_health_dish_collect_white.png in Resources */,
@@ -3086,6 +3106,7 @@
 				708103651CEB8BDF009BC871 /* info_health_dish_collect_button_normal.png in Resources */,
 				705EF7EB1CBC947600732886 /* mine_bottom_leave.png in Resources */,
 				7046AD301C97E5D700BB6818 /* tabbar_search_normal.png in Resources */,
+				703150F61D0FA0290056CA5D /* info_expert_xiangxia_image_fix@2x.png in Resources */,
 				708275EB1D0001840016AE3C /* info_expert_shaixuan_down@2x.png in Resources */,
 				708275C11CFFFD470016AE3C /* mine_aboutus_logo_image@2x.png in Resources */,
 				7002D8681CACC19F0074426A /* navbar_back_image.png in Resources */,
@@ -3175,6 +3196,7 @@
 				708275E71D0001840016AE3C /* info_expert_xiangshang_image@2x.png in Resources */,
 				705EF7E71CBC947600732886 /* mine_bottom_contact.png in Resources */,
 				708275EE1D0001840016AE3C /* info_expert_guanzhu_selected@3x.png in Resources */,
+				703150FB1D0FA4410056CA5D /* info_expert_status_stop@3x.png in Resources */,
 				70FEADFF1CAB80B5006A044A /* info_expert_shaixuan_di.png in Resources */,
 				708275401CFC17930016AE3C /* cell_studio_title_button@2x.png in Resources */,
 				708275911CFFF9D00016AE3C /* mine_orderstatus_reserved@2x.png in Resources */,
@@ -3200,6 +3222,8 @@
 				708275A31CFFF9D00016AE3C /* mine_bottom_coupon@2x.png in Resources */,
 				708275AF1CFFFBC20016AE3C /* mine_customservice_logo_image@2x.png in Resources */,
 				70C03E061CA2925000DBA175 /* fast_back.png in Resources */,
+				703150F71D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png in Resources */,
+				703150FC1D0FA4410056CA5D /* info_expert_status_stop@2x.png in Resources */,
 				7046AD201C97E5D700BB6818 /* cell_person_youweiping_button.png in Resources */,
 				7046ADA21CA0168500BB6818 /* cell_person_title_button.png in Resources */,
 				705EF7F41CBC947600732886 /* mine_orderstatus_tobeevaluated.png in Resources */,

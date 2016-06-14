@@ -49,20 +49,22 @@
     [self initView];
     [self initRecognizer];
     
+    self.area = @"杭州";
+    
     if ([self.sourceVC isEqualToString:@"personHeadViewClicked"] || [self.sourceVC isEqualToString:@"laotouImageViewClicked"]) {
-        [self sendMorePersonRequestWithDepartID:nil area:nil currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
     }else if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
-        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
     }else if ([self.sourceVC isEqualToString:@"keshiView2Clicked"]){
         DLog(@"%@",self.departID);
-        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
     }else if ([self.sourceVC isEqualToString:@"keshiView3Clicked"]){
         DLog(@"%@",self.departID);
-        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
     }else if ([self.sourceVC isEqualToString:@"keshiView4Clicked"]){
         DLog(@"%@",self.departID);
-        [self sendMorePersonRequestWithDepartID:self.departID area:nil currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
     }
 }
 
@@ -98,6 +100,7 @@
     self.expertNameArray = [NSMutableArray array];
     self.expertTitleArray = [NSMutableArray array];
     self.expertUnitArray = [NSMutableArray array];
+    self.expertStopFlagArray = [NSMutableArray array];
 //    self.expertFlagArray = [NSMutableArray array];
     self.expertFlagNameArray = [NSMutableArray array];
     self.expertFlagNumberArray = [NSMutableArray array];
@@ -120,6 +123,35 @@
     
     self.title=@"专家列表";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
+    
+    self.cityLabel = [[UILabel alloc] init];
+    self.cityLabel.text = @"杭州";
+    self.cityLabel.textColor = kWHITE_COLOR;
+    self.cityLabel.textAlignment = NSTextAlignmentRight;
+    [self.cityViewFix addSubview:self.cityLabel];
+    
+    self.cityImage = [[UIImageView alloc] init];
+    [self.cityImage setImage:[UIImage imageNamed:@"info_expert_xiangxia_image_fix"]];
+    [self.cityViewFix addSubview:self.cityImage];
+    
+    [self.cityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.cityViewFix).offset(0);
+        make.centerY.equalTo(self.cityViewFix).offset(0);
+        make.width.mas_equalTo(120);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.cityImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.cityViewFix).offset(0);
+        make.centerY.equalTo(self.cityViewFix).offset(0);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(10);
+    }];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.cityViewFix];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
 }
 
 -(void)initTabBar{
@@ -127,16 +159,16 @@
 }
 
 -(void)initView{
-    self.cityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
-    self.cityView.backgroundColor = kBACKGROUND_COLOR;
-    [self initCityView];
-    [self.view addSubview:self.cityView];
+//    self.cityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+//    self.cityView.backgroundColor = kBACKGROUND_COLOR;
+//    [self initCityView];
+//    [self.view addSubview:self.cityView];
+//    
+//    self.hengLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 1)];
+//    self.hengLineView.backgroundColor = kLIGHT_GRAY_COLOR;
+//    [self.view addSubview:self.hengLineView];
     
-    self.hengLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 1)];
-    self.hengLineView.backgroundColor = kLIGHT_GRAY_COLOR;
-    [self.view addSubview:self.hengLineView];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT-41-10) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT-10) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -324,6 +356,11 @@
 }
 
 -(void)initRecognizer{
+    self.cityViewFix.userInteractionEnabled = YES;
+    UITapGestureRecognizer *cityViewFixTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(citySubView6Clicked)];
+    [self.cityViewFix addGestureRecognizer:cityViewFixTap];
+    
+    
     self.citySubView1.userInteractionEnabled = YES;
     UITapGestureRecognizer *citySubView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(citySubView1Clicked)];
     [self.citySubView1 addGestureRecognizer:citySubView1Tap];
@@ -512,6 +549,7 @@
     controller.selectString = ^(NSString *string){
         DLog(@"%@",string);
         self.area = string;
+        self.cityLabel.text = string;
         
         if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
             DLog(@"%@",self.departID);
@@ -540,7 +578,14 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 88;
+//    return 88;
+//    return 110;
+    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
+        return 88;
+    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
+        return 110;
+    }
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -554,6 +599,12 @@
     cell.expertNameLabel.text = self.expertNameArray[indexPath.row];
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
+    
+    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
+        cell.expertStatusButton.hidden = YES;
+    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
+        
+    }
     
 //    if ([self.expertFlagArray[indexPath.row] isKindOfClass:[NSNull class]]) {
 //        cell.expertFlagImageView1.hidden = YES;
@@ -605,11 +656,15 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
-    expertVC.expertId = self.expertIdArray[indexPath.row];
-    expertVC.expertName = self.expertNameArray[indexPath.row];
-    expertVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:expertVC animated:YES];
+    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
+        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+        expertVC.expertId = self.expertIdArray[indexPath.row];
+        expertVC.expertName = self.expertNameArray[indexPath.row];
+        expertVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:expertVC animated:YES];
+    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
+        
+    }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -670,12 +725,14 @@
     [self.expertNameArray removeAllObjects];
     [self.expertTitleArray removeAllObjects];
     [self.expertUnitArray removeAllObjects];
+    [self.expertStopFlagArray removeAllObjects];
     for (MorePersonData *morePersonData in self.expertArray) {
         [self.expertIdArray addObject:[NullUtil judgeStringNull:morePersonData.doctor_id]];
         [self.expertImageArray addObject:[NullUtil judgeStringNull:morePersonData.heandUrl]];
         [self.expertNameArray addObject:[NullUtil judgeStringNull:morePersonData.doctorName]];
         [self.expertTitleArray addObject:[NullUtil judgeStringNull:morePersonData.titleName]];
         [self.expertUnitArray addObject:[NullUtil judgeStringNull:morePersonData.company]];
+        [self.expertStopFlagArray addObject:[NullUtil judgeStringNull:morePersonData.stopFlag]];
     }
     
 //    NSMutableArray *test1 = [self.data[3] objectForKey:@"flags"];

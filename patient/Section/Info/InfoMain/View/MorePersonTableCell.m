@@ -38,6 +38,13 @@
     self.expertUnitLabel.textColor = kLIGHT_GRAY_COLOR;
     [self.contentView addSubview:self.expertUnitLabel];
     
+    self.expertStatusButton = [[UIButton alloc] init];
+    [self.expertStatusButton setBackgroundImage:[UIImage imageNamed:@"info_expert_status_stop"] forState:UIControlStateNormal];
+    [self.expertStatusButton setTitle:@"已停诊" forState:UIControlStateNormal];
+    [self.expertStatusButton setFont:[UIFont systemFontOfSize:13]];
+    [self.expertStatusButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.contentView addSubview:self.expertStatusButton];
+    
     self.expertFlagImageView1 = [[UIImageView alloc] init];
     [self.expertFlagImageView1 setImage:[UIImage imageNamed:@"info_expert_comment_image_default"]];
     [self.contentView addSubview:self.expertFlagImageView1];
@@ -98,9 +105,17 @@
     
     [self.expertUnitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertNameLabel).offset(0);
-        make.bottom.equalTo(self.contentView).offset(-25);
+//        make.bottom.equalTo(self.contentView).offset(-25);
+        make.top.equalTo(self.expertNameLabel).offset(14+10);
         make.width.mas_equalTo(300);
         make.height.mas_equalTo(14);
+    }];
+    
+    [self.expertStatusButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertUnitLabel).offset(0);
+        make.top.equalTo(self.expertUnitLabel).offset(14+10);
+        make.width.mas_equalTo(56);
+        make.height.mas_equalTo(25);
     }];
     
     [self.expertFlagImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
