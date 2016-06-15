@@ -525,7 +525,7 @@
         [self.doctorView addGestureRecognizer:recognizer];
     }
     
-    self.doctorScrollView.contentSize = CGSizeMake(self.doctorArray.count*(27+69)+27, 0);
+    self.doctorScrollView.contentSize = CGSizeMake((self.doctorArray.count+2)*(27+69)+27, 0);
     
 }
 
@@ -1167,6 +1167,8 @@
         
         [self.doctorView2.doctorImage sd_setImageWithURL:[NSURL URLWithString:self.doctorImageArray[i]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         if (number == i) {
+            [self.doctorScrollView2 setContentOffset:CGPointMake(i*69, 0) animated:YES];
+            
             self.doctorId = self.doctorIdArray[i];
             self.doctorView2.doctorImage.layer.borderWidth = 2;
             self.doctorView2.doctorImage.layer.borderColor = kMAIN_COLOR.CGColor;
@@ -1181,8 +1183,7 @@
         [self.doctorView2 addGestureRecognizer:recognizer];
     }
     
-    self.doctorScrollView2.contentSize = CGSizeMake(self.doctorArray.count*(27+69)+27, 0);
-    
+    self.doctorScrollView2.contentSize = CGSizeMake((self.doctorArray.count+2)*(27+69)+27, 0);
 }
 
 -(void)reservationButton1_1Clicked{
