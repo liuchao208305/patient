@@ -17,6 +17,7 @@
 #import "AnalyticUtil.h"
 #import "AlertUtil.h"
 #import "VerifyUtil.h"
+#import "BaseTabBarController.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -456,12 +457,15 @@
 
 #pragma mark Target Action
 -(void)dismiss{
-    if (![CommonUtil judgeIsLoginSuccess]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提醒" message:@"确定要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        [alert show];
-    }else{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+//    if (![CommonUtil judgeIsLoginSuccess]) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提醒" message:@"确定要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        [alert show];
+//    }else{
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提醒" message:@"确定要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
 }
 
 -(void)getCaptchaButtonClicked{
@@ -777,7 +781,12 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
         [self dismissViewControllerAnimated:YES completion:^{
-            [CommonUtil changeIsLoginSuccess:NO];
+//            [CommonUtil changeIsLoginSuccess:NO];
+            BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+            self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            [self.window setRootViewController:rootVC];
+            [self.window addSubview:rootVC.view];
+            [self.window makeKeyAndVisible];
         }];
     }
 }

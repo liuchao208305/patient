@@ -104,9 +104,10 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
-    if (!self.loginFlag) {
-        [self sendMineInfoRequest];
-    }
+//    if (!self.loginFlag) {
+//        [self sendMineInfoRequest];
+//    }
+    [self sendMineInfoRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -603,7 +604,7 @@
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
                 
-                self.loginFlag = YES;
+//                self.loginFlag = YES;
                 
                 [self.tableView.mj_header endRefreshing];
                 [self.tableView.mj_footer endRefreshing];

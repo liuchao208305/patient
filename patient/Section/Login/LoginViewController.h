@@ -23,4 +23,7 @@ typedef NS_ENUM(NSInteger, loginType)
 
 @property (assign,nonatomic)BOOL isLoginSuccess;
 @property (assign,nonatomic)BOOL isLoginOnce;
+
+@property (strong, nonatomic) UIWindow *window;
+
 @end
