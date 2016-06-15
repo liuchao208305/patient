@@ -132,66 +132,207 @@
 }
 
 #pragma mark startPush
--(void)startPush:(NSDictionary *)launchOptions{
-    [UMessage startWithAppkey:appKeyUMPush launchOptions:launchOptions];
-    
-    [UMessage addAlias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] type:@"jiuzhekan" response:^(id responseObject, NSError *error) {
-        DLog(@"UMessage addAlias responseObject-->%@",responseObject);
-    }];
-    
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
-    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
-        //register remoteNotification types （iOS 8.0及其以上版本）
-        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
-        action1.identifier = @"action1_identifier";
-        action1.title=@"Accept";
-        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+#pragma mark 友盟推送
+//-(void)startPush:(NSDictionary *)launchOptions{
+//    [UMessage startWithAppkey:appKeyUMPush launchOptions:launchOptions];
+//    
+//    [UMessage addAlias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] type:@"jiuzhekan" response:^(id responseObject, NSError *error) {
+//        DLog(@"UMessage addAlias responseObject-->%@",responseObject);
+//    }];
+//    
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
+//        //register remoteNotification types （iOS 8.0及其以上版本）
+//        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+//        action1.identifier = @"action1_identifier";
+//        action1.title=@"Accept";
+//        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+//        
+//        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+//        action2.identifier = @"action2_identifier";
+//        action2.title=@"Reject";
+//        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+//        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+//        action2.destructive = YES;
+//        
+//        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+//        categorys.identifier = @"category1";//这组动作的唯一标示
+//        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+//        
+//        UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
+//                                                                                     categories:[NSSet setWithObject:categorys]];
+//        [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+//        
+//    } else{
+//        //register remoteNotification types (iOS 8.0以下)
+//        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
+//         |UIRemoteNotificationTypeSound
+//         |UIRemoteNotificationTypeAlert];
+//    }
+//#else
+//    //register remoteNotification types (iOS 8.0以下)
+//    [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
+//     |UIRemoteNotificationTypeSound
+//     |UIRemoteNotificationTypeAlert];
+//#endif
+//    
+//    [UMessage setLogEnabled:YES];
+//}
+//
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+//{
+//    [UMessage registerDeviceToken:deviceToken];
+//    
+//    DLog(@"deviceToken-->%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+//                 stringByReplacingOccurrencesOfString: @">" withString: @""]
+//                stringByReplacingOccurrencesOfString: @" " withString: @""]);
+//}
+//
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+//{
+//    [UMessage didReceiveRemoteNotification:userInfo];
+//    
+//    [self goToMssageViewControllerWith:userInfo];
+//}
+//
+//- (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
+//    DLog(@"userInfo-->%@",msgDic);
+//    DLog(@"message_id-->%@",[msgDic objectForKey:@"message_id"]);
+//    DLog(@"type-->%@",[msgDic objectForKey:@"type"]);
+//    
+//    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+//    [pushJudge setObject:@"push"forKey:@"push"];
+//    [pushJudge synchronize];
+//    
+//    NSString *messageId = [msgDic objectForKey:@"message_id"];
+//    
+//    MineMessageDetailViewController * messageDetailVC = [[MineMessageDetailViewController alloc]init];
+//    messageDetailVC.messageId = messageId;
+//    UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:messageDetailVC];
+//    [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
+//}
+#pragma mark 极光推送
+- (void)startPush:(NSDictionary *)launchOptions{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        NSMutableSet *categories = [NSMutableSet set];
         
-        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
-        action2.identifier = @"action2_identifier";
-        action2.title=@"Reject";
-        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
-        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
-        action2.destructive = YES;
+        UIMutableUserNotificationCategory *category = [[UIMutableUserNotificationCategory alloc] init];
         
-        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
-        categorys.identifier = @"category1";//这组动作的唯一标示
-        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+        category.identifier = @"identifier";
         
-        UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
-                                                                                     categories:[NSSet setWithObject:categorys]];
-        [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+        UIMutableUserNotificationAction *action = [[UIMutableUserNotificationAction alloc] init];
         
-    } else{
-        //register remoteNotification types (iOS 8.0以下)
-        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
-         |UIRemoteNotificationTypeSound
-         |UIRemoteNotificationTypeAlert];
+        action.identifier = @"test2";
+        
+        action.title = @"test";
+        
+        action.activationMode = UIUserNotificationActivationModeBackground;
+        
+        action.authenticationRequired = YES;
+        
+        action.destructive = NO;
+        
+        NSArray *actions = @[ action ];
+        
+        [category setActions:actions forContext:UIUserNotificationActionContextMinimal];
+        
+        [categories addObject:category];
+        //可以添加自定义categories
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                          UIUserNotificationTypeSound |
+                                                          UIUserNotificationTypeAlert)
+                                              categories:categories];
+    } else {
+        //categories 必须为nil
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                          UIRemoteNotificationTypeSound |
+                                                          UIRemoteNotificationTypeAlert)
+                                              categories:nil];
     }
-#else
-    //register remoteNotification types (iOS 8.0以下)
-    [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
-     |UIRemoteNotificationTypeSound
-     |UIRemoteNotificationTypeAlert];
-#endif
     
-    [UMessage setLogEnabled:YES];
+    
+    [JPUSHService setupWithOption:launchOptions appKey:appKeyJPush
+                          channel:channelJPush apsForProduction:isProduction];
+    
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    
+    DLog(@"registrationID-->%@",[JPUSHService registrationID]);
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    [UMessage registerDeviceToken:deviceToken];
-    
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary * userInfo = [notification userInfo];
+    NSString *content = [userInfo valueForKey:@"content"];
+    NSInteger badge = [[userInfo valueForKey:@"badge"] integerValue];
+    NSString *sound = [userInfo valueForKey:@"sound"];
+    NSDictionary *extras = [userInfo valueForKey:@"extras"];
+    NSString *customizeField1 = [extras valueForKey:@"customizeField1"];
+    DLog(@"content =[%@], badge=[%ld], sound=[%@], extras =[%@], customize field  =[%@]",content,(long)badge,sound,extras,customizeField1);
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [JPUSHService registerDeviceToken:deviceToken];
+    DLog(@"%@", [NSString stringWithFormat:@"deviceToken-->%@", deviceToken]);
     DLog(@"deviceToken-->%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                 stringByReplacingOccurrencesOfString: @">" withString: @""]
-                stringByReplacingOccurrencesOfString: @" " withString: @""]);
+                               stringByReplacingOccurrencesOfString: @">" withString: @""]
+                              stringByReplacingOccurrencesOfString: @" " withString: @""]);
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [UMessage didReceiveRemoteNotification:userInfo];
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"deviceToken 获取失败，原因：%@",error);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [JPUSHService handleRemoteNotification:userInfo];
+    DLog(@"收到通知:%@", [self logDic:userInfo]);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:
+(void (^)(UIBackgroundFetchResult))completionHandler {
+    [JPUSHService handleRemoteNotification:userInfo];
+    
+    DLog(@"收到通知:%@", [self logDic:userInfo]);
+    NSDictionary *aps = [userInfo valueForKey:@"aps"];
+    NSString *content = [aps valueForKey:@"alert"];
+    NSInteger badge = [[aps valueForKey:@"badge"] integerValue];
+    NSString *sound = [aps valueForKey:@"sound"];
+    NSString *customizeField1 = [userInfo valueForKey:@"customizeExtras"];
+    DLog(@"content =[%@], badge=[%ld], sound=[%@], customize field  =[%@]",content,(long)badge,sound,customizeField1);
+    
+    application.applicationIconBadgeNumber = 0;
     
     [self goToMssageViewControllerWith:userInfo];
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveLocalNotification:(UILocalNotification *)notification {
+    [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
+}
+
+- (NSString *)logDic:(NSDictionary *)dic {
+    if (![dic count]) {
+        return nil;
+    }
+    NSString *tempStr1 =
+    [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+                                                 withString:@"\\U"];
+    NSString *tempStr2 =
+    [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *tempStr3 =
+    [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str =
+    [NSPropertyListSerialization propertyListFromData:tempData
+                                     mutabilityOption:NSPropertyListImmutable
+                                               format:NULL
+                                     errorDescription:NULL];
+    return str;
 }
 
 - (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
@@ -210,76 +351,6 @@
     UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:messageDetailVC];
     [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
 }
-
-/*
- -(void)startPush:(NSDictionary *)launchOptions{
- if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
- //可以添加自定义categories
- [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
- UIUserNotificationTypeSound |
- UIUserNotificationTypeAlert)
- categories:nil];
- } else {
- //categories 必须为nil
- [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
- UIRemoteNotificationTypeSound |
- UIRemoteNotificationTypeAlert)
- categories:nil];
- }
- [JPUSHService setupWithOption:launchOptions appKey:appKeyJPush
- channel:channelJPush apsForProduction:isProduction];
- }
- 
- - (void)application:(UIApplication *)application
- didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
- [JPUSHService registerDeviceToken:deviceToken];
- }
- 
- - (void)application:(UIApplication *)application
- didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
- DLog(@"Fail To Register For Remote Notifications With Error: %@", error);
- }
- 
- - (void)application:(UIApplication *)application
- didReceiveRemoteNotification:(NSDictionary *)userInfo {
- [JPUSHService handleRemoteNotification:userInfo];
- DLog(@"收到通知:%@", [self logDic:userInfo]);
- }
- 
- - (void)application:(UIApplication *)application
- didReceiveRemoteNotification:(NSDictionary *)userInfo
- fetchCompletionHandler:
- (void (^)(UIBackgroundFetchResult))completionHandler {
- [JPUSHService handleRemoteNotification:userInfo];
- DLog(@"收到通知:%@", [self logDic:userInfo]);
- completionHandler(UIBackgroundFetchResultNewData);
- }
- 
- - (void)application:(UIApplication *)application
- didReceiveLocalNotification:(UILocalNotification *)notification {
- [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
- }
- 
- - (NSString *)logDic:(NSDictionary *)dic {
- if (![dic count]) {
- return nil;
- }
- NSString *tempStr1 =
- [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
- withString:@"\\U"];
- NSString *tempStr2 =
- [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
- NSString *tempStr3 =
- [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
- NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
- NSString *str =
- [NSPropertyListSerialization propertyListFromData:tempData
- mutabilityOption:NSPropertyListImmutable
- format:NULL
- errorDescription:NULL];
- return str;
- }
- */
 
 #pragma mark startAnalytic
 -(void)startAnalytic{
@@ -360,6 +431,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [application setApplicationIconBadgeNumber:0];
+    [application cancelAllLocalNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

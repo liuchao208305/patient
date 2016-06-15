@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 //极光推送
-//static NSString *appKeyJPush = @"199e683592cb6507530a84d1";
-//static NSString *channelJPush = @"Apple Store";
-//static BOOL isProduction = FALSE;
+static NSString *appKeyJPush = @"7e5e8691bd8cf3c9e3af7e74";
+static NSString *channelJPush = @"Apple Store";
+static BOOL isProduction = FALSE;
 //友盟统计
 static NSString *appKeyUMAnaytic = @"572af07ce0f55aead6002c5f";
 static NSString *channelUMAnaytic = @"Apple Store";
@@ -18,9 +18,9 @@ static NSString *channelUMAnaytic = @"Apple Store";
 static NSString *appKeyUMSocial = @"572af07ce0f55aead6002c5f";
 static NSString *channelUMSocial = @"Apple Store";
 //友盟推送
-static NSString *appKeyUMPush = @"572af07ce0f55aead6002c5f";
-static NSString *channelUMPush = @"Apple Store";
-static BOOL isProduction = FALSE;
+//static NSString *appKeyUMPush = @"572af07ce0f55aead6002c5f";
+//static NSString *channelUMPush = @"Apple Store";
+//static BOOL isProduction = FALSE;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
