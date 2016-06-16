@@ -18,6 +18,7 @@
 #import "AlertUtil.h"
 #import "VerifyUtil.h"
 #import "BaseTabBarController.h"
+#import "JPUSHService.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -799,6 +800,13 @@
     
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [JPUSHService setTags:nil alias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+            DLog(@"iResCode-->%d\niAlias-->%@",iResCode,iAlias);
+            
+        }];
+    });
     
     if (![CommonUtil judgeIsLoginOnce]) {
         [CommonUtil changeIsLoginOnce:NO];

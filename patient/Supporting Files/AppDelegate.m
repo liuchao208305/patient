@@ -257,6 +257,20 @@
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [JPUSHService setTags:nil alias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+//            DLog(@"iResCode-->%d\niAlias-->%@",iResCode,iAlias);
+//            
+//        }];
+//    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [JPUSHService setTags:nil alias:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+            DLog(@"iResCode-->%d\niAlias-->%@",iResCode,iAlias);
+            
+        }];
+    });
+    
     DLog(@"registrationID-->%@",[JPUSHService registrationID]);
 }
 
