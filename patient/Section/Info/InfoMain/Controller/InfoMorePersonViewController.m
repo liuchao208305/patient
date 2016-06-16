@@ -72,6 +72,8 @@
     [super viewWillAppear:animated];
     
     [AnalyticUtil UMBeginLogPageView:@"InfoMorePersonViewController"];
+    
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -108,6 +110,7 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
 //    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, 64-22-10)];
 //    self.searchView.backgroundColor = [UIColor colorWithRed:89/255.0 green:187/255.0 blue:163/255.0 alpha:1];
 //    self.searchView.layer.cornerRadius = 4;

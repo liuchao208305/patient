@@ -62,6 +62,8 @@
     
     [AnalyticUtil UMBeginLogPageView:@"TestFixViewController"];
     
+    self.navigationController.navigationBar.hidden = NO;
+    
     [self sendTestInfoRequest];
 }
 
@@ -174,7 +176,7 @@
         make.height.mas_equalTo(15);
     }];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 75, SCREEN_WIDTH, SCREEN_HEIGHT-75-STATUS_BAR_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT-30)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 75, SCREEN_WIDTH, SCREEN_HEIGHT-75-STATUS_BAR_HEIGHT-30)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
     self.scrollView.contentSize = CGSizeMake(0, 60*135+115);
     self.scrollView.scrollEnabled = YES;

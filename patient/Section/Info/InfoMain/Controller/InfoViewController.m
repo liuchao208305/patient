@@ -31,6 +31,9 @@
 #import "StudioInfoViewController.h"
 #import "AgreementViewController.h"
 #import "DiseaseInfoViewController.h"
+#import "TimeTableCell.h"
+#import "HealhTableCellFix.h"
+#import "TestFixViewController.h"
 
 @interface InfoViewController ()<SDCycleScrollViewDelegate,HealthViewDelegate>
 {
@@ -115,6 +118,8 @@
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"InfoViewController"];
+    
+    self.navigationController.navigationBar.hidden = YES;
     
     [self sendInfoRequest];
 }
@@ -202,18 +207,33 @@
 }
 
 -(void)initHeadView{
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.25)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
     self.localImageArray = [NSMutableArray array];
     for (int i = 1; i<4; i++) {
         NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.png",i];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.localImageArray addObject:image];
     }
-    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.25) imageNamesGroup:self.localImageArray];
+    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:self.localImageArray];
     scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
     scrollView.autoScrollTimeInterval = 5;
     scrollView.delegate = self;
     [self.headView addSubview:scrollView];
+    
+    self.scanImageView = [[UIImageView alloc] init];
+    [self.scanImageView setImage:[UIImage imageNamed:@"info_scan_image"]];
+    [self.headView addSubview:self.scanImageView];
+    
+    [self.scanImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.headView).offset(22+10);
+        make.trailing.equalTo(self.headView).offset(-12);
+        make.width.mas_equalTo(22);
+        make.height.mas_equalTo(22);
+    }];
+    
+    self.scanImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *scanImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navToScanViewController)];
+    [self.scanImageView addGestureRecognizer:scanImageViewTap];
 }
 
 -(void)initFootView{
@@ -221,7 +241,7 @@
 }
 
 -(void)initTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115+64) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -256,7 +276,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 154;
+//        return 154;
+        return 35;
     }else if (indexPath.section == 1){
 //        return 93;
         return 118;
@@ -270,49 +291,60 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        static NSString *cellName = @"DiseaseTableCell";
-        DiseaseTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        static NSString *cellName = @"DiseaseTableCell";
+//        DiseaseTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//
+//        cell.guominLabel1.text = [NullUtil judgeStringNull:self.guominLabel1];
+//        [cell.guominImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.guominImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.laotouLabel1.text = [NullUtil judgeStringNull:self.laotouLabel1];
+//        [cell.laotouImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.laotouImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.keshiLabel1.text = [NullUtil judgeStringNull:self.keshiLabel1];
+//        [cell.keshiImageView1 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage1]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.keshiLabel2.text = [NullUtil judgeStringNull:self.keshiLabel2];
+//        [cell.keshiImageView2 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage2]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.keshiLabel3.text = [NullUtil judgeStringNull:self.keshiLabel3];
+//        [cell.keshiImageView3 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage3]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.keshiLabel4.text = [NullUtil judgeStringNull:self.keshiLabel4];
+//        [cell.keshiImageView4 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage4]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.guominImageView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *guominImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guominImageViewClicked)];
+//        [cell.guominImageView addGestureRecognizer:guominImageViewTap];
+//        
+//        cell.laotouImageView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *laotouImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(laotouImageViewClicked)];
+//        [cell.laotouImageView addGestureRecognizer:laotouImageViewTap];
+//        
+//        cell.keshiView1.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *keshiView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView1Clicked)];
+//        [cell.keshiView1 addGestureRecognizer:keshiView1Tap];
+//        
+//        cell.keshiView2.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *keshiView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView2Clicked)];
+//        [cell.keshiView2 addGestureRecognizer:keshiView2Tap];
+//        
+//        cell.keshiView3.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *keshiView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView3Clicked)];
+//        [cell.keshiView3 addGestureRecognizer:keshiView3Tap];
+//        
+//        cell.keshiView4.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *keshiView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView4Clicked)];
+//        [cell.keshiView4 addGestureRecognizer:keshiView4Tap];
+//        
+//        return cell;
+        
+        static NSString *cellName = @"TimeTableCell";
+        TimeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[DiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[TimeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
-
-        cell.guominLabel1.text = [NullUtil judgeStringNull:self.guominLabel1];
-        [cell.guominImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.guominImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.laotouLabel1.text = [NullUtil judgeStringNull:self.laotouLabel1];
-        [cell.laotouImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.laotouImage]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         
-        cell.keshiLabel1.text = [NullUtil judgeStringNull:self.keshiLabel1];
-        [cell.keshiImageView1 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage1]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel2.text = [NullUtil judgeStringNull:self.keshiLabel2];
-        [cell.keshiImageView2 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage2]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel3.text = [NullUtil judgeStringNull:self.keshiLabel3];
-        [cell.keshiImageView3 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage3]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        cell.keshiLabel4.text = [NullUtil judgeStringNull:self.keshiLabel4];
-        [cell.keshiImageView4 sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.keshiImage4]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.guominImageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *guominImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guominImageViewClicked)];
-        [cell.guominImageView addGestureRecognizer:guominImageViewTap];
-        
-        cell.laotouImageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *laotouImageViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(laotouImageViewClicked)];
-        [cell.laotouImageView addGestureRecognizer:laotouImageViewTap];
-        
-        cell.keshiView1.userInteractionEnabled = YES;
-        UITapGestureRecognizer *keshiView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView1Clicked)];
-        [cell.keshiView1 addGestureRecognizer:keshiView1Tap];
-        
-        cell.keshiView2.userInteractionEnabled = YES;
-        UITapGestureRecognizer *keshiView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView2Clicked)];
-        [cell.keshiView2 addGestureRecognizer:keshiView2Tap];
-        
-        cell.keshiView3.userInteractionEnabled = YES;
-        UITapGestureRecognizer *keshiView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView3Clicked)];
-        [cell.keshiView3 addGestureRecognizer:keshiView3Tap];
-        
-        cell.keshiView4.userInteractionEnabled = YES;
-        UITapGestureRecognizer *keshiView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keshiView4Clicked)];
-        [cell.keshiView4 addGestureRecognizer:keshiView4Tap];
+        [cell.timeImage setImage:[UIImage imageNamed:@"info_xiaotuoyuan"]];
+        cell.timeLabel.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -324,9 +356,38 @@
 //        //填充数据
 //        [cell.healthImageView sd_setImageWithURL:[NSURL URLWithString:[NullUtil judgeStringNull:self.healthImage]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
         
-        HealthTableCell *cell = [[HealthTableCell alloc] init];
-        [cell initViewWithArray:self.healthImageArray];
-        cell.healthViewDelegate = self;
+//        HealthTableCell *cell = [[HealthTableCell alloc] init];
+//        [cell initViewWithArray:self.healthImageArray];
+//        cell.healthViewDelegate = self;
+//        
+//        return cell;
+        
+        static NSString *cellName = @"HealhTableCellFix";
+        HealhTableCellFix *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[HealhTableCellFix alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        [cell.imageView1 setImage:[UIImage imageNamed:@"info_jiankangjilu"]];
+        cell.label1_1.text = @"健康记录";
+        
+        [cell.imageView2 setImage:[UIImage imageNamed:@"info_zhaoyisheng"]];
+        cell.label2_1.text = @"找医生";
+        
+        [cell.imageView3 setImage:[UIImage imageNamed:@"info_tizhiceshi"]];
+        cell.label3_1.text = @"体质测试";
+        
+        cell.backView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthFix1Clicked)];
+        [cell.backView1 addGestureRecognizer:recognizer1];
+        
+        cell.backView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthFix2Clicked)];
+        [cell.backView2 addGestureRecognizer:recognizer2];
+        
+        cell.backView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthFix3Clicked)];
+        [cell.backView3 addGestureRecognizer:recognizer3];
         
         return cell;
     }else if (indexPath.section == 2){
@@ -380,8 +441,10 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section ==0) {
-        return 0;
+    if (section == 0) {
+        return 0.01;
+    }else if (section == 1){
+        return 0.01;
     }
     return 29;
 }
@@ -398,17 +461,25 @@
         self.infoHeadView.titleLabel.hidden = YES;
         self.infoHeadView.moreLabel.hidden = YES;
         self.infoHeadView.moreImage.hidden = YES;
-    }else if(section == 1){
-        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_health_title_button"];
-        self.infoHeadView.titleLabel.text = @"吃出健康";
-        self.infoHeadView.moreLabel.text = @"更多";
-        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_health_more_button"];
-        
-        self.infoHeadView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *healthHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthHeadViewClicked)];
-        [self.infoHeadView addGestureRecognizer:healthHeadViewTap];
-        
-    }else if (section == 2){
+    }
+//    else if (section == 1){
+//        self.infoHeadView.titleImage.hidden = YES;
+//        self.infoHeadView.titleLabel.hidden = YES;
+//        self.infoHeadView.moreLabel.hidden = YES;
+//        self.infoHeadView.moreImage.hidden = YES;
+//    }
+//    else if(section == 1){
+//        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_health_title_button"];
+//        self.infoHeadView.titleLabel.text = @"吃出健康";
+//        self.infoHeadView.moreLabel.text = @"更多";
+//        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_health_more_button"];
+//        
+//        self.infoHeadView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *healthHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(healthHeadViewClicked)];
+//        [self.infoHeadView addGestureRecognizer:healthHeadViewTap];
+//        
+//    }
+    else if (section == 2){
         self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_studio_title_button"];
         self.infoHeadView.titleLabel.text = @"推荐名老中医工作室";
         self.infoHeadView.moreLabel.text = @"更多";
@@ -503,10 +574,25 @@
 }
 
 -(void)navToScanViewController{
-    self.hidesBottomBarWhenPushed = YES;
     ScanViewController *scanVC = [[ScanViewController alloc] init];
+    scanVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:scanVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
+}
+
+-(void)healthFix1Clicked{
+    DLog(@"healthFix1Clicked");
+    
+}
+
+-(void)healthFix2Clicked{
+    DLog(@"healthFix2Clicked");
+}
+
+-(void)healthFix3Clicked{
+    DLog(@"healthFix3Clicked");
+    TestFixViewController *testVC = [[TestFixViewController alloc] init];
+    testVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:testVC animated:YES];
 }
 
 -(void)guominImageViewClicked{

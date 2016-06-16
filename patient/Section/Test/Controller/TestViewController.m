@@ -49,6 +49,8 @@
     
     [AnalyticUtil UMBeginLogPageView:@"TestViewController"];
     
+    self.navigationController.navigationBar.hidden = NO;
+    
     [self sendTestInfoRequest];
 }
 

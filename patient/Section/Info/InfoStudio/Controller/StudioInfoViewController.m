@@ -61,6 +61,8 @@
     
     [AnalyticUtil UMBeginLogPageView:@"StudioInfoViewController"];
     
+    self.navigationController.navigationBar.hidden = NO;
+    
     [self sendStudioInfoRequest];
 }
 
@@ -93,6 +95,7 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
 //    label.text = self.studioName;
 //    label.textColor = [UIColor whiteColor];

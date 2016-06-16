@@ -13,6 +13,7 @@
 
 @property (strong,nonatomic)UITableView *tableView;
 @property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIImageView *scanImageView;
 @property (strong,nonatomic)UIView *footView;
 
 @property (strong,nonatomic)InfoHeaderView *infoHeadView;
