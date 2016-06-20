@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "QuestionViewController.h"
+#import "QuestionListViewController.h"
 #import "NetworkUtil.h"
 #import "HudUtil.h"
 #import "NullUtil.h"
@@ -16,7 +16,7 @@
 #import "QuestionListData.h"
 #import "QuestionListTableCell.h"
 
-@interface QuestionViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface QuestionListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation QuestionViewController
+@implementation QuestionListViewController
 
 #pragma mark Life Circle
 -(void)viewDidLoad{
@@ -53,7 +53,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    [AnalyticUtil UMBeginLogPageView:@"QuestionViewController"];
+    [AnalyticUtil UMBeginLogPageView:@"QuestionListViewController"];
     
     self.flag1 = YES;
     self.flag2 = NO;
@@ -69,7 +69,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     
-    [AnalyticUtil UMEndLogPageView:@"QuestionViewController"];
+    [AnalyticUtil UMEndLogPageView:@"QuestionListViewController"];
 }
 
 -(void)didReceiveMemoryWarning{

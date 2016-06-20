@@ -12,7 +12,7 @@
 #import "TestViewController.h"
 #import "TestFixViewController.h"
 #import "SearchViewController.h"
-#import "QuestionViewController.h"
+#import "QuestionListViewController.h"
 #import "MineViewController.h"
 
 @interface BaseTabBarController ()
@@ -65,7 +65,7 @@
 //    BaseNaviController *SearchNavC = [[BaseNaviController alloc] initWithRootViewController:SearchVC];
 //    [childVCArray addObject:SearchNavC];
     
-    QuestionViewController *QuestionVC = [[QuestionViewController alloc] init];
+    QuestionListViewController *QuestionVC = [[QuestionListViewController alloc] init];
     [QuestionVC.tabBarItem setTitle:@"问答"];
     [QuestionVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_question_normal"]];
     [QuestionVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_quesiton_selected"]];

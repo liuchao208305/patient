@@ -476,6 +476,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.01;
+    }
     return 10;
 }
 
@@ -534,21 +537,21 @@
     if (indexPath.section == 0) {
         
     }else if (indexPath.section == 1){
-        if (self.healthType == 1) {
-            HealthFoodInfoViewController *foodVC = [[HealthFoodInfoViewController alloc] init];
-            foodVC.healthType = self.healthType;
-            foodVC.healthId = self.healthId;
-            foodVC.healthName = self.healthName;
-            foodVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:foodVC animated:YES];
-        }else if(self.healthType == 2){
-            HealthDishInfoViewController *dishVC = [[HealthDishInfoViewController alloc] init];
-            dishVC.healthType = self.healthType;
-            dishVC.healthId = self.healthId;
-            dishVC.healthName = self.healthName;
-            dishVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:dishVC animated:YES];
-        }
+//        if (self.healthType == 1) {
+//            HealthFoodInfoViewController *foodVC = [[HealthFoodInfoViewController alloc] init];
+//            foodVC.healthType = self.healthType;
+//            foodVC.healthId = self.healthId;
+//            foodVC.healthName = self.healthName;
+//            foodVC.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:foodVC animated:YES];
+//        }else if(self.healthType == 2){
+//            HealthDishInfoViewController *dishVC = [[HealthDishInfoViewController alloc] init];
+//            dishVC.healthType = self.healthType;
+//            dishVC.healthId = self.healthId;
+//            dishVC.healthName = self.healthName;
+//            dishVC.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:dishVC animated:YES];
+//        }
     }else if (indexPath.section == 2){
         StudioInfoViewController *studioVC = [[StudioInfoViewController alloc] init];
         studioVC.studioId = self.studioId;

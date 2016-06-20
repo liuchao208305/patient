@@ -53,7 +53,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+//    [self initView];
     [self initRecognizer];
 }
 
@@ -64,11 +64,14 @@
     
     self.navigationController.navigationBar.hidden = NO;
     
-    [self sendTestInfoRequest];
+//    [self sendTestInfoRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+    [self initView];
+    [self sendTestInfoRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

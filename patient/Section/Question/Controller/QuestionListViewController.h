@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface QuestionViewController : BaseViewController
+@interface QuestionListViewController : BaseViewController
 
 @property (strong,nonatomic)UIView *questionView;
 @property (strong,nonatomic)UILabel *questionLabel;
