@@ -220,12 +220,37 @@
     scrollView.delegate = self;
     [self.headView addSubview:scrollView];
     
+    self.timeImageFix = [[UIImageView alloc] init];
+    self.timeImageFix.layer.cornerRadius = 5;
+    [self.headView addSubview:self.timeImageFix];
+    
+    self.timeLabelFix = [[UILabel alloc] init];
+    self.timeLabelFix.textColor = ColorWithHexRGB(0x909090);
+    self.timeLabelFix.font = [UIFont systemFontOfSize:13];
+    [self.headView addSubview:self.timeLabelFix];
+    
     self.scanImageView = [[UIImageView alloc] init];
     [self.scanImageView setImage:[UIImage imageNamed:@"info_scan_image"]];
     [self.headView addSubview:self.scanImageView];
     
-    [self.scanImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.timeImageFix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.headView).offset(10);
         make.top.equalTo(self.headView).offset(22+10);
+        make.width.mas_equalTo(10);
+        make.height.mas_equalTo(10);
+    }];
+    
+    [self.timeLabelFix mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.timeImageFix).offset(10+6);
+        make.centerY.equalTo(self.timeImageFix).offset(0);
+//        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.trailing.equalTo(self.scanImageView).offset(-10);
+        make.height.mas_equalTo(13);
+    }];
+    
+    [self.scanImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.headView).offset(22+10);
+        make.centerY.equalTo(self.timeImageFix).offset(0);
         make.trailing.equalTo(self.headView).offset(-12);
         make.width.mas_equalTo(22);
         make.height.mas_equalTo(22);
@@ -277,7 +302,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
 //        return 154;
-        return 35;
+//        return 35;
+        return 0;
     }else if (indexPath.section == 1){
 //        return 93;
         return 118;
@@ -343,8 +369,8 @@
             cell = [[TimeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        [cell.timeImage setImage:[UIImage imageNamed:@"info_xiaotuoyuan"]];
-        cell.timeLabel.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
+//        [cell.timeImage setImage:[UIImage imageNamed:@"info_xiaotuoyuan"]];
+//        cell.timeLabel.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -738,6 +764,8 @@
     self.timeLabel1 = [[self.data objectForKey:@"hours"] objectForKey:@"hours"];
     self.timeLabel2 = [[self.data objectForKey:@"hours"] objectForKey:@"content"];
     self.timeLabel.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
+    [self.timeImageFix setImage:[UIImage imageNamed:@"info_xiaotuoyuan"]];
+    self.timeLabelFix.text = [NSString stringWithFormat:@"现在是%@  %@",self.timeLabel1,self.timeLabel2];
     
     self.adArray = [BannerData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"banner"]];
     for (BannerData *bannerData in self.adArray) {

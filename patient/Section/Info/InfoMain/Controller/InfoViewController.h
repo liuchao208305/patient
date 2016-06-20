@@ -13,6 +13,8 @@
 
 @property (strong,nonatomic)UITableView *tableView;
 @property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UIImageView *timeImageFix;
+@property (strong,nonatomic)UILabel *timeLabelFix;
 @property (strong,nonatomic)UIImageView *scanImageView;
 @property (strong,nonatomic)UIView *footView;
 
