@@ -13,8 +13,10 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "LoginViewController.h"
+#import "QuestionListData.h"
+#import "QuestionListTableCell.h"
 
-@interface QuestionViewController ()
+@interface QuestionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -52,6 +54,12 @@
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"QuestionViewController"];
+    
+    self.flag1 = YES;
+    self.flag2 = NO;
+    
+    [self initSubView1];
+    [self sendQuestionCheckRequest1];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -90,7 +98,7 @@
     
     self.questionImage = [[UIImageView alloc] init];
     self.questionImage.layer.cornerRadius = 8;
-    [self.questionImage setImage:[UIImage imageNamed:@"question_right_barbuttonitem"]];
+    [self.questionImage setImage:[UIImage imageNamed:@"question_list_right_barbuttonitem"]];
     [self.questionView addSubview:self.questionImage];
     
     self.questionLabel = [[UILabel alloc] init];
@@ -123,7 +131,42 @@
 
 -(void)initView{
     self.view.backgroundColor = kBACKGROUND_COLOR;
+}
+
+-(void)initSubView1{
+    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView1.delegate = self;
+    self.tableView1.dataSource = self;
+    self.tableView1.showsVerticalScrollIndicator = YES;
+    self.tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.tableView1.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendQuestionCheckRequest1];
+    }];
+    
+    self.tableView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendQuestionCheckRequest1];
+    }];
+    
+    [self.view addSubview:self.tableView1];
+}
+
+-(void)initSubView2{
+    self.tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView2.delegate = self;
+    self.tableView2.dataSource = self;
+    self.tableView2.showsVerticalScrollIndicator = YES;
+    self.tableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView2.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self sendQuestionCheckRequest2];
+    }];
+    
+    self.tableView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendQuestionCheckRequest2];
+    }];
+    
+    [self.view addSubview:self.tableView2];
 }
 
 -(void)initRecognizer{
@@ -142,15 +185,117 @@
 //    DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
+            self.flag1 = YES;
+            self.flag2 = NO;
             DLog(@"Index-->%li", (long)Index);
+            [self initSubView1];
             [self sendQuestionCheckRequest1];
             break;
         case 1:
+            self.flag1 = NO;
+            self.flag2  = YES;
             DLog(@"Index-->%li", (long)Index);
+            [self initSubView2];
             [self sendQuestionCheckRequest2];
             break;
         default:
             break;
+    }
+}
+
+#pragma mark UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 10;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 190;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.flag1) {
+        static NSString *cellName = @"QuestionTableCell";
+        QuestionListTableCell *cell = [self.tableView2 dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[QuestionListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        cell.contentLabel.text = @"昨天去游泳了，时间可能有点长，大概有三个小时，今天大腿内前侧酸痛，走路都有些不是太方便，怎么减轻酸痛？";
+        [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+        
+        cell.expertLabel.text = @"有卫平 ｜ 省立同德 主任中医师";
+        [cell.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+        [cell.expertSoundImageView setImage:[UIImage imageNamed:@"info_person_mr_record_image"]];
+        cell.expertSoundLengthLabel.text = @"43''";
+        cell.audienceNumberLabel.text = @"999人已听";
+        
+//        cell.payStatusLabel.text = @"test";
+//        [cell.deleteButton setTitle:@"test" forState:UIControlStateNormal];
+//        [cell.deleteButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+//        [cell.confirmButton setTitle:@"test" forState:UIControlStateNormal];
+//        [cell.confirmButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
+        cell.payStatusLabel.hidden = YES;
+        cell.deleteButton.hidden = YES;
+        cell.confirmButton.hidden = YES;
+        
+        return cell;
+    }else if (self.flag2){
+        static NSString *cellName = @"QuestionTableCell";
+        QuestionListTableCell *cell = [self.tableView2 dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[QuestionListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        cell.contentLabel.text = @"昨天去游泳了，时间可能有点长，大概有三个小时，今天大腿内前侧酸痛，走路都有些不是太方便，怎么减轻酸痛？";
+        [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+        
+//        cell.expertLabel.text = @"test";
+//        [cell.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.expertSoundImageView setImage:[UIImage imageNamed:@"default_image_small"]];
+//        cell.expertSoundLengthLabel.text = @"test";
+//        cell.audienceNumberLabel.text = @"test";
+        cell.expertLabel.hidden = YES;
+        cell.expertImageView.hidden = YES;
+        cell.expertSoundImageView.hidden = YES;
+        cell.expertSoundLengthLabel.hidden = YES;
+        cell.audienceNumberLabel.hidden = YES;
+        
+        cell.payStatusLabel.text = @"待支付";
+        [cell.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
+        [cell.deleteButton setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
+        [cell.deleteButton setBackgroundColor:kWHITE_COLOR];
+        cell.deleteButton.layer.cornerRadius = 3;
+        cell.deleteButton.layer.borderWidth = 1;
+        cell.deleteButton.layer.borderColor = ColorWithHexRGB(0x909090).CGColor;
+        [cell.confirmButton setTitle:@"立即支付" forState:UIControlStateNormal];
+        [cell.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [cell.confirmButton setBackgroundColor:kMAIN_COLOR];
+        cell.confirmButton.layer.cornerRadius = 5;
+        
+        return cell;
+    }
+    return nil;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.flag1) {
+        
+        [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    }else if (self.flag2){
+        
+        [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
