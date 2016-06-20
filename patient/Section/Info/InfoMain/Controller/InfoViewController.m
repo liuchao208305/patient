@@ -612,6 +612,10 @@
 
 -(void)healthFix2Clicked{
     DLog(@"healthFix2Clicked");
+    InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
+    morePersonVC.hidesBottomBarWhenPushed = YES;
+    morePersonVC.sourceVC = @"personHeadViewClicked";
+    [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
 -(void)healthFix3Clicked{
