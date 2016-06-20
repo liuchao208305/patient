@@ -7,7 +7,34 @@
 //
 
 #import "QuestionViewController.h"
+#import "NetworkUtil.h"
+#import "HudUtil.h"
+#import "NullUtil.h"
+#import "AlertUtil.h"
 #import "AnalyticUtil.h"
+#import "LoginViewController.h"
+
+@interface QuestionViewController ()
+
+@property (strong,nonatomic)NSMutableDictionary *result1;
+@property (assign,nonatomic)NSInteger code1;
+@property (strong,nonatomic)NSString *message1;
+@property (strong,nonatomic)NSMutableArray *data1;
+@property (assign,nonatomic)NSError *error1;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableArray *data2;
+@property (assign,nonatomic)NSError *error2;
+
+@property (assign,nonatomic)NSInteger currentPage1;
+@property (assign,nonatomic)NSInteger pageSize1;
+
+@property (assign,nonatomic)NSInteger currentPage2;
+@property (assign,nonatomic)NSInteger pageSize2;
+
+@end
 
 @implementation QuestionViewController
 
@@ -97,45 +124,6 @@
 -(void)initView{
     self.view.backgroundColor = kBACKGROUND_COLOR;
     
-//    self.tempImageView = [[UIImageView alloc] init];
-//    self.tempImageView.layer.cornerRadius = 79;
-//    self.tempImageView.backgroundColor = ColorWithHexRGB(0xfe8787);
-//    [self.view addSubview:self.tempImageView];
-//    
-//    [self.tempImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view).offset(100);
-//        make.centerX.equalTo(self.view).offset(0);
-//        make.width.mas_equalTo(158);
-//        make.height.mas_equalTo(158);
-//    }];
-//    
-//    self.tempLabel1 = [[UILabel alloc] init];
-//    self.tempLabel1.font = [UIFont systemFontOfSize:18];
-//    self.tempLabel1.text = @"此功能暂未运行";
-//    self.tempLabel1.textColor = kWHITE_COLOR;
-//    self.tempLabel1.textAlignment = NSTextAlignmentCenter;
-//    [self.tempImageView addSubview:self.tempLabel1];
-//    
-//    self.tempLabel2 = [[UILabel alloc] init];
-//    self.tempLabel2.font = [UIFont systemFontOfSize:18];
-//    self.tempLabel2.text = @"敬请期待";
-//    self.tempLabel2.textColor = kWHITE_COLOR;
-//    self.tempLabel2.textAlignment = NSTextAlignmentCenter;
-//    [self.tempImageView addSubview:self.tempLabel2];
-//    
-//    [self.tempLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(self.tempImageView).offset(-18);
-//        make.centerX.equalTo(self.tempImageView).offset(0);
-//        make.width.mas_equalTo(158);
-//        make.height.mas_equalTo(18);
-//    }];
-//    
-//    [self.tempLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.tempLabel1).offset(18+20);
-//        make.centerX.equalTo(self.tempImageView).offset(0);
-//        make.width.mas_equalTo(158);
-//        make.height.mas_equalTo(18);
-//    }];
 }
 
 -(void)initRecognizer{
@@ -151,13 +139,15 @@
 
 -(void)segmentAction:(UISegmentedControl *)Seg{
     NSInteger Index = Seg.selectedSegmentIndex;
-    DLog(@"Index-->%li", (long)Index);
+//    DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            
+            DLog(@"Index-->%li", (long)Index);
+            [self sendQuestionCheckRequest1];
             break;
         case 1:
-            
+            DLog(@"Index-->%li", (long)Index);
+            [self sendQuestionCheckRequest2];
             break;
         default:
             break;
@@ -165,9 +155,109 @@
 }
 
 #pragma mark Network Request
+-(void)sendQuestionCheckRequest1{
+    DLog(@"sendQuestionCheckRequest1");
+    
+    self.pageSize1 += 10;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage1] forKey:@"currentPage"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_QUESTION_LIST_MINE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_QUESTION_LIST_MINE_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result1 = (NSMutableDictionary *)responseObject;
+        
+        self.code1 = [[self.result1 objectForKey:@"code"] integerValue];
+        self.message1 = [self.result1 objectForKey:@"message"];
+        self.data1 = [self.result1 objectForKey:@"data"];
+        
+        if (self.code1 == kSUCCESS) {
+            [self questionCheckDataParse1];
+        }else{
+            DLog(@"%@",self.message1);
+            if (self.code1 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendQuestionCheckRequest2{
+    DLog(@"sendQuestionCheckRequest2");
+    
+    self.pageSize2 += 10;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage2] forKey:@"currentPage"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_QUESTION_LIST_OTHER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_COUPON_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [self questionCheckDataParse2];
+        }else{
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
+-(void)questionCheckDataParse1{
+    DLog(@"questionCheckDataParse1");
+}
 
-
+-(void)questionCheckDataParse2{
+    DLog(@"questionCheckDataParse2");
+}
 
 @end

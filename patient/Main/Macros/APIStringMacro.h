@@ -73,6 +73,9 @@ typedef enum {
 #define kJZK_TEST_RESULT_LIST_INFORMATION @"private/v1/getAnalysisResultPage?"//分页获取体质测试结果列表信息
 #define kJZK_TEST_RESULT_DETAIL_INFORMATION @"public/v1/getAnalyResultDetail?"//获取体质测试结果详情信息
 
+#define kJZK_QUESTION_LIST_MINE_INFORMATION @"private/v2/interloution/zijiPagelis?"//我的问题列表信息
+#define kJZK_QUESTION_LIST_OTHER_INFORMATION @"/private/v2/interloution/otherPagelist?"//其他问题列表信息
+
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息
 #define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"/private/v1/user/messageDatailByID?"//消息详情信息
