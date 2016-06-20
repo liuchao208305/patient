@@ -460,6 +460,9 @@
 		70B429DE1D128AFC0036F525 /* tabbar_info_normal_fix@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429CF1D128AFC0036F525 /* tabbar_info_normal_fix@3x.png */; };
 		70B429DF1D128AFC0036F525 /* tabbar_info_normal_fix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429D01D128AFC0036F525 /* tabbar_info_normal_fix@2x.png */; };
 		70B429E01D128AFC0036F525 /* tabbar_info_normal_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429D11D128AFC0036F525 /* tabbar_info_normal_fix.png */; };
+		70B429E41D17D9190036F525 /* question_right_barbuttonitem@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429E11D17D9190036F525 /* question_right_barbuttonitem@3x.png */; };
+		70B429E51D17D9190036F525 /* question_right_barbuttonitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429E21D17D9190036F525 /* question_right_barbuttonitem@2x.png */; };
+		70B429E61D17D9190036F525 /* question_right_barbuttonitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429E31D17D9190036F525 /* question_right_barbuttonitem.png */; };
 		70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */; };
 		70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */; };
 		70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */; };
@@ -1246,6 +1249,9 @@
 		70B429CF1D128AFC0036F525 /* tabbar_info_normal_fix@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_info_normal_fix@3x.png"; sourceTree = "<group>"; };
 		70B429D01D128AFC0036F525 /* tabbar_info_normal_fix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_info_normal_fix@2x.png"; sourceTree = "<group>"; };
 		70B429D11D128AFC0036F525 /* tabbar_info_normal_fix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_info_normal_fix.png; sourceTree = "<group>"; };
+		70B429E11D17D9190036F525 /* question_right_barbuttonitem@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_right_barbuttonitem@3x.png"; sourceTree = "<group>"; };
+		70B429E21D17D9190036F525 /* question_right_barbuttonitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_right_barbuttonitem@2x.png"; sourceTree = "<group>"; };
+		70B429E31D17D9190036F525 /* question_right_barbuttonitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_right_barbuttonitem.png; sourceTree = "<group>"; };
 		70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFixViewController.h; sourceTree = "<group>"; };
 		70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFixViewController.m; sourceTree = "<group>"; };
 		70B4EA6D1CCB57F000141E38 /* TestResultListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultListViewController.h; sourceTree = "<group>"; };
@@ -1840,6 +1846,9 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70B429E11D17D9190036F525 /* question_right_barbuttonitem@3x.png */,
+				70B429E21D17D9190036F525 /* question_right_barbuttonitem@2x.png */,
+				70B429E31D17D9190036F525 /* question_right_barbuttonitem.png */,
 				70B429C31D128AFC0036F525 /* tabbar_question_normal@3x.png */,
 				70B429C41D128AFC0036F525 /* tabbar_question_normal@2x.png */,
 				70B429C51D128AFC0036F525 /* tabbar_question_normal.png */,
@@ -3174,6 +3183,7 @@
 				7002D8641CACC19F0074426A /* info_clinic_schedule_coupon_button.png in Resources */,
 				708103681CEB8BDF009BC871 /* info_health_dish_comment_button_normal.png in Resources */,
 				7046AC781C974C9F00BB6818 /* PersonTableCell.xib in Resources */,
+				70B429E41D17D9190036F525 /* question_right_barbuttonitem@3x.png in Resources */,
 				708275981CFFF9D00016AE3C /* mine_headview_more@3x.png in Resources */,
 				708275131CFC13A90016AE3C /* cell_person_more_button@3x.png in Resources */,
 				708275BA1CFFFCDD0016AE3C /* info_coupon_pink_back_image@3x.png in Resources */,
@@ -3194,6 +3204,7 @@
 				708275FD1D0004930016AE3C /* info_clinic_schedule_unbookable_button@2x.png in Resources */,
 				7082760D1D00073D0016AE3C /* info_treatment_unselected_button@2x.png in Resources */,
 				705EF7F21CBC947600732886 /* mine_orderstatus_reserved.png in Resources */,
+				70B429E61D17D9190036F525 /* question_right_barbuttonitem.png in Resources */,
 				7046ADBB1CA0F8B400BB6818 /* info_scrollview3.png in Resources */,
 				7002D86F1CB3BBBF0074426A /* info_treatment_confirm_selected.png in Resources */,
 				703150F51D0FA0290056CA5D /* info_expert_xiangxia_image_fix@3x.png in Resources */,
@@ -3297,6 +3308,7 @@
 				7002D8721CB3BBBF0074426A /* info_treatment_unselected_button.png in Resources */,
 				7046AD331C97E5D700BB6818 /* tabbar_test_selected.png in Resources */,
 				7046AD261C97E5D700BB6818 /* guideview3.jpg in Resources */,
+				70B429E51D17D9190036F525 /* question_right_barbuttonitem@2x.png in Resources */,
 				7046AD1F1C97E5D700BB6818 /* cell_person_songshihua_button.png in Resources */,
 				7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */,
 				708276001D0004930016AE3C /* info_clinic_expert_title_image@3x.png in Resources */,

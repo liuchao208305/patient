@@ -12,12 +12,6 @@
 @implementation QuestionViewController
 
 #pragma mark Life Circle
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    
-    [AnalyticUtil UMBeginLogPageView:@"QuestionViewController"];
-}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -27,8 +21,14 @@
     [self initRecognizer];
 }
 
--(void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [AnalyticUtil UMBeginLogPageView:@"QuestionViewController"];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -37,12 +37,57 @@
     [AnalyticUtil UMEndLogPageView:@"QuestionViewController"];
 }
 
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark Lazy Loading
+-(void)lazyLoading{
+    
+}
+
 #pragma mark Init Section
 -(void)initNavBar{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
 //    self.title = @"问答";
 //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"我的问答",@"其他问答",nil];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+    segmentedControl.frame = CGRectMake(0, 0, 156, 32);
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.tintColor = kWHITE_COLOR;
+    [segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = segmentedControl;
     
+    self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-112, 0, 16+4+80+12, 30)];
+    
+    self.questionImage = [[UIImageView alloc] init];
+    self.questionImage.layer.cornerRadius = 8;
+    [self.questionImage setImage:[UIImage imageNamed:@"question_right_barbuttonitem"]];
+    [self.questionView addSubview:self.questionImage];
+    
+    self.questionLabel = [[UILabel alloc] init];
+    self.questionLabel.text = @"提问";
+    self.questionLabel.textColor = kWHITE_COLOR;
+    self.questionLabel.textAlignment = NSTextAlignmentRight;
+    [self.questionView addSubview:self.questionLabel];
+    
+    [self.questionImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.questionLabel).offset(-35-4);
+        make.centerY.equalTo(self.questionView).offset(0);
+        make.width.mas_equalTo(16);
+        make.height.mas_equalTo(16);
+    }];
+    
+    [self.questionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.questionView).offset(0);
+        make.centerY.equalTo(self.questionView).offset(0);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(15);
+    }];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.questionView];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
 }
 
 -(void)initTabBar{
@@ -94,7 +139,35 @@
 }
 
 -(void)initRecognizer{
-    
+    self.questionView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *questionViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(questionViewClicked)];
+    [self.questionView addGestureRecognizer:questionViewTap];
 }
+
+#pragma mark Target Action
+-(void)questionViewClicked{
+    DLog(@"questionViewClicked");
+}
+
+-(void)segmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark Network Request
+
+#pragma mark Data Parse
+
+
 
 @end

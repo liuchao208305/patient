@@ -14,4 +14,8 @@
 //@property (strong,nonatomic)UILabel *tempLabel1;
 //@property (strong,nonatomic)UILabel *tempLabel2;
 
+@property (strong,nonatomic)UIView *questionView;
+@property (strong,nonatomic)UILabel *questionLabel;
+@property (strong,nonatomic)UIImageView *questionImage;
+
 @end
