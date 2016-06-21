@@ -784,49 +784,49 @@
     }
     scrollView.imageURLStringsGroup = self.adImageArray;
     
-    self.guominId1 = [[self.data objectForKey:@"spcial"] objectForKey:@"disease_id"];
-    self.guominId2 = [[self.data objectForKey:@"spcial"] objectForKey:@"case_id"];
-    self.guominLabel1 = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
-    self.guominImage = [[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"];
-    
-    self.laotouId = [[self.data objectForKey:@"templates"] objectForKey:@"template_id"];
-    self.laotouLabel1 = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
-    self.laotouImage = [[self.data objectForKey:@"templates"] objectForKey:@"cover_url"];
-    
-    self.diseaseArray = [DiseaseData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"departs"]];
-    for (DiseaseData *diseaseData in self.diseaseArray) {
-        [self.diseaseIdArray addObject:diseaseData.depart_id];
-        [self.diseaseImageArray addObject:diseaseData.depart_url];
-        [self.diseaseLabelArray addObject:diseaseData.depart_name];
-    }
-    self.keshiId1 = self.diseaseIdArray[0];
-    self.keshiLabel1 = self.diseaseLabelArray[0];
-    self.keshiImage1 = self.diseaseImageArray[0];
-    self.keshiId2 = self.diseaseIdArray[1];
-    self.keshiLabel2 = self.diseaseLabelArray[1];
-    self.keshiImage2 = self.diseaseImageArray[1];
-    self.keshiId3 = self.diseaseIdArray[2];
-    self.keshiLabel3 = self.diseaseLabelArray[2];
-    self.keshiImage3 = self.diseaseImageArray[2];
-    self.keshiId4 = self.diseaseIdArray[3];
-    self.keshiLabel4 = self.diseaseLabelArray[3];
-    self.keshiImage4 = self.diseaseImageArray[3];
-    
-    self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"cook_id"];
-    self.healthName = [[self.data objectForKey:@"cooks"][0] objectForKey:@"NAME"];
-    self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
-    self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"TYPE"];
-    
-    self.healthArray = [HealthData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"cooks"]];
-    for (HealthData *healthData in self.healthArray) {
-        [self.healthTypeArray addObject:[NullUtil judgeStringNull:healthData.TYPE]];
-        [self.healthIdArray addObject:[NullUtil judgeStringNull:healthData.cook_id]];
-        if (self.healthImageArray.count < 3) {
-            [self.healthImageArray addObject:[NullUtil judgeStringNull:healthData.photoUrl]];
-        }
-        [self.healthNameArray addObject:[NullUtil judgeStringNull:healthData.NAME]];
-        [self.healthSeasonArray addObject:[NullUtil judgeStringNull:healthData.season]];
-    }
+//    self.guominId1 = [[self.data objectForKey:@"spcial"] objectForKey:@"disease_id"];
+//    self.guominId2 = [[self.data objectForKey:@"spcial"] objectForKey:@"case_id"];
+//    self.guominLabel1 = [[self.data objectForKey:@"spcial"] objectForKey:@"name"];
+//    self.guominImage = [[self.data objectForKey:@"spcial"] objectForKey:@"cover_url"];
+//    
+//    self.laotouId = [[self.data objectForKey:@"templates"] objectForKey:@"template_id"];
+//    self.laotouLabel1 = [[self.data objectForKey:@"templates"] objectForKey:@"name"];
+//    self.laotouImage = [[self.data objectForKey:@"templates"] objectForKey:@"cover_url"];
+//    
+//    self.diseaseArray = [DiseaseData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"departs"]];
+//    for (DiseaseData *diseaseData in self.diseaseArray) {
+//        [self.diseaseIdArray addObject:diseaseData.depart_id];
+//        [self.diseaseImageArray addObject:diseaseData.depart_url];
+//        [self.diseaseLabelArray addObject:diseaseData.depart_name];
+//    }
+//    self.keshiId1 = self.diseaseIdArray[0];
+//    self.keshiLabel1 = self.diseaseLabelArray[0];
+//    self.keshiImage1 = self.diseaseImageArray[0];
+//    self.keshiId2 = self.diseaseIdArray[1];
+//    self.keshiLabel2 = self.diseaseLabelArray[1];
+//    self.keshiImage2 = self.diseaseImageArray[1];
+//    self.keshiId3 = self.diseaseIdArray[2];
+//    self.keshiLabel3 = self.diseaseLabelArray[2];
+//    self.keshiImage3 = self.diseaseImageArray[2];
+//    self.keshiId4 = self.diseaseIdArray[3];
+//    self.keshiLabel4 = self.diseaseLabelArray[3];
+//    self.keshiImage4 = self.diseaseImageArray[3];
+//    
+//    self.healthId = [[self.data objectForKey:@"cooks"][0] objectForKey:@"cook_id"];
+//    self.healthName = [[self.data objectForKey:@"cooks"][0] objectForKey:@"NAME"];
+//    self.healthImage = [[self.data objectForKey:@"cooks"][0] objectForKey:@"photoUrl"];
+//    self.healthType = [[self.data objectForKey:@"cooks"][0] integerForKey:@"TYPE"];
+//    
+//    self.healthArray = [HealthData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"cooks"]];
+//    for (HealthData *healthData in self.healthArray) {
+//        [self.healthTypeArray addObject:[NullUtil judgeStringNull:healthData.TYPE]];
+//        [self.healthIdArray addObject:[NullUtil judgeStringNull:healthData.cook_id]];
+//        if (self.healthImageArray.count < 3) {
+//            [self.healthImageArray addObject:[NullUtil judgeStringNull:healthData.photoUrl]];
+//        }
+//        [self.healthNameArray addObject:[NullUtil judgeStringNull:healthData.NAME]];
+//        [self.healthSeasonArray addObject:[NullUtil judgeStringNull:healthData.season]];
+//    }
     
     self.studioId = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgId"];
     self.studioBrief = [[self.data objectForKey:@"doctorOrg"] objectForKey:@"orgBrief"];
