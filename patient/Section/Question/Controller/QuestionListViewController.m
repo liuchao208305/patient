@@ -12,6 +12,7 @@
 #import "NullUtil.h"
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
+#import "StringUtil.h"
 #import "LoginViewController.h"
 #import "QuestionListData.h"
 #import "QuestionListTableCell.h"
@@ -65,6 +66,7 @@
     self.flag1 = YES;
     self.flag2 = NO;
     
+    self.segmentedControl.selectedSegmentIndex = 0;
     [self initSubView1];
     [self sendQuestionCheckRequest1];
 }
@@ -85,7 +87,31 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+    self.questionMineArray = [NSMutableArray array];
+    self.questionIdMineArray = [NSMutableArray array];
+    self.questionStatusMineArray = [NSMutableArray array];
+    self.questionPublicStatusMineArray = [NSMutableArray array];
+    self.questionContentMineArray = [NSMutableArray array];
+    self.questionExpertNameMineArray = [NSMutableArray array];
+    self.questionExpertUnitMineArray = [NSMutableArray array];
+    self.questionExpertTitleMineArray = [NSMutableArray array];
+    self.questionExpertImageMineArray = [NSMutableArray array];
+    self.questionExpertSoundMineArray = [NSMutableArray array];
+    self.questionAudienceNumberMineArray = [NSMutableArray array];
+    self.questionPayStatusMineArray = [NSMutableArray array];
     
+    self.questionOtherArray = [NSMutableArray array];
+    self.questionIdOtherArray = [NSMutableArray array];
+    self.questionStatusOtherArray = [NSMutableArray array];
+    self.questionPublicStatusOtherArray = [NSMutableArray array];
+    self.questionContentOtherArray = [NSMutableArray array];
+    self.questionExpertNameOtherArray = [NSMutableArray array];
+    self.questionExpertUnitOtherArray = [NSMutableArray array];
+    self.questionExpertTitleOtherArray = [NSMutableArray array];
+    self.questionExpertImageOtherArray = [NSMutableArray array];
+    self.questionExpertSoundOtherArray = [NSMutableArray array];
+    self.questionAudienceNumberOtherArray = [NSMutableArray array];
+    self.questionPayStatusOtherArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -94,12 +120,12 @@
 //    self.title = @"问答";
 //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"我的问答",@"其他问答",nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
-    segmentedControl.frame = CGRectMake(0, 0, 156, 32);
-    segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = kWHITE_COLOR;
-    [segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = segmentedControl;
+    self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+    self.segmentedControl.frame = CGRectMake(0, 0, 156, 32);
+    self.segmentedControl.selectedSegmentIndex = 0;
+    self.segmentedControl.tintColor = kWHITE_COLOR;
+    [self.segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = self.segmentedControl;
     
     self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-112, 0, 16+4+80+12, 30)];
     
@@ -215,7 +241,12 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 10;
+    if (self.flag1) {
+        return self.questionMineArray.count == 0 ? 0 : self.questionMineArray.count;
+    }else if (self.flag2){
+        return self.questionOtherArray.count == 0 ? 0 : self.questionOtherArray.count;
+    }
+    return 0;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -223,7 +254,13 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 190;
+//    return 190;
+    if (self.flag1) {
+        
+    }else if (self.flag2){
+        return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]*2+15+15+60+15+12+15;
+    }
+    return 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -242,23 +279,38 @@
             cell = [[QuestionListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.contentLabel.text = @"昨天去游泳了，时间可能有点长，大概有三个小时，今天大腿内前侧酸痛，走路都有些不是太方便，怎么减轻酸痛？";
-        [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
-        
-        cell.expertLabel.text = @"有卫平 ｜ 省立同德 主任中医师";
-        [cell.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.expertSoundImageView setImage:[UIImage imageNamed:@"info_person_mr_record_image"]];
-        cell.expertSoundLengthLabel.text = @"43''";
-        cell.audienceNumberLabel.text = @"999人已听";
-        
-//        cell.payStatusLabel.text = @"test";
-//        [cell.deleteButton setTitle:@"test" forState:UIControlStateNormal];
-//        [cell.deleteButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-//        [cell.confirmButton setTitle:@"test" forState:UIControlStateNormal];
-//        [cell.confirmButton setTitleColor:kBLACK_COLOR forState:UIControlStateNormal];
-        cell.payStatusLabel.hidden = YES;
-        cell.deleteButton.hidden = YES;
-        cell.confirmButton.hidden = YES;
+        if (self.questionMineArray.count > 0) {
+            cell.contentLabel.text = self.questionContentMineArray[indexPath.section];
+            if ([self.questionPublicStatusMineArray[indexPath.section] intValue] == 1) {
+                [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+            }else{
+                cell.publicImageView.hidden = YES;
+            }
+            
+            cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameMineArray[indexPath.section],self.questionExpertUnitMineArray[indexPath.section],self.questionExpertTitleMineArray[indexPath.section]];
+            [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageMineArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+            [cell.expertSoundImageView setImage:[UIImage imageNamed:@"info_person_mr_record_image"]];
+            cell.expertSoundLengthLabel.text = @"43''";
+            cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberMineArray[indexPath.section]];
+            
+            if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
+                cell.payStatusLabel.text = @"待支付";
+                [cell.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
+                [cell.deleteButton setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
+                [cell.deleteButton setBackgroundColor:kWHITE_COLOR];
+                cell.deleteButton.layer.cornerRadius = 3;
+                cell.deleteButton.layer.borderWidth = 1;
+                cell.deleteButton.layer.borderColor = ColorWithHexRGB(0x909090).CGColor;
+                [cell.confirmButton setTitle:@"立即支付" forState:UIControlStateNormal];
+                [cell.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+                [cell.confirmButton setBackgroundColor:kMAIN_COLOR];
+                cell.confirmButton.layer.cornerRadius = 5;
+            }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
+                cell.payStatusLabel.hidden = YES;
+                cell.deleteButton.hidden = YES;
+                cell.confirmButton.hidden = YES;
+            }
+        }
         
         return cell;
     }else if (self.flag2){
@@ -268,31 +320,25 @@
             cell = [[QuestionListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.contentLabel.text = @"昨天去游泳了，时间可能有点长，大概有三个小时，今天大腿内前侧酸痛，走路都有些不是太方便，怎么减轻酸痛？";
-        [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
-        
-//        cell.expertLabel.text = @"test";
-//        [cell.expertImageView setImage:[UIImage imageNamed:@"default_image_small"]];
-//        [cell.expertSoundImageView setImage:[UIImage imageNamed:@"default_image_small"]];
-//        cell.expertSoundLengthLabel.text = @"test";
-//        cell.audienceNumberLabel.text = @"test";
-        cell.expertLabel.hidden = YES;
-        cell.expertImageView.hidden = YES;
-        cell.expertSoundImageView.hidden = YES;
-        cell.expertSoundLengthLabel.hidden = YES;
-        cell.audienceNumberLabel.hidden = YES;
-        
-        cell.payStatusLabel.text = @"待支付";
-        [cell.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
-        [cell.deleteButton setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
-        [cell.deleteButton setBackgroundColor:kWHITE_COLOR];
-        cell.deleteButton.layer.cornerRadius = 3;
-        cell.deleteButton.layer.borderWidth = 1;
-        cell.deleteButton.layer.borderColor = ColorWithHexRGB(0x909090).CGColor;
-        [cell.confirmButton setTitle:@"立即支付" forState:UIControlStateNormal];
-        [cell.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-        [cell.confirmButton setBackgroundColor:kMAIN_COLOR];
-        cell.confirmButton.layer.cornerRadius = 5;
+        if (self.questionOtherArray.count > 0) {
+            cell.contentLabel.text = self.questionContentOtherArray[indexPath.section];
+            
+            cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameOtherArray[indexPath.section],self.questionExpertUnitOtherArray[indexPath.section],self.questionExpertTitleOtherArray[indexPath.section]];
+            [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageOtherArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+            
+            if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 1) {
+                
+            }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 2){
+                
+            }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 3){
+                
+            }
+            
+            cell.expertSoundImageView.hidden = YES;
+            cell.expertSoundLengthLabel.hidden = YES;
+            
+            cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberOtherArray[indexPath.section]];
+        }
         
         return cell;
     }
@@ -415,10 +461,70 @@
 #pragma mark Data Parse
 -(void)questionCheckDataParse1{
     DLog(@"questionCheckDataParse1");
+    self.questionMineArray = [QuestionListData mj_objectArrayWithKeyValuesArray:self.data1];
+    [self.questionIdMineArray removeAllObjects];
+    [self.questionStatusMineArray removeAllObjects];
+    [self.questionPublicStatusMineArray removeAllObjects];
+    [self.questionContentMineArray removeAllObjects];
+    [self.questionExpertNameMineArray removeAllObjects];
+    [self.questionExpertUnitMineArray removeAllObjects];
+    [self.questionExpertTitleMineArray removeAllObjects];
+    [self.questionExpertImageMineArray removeAllObjects];
+    [self.questionExpertSoundMineArray removeAllObjects];
+    [self.questionAudienceNumberMineArray removeAllObjects];
+    [self.questionPayStatusMineArray removeAllObjects];
+    for (QuestionListData *questionListData in self.questionMineArray) {
+        [self.questionIdMineArray addObject:[NullUtil judgeStringNull:questionListData.interloution_id]];
+        [self.questionStatusMineArray addObject:[NullUtil judgeStringNull:questionListData.status]];
+        [self.questionPublicStatusMineArray addObject:[NullUtil judgeStringNull:questionListData.is_public]];
+        [self.questionContentMineArray addObject:[NullUtil judgeStringNull:questionListData.content]];
+        [self.questionExpertNameMineArray addObject:[NullUtil judgeStringNull:questionListData.doctor_name]];
+        [self.questionExpertUnitMineArray addObject:[NullUtil judgeStringNull:questionListData.company]];
+        [self.questionExpertTitleMineArray addObject:[NullUtil judgeStringNull:questionListData.title_name]];
+        [self.questionExpertImageMineArray addObject:[NullUtil judgeStringNull:questionListData.heand_url]];
+        [self.questionExpertSoundMineArray addObject:[NullUtil judgeStringNull:questionListData.video_url]];
+        [self.questionAudienceNumberMineArray addObject:[NullUtil judgeStringNull:questionListData.num_no]];
+        [self.questionPayStatusMineArray addObject:[NullUtil judgeStringNull:questionListData.pay_status]];
+    }
+    
+    [self.tableView1 reloadData];
+    
+    [self.tableView1.mj_header endRefreshing];
+    [self.tableView1.mj_footer endRefreshing];
 }
 
 -(void)questionCheckDataParse2{
     DLog(@"questionCheckDataParse2");
+    self.questionOtherArray = [QuestionListData mj_objectArrayWithKeyValuesArray:self.data2];
+    [self.questionIdOtherArray removeAllObjects];
+    [self.questionStatusOtherArray removeAllObjects];
+    [self.questionPublicStatusOtherArray removeAllObjects];
+    [self.questionContentOtherArray removeAllObjects];
+    [self.questionExpertNameOtherArray removeAllObjects];
+    [self.questionExpertUnitOtherArray removeAllObjects];
+    [self.questionExpertTitleOtherArray removeAllObjects];
+    [self.questionExpertImageOtherArray removeAllObjects];
+    [self.questionExpertSoundOtherArray removeAllObjects];
+    [self.questionAudienceNumberOtherArray removeAllObjects];
+    [self.questionPayStatusOtherArray removeAllObjects];
+    for (QuestionListData *questionListData in self.questionOtherArray) {
+        [self.questionIdOtherArray addObject:[NullUtil judgeStringNull:questionListData.interloution_id]];
+        [self.questionStatusOtherArray addObject:[NullUtil judgeStringNull:questionListData.status]];
+        [self.questionPublicStatusOtherArray addObject:[NullUtil judgeStringNull:questionListData.is_public]];
+        [self.questionContentOtherArray addObject:[NullUtil judgeStringNull:questionListData.content]];
+        [self.questionExpertNameOtherArray addObject:[NullUtil judgeStringNull:questionListData.doctor_name]];
+        [self.questionExpertUnitOtherArray addObject:[NullUtil judgeStringNull:questionListData.company]];
+        [self.questionExpertTitleOtherArray addObject:[NullUtil judgeStringNull:questionListData.title_name]];
+        [self.questionExpertImageOtherArray addObject:[NullUtil judgeStringNull:questionListData.heand_url]];
+        [self.questionExpertSoundOtherArray addObject:[NullUtil judgeStringNull:questionListData.video_url]];
+        [self.questionAudienceNumberOtherArray addObject:[NullUtil judgeStringNull:questionListData.num_no]];
+        [self.questionPayStatusOtherArray addObject:[NullUtil judgeStringNull:questionListData.is_pay]];
+    }
+    
+    [self.tableView2 reloadData];
+    
+    [self.tableView2.mj_header endRefreshing];
+    [self.tableView2.mj_footer endRefreshing];
 }
 
 @end

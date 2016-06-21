@@ -10,7 +10,7 @@
 
 @interface QuestionListData : NSObject
 
-//@property (strong,nonatomic)NSString *id;
+@property (strong,nonatomic)NSString *interloution_id;
 @property (strong,nonatomic)NSString *content;
 @property (strong,nonatomic)NSString *doctor_name;
 @property (strong,nonatomic)NSString *answerContent;
@@ -22,5 +22,7 @@
 @property (strong,nonatomic)NSString *heand_url;
 @property (strong,nonatomic)NSString *pay_status;
 @property (strong,nonatomic)NSString *title_name;
+@property (strong,nonatomic)NSString *is_pay;
+@property (strong,nonatomic)NSString *st_money;
 
 @end
