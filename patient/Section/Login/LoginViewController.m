@@ -793,12 +793,13 @@
 }
 
 #pragma mark LoginDelegate
--(void)loginSuccess:(NSString *)token{
+-(void)loginSuccess:(NSString *)token userId:(NSString *)userId{
     DLog(@"登录成功回调！");
     
     [CommonUtil changeIsLoginSuccess:YES];
     
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] setValue:userId forKey:kJZK_userId];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

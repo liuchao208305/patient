@@ -317,6 +317,7 @@
 -(void)sendQuestionCheckRequest1{
     DLog(@"sendQuestionCheckRequest1");
     
+    self.currentPage1 = 1;
     self.pageSize1 += 10;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -328,11 +329,11 @@
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage1] forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_QUESTION_LIST_MINE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_LIST_MINE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_QUESTION_LIST_MINE_INFORMATION);
+        DLog(@"%@%@",kServerAddressPay,kJZK_QUESTION_LIST_MINE_INFORMATION);
         DLog(@"responseObject-->%@",responseObject);
         self.result1 = (NSMutableDictionary *)responseObject;
         
@@ -365,6 +366,7 @@
 -(void)sendQuestionCheckRequest2{
     DLog(@"sendQuestionCheckRequest2");
     
+    self.currentPage2 = 1;
     self.pageSize2 += 10;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -376,11 +378,11 @@
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage2] forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_QUESTION_LIST_OTHER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_LIST_OTHER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_COUPON_INFORMATION);
+        DLog(@"%@%@",kServerAddressPay,kJZK_QUESTION_LIST_OTHER_INFORMATION);
         DLog(@"responseObject-->%@",responseObject);
         self.result2 = (NSMutableDictionary *)responseObject;
         
