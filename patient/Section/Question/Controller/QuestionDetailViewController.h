@@ -10,4 +10,6 @@
 
 @interface QuestionDetailViewController : BaseViewController
 
+@property (strong,nonatomic)UITableView *tableView;
+
 @end

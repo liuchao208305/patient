@@ -141,7 +141,7 @@
 }
 
 -(void)initSubView1{
-    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT-TAB_BAR_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
     self.tableView1.showsVerticalScrollIndicator = YES;
@@ -159,7 +159,7 @@
 }
 
 -(void)initSubView2{
-    self.tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT-TAB_BAR_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView2.delegate = self;
     self.tableView2.dataSource = self;
     self.tableView2.showsVerticalScrollIndicator = YES;
