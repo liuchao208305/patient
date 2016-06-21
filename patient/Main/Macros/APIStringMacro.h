@@ -15,12 +15,12 @@
 //#define kServerAddress     @"http://192.168.5.46:83/jiuzhekan_http/"// 内网测试地址－秦兵
 //#define kServerAddressPay   @"http://192.168.5.46:83/jiuzhekan_pay/"//外网测试地址—秦兵－支付
 //#define kServerAddress     @"http://192.168.5.102:83/jiuzhekan_http/"// 内网测试地址－欧日广
-#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"// 外网测试地址
-#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网测试地址—支付
+#define kServerAddress     @"http://101.68.79.26:84/jiuzhekan_http/"// 外网测试地址
+#define kServerAddressPay   @"http://101.68.79.26:84/jiuzhekan_pay/"//外网测试地址—支付
 #else
 //Release状态下的线上API
-#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"//外网上线地址
-#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网上线地址—支付
+#define kServerAddress     @"http://101.68.79.26:84/jiuzhekan_http/"//外网上线地址
+#define kServerAddressPay   @"http://101.68.79.26:84/jiuzhekan_pay/"//外网上线地址—支付
 #endif
 
 #define	kCODE	    @"code"
