@@ -15,6 +15,8 @@
 #import "LoginViewController.h"
 #import "QuestionListData.h"
 #import "QuestionListTableCell.h"
+#import "QuestionDetailViewController.h"
+#import "QuestionInquiryViewController.h"
 
 @interface QuestionListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -43,6 +45,11 @@
 #pragma mark Life Circle
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    self.view.backgroundColor = kBACKGROUND_COLOR;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self lazyLoading];
     
     [self initNavBar];
     [self initTabBar];
@@ -178,6 +185,9 @@
 #pragma mark Target Action
 -(void)questionViewClicked{
     DLog(@"questionViewClicked");
+    QuestionInquiryViewController *inquiryVC = [[QuestionInquiryViewController alloc] init];
+    inquiryVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:inquiryVC animated:YES];
 }
 
 -(void)segmentAction:(UISegmentedControl *)Seg{
@@ -291,10 +301,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        
+        QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
+        detailVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
-        
+        QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
+        detailVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }
 }

@@ -468,6 +468,8 @@
 		70B429F61D1809E10036F525 /* question_list_public_flag_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429F31D1809E10036F525 /* question_list_public_flag_image@3x.png */; };
 		70B429F71D1809E10036F525 /* question_list_public_flag_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429F41D1809E10036F525 /* question_list_public_flag_image@2x.png */; };
 		70B429F81D1809E10036F525 /* question_list_public_flag_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B429F51D1809E10036F525 /* question_list_public_flag_image.png */; };
+		70B429FB1D18E0CB0036F525 /* QuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B429FA1D18E0CB0036F525 /* QuestionDetailViewController.m */; };
+		70B429FE1D18E1220036F525 /* QuestionInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B429FD1D18E1220036F525 /* QuestionInquiryViewController.m */; };
 		70B4EA6C1CC9AF8D00141E38 /* TestFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */; };
 		70B4EA6F1CCB57F000141E38 /* TestResultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA6E1CCB57F000141E38 /* TestResultListViewController.m */; };
 		70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B4EA711CCB580E00141E38 /* TestResultDetailViewController.m */; };
@@ -1264,6 +1266,10 @@
 		70B429F31D1809E10036F525 /* question_list_public_flag_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_public_flag_image@3x.png"; sourceTree = "<group>"; };
 		70B429F41D1809E10036F525 /* question_list_public_flag_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_public_flag_image@2x.png"; sourceTree = "<group>"; };
 		70B429F51D1809E10036F525 /* question_list_public_flag_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_list_public_flag_image.png; sourceTree = "<group>"; };
+		70B429F91D18E0CB0036F525 /* QuestionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailViewController.h; sourceTree = "<group>"; };
+		70B429FA1D18E0CB0036F525 /* QuestionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailViewController.m; sourceTree = "<group>"; };
+		70B429FC1D18E1220036F525 /* QuestionInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInquiryViewController.h; sourceTree = "<group>"; };
+		70B429FD1D18E1220036F525 /* QuestionInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInquiryViewController.m; sourceTree = "<group>"; };
 		70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFixViewController.h; sourceTree = "<group>"; };
 		70B4EA6B1CC9AF8D00141E38 /* TestFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFixViewController.m; sourceTree = "<group>"; };
 		70B4EA6D1CCB57F000141E38 /* TestResultListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultListViewController.h; sourceTree = "<group>"; };
@@ -2923,6 +2929,10 @@
 			children = (
 				70B429C01D12898B0036F525 /* QuestionListViewController.h */,
 				70B429C11D12898B0036F525 /* QuestionListViewController.m */,
+				70B429F91D18E0CB0036F525 /* QuestionDetailViewController.h */,
+				70B429FA1D18E0CB0036F525 /* QuestionDetailViewController.m */,
+				70B429FC1D18E1220036F525 /* QuestionInquiryViewController.h */,
+				70B429FD1D18E1220036F525 /* QuestionInquiryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3581,6 +3591,7 @@
 				70FEADF71CAA2768006A044A /* TreatmentFinishViewController.m in Sources */,
 				70B4EB161CD871B900141E38 /* MRTigeTableCell.m in Sources */,
 				70B4EAE01CD8701000141E38 /* MRZhusuTableCell.m in Sources */,
+				70B429FB1D18E0CB0036F525 /* QuestionDetailViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70FD8E5F1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m in Sources */,
 				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
@@ -3752,6 +3763,7 @@
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
+				70B429FE1D18E1220036F525 /* QuestionInquiryViewController.m in Sources */,
 				70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */,
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
 				708274BE1CF7E67F0016AE3C /* RDXiyiTableCell.m in Sources */,
