@@ -17,7 +17,7 @@
 @property (strong,nonatomic)UIScrollView *scrollView;
 
 @property (strong,nonatomic)UIView *expertBackView;
-@property (strong,nonatomic)UIView *expertImageView;
+@property (strong,nonatomic)UIImageView *expertImageView;
 @property (strong,nonatomic)UILabel *expertNameLabel;
 @property (strong,nonatomic)UILabel *expertTitleLabel;
 @property (strong,nonatomic)UILabel *expertMoneyLabel;

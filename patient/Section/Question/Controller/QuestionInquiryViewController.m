@@ -24,7 +24,15 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (strong,nonatomic)NSString *doctor_id;
+@property (strong,nonatomic)NSString *heand_url;
+@property (strong,nonatomic)NSString *doctor_name;
+@property (strong,nonatomic)NSString *titleName;
+@property (assign,nonatomic)double consultation_money;
+@property (strong,nonatomic)NSString *doctor_descr;
+
 @property (assign,nonatomic)double avgMoney;
+
 @property (strong,nonatomic)NSString *rebatePay;
 
 @end
@@ -100,10 +108,12 @@
     if (self.isForSpecialDoctor) {
         self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, 110)];
         self.expertBackView.backgroundColor = kWHITE_COLOR;
+        [self initExpertSubView];
         [self.scrollView addSubview:self.expertBackView];
         
         self.inquiryBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+110+16, SCREEN_WIDTH, SCREEN_HEIGHT)];
         self.inquiryBackView.backgroundColor = kWHITE_COLOR;
+        [self initInquirySubView];
         [self.scrollView addSubview:self.inquiryBackView];
     }else{
         self.inquiryBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*1.2)];
@@ -114,7 +124,54 @@
 }
 
 -(void)initExpertSubView{
+    self.expertImageView = [[UIImageView alloc] init];
+    self.expertImageView.layer.cornerRadius = 30;
+    [self.expertBackView addSubview:self.expertImageView];
     
+    self.expertNameLabel = [[UILabel alloc] init];
+    [self.expertBackView addSubview:self.expertNameLabel];
+    
+    self.expertTitleLabel = [[UILabel alloc] init];
+    self.expertTitleLabel.font = [UIFont systemFontOfSize:13];
+    self.expertTitleLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.expertBackView addSubview:self.expertTitleLabel];
+    
+    self.expertMoneyLabel = [[UILabel alloc] init];
+    [self.expertBackView addSubview:self.expertMoneyLabel];
+    
+    self.expertIntroductionLabel = [[UILabel alloc] init];
+    self.expertIntroductionLabel.textColor = ColorWithHexRGB(0x646464);
+    self.expertIntroductionLabel.numberOfLines = 0;
+    [self.expertBackView addSubview:self.expertIntroductionLabel];
+    
+    [self.expertImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertBackView).offset(12);
+        make.centerY.equalTo(self.expertBackView).offset(0);
+        make.width.mas_equalTo(60);
+        make.height.mas_equalTo(60);
+    }];
+    
+    [self.expertNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertImageView.mas_trailing).offset(10);
+        make.top.equalTo(self.expertImageView).offset(0);
+    }];
+    
+    [self.expertTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
+        make.centerY.equalTo(self.expertNameLabel).offset(0);
+    }];
+    
+    [self.expertMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.expertBackView).offset(-12);
+        make.centerY.equalTo(self.expertNameLabel).offset(0);
+    }];
+    
+    [self.expertIntroductionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(15);
+        make.leading.equalTo(self.expertNameLabel).offset(0);
+        make.trailing.equalTo(self.expertMoneyLabel).offset(0);
+        make.bottom.equalTo(self.expertBackView).offset(-15);
+    }];
 }
 
 -(void)initInquirySubView{
@@ -166,60 +223,64 @@
         make.height.mas_equalTo(22);
     }];
     
-    self.inquiryMoneyLabel1 = [[UILabel alloc] init];
-    self.inquiryMoneyLabel1.font = [UIFont systemFontOfSize:14];
-    self.inquiryMoneyLabel1.textColor = ColorWithHexRGB(0x646464);
-    self.inquiryMoneyLabel1.textAlignment = NSTextAlignmentCenter;
-    [self.inquiryBackView addSubview:self.inquiryMoneyLabel1];
-    
-    self.inquiryMoneyLabel2 = [[UILabel alloc] init];
-    self.inquiryMoneyLabel2.font = [UIFont systemFontOfSize:12];
-    self.inquiryMoneyLabel2.textColor = ColorWithHexRGB(0x909090);
-    self.inquiryMoneyLabel2.textAlignment = NSTextAlignmentCenter;
-    [self.inquiryBackView addSubview:self.inquiryMoneyLabel2];
-    
-    self.inquiryMoneyLabel3_1 = [[UILabel alloc] init];
-    self.inquiryMoneyLabel3_1.text = @"¥";
-    [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_1];
-    
-    self.inquiryMoneyTextField = [[UITextField alloc] init];
-    self.inquiryMoneyTextField.textAlignment = NSTextAlignmentCenter;
-    self.inquiryMoneyTextField.placeholder = @"_ _ _ _";
-    [self.inquiryBackView addSubview:self.inquiryMoneyTextField];
-    
-    self.inquiryMoneyLabel3_2 = [[UILabel alloc] init];
-    self.inquiryMoneyLabel3_2.text = @"元";
-    self.inquiryMoneyLabel3_2.font = [UIFont systemFontOfSize:12];
-    self.inquiryMoneyLabel3_2.textColor = ColorWithHexRGB(0x909090);
-    [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_2];
-    
-    [self.inquiryMoneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.inquiryAddButton.mas_bottom).offset(25);
-        make.centerX.equalTo(self.inquiryBackView).offset(0);
-        make.width.mas_equalTo(SCREEN_WIDTH);
-    }];
-    
-    [self.inquiryMoneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.inquiryMoneyLabel1.mas_bottom).offset(5);
-        make.centerX.equalTo(self.inquiryBackView).offset(0);
-        make.width.mas_equalTo(SCREEN_WIDTH);
-    }];
-    
-    [self.inquiryMoneyLabel3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.inquiryMoneyTextField.mas_leading).offset(-10);
-        make.centerY.equalTo(self.inquiryMoneyTextField).offset(0);
-    }];
-    
-    [self.inquiryMoneyTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.inquiryMoneyLabel2.mas_bottom).offset(10);
-        make.centerX.equalTo(self.inquiryBackView).offset(0);
-        make.width.mas_equalTo(50);
-    }];
-    
-    [self.inquiryMoneyLabel3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.inquiryMoneyTextField.mas_trailing).offset(10);
-        make.centerY.equalTo(self.inquiryMoneyTextField).offset(0);
-    }];
+    if (self.isForSpecialDoctor) {
+        
+    }else{
+        self.inquiryMoneyLabel1 = [[UILabel alloc] init];
+        self.inquiryMoneyLabel1.font = [UIFont systemFontOfSize:14];
+        self.inquiryMoneyLabel1.textColor = ColorWithHexRGB(0x646464);
+        self.inquiryMoneyLabel1.textAlignment = NSTextAlignmentCenter;
+        [self.inquiryBackView addSubview:self.inquiryMoneyLabel1];
+        
+        self.inquiryMoneyLabel2 = [[UILabel alloc] init];
+        self.inquiryMoneyLabel2.font = [UIFont systemFontOfSize:12];
+        self.inquiryMoneyLabel2.textColor = ColorWithHexRGB(0x909090);
+        self.inquiryMoneyLabel2.textAlignment = NSTextAlignmentCenter;
+        [self.inquiryBackView addSubview:self.inquiryMoneyLabel2];
+        
+        self.inquiryMoneyLabel3_1 = [[UILabel alloc] init];
+        self.inquiryMoneyLabel3_1.text = @"¥";
+        [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_1];
+        
+        self.inquiryMoneyTextField = [[UITextField alloc] init];
+        self.inquiryMoneyTextField.textAlignment = NSTextAlignmentCenter;
+        self.inquiryMoneyTextField.placeholder = @"_ _ _ _";
+        [self.inquiryBackView addSubview:self.inquiryMoneyTextField];
+        
+        self.inquiryMoneyLabel3_2 = [[UILabel alloc] init];
+        self.inquiryMoneyLabel3_2.text = @"元";
+        self.inquiryMoneyLabel3_2.font = [UIFont systemFontOfSize:12];
+        self.inquiryMoneyLabel3_2.textColor = ColorWithHexRGB(0x909090);
+        [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_2];
+        
+        [self.inquiryMoneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.inquiryAddButton.mas_bottom).offset(25);
+            make.centerX.equalTo(self.inquiryBackView).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+        }];
+        
+        [self.inquiryMoneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.inquiryMoneyLabel1.mas_bottom).offset(5);
+            make.centerX.equalTo(self.inquiryBackView).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+        }];
+        
+        [self.inquiryMoneyLabel3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.inquiryMoneyTextField.mas_leading).offset(-10);
+            make.centerY.equalTo(self.inquiryMoneyTextField).offset(0);
+        }];
+        
+        [self.inquiryMoneyTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.inquiryMoneyLabel2.mas_bottom).offset(10);
+            make.centerX.equalTo(self.inquiryBackView).offset(0);
+            make.width.mas_equalTo(50);
+        }];
+        
+        [self.inquiryMoneyLabel3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.inquiryMoneyTextField.mas_trailing).offset(10);
+            make.centerY.equalTo(self.inquiryMoneyTextField).offset(0);
+        }];
+    }
     
     self.publicButton = [[UIButton alloc] init];
     [self.inquiryBackView addSubview:self.publicButton];
@@ -235,12 +296,21 @@
     [self.confirmButton setBackgroundColor:kMAIN_COLOR];
     [self.inquiryBackView addSubview:self.confirmButton];
     
-    [self.publicButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.inquiryBackView).offset(12);
-        make.top.equalTo(self.inquiryMoneyTextField.mas_bottom).offset(25);
-        make.width.mas_equalTo(18);
-        make.height.mas_equalTo(18);
-    }];
+    if (self.isForSpecialDoctor) {
+        [self.publicButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.inquiryBackView).offset(12);
+            make.top.equalTo(self.inquiryAddButton.mas_bottom).offset(25);
+            make.width.mas_equalTo(18);
+            make.height.mas_equalTo(18);
+        }];
+    }else{
+        [self.publicButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.inquiryBackView).offset(12);
+            make.top.equalTo(self.inquiryMoneyTextField.mas_bottom).offset(25);
+            make.width.mas_equalTo(18);
+            make.height.mas_equalTo(18);
+        }];
+    }
     
     [self.publicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.publicButton.mas_trailing).offset(7);
@@ -337,6 +407,9 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    if (self.isForSpecialDoctor) {
+        [parameter setValue:self.expertId forKey:@"doctor_id"];
+    }
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_INQUIRY_ALL_INFROMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -375,7 +448,17 @@
 
 #pragma mark Data Parse
 -(void)sendQuesionInquiryDataParse{
-    self.avgMoney = [[self.data objectForKey:@"avgMoney"] doubleValue];
+    if (self.isForSpecialDoctor) {
+        self.doctor_id = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_id"]];
+        self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"heand_url"]];
+        self.doctor_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_name"]];
+        self.titleName = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"titleName"]];
+        self.consultation_money = [[[self.data objectForKey:@"doctorInfo"] objectForKey:@"titleName"] doubleValue];
+        self.doctor_descr = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_descr"]];
+    }else{
+        self.avgMoney = [[self.data objectForKey:@"avgMoney"] doubleValue];
+    }
+    
     self.rebatePay = [NullUtil judgeStringNull:[self.data objectForKey:@"rebatePay"]];
     
     [self sendQuesionInquiryDataFilling];
@@ -383,6 +466,12 @@
 
 #pragma mark Data Filling
 -(void)sendQuesionInquiryDataFilling{
+    [self.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.heand_url] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.expertNameLabel.text = self.doctor_name;
+    self.expertTitleLabel.text = self.titleName;
+    self.expertMoneyLabel.text = [NSString stringWithFormat:@"¥%.2f元",self.consultation_money];
+    self.expertIntroductionLabel.text = self.doctor_descr;
+    
     self.inquiryMoneyLabel1.text = @"该问题您计划使用多少钱进行提问";
     self.inquiryMoneyLabel2.text = [NSString stringWithFormat:@"其他用户平均使用%.2f元提问",self.avgMoney];
     
