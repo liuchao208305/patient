@@ -31,6 +31,11 @@
 @property (assign,nonatomic)double consultation_money;
 @property (strong,nonatomic)NSString *doctor_descr;
 
+@property (strong,nonatomic)NSString *a_history;
+@property (strong,nonatomic)NSString *b_history;
+@property (strong,nonatomic)NSString *c_history;
+@property (strong,nonatomic)NSString *d_history;
+
 @property (assign,nonatomic)double avgMoney;
 
 @property (strong,nonatomic)NSString *rebatePay;
@@ -356,6 +361,7 @@
 }
 
 -(void)confirmButtonClicked{
+    DLog(@"confirmButtonClicked");
     
 }
 
@@ -457,6 +463,13 @@
         self.doctor_descr = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_descr"]];
     }else{
         self.avgMoney = [[self.data objectForKey:@"avgMoney"] doubleValue];
+    }
+    
+    if (![self.data objectForKey:@"userHistor"]) {
+        self.a_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"a_history"]];
+        self.b_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"b_history"]];
+        self.c_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"c_history"]];
+        self.d_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"d_history"]];
     }
     
     self.rebatePay = [NullUtil judgeStringNull:[self.data objectForKey:@"rebatePay"]];
