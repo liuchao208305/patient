@@ -778,24 +778,24 @@
 //    DLog(@"%@",self.expertFlagNameArray);
 //    DLog(@"%@",self.expertFlagNumberArray);
     
-    self.expertFlagArray = [[NSMutableArray alloc] initWithCapacity:self.expertArray.count];
-    for (int i = 0; i < self.expertArray.count; i++) {
-        [self.expertFlagArray addObject:[self.data[i] objectForKey:@"flags"]];
-        DLog(@"%@",self.expertFlagArray[i]);
-        if ([self.expertFlagArray[i] isKindOfClass:[NSNull class]]) {
-            [self.expertFlagNameArray addObject:@""];
-            [self.expertFlagNumberArray addObject:@""];
-        }else{
-            DLog(@"%lu",(unsigned long)[self.expertFlagArray[i] count]);
-            for (int j = 0; j < [self.expertFlagArray[i] count] ; j++) {
-                DLog(@"%d",j);
-                [self.expertFlagNameArray addObject:[self.expertFlagArray[i][j] objectForKey:@"flag"]];
-                [self.expertFlagNumberArray addObject:[self.expertFlagArray[i][j] objectForKey:@"number"]];
-            }
-        }
-    }
-    DLog(@"%@",self.expertFlagNameArray);
-    DLog(@"%@",self.expertFlagNumberArray);
+//    self.expertFlagArray = [[NSMutableArray alloc] initWithCapacity:self.expertArray.count];
+//    for (int i = 0; i < self.expertArray.count; i++) {
+//        [self.expertFlagArray addObject:[self.data[i] objectForKey:@"flags"]];
+//        DLog(@"%@",self.expertFlagArray[i]);
+//        if ([self.expertFlagArray[i] isKindOfClass:[NSNull class]]) {
+//            [self.expertFlagNameArray addObject:@""];
+//            [self.expertFlagNumberArray addObject:@""];
+//        }else{
+//            DLog(@"%lu",(unsigned long)[self.expertFlagArray[i] count]);
+//            for (int j = 0; j < [self.expertFlagArray[i] count] ; j++) {
+//                DLog(@"%d",j);
+//                [self.expertFlagNameArray addObject:[self.expertFlagArray[i][j] objectForKey:@"flag"]];
+//                [self.expertFlagNumberArray addObject:[self.expertFlagArray[i][j] objectForKey:@"number"]];
+//            }
+//        }
+//    }
+//    DLog(@"%@",self.expertFlagNameArray);
+//    DLog(@"%@",self.expertFlagNumberArray);
     
     [self.tableView reloadData];
     
