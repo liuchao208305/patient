@@ -213,6 +213,7 @@
     DLog(@"questionViewClicked");
     QuestionInquiryViewController *inquiryVC = [[QuestionInquiryViewController alloc] init];
     inquiryVC.hidesBottomBarWhenPushed = YES;
+    inquiryVC.isForSpecialDoctor = NO;
     [self.navigationController pushViewController:inquiryVC animated:YES];
 }
 

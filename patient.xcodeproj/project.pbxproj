@@ -47,6 +47,22 @@
 		70265C981C858AA50091C01F /* patientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C971C858AA50091C01F /* patientUITests.m */; };
 		70265CC11C8595720091C01F /* BaseNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC01C8595720091C01F /* BaseNaviController.m */; };
 		70265CC41C85958C0091C01F /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265CC31C85958C0091C01F /* BaseTabBarController.m */; };
+		702779AA1D1A66170044D024 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 702779A81D1A66170044D024 /* PlaceholderTextView.m */; };
+		702779BA1D1A7DF70044D024 /* question_inquiry_unselected_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779AB1D1A7DF60044D024 /* question_inquiry_unselected_button@3x.png */; };
+		702779BB1D1A7DF70044D024 /* question_inquiry_unselected_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779AC1D1A7DF60044D024 /* question_inquiry_unselected_button@2x.png */; };
+		702779BC1D1A7DF70044D024 /* question_inquiry_unselected_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779AD1D1A7DF60044D024 /* question_inquiry_unselected_button.png */; };
+		702779BD1D1A7DF70044D024 /* question_inquiry_title_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779AE1D1A7DF60044D024 /* question_inquiry_title_image@3x.png */; };
+		702779BE1D1A7DF70044D024 /* question_inquiry_title_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779AF1D1A7DF60044D024 /* question_inquiry_title_image@2x.png */; };
+		702779BF1D1A7DF70044D024 /* question_inquiry_title_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B01D1A7DF60044D024 /* question_inquiry_title_image.png */; };
+		702779C01D1A7DF70044D024 /* question_inquiry_selected_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B11D1A7DF60044D024 /* question_inquiry_selected_button@3x.png */; };
+		702779C11D1A7DF70044D024 /* question_inquiry_selected_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B21D1A7DF60044D024 /* question_inquiry_selected_button@2x.png */; };
+		702779C21D1A7DF70044D024 /* question_inquiry_selected_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B31D1A7DF60044D024 /* question_inquiry_selected_button.png */; };
+		702779C31D1A7DF70044D024 /* question_inquiry_close_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B41D1A7DF60044D024 /* question_inquiry_close_button@3x.png */; };
+		702779C41D1A7DF70044D024 /* question_inquiry_close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B51D1A7DF60044D024 /* question_inquiry_close_button@2x.png */; };
+		702779C51D1A7DF70044D024 /* question_inquiry_close_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B61D1A7DF60044D024 /* question_inquiry_close_button.png */; };
+		702779C61D1A7DF70044D024 /* quesiton_inquiry_add_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B71D1A7DF60044D024 /* quesiton_inquiry_add_button@3x.png */; };
+		702779C71D1A7DF70044D024 /* quesiton_inquiry_add_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B81D1A7DF70044D024 /* quesiton_inquiry_add_button@2x.png */; };
+		702779C81D1A7DF70044D024 /* quesiton_inquiry_add_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779B91D1A7DF70044D024 /* quesiton_inquiry_add_button.png */; };
 		702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702938FD1C8D16BE008280E2 /* UIColor+Extension.m */; };
 		702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939001C8D1754008280E2 /* UILabel+Extension.m */; };
 		702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939031C8D177C008280E2 /* UITextField+Extension.m */; };
@@ -697,6 +713,23 @@
 		70265CC01C8595720091C01F /* BaseNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNaviController.m; sourceTree = "<group>"; };
 		70265CC21C85958C0091C01F /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
 		70265CC31C85958C0091C01F /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		702779A81D1A66170044D024 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
+		702779A91D1A66170044D024 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		702779AB1D1A7DF60044D024 /* question_inquiry_unselected_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_unselected_button@3x.png"; sourceTree = "<group>"; };
+		702779AC1D1A7DF60044D024 /* question_inquiry_unselected_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_unselected_button@2x.png"; sourceTree = "<group>"; };
+		702779AD1D1A7DF60044D024 /* question_inquiry_unselected_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_inquiry_unselected_button.png; sourceTree = "<group>"; };
+		702779AE1D1A7DF60044D024 /* question_inquiry_title_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_title_image@3x.png"; sourceTree = "<group>"; };
+		702779AF1D1A7DF60044D024 /* question_inquiry_title_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_title_image@2x.png"; sourceTree = "<group>"; };
+		702779B01D1A7DF60044D024 /* question_inquiry_title_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_inquiry_title_image.png; sourceTree = "<group>"; };
+		702779B11D1A7DF60044D024 /* question_inquiry_selected_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_selected_button@3x.png"; sourceTree = "<group>"; };
+		702779B21D1A7DF60044D024 /* question_inquiry_selected_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_selected_button@2x.png"; sourceTree = "<group>"; };
+		702779B31D1A7DF60044D024 /* question_inquiry_selected_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_inquiry_selected_button.png; sourceTree = "<group>"; };
+		702779B41D1A7DF60044D024 /* question_inquiry_close_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_close_button@3x.png"; sourceTree = "<group>"; };
+		702779B51D1A7DF60044D024 /* question_inquiry_close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_inquiry_close_button@2x.png"; sourceTree = "<group>"; };
+		702779B61D1A7DF60044D024 /* question_inquiry_close_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_inquiry_close_button.png; sourceTree = "<group>"; };
+		702779B71D1A7DF60044D024 /* quesiton_inquiry_add_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quesiton_inquiry_add_button@3x.png"; sourceTree = "<group>"; };
+		702779B81D1A7DF70044D024 /* quesiton_inquiry_add_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quesiton_inquiry_add_button@2x.png"; sourceTree = "<group>"; };
+		702779B91D1A7DF70044D024 /* quesiton_inquiry_add_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quesiton_inquiry_add_button.png; sourceTree = "<group>"; };
 		702938FC1C8D16BE008280E2 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		702938FD1C8D16BE008280E2 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		702938FF1C8D1754008280E2 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
@@ -1876,6 +1909,21 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				702779AB1D1A7DF60044D024 /* question_inquiry_unselected_button@3x.png */,
+				702779AC1D1A7DF60044D024 /* question_inquiry_unselected_button@2x.png */,
+				702779AD1D1A7DF60044D024 /* question_inquiry_unselected_button.png */,
+				702779AE1D1A7DF60044D024 /* question_inquiry_title_image@3x.png */,
+				702779AF1D1A7DF60044D024 /* question_inquiry_title_image@2x.png */,
+				702779B01D1A7DF60044D024 /* question_inquiry_title_image.png */,
+				702779B11D1A7DF60044D024 /* question_inquiry_selected_button@3x.png */,
+				702779B21D1A7DF60044D024 /* question_inquiry_selected_button@2x.png */,
+				702779B31D1A7DF60044D024 /* question_inquiry_selected_button.png */,
+				702779B41D1A7DF60044D024 /* question_inquiry_close_button@3x.png */,
+				702779B51D1A7DF60044D024 /* question_inquiry_close_button@2x.png */,
+				702779B61D1A7DF60044D024 /* question_inquiry_close_button.png */,
+				702779B71D1A7DF60044D024 /* quesiton_inquiry_add_button@3x.png */,
+				702779B81D1A7DF70044D024 /* quesiton_inquiry_add_button@2x.png */,
+				702779B91D1A7DF70044D024 /* quesiton_inquiry_add_button.png */,
 				70B429F31D1809E10036F525 /* question_list_public_flag_image@3x.png */,
 				70B429F41D1809E10036F525 /* question_list_public_flag_image@2x.png */,
 				70B429F51D1809E10036F525 /* question_list_public_flag_image.png */,
@@ -2943,6 +2991,8 @@
 				70B429C11D12898B0036F525 /* QuestionListViewController.m */,
 				70B429F91D18E0CB0036F525 /* QuestionDetailViewController.h */,
 				70B429FA1D18E0CB0036F525 /* QuestionDetailViewController.m */,
+				702779A91D1A66170044D024 /* PlaceholderTextView.h */,
+				702779A81D1A66170044D024 /* PlaceholderTextView.m */,
 				70B429FC1D18E1220036F525 /* QuestionInquiryViewController.h */,
 				70B429FD1D18E1220036F525 /* QuestionInquiryViewController.m */,
 			);
@@ -3192,9 +3242,11 @@
 				7002D8801CB4AA0F0074426A /* info_treatment_ screenshot_button.png in Resources */,
 				7046AD311C97E5D700BB6818 /* tabbar_search_selected.png in Resources */,
 				708275E61D0001840016AE3C /* info_expert_xiangshang_image@3x.png in Resources */,
+				702779BA1D1A7DF70044D024 /* question_inquiry_unselected_button@3x.png in Resources */,
 				70926CE51CC4DA4600CB0416 /* info_coupon_yellow_back_image_fix.png in Resources */,
 				70B429E01D128AFC0036F525 /* tabbar_info_normal_fix.png in Resources */,
 				708275B81CFFFCDD0016AE3C /* info_coupon_yellow_back_image@3x.png in Resources */,
+				702779BE1D1A7DF70044D024 /* question_inquiry_title_image@2x.png in Resources */,
 				70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */,
 				70B429DD1D128AFC0036F525 /* tabbar_info_selected_fix.png in Resources */,
 				708276051D0004930016AE3C /* info_clinic_clinic_title_image@2x.png in Resources */,
@@ -3205,6 +3257,7 @@
 				708275141CFC13A90016AE3C /* cell_studio_more_button@2x.png in Resources */,
 				70B429D81D128AFC0036F525 /* tabbar_mine_normal_fix@3x.png in Resources */,
 				70FEAE081CABBC89006A044A /* info_expert_xingxing_half.png in Resources */,
+				702779C51D1A7DF70044D024 /* question_inquiry_close_button.png in Resources */,
 				708275E21D0001840016AE3C /* info_expert_xingxing_full@3x.png in Resources */,
 				70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */,
 				70B429A81D127E520036F525 /* info_zhaoyisheng@2x.png in Resources */,
@@ -3233,6 +3286,7 @@
 				708275EA1D0001840016AE3C /* info_expert_shaixuan_down@3x.png in Resources */,
 				7002D8641CACC19F0074426A /* info_clinic_schedule_coupon_button.png in Resources */,
 				708103681CEB8BDF009BC871 /* info_health_dish_comment_button_normal.png in Resources */,
+				702779C81D1A7DF70044D024 /* quesiton_inquiry_add_button.png in Resources */,
 				7046AC781C974C9F00BB6818 /* PersonTableCell.xib in Resources */,
 				708275981CFFF9D00016AE3C /* mine_headview_more@3x.png in Resources */,
 				708275131CFC13A90016AE3C /* cell_person_more_button@3x.png in Resources */,
@@ -3266,6 +3320,7 @@
 				70B429F21D18095E0036F525 /* question_list_right_barbuttonitem.png in Resources */,
 				70C03E141CA3C3B100DBA175 /* full_pause_btn@2x.png in Resources */,
 				7082753A1CFC15E50016AE3C /* tabbar_test_normal@2x.png in Resources */,
+				702779C71D1A7DF70044D024 /* quesiton_inquiry_add_button@2x.png in Resources */,
 				708B52F81CEB16B10033C479 /* info_health_comment_image.png in Resources */,
 				70B429DF1D128AFC0036F525 /* tabbar_info_normal_fix@2x.png in Resources */,
 				7046AD1A1C97E5D700BB6818 /* cell_health_main_button.png in Resources */,
@@ -3275,6 +3330,7 @@
 				70B429D51D128AFC0036F525 /* tabbar_quesiton_selected@3x.png in Resources */,
 				705EF7ED1CBC947600732886 /* mine_bottom_useful.png in Resources */,
 				708275A71CFFF9D00016AE3C /* mine_bottom_body@2x.png in Resources */,
+				702779BB1D1A7DF70044D024 /* question_inquiry_unselected_button@2x.png in Resources */,
 				708275E91D0001840016AE3C /* info_expert_shanchang_image@2x.png in Resources */,
 				70B429AB1D127E520036F525 /* info_tizhiceshi@2x.png in Resources */,
 				708275901CFFF9D00016AE3C /* mine_orderstatus_reserved@3x.png in Resources */,
@@ -3283,6 +3339,7 @@
 				7046AD141C97E5D700BB6818 /* cell_disease_fuke_button.png in Resources */,
 				708275321CFC15E50016AE3C /* tabbar_mine_normal@2x.png in Resources */,
 				708275371CFC15E50016AE3C /* tabbar_search_normal@3x.png in Resources */,
+				702779C31D1A7DF70044D024 /* question_inquiry_close_button@3x.png in Resources */,
 				708275961CFFF9D00016AE3C /* mine_navbar_item_left@3x.png in Resources */,
 				7046AD191C97E5D700BB6818 /* cell_disease_yinanzazheng_button.png in Resources */,
 				7002D8651CACC19F0074426A /* info_clinic_schedule_coupon_image.png in Resources */,
@@ -3352,6 +3409,7 @@
 				7046AD2B1C97E5D700BB6818 /* navbar_right_item.png in Resources */,
 				705EF80B1CBD02A300732886 /* mine_top_patient_image.png in Resources */,
 				708275051CFC11C20016AE3C /* cell_health_title_button@3x.png in Resources */,
+				702779BC1D1A7DF70044D024 /* question_inquiry_unselected_button.png in Resources */,
 				7046AD181C97E5D700BB6818 /* cell_disease_pifuke_button.png in Resources */,
 				70B429B51D12819A0036F525 /* info_xiaotuoyuan.png in Resources */,
 				708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */,
@@ -3365,6 +3423,7 @@
 				7082751D1CFC14760016AE3C /* navbar_left_item3x.png in Resources */,
 				7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */,
 				708275111CFC13A90016AE3C /* cell_health_more_button@3x.png in Resources */,
+				702779C21D1A7DF70044D024 /* question_inquiry_selected_button.png in Resources */,
 				708275A61CFFF9D00016AE3C /* mine_bottom_body@3x.png in Resources */,
 				70B429D31D128AFC0036F525 /* tabbar_question_normal@2x.png in Resources */,
 				7046AD221C97E5D700BB6818 /* cell_studio_more_button.png in Resources */,
@@ -3380,6 +3439,7 @@
 				70C03E021CA2924000DBA175 /* full_pause_btn222@2x.png in Resources */,
 				70926CE31CC4DA4600CB0416 /* info_coupon_pink_back_image_fix.png in Resources */,
 				708274F21CF84D880016AE3C /* mine_aboutus_logo_image.png in Resources */,
+				702779C11D1A7DF70044D024 /* question_inquiry_selected_button@2x.png in Resources */,
 				7081036E1CEB8BDF009BC871 /* info_health_dish_step4.png in Resources */,
 				70FEAE071CABBC89006A044A /* info_expert_xingxing_full.png in Resources */,
 				708275151CFC13A90016AE3C /* cell_studio_more_button@3x.png in Resources */,
@@ -3432,12 +3492,15 @@
 				705EF7F31CBC947600732886 /* mine_orderstatus_tobecontinued.png in Resources */,
 				704006951CE30FFB004E5D7E /* TextInfo.json in Resources */,
 				708275381CFC15E50016AE3C /* tabbar_search_selected@2x.png in Resources */,
+				702779C61D1A7DF70044D024 /* quesiton_inquiry_add_button@3x.png in Resources */,
 				7046AD2F1C97E5D700BB6818 /* tabbar_mine_selected.png in Resources */,
 				70B429BA1D1283A50036F525 /* info_scan_image@2x.png in Resources */,
 				7002D8821CB4AA0F0074426A /* info_treatment_paynow_selected.png in Resources */,
 				7082755C1CFC35F90016AE3C /* info_health_comment_after_fix@3x.png in Resources */,
 				705EF7E91CBC947600732886 /* mine_bottom_doctor.png in Resources */,
+				702779C41D1A7DF70044D024 /* question_inquiry_close_button@2x.png in Resources */,
 				70B429A71D127E520036F525 /* info_zhaoyisheng@3x.png in Resources */,
+				702779BF1D1A7DF70044D024 /* question_inquiry_title_image.png in Resources */,
 				708275B91CFFFCDD0016AE3C /* info_coupon_yellow_back_image@2x.png in Resources */,
 				70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */,
 				70B429DC1D128AFC0036F525 /* tabbar_info_selected_fix@2x.png in Resources */,
@@ -3456,6 +3519,7 @@
 				7082752E1CFC15E50016AE3C /* tabbar_info_normal@2x.png in Resources */,
 				70B429F61D1809E10036F525 /* question_list_public_flag_image@3x.png in Resources */,
 				70C03E0E1CA2C22D00DBA175 /* full_play_btn_hl@2x.png in Resources */,
+				702779BD1D1A7DF70044D024 /* question_inquiry_title_image@3x.png in Resources */,
 				7046AD241C97E5D700BB6818 /* guideview1.jpg in Resources */,
 				708275181CFC14310016AE3C /* navbar_right_item@2x.png in Resources */,
 				7081036F1CEB8BDF009BC871 /* info_health_dish_step5.png in Resources */,
@@ -3489,6 +3553,7 @@
 				7046AD151C97E5D700BB6818 /* cell_disease_guomin_button.png in Resources */,
 				7002D8631CACC19F0074426A /* info_clinic_schedule_bookable_image.png in Resources */,
 				7046AD761C9A426100BB6818 /* login_third_login_weixin.png in Resources */,
+				702779C01D1A7DF70044D024 /* question_inquiry_selected_button@3x.png in Resources */,
 				708275B11CFFFBC20016AE3C /* mine_customservice_hotline_image@2x.png in Resources */,
 				7082758D1CFFF9D00016AE3C /* mine_orderstatus_tobeevaluated@2x.png in Resources */,
 				7046AD711C9A426100BB6818 /* login_confirm_login_normal.png in Resources */,
@@ -3675,6 +3740,7 @@
 				70FD8E5C1CEC3DA200DA22E5 /* DiseaseDetailTableCell.m in Sources */,
 				7046ADC71CA10F7A00BB6818 /* ExpertInfoViewController.m in Sources */,
 				70B4EB3D1CD8744200141E38 /* MRQitaTableCell.m in Sources */,
+				702779AA1D1A66170044D024 /* PlaceholderTextView.m in Sources */,
 				705EF80E1CBD43B300732886 /* RecordView.m in Sources */,
 				7029398F1C9273E4008280E2 /* SearchViewController.m in Sources */,
 				707E5B971C9662BD00101B30 /* BaseTableViewController.m in Sources */,

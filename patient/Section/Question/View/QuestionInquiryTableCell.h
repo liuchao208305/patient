@@ -10,4 +10,9 @@
 
 @interface QuestionInquiryTableCell : UITableViewCell
 
+@property (strong,nonatomic)UIImageView *inquiryImageView;
+@property (strong,nonatomic)UILabel *inquiryLabel1;
+@property (strong,nonatomic)UILabel *inquiryLabel2;
+@property (strong,nonatomic)UIButton *inquiryButton;
+
 @end
