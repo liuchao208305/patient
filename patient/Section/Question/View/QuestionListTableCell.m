@@ -46,10 +46,17 @@
     [self.contentView addSubview:self.expertLabel];
     
     self.expertImageView = [[UIImageView alloc] init];
+    self.expertImageView.layer.cornerRadius = 30;
     [self.contentView addSubview:self.expertImageView];
     
     self.expertSoundImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:self.expertSoundImageView];
+    
+    self.expertSoundLabel = [[UILabel alloc] init];
+    self.expertSoundLabel.font = [UIFont systemFontOfSize:12];
+    self.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
+    self.expertSoundLabel.textAlignment = NSTextAlignmentCenter;
+    [self.expertSoundImageView addSubview:self.expertSoundLabel];
     
     self.expertSoundLengthLabel = [[UILabel alloc] init];
     self.expertSoundLengthLabel.textColor = ColorWithHexRGB(0x646464);
@@ -70,6 +77,11 @@
         make.leading.equalTo(self.contentView).offset(12);
         make.width.mas_equalTo(60);
         make.height.mas_equalTo(60);
+    }];
+    
+    [self.expertSoundLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.expertSoundImageView).offset(0);
+        make.centerY.equalTo(self.expertSoundImageView).offset(0);
     }];
     
     [self.expertSoundImageView mas_makeConstraints:^(MASConstraintMaker *make) {

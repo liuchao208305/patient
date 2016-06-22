@@ -45,7 +45,9 @@
 @property (strong,nonatomic)NSMutableArray *questionExpertTitleOtherArray;
 @property (strong,nonatomic)NSMutableArray *questionExpertImageOtherArray;
 @property (strong,nonatomic)NSMutableArray *questionExpertSoundOtherArray;
+@property (strong,nonatomic)NSMutableArray *questionExpertSoundUrlOtherArray;
 @property (strong,nonatomic)NSMutableArray *questionAudienceNumberOtherArray;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusOtherArray;
+@property (strong,nonatomic)NSMutableArray *questionShitingMoneyOtherArray;
 
 @end

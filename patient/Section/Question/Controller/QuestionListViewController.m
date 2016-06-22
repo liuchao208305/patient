@@ -18,6 +18,7 @@
 #import "QuestionListTableCell.h"
 #import "QuestionDetailViewController.h"
 #import "QuestionInquiryViewController.h"
+#import "LVRecordTool.h"
 
 @interface QuestionListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,6 +39,8 @@
 
 @property (assign,nonatomic)NSInteger currentPage2;
 @property (assign,nonatomic)NSInteger pageSize2;
+
+@property (strong,nonatomic)NSURL *yizhuSoundUrl;
 
 @end
 
@@ -110,8 +113,10 @@
     self.questionExpertTitleOtherArray = [NSMutableArray array];
     self.questionExpertImageOtherArray = [NSMutableArray array];
     self.questionExpertSoundOtherArray = [NSMutableArray array];
+    self.questionExpertSoundUrlOtherArray = [NSMutableArray array];
     self.questionAudienceNumberOtherArray = [NSMutableArray array];
     self.questionPayStatusOtherArray = [NSMutableArray array];
+    self.questionShitingMoneyOtherArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -240,6 +245,26 @@
     }
 }
 
+-(void)soundImageViewClicked:(UITapGestureRecognizer *)gestureRecognizer{
+    DLog(@"soundImageViewClicked");
+    
+    [[LVRecordTool sharedRecordTool] playRecordFile:self.yizhuSoundUrl];
+    
+    UIView *clickedView = [gestureRecognizer view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    clickedImageView.animationDuration = 0.8;
+    [clickedImageView startAnimating];
+    
+    [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+        DLog(@"播放完毕！");
+        
+        if ([clickedImageView isAnimating] == YES) {
+            [clickedImageView stopAnimating];
+        }
+    };
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.flag1) {
@@ -328,17 +353,48 @@
             [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageOtherArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
             
             if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 1) {
-                
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+                cell.expertSoundLabel.text = [NSString stringWithFormat:@"%.2f元旁听",[self.questionShitingMoneyOtherArray[indexPath.section] doubleValue]];
             }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 2){
-                
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+                cell.expertSoundLabel.text = @"立即播放";
             }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 3){
-                
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+                cell.expertSoundLabel.text = @"立即播放";
             }
             
-            cell.expertSoundImageView.hidden = YES;
-            cell.expertSoundLengthLabel.hidden = YES;
+            if ([self.questionExpertSoundOtherArray[indexPath.section] length] > 0) {
+                if ([self.questionExpertSoundOtherArray[indexPath.section] containsString:@","]) {
+                    if ([[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] firstObject] length] > 0) {
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        hud.mode = MBProgressHUDAnimationFade;
+                        hud.labelText = kNetworkStatusLoadingText;
+                        
+                        [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            DLog(@"文件下载成功！");
+                            
+                            self.yizhuSoundUrl = resDict;
+                            
+                        } failureBlock:^(NSString *error) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                        }];
+                    }
+                    
+                    cell.expertSoundLengthLabel.text = [NSString stringWithFormat:@"%.f''",[[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] lastObject] floatValue]];
+                }
+            }
             
             cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberOtherArray[indexPath.section]];
+            
+            cell.expertSoundImageView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked:)];
+            [cell.expertSoundImageView addGestureRecognizer:tap];
         }
         
         return cell;
@@ -508,6 +564,7 @@
     [self.questionExpertSoundOtherArray removeAllObjects];
     [self.questionAudienceNumberOtherArray removeAllObjects];
     [self.questionPayStatusOtherArray removeAllObjects];
+    [self.questionShitingMoneyOtherArray removeAllObjects];
     for (QuestionListData *questionListData in self.questionOtherArray) {
         [self.questionIdOtherArray addObject:[NullUtil judgeStringNull:questionListData.interloution_id]];
         [self.questionStatusOtherArray addObject:[NullUtil judgeStringNull:questionListData.status]];
@@ -520,6 +577,7 @@
         [self.questionExpertSoundOtherArray addObject:[NullUtil judgeStringNull:questionListData.video_url]];
         [self.questionAudienceNumberOtherArray addObject:[NullUtil judgeStringNull:questionListData.num_no]];
         [self.questionPayStatusOtherArray addObject:[NullUtil judgeStringNull:questionListData.is_pay]];
+        [self.questionShitingMoneyOtherArray addObject:[NullUtil judgeStringNull:questionListData.st_money]];
     }
     
     [self.tableView2 reloadData];

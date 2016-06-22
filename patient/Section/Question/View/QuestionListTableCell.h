@@ -16,6 +16,7 @@
 @property (strong,nonatomic)UILabel *expertLabel;
 @property (strong,nonatomic)UIImageView *expertImageView;
 @property (strong,nonatomic)UIImageView *expertSoundImageView;
+@property (strong,nonatomic)UILabel *expertSoundLabel;
 @property (strong,nonatomic)UILabel *expertSoundLengthLabel;
 @property (strong,nonatomic)UILabel *audienceNumberLabel;
 
