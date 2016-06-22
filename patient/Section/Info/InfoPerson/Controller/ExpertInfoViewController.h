@@ -43,4 +43,15 @@
 @property (strong,nonatomic)NSMutableArray *clinicMoneyArray;
 @property (strong,nonatomic)NSMutableArray *clinicCouponArray;
 
+@property (strong,nonatomic)UIView *bottomLineView;
+@property (strong,nonatomic)UIImageView *focusBackView;
+@property (strong,nonatomic)UIImageView *focusImageView;
+@property (strong,nonatomic)UILabel *focusLabel;
+@property (strong,nonatomic)UIImageView *inquiryBackView;
+@property (strong,nonatomic)UIImageView *inquiryImageView;
+@property (strong,nonatomic)UILabel *inquiryLabel;
+@property (strong,nonatomic)UIImageView *bookBackView;
+@property (strong,nonatomic)UIImageView *bookImageView;
+@property (strong,nonatomic)UILabel *bookLabel;
+
 @end

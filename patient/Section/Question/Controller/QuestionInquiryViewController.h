@@ -12,6 +12,7 @@
 @interface QuestionInquiryViewController : BaseViewController
 
 @property (assign,nonatomic)BOOL isForSpecialDoctor;
+@property (strong,nonatomic)NSString *expertId;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
 

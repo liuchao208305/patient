@@ -26,6 +26,7 @@
 #import "HudUtil.h"
 #import "AnalyticUtil.h"
 #import "ClinicInfoFixViewController.h"
+#import "QuestionInquiryViewController.h"
 
 @interface ExpertInfoViewController ()<FiterViewClickDelegate,UIActionSheetDelegate>
 
@@ -166,7 +167,7 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];   
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 20)];
 //    label.text = self.expertName;
 //    label.textColor = [UIColor whiteColor];
@@ -185,6 +186,7 @@
     [self initHeadView];
     [self initFootView];
     [self initTableView];
+    [self initBottomView];
 }
 
 -(void)initHeadView{
@@ -202,7 +204,7 @@
 }
 
 -(void)initTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-140+STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-140+STATUS_AND_NAVIGATION_HEIGHT-45) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -218,8 +220,104 @@
     [self.view addSubview:self.tableView];
 }
 
--(void)initRecognizer{
+-(void)initBottomView{
+    self.bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.size.height-1, SCREEN_WIDTH, 1)];
+    self.bottomLineView.backgroundColor = ColorWithHexRGB(0xd6d6d6);
+    [self.view addSubview:self.bottomLineView];
     
+    self.focusBackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.tableView.size.height, SCREEN_WIDTH/5*1, 55)];
+    [self.focusBackView setBackgroundColor:ColorWithHexRGB(0xeeeeee)];
+    [self.view addSubview:self.focusBackView];
+    
+    self.focusImageView = [[UIImageView alloc] init];
+    [self.focusBackView addSubview:self.focusImageView];
+    
+    self.focusLabel = [[UILabel alloc] init];
+    self.focusLabel.font = [UIFont systemFontOfSize:12];
+    self.focusLabel.textAlignment = NSTextAlignmentCenter;
+    [self.focusBackView addSubview:self.focusLabel];
+    
+    [self.focusImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.focusBackView).offset(8);
+        make.centerX.equalTo(self.focusBackView).offset(0);
+        make.width.mas_equalTo(22);
+        make.height.mas_equalTo(22);
+    }];
+    
+    [self.focusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.focusBackView).offset(-8);
+        make.centerX.equalTo(self.focusBackView).offset(0);
+    }];
+    
+    self.inquiryBackView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/5*1, self.tableView.size.height, SCREEN_WIDTH/5*2, 55)];
+    [self.inquiryBackView setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+    [self.view addSubview:self.inquiryBackView];
+    
+    self.inquiryImageView = [[UIImageView alloc] init];
+    [self.inquiryBackView addSubview:self.inquiryImageView];
+    
+    self.inquiryLabel = [[UILabel alloc] init];
+    self.inquiryLabel.font = [UIFont systemFontOfSize:14];
+    [self.inquiryBackView addSubview:self.inquiryLabel];
+    
+    [self.inquiryImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.inquiryBackView).offset(-20-5);
+        make.centerY.equalTo(self.inquiryBackView).offset(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.inquiryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.inquiryBackView).offset(40+5);
+        make.centerY.equalTo(self.inquiryBackView).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    self.bookBackView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/5*3, self.tableView.size.height, SCREEN_WIDTH/5*2, 55)];
+    [self.bookBackView setBackgroundColor:ColorWithHexRGB(0x0fcf41)];
+    [self.view addSubview:self.bookBackView];
+    
+    self.bookImageView = [[UIImageView alloc] init];
+    [self.bookBackView addSubview:self.bookImageView];
+    
+    self.bookLabel = [[UILabel alloc] init];
+    self.bookLabel.font = [UIFont systemFontOfSize:14];
+    self.bookLabel.textColor = kWHITE_COLOR;
+    [self.bookBackView addSubview:self.bookLabel];
+    
+    [self.bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.bookBackView).offset(-20-5);
+        make.centerY.equalTo(self.bookBackView).offset(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.bookLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.bookBackView).offset(40+5);
+        make.centerY.equalTo(self.bookBackView).offset(0);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.inquiryImageView setImage:[UIImage imageNamed:@"info_expert_inquiry_image"]];
+    self.inquiryLabel.text = @"问问";
+    [self.bookImageView setImage:[UIImage imageNamed:@"info_expert_book_image"]];
+    self.bookLabel.text = @"预约";
+}
+
+-(void)initRecognizer{
+    self.focusBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *focusTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusButtonClicked:)];
+    [self.focusBackView addGestureRecognizer:focusTap];
+    
+    self.inquiryBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *inquiryTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inquiryViewClicked)];
+    [self.inquiryBackView addGestureRecognizer:inquiryTap];
+    
+    self.bookBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *bookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bookViewClicked)];
+    [self.bookBackView addGestureRecognizer:bookTap];
 }
 
 #pragma mark Target Action
@@ -232,6 +330,23 @@
     }else{
         [self sendExpertFocusRequest];
     }
+}
+
+-(void)focusViewClicked{
+    DLog(@"focusViewClicked");
+}
+
+-(void)inquiryViewClicked{
+    DLog(@"inquiryViewClicked");
+    QuestionInquiryViewController *inquiryVC = [[QuestionInquiryViewController alloc] init];
+    inquiryVC.hidesBottomBarWhenPushed = YES;
+    inquiryVC.isForSpecialDoctor = YES;
+    inquiryVC.expertId = self.expertId;
+    [self.navigationController pushViewController:inquiryVC animated:YES];
+}
+
+-(void)bookViewClicked{
+    DLog(@"bookViewClicked");
 }
 
 -(void)stretchButtonClicked{
@@ -745,12 +860,13 @@
             self.isFocused = !self.isFocused;
             DLog(@"self.isFocused-->%@",self.isFocused ? @"YES" : @"NO");
             if (self.isFocused == YES) {
-                [HudUtil showSimpleTextOnlyHUD:@"关注成功！" withDelaySeconds:kHud_DelayTime];
+//                [HudUtil showSimpleTextOnlyHUD:@"关注成功！" withDelaySeconds:kHud_DelayTime];
             }else if (self.isFocused == NO){
-                [HudUtil showSimpleTextOnlyHUD:@"取消关注成功！" withDelaySeconds:kHud_DelayTime];
+//                [HudUtil showSimpleTextOnlyHUD:@"取消关注成功！" withDelaySeconds:kHud_DelayTime];
             }
             
             [self.tableView reloadData];
+            [self expertInfoDataFilling];
         }else{
             DLog(@"%@",self.message3);
             if (self.code3 == kTOKENINVALID) {
@@ -817,6 +933,8 @@
         self.fiterType = 1;
         [self sendClinicInfoRequest:self.fiterType];
     }
+    
+    [self expertInfoDataFilling];
 }
 
 -(void)clinicInfoDataParse{
@@ -837,6 +955,19 @@
     [self.tableView reloadData];
     
     [self.tableView.mj_footer endRefreshing];
+}
+
+#pragma mark Data Filling
+-(void)expertInfoDataFilling{
+    if (self.isFocused == YES) {
+        //已关注
+        [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"]];
+        self.focusLabel.text = @"已关注";
+    }else if(self.isFocused == NO){
+        //未关注
+        [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"]];
+        self.focusLabel.text = @"未关注";
+    }
 }
 
 @end
