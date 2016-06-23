@@ -634,6 +634,8 @@
         }else{
             //支付失败
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+            
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
