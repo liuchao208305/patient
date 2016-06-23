@@ -77,6 +77,8 @@ typedef enum {
 #define kJZK_QUESTION_LIST_OTHER_INFORMATION @"private/v2/interloution/otherPagelist?"//其他问题列表信息
 #define kJZK_QUESTION_INQUIRY_ALL_INFROMATION @"private/v2/getDoctorInterlocution?"//不指定专家提问信息
 #define kJZK_QUESTION_INQUIRY_SPECIAL_INFORMAITON @"private/v2/getDoctorInterlocution?"//指定专家提问信息
+#define kJZK_QUESTION_CONFIRM_INFORMATION @"private/v2/interloution/add?"//问题确认提交
+#define kJZK_QUESTION_PAY_INFORMATION @"private/v2/limaPay?"//问题立即支付
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息
