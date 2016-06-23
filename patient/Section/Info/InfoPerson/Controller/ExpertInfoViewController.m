@@ -531,7 +531,7 @@
         }else if(self.isFocused == NO){
             //未关注
             [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
-            cell.label2_1.text = @"未关注";
+            cell.label2_1.text = @"关注";
         }
         
         [cell.button addTarget:self action:@selector(focusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -966,7 +966,7 @@
     }else if(self.isFocused == NO){
         //未关注
         [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"]];
-        self.focusLabel.text = @"未关注";
+        self.focusLabel.text = @"关注";
     }
 }
 
