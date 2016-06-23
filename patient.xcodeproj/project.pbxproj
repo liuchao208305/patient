@@ -78,6 +78,15 @@
 		702779E41D1AFD9E0044D024 /* question_list_sound_image_green_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779DB1D1AFD9E0044D024 /* question_list_sound_image_green_1@3x.png */; };
 		702779E51D1AFD9E0044D024 /* question_list_sound_image_green_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779DC1D1AFD9E0044D024 /* question_list_sound_image_green_1@2x.png */; };
 		702779E61D1AFD9E0044D024 /* question_list_sound_image_green_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779DD1D1AFD9E0044D024 /* question_list_sound_image_green_1.png */; };
+		702779F01D1BC0FE0044D024 /* question_list_sound_image_red_3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779E71D1BC0FD0044D024 /* question_list_sound_image_red_3@3x.png */; };
+		702779F11D1BC0FE0044D024 /* question_list_sound_image_red_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779E81D1BC0FD0044D024 /* question_list_sound_image_red_3@2x.png */; };
+		702779F21D1BC0FE0044D024 /* question_list_sound_image_red_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779E91D1BC0FD0044D024 /* question_list_sound_image_red_3.png */; };
+		702779F31D1BC0FE0044D024 /* question_list_sound_image_red_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779EA1D1BC0FD0044D024 /* question_list_sound_image_red_2@3x.png */; };
+		702779F41D1BC0FE0044D024 /* question_list_sound_image_red_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779EB1D1BC0FD0044D024 /* question_list_sound_image_red_2@2x.png */; };
+		702779F51D1BC0FE0044D024 /* question_list_sound_image_red_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779EC1D1BC0FD0044D024 /* question_list_sound_image_red_2.png */; };
+		702779F61D1BC0FE0044D024 /* question_list_sound_image_red_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779ED1D1BC0FD0044D024 /* question_list_sound_image_red_1@3x.png */; };
+		702779F71D1BC0FE0044D024 /* question_list_sound_image_red_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779EE1D1BC0FD0044D024 /* question_list_sound_image_red_1@2x.png */; };
+		702779F81D1BC0FE0044D024 /* question_list_sound_image_red_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 702779EF1D1BC0FD0044D024 /* question_list_sound_image_red_1.png */; };
 		702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702938FD1C8D16BE008280E2 /* UIColor+Extension.m */; };
 		702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939001C8D1754008280E2 /* UILabel+Extension.m */; };
 		702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702939031C8D177C008280E2 /* UITextField+Extension.m */; };
@@ -760,6 +769,15 @@
 		702779DB1D1AFD9E0044D024 /* question_list_sound_image_green_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_green_1@3x.png"; sourceTree = "<group>"; };
 		702779DC1D1AFD9E0044D024 /* question_list_sound_image_green_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_green_1@2x.png"; sourceTree = "<group>"; };
 		702779DD1D1AFD9E0044D024 /* question_list_sound_image_green_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_list_sound_image_green_1.png; sourceTree = "<group>"; };
+		702779E71D1BC0FD0044D024 /* question_list_sound_image_red_3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_3@3x.png"; sourceTree = "<group>"; };
+		702779E81D1BC0FD0044D024 /* question_list_sound_image_red_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_3@2x.png"; sourceTree = "<group>"; };
+		702779E91D1BC0FD0044D024 /* question_list_sound_image_red_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_list_sound_image_red_3.png; sourceTree = "<group>"; };
+		702779EA1D1BC0FD0044D024 /* question_list_sound_image_red_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_2@3x.png"; sourceTree = "<group>"; };
+		702779EB1D1BC0FD0044D024 /* question_list_sound_image_red_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_2@2x.png"; sourceTree = "<group>"; };
+		702779EC1D1BC0FD0044D024 /* question_list_sound_image_red_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_list_sound_image_red_2.png; sourceTree = "<group>"; };
+		702779ED1D1BC0FD0044D024 /* question_list_sound_image_red_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_1@3x.png"; sourceTree = "<group>"; };
+		702779EE1D1BC0FD0044D024 /* question_list_sound_image_red_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_list_sound_image_red_1@2x.png"; sourceTree = "<group>"; };
+		702779EF1D1BC0FD0044D024 /* question_list_sound_image_red_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_list_sound_image_red_1.png; sourceTree = "<group>"; };
 		702938FC1C8D16BE008280E2 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		702938FD1C8D16BE008280E2 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		702938FF1C8D1754008280E2 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
@@ -1939,6 +1957,15 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				702779E71D1BC0FD0044D024 /* question_list_sound_image_red_3@3x.png */,
+				702779E81D1BC0FD0044D024 /* question_list_sound_image_red_3@2x.png */,
+				702779E91D1BC0FD0044D024 /* question_list_sound_image_red_3.png */,
+				702779EA1D1BC0FD0044D024 /* question_list_sound_image_red_2@3x.png */,
+				702779EB1D1BC0FD0044D024 /* question_list_sound_image_red_2@2x.png */,
+				702779EC1D1BC0FD0044D024 /* question_list_sound_image_red_2.png */,
+				702779ED1D1BC0FD0044D024 /* question_list_sound_image_red_1@3x.png */,
+				702779EE1D1BC0FD0044D024 /* question_list_sound_image_red_1@2x.png */,
+				702779EF1D1BC0FD0044D024 /* question_list_sound_image_red_1.png */,
 				702779D51D1AFD9E0044D024 /* question_list_sound_image_green_3@3x.png */,
 				702779D61D1AFD9E0044D024 /* question_list_sound_image_green_3@2x.png */,
 				702779D71D1AFD9E0044D024 /* question_list_sound_image_green_3.png */,
@@ -3352,6 +3379,7 @@
 				70B429F71D1809E10036F525 /* question_list_public_flag_image@2x.png in Resources */,
 				70B429B91D1283A50036F525 /* info_scan_image@3x.png in Resources */,
 				708275511CFC32E80016AE3C /* info_health_favourite_fix.png in Resources */,
+				702779F71D1BC0FE0044D024 /* question_list_sound_image_red_1@2x.png in Resources */,
 				708276111D00073D0016AE3C /* info_treatment_lianxiren_image@2x.png in Resources */,
 				708275DC1D0001840016AE3C /* info_expert_yanjiufangxiang_image@3x.png in Resources */,
 				708275FD1D0004930016AE3C /* info_clinic_schedule_unbookable_button@2x.png in Resources */,
@@ -3374,6 +3402,7 @@
 				70B429DF1D128AFC0036F525 /* tabbar_info_normal_fix@2x.png in Resources */,
 				7046AD1A1C97E5D700BB6818 /* cell_health_main_button.png in Resources */,
 				70FD8E821CED80ED00DA22E5 /* info_health_comment_after.png in Resources */,
+				702779F51D1BC0FE0044D024 /* question_list_sound_image_red_2.png in Resources */,
 				7082755D1CFC35F90016AE3C /* info_health_comment_before_fix.png in Resources */,
 				70C03E001CA2923800DBA175 /* full_play_btn_hl222@2x.png in Resources */,
 				70B429D51D128AFC0036F525 /* tabbar_quesiton_selected@3x.png in Resources */,
@@ -3385,6 +3414,7 @@
 				708275901CFFF9D00016AE3C /* mine_orderstatus_reserved@3x.png in Resources */,
 				708275121CFC13A90016AE3C /* cell_person_more_button@2x.png in Resources */,
 				708275A41CFFF9D00016AE3C /* mine_bottom_contact@3x.png in Resources */,
+				702779F81D1BC0FE0044D024 /* question_list_sound_image_red_1.png in Resources */,
 				7046AD141C97E5D700BB6818 /* cell_disease_fuke_button.png in Resources */,
 				708275321CFC15E50016AE3C /* tabbar_mine_normal@2x.png in Resources */,
 				708275371CFC15E50016AE3C /* tabbar_search_normal@3x.png in Resources */,
@@ -3401,6 +3431,7 @@
 				708275921CFFF9D00016AE3C /* mine_orderstatus_completed@3x.png in Resources */,
 				708275A21CFFF9D00016AE3C /* mine_bottom_coupon@3x.png in Resources */,
 				70C03E111CA3B23200DBA175 /* default_image_big.png in Resources */,
+				702779F41D1BC0FE0044D024 /* question_list_sound_image_red_2@2x.png in Resources */,
 				7002D87B1CB49F7F0074426A /* info_treatment_online_selected.png in Resources */,
 				7082753B1CFC15E50016AE3C /* tabbar_test_normal@3x.png in Resources */,
 				7082755A1CFC35F90016AE3C /* info_health_comment_after_fix.png in Resources */,
@@ -3452,6 +3483,8 @@
 				708275931CFFF9D00016AE3C /* mine_orderstatus_completed@2x.png in Resources */,
 				708103691CEB8BDF009BC871 /* info_health_dish_comment_white.png in Resources */,
 				708275391CFC15E50016AE3C /* tabbar_search_selected@3x.png in Resources */,
+				702779F31D1BC0FE0044D024 /* question_list_sound_image_red_2@3x.png in Resources */,
+				702779F61D1BC0FE0044D024 /* question_list_sound_image_red_1@3x.png in Resources */,
 				708275531CFC32E80016AE3C /* info_health_favourite_fix@3x.png in Resources */,
 				7082753D1CFC15E50016AE3C /* tabbar_test_selected@3x.png in Resources */,
 				7046AD781C9A481C00BB6818 /* login_confirm_login_selected.png in Resources */,
@@ -3467,6 +3500,7 @@
 				70B429B51D12819A0036F525 /* info_xiaotuoyuan.png in Resources */,
 				708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */,
 				708275BC1CFFFCDD0016AE3C /* info_coupon_blue_back_image@3x.png in Resources */,
+				702779F01D1BC0FE0044D024 /* question_list_sound_image_red_3@3x.png in Resources */,
 				7002D8721CB3BBBF0074426A /* info_treatment_unselected_button.png in Resources */,
 				7046AD331C97E5D700BB6818 /* tabbar_test_selected.png in Resources */,
 				7046AD261C97E5D700BB6818 /* guideview3.jpg in Resources */,
@@ -3583,6 +3617,7 @@
 				708275181CFC14310016AE3C /* navbar_right_item@2x.png in Resources */,
 				7081036F1CEB8BDF009BC871 /* info_health_dish_step5.png in Resources */,
 				7082752F1CFC15E50016AE3C /* tabbar_info_normal@3x.png in Resources */,
+				702779F11D1BC0FE0044D024 /* question_list_sound_image_red_3@2x.png in Resources */,
 				70926CE41CC4DA4600CB0416 /* info_coupon_pink_back_image.png in Resources */,
 				708275FC1D0004930016AE3C /* info_clinic_schedule_unbookable_button@3x.png in Resources */,
 				705EF7EE1CBC947600732886 /* mine_default_medical_record.png in Resources */,
@@ -3627,6 +3662,7 @@
 				7082759E1CFFF9D00016AE3C /* mine_bottom_favorite@3x.png in Resources */,
 				705EF7F01CBC947600732886 /* mine_navbar_item_right.png in Resources */,
 				705EF80A1CBD02A300732886 /* mine_headview_more.png in Resources */,
+				702779F21D1BC0FE0044D024 /* question_list_sound_image_red_3.png in Resources */,
 				708275361CFC15E50016AE3C /* tabbar_search_normal@2x.png in Resources */,
 				7002D8711CB3BBBF0074426A /* info_treatment_selected_button.png in Resources */,
 			);

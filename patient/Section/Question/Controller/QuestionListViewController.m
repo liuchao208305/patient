@@ -332,7 +332,13 @@
     
     UIView *clickedView = [gestureRecognizer view];
     UIImageView *clickedImageView = (UIImageView *)clickedView;
-    clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
+        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 2){
+        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 3){
+        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_red_1"],[UIImage imageNamed:@"question_list_sound_image_red_2"], [UIImage imageNamed:@"question_list_sound_image_red_3"]];
+    }
     clickedImageView.animationDuration = 0.8;
     [clickedImageView startAnimating];
     
@@ -525,12 +531,15 @@
             if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 1) {
                 [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
                 cell.expertSoundLabel.text = [NSString stringWithFormat:@"%.2f元旁听",[self.questionShitingMoneyOtherArray[indexPath.section] doubleValue]];
+                cell.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
             }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 2){
                 [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
                 cell.expertSoundLabel.text = @"立即播放";
+                cell.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
             }else if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 3){
-                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_red_3"]];
                 cell.expertSoundLabel.text = @"限时免费听";
+                cell.expertSoundLabel.textColor = kWHITE_COLOR;
             }
             
             if ([self.questionExpertSoundOtherArray[indexPath.section] length] > 0) {
@@ -560,11 +569,13 @@
     if (self.flag1) {
         QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
         detailVC.hidesBottomBarWhenPushed = YES;
+        detailVC.questionId = self.questionIdMineArray[indexPath.section];
         [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
         QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
         detailVC.hidesBottomBarWhenPushed = YES;
+        detailVC.questionId = self.questionIdOtherArray[indexPath.section];
         [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }

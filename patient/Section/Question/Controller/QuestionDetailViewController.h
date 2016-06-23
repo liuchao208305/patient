@@ -10,6 +10,34 @@
 
 @interface QuestionDetailViewController : BaseViewController
 
-@property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)NSString *questionId;
+
+@property (strong,nonatomic)UIScrollView *scrollView;
+
+@property (strong,nonatomic)UIView *questionBackView;
+@property (strong,nonatomic)UIImageView *patientImageView;
+@property (strong,nonatomic)UILabel *patientNameLabel;
+@property (strong,nonatomic)UILabel *questionMoneyLabel;
+@property (strong,nonatomic)UILabel *questionContentLabel;
+
+@property (strong,nonatomic)UILabel *diseaseHistoryLabel;
+@property (strong,nonatomic)UILabel *physiqueHistoryLabel;
+@property (strong,nonatomic)UILabel *healthHistoryLabel;
+
+@property (strong,nonatomic)UIImageView *expertImageView1;
+@property (strong,nonatomic)UIImageView *expertSoundImageView;
+@property (strong,nonatomic)UILabel *expertSoundLabel;
+@property (strong,nonatomic)UILabel *expertSoundLengthLabel;
+@property (strong,nonatomic)UILabel *questionTimeLabel;
+@property (strong,nonatomic)UILabel *questionAudienceLabel;
+
+@property (strong,nonatomic)UIView *expertBackView;
+@property (strong,nonatomic)UIImageView *expertImageView2;
+@property (strong,nonatomic)UILabel *expertNameLabel;
+@property (strong,nonatomic)UILabel *expertTitleLabel;
+@property (strong,nonatomic)UILabel *expertMoneyLabel;
+@property (strong,nonatomic)UILabel *expertDetailLabel;
+@property (strong,nonatomic)UILabel *expertQuestionLabel;
+@property (strong,nonatomic)UILabel *expertFocusLabel;
 
 @end

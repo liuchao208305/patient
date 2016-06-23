@@ -56,7 +56,6 @@
     
     self.expertSoundLabel = [[UILabel alloc] init];
     self.expertSoundLabel.font = [UIFont systemFontOfSize:12];
-    self.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
     self.expertSoundLabel.textAlignment = NSTextAlignmentCenter;
     [self.expertSoundImageView addSubview:self.expertSoundLabel];
     
