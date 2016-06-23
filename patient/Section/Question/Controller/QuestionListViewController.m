@@ -569,12 +569,14 @@
     if (self.flag1) {
         QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
         detailVC.hidesBottomBarWhenPushed = YES;
+        detailVC.isMyself = YES;
         detailVC.questionId = self.questionIdMineArray[indexPath.section];
         [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
         QuestionDetailViewController *detailVC = [[QuestionDetailViewController alloc] init];
         detailVC.hidesBottomBarWhenPushed = YES;
+        detailVC.isMyself = NO;
         detailVC.questionId = self.questionIdOtherArray[indexPath.section];
         [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];

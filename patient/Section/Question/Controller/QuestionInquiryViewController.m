@@ -594,7 +594,7 @@
         self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"heand_url"]];
         self.doctor_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_name"]];
         self.titleName = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"titleName"]];
-        self.consultation_money = [[[self.data objectForKey:@"doctorInfo"] objectForKey:@"titleName"] doubleValue];
+        self.consultation_money = [[[self.data objectForKey:@"doctorInfo"] objectForKey:@"consultation_money"] doubleValue];
         self.doctor_descr = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_descr"]];
     }else{
         self.avgMoney = [[self.data objectForKey:@"avgMoney"] doubleValue];

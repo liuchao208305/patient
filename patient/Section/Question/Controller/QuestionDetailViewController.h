@@ -10,6 +10,7 @@
 
 @interface QuestionDetailViewController : BaseViewController
 
+@property (assign,nonatomic)BOOL isMyself;
 @property (strong,nonatomic)NSString *questionId;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
@@ -19,11 +20,11 @@
 @property (strong,nonatomic)UILabel *patientNameLabel;
 @property (strong,nonatomic)UILabel *questionMoneyLabel;
 @property (strong,nonatomic)UILabel *questionContentLabel;
-
+/********************************************************/
 @property (strong,nonatomic)UILabel *diseaseHistoryLabel;
 @property (strong,nonatomic)UILabel *physiqueHistoryLabel;
 @property (strong,nonatomic)UILabel *healthHistoryLabel;
-
+/********************************************************/
 @property (strong,nonatomic)UIImageView *expertImageView1;
 @property (strong,nonatomic)UIImageView *expertSoundImageView;
 @property (strong,nonatomic)UILabel *expertSoundLabel;
