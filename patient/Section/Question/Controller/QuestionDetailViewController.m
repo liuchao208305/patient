@@ -31,6 +31,7 @@
 @property (strong,nonatomic)NSString *physiqueHistory;
 @property (strong,nonatomic)NSString *healthHistory;
 @property (strong,nonatomic)NSString *expertImage1;
+@property (strong,nonatomic)NSString *questionPayStatus;
 @property (strong,nonatomic)NSString *expertSoundString;
 @property (strong,nonatomic)NSString *expertSoundLength;
 @property (strong,nonatomic)NSString *questionTime;
@@ -404,6 +405,7 @@
     self.questionContent = [NullUtil judgeStringNull:[self.data objectForKey:@"content"]];
     
     self.expertImage1 = [NullUtil judgeStringNull:[self.data objectForKey:@"doctorHeandUrl"]];
+    self.questionPayStatus = [self.data objectForKey:@"is_pay"];
     self.expertSoundString = [NullUtil judgeStringNull:[self.data objectForKey:@"video_url"]];
     self.questionTime = [NullUtil judgeStringNull:[self.data objectForKey:@"timeShow"]];
     self.questionFocus = [self.data objectForKey:@"num_no"];
@@ -428,6 +430,7 @@
     self.questionContentLabel.text = self.questionContent;
     
     [self.expertImageView1 sd_setImageWithURL:[NSURL URLWithString:self.expertImage1] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
 
     self.questionTimeLabel.text = self.questionTime;
     self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];

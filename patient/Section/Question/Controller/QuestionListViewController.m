@@ -498,6 +498,7 @@
                 [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
             }else{
                 cell.publicImageView.hidden = YES;
+                cell.audienceNumberLabel.hidden = YES;
             }
             
             cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameMineArray[indexPath.section],self.questionExpertUnitMineArray[indexPath.section],self.questionExpertTitleMineArray[indexPath.section]];
@@ -521,8 +522,6 @@
                 }
             }
             
-            cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberMineArray[indexPath.section]];
-            
             if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
                 cell.payStatusLabel.text = @"待支付";
                 [cell.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
@@ -541,9 +540,20 @@
                 cell.confirmButton.tag = 300000 + indexPath.section;
                 [cell.confirmButton addTarget:self action:@selector(payNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
-                cell.payStatusLabel.hidden = YES;
-                cell.deleteButton.hidden = YES;
-                cell.confirmButton.hidden = YES;
+                if ([self.questionStatusMineArray[indexPath.section] intValue] == 1) {
+                    cell.payStatusLabel.text = @"待回复";
+                    
+                    cell.expertImageView.hidden = YES;
+                    cell.expertSoundImageView.hidden = YES;
+                    
+                    cell.deleteButton.hidden = YES;
+                    cell.confirmButton.hidden = YES;
+                }else if ([self.questionStatusMineArray[indexPath.section] intValue] == 2){
+                    cell.payStatusLabel.hidden = YES;
+                    cell.deleteButton.hidden = YES;
+                    cell.confirmButton.hidden = YES;
+                    cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberMineArray[indexPath.section]];
+                }
             }
             
             cell.expertSoundImageView.tag = 100000 + indexPath.section;
