@@ -300,7 +300,7 @@
                     
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     
-                    DLog(@"文件下载成功！");
+                    DLog(@"%@文件下载成功！",[[self.questionExpertSoundMineArray[clickedImageView.tag-100000] componentsSeparatedByString:@","] firstObject]);
                     
                     self.questionListSoundUrl = resDict;
                     
