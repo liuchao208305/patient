@@ -344,6 +344,7 @@
 
 #pragma mark Target Action
 - (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [self.inquiryTextView resignFirstResponder];
     [self.inquiryMoneyTextField resignFirstResponder];
 }
 
@@ -363,6 +364,24 @@
 -(void)confirmButtonClicked{
     DLog(@"confirmButtonClicked");
     
+    if (self.isForSpecialDoctor) {
+        if ([self.inquiryTextView.text isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
+            [self.inquiryTextView becomeFirstResponder];
+        }else{
+            
+        }
+    }else{
+        if ([self.inquiryTextView.text isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
+            [self.inquiryTextView becomeFirstResponder];
+        }else if ([self.inquiryMoneyTextField.text isEqualToString:@""]){
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"问题出价不能为空！"];
+            [self.inquiryMoneyTextField becomeFirstResponder];
+        }else{
+            
+        }
+    }
 }
 
 #pragma mark UITextViewDelegate
@@ -373,10 +392,6 @@
     }else{
         self.inquiryTextView.editable = NO;
     }
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.inquiryTextView resignFirstResponder];
 }
 
 #pragma mark UITableViewDelegate
