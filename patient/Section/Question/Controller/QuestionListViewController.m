@@ -245,7 +245,7 @@
     }
 }
 
--(void)soundImageViewClicked:(UITapGestureRecognizer *)gestureRecognizer{
+-(void)soundImageViewClicked2:(UITapGestureRecognizer *)gestureRecognizer{
     DLog(@"soundImageViewClicked");
     
     UIView *clickedView = [gestureRecognizer view];
@@ -254,14 +254,14 @@
     clickedImageView.animationDuration = 0.8;
     [clickedImageView startAnimating];
     
-    if ([self.questionExpertSoundOtherArray[clickedImageView.tag-100000] length] > 0) {
-        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-100000] containsString:@","]) {
-            if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-100000] componentsSeparatedByString:@","] firstObject] length] > 0) {
+    if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
+        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] containsString:@","]) {
+            if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] length] > 0) {
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 hud.mode = MBProgressHUDAnimationFade;
                 hud.labelText = kNetworkStatusLoadingText;
                 
-                [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-100000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
                     
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     
@@ -290,6 +290,16 @@
     };
 }
 
+-(void)deleteButtonClicked:(UIButton *)sender{
+    DLog(@"deleteButtonClicked");
+    DLog(@"%@",self.questionIdMineArray[sender.tag - 200000]);
+}
+
+-(void)payNowButtonClicked:(UIButton *)sender{
+    DLog(@"payNowButtonClicked");
+    DLog(@"%@",self.questionIdMineArray[sender.tag - 300000]);
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.flag1) {
@@ -305,9 +315,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 190;
     if (self.flag1) {
-        
+        return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]*2+15+15+60+15+12+15;
     }else if (self.flag2){
         return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]*2+15+15+60+15+12+15;
     }
@@ -340,8 +349,24 @@
             
             cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameMineArray[indexPath.section],self.questionExpertUnitMineArray[indexPath.section],self.questionExpertTitleMineArray[indexPath.section]];
             [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageMineArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-            [cell.expertSoundImageView setImage:[UIImage imageNamed:@"info_person_mr_record_image"]];
-            cell.expertSoundLengthLabel.text = @"43''";
+            
+            if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
+                [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+                cell.expertSoundLabel.text = @"立即播放";
+            }
+            
+            if ([self.questionExpertSoundMineArray[indexPath.section] length] > 0) {
+                if ([self.questionExpertSoundMineArray[indexPath.section] containsString:@","]) {
+                    if ([[[self.questionExpertSoundMineArray[indexPath.section] componentsSeparatedByString:@","] firstObject] length] > 0) {
+                        
+                    }
+                    
+                    cell.expertSoundLengthLabel.text = [NSString stringWithFormat:@"%.f''",[[[self.questionExpertSoundMineArray[indexPath.section] componentsSeparatedByString:@","] lastObject] floatValue]];
+                }
+            }
+            
             cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberMineArray[indexPath.section]];
             
             if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
@@ -352,10 +377,15 @@
                 cell.deleteButton.layer.cornerRadius = 3;
                 cell.deleteButton.layer.borderWidth = 1;
                 cell.deleteButton.layer.borderColor = ColorWithHexRGB(0x909090).CGColor;
+                cell.deleteButton.tag = 200000 + indexPath.section;
+                [cell.deleteButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                
                 [cell.confirmButton setTitle:@"立即支付" forState:UIControlStateNormal];
                 [cell.confirmButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
                 [cell.confirmButton setBackgroundColor:kMAIN_COLOR];
                 cell.confirmButton.layer.cornerRadius = 5;
+                cell.confirmButton.tag = 300000 + indexPath.section;
+                [cell.confirmButton addTarget:self action:@selector(payNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
                 cell.payStatusLabel.hidden = YES;
                 cell.deleteButton.hidden = YES;
@@ -400,9 +430,9 @@
             
             cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberOtherArray[indexPath.section]];
             
-            cell.expertSoundImageView.tag = 100000 + indexPath.section;
+            cell.expertSoundImageView.tag = 400000 + indexPath.section;
             cell.expertSoundImageView.userInteractionEnabled = YES;
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked:)];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked2:)];
             [cell.expertSoundImageView addGestureRecognizer:tap];
         }
         
