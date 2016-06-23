@@ -22,6 +22,7 @@
 #pragma mark Init Section
 -(void)initView{
     self.contentLabel = [[UILabel alloc] init];
+    self.contentLabel.font = [UIFont systemFontOfSize:14];
     self.contentLabel.numberOfLines = 0;
     [self.contentView addSubview:self.contentLabel];
     
@@ -42,6 +43,7 @@
     }];
     
     self.expertLabel = [[UILabel alloc] init];
+    self.expertLabel.font = [UIFont systemFontOfSize:12];
     self.expertLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.expertLabel];
     

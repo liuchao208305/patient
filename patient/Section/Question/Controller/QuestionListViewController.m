@@ -40,7 +40,7 @@
 @property (assign,nonatomic)NSInteger currentPage2;
 @property (assign,nonatomic)NSInteger pageSize2;
 
-@property (strong,nonatomic)NSURL *yizhuSoundUrl;
+@property (strong,nonatomic)NSURL *questionListSoundUrl;
 
 @end
 
@@ -248,16 +248,41 @@
 -(void)soundImageViewClicked:(UITapGestureRecognizer *)gestureRecognizer{
     DLog(@"soundImageViewClicked");
     
-    [[LVRecordTool sharedRecordTool] playRecordFile:self.yizhuSoundUrl];
-    
     UIView *clickedView = [gestureRecognizer view];
     UIImageView *clickedImageView = (UIImageView *)clickedView;
     clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
     clickedImageView.animationDuration = 0.8;
     [clickedImageView startAnimating];
     
+    if ([self.questionExpertSoundOtherArray[clickedImageView.tag-100000] length] > 0) {
+        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-100000] containsString:@","]) {
+            if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-100000] componentsSeparatedByString:@","] firstObject] length] > 0) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDAnimationFade;
+                hud.labelText = kNetworkStatusLoadingText;
+                
+                [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-100000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    DLog(@"文件下载成功！");
+                    
+                    self.questionListSoundUrl = resDict;
+                    
+                } failureBlock:^(NSString *error) {
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                }];
+            }
+        }
+    }
+    
+    [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
+    
     [LVRecordTool sharedRecordTool].playStopBlock = ^void{
-        DLog(@"播放完毕！");
+        DLog(@"%@播放完毕！",self.questionListSoundUrl);
         
         if ([clickedImageView isAnimating] == YES) {
             [clickedImageView stopAnimating];
@@ -366,24 +391,7 @@
             if ([self.questionExpertSoundOtherArray[indexPath.section] length] > 0) {
                 if ([self.questionExpertSoundOtherArray[indexPath.section] containsString:@","]) {
                     if ([[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] firstObject] length] > 0) {
-                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                        hud.mode = MBProgressHUDAnimationFade;
-                        hud.labelText = kNetworkStatusLoadingText;
                         
-                        [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
-                            
-                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                            
-                            DLog(@"文件下载成功！");
-                            
-                            self.yizhuSoundUrl = resDict;
-                            
-                        } failureBlock:^(NSString *error) {
-                            
-                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                            
-                            [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
-                        }];
                     }
                     
                     cell.expertSoundLengthLabel.text = [NSString stringWithFormat:@"%.f''",[[[self.questionExpertSoundOtherArray[indexPath.section] componentsSeparatedByString:@","] lastObject] floatValue]];
@@ -392,6 +400,7 @@
             
             cell.audienceNumberLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionAudienceNumberOtherArray[indexPath.section]];
             
+            cell.expertSoundImageView.tag = 100000 + indexPath.section;
             cell.expertSoundImageView.userInteractionEnabled = YES;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked:)];
             [cell.expertSoundImageView addGestureRecognizer:tap];
