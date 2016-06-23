@@ -262,16 +262,18 @@
         case 0:
             self.flag1 = YES;
             self.flag2 = NO;
+            self.questionListSoundUrl = [NSURL URLWithString:@""];
             DLog(@"Index-->%li", (long)Index);
             [self initSubView1];
-            [self sendQuestionCheckRequest1];
+            [self.tableView1.mj_header beginRefreshing];
             break;
         case 1:
             self.flag1 = NO;
             self.flag2  = YES;
+            self.questionListSoundUrl = [NSURL URLWithString:@""];
             DLog(@"Index-->%li", (long)Index);
             [self initSubView2];
-            [self sendQuestionCheckRequest2];
+            [self.tableView2.mj_header beginRefreshing];
             break;
         default:
             break;
@@ -334,40 +336,44 @@
     clickedImageView.animationDuration = 0.8;
     [clickedImageView startAnimating];
     
-    if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
-        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] containsString:@","]) {
-            if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] length] > 0) {
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.mode = MBProgressHUDAnimationFade;
-                hud.labelText = kNetworkStatusLoadingText;
-                
-                [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+    if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
+        
+    }else{
+        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
+            if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] containsString:@","]) {
+                if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] length] > 0) {
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.mode = MBProgressHUDAnimationFade;
+                    hud.labelText = kNetworkStatusLoadingText;
                     
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                    
-                    DLog(@"文件下载成功！");
-                    
-                    self.questionListSoundUrl = resDict;
-                    
-                } failureBlock:^(NSString *error) {
-                    
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                    
-                    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
-                }];
+                    [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                        
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        
+                        DLog(@"文件下载成功！");
+                        
+                        self.questionListSoundUrl = resDict;
+                        
+                    } failureBlock:^(NSString *error) {
+                        
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        
+                        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                    }];
+                }
             }
         }
-    }
-    
-    [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
-    
-    [LVRecordTool sharedRecordTool].playStopBlock = ^void{
-        DLog(@"%@播放完毕！",self.questionListSoundUrl);
         
-        if ([clickedImageView isAnimating] == YES) {
-            [clickedImageView stopAnimating];
-        }
-    };
+        [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
+        
+        [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+            DLog(@"%@播放完毕！",self.questionListSoundUrl);
+            
+            if ([clickedImageView isAnimating] == YES) {
+                [clickedImageView stopAnimating];
+            }
+        };
+    }
 }
 
 -(void)deleteButtonClicked:(UIButton *)sender{
