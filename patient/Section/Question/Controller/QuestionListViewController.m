@@ -48,6 +48,18 @@
 @property (strong,nonatomic)NSMutableDictionary *data4;
 @property (assign,nonatomic)NSError *error4;
 
+@property (strong,nonatomic)NSMutableDictionary *result5;
+@property (assign,nonatomic)NSInteger code5;
+@property (strong,nonatomic)NSString *message5;
+@property (strong,nonatomic)NSMutableDictionary *data5;
+@property (assign,nonatomic)NSError *error5;
+
+@property (strong,nonatomic)NSMutableDictionary *result6;
+@property (assign,nonatomic)NSInteger code6;
+@property (strong,nonatomic)NSString *message6;
+@property (strong,nonatomic)NSMutableDictionary *data6;
+@property (assign,nonatomic)NSError *error6;
+
 @property (assign,nonatomic)NSInteger currentPage1;
 @property (assign,nonatomic)NSInteger pageSize1;
 
@@ -343,42 +355,55 @@
     [clickedImageView startAnimating];
     
     if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
-        
+        self.quesitonID = self.questionIdOtherArray[clickedImageView.tag - 400000];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"请选择支付方式"
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showInView:self.view];
     }else{
-        if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
-            if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] containsString:@","]) {
-                if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] length] > 0) {
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.mode = MBProgressHUDAnimationFade;
-                    hud.labelText = kNetworkStatusLoadingText;
-                    
-                    [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+        if (self.mianfeitingFlag) {
+            if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
+                if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] containsString:@","]) {
+                    if ([[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] length] > 0) {
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        hud.mode = MBProgressHUDAnimationFade;
+                        hud.labelText = kNetworkStatusLoadingText;
                         
-                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                        
-                        DLog(@"文件下载成功！");
-                        
-                        self.questionListSoundUrl = resDict;
-                        
-                    } failureBlock:^(NSString *error) {
-                        
-                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                        
-                        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
-                    }];
+                        [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.questionExpertSoundOtherArray[clickedImageView.tag-400000] componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            DLog(@"文件下载成功！");
+                            
+                            self.questionListSoundUrl = resDict;
+                            
+                        } failureBlock:^(NSString *error) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                        }];
+                    }
                 }
             }
-        }
-        
-        [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
-        
-        [LVRecordTool sharedRecordTool].playStopBlock = ^void{
-            DLog(@"%@播放完毕！",self.questionListSoundUrl);
             
-            if ([clickedImageView isAnimating] == YES) {
-                [clickedImageView stopAnimating];
-            }
-        };
+            [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
+            
+            [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+                DLog(@"%@播放完毕！",self.questionListSoundUrl);
+                
+                if ([clickedImageView isAnimating] == YES) {
+                    [clickedImageView stopAnimating];
+                }
+            };
+        }else{
+            self.quesitonID = self.questionIdOtherArray[clickedImageView.tag - 400000];
+            [self sendQuesionMianfeitingRequest];
+        }
     }
 }
 
@@ -405,14 +430,26 @@
 #pragma mark UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0){
-        //支付宝支付
-        self.payType = @"1";
-        [self sendQuesionPayNowRequest];
-    }else if (buttonIndex == 1){
-        //微信支付
-        self.payType = @"2";
-        [self sendQuesionPayNowRequest];
+    if (self.flag1) {
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.payType = @"1";
+            [self sendQuesionPayNowRequest];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.payType = @"2";
+            [self sendQuesionPayNowRequest];
+        }
+    }else if (self.flag2){
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.payType = @"1";
+            [self sendQuesionFufeitingRequest];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.payType = @"2";
+            [self sendQuesionFufeitingRequest];
+        }
     }
 }
 
@@ -471,6 +508,7 @@
             }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
                 [cell.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
                 cell.expertSoundLabel.text = @"立即播放";
+                cell.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
             }
             
             if ([self.questionExpertSoundMineArray[indexPath.section] length] > 0) {
@@ -782,6 +820,112 @@
     }];
 }
 
+-(void)sendQuesionFufeitingRequest{
+    DLog(@"sendQuesionFufeitingRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"obj_id"];
+    [parameter setValue:@"1" forKey:@"type"];
+    [parameter setValue:self.quesitonID forKey:@"ids"];
+    [parameter setValue:self.payType forKey:@"pay_type"];
+    [parameter setValue:@"1" forKey:@"weixinType"];
+    
+//    if ([self.payType isEqualToString:@"2"]) {
+//        [parameter setValue:@"1" forKey:@"weixinType"];
+//    }
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_FUFEITING_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result5 = (NSMutableDictionary *)responseObject;
+        
+        self.code5 = [[self.result5 objectForKey:@"code"] integerValue];
+        self.message5 = [self.result5 objectForKey:@"message"];
+        self.data5 = [self.result5 objectForKey:@"data"];
+        
+        if (self.code5 == kSUCCESS) {
+            if ([self.payType isEqualToString:@"1"]) {
+                [self paymentInfoAliPayDataParse];
+            }else if ([self.payType isEqualToString:@"2"]){
+                [self paymentInfoWechatPayDataParse];
+            }
+        }else{
+            DLog(@"%@",self.message5);
+            [HudUtil showSimpleTextOnlyHUD:self.message5 withDelaySeconds:kHud_DelayTime];
+            if (self.code5 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendQuesionMianfeitingRequest{
+    DLog(@"sendQuesionMianfeitingRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"obj_id"];
+    [parameter setValue:self.quesitonID forKey:@"ids"];
+    [parameter setValue:@"1" forKey:@"type"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_MIANFEITING_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result6 = (NSMutableDictionary *)responseObject;
+        
+        self.code6 = [[self.result6 objectForKey:@"code"] integerValue];
+        self.message6 = [self.result6 objectForKey:@"message"];
+        self.data6 = [self.result6 objectForKey:@"data"];
+        
+        if (self.code6 == kSUCCESS) {
+            self.mianfeitingFlag = YES;
+        }else{
+            DLog(@"%@",self.message6);
+            [HudUtil showSimpleTextOnlyHUD:self.message6 withDelaySeconds:kHud_DelayTime];
+            if (self.code6 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)questionCheckDataParse1{
     DLog(@"questionCheckDataParse1");
@@ -854,29 +998,55 @@
 }
 
 -(void)paymentInfoAliPayDataParse{
-    self.paymentInfomation = [self.data4 objectForKey:@"payinfo"];
-    
-    NSString *appScheme = @"alipaytest";
-    
-    [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-        DLog(@"resultDic-->%@",resultDic);
-        self.alipayMomo = [resultDic objectForKey:@"memo"];
-        self.alipayResult = [resultDic objectForKey:@"result"];
-        self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+    if (self.flag1) {
+        self.paymentInfomation = [self.data4 objectForKey:@"payinfo"];
         
-        if ([self.alipayResultStatus integerValue] == 9000) {
-            //支付成功
-            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+        NSString *appScheme = @"alipaytest";
+        
+        [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            DLog(@"resultDic-->%@",resultDic);
+            self.alipayMomo = [resultDic objectForKey:@"memo"];
+            self.alipayResult = [resultDic objectForKey:@"result"];
+            self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
             
-            [self.tableView1.mj_header beginRefreshing];
-        }else if ([self.alipayResultStatus integerValue] == 8000){
-            //支付结果确认中
-            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
-        }else{
-            //支付失败
-            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
-        }
-    }];
+            if ([self.alipayResultStatus integerValue] == 9000) {
+                //支付成功
+                [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+                
+                [self.tableView1.mj_header beginRefreshing];
+            }else if ([self.alipayResultStatus integerValue] == 8000){
+                //支付结果确认中
+                [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+            }else{
+                //支付失败
+                [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+            }
+        }];
+    }else if (self.flag2){
+        self.paymentInfomation = [self.data5 objectForKey:@"payinfo"];
+        
+        NSString *appScheme = @"alipaytest";
+        
+        [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            DLog(@"resultDic-->%@",resultDic);
+            self.alipayMomo = [resultDic objectForKey:@"memo"];
+            self.alipayResult = [resultDic objectForKey:@"result"];
+            self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+            
+            if ([self.alipayResultStatus integerValue] == 9000) {
+                //支付成功
+                [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+                
+                [self.tableView2.mj_header beginRefreshing];
+            }else if ([self.alipayResultStatus integerValue] == 8000){
+                //支付结果确认中
+                [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+            }else{
+                //支付失败
+                [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+            }
+        }];
+    }
 }
 
 -(void)paymentInfoWechatPayDataParse{

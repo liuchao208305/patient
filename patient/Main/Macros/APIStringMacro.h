@@ -81,6 +81,8 @@ typedef enum {
 #define kJZK_QUESTION_PAY_INFORMATION @"private/v2/limaPay?"//问题立即支付
 #define kJZK_QUESTION_DELETE_INFORMATION @"private/v2/quxiaoInter?"//问答删除接口
 #define kJZK_QUESTION_DETAIL_INFORMAITON @"public/v2/interloution/detail?"//问题详情接口
+#define kJZK_QUESTION_FUFEITING_INFORMATION @"private/v2/clickAnswerPay?"//问题付费听接口
+#define kJZK_QUESTION_MIANFEITING_INFORMATION @"private/v2/clickAnswer?"//问题免费听接口
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息

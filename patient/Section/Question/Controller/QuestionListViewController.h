@@ -19,6 +19,8 @@
 @property (assign,nonatomic)BOOL flag1;
 @property (assign,nonatomic)BOOL flag2;
 
+@property (assign,nonatomic)BOOL mianfeitingFlag;
+
 @property (strong,nonatomic)UITableView *tableView1;
 @property (strong,nonatomic)UITableView *tableView2;
 
