@@ -332,7 +332,7 @@
     
     [self.expertQuestionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertDetailLabel).offset(0);
-        make.top.equalTo(self.expertDetailLabel.mas_bottom).offset(17);
+        make.bottom.equalTo(self.expertBackView).offset(-15);
     }];
     
     [self.expertFocusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -411,7 +411,7 @@
     self.expertId = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_id"]];
     self.expertImage2 = [NullUtil judgeStringNull:[self.data objectForKey:@"doctorHeandUrl"]];
     self.expertName = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_name"]];
-    self.expertTitle = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_name"]];
+    self.expertTitle = [NullUtil judgeStringNull:[self.data objectForKey:@"title_name"]];
     self.expertMoney = [self.data objectForKey:@"consultation_money"];
     self.expertContent = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_descr"]];
     self.expertQuestion = [self.data objectForKey:@"answerCount"];
