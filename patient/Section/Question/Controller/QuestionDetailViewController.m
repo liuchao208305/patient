@@ -161,12 +161,12 @@
             [self.view addSubview:self.questionBackView];
         }
     }else{
-        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 245)];
+        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15)];
         self.questionBackView.backgroundColor = kWHITE_COLOR;
         [self initQuestionSubView];
         [self.view addSubview:self.questionBackView];
         
-        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 255, SCREEN_WIDTH, 135)];
+        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15+30, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
         self.expertBackView.backgroundColor = kWHITE_COLOR;
         [self initExpertSubView];
         [self.view addSubview:self.expertBackView];
@@ -438,6 +438,7 @@
         make.leading.equalTo(self.expertNameLabel).offset(0);
         make.top.equalTo(self.expertNameLabel.mas_bottom).offset(15);
         make.trailing.equalTo(self.expertBackView).offset(-12);
+        make.height.mas_equalTo(60);
     }];
     
     [self.expertQuestionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
