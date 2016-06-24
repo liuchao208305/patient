@@ -87,6 +87,9 @@
 @property (strong,nonatomic)NSString *sign;
 @property (nonatomic, assign)UInt32 timeStamp;
 
+#warning deleteQuesitonIdTemp
+@property (strong,nonatomic)NSString *deleteQuesitonIdTemp;
+
 @end
 
 @implementation QuestionListViewController
@@ -344,15 +347,6 @@
     
     UIView *clickedView = [gestureRecognizer view];
     UIImageView *clickedImageView = (UIImageView *)clickedView;
-    if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
-        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
-    }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 2){
-        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
-    }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 3){
-        clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_red_1"],[UIImage imageNamed:@"question_list_sound_image_red_2"], [UIImage imageNamed:@"question_list_sound_image_red_3"]];
-    }
-    clickedImageView.animationDuration = 0.8;
-    [clickedImageView startAnimating];
     
     if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
         self.quesitonID = self.questionIdOtherArray[clickedImageView.tag - 400000];
@@ -391,6 +385,16 @@
                 }
             }
             
+            if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 2){
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            }else if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 3){
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_red_1"],[UIImage imageNamed:@"question_list_sound_image_red_2"], [UIImage imageNamed:@"question_list_sound_image_red_3"]];
+            }
+            clickedImageView.animationDuration = 0.8;
+            [clickedImageView startAnimating];
+            
             [[LVRecordTool sharedRecordTool] playRecordFile:self.questionListSoundUrl];
             
             [LVRecordTool sharedRecordTool].playStopBlock = ^void{
@@ -410,7 +414,10 @@
 -(void)deleteButtonClicked:(UIButton *)sender{
     DLog(@"deleteButtonClicked");
     DLog(@"%@",self.questionIdMineArray[sender.tag - 200000]);
-    [self sendQuestionDeleteRequest:self.questionIdMineArray[sender.tag - 200000]];
+//    [self sendQuestionDeleteRequest:self.questionIdMineArray[sender.tag - 200000]];
+    self.deleteQuesitonIdTemp = self.questionIdMineArray[sender.tag - 200000];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"您确定要删除该提问吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
 }
 
 -(void)payNowButtonClicked:(UIButton *)sender{
@@ -425,6 +432,13 @@
                                   otherButtonTitles:@"支付宝支付", @"微信支付",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
+}
+
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        [self sendQuestionDeleteRequest:self.deleteQuesitonIdTemp];
+    }
 }
 
 #pragma mark UIActionSheetDelegate
@@ -469,9 +483,17 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]*2+15+15+60+15+12+15;
+        if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
+            return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+21+32+11;
+        }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
+            if ([self.questionPublicStatusMineArray[indexPath.section] intValue] == 1) {
+                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
+            }else{
+                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+15;
+            }
+        }
     }else if (self.flag2){
-        return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]*2+15+15+60+15+12+15;
+        return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
     }
     return 0;
 }
@@ -501,7 +523,10 @@
                 cell.audienceNumberLabel.hidden = YES;
             }
             
-            cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameMineArray[indexPath.section],self.questionExpertUnitMineArray[indexPath.section],self.questionExpertTitleMineArray[indexPath.section]];
+            if (![self.questionExpertNameMineArray[indexPath.section] isEqualToString:@""]) {
+                cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameMineArray[indexPath.section],self.questionExpertUnitMineArray[indexPath.section],self.questionExpertTitleMineArray[indexPath.section]];
+            }
+            
             [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageMineArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
             
             if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
@@ -523,6 +548,9 @@
             }
             
             if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
+                cell.expertImageView.hidden = YES;
+                cell.expertSoundImageView.hidden = YES;
+                
                 cell.payStatusLabel.text = @"待支付";
                 [cell.deleteButton setTitle:@"删除" forState:UIControlStateNormal];
                 [cell.deleteButton setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
@@ -573,7 +601,10 @@
         if (self.questionOtherArray.count > 0) {
             cell.contentLabel.text = self.questionContentOtherArray[indexPath.section];
             
-            cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameOtherArray[indexPath.section],self.questionExpertUnitOtherArray[indexPath.section],self.questionExpertTitleOtherArray[indexPath.section]];
+            if (![self.questionExpertNameOtherArray[indexPath.section] isEqualToString:@""]) {
+                cell.expertLabel.text = [NSString stringWithFormat:@"%@ | %@ %@",self.questionExpertNameOtherArray[indexPath.section],self.questionExpertUnitOtherArray[indexPath.section],self.questionExpertTitleOtherArray[indexPath.section]];
+            }
+            
             [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.questionExpertImageOtherArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
             
             if ([self.questionPayStatusOtherArray[indexPath.section] intValue] == 1) {
