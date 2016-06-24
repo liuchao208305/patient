@@ -13,6 +13,8 @@
 @property (assign,nonatomic)BOOL isMyself;
 @property (strong,nonatomic)NSString *questionId;
 
+@property (assign,nonatomic)BOOL mianfeitingFlag;
+
 @property (strong,nonatomic)UIScrollView *scrollView;
 
 @property (strong,nonatomic)UIView *questionBackView;

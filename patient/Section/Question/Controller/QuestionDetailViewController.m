@@ -12,17 +12,32 @@
 #import "NullUtil.h"
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
+#import "StringUtil.h"
 #import "LoginViewController.h"
 #import "QuestionDetailTableCell.h"
 #import "LVRecordTool.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
-@interface QuestionDetailViewController ()
+@interface QuestionDetailViewController ()<UIActionSheetDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
 @property (strong,nonatomic)NSString *message;
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result5;
+@property (assign,nonatomic)NSInteger code5;
+@property (strong,nonatomic)NSString *message5;
+@property (strong,nonatomic)NSMutableDictionary *data5;
+@property (assign,nonatomic)NSError *error5;
+
+@property (strong,nonatomic)NSMutableDictionary *result6;
+@property (assign,nonatomic)NSInteger code6;
+@property (strong,nonatomic)NSString *message6;
+@property (strong,nonatomic)NSMutableDictionary *data6;
+@property (assign,nonatomic)NSError *error6;
 
 @property (strong,nonatomic)NSString *patientImage;
 @property (strong,nonatomic)NSString *patientName;
@@ -36,7 +51,27 @@
 @property (strong,nonatomic)NSString *physiqueHistory;
 @property (strong,nonatomic)NSString *healthHistory;
 @property (strong,nonatomic)NSString *expertImage1;
+
 @property (strong,nonatomic)NSString *questionPayStatus;
+@property (strong,nonatomic)NSString *questionShitingMoney;
+
+@property (strong,nonatomic)NSString *payType;
+
+@property (strong,nonatomic)NSString *paymentInfomation;
+
+@property (strong,nonatomic)NSString *alipayMomo;
+@property (strong,nonatomic)NSString *alipayResult;
+@property (strong,nonatomic)NSString *alipayResultStatus;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo;
+@property (strong,nonatomic)NSString *appid;
+@property (strong,nonatomic)NSString *noncestr;
+@property (strong,nonatomic)NSString *package;
+@property (strong,nonatomic)NSString *partnerid;
+@property (strong,nonatomic)NSString *prepayid;
+@property (strong,nonatomic)NSString *sign;
+@property (nonatomic, assign)UInt32 timeStamp;
+
 @property (strong,nonatomic)NSString *expertSoundString;
 @property (strong,nonatomic)NSURL *expertSoundURl;
 @property (strong,nonatomic)NSString *questionTime;
@@ -66,7 +101,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+//    [self initView];
     [self initRecognizer];
 }
 
@@ -109,15 +144,22 @@
 
 -(void)initView{
     if (self.isMyself) {
-        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 400)];
-        self.questionBackView.backgroundColor = kWHITE_COLOR;
-        [self initQuestionSubView];
-        [self.view addSubview:self.questionBackView];
-        
-        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 415, SCREEN_WIDTH, 135)];
-        self.expertBackView.backgroundColor = kWHITE_COLOR;
-        [self initExpertSubView];
-        [self.view addSubview:self.expertBackView];
+        if ([self.expertSoundString length] > 0) {
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15)];
+            self.questionBackView.backgroundColor = kWHITE_COLOR;
+            [self initQuestionSubView];
+            [self.view addSubview:self.questionBackView];
+            
+            self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15+10, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
+            self.expertBackView.backgroundColor = kWHITE_COLOR;
+            [self initExpertSubView];
+            [self.view addSubview:self.expertBackView];
+        }else{
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+12+10+15)];
+            self.questionBackView.backgroundColor = kWHITE_COLOR;
+            [self initQuestionSubView];
+            [self.view addSubview:self.questionBackView];
+        }
     }else{
         self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 245)];
         self.questionBackView.backgroundColor = kWHITE_COLOR;
@@ -317,14 +359,25 @@
     self.questionAudienceLabel.font = [UIFont systemFontOfSize:12];
     [self.questionBackView addSubview:self.questionAudienceLabel];
     
-    [self.questionTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.questionBackView).offset(12);
-        make.bottom.equalTo(self.questionBackView).offset(-15);
-    }];
+    if (self.isMyself) {
+        [self.questionTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.questionBackView).offset(12);
+            if ([self.expertSoundString length] > 0) {
+                make.top.equalTo(self.expertImageView1.mas_bottom).offset(10);
+            }else{
+                make.top.equalTo(self.healthHistoryLabel.mas_bottom).offset(10);
+            }
+        }];
+    }else{
+        [self.questionTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.questionBackView).offset(12);
+            make.top.equalTo(self.expertImageView1.mas_bottom).offset(10);
+        }];
+    }
     
     [self.questionAudienceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.questionBackView).offset(-12);
-        make.bottom.equalTo(self.questionBackView).offset(-15);
+        make.centerY.equalTo(self.questionTimeLabel).offset(0);
     }];
 }
 
@@ -404,7 +457,7 @@
 
 #pragma mark Target Action
 -(void)soundImageViewClicked1:(UITapGestureRecognizer *)gestureRecognizer{
-    DLog(@"soundImageViewClicked");
+    DLog(@"soundImageViewClicked1");
     
     UIView *clickedView = [gestureRecognizer view];
     UIImageView *clickedImageView = (UIImageView *)clickedView;
@@ -450,6 +503,86 @@
     };
 }
 
+-(void)soundImageViewClicked2:(UITapGestureRecognizer *)gestureRecognizer{
+    DLog(@"soundImageViewClicked2");
+    
+    UIView *clickedView = [gestureRecognizer view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    
+    if ([self.questionPayStatus intValue] == 1) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"请选择支付方式"
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showInView:self.view];
+    }else{
+        if (self.mianfeitingFlag) {
+            if ([self.expertSoundString length] > 0) {
+                if ([self.expertSoundString containsString:@","]) {
+                    if ([[[self.expertSoundString componentsSeparatedByString:@","] firstObject] length] > 0) {
+                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        hud.mode = MBProgressHUDAnimationFade;
+                        hud.labelText = kNetworkStatusLoadingText;
+                        
+                        [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.expertSoundString componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            DLog(@"文件下载成功！");
+                            
+                            self.expertSoundURl = resDict;
+                            
+                        } failureBlock:^(NSString *error) {
+                            
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+                            [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                        }];
+                    }
+                }
+            }
+            
+            if ([self.questionPayStatus intValue] == 1) {
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            }else if ([self.questionPayStatus intValue] == 2){
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            }else if ([self.questionPayStatus intValue] == 3){
+                clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_red_1"],[UIImage imageNamed:@"question_list_sound_image_red_2"], [UIImage imageNamed:@"question_list_sound_image_red_3"]];
+            }
+            clickedImageView.animationDuration = 0.8;
+            [clickedImageView startAnimating];
+            
+            [[LVRecordTool sharedRecordTool] playRecordFile:self.expertSoundURl];
+            
+            [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+                DLog(@"%@播放完毕！",self.expertSoundURl);
+                
+                if ([clickedImageView isAnimating] == YES) {
+                    [clickedImageView stopAnimating];
+                }
+            };
+        }else{
+            [self sendQuesionMianfeitingRequest];
+        }
+    }
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        //支付宝支付
+        self.payType = @"1";
+        [self sendQuesionFufeitingRequest];
+    }else if (buttonIndex == 1){
+        //微信支付
+        self.payType = @"2";
+        [self sendQuesionFufeitingRequest];
+    }
+}
 
 #pragma mark Network Request
 -(void)sendQuesionDetailRequest{
@@ -498,6 +631,112 @@
     }];
 }
 
+-(void)sendQuesionFufeitingRequest{
+    DLog(@"sendQuesionFufeitingRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"obj_id"];
+    [parameter setValue:@"1" forKey:@"type"];
+    [parameter setValue:self.questionId forKey:@"ids"];
+    [parameter setValue:self.payType forKey:@"pay_type"];
+    [parameter setValue:@"1" forKey:@"weixinType"];
+    
+    //    if ([self.payType isEqualToString:@"2"]) {
+    //        [parameter setValue:@"1" forKey:@"weixinType"];
+    //    }
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_FUFEITING_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result5 = (NSMutableDictionary *)responseObject;
+        
+        self.code5 = [[self.result5 objectForKey:@"code"] integerValue];
+        self.message5 = [self.result5 objectForKey:@"message"];
+        self.data5 = [self.result5 objectForKey:@"data"];
+        
+        if (self.code5 == kSUCCESS) {
+            if ([self.payType isEqualToString:@"1"]) {
+                [self paymentInfoAliPayDataParse];
+            }else if ([self.payType isEqualToString:@"2"]){
+                [self paymentInfoWechatPayDataParse];
+            }
+        }else{
+            DLog(@"%@",self.message5);
+            [HudUtil showSimpleTextOnlyHUD:self.message5 withDelaySeconds:kHud_DelayTime];
+            if (self.code5 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendQuesionMianfeitingRequest{
+    DLog(@"sendQuesionMianfeitingRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"obj_id"];
+    [parameter setValue:self.questionId forKey:@"ids"];
+    [parameter setValue:@"1" forKey:@"type"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_MIANFEITING_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result6 = (NSMutableDictionary *)responseObject;
+        
+        self.code6 = [[self.result6 objectForKey:@"code"] integerValue];
+        self.message6 = [self.result6 objectForKey:@"message"];
+        self.data6 = [self.result6 objectForKey:@"data"];
+        
+        if (self.code6 == kSUCCESS) {
+            self.mianfeitingFlag = YES;
+        }else{
+            DLog(@"%@",self.message6);
+            [HudUtil showSimpleTextOnlyHUD:self.message6 withDelaySeconds:kHud_DelayTime];
+            if (self.code6 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 
 #pragma mark Data Parse
 -(void)sendQuesionDetailDataParse{
@@ -506,24 +745,25 @@
     self.questionMoney = [NullUtil judgeStringNull:[self.data objectForKey:@"money"]];
     self.questionContent = [NullUtil judgeStringNull:[self.data objectForKey:@"content"]];
     
-    if ([[self.data objectForKey:@"enclosures"] count] > 0) {
-        self.diseaseHistory1 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"a_history"]];
-        self.diseaseHistory2 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"b_history"]];
-        self.diseaseHistory3 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"c_history"]];
-        self.diseaseHistory4 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"d_history"]];
-        self.physiqueHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"enclosure"]];
-        self.healthHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"jiankang"]];
-    }else{
-        self.diseaseHistory1 = @"";
-        self.diseaseHistory2 = @"";
-        self.diseaseHistory3 = @"";
-        self.diseaseHistory4 = @"";
-        self.physiqueHistory = @"";
-        self.healthHistory = @"";
-    }
+//    if ([[self.data objectForKey:@"enclosures"] count] > 0) {
+//        self.diseaseHistory1 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"a_history"]];
+//        self.diseaseHistory2 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"b_history"]];
+//        self.diseaseHistory3 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"c_history"]];
+//        self.diseaseHistory4 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"d_history"]];
+//        self.physiqueHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"enclosure"]];
+//        self.healthHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"jiankang"]];
+//    }else{
+//        self.diseaseHistory1 = @"";
+//        self.diseaseHistory2 = @"";
+//        self.diseaseHistory3 = @"";
+//        self.diseaseHistory4 = @"";
+//        self.physiqueHistory = @"";
+//        self.healthHistory = @"";
+//    }
     
     self.expertImage1 = [NullUtil judgeStringNull:[self.data objectForKey:@"doctorHeandUrl"]];
     self.questionPayStatus = [self.data objectForKey:@"is_pay"];
+    self.questionShitingMoney = [self.data objectForKey:@"st_money"];
     self.expertSoundString = [NullUtil judgeStringNull:[self.data objectForKey:@"video_url"]];
     self.questionTime = [NullUtil judgeStringNull:[self.data objectForKey:@"timeShow"]];
     self.questionFocus = [self.data objectForKey:@"num_no"];
@@ -537,7 +777,74 @@
     self.expertQuestion = [self.data objectForKey:@"answerCount"];
     self.expertFocus = [self.data objectForKey:@"atteatCount"];
     
+    [self initView];
+    
     [self sendQuesionDetailDataFilling];
+}
+
+-(void)paymentInfoAliPayDataParse{
+    self.paymentInfomation = [self.data5 objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo = [resultDic objectForKey:@"memo"];
+        self.alipayResult = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+            
+            [self sendQuesionDetailRequest];
+        }else if ([self.alipayResultStatus integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+    }];
+}
+
+-(void)paymentInfoWechatPayDataParse{
+    self.payinfo = [self.data5 objectForKey:@"payinfo"];
+    self.appid = [self.payinfo objectForKey:@"appid"];
+    self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+    self.package = [self.payinfo objectForKey:@"package"];
+    self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+    self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+    self.sign = [self.payinfo objectForKey:@"sign"];
+    self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
+    
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid;
+    req.partnerId           = self.partnerid;
+    req.prepayId            = self.prepayid;
+    req.nonceStr            = self.noncestr;
+    req.timeStamp           = self.timeStamp;
+    req.package             = self.package;
+    req.sign                = self.sign;
+    [WXApi sendReq:req];
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+    
+    switch (resp.errCode) {
+        case WXSuccess:
+            strMsg = @"支付结果：成功！";
+            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+            break;
+            
+        default:
+            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+            break;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 #pragma mark Data Filling
@@ -599,6 +906,28 @@
             self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];
         }
     }else{
+        [self.expertImageView1 sd_setImageWithURL:[NSURL URLWithString:self.expertImage1] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        
+        self.expertSoundImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked2:)];
+        [self.expertSoundImageView addGestureRecognizer:tap];
+        
+        if ([self.questionPayStatus intValue] == 1) {
+            [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            self.expertSoundLabel.text = [NSString stringWithFormat:@"%.2f元旁听",[self.questionShitingMoney doubleValue]];
+            self.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
+        }else if ([self.questionPayStatus intValue] == 2){
+            [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            self.expertSoundLabel.text = @"立即播放";
+            self.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
+        }else if ([self.questionPayStatus intValue] == 3){
+            [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_red_3"]];
+            self.expertSoundLabel.text = @"限时免费听";
+            self.expertSoundLabel.textColor = kWHITE_COLOR;
+        }
+        
+        self.expertSoundLengthLabel.text = [NSString stringWithFormat:@"%.f''",[[[self.expertSoundString componentsSeparatedByString:@","] lastObject] floatValue]];
+        
         self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];
     }
 
@@ -615,7 +944,6 @@
         self.expertQuestionLabel.text = [NSString stringWithFormat:@"已回答%@个问题",self.expertQuestion];
         self.expertFocusLabel.text = [NSString stringWithFormat:@"%@人已关注",self.expertFocus];
     }
-    
 }
 
 @end
