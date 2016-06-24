@@ -114,12 +114,19 @@
     
     [AnalyticUtil UMBeginLogPageView:@"QuestionListViewController"];
     
-    self.flag1 = YES;
-    self.flag2 = NO;
-    
-    self.segmentedControl.selectedSegmentIndex = 0;
-    [self initSubView1];
-    [self.tableView1.mj_header beginRefreshing];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_questionType] intValue] == 2) {
+        self.flag1 = NO;
+        self.flag2 = YES;
+        self.segmentedControl.selectedSegmentIndex = 1;
+        [self initSubView2];
+        [self.tableView2.mj_header beginRefreshing];
+    }else{
+        self.flag1 = YES;
+        self.flag2 = NO;
+        self.segmentedControl.selectedSegmentIndex = 0;
+        [self initSubView1];
+        [self.tableView1.mj_header beginRefreshing];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -281,6 +288,10 @@
             DLog(@"Index-->%li", (long)Index);
             [self initSubView1];
             [self.tableView1.mj_header beginRefreshing];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:kJZK_questionType];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             break;
         case 1:
             self.flag1 = NO;
@@ -289,6 +300,10 @@
             DLog(@"Index-->%li", (long)Index);
             [self initSubView2];
             [self.tableView2.mj_header beginRefreshing];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:@"2" forKey:kJZK_questionType];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             break;
         default:
             break;

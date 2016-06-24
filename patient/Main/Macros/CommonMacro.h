@@ -28,4 +28,6 @@
 #define kJZK_accout @"JZK_account"
 #define kJZK_password @"JZK_password"
 
+#define kJZK_questionType @"JZK_questionType"
+
 #endif /* CommonMacro_h */
