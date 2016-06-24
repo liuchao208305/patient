@@ -14,6 +14,7 @@
 #import "AnalyticUtil.h"
 #import "LoginViewController.h"
 #import "QuestionDetailTableCell.h"
+#import "LVRecordTool.h"
 
 @interface QuestionDetailViewController ()
 
@@ -27,13 +28,17 @@
 @property (strong,nonatomic)NSString *patientName;
 @property (strong,nonatomic)NSString *questionMoney;
 @property (strong,nonatomic)NSString *questionContent;
-@property (strong,nonatomic)NSString *diseaseHistory;
+//@property (strong,nonatomic)NSString *diseaseHistory;
+@property (strong,nonatomic)NSString *diseaseHistory1;
+@property (strong,nonatomic)NSString *diseaseHistory2;
+@property (strong,nonatomic)NSString *diseaseHistory3;
+@property (strong,nonatomic)NSString *diseaseHistory4;
 @property (strong,nonatomic)NSString *physiqueHistory;
 @property (strong,nonatomic)NSString *healthHistory;
 @property (strong,nonatomic)NSString *expertImage1;
 @property (strong,nonatomic)NSString *questionPayStatus;
 @property (strong,nonatomic)NSString *expertSoundString;
-@property (strong,nonatomic)NSString *expertSoundLength;
+@property (strong,nonatomic)NSURL *expertSoundURl;
 @property (strong,nonatomic)NSString *questionTime;
 @property (strong,nonatomic)NSString *questionFocus;
 
@@ -104,12 +109,12 @@
 
 -(void)initView{
     if (self.isMyself) {
-        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 305)];
+        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 400)];
         self.questionBackView.backgroundColor = kWHITE_COLOR;
         [self initQuestionSubView];
         [self.view addSubview:self.questionBackView];
         
-        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 315, SCREEN_WIDTH, 135)];
+        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 415, SCREEN_WIDTH, 135)];
         self.expertBackView.backgroundColor = kWHITE_COLOR;
         [self initExpertSubView];
         [self.view addSubview:self.expertBackView];
@@ -128,6 +133,7 @@
 
 -(void)initQuestionSubView{
     self.patientImageView = [[UIImageView alloc] init];
+    self.patientImageView.layer.cornerRadius = 23;
     [self.questionBackView addSubview:self.patientImageView];
     
     self.patientNameLabel = [[UILabel alloc] init];
@@ -145,8 +151,8 @@
     [self.patientImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.questionBackView).offset(12);
         make.top.equalTo(self.questionBackView).offset(10);
-        make.width.mas_equalTo(45);
-        make.height.mas_equalTo(45);
+        make.width.mas_equalTo(46);
+        make.height.mas_equalTo(46);
     }];
     
     [self.patientNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -166,10 +172,30 @@
     }];
     
     if (self.isMyself) {
-        self.diseaseHistoryLabel = [[UILabel alloc] init];
-        self.diseaseHistoryLabel.textColor = ColorWithHexRGB(0x646464);
-        self.diseaseHistoryLabel.font = [UIFont systemFontOfSize:12];
-        [self.questionBackView addSubview:self.diseaseHistoryLabel];
+//        self.diseaseHistoryLabel = [[UILabel alloc] init];
+//        self.diseaseHistoryLabel.textColor = ColorWithHexRGB(0x646464);
+//        self.diseaseHistoryLabel.font = [UIFont systemFontOfSize:12];
+//        [self.questionBackView addSubview:self.diseaseHistoryLabel];
+        
+        self.diseaseHistoryLabel1 = [[UILabel alloc] init];
+        self.diseaseHistoryLabel1.textColor = ColorWithHexRGB(0x646464);
+        self.diseaseHistoryLabel1.font = [UIFont systemFontOfSize:12];
+        [self.questionBackView addSubview:self.diseaseHistoryLabel1];
+        
+        self.diseaseHistoryLabel2 = [[UILabel alloc] init];
+        self.diseaseHistoryLabel2.textColor = ColorWithHexRGB(0x646464);
+        self.diseaseHistoryLabel2.font = [UIFont systemFontOfSize:12];
+        [self.questionBackView addSubview:self.diseaseHistoryLabel2];
+        
+        self.diseaseHistoryLabel3 = [[UILabel alloc] init];
+        self.diseaseHistoryLabel3.textColor = ColorWithHexRGB(0x646464);
+        self.diseaseHistoryLabel3.font = [UIFont systemFontOfSize:12];
+        [self.questionBackView addSubview:self.diseaseHistoryLabel3];
+        
+        self.diseaseHistoryLabel4 = [[UILabel alloc] init];
+        self.diseaseHistoryLabel4.textColor = ColorWithHexRGB(0x646464);
+        self.diseaseHistoryLabel4.font = [UIFont systemFontOfSize:12];
+        [self.questionBackView addSubview:self.diseaseHistoryLabel4];
         
         self.physiqueHistoryLabel = [[UILabel alloc] init];
         self.physiqueHistoryLabel.textColor = ColorWithHexRGB(0x909090);
@@ -181,16 +207,44 @@
         self.healthHistoryLabel.font = [UIFont systemFontOfSize:12];
         [self.questionBackView addSubview:self.healthHistoryLabel];
         
-        [self.diseaseHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        [self.diseaseHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self.questionBackView).offset(12);
+//            make.top.equalTo(self.questionContentLabel.mas_bottom).offset(20);
+//            make.trailing.equalTo(self.questionBackView).offset(-12);
+//        }];
+        
+        [self.diseaseHistoryLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.questionBackView).offset(12);
             make.top.equalTo(self.questionContentLabel.mas_bottom).offset(20);
-            make.trailing.equalTo(self.questionBackView).offset(-12);
+            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.height.mas_equalTo(12);
+        }];
+        
+        [self.diseaseHistoryLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.diseaseHistoryLabel1.mas_trailing).offset(20);
+            make.centerY.equalTo(self.diseaseHistoryLabel1).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.height.mas_equalTo(12);
+        }];
+        
+        [self.diseaseHistoryLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.questionBackView).offset(12);
+            make.top.equalTo(self.diseaseHistoryLabel1.mas_bottom).offset(7);
+            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.height.mas_equalTo(12);
+        }];
+        
+        [self.diseaseHistoryLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.diseaseHistoryLabel3.mas_trailing).offset(20);
+            make.centerY.equalTo(self.diseaseHistoryLabel3).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.height.mas_equalTo(12);
         }];
         
         [self.physiqueHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.questionBackView).offset(12);
             make.trailing.equalTo(self.questionBackView).offset(-12);
-            make.top.equalTo(self.diseaseHistoryLabel.mas_bottom).offset(10);
+            make.top.equalTo(self.diseaseHistoryLabel3.mas_bottom).offset(10);
         }];
         
         [self.healthHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -218,7 +272,8 @@
     [self.questionBackView addSubview:self.expertSoundImageView];
     
     self.expertSoundLengthLabel = [[UILabel alloc] init];
-    [self.expertBackView addSubview:self.expertSoundLengthLabel];
+    self.expertSoundLengthLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.questionBackView addSubview:self.expertSoundLengthLabel];
     
     [self.expertImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.questionBackView).offset(12);
@@ -238,12 +293,13 @@
         make.height.mas_equalTo(40);
     }];
     
-//    [self.expertSoundLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leading.equalTo(self.expertSoundImageView.mas_trailing).offset(8);
-//        make.centerY.equalTo(self.expertSoundImageView).offset(0);
-//    }];
+    [self.expertSoundLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.expertSoundImageView.mas_trailing).offset(8);
+        make.centerY.equalTo(self.expertSoundImageView).offset(0);
+    }];
     
     self.expertSoundLabel = [[UILabel alloc] init];
+    self.expertSoundLabel.font = [UIFont systemFontOfSize:12];
     [self.expertSoundImageView addSubview:self.expertSoundLabel];
     
     [self.expertSoundLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -347,6 +403,52 @@
 }
 
 #pragma mark Target Action
+-(void)soundImageViewClicked1:(UITapGestureRecognizer *)gestureRecognizer{
+    DLog(@"soundImageViewClicked");
+    
+    UIView *clickedView = [gestureRecognizer view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    clickedImageView.animationImages = @[[UIImage imageNamed:@"question_list_sound_image_green_1"],[UIImage imageNamed:@"question_list_sound_image_green_2"], [UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    clickedImageView.animationDuration = 0.8;
+    [clickedImageView startAnimating];
+    
+    if ([self.expertSoundString length] > 0) {
+        if ([self.expertSoundString containsString:@","]) {
+            if ([[[self.expertSoundString componentsSeparatedByString:@","] firstObject] length] > 0) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDAnimationFade;
+                hud.labelText = kNetworkStatusLoadingText;
+                
+                [[NetworkUtil sharedInstance]downloadFileWithUrlStr:[[self.expertSoundString componentsSeparatedByString:@","] firstObject] flag:@"advice" successBlock:^(id resDict) {
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    DLog(@"%@文件下载成功！",[[self.expertSoundString componentsSeparatedByString:@","] firstObject]);
+                    
+                    self.expertSoundURl = resDict;
+                    
+                } failureBlock:^(NSString *error) {
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+                }];
+            }
+        }
+    }else{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"暂无录音！"];
+    }
+    
+    [[LVRecordTool sharedRecordTool] playRecordFile:self.expertSoundURl];
+    
+    [LVRecordTool sharedRecordTool].playStopBlock = ^void{
+        DLog(@"%@播放完毕！",self.expertSoundURl);
+        
+        if ([clickedImageView isAnimating] == YES) {
+            [clickedImageView stopAnimating];
+        }
+    };
+}
 
 
 #pragma mark Network Request
@@ -404,6 +506,22 @@
     self.questionMoney = [NullUtil judgeStringNull:[self.data objectForKey:@"money"]];
     self.questionContent = [NullUtil judgeStringNull:[self.data objectForKey:@"content"]];
     
+    if ([[self.data objectForKey:@"enclosures"] count] > 0) {
+        self.diseaseHistory1 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"a_history"]];
+        self.diseaseHistory2 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"b_history"]];
+        self.diseaseHistory3 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"c_history"]];
+        self.diseaseHistory4 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"d_history"]];
+        self.physiqueHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"enclosure"]];
+        self.healthHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"jiankang"]];
+    }else{
+        self.diseaseHistory1 = @"";
+        self.diseaseHistory2 = @"";
+        self.diseaseHistory3 = @"";
+        self.diseaseHistory4 = @"";
+        self.physiqueHistory = @"";
+        self.healthHistory = @"";
+    }
+    
     self.expertImage1 = [NullUtil judgeStringNull:[self.data objectForKey:@"doctorHeandUrl"]];
     self.questionPayStatus = [self.data objectForKey:@"is_pay"];
     self.expertSoundString = [NullUtil judgeStringNull:[self.data objectForKey:@"video_url"]];
@@ -429,11 +547,62 @@
     self.questionMoneyLabel.text = [NSString stringWithFormat:@"¥%@元",self.questionMoney];
     self.questionContentLabel.text = self.questionContent;
     
-    [self.expertImageView1 sd_setImageWithURL:[NSURL URLWithString:self.expertImage1] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+    if ([self.diseaseHistory1 isEqualToString:@""]) {
+        self.diseaseHistoryLabel1.text = @"既往史：暂无";
+    }else{
+        self.diseaseHistoryLabel1.text = [NSString stringWithFormat:@"既往史：%@",self.diseaseHistory1];
+    }
+    
+    if ([self.diseaseHistory2 isEqualToString:@""]) {
+        self.diseaseHistoryLabel2.text = @"过敏史：暂无";
+    }else{
+        self.diseaseHistoryLabel2.text = [NSString stringWithFormat:@"过敏史：%@",self.diseaseHistory2];
+    }
+    
+    if ([self.diseaseHistory3 isEqualToString:@""]) {
+        self.diseaseHistoryLabel3.text = @"手术史：暂无";
+    }else{
+        self.diseaseHistoryLabel3.text = [NSString stringWithFormat:@"手术史：%@",self.diseaseHistory3];
+    }
+    
+    if ([self.diseaseHistory4 isEqualToString:@""]) {
+        self.diseaseHistoryLabel4.text = @"家族史：暂无";
+    }else{
+        self.diseaseHistoryLabel4.text = [NSString stringWithFormat:@"家族史：%@",self.diseaseHistory4];
+    }
+    
+    if ([self.physiqueHistory isEqualToString:@""]) {
+        self.physiqueHistoryLabel.text = @"体质测试情况：暂无";
+    }else{
+        self.physiqueHistoryLabel.text = [NSString stringWithFormat:@"体质测试情况：%@",self.physiqueHistory];
+    }
+    
+    if ([self.healthHistory isEqualToString:@""]) {
+        self.healthHistoryLabel.text = @"健康自查情况：暂无";
+    }else{
+        self.healthHistoryLabel.text = [NSString stringWithFormat:@"健康自查情况：%@",self.healthHistory];
+    }
+    
+    
+    if (self.isMyself) {
+        if ([self.expertSoundString length] > 0) {
+            [self.expertImageView1 sd_setImageWithURL:[NSURL URLWithString:self.expertImage1] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+            
+            [self.expertSoundImageView setImage:[UIImage imageNamed:@"question_list_sound_image_green_3"]];
+            self.expertSoundImageView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(soundImageViewClicked1:)];
+            [self.expertSoundImageView addGestureRecognizer:tap];
+            self.expertSoundLabel.text = @"立即播放";
+            self.expertSoundLabel.textColor = ColorWithHexRGB(0x909090);
+            self.expertSoundLengthLabel.text = [NSString stringWithFormat:@"%.f''",[[[self.expertSoundString componentsSeparatedByString:@","] lastObject] floatValue]];
+            
+            self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];
+        }
+    }else{
+        self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];
+    }
 
     self.questionTimeLabel.text = self.questionTime;
-    self.questionAudienceLabel.text = [NSString stringWithFormat:@"%@人已听",self.questionFocus];
     
     if ([self.expertId isEqualToString:@""]) {
         self.expertBackView.backgroundColor = kBACKGROUND_COLOR;

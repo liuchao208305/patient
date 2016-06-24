@@ -22,6 +22,10 @@
 @property (strong,nonatomic)UILabel *questionContentLabel;
 /********************************************************/
 @property (strong,nonatomic)UILabel *diseaseHistoryLabel;
+@property (strong,nonatomic)UILabel *diseaseHistoryLabel1;
+@property (strong,nonatomic)UILabel *diseaseHistoryLabel2;
+@property (strong,nonatomic)UILabel *diseaseHistoryLabel3;
+@property (strong,nonatomic)UILabel *diseaseHistoryLabel4;
 @property (strong,nonatomic)UILabel *physiqueHistoryLabel;
 @property (strong,nonatomic)UILabel *healthHistoryLabel;
 /********************************************************/
