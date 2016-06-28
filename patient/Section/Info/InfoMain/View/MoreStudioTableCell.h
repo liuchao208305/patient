@@ -10,7 +10,7 @@
 
 @interface MoreStudioTableCell : UITableViewCell
 
-@property (strong,nonatomic)UIImageView *backImageView;
+//@property (strong,nonatomic)UIImageView *backImageView;
 
 @property (strong,nonatomic)UIImageView *expertImageView;
 @property (strong,nonatomic)UILabel *label1;

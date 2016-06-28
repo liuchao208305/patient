@@ -210,12 +210,12 @@
         }
         
         if (indexPath.row == 0) {
-            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
+            [cell.titleImageView setImage:[UIImage imageNamed:@"info_studio_jianjie_image"]];
             cell.titleLabel.text = @"简介";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel1];
         }else if (indexPath.row == 1){
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
-            cell.titleLabel.text = @"主治";
+            cell.titleLabel.text = @"主治疾病";
             cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel2];
         }else if (indexPath.row == 2){
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_shanchang_image"]];

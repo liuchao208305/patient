@@ -22,7 +22,8 @@
     self.backgroundColor = kWHITE_COLOR;
     
     self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.text = @"名医";
+    self.titleLabel.text = @"工作室成员";
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.titleLabel];
     

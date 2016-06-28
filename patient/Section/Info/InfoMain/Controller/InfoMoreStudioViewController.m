@@ -79,6 +79,7 @@
     self.studioArray = [NSMutableArray array];
     self.studioIdArray = [NSMutableArray array];
     self.studioImageArray = [NSMutableArray array];
+    self.studioTypeArray = [NSMutableArray array];
     self.studioNameArray = [NSMutableArray array];
     self.studioFeatureArray = [NSMutableArray array];
 }
@@ -148,7 +149,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 105;
+    return 100;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -166,10 +167,14 @@
         cell = [[MoreStudioTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
     
-    [cell.backImageView sd_setImageWithURL:[NSURL URLWithString:self.studioImageArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
+//    [cell.backImageView sd_setImageWithURL:[NSURL URLWithString:self.studioImageArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_big"]];
 //    cell.label1.text = @"国医大师";
 //    cell.label2.text = self.studioNameArray[indexPath.section];
 //    cell.label3.text = self.studioFeatureArray[indexPath.section];
+    [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.studioImageArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    cell.label1.text = self.studioTypeArray[indexPath.section];
+    cell.label2.text = self.studioNameArray[indexPath.section];
+    cell.label3.text = self.studioFeatureArray[indexPath.section];
     
     return cell;
 }
@@ -235,6 +240,7 @@
     for (MoreStudioData *moreStudioData in self.studioArray) {
         [self.studioIdArray addObject:[NullUtil judgeStringNull:moreStudioData.orgId]];
         [self.studioImageArray addObject:[NullUtil judgeStringNull:moreStudioData.orgCover]];
+        [self.studioTypeArray addObject:[NullUtil judgeStringNull:moreStudioData.type]];
         [self.studioNameArray addObject:[NullUtil judgeStringNull:moreStudioData.orgName]];
         [self.studioFeatureArray addObject:[NullUtil judgeStringNull:moreStudioData.orgBrief]];
     }

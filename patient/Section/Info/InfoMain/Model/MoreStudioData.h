@@ -12,7 +12,8 @@
 
 @property (strong,nonatomic)NSString *orgId;
 @property (strong,nonatomic)NSString *orgCover;
-@property (strong,nonatomic)NSString *orgBrief;
+@property (strong,nonatomic)NSString *type;
 @property (strong,nonatomic)NSString *orgName;
+@property (strong,nonatomic)NSString *orgBrief;
 
 @end
