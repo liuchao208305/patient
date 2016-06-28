@@ -19,7 +19,10 @@
 #import "HealthDiseaseTableCell.h"
 #import "HealthInspectionTableCell.h"
 #import "HealthTestTableCell.h"
-
+#import "TestFixViewController.h"
+#import "HealthDiseaseHistoryViewController.h"
+#import "HealthMarriageHistoryViewController.h"
+#import "HealthSelfInspectionViewController.h"
 
 @interface HealthListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
@@ -37,6 +40,14 @@
 
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
+
+@property (strong,nonatomic)NSString *jiwangshi;
+@property (strong,nonatomic)NSString *shoushushi;
+@property (strong,nonatomic)NSString *guomingshi;
+@property (strong,nonatomic)NSString *jiazushi;
+@property (strong,nonatomic)NSString *hunfou;
+@property (strong,nonatomic)NSString *erzi;
+@property (strong,nonatomic)NSString *nver;
 
 @end
 
@@ -104,7 +115,7 @@
 }
 
 -(void)initTabBar{
-    [self setHidesBottomBarWhenPushed:NO];
+    
 }
 
 -(void)initView{
@@ -130,10 +141,42 @@
 #pragma mark Target Action
 -(void)addHealthButtonClicked{
     DLog(@"addHealthButtonClicked");
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"既往史／手术史／过敏史／家族史", @"婚育情况",@"健康自查",@"体质测试",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
 }
 
 -(void)inspectionHeadViewClicked{
     DLog(@"inspectionHeadViewClicked");
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        DLog(@"既往史／手术史／过敏史／家族史");
+        HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+        [self.navigationController pushViewController:diseasHistoryVC animated:YES];
+    }else if (buttonIndex == 1){
+        DLog(@"婚育情况");
+        HealthMarriageHistoryViewController *marriageHistoryVC = [[HealthMarriageHistoryViewController alloc] init];
+        [self.navigationController pushViewController:marriageHistoryVC animated:YES];
+    }else if (buttonIndex == 2){
+        DLog(@"健康自查");
+        HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
+        [self.navigationController pushViewController:selfInspectionVC animated:YES];
+    }else if (buttonIndex == 3){
+        DLog(@"体质测试");
+        TestFixViewController *testVC = [[TestFixViewController alloc] init];
+        [self.navigationController pushViewController:testVC animated:YES];
+    }else if (buttonIndex == 4){
+        DLog(@"取消");
+    }
 }
 
 #pragma mark UITableViewDelegate
@@ -187,8 +230,8 @@
     else if (section == 1){
         self.healthListHeaderView.titleImage.hidden = YES;
         self.healthListHeaderView.titleLabel.text = @"健康自查";
-        self.healthListHeaderView.moreLabel.text = @"更多";
-        self.healthListHeaderView.moreImage.image = [UIImage imageNamed:@"cell_studio_more_button"];
+        self.healthListHeaderView.moreLabel.text = @"更多...";
+        self.healthListHeaderView.moreImage.hidden = YES;
         
         self.healthListHeaderView.userInteractionEnabled = YES;
         UITapGestureRecognizer *inspectionHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inspectionHeadViewClicked)];
@@ -232,17 +275,21 @@
             cell = [[HealthTestTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
+        cell.timeLabel.text = self.resultTimeArray[indexPath.section-2];
+        cell.tizhiLabel.text = [NSString stringWithFormat:@"体质：%@ 偏向 %@",self.resultMainArray[indexPath.section-2],self.resultTrendArray[indexPath.section-2]];
+        
         return cell;
     }
     return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
-    detailVC.resultId = self.resultIdArray[indexPath.section];
-    [self.navigationController pushViewController:detailVC animated:YES];
-    
+    if (indexPath.section > 1) {
+        TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
+        detailVC.hidesBottomBarWhenPushed = YES;
+        detailVC.resultId = self.resultIdArray[indexPath.section-2];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -343,6 +390,20 @@
 
 #pragma mark Data Parse
 -(void)healthListDataParse{
+    if (![[self.data1 objectForKey:@"userHistory"] isKindOfClass:[NSNull class]]) {
+        self.jiwangshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	a_history"]];
+        self.shoushushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	b_history"]];
+        self.guomingshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	c_history"]];
+        self.jiazushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	d_history"]];
+        self.hunfou = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	marriage_status"]];
+        self.erzi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	a_son"]];
+        self.nver = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	b_son"]];
+    }
+
+    if (![[self.data1 objectForKey:@"healthy"] isKindOfClass:[NSNull class]]) {
+        
+    }
+    
     [self sendTestResultListRequest];
 }
 

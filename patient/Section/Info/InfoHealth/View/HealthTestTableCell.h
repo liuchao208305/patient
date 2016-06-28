@@ -10,4 +10,7 @@
 
 @interface HealthTestTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *timeLabel;
+@property (strong,nonatomic)UILabel *tizhiLabel;
+
 @end
