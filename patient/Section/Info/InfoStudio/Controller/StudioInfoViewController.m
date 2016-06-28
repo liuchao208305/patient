@@ -63,7 +63,8 @@
     
     self.navigationController.navigationBar.hidden = NO;
     
-    [self sendStudioInfoRequest];
+//    [self sendStudioInfoRequest];
+    [self sendStudioInfoRequestFix];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -300,8 +301,45 @@
 }
 
 #pragma mark Network Request
--(void)sendStudioInfoRequest{
-    DLog(@"sendStudioInfoRequest");
+//-(void)sendStudioInfoRequest{
+//    DLog(@"sendStudioInfoRequest");
+//    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.mode = MBProgressHUDAnimationFade;
+//    hud.labelText = kNetworkStatusLoadingText;
+//    
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:self.studioId forKey:@"org_id"];
+//    
+//    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_STUDIO_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+//        
+//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        
+//        DLog(@"responseObject-->%@",responseObject);
+//        self.result = (NSMutableDictionary *)responseObject;
+//        
+//        self.code = [[self.result objectForKey:@"code"] integerValue];
+//        self.message = [self.result objectForKey:@"message"];
+//        self.data = [self.result objectForKey:@"data"];
+//        
+//        if (self.code == kSUCCESS) {
+//            [self studioInfoDataParse];
+//        }else{
+//            DLog(@"%@",self.message);
+//        }
+//        
+//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        
+//        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+//        DLog(@"errorStr-->%@",errorStr);
+//        
+//        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+//    }];
+//}
+
+-(void)sendStudioInfoRequestFix{
+    DLog(@"sendStudioInfoRequestFix");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
@@ -310,7 +348,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.studioId forKey:@"org_id"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_STUDIO_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_STUDIO_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         

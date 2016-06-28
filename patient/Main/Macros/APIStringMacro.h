@@ -44,7 +44,8 @@ typedef enum {
 #define kJZK_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicDetail?"//健康饮食信息
 #define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"/private/v1/user/likeOrAtteation?"//健康点赞和收藏
 #define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表
-#define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg"//工作室信息
+#define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg?"//工作室信息
+#define kJZK_STUDIO_INFORMATION_FIX @"/public/v2/minDoctor/getDoctorOrgDetail?"//工作室信息
 #define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/doctorPage?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_EXPERT_INFORMATION_FIX @"private/v2/getDoctorDetailByDoctorID?"//专家信息
