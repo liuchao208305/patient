@@ -47,6 +47,7 @@ typedef enum {
 #define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg"//工作室信息
 #define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/doctorPage?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
+#define kJZK_EXPERT_INFORMATION_FIX @"private/v2/getDoctorDetailByDoctorID?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
 #define kJZK_EXPERT_FOCUS @"/private/v1/user/atteationOrexit?"//专家关注
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息

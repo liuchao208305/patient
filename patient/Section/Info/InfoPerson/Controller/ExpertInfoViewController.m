@@ -48,27 +48,50 @@
 @property (strong,nonatomic)NSMutableDictionary *data3;
 @property (assign,nonatomic)NSError *error3;
 
+//@property (strong,nonatomic)FMGVideoPlayView *playView;
+//@property (strong,nonatomic)NSString *videoUrl;
+//
+//@property (strong,nonatomic)NSString *detailLabel1;
+//@property (strong,nonatomic)NSString *detailLabel2;
+//@property (strong,nonatomic)NSString *detailLabel3;
+//@property (assign,nonatomic)int detailNumber;
+//@property (strong,nonatomic)NSString *detailNumberFix;
+//@property (assign,nonatomic)BOOL isFocused;
+//@property (strong,nonatomic)NSString *detailMoney;
+//
+//@property (strong,nonatomic)NSString *advantageLabel1;
+//@property (strong,nonatomic)NSString *advantageLabel2;
+//@property (strong,nonatomic)NSString *advantageLabel3;
+//@property (strong,nonatomic)NSString *advantageLabel4;
+//
+//@property(nonatomic, strong)NSMutableArray   *dataArr;
+//
+//@property (assign,nonatomic)NSInteger currentPage;
+//@property (assign,nonatomic)NSInteger pageSize;
+//@property (strong,nonatomic)NSString *shaixuanType;
+
 @property (strong,nonatomic)FMGVideoPlayView *playView;
-@property (strong,nonatomic)NSString *videoUrl;
+@property (strong,nonatomic)NSString *videoUrlFix;
 
-@property (strong,nonatomic)NSString *detailLabel1;
-@property (strong,nonatomic)NSString *detailLabel2;
-@property (strong,nonatomic)NSString *detailLabel3;
-@property (assign,nonatomic)int detailNumber;
-@property (strong,nonatomic)NSString *detailNumberFix;
+@property (strong,nonatomic)NSString *expertImageString;
+@property (strong,nonatomic)NSString *expertNameString;
+@property (strong,nonatomic)NSString *expertTitleString1;
+@property (strong,nonatomic)NSString *expertTitleString2;
+@property (strong,nonatomic)NSString *expertUnitString;
+@property (strong,nonatomic)NSString *expertDepartString;
+
+@property (assign,nonatomic)double expertMoney1;
+@property (assign,nonatomic)double expertMoney2;
+
+@property (assign,nonatomic)int expertFocus;
+@property (assign,nonatomic)int expertService;
+
+@property (strong,nonatomic)NSString *shanchang;
+@property (strong,nonatomic)NSString *jianjie;
+
+@property (strong,nonatomic)NSMutableArray *dataArr;
+
 @property (assign,nonatomic)BOOL isFocused;
-@property (strong,nonatomic)NSString *detailMoney;
-
-@property (strong,nonatomic)NSString *advantageLabel1;
-@property (strong,nonatomic)NSString *advantageLabel2;
-@property (strong,nonatomic)NSString *advantageLabel3;
-@property (strong,nonatomic)NSString *advantageLabel4;
-
-@property(nonatomic, strong)NSMutableArray   *dataArr;
-
-@property (assign,nonatomic)NSInteger currentPage;
-@property (assign,nonatomic)NSInteger pageSize;
-@property (strong,nonatomic)NSString *shaixuanType;
 
 @end
 
@@ -99,7 +122,7 @@
     self.longtitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_longitude]];
     self.latitude = [NSString stringWithFormat:@"%f",[[NSUserDefaults standardUserDefaults] floatForKey:kJZK_latitude]];
     
-    [self sendExpertInfoRequest];
+    [self sendExpertInfoRequestFix];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -210,12 +233,14 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.tableView.tableHeaderView = self.headView;
+    if (![self.videoUrlFix isEqualToString:@""]) {
+        self.tableView.tableHeaderView = self.headView;
+    }
     self.tableView.tableFooterView = self.footView;
     
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self sendClinicInfoRequest:self.fiterType];
-    }];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        [self sendClinicInfoRequest:self.fiterType];
+//    }];
     
     [self.view addSubview:self.tableView];
 }
@@ -368,57 +393,61 @@
 #pragma mark UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0){
-        self.expertHeadView.fiterLabel.text = @"最近医院";
-        self.fiterType = 1;
-        [self sendClinicInfoRequest:self.fiterType];
-    }else if (buttonIndex == 1){
-        self.expertHeadView.fiterLabel.text = @"服务最佳";
-        self.fiterType = 2;
-        [self sendClinicInfoRequest:self.fiterType];
-    }else if(buttonIndex == 2){
-        self.expertHeadView.fiterLabel.text = @"价格最低";
-        self.fiterType = 3;
-        [self sendClinicInfoRequest:self.fiterType];
-    }else if (buttonIndex == 3){
-        
-    }
+//    if (buttonIndex == 0){
+//        self.expertHeadView.fiterLabel.text = @"最近医院";
+//        self.fiterType = 1;
+//        [self sendClinicInfoRequest:self.fiterType];
+//    }else if (buttonIndex == 1){
+//        self.expertHeadView.fiterLabel.text = @"服务最佳";
+//        self.fiterType = 2;
+//        [self sendClinicInfoRequest:self.fiterType];
+//    }else if(buttonIndex == 2){
+//        self.expertHeadView.fiterLabel.text = @"价格最低";
+//        self.fiterType = 3;
+//        [self sendClinicInfoRequest:self.fiterType];
+//    }else if (buttonIndex == 3){
+//        
+//    }
 }
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 4;
+        return 2;
     }
 //    else if (section == 2){
 //        return 1;
 //    }else if (section == 3){
 //        return 1;
 //    }
-    else if (section == 2){
-        return self.clinicArray.count;
-    }
+//    else if (section == 2){
+//        return self.clinicArray.count;
+//    }
     return 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 120;
+//        return 120;
+        return 190;
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
 //            return 98;
-            return 74;
-        }else if (indexPath.row == 1){
-            return 74;
-        }else if (indexPath.row == 2){
-            return 74;
-        }else if (indexPath.row == 3){
+//            return 74;
+            return 95;
+        }
+//        else if (indexPath.row == 1){
+//            return 74;
+//        }else if (indexPath.row == 2){
+//            return 74;
+//        }
+    else if (indexPath.row == 1){
 //            return 185;
             TextEntity *entity = nil;
 //            if ([self.dataArr count] > indexPath.row)
@@ -445,25 +474,26 @@
 //    }else if (indexPath.section == 3){
 //        return 200;
 //    }
-    else if (indexPath.section == 2){
-        return 150;
-    }
+//    else if (indexPath.section == 2){
+//        return 150;
+//    }
     return 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 0.1;
-    }else if (section == 1){
-        return 0.1;
     }
+//    else if (section == 1){
+//        return 0.1;
+//    }
 //    else if (section == 2){
 //        return 0.1;
 //    }else if (section == 3){
 //        return 0.1;
 //    }
-    else if (section == 2){
-        return 46;
+    else if (section == 1){
+        return 0.1;
     }
     return 0;
 }
@@ -472,25 +502,25 @@
     return 10;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    self.expertHeadView = [[ExpertHeadView alloc] init];
-    self.expertHeadView.tag = section;
-    if (section == 2) {
-        self.expertHeadView.fiterViewClickDelegate = self;
-        
-        if (self.fiterType == 1) {
-            self.expertHeadView.fiterLabel.text = @"最近医院";
-        }else if (self.fiterType == 2){
-            self.expertHeadView.fiterLabel.text = @"服务最佳";
-        }else if (self.fiterType == 3){
-            self.expertHeadView.fiterLabel.text = @"价格最低";
-        }
-        
-    }else{
-        self.expertHeadView.fiterView.hidden = YES;
-    }
-    return self.expertHeadView;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    self.expertHeadView = [[ExpertHeadView alloc] init];
+//    self.expertHeadView.tag = section;
+//    if (section == 2) {
+//        self.expertHeadView.fiterViewClickDelegate = self;
+//        
+//        if (self.fiterType == 1) {
+//            self.expertHeadView.fiterLabel.text = @"最近医院";
+//        }else if (self.fiterType == 2){
+//            self.expertHeadView.fiterLabel.text = @"服务最佳";
+//        }else if (self.fiterType == 3){
+//            self.expertHeadView.fiterLabel.text = @"价格最低";
+//        }
+//        
+//    }else{
+//        self.expertHeadView.fiterView.hidden = YES;
+//    }
+//    return self.expertHeadView;
+//}
 
 //-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
 //    self.expertFootView = [[ExpertFootView alloc] init];
@@ -510,10 +540,31 @@
         if (!cell) {
             cell = [[ExpertDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.expertImageString] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = self.expertNameString;
+        cell.expertTitleLabel1.text = self.expertTitleString1;
+        cell.expertTitleLabel2.text = self.expertTitleString2;
+        cell.expertUnitLabel.text = self.expertUnitString;
+        cell.expertDepartLabel.text = self.expertDepartString;
+        
+        [cell.expertMoneyImageView1 setImage:[UIImage imageNamed:@"info_expert_info_money_image1"]];
+        cell.expertMoneyLabel1_1.text = @"咨询费   ¥";
+        cell.expertMoneyLabel1_2.text = [NSString stringWithFormat:@"%.2f",self.expertMoney1];
+        cell.expertMoneyLabel1_3.text = @"元";
+        [cell.expertMoneyImageView2 setImage:[UIImage imageNamed:@"info_expert_info_money_image2"]];
+        cell.expertMoneyLabel2_1.text = @"预约费   ¥";
+        cell.expertMoneyLabel2_2.text = [NSString stringWithFormat:@"%.2f",self.expertMoney2];
+        cell.expertMoneyLabel2_3.text = @"元";
+        
+        [cell.expertFocusImageView setImage:[UIImage imageNamed:@"info_expert_info_focus_image"]];
+        cell.expertFocusLabel.text = [NSString stringWithFormat:@"关注数  %d",self.expertFocus];
+        [cell.expertServiceImageView setImage:[UIImage imageNamed:@"info_expert_info_service_image"]];
+        cell.expertServiceLabel.text = [NSString stringWithFormat:@"服务人次  %d",self.expertService];
+        
         //填充数据
-        cell.label1_1.text = [NullUtil judgeStringNull:self.detailLabel1];
-        cell.label1_2.text = [NullUtil judgeStringNull:self.detailLabel2];
-        cell.label1_3.text = [NullUtil judgeStringNull:self.detailLabel3];
+//        cell.label1_1.text = [NullUtil judgeStringNull:self.detailLabel1];
+//        cell.label1_2.text = [NullUtil judgeStringNull:self.detailLabel2];
+//        cell.label1_3.text = [NullUtil judgeStringNull:self.detailLabel3];
 //        if (self.detailNumber == 1) {
 //            //已关注
 //            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
@@ -524,20 +575,20 @@
 //            cell.label2_1.text = @"未关注";
 //        }
         
-        if (self.isFocused == YES) {
-            //已关注
-            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
-            cell.label2_1.text = @"已关注";
-        }else if(self.isFocused == NO){
-            //未关注
-            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
-            cell.label2_1.text = @"关注";
-        }
+//        if (self.isFocused == YES) {
+//            //已关注
+//            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"] forState:UIControlStateNormal];
+//            cell.label2_1.text = @"已关注";
+//        }else if(self.isFocused == NO){
+//            //未关注
+//            [cell.button setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"] forState:UIControlStateNormal];
+//            cell.label2_1.text = @"关注";
+//        }
         
-        [cell.button addTarget:self action:@selector(focusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        cell.lable3_1.text = @"特需服务费";
-        cell.lable3_2.text = [NullUtil judgeStringNull:[NSString stringWithFormat:@"¥ %@",self.detailMoney]];
+//        [cell.button addTarget:self action:@selector(focusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        cell.lable3_1.text = @"特需服务费";
+//        cell.lable3_2.text = [NullUtil judgeStringNull:[NSString stringWithFormat:@"¥ %@",self.detailMoney]];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -548,6 +599,18 @@
 //        }
         //填充数据
         if (indexPath.row == 0) {
+//            static NSString *cellName = @"ExpertAdvantageTableCell";
+//            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//            if (!cell) {
+//                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//            }
+//            
+//            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
+//            cell.titleLabel.text = @"主治";
+//            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel1];
+//            
+//            return cell;
+            
             static NSString *cellName = @"ExpertAdvantageTableCell";
             ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
             if (!cell) {
@@ -555,35 +618,41 @@
             }
             
             [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_zhuzhi_image"]];
-            cell.titleLabel.text = @"主治";
-            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel1];
-            
-            return cell;
-        }else if (indexPath.row == 1){
-            static NSString *cellName = @"ExpertAdvantageTableCell";
-            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-            if (!cell) {
-                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            }
-            
-            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_shanchang_image"]];
             cell.titleLabel.text = @"擅长";
-            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel2];
-            
-            return cell;
-        }else if (indexPath.row == 2){
-            static NSString *cellName = @"ExpertAdvantageTableCell";
-            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-            if (!cell) {
-                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            if (![self.shanchang isEqualToString:@""]) {
+                cell.bodyLabel.text = self.shanchang;
+            }else{
+                 cell.bodyLabel.text = @"暂无";
             }
-            
-            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_yanjiufangxiang_image"]];
-            cell.titleLabel.text = @"研究方向";
-            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel3];
-            
+           
             return cell;
-        }else if (indexPath.row == 3){
+        }
+//        else if (indexPath.row == 1){
+//            static NSString *cellName = @"ExpertAdvantageTableCell";
+//            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//            if (!cell) {
+//                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//            }
+//            
+//            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_shanchang_image"]];
+//            cell.titleLabel.text = @"擅长";
+//            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel2];
+//            
+//            return cell;
+//        }else if (indexPath.row == 2){
+//            static NSString *cellName = @"ExpertAdvantageTableCell";
+//            ExpertAdvantageTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//            if (!cell) {
+//                cell = [[ExpertAdvantageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//            }
+//            
+//            [cell.titleImageView setImage:[UIImage imageNamed:@"info_expert_yanjiufangxiang_image"]];
+//            cell.titleLabel.text = @"研究方向";
+//            cell.bodyLabel.text = [NullUtil judgeStringNull:self.advantageLabel3];
+//            
+//            return cell;
+//        }
+        else if (indexPath.row == 1){
             static NSString *cellName = @"ExpertAdvantageFixTableCell";
             ExpertAdvantageFixTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
             if (!cell) {
@@ -637,131 +706,170 @@
 //        
 //        return cell;
 //    }
-    else if (indexPath.section == 2){
-        static NSString *cellName = @"ExpertClinicTableCell";
-        ExpertClinicTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[ExpertClinicTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
-        
-        
-        
-        //填充数据
-        for (int i = 0; i<self.clinicArray.count; i++) {
-            cell.label1.text = self.clinicNameArray[indexPath.row];
-            
-            if (![[self.data2[indexPath.row] objectForKey:@"address"] isEqualToString:@""]) {
-                cell.label2.text = [self.data2[indexPath.row] objectForKey:@"address"];
-            }
-            
-            if ([self.clinicStarArray[indexPath.row] integerValue] == 0) {
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>0 && [self.clinicStarArray[indexPath.row] integerValue]<11){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>10 && [self.clinicStarArray[indexPath.row] integerValue]<21){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>20 && [self.clinicStarArray[indexPath.row] integerValue]<31){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>30 && [self.clinicStarArray[indexPath.row] integerValue]<41){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>40 && [self.clinicStarArray[indexPath.row] integerValue]<51){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>50 && [self.clinicStarArray[indexPath.row] integerValue]<61){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>60 && [self.clinicStarArray[indexPath.row] integerValue]<71){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>70 && [self.clinicStarArray[indexPath.row] integerValue]<81){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>80 && [self.clinicStarArray[indexPath.row] integerValue]<91){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
-            }else if ([self.clinicStarArray[indexPath.row] integerValue]>90 && [self.clinicStarArray[indexPath.row] integerValue]<101){
-                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
-            }
-            
-            cell.label3.text = [NSString stringWithFormat:@"距离%@km",self.clinicDistanceArray[indexPath.row]];
-            cell.label4.text = @"特需服务费";
-            cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
-            
-//            if ([self.clinicCouponArray[indexPath.row] integerValue] == 0) {
-//                cell.couponButton.hidden = YES;
-//            }else{
-//                [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
+//    else if (indexPath.section == 2){
+//        static NSString *cellName = @"ExpertClinicTableCell";
+//        ExpertClinicTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//        if (!cell) {
+//            cell = [[ExpertClinicTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//        }
+//        
+//        
+//        
+//        //填充数据
+//        for (int i = 0; i<self.clinicArray.count; i++) {
+//            cell.label1.text = self.clinicNameArray[indexPath.row];
+//            
+//            if (![[self.data2[indexPath.row] objectForKey:@"address"] isEqualToString:@""]) {
+//                cell.label2.text = [self.data2[indexPath.row] objectForKey:@"address"];
 //            }
-            
-            [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
-        }
-        
-        return cell;
-    }
+//            
+//            if ([self.clinicStarArray[indexPath.row] integerValue] == 0) {
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>0 && [self.clinicStarArray[indexPath.row] integerValue]<11){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>10 && [self.clinicStarArray[indexPath.row] integerValue]<21){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>20 && [self.clinicStarArray[indexPath.row] integerValue]<31){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>30 && [self.clinicStarArray[indexPath.row] integerValue]<41){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>40 && [self.clinicStarArray[indexPath.row] integerValue]<51){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>50 && [self.clinicStarArray[indexPath.row] integerValue]<61){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>60 && [self.clinicStarArray[indexPath.row] integerValue]<71){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>70 && [self.clinicStarArray[indexPath.row] integerValue]<81){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_zero"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>80 && [self.clinicStarArray[indexPath.row] integerValue]<91){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_half"]];
+//            }else if ([self.clinicStarArray[indexPath.row] integerValue]>90 && [self.clinicStarArray[indexPath.row] integerValue]<101){
+//                [cell.starImageView1 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView2 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView3 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView4 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//                [cell.starImageView5 setImage:[UIImage imageNamed:@"info_expert_xingxing_full"]];
+//            }
+//            
+//            cell.label3.text = [NSString stringWithFormat:@"距离%@km",self.clinicDistanceArray[indexPath.row]];
+//            cell.label4.text = @"特需服务费";
+//            cell.label5.text = [NSString stringWithFormat:@"¥ %@",self.detailMoney];
+//            
+////            if ([self.clinicCouponArray[indexPath.row] integerValue] == 0) {
+////                cell.couponButton.hidden = YES;
+////            }else{
+////                [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
+////            }
+//            
+//            [cell.couponButton setTitle:[NSString stringWithFormat:@"立减%@元",self.clinicCouponArray[indexPath.row]] forState:UIControlStateNormal];
+//        }
+//        
+//        return cell;
+//    }
     return nil;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2) {
-//        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
-//        clincInfoVC.expertId = self.expertId;
-//        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 2) {
+////        ClinicInfoViewController *clincInfoVC = [[ClinicInfoViewController alloc] init];
+////        clincInfoVC.expertId = self.expertId;
+////        clincInfoVC.clinicId = self.clinicIdArray[indexPath.row];
+////        
+////        clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
+//////        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
+////        [self.navigationController pushViewController:clincInfoVC animated:YES];
 //        
-//        clincInfoVC.clinicName = self.clinicNameArray[indexPath.row];
-////        clincInfoVC.couponMoney = self.clinicCouponArray[indexPath.row];
-//        [self.navigationController pushViewController:clincInfoVC animated:YES];
-        
-        ClinicInfoFixViewController *clincInfoFixVC = [[ClinicInfoFixViewController alloc] init];
-        clincInfoFixVC.expertId = self.expertId;
-        clincInfoFixVC.clinicId = self.clinicIdArray[indexPath.row];
-        
-        clincInfoFixVC.clinicName = self.clinicNameArray[indexPath.row];
-        [self.navigationController pushViewController:clincInfoFixVC animated:YES];
-    }
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+//        ClinicInfoFixViewController *clincInfoFixVC = [[ClinicInfoFixViewController alloc] init];
+//        clincInfoFixVC.expertId = self.expertId;
+//        clincInfoFixVC.clinicId = self.clinicIdArray[indexPath.row];
+//        
+//        clincInfoFixVC.clinicName = self.clinicNameArray[indexPath.row];
+//        [self.navigationController pushViewController:clincInfoFixVC animated:YES];
+//    }
+//    
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
 
 #pragma mark Network Request
+-(void)sendExpertInfoRequestFix{
+    DLog(@"sendExpertInfoRequestFix");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.expertId forKey:@"doctor_id"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_EXPERT_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [self expertInfoDataParseFix];
+        }else{
+            DLog(@"%@",self.message);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 -(void)sendExpertInfoRequest{
     DLog(@"sendExpertInfoRequest");
     
@@ -785,7 +893,7 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            [self expertInfoDataParse];
+//            [self expertInfoDataParse];
         }else{
             DLog(@"%@",self.message);
         }
@@ -800,37 +908,37 @@
     }];
 }
 
--(void)sendClinicInfoRequest:(NSUInteger)type{
-    DLog(@"sendClinicInfoRequest");
-    
-    self.pageSize += 10;
-    
-    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.latitude forKey:@"x"];
-    [parameter setValue:self.longtitude forKey:@"y"];
-    [parameter setValue:@"1" forKey:@"currentPage"];
-    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
-    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.fiterType] forKey:@"type"];
-    
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CLINIC_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
-        DLog(@"responseObject-->%@",responseObject);
-        self.result2 = (NSMutableDictionary *)responseObject;
-        
-        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
-        self.message2 = [self.result2 objectForKey:@"message"];
-        self.data2 = [self.result2 objectForKey:@"data"];
-        
-        if (self.code2 == kSUCCESS) {
-            [self clinicInfoDataParse];
-        }else{
-            
-        }
-        
-    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-        NSString *errorStr2 = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-        DLog(@"errorStr2-->%@",errorStr2);
-    }];
-}
+//-(void)sendClinicInfoRequest:(NSUInteger)type{
+//    DLog(@"sendClinicInfoRequest");
+//    
+//    self.pageSize += 10;
+//    
+//    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//    [parameter setValue:self.latitude forKey:@"x"];
+//    [parameter setValue:self.longtitude forKey:@"y"];
+//    [parameter setValue:@"1" forKey:@"currentPage"];
+//    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
+//    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.fiterType] forKey:@"type"];
+//    
+//    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CLINIC_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+//        DLog(@"responseObject-->%@",responseObject);
+//        self.result2 = (NSMutableDictionary *)responseObject;
+//        
+//        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+//        self.message2 = [self.result2 objectForKey:@"message"];
+//        self.data2 = [self.result2 objectForKey:@"data"];
+//        
+//        if (self.code2 == kSUCCESS) {
+//            [self clinicInfoDataParse];
+//        }else{
+//            
+//        }
+//        
+//    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+//        NSString *errorStr2 = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+//        DLog(@"errorStr2-->%@",errorStr2);
+//    }];
+//}
 
 -(void)sendExpertFocusRequest{
     DLog(@"sendExpertFocusRequest");
@@ -866,7 +974,7 @@
             }
             
             [self.tableView reloadData];
-            [self expertInfoDataFilling];
+            [self expertInfoDataFillingFix];
         }else{
             DLog(@"%@",self.message3);
             if (self.code3 == kTOKENINVALID) {
@@ -887,55 +995,91 @@
 }
 
 #pragma mark Data Parse
--(void)expertInfoDataParse{
-    self.videoUrl = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"vedioURL"];
-    [self.playView setUrlString:self.videoUrl];
+-(void)expertInfoDataParseFix{
+    self.videoUrlFix = [NullUtil judgeStringNull:[self.data objectForKey:@"introduce_url"]];
+    [self.playView setUrlString:self.videoUrlFix];
     
-    self.detailLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"doctor_name"];
-    self.detailLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"title_name"];
-    self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
+    self.expertImageString = [NullUtil judgeStringNull:[self.data objectForKey:@"heand_url"]];
+    self.expertNameString = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_name"]];
+    self.expertTitleString1 = [NullUtil judgeStringNull:[self.data objectForKey:@"title_name"]];
+    self.expertTitleString2 = [NullUtil judgeStringNull:[self.data objectForKey:@"touxian"]];
+    self.expertUnitString = [NullUtil judgeStringNull:[self.data objectForKey:@"company"]];
+    self.expertDepartString = [NullUtil judgeStringNull:[self.data objectForKey:@"depart_name"]];
     
-//    self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
+    self.expertMoney1 = [[self.data objectForKey:@"consultation_money"] doubleValue];
+    self.expertMoney2 = [[self.data objectForKey:@"money"] doubleValue];
+    
+    self.expertFocus = [[self.data objectForKey:@"atteations"] intValue];
+    self.expertService = [[self.data objectForKey:@"conus"] intValue];
+    
+    self.shanchang = [NullUtil judgeStringNull:[self.data objectForKey:@"shanchang"]];
+    self.jianjie = [NullUtil judgeStringNull:[self.data objectForKey:@"doctor_descr"]];
+    
+    TextEntity *entity = [[TextEntity alloc]initWithTextName:@"简介" textContent:self.jianjie];
+    //    [self.dataArr addObject:entity];
+    self.dataArr = [NSMutableArray arrayWithObjects:entity, nil];
+    
+    if ([[self.data objectForKey:@"is_atteation"] intValue] == 0) {
+        self.isFocused = NO;
+    }else if ([[self.data objectForKey:@"is_atteation"] intValue] == 1) {
+        self.isFocused = YES;
+    }
+
+//    [self initView];
+    [self.tableView reloadData];
+    
+    [self expertInfoDataFillingFix];
+}
+
+//-(void)expertInfoDataParse{
+//    self.videoUrl = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"vedioURL"];
+//    [self.playView setUrlString:self.videoUrl];
+//    
+//    self.detailLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"doctor_name"];
+//    self.detailLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"title_name"];
+//    self.detailLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"org_name"];
+//    
+////    self.detailNumber = [[self.data objectForKey:@"docotrDetail"] integerForKey:@"atteation"];
+////    if (self.detailNumber == 0) {
+////        self.isFocused = NO;
+////    }else if (self.detailNumber == 1) {
+////        self.isFocused = YES;
+////    }
+//    
+//    self.detailNumber = [[[self.data objectForKey:@"docotrDetail"] objectForKey:@"attention"] intValue];
 //    if (self.detailNumber == 0) {
 //        self.isFocused = NO;
 //    }else if (self.detailNumber == 1) {
 //        self.isFocused = YES;
 //    }
-    
-    self.detailNumber = [[[self.data objectForKey:@"docotrDetail"] objectForKey:@"attention"] intValue];
-    if (self.detailNumber == 0) {
-        self.isFocused = NO;
-    }else if (self.detailNumber == 1) {
-        self.isFocused = YES;
-    }
-    
-    self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
-    
-    self.advantageLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"mainly"];
-    self.advantageLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"diseaseName"];
-    self.advantageLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"research"];
-    self.advantageLabel4 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"exper"];
-    DLog(@"self.advantageLabel4-->%@",self.advantageLabel4);
-    
-    TextEntity *entity = [[TextEntity alloc]initWithTextName:@"经历" textContent:self.advantageLabel4];
-//    [self.dataArr addObject:entity];
-    self.dataArr = [NSMutableArray arrayWithObjects:entity, nil];
-    
-    self.commentArray = [ExpertCommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
-    for (ExpertCommentData *commentData in self.commentArray) {
-        [self.commentExpertIdArray addObject:[NullUtil judgeStringNull:commentData.doctor_id]];
-        [self.commentPatientArray addObject:[NullUtil judgeStringNull:commentData.user_name]];
-        [self.commentExpertArray addObject:[NullUtil judgeStringNull:commentData.doctor_name]];
-        [self.commentPraiseArray addObject:[NullUtil judgeStringNull:commentData.flag_name]];
-    }
-    
-    if (!self.fiterType) {
-        self.fiterType = 1;
-        [self sendClinicInfoRequest:self.fiterType];
-    }
-    
-    [self expertInfoDataFilling];
-}
+//
+//    self.detailMoney = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"money"];
+//    
+//    self.advantageLabel1 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"mainly"];
+//    self.advantageLabel2 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"diseaseName"];
+//    self.advantageLabel3 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"research"];
+//    self.advantageLabel4 = [[self.data objectForKey:@"docotrDetail"] objectForKey:@"exper"];
+//    DLog(@"self.advantageLabel4-->%@",self.advantageLabel4);
+//    
+//    TextEntity *entity = [[TextEntity alloc]initWithTextName:@"经历" textContent:self.advantageLabel4];
+////    [self.dataArr addObject:entity];
+//    self.dataArr = [NSMutableArray arrayWithObjects:entity, nil];
+//    
+//    self.commentArray = [ExpertCommentData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"comments"]];
+//    for (ExpertCommentData *commentData in self.commentArray) {
+//        [self.commentExpertIdArray addObject:[NullUtil judgeStringNull:commentData.doctor_id]];
+//        [self.commentPatientArray addObject:[NullUtil judgeStringNull:commentData.user_name]];
+//        [self.commentExpertArray addObject:[NullUtil judgeStringNull:commentData.doctor_name]];
+//        [self.commentPraiseArray addObject:[NullUtil judgeStringNull:commentData.flag_name]];
+//    }
+//    
+//    if (!self.fiterType) {
+//        self.fiterType = 1;
+//        [self sendClinicInfoRequest:self.fiterType];
+//    }
+//    
+//    [self expertInfoDataFilling];
+//}
 
 -(void)clinicInfoDataParse{
     self.clinicArray = [ExpertClinicData mj_objectArrayWithKeyValuesArray:self.data2];
@@ -958,6 +1102,18 @@
 }
 
 #pragma mark Data Filling
+-(void)expertInfoDataFillingFix{
+    if (self.isFocused == YES) {
+        //已关注
+        [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_selected"]];
+        self.focusLabel.text = @"已关注";
+    }else if(self.isFocused == NO){
+        //未关注
+        [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"]];
+        self.focusLabel.text = @"关注";
+    }
+}
+
 -(void)expertInfoDataFilling{
     if (self.isFocused == YES) {
         //已关注

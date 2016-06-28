@@ -54,6 +54,7 @@
     self.bodyLabel = [[UILabel alloc] init];
     self.bodyLabel.numberOfLines = 0;
     self.bodyLabel.font = [UIFont systemFontOfSize:14];
+    self.bodyLabel.textColor = ColorWithHexRGB(0x646464);
     [self.mainView addSubview:self.bodyLabel];
     
 //    self.button = [[UIButton alloc] init];

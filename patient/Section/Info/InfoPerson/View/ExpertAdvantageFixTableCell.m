@@ -59,12 +59,14 @@
     [self.mainView addSubview:_titleImage];
     
     _textTitle = [[UILabel alloc]initWithFrame:CGRectMake(12+15+10, 16, 140, 15)];
-    _textTitle.textColor = [UIColor blackColor];
+//    _textTitle.textColor = [UIColor blackColor];
+    _textTitle.textColor = ColorWithHexRGB(0x646464);
     _textTitle.font = [UIFont systemFontOfSize:16];
     [self.mainView addSubview:_textTitle];
     
     _textContent = [[UILabel alloc]initWithFrame:CGRectMake(12, 16+15+5,SCREEN_WIDTH - 24 , 20)];
-    _textContent.textColor = [UIColor blackColor];
+//    _textContent.textColor = [UIColor blackColor];
+    _textContent.textColor = ColorWithHexRGB(0x646464);
     _textContent.font = [UIFont systemFontOfSize:14];
     _textContent.numberOfLines = 0;
     [self.mainView addSubview:_textContent];
