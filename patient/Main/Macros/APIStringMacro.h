@@ -39,18 +39,18 @@ typedef enum {
 #define kJZK_NORMAL_LOGIN @"public/v1/user/login?"//常规登录
 #define kJZK_THIRD_LOGIN @"public/v1/user/insertLogin?"//第三方登录
 #define kJZK_INFO_INFORMATION @"public/v1/user/index?"//首页信息
-#define kJZK_DISEASE_INFOMATION @"/public/v1/getSpecialDetail?"//疾病专题信息
-#define kJZK_MORE_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicAppPage?"//健康饮食列表
-#define kJZK_HEALTH_INFORMATION @"/public/v1/user/getFoodBasicDetail?"//健康饮食信息
-#define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"/private/v1/user/likeOrAtteation?"//健康点赞和收藏
-#define kJZK_MORE_STUDIO_INFORMATION @"/public/v1/user/getMoreDoctorOrg?"//工作室列表
-#define kJZK_STUDIO_INFORMATION @"/public/v1/minDoctor/getDoctorOrg?"//工作室信息
-#define kJZK_STUDIO_INFORMATION_FIX @"/public/v2/minDoctor/getDoctorOrgDetail?"//工作室信息
+#define kJZK_DISEASE_INFOMATION @"public/v1/getSpecialDetail?"//疾病专题信息
+#define kJZK_MORE_HEALTH_INFORMATION @"public/v1/user/getFoodBasicAppPage?"//健康饮食列表
+#define kJZK_HEALTH_INFORMATION @"public/v1/user/getFoodBasicDetail?"//健康饮食信息
+#define kJZK_HEALTH_COMMENT_AND_FAVOURITE @"private/v1/user/likeOrAtteation?"//健康点赞和收藏
+#define kJZK_MORE_STUDIO_INFORMATION @"public/v1/user/getMoreDoctorOrg?"//工作室列表
+#define kJZK_STUDIO_INFORMATION @"public/v1/minDoctor/getDoctorOrg?"//工作室信息
+#define kJZK_STUDIO_INFORMATION_FIX @"public/v2/minDoctor/getDoctorOrgDetail?"//工作室信息Fix
 #define kJZK_MORE_PERSON_INFORMATION @"public/v1/user/doctorPage?"//专家列表
 #define kJZK_EXPERT_INFORMATION @"public/v1/userDotor/detail?"//专家信息
 #define kJZK_EXPERT_INFORMATION_FIX @"private/v2/getDoctorDetailByDoctorID?"//专家信息
 #define kJZK_CLINIC_INFORMATION @"public/v1/userDotor/fujin?" //诊所信息
-#define kJZK_EXPERT_FOCUS @"/private/v1/user/atteationOrexit?"//专家关注
+#define kJZK_EXPERT_FOCUS @"private/v1/user/atteationOrexit?"//专家关注
 #define kJZK_DOCTOR_INFORMATION @"public/v1/user/selOutpat?"//医生信息
 #define kJZK_SCHEDULE_INFORMATION @"public/v1/user/selDoctorPaiban?"//时间表信息
 
@@ -64,11 +64,13 @@ typedef enum {
 #define KJZK_CONTACT_INFORMATION_DELETE @"private/v1/user/deleteContact?"//删除常用联系人
 #define kJZK_ID_INFORMATION @"private/v1/user/getKeyExists?"//身份证或者医保信息
 #define kJZK_RECORD_INFORMATION_ADD @"private/v1/user/addContactBook?"//添加病历本
-#define kJZK_RECORD_LIST_INFORMATION @"/private/v1/user/memberBookDetails?"//病历本列表信息
+#define kJZK_RECORD_LIST_INFORMATION @"private/v1/user/memberBookDetails?"//病历本列表信息
 #define kJZK_COUPON_INFORMATION @"private/v1/user/getUserConpou?"//优惠券信息
 #define kJZK_COUPON_INFORAMTION_EXCHANGE @"private/v1/user/getCouponByCode?"//优惠券兑换
 #define kJZK_ORDER_INFORMATION @"private/v1/user/getConuListPage?"//订单列表信息
 #define kJZK_ORDER_DETAIL_INFORMATION @"private/v1/user/getConuBasicByConId?"//订单详情
+
+#define kJZK_HEALTH_LIST_INFORMATION @"private/v2/getJiankan"//健康列表信息
 
 #define kJZK_TEST_INFORMATION_GET @"public/v1/pageAnalysis?"//获取体质测试信息
 #define kJZK_TEST_INFORMATION_CONFIRM @"public/v1/commitAnalysis?"//提交体质测试信息
@@ -87,13 +89,13 @@ typedef enum {
 #define kJZK_QUESTION_MIANFEITING_INFORMATION @"private/v2/clickAnswer?"//问题免费听接口
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
-#define kJZK_MINE_MESSAGE_INFORMATION @"/private/v1/user/getUserMessagePage?"//消息列表信息
-#define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"/private/v1/user/messageDatailByID?"//消息详情信息
+#define kJZK_MINE_MESSAGE_INFORMATION @"private/v1/user/getUserMessagePage?"//消息列表信息
+#define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"private/v1/user/messageDatailByID?"//消息详情信息
 #define kJZK_MINE_SETTING_INFOMATION_CONFIRM @"private/v1/user/updateSet?"//提交个人设置信息
 #define kJZK_MINE_PASSWORD_RESET_CAPTCHA @"public/v1/user/getPwdCode?"//重置密码验证码
 #define kJZK_MINE_PASSWORD_RESET_CONFIRM @"public/v1/user/updateUserNewPwd?"//重置密码确认
-#define kJZK_MINE_EXPERT_INFORMATION @"/private/v1/user/getUserDoctors?"//我的专家信息
-#define kJZK_MINE_FAVOURITE_INFORMATION @"/private/v1/user/getUserLikePage?"//我的收藏夹信息
+#define kJZK_MINE_EXPERT_INFORMATION @"private/v1/user/getUserDoctors?"//我的专家信息
+#define kJZK_MINE_FAVOURITE_INFORMATION @"private/v1/user/getUserLikePage?"//我的收藏夹信息
 
 #define kJZK_FILE_UPLOAD @"public/v1/upload1?"//文件上传
 #define kJZK_HEAD_IMAGE_UPLOAD @"private/v1/user/updateHeand?"//更改个人头像

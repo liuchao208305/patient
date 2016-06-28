@@ -34,6 +34,7 @@
 #import "TimeTableCell.h"
 #import "HealhTableCellFix.h"
 #import "TestFixViewController.h"
+#import "HealthListViewController.h"
 
 @interface InfoViewController ()<SDCycleScrollViewDelegate,HealthViewDelegate>
 {
@@ -610,6 +611,9 @@
 
 -(void)healthFix1Clicked{
     DLog(@"healthFix1Clicked");
+    HealthListViewController *healthListVC = [[HealthListViewController alloc] init];
+    healthListVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:healthListVC animated:YES];
     
 }
 
