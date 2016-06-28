@@ -15,6 +15,11 @@
 @property (strong,nonatomic)NSString *doctorName;
 @property (strong,nonatomic)NSString *titleName;
 @property (strong,nonatomic)NSString *company;
+@property (strong,nonatomic)NSString *depart_name;
+@property (strong,nonatomic)NSString *doctor_descr;
+@property (strong,nonatomic)NSString *answers;
+@property (strong,nonatomic)NSString *atteations;
+
 @property (strong,nonatomic)NSString *stopFlag;
 @property (strong,nonatomic)NSString *flags;
 

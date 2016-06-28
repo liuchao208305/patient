@@ -102,6 +102,11 @@
     self.expertNameArray = [NSMutableArray array];
     self.expertTitleArray = [NSMutableArray array];
     self.expertUnitArray = [NSMutableArray array];
+    self.expertDepartArray = [NSMutableArray array];
+    self.expertDetailArray = [NSMutableArray array];
+    self.expertAnswerArray = [NSMutableArray array];
+    self.expertFocusArray = [NSMutableArray array];
+    
     self.expertStopFlagArray = [NSMutableArray array];
 //    self.expertFlagArray = [NSMutableArray array];
     self.expertFlagNameArray = [NSMutableArray array];
@@ -583,12 +588,12 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return 88;
 //    return 110;
-    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
-        return 88;
-    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
-        return 110;
-    }
-    return 0;
+//    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
+//        return 88;
+//    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
+//        return 110;
+//    }
+    return 125;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -602,12 +607,18 @@
     cell.expertNameLabel.text = self.expertNameArray[indexPath.row];
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
+    cell.expertDepartLabel.text = self.expertDepartArray[indexPath.row];
+    cell.expertDetailLabel.text = self.expertDetailArray[indexPath.row];
+    [cell.expertAnswserImageView setImage:[UIImage imageNamed:@"info_more_person_anwer_image"]];
+    cell.expertAnswerLabel.text = [NSString stringWithFormat:@"已回答%@个问题",self.expertAnswerArray[indexPath.row]];
+    [cell.expertFocusImageView setImage:[UIImage imageNamed:@"info_more_person_focus_image"]];
+    cell.expertFocusLabel.text = [NSString stringWithFormat:@"%@人已关注",self.expertFocusArray[indexPath.row]];
     
-    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
-        cell.expertStatusButton.hidden = YES;
-    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
-        
-    }
+//    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
+//        cell.expertStatusButton.hidden = YES;
+//    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
+//        
+//    }
     
 //    if ([self.expertFlagArray[indexPath.row] isKindOfClass:[NSNull class]]) {
 //        cell.expertFlagImageView1.hidden = YES;
@@ -649,25 +660,21 @@
 //        }
 //    }
     
-    cell.expertFlagImageView1.hidden = YES;
-    cell.expertFlagImageView2.hidden = YES;
-    cell.expertFlagImageView3.hidden = YES;
-    cell.expertFlagImageView4.hidden = YES;
-    cell.expertFlagImageView5.hidden = YES;
+//    cell.expertFlagImageView1.hidden = YES;
+//    cell.expertFlagImageView2.hidden = YES;
+//    cell.expertFlagImageView3.hidden = YES;
+//    cell.expertFlagImageView4.hidden = YES;
+//    cell.expertFlagImageView5.hidden = YES;
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.expertStopFlagArray[indexPath.row] intValue] == 1) {
-        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
-        expertVC.expertId = self.expertIdArray[indexPath.row];
-        expertVC.expertName = self.expertNameArray[indexPath.row];
-        expertVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:expertVC animated:YES];
-    }else if ([self.expertStopFlagArray[indexPath.row] intValue] == 2){
-        
-    }
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.expertIdArray[indexPath.row];
+    expertVC.expertName = self.expertNameArray[indexPath.row];
+    expertVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:expertVC animated:YES];
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -728,14 +735,22 @@
     [self.expertNameArray removeAllObjects];
     [self.expertTitleArray removeAllObjects];
     [self.expertUnitArray removeAllObjects];
-    [self.expertStopFlagArray removeAllObjects];
+    [self.expertDepartArray removeAllObjects];
+    [self.expertDetailArray removeAllObjects];
+    [self.expertAnswerArray removeAllObjects];
+    [self.expertFocusArray removeAllObjects];
+//    [self.expertStopFlagArray removeAllObjects];
     for (MorePersonData *morePersonData in self.expertArray) {
         [self.expertIdArray addObject:[NullUtil judgeStringNull:morePersonData.doctor_id]];
         [self.expertImageArray addObject:[NullUtil judgeStringNull:morePersonData.heandUrl]];
         [self.expertNameArray addObject:[NullUtil judgeStringNull:morePersonData.doctorName]];
         [self.expertTitleArray addObject:[NullUtil judgeStringNull:morePersonData.titleName]];
         [self.expertUnitArray addObject:[NullUtil judgeStringNull:morePersonData.company]];
-        [self.expertStopFlagArray addObject:[NullUtil judgeStringNull:morePersonData.stopFlag]];
+        [self.expertDepartArray addObject:[NullUtil judgeStringNull:morePersonData.depart_name]];
+        [self.expertDetailArray addObject:[NullUtil judgeStringNull:morePersonData.doctor_descr]];
+        [self.expertAnswerArray addObject:[NullUtil judgeStringNull:morePersonData.answers]];
+        [self.expertFocusArray addObject:[NullUtil judgeStringNull:morePersonData.atteations]];
+//        [self.expertStopFlagArray addObject:[NullUtil judgeStringNull:morePersonData.stopFlag]];
     }
     
 //    NSMutableArray *test1 = [self.data[3] objectForKey:@"flags"];
