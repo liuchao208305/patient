@@ -181,6 +181,7 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:@"100" forKey:@"pageSize"];
     

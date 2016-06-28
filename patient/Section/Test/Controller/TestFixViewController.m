@@ -111,16 +111,16 @@
     self.title=@"测体质";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择联系人" style:(UIBarButtonItemStylePlain) target:self action:@selector(chooseContactButtonClicked)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择联系人" style:(UIBarButtonItemStylePlain) target:self action:@selector(chooseContactButtonClicked)];
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
--(void)chooseContactButtonClicked{
-    TestChooseContactViewController *chooseContactVC = [[TestChooseContactViewController alloc] init];
-    chooseContactVC.hidesBottomBarWhenPushed = YES;
-    chooseContactVC.chooseContactDelegate = self;
-    [self.navigationController pushViewController:chooseContactVC animated:YES];
-}
+//-(void)chooseContactButtonClicked{
+//    TestChooseContactViewController *chooseContactVC = [[TestChooseContactViewController alloc] init];
+//    chooseContactVC.hidesBottomBarWhenPushed = YES;
+//    chooseContactVC.chooseContactDelegate = self;
+//    [self.navigationController pushViewController:chooseContactVC animated:YES];
+//}
 
 #pragma mark ContactDelegate
 -(void)chooseContactSelected:(ContactData *)contactData{
@@ -17138,7 +17138,7 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:self.contactId forKey:@"contact_id"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"contact_id"];
     /*====================================================================================*/
     [parameter setValue:self.questionGroupIdArray[0] forKey:@"items[0].group_id"];
     [parameter setValue:self.questionItemIdArray[0] forKey:@"items[0].item_id"];

@@ -14,6 +14,12 @@
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
 #import "LoginViewController.h"
+#import "ResultData.h"
+#import "TestResultDetailViewController.h"
+#import "HealthDiseaseTableCell.h"
+#import "HealthInspectionTableCell.h"
+#import "HealthTestTableCell.h"
+
 
 @interface HealthListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
@@ -77,7 +83,13 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.resultArray = [NSMutableArray array];
+    self.resultPatientIdArray = [NSMutableArray array];
+    self.resultPatientImageArray = [NSMutableArray array];
+    self.resultIdArray = [NSMutableArray array];
+    self.resultMainArray = [NSMutableArray array];
+    self.resultTrendArray = [NSMutableArray array];
+    self.resultTimeArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -97,6 +109,18 @@
 
 -(void)initView{
     self.view.backgroundColor = kBACKGROUND_COLOR;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAVIGATION_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self sendHealthListRequest];
+    }];
+    
+    [self.view addSubview:self.tableView];
 }
 
 -(void)initRecognizer{
@@ -108,7 +132,119 @@
     DLog(@"addHealthButtonClicked");
 }
 
+-(void)inspectionHeadViewClicked{
+    DLog(@"inspectionHeadViewClicked");
+}
+
 #pragma mark UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.resultArray.count==0 ? 2 : 2+self.resultArray.count;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 130;
+    }else if (indexPath.section == 1){
+        return 450;
+    }else if (indexPath.section > 1){
+        return 45;
+    }
+    return 0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.01;
+    }else if (section == 1){
+        return 40;
+    }else if (section == 2){
+        return 40;
+    }
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section < 2) {
+        return 10;
+    }else{
+        return 5;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    self.healthListHeaderView = [[HealthListHeaderView alloc] init];
+    self.healthListHeaderView.tag = section;
+    if (section == 0) {
+        self.healthListHeaderView.titleImage.hidden = YES;
+        self.healthListHeaderView.titleLabel.hidden = YES;
+        self.healthListHeaderView.moreLabel.hidden = YES;
+        self.healthListHeaderView.moreImage.hidden = YES;
+    }
+    else if (section == 1){
+        self.healthListHeaderView.titleImage.hidden = YES;
+        self.healthListHeaderView.titleLabel.text = @"健康自查";
+        self.healthListHeaderView.moreLabel.text = @"更多";
+        self.healthListHeaderView.moreImage.image = [UIImage imageNamed:@"cell_studio_more_button"];
+        
+        self.healthListHeaderView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *inspectionHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inspectionHeadViewClicked)];
+        [self.healthListHeaderView addGestureRecognizer:inspectionHeadViewTap];
+        
+    }else if (section == 2){
+        self.healthListHeaderView.titleImage.hidden = YES;
+        self.healthListHeaderView.titleLabel.text = @"体质测试";
+        self.healthListHeaderView.moreLabel.hidden = YES;
+        self.healthListHeaderView.moreImage.hidden  = YES;
+    }else{
+        self.healthListHeaderView.titleImage.hidden = YES;
+        self.healthListHeaderView.titleLabel.hidden = YES;
+        self.healthListHeaderView.moreLabel.hidden = YES;
+        self.healthListHeaderView.moreImage.hidden = YES;
+    }
+    return self.healthListHeaderView;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        static NSString *cellName = @"HealthDiseaseTableCell";
+        HealthDiseaseTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[HealthDiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 1){
+        static NSString *cellName = @"HealthInspectionTableCell";
+        HealthInspectionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[HealthInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        return cell;
+    }else if (indexPath.section > 1){
+        static NSString *cellName = @"HealthTestTableCell";
+        HealthTestTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[HealthTestTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        return cell;
+    }
+    return nil;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
+    detailVC.resultId = self.resultIdArray[indexPath.section];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark Network Request
 -(void)sendHealthListRequest{
@@ -156,9 +292,74 @@
     }];
 }
 
+-(void)sendTestResultListRequest{
+    DLog(@"sendTestResultListRequest");
+    
+    self.currentPage = 1;
+    self.pageSize += 10;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage] forKey:@"currentPage"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_TEST_RESULT_LIST_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [self testResultListDataParse];
+        }else{
+            DLog(@"%ld",(long)self.code2);
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)healthListDataParse{
+    [self sendTestResultListRequest];
+}
+
+-(void)testResultListDataParse{
+    self.resultArray = [ResultData mj_objectArrayWithKeyValuesArray:self.data2];
+    for (ResultData *resultData in self.resultArray) {
+        [self.resultPatientIdArray addObject:[NullUtil judgeStringNull:resultData.user_id]];
+        [self.resultPatientImageArray addObject:[NullUtil judgeStringNull:resultData.heand_url]];
+        [self.resultIdArray addObject:[NullUtil judgeStringNull:resultData.analy_result_id]];
+        [self.resultMainArray addObject:[NullUtil judgeStringNull:resultData.main_result]];
+        [self.resultTrendArray addObject:[NullUtil judgeStringNull:resultData.trend_result]];
+        [self.resultTimeArray addObject:[NullUtil judgeStringNull:resultData.create_date]];
+    }
     
+    [self.tableView reloadData];
+    
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end
