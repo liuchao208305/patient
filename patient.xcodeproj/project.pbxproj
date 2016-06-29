@@ -50,6 +50,11 @@
 		700CF05A1D22AB3A008C9776 /* HealthInspectionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0591D22AB3A008C9776 /* HealthInspectionTableCell.m */; };
 		700CF05D1D22AB60008C9776 /* HealthTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF05C1D22AB60008C9776 /* HealthTestTableCell.m */; };
 		700CF0601D22B0D9008C9776 /* HealthListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF05F1D22B0D9008C9776 /* HealthListHeaderView.m */; };
+		700CF0631D23653E008C9776 /* SelfInspectionHeaderViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0621D23653E008C9776 /* SelfInspectionHeaderViewOne.m */; };
+		700CF0661D23655F008C9776 /* SelfInspectionHeaderViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0651D23655F008C9776 /* SelfInspectionHeaderViewTwo.m */; };
+		700CF0691D2366C8008C9776 /* SelfInspectionOneTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0681D2366C8008C9776 /* SelfInspectionOneTableCell.m */; };
+		700CF06C1D2366DE008C9776 /* SelfInspectionTwoTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF06B1D2366DE008C9776 /* SelfInspectionTwoTableCell.m */; };
+		700CF06F1D2366F6008C9776 /* SelfInspectionThreeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF06E1D2366F6008C9776 /* SelfInspectionThreeTableCell.m */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -768,6 +773,16 @@
 		700CF05C1D22AB60008C9776 /* HealthTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthTestTableCell.m; sourceTree = "<group>"; };
 		700CF05E1D22B0D9008C9776 /* HealthListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthListHeaderView.h; sourceTree = "<group>"; };
 		700CF05F1D22B0D9008C9776 /* HealthListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListHeaderView.m; sourceTree = "<group>"; };
+		700CF0611D23653E008C9776 /* SelfInspectionHeaderViewOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionHeaderViewOne.h; sourceTree = "<group>"; };
+		700CF0621D23653E008C9776 /* SelfInspectionHeaderViewOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionHeaderViewOne.m; sourceTree = "<group>"; };
+		700CF0641D23655F008C9776 /* SelfInspectionHeaderViewTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionHeaderViewTwo.h; sourceTree = "<group>"; };
+		700CF0651D23655F008C9776 /* SelfInspectionHeaderViewTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionHeaderViewTwo.m; sourceTree = "<group>"; };
+		700CF0671D2366C8008C9776 /* SelfInspectionOneTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionOneTableCell.h; sourceTree = "<group>"; };
+		700CF0681D2366C8008C9776 /* SelfInspectionOneTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionOneTableCell.m; sourceTree = "<group>"; };
+		700CF06A1D2366DE008C9776 /* SelfInspectionTwoTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionTwoTableCell.h; sourceTree = "<group>"; };
+		700CF06B1D2366DE008C9776 /* SelfInspectionTwoTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionTwoTableCell.m; sourceTree = "<group>"; };
+		700CF06D1D2366F6008C9776 /* SelfInspectionThreeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionThreeTableCell.h; sourceTree = "<group>"; };
+		700CF06E1D2366F6008C9776 /* SelfInspectionThreeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionThreeTableCell.m; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2734,6 +2749,16 @@
 				700CF0591D22AB3A008C9776 /* HealthInspectionTableCell.m */,
 				700CF05B1D22AB60008C9776 /* HealthTestTableCell.h */,
 				700CF05C1D22AB60008C9776 /* HealthTestTableCell.m */,
+				700CF0611D23653E008C9776 /* SelfInspectionHeaderViewOne.h */,
+				700CF0621D23653E008C9776 /* SelfInspectionHeaderViewOne.m */,
+				700CF0641D23655F008C9776 /* SelfInspectionHeaderViewTwo.h */,
+				700CF0651D23655F008C9776 /* SelfInspectionHeaderViewTwo.m */,
+				700CF0671D2366C8008C9776 /* SelfInspectionOneTableCell.h */,
+				700CF0681D2366C8008C9776 /* SelfInspectionOneTableCell.m */,
+				700CF06A1D2366DE008C9776 /* SelfInspectionTwoTableCell.h */,
+				700CF06B1D2366DE008C9776 /* SelfInspectionTwoTableCell.m */,
+				700CF06D1D2366F6008C9776 /* SelfInspectionThreeTableCell.h */,
+				700CF06E1D2366F6008C9776 /* SelfInspectionThreeTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3923,6 +3948,7 @@
 				705EF8071CBCBB7A00732886 /* MineFunctionTableCell.m in Sources */,
 				70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
+				700CF06F1D2366F6008C9776 /* SelfInspectionThreeTableCell.m in Sources */,
 				700CF05D1D22AB60008C9776 /* HealthTestTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
 				708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */,
@@ -3953,6 +3979,7 @@
 				708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
+				700CF0661D23655F008C9776 /* SelfInspectionHeaderViewTwo.m in Sources */,
 				708103531CEB831F009BC871 /* DishFoodData.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
 				70B4EB4E1CDB10F700141E38 /* MRZhaopianCollectionCell.m in Sources */,
@@ -3991,6 +4018,7 @@
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
+				700CF06C1D2366DE008C9776 /* SelfInspectionTwoTableCell.m in Sources */,
 				708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */,
 				708274C11CF7E6960016AE3C /* RDQitaTableCell.m in Sources */,
 				708B52F01CEB077C0033C479 /* InfoMoreHealthViewController.m in Sources */,
@@ -4003,6 +4031,7 @@
 				708B52F61CEB0C540033C479 /* MoreHealthData.m in Sources */,
 				70B4EA871CCCC7E100141E38 /* UIBezierPath+curved.m in Sources */,
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
+				700CF0631D23653E008C9776 /* SelfInspectionHeaderViewOne.m in Sources */,
 				708B53011CEB28890033C479 /* DishDetailTableCell.m in Sources */,
 				70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
@@ -4075,6 +4104,7 @@
 				70B4EB401CD8950300141E38 /* StringUtil.m in Sources */,
 				70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */,
 				7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */,
+				700CF0691D2366C8008C9776 /* SelfInspectionOneTableCell.m in Sources */,
 				70B4EB481CD9EFD900141E38 /* MedicineReceivingViewController.m in Sources */,
 				708B52D91CE9B54F0033C479 /* StutioAdvantageTabelCell.m in Sources */,
 				705EF7FE1CBCA0F500732886 /* RecordHeaderView.m in Sources */,
