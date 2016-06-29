@@ -257,11 +257,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        static NSString *cellName = @"SelfInspectionOneTableCell";
-        SelfInspectionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[SelfInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        }
+        SelfInspectionTableCell *cell = [[SelfInspectionTableCell alloc] init];;
+        [cell initView];
         
         return cell;
     }else if (indexPath.section == 1){

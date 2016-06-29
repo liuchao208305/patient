@@ -10,4 +10,8 @@
 
 @interface SelfInspectionTableCell : UITableViewCell
 
+@property (strong,nonatomic)UITextField *textField;
+
+-(void)initView;
+
 @end
