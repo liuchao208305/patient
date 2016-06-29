@@ -509,14 +509,46 @@
         
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"SelfInspectionTwoTableCell";
-        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        if (!cell) {
-            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+        if (self.shuimianHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+           [cell initView:6 string1:@"不易入睡" string2:@"睡而复醒，难以复睡" string3:@"时时惊醒，睡不安宁" string4:@"彻夜不眠" string5:@"多梦" string6:@"瞌睡"];
         }
-        
         return cell;
-    }else if (indexPath.section > 1){
+    }else if (indexPath.section == 2){
+        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+        if (self.yinshiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            [cell initView:4 string1:@"食欲不佳" string2:@"厌食" string3:@"多食易饥" string4:@"饥不择食" string5:@"" string6:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 3){
+        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+        if (self.yinshuiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        return cell;
+    }
+    else if (indexPath.section > 1){
         static NSString *cellName = @"SelfInspectionThreeTableCell";
         SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
