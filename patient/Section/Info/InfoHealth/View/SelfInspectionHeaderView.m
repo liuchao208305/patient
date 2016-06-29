@@ -24,6 +24,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     self.lineView = [[UIView alloc] init];
@@ -49,6 +50,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     self.titleLabelFix = [[UILabel alloc] init];
@@ -85,6 +87,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     if (hideFlag == NO) {
@@ -148,6 +151,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
@@ -189,6 +193,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
@@ -230,6 +235,7 @@
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     self.titleLabel.text = title;
+    self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
     if (![content1_1 isEqualToString:@""]) {
