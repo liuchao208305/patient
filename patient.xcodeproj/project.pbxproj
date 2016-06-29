@@ -55,6 +55,8 @@
 		700CF07B1D23C468008C9776 /* SelfInspectionTwoTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF07A1D23C468008C9776 /* SelfInspectionTwoTableCell.m */; };
 		700CF07E1D23C487008C9776 /* SelfInspectionThreeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF07D1D23C487008C9776 /* SelfInspectionThreeTableCell.m */; };
 		700CF0811D23E823008C9776 /* HealthSelfInspectionFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0801D23E823008C9776 /* HealthSelfInspectionFixViewController.m */; };
+		700CF0841D240BD9008C9776 /* SelfInspectionFourTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0831D240BD9008C9776 /* SelfInspectionFourTableCell.m */; };
+		700CF0871D240BE7008C9776 /* SelfInspectionFiveTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0861D240BE7008C9776 /* SelfInspectionFiveTableCell.m */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -783,6 +785,10 @@
 		700CF07D1D23C487008C9776 /* SelfInspectionThreeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionThreeTableCell.m; sourceTree = "<group>"; };
 		700CF07F1D23E823008C9776 /* HealthSelfInspectionFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthSelfInspectionFixViewController.h; sourceTree = "<group>"; };
 		700CF0801D23E823008C9776 /* HealthSelfInspectionFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthSelfInspectionFixViewController.m; sourceTree = "<group>"; };
+		700CF0821D240BD9008C9776 /* SelfInspectionFourTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionFourTableCell.h; sourceTree = "<group>"; };
+		700CF0831D240BD9008C9776 /* SelfInspectionFourTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionFourTableCell.m; sourceTree = "<group>"; };
+		700CF0851D240BE7008C9776 /* SelfInspectionFiveTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionFiveTableCell.h; sourceTree = "<group>"; };
+		700CF0861D240BE7008C9776 /* SelfInspectionFiveTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionFiveTableCell.m; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2759,6 +2765,10 @@
 				700CF07A1D23C468008C9776 /* SelfInspectionTwoTableCell.m */,
 				700CF07C1D23C487008C9776 /* SelfInspectionThreeTableCell.h */,
 				700CF07D1D23C487008C9776 /* SelfInspectionThreeTableCell.m */,
+				700CF0821D240BD9008C9776 /* SelfInspectionFourTableCell.h */,
+				700CF0831D240BD9008C9776 /* SelfInspectionFourTableCell.m */,
+				700CF0851D240BE7008C9776 /* SelfInspectionFiveTableCell.h */,
+				700CF0861D240BE7008C9776 /* SelfInspectionFiveTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3916,6 +3926,7 @@
 				70FD8E7D1CEC7E1700DA22E5 /* MineExpertTableCell.m in Sources */,
 				70265C771C858AA50091C01F /* AppDelegate.m in Sources */,
 				7046AD8A1C9F1FAC00BB6818 /* LoginViewController.m in Sources */,
+				700CF0841D240BD9008C9776 /* SelfInspectionFourTableCell.m in Sources */,
 				700CF07E1D23C487008C9776 /* SelfInspectionThreeTableCell.m in Sources */,
 				70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */,
 				70B4EAC01CD265DC00141E38 /* InfoMorePersonViewController.m in Sources */,
@@ -4149,6 +4160,7 @@
 				70B429EC1D17E6AA0036F525 /* QuestionListTableCell.m in Sources */,
 				708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
+				700CF0871D240BE7008C9776 /* SelfInspectionFiveTableCell.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */,

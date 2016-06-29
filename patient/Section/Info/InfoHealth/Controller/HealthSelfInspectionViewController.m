@@ -17,6 +17,8 @@
 #import "SelfInspectionOneTableCell.h"
 #import "SelfInspectionTwoTableCell.h"
 #import "SelfInspectionThreeTableCell.h"
+#import "SelfInspectionFourTableCell.h"
+#import "SelfInspectionFiveTableCell.h"
 
 @interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -545,6 +547,100 @@
             cell.button6.hidden = YES;
         }else{
             [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 8){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        if (self.bianmiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 9){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        if (self.paibianganHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            [cell initView:3 string1:@"排便不爽" string2:@"滑泄失禁" string3:@"肛门重坠" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 12){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        if (self.sezhiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            [cell initView:5 string1:@"色清量多" string2:@"色黄短少" string3:@"尿中带血" string4:@"浑浊" string5:@"夹有砂石" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 13){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        if (self.painiaoganHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            [cell initView:3 string1:@"小便失禁" string2:@"小便涩痛" string3:@"尿后点滴不尽" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        return cell;
+    }else if (indexPath.section == 14){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        return cell;
+    }else if (indexPath.section == 16){
+        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+        if (self.chuhanHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            [cell initView:11 string1:@"有汗" string2:@"无汗" string3:@"自汗" string4:@"盗汗" string5:@"绝汗" string6:@"战汗" string7:@"黄汗" string8:@"头汗" string9:@"手足出汗" string10:@"心胸出汗" string11:@"半身出汗"];
         }
         return cell;
     }
