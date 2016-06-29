@@ -128,29 +128,46 @@
         return 110;
     }else if (indexPath.section == 3){
         return 60;
+    }else if (indexPath.section == 8){
+        return 60;
+    }else if (indexPath.section == 9){
+        return 60;
+    }else if (indexPath.section == 10){
+        return 100;
+    }else if (indexPath.section == 12){
+        return 110;
+    }else if (indexPath.section == 13){
+        return 60;
+    }else if (indexPath.section == 14){
+        return 110;
+    }else if (indexPath.section == 16){
+        return 205;
+    }else if (indexPath.section == 17){
+        return 210;
     }
     return 0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 45;
-    }else if (section == 1){
-        return 45;
-    }else if (section == 2){
-        return 45;
-    }else if (section == 3){
-        return 45;
-    }else if (section == 4){
-        return 45;
-    }else if (section == 5){
-        return 45;
-    }
-    return 0.01;
+    return 45;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 4) {
+        return 0.01;
+    }else if (section == 5){
+        return 0.01;
+    }else if (section == 6){
+        return 0.01;
+    }else if (section == 7){
+        return 0.01;
+    }else if (section == 8){
+        return 0.01;
+    }else if (section == 9){
+        return 0.01;
+    }else if (section == 11){
+        return 0.01;
+    }else if (section == 12){
         return 0.01;
     }
     return 10;
@@ -184,6 +201,56 @@
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 6){
+        NSString *title = @"泄泻";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 7){
+        NSString *title = @"成形";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 8){
+        NSString *title = @"便质";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 9){
+        NSString *title = @"排便感";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 10){
+        NSString *title = @"大便颜色";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 11){
+        NSString *title = @"小便";
+        NSString *content1_1 = @"白天";
+        NSString *content1_2 = @"1";
+        NSString *content2_1 = @"晚上";
+        NSString *content2_2 = @"1";
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content2_1:content2_1 content2_2:content2_2];
+    }else if (section == 12){
+        NSString *title = @"色质";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 13){
+        NSString *title = @"排尿感";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 14){
+        NSString *title = @"寒热";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 15){
+        NSString *title = @"体温";
+        NSString *content = @"37";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
+        [self.selfInspectionHeaderView initView:title content:content array:segmentedArray];
+    }else if (section == 16){
+        NSString *title = @"出汗";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+    }else if (section == 17){
+        NSString *title = @"照片资料";
+        NSString *titleFix = @"（请在自然光下拍摄哦）";
+        [self.selfInspectionHeaderView initView:title titleFix:titleFix];
     }
     return self.selfInspectionHeaderView;
 }
