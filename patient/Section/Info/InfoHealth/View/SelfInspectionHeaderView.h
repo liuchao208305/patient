@@ -25,8 +25,9 @@
 
 -(void)initView:(NSString *)title;
 -(void)initView:(NSString *)title titleFix:(NSString *)titleFix;
--(void)initView:(NSString *)title content:(NSString *)content array:(NSArray *)segmentedArray;
--(void)initView:(NSString *)title array:(NSArray *)segmentedArray;
+-(void)initView:(NSString *)title content:(NSString *)content array:(NSArray *)segmentedArray hideFlag:(BOOL)hideFlag;
+-(void)initView:(NSString *)title array:(NSArray *)segmentedArray leftHideFlag:(BOOL)leftHideFlag;
+-(void)initView:(NSString *)title array:(NSArray *)segmentedArray righHideFlag:(BOOL)righHideFlag;
 -(void)initView:(NSString *)title content1_1:(NSString *)content1_1 content1_2:(NSString *)content1_2 content2_1:(NSString *)content2_1 content2_2:(NSString *)content2_2;
 
 @end

@@ -30,6 +30,19 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (assign,nonatomic)BOOL shuimianHideFlag;
+@property (assign,nonatomic)BOOL yinshiHideFlag;
+@property (assign,nonatomic)BOOL yinshuiHideFlag;
+@property (assign,nonatomic)BOOL bianmiHideFlag;
+@property (assign,nonatomic)BOOL xiexieHideFlag;
+@property (assign,nonatomic)BOOL chengxingHideFlag;
+@property (assign,nonatomic)BOOL bianzhiHideFlag;
+@property (assign,nonatomic)BOOL paibianganHideFlag;
+@property (assign,nonatomic)BOOL sezhiHideFlag;
+@property (assign,nonatomic)BOOL painiaoganHideFlag;
+@property (assign,nonatomic)BOOL tiwenHideFlag;
+@property (assign,nonatomic)BOOL chuhanHideFlag;
+
 @end
 
 @implementation HealthSelfInspectionViewController
@@ -47,6 +60,8 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.tiwenHideFlag = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -110,6 +125,198 @@
     DLog(@"submitButtonClicked");
 }
 
+-(void)shuimianSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.shuimianHideFlag = NO;
+            break;
+        case 1:
+            self.shuimianHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yinshiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yinshiHideFlag = NO;
+            break;
+        case 1:
+            self.yinshiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yinshuiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yinshuiHideFlag = NO;
+            break;
+        case 1:
+            self.yinshuiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)bianmiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.bianmiHideFlag = YES;
+            break;
+        case 1:
+            self.bianmiHideFlag = NO;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)xiexieSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.xiexieHideFlag = YES;
+            break;
+        case 1:
+            self.xiexieHideFlag = NO;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)chengxingSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.chengxingHideFlag = YES;
+            break;
+        case 1:
+            self.chengxingHideFlag = NO;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)bianzhiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.bianzhiHideFlag = NO;
+            break;
+        case 1:
+            self.bianzhiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)paibianganSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.paibianganHideFlag = NO;
+            break;
+        case 1:
+            self.paibianganHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)sezhiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.sezhiHideFlag = NO;
+            break;
+        case 1:
+            self.sezhiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)painiaoganSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.painiaoganHideFlag = NO;
+            break;
+        case 1:
+            self.painiaoganHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)tiwenSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.tiwenHideFlag = YES;
+            break;
+        case 1:
+            self.tiwenHideFlag = NO;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)chuhanSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.chuhanHideFlag = NO;
+            break;
+        case 1:
+            self.chuhanHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 18;
@@ -123,25 +330,41 @@
     if (indexPath.section == 0) {
         return 107;
     }else if (indexPath.section == 1){
-        return 150;
+        if (self.shuimianHideFlag == NO) {
+            return 150;
+        }
     }else if (indexPath.section == 2){
-        return 110;
+        if (self.yinshiHideFlag == NO) {
+            return 110;
+        }
     }else if (indexPath.section == 3){
-        return 60;
+        if (self.yinshuiHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 8){
-        return 60;
+        if (self.bianzhiHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 9){
-        return 60;
+        if (self.paibianganHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 10){
         return 100;
     }else if (indexPath.section == 12){
-        return 110;
+        if (self.sezhiHideFlag == NO) {
+            return 110;
+        }
     }else if (indexPath.section == 13){
-        return 60;
+        if (self.painiaoganHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 14){
         return 110;
     }else if (indexPath.section == 16){
-        return 205;
+        if (self.chuhanHideFlag == NO) {
+            return 205;
+        }
     }else if (indexPath.section == 17){
         return 210;
     }
@@ -181,15 +404,19 @@
     }else if (section == 1){
         NSString *title = @"睡眠";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
-    }else if (section == 2){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.shuimianHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(shuimianSegmentAction:) forControlEvents:UIControlEventValueChanged];
+    }
+    else if (section == 2){
         NSString *title = @"饮食";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yinshiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yinshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 3){
         NSString *title = @"饮水";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"口渴",@"不口渴",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yinshuiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yinshuiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 4){
         NSString *title = @"大便";
         NSString *content1_1 = @"";
@@ -200,23 +427,28 @@
     }else if (section == 5){
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.bianmiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(bianmiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 6){
         NSString *title = @"泄泻";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.xiexieHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(xiexieSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 7){
         NSString *title = @"成形";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.chengxingHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(chengxingSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 8){
         NSString *title = @"便质";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.bianzhiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(bianzhiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 9){
         NSString *title = @"排便感";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.paibianganHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(paibianganSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 10){
         NSString *title = @"大便颜色";
         [self.selfInspectionHeaderView initView:title];
@@ -230,11 +462,13 @@
     }else if (section == 12){
         NSString *title = @"色质";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.sezhiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(sezhiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 13){
         NSString *title = @"排尿感";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(painiaoganSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 14){
         NSString *title = @"寒热";
         [self.selfInspectionHeaderView initView:title];
@@ -242,11 +476,13 @@
         NSString *title = @"体温";
         NSString *content = @"37";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
-        [self.selfInspectionHeaderView initView:title content:content array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 16){
         NSString *title = @"出汗";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.chuhanHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(chuhanSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 17){
         NSString *title = @"照片资料";
         NSString *titleFix = @"（请在自然光下拍摄哦）";

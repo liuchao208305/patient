@@ -79,7 +79,7 @@
     }];
 }
 
--(void)initView:(NSString *)title content:(NSString *)content array:(NSArray *)segmentedArray{
+-(void)initView:(NSString *)title content:(NSString *)content array:(NSArray *)segmentedArray hideFlag:(BOOL)hideFlag{
     self.backgroundColor = kWHITE_COLOR;
     
     self.titleLabel = [[UILabel alloc] init];
@@ -87,19 +87,26 @@
     self.titleLabel.text = title;
     [self addSubview:self.titleLabel];
     
-    self.contentTextField = [[UITextField alloc] init];
-    self.contentTextField.text = content;
-    self.contentTextField.textColor = kMAIN_COLOR;
-    [self addSubview:self.contentTextField];
-    
-    self.contentLabel = [[UILabel alloc] init];
-    self.contentLabel.text = @"℃";
-    self.contentLabel.textColor = ColorWithHexRGB(0x646464);
-    [self addSubview:self.contentLabel];
+    if (hideFlag == NO) {
+        self.contentTextField = [[UITextField alloc] init];
+        self.contentTextField.text = content;
+        self.contentTextField.textColor = kMAIN_COLOR;
+        [self addSubview:self.contentTextField];
+        
+        self.contentLabel = [[UILabel alloc] init];
+        self.contentLabel.text = @"℃";
+        self.contentLabel.textColor = ColorWithHexRGB(0x646464);
+        [self addSubview:self.contentLabel];
+    }
     
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
     self.segmentedControl.frame = CGRectMake(0, 0, 90, 30);
-    self.segmentedControl.selectedSegmentIndex = 0;
+    if (hideFlag == YES) {
+        self.segmentedControl.selectedSegmentIndex = 0;
+    }else{
+        self.segmentedControl.selectedSegmentIndex = 1;
+    }
+    
     self.segmentedControl.tintColor = kMAIN_COLOR;
     [self addSubview:self.segmentedControl];
     
@@ -135,7 +142,7 @@
     }];
 }
 
--(void)initView:(NSString *)title array:(NSArray *)segmentedArray{
+-(void)initView:(NSString *)title array:(NSArray *)segmentedArray leftHideFlag:(BOOL)leftHideFlag{
     self.backgroundColor = kWHITE_COLOR;
     
     self.titleLabel = [[UILabel alloc] init];
@@ -145,7 +152,53 @@
     
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
     self.segmentedControl.frame = CGRectMake(0, 0, 90, 30);
-    self.segmentedControl.selectedSegmentIndex = 0;
+    if (leftHideFlag == YES) {
+        self.segmentedControl.selectedSegmentIndex = 0;
+    }else{
+        self.segmentedControl.selectedSegmentIndex = 1;
+    }
+    
+    self.segmentedControl.tintColor = kMAIN_COLOR;
+    [self addSubview:self.segmentedControl];
+    
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self addSubview:self.lineView];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self).offset(12);
+        make.centerY.equalTo(self).offset(0);
+    }];
+    
+    [self.segmentedControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self).offset(-12);
+        make.centerY.equalTo(self).offset(0);
+    }];
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self).offset(0);
+        make.trailing.equalTo(self).offset(0);
+        make.bottom.equalTo(self).offset(0);
+        make.height.mas_equalTo(1);
+    }];
+}
+
+-(void)initView:(NSString *)title array:(NSArray *)segmentedArray righHideFlag:(BOOL)righHideFlag{
+    self.backgroundColor = kWHITE_COLOR;
+    
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.titleLabel.text = title;
+    [self addSubview:self.titleLabel];
+    
+    self.segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+    self.segmentedControl.frame = CGRectMake(0, 0, 90, 30);
+    if (righHideFlag == YES) {
+        self.segmentedControl.selectedSegmentIndex = 1;
+    }else{
+        self.segmentedControl.selectedSegmentIndex = 0;
+    }
+    
     self.segmentedControl.tintColor = kMAIN_COLOR;
     [self addSubview:self.segmentedControl];
     
