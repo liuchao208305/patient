@@ -17,9 +17,8 @@
 #import "SelfInspectionOneTableCell.h"
 #import "SelfInspectionTwoTableCell.h"
 #import "SelfInspectionThreeTableCell.h"
-#import "SelfInspectionOneCollectionCell.h"
 
-@interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -320,6 +319,10 @@
     [self.tableView reloadData];
 }
 
+-(void)buttonClicked:(UIButton *)sender{
+    DLog(@"%ld",(long)sender.tag);
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 18;
@@ -507,14 +510,6 @@
             cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150) collectionViewLayout:flowLayout];
-        self.collectionView.dataSource=self;
-        self.collectionView.delegate=self;
-        [self.collectionView setBackgroundColor:kWHITE_COLOR];
-        [self.collectionView registerClass:[SelfInspectionOneCollectionCell class] forCellWithReuseIdentifier:@"SelfInspectionOneCollectionCell"];
-        [cell.contentView addSubview:self.collectionView];
-        
         return cell;
     }else if (indexPath.section > 1){
         static NSString *cellName = @"SelfInspectionThreeTableCell";
@@ -526,57 +521,6 @@
         return cell;
     }
     return nil;
-}
-
-#pragma mark UICollectionViewDelegate
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 6;
-}
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellName = @"SelfInspectionOneCollectionCell";
-    SelfInspectionOneCollectionCell * cell = (SelfInspectionOneCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellName forIndexPath:indexPath];
-    
-    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"我的专家",@"我的优惠券",@"我的体质",@"联系客服",@"常用联系人", nil];
-    for (int i = 0; i < 6; i++) {
-        if (indexPath.row == i) {
-            [cell.button setTitle:labelArray[i] forState:UIControlStateNormal];
-            [cell.button setTitleColor:ColorWithHexRGB(0x909090) forState:UIControlStateNormal];
-            cell.button.layer.cornerRadius = 5;
-            cell.button.layer.borderWidth = 1;
-            cell.button.layer.borderColor = ColorWithHexRGB(0x909090).CGColor;
-        }
-    }
-    
-    return cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(SCREEN_WIDTH/2, 35+14);
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    DLog(@"%ld",(long)indexPath.row);
-}
-
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
 }
 
 #pragma mark Network Request
