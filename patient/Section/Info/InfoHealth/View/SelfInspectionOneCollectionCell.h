@@ -1,5 +1,5 @@
 //
-//  SelfInspectionOneTableCell.h
+//  SelfInspectionOneCollectionCell.h
 //  patient
 //
 //  Created by ChaosLiu on 16/6/29.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelfInspectionTableCell : UITableViewCell
+@interface SelfInspectionOneCollectionCell : UICollectionViewCell
 
-@property (strong,nonatomic)UITextField *textField;
-
--(void)initView;
+@property (strong,nonatomic)UIButton *button;
 
 @end

@@ -15,4 +15,6 @@
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
+@property (strong,nonatomic)UICollectionView *collectionView;
+
 @end

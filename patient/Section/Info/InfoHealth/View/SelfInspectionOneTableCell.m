@@ -6,20 +6,11 @@
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "SelfInspectionTableCell.h"
+#import "SelfInspectionOneTableCell.h"
 
-@implementation SelfInspectionTableCell
+@implementation SelfInspectionOneTableCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-    }
-    return self;
-}
-
-#pragma mark Init Section
--(void)initView{
+-(void)initViewWithTextField{
     self.textField = [[UITextField alloc] init];
     self.textField.placeholder = @"请输入患者主诉";
     self.textField.layer.borderWidth = 1;
@@ -33,5 +24,7 @@
         make.bottom.equalTo(self.contentView).offset(-15);
     }];
 }
+
+
 
 @end
