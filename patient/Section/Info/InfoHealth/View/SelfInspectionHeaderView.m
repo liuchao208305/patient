@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "SelfInspectionHeaderViewOne.h"
+#import "SelfInspectionHeaderView.h"
 
-@implementation SelfInspectionHeaderViewOne
+@implementation SelfInspectionHeaderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

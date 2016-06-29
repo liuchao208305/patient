@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelfInspectionHeaderViewOne : UIView
+@interface SelfInspectionHeaderView : UIView
 
 @property (strong,nonatomic)UILabel *titleLabel;
 @property (strong,nonatomic)UISegmentedControl *segmentedControl;

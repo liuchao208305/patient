@@ -14,9 +14,7 @@
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
 #import "LoginViewController.h"
-#import "SelfInspectionOneTableCell.h"
-#import "SelfInspectionTwoTableCell.h"
-#import "SelfInspectionThreeTableCell.h"
+#import "SelfInspectionTableCell.h"
 
 @interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -159,59 +157,59 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    self.selfInspectionHeaderViewOne = [[SelfInspectionHeaderViewOne alloc] init];
+    self.selfInspectionHeaderView = [[SelfInspectionHeaderView alloc] init];
     if (section == 0) {
         NSString *title = @"主诉";
-        [self.selfInspectionHeaderViewOne initView:title];
+        [self.selfInspectionHeaderView initView:title];
     }else if (section == 1){
         NSString *title = @"睡眠";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderViewOne initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
     }else if (section == 2){
         NSString *title = @"饮食";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderViewOne initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
     }else if (section == 3){
         NSString *title = @"饮水";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"口渴",@"不口渴",nil];
-        [self.selfInspectionHeaderViewOne initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
     }else if (section == 4){
         NSString *title = @"大便";
         NSString *content1_1 = @"";
         NSString *content1_2 = @"";
         NSString *content2_1 = @"每天";
         NSString *content2_2 = @"1";
-        [self.selfInspectionHeaderViewOne initView:title content1_1:content1_1 content1_2:content1_2 content2_1:content2_1 content2_2:content2_2];
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content2_1:content2_1 content2_2:content2_2];
     }else if (section == 5){
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderViewOne initView:title array:segmentedArray];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray];
     }
-    return self.selfInspectionHeaderViewOne;
+    return self.selfInspectionHeaderView;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         static NSString *cellName = @"SelfInspectionOneTableCell";
-        SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        SelfInspectionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[SelfInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"SelfInspectionTwoTableCell";
-        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        static NSString *cellName = @"SelfInspectionOneTableCell";
+        SelfInspectionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[SelfInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
         return cell;
     }else if (indexPath.section > 1){
-        static NSString *cellName = @"SelfInspectionThreeTableCell";
-        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        static NSString *cellName = @"SelfInspectionOneTableCell";
+        SelfInspectionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell = [[SelfInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
         return cell;
