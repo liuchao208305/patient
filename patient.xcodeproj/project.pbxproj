@@ -57,6 +57,7 @@
 		700CF0781D23C060008C9776 /* SelfInspectionThreeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0771D23C060008C9776 /* SelfInspectionThreeCollectionCell.m */; };
 		700CF07B1D23C468008C9776 /* SelfInspectionTwoTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF07A1D23C468008C9776 /* SelfInspectionTwoTableCell.m */; };
 		700CF07E1D23C487008C9776 /* SelfInspectionThreeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF07D1D23C487008C9776 /* SelfInspectionThreeTableCell.m */; };
+		700CF0811D23E823008C9776 /* HealthSelfInspectionFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700CF0801D23E823008C9776 /* HealthSelfInspectionFixViewController.m */; };
 		70265C741C858AA50091C01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C731C858AA50091C01F /* main.m */; };
 		70265C771C858AA50091C01F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70265C761C858AA50091C01F /* AppDelegate.m */; };
 		70265C7F1C858AA50091C01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70265C7E1C858AA50091C01F /* Assets.xcassets */; };
@@ -789,6 +790,8 @@
 		700CF07A1D23C468008C9776 /* SelfInspectionTwoTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionTwoTableCell.m; sourceTree = "<group>"; };
 		700CF07C1D23C487008C9776 /* SelfInspectionThreeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionThreeTableCell.h; sourceTree = "<group>"; };
 		700CF07D1D23C487008C9776 /* SelfInspectionThreeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionThreeTableCell.m; sourceTree = "<group>"; };
+		700CF07F1D23E823008C9776 /* HealthSelfInspectionFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthSelfInspectionFixViewController.h; sourceTree = "<group>"; };
+		700CF0801D23E823008C9776 /* HealthSelfInspectionFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthSelfInspectionFixViewController.m; sourceTree = "<group>"; };
 		70265C6F1C858AA50091C01F /* patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = patient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70265C731C858AA50091C01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70265C751C858AA50091C01F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2697,6 +2700,8 @@
 				700CF0501D229F97008C9776 /* HealthMarriageHistoryViewController.m */,
 				700CF0521D22A012008C9776 /* HealthSelfInspectionViewController.h */,
 				700CF0531D22A012008C9776 /* HealthSelfInspectionViewController.m */,
+				700CF07F1D23E823008C9776 /* HealthSelfInspectionFixViewController.h */,
+				700CF0801D23E823008C9776 /* HealthSelfInspectionFixViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3966,6 +3971,7 @@
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */,
+				700CF0811D23E823008C9776 /* HealthSelfInspectionFixViewController.m in Sources */,
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				70B429E91D17E4D10036F525 /* QuestionListData.m in Sources */,
 				700CF0541D22A012008C9776 /* HealthSelfInspectionViewController.m in Sources */,

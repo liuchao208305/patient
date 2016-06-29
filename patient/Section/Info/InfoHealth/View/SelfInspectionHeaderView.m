@@ -229,7 +229,7 @@
     }];
 }
 
--(void)initView:(NSString *)title content1_1:(NSString *)content1_1 content1_2:(NSString *)content1_2 content2_1:(NSString *)content2_1 content2_2:(NSString *)content2_2{
+-(void)initView:(NSString *)title content1_1:(NSString *)content1_1 content1_2:(NSString *)content1_2 content1_3:(NSString *)content1_3 content2_1:(NSString *)content2_1 content2_2:(NSString *)content2_2 content2_3:(NSString *)content2_3{
     self.backgroundColor = kWHITE_COLOR;
     
     self.titleLabel = [[UILabel alloc] init];
@@ -251,7 +251,7 @@
         
         self.contentLabel1_2 = [[UILabel alloc] init];
         self.contentLabel1_2.font = [UIFont systemFontOfSize:14];
-        self.contentLabel1_2.text = @"次";
+        self.contentLabel1_2.text = content1_3;
         [self addSubview:self.contentLabel1_2];
     }
     
@@ -267,7 +267,7 @@
     
     self.contentLabel2_2 = [[UILabel alloc] init];
     self.contentLabel2_2.font = [UIFont systemFontOfSize:14];
-    self.contentLabel2_2.text = @"次";
+    self.contentLabel2_2.text = content2_3;
     [self addSubview:self.contentLabel2_2];
     
     self.lineView = [[UIView alloc] init];

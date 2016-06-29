@@ -1,12 +1,12 @@
 //
-//  HealthSelfInspectionViewController.m
+//  HealthSelfInspectionFixViewController.m
 //  patient
 //
-//  Created by ChaosLiu on 16/6/28.
+//  Created by ChaosLiu on 16/6/29.
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "HealthSelfInspectionViewController.h"
+#import "HealthSelfInspectionFixViewController.h"
 #import "NetworkUtil.h"
 #import "HudUtil.h"
 #import "NullUtil.h"
@@ -18,7 +18,7 @@
 #import "SelfInspectionTwoTableCell.h"
 #import "SelfInspectionThreeTableCell.h"
 
-@interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionFixViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -45,9 +45,15 @@
 @property (assign,nonatomic)BOOL tiwenHideFlag;
 @property (assign,nonatomic)BOOL chuhanHideFlag;
 
+@property (assign,nonatomic)BOOL juejingHideFlag;
+@property (assign,nonatomic)BOOL bijingHideFlag;
+@property (assign,nonatomic)BOOL jingliangHideFlag;
+@property (assign,nonatomic)BOOL zhidiHideFlag;
+@property (assign,nonatomic)BOOL qitajingHideFlag;
+
 @end
 
-@implementation HealthSelfInspectionViewController
+@implementation HealthSelfInspectionFixViewController
 
 #pragma mark Life Circle
 -(void)viewDidLoad{
@@ -326,7 +332,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 18;
+    return 32;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -366,13 +372,29 @@
         if (self.painiaoganHideFlag == NO) {
             return 60;
         }
-    }else if (indexPath.section == 14){
-        return 110;
+    }else if (indexPath.section == 15){
+        return 60;
     }else if (indexPath.section == 16){
+        return 60;
+    }else if (indexPath.section == 17){
+        return 110;
+    }else if (indexPath.section == 20){
+        return 107;
+    }else if (indexPath.section == 24){
+        return 60;
+    }else if (indexPath.section == 25){
+        return 60;
+    }else if (indexPath.section == 26){
+        return 110;
+    }else if (indexPath.section == 27){
+        return 107;
+    }else if (indexPath.section == 28){
+        return 110;
+    }else if (indexPath.section == 30){
         if (self.chuhanHideFlag == NO) {
             return 205;
         }
-    }else if (indexPath.section == 17){
+    }else if (indexPath.section == 31){
         return 210;
     }
     return 0;
@@ -398,6 +420,30 @@
     }else if (section == 11){
         return 0.01;
     }else if (section == 12){
+        return 0.01;
+    }else if (section == 14){
+        return 0.01;
+    }else if (section == 15){
+        return 0.01;
+    }else if (section == 16){
+        return 0.01;
+    }else if (section == 18){
+        return 0.01;
+    }else if (section == 19){
+        return 0.01;
+    }else if (section == 20){
+        return 0.01;
+    }else if (section == 21){
+        return 0.01;
+    }else if (section == 22){
+        return 0.01;
+    }else if (section == 23){
+        return 0.01;
+    }else if (section == 24){
+        return 0.01;
+    }else if (section == 25){
+        return 0.01;
+    }else if (section == 26){
         return 0.01;
     }
     return 10;
@@ -481,20 +527,85 @@
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(painiaoganSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 14){
-        NSString *title = @"寒热";
+        NSString *title = @"带下";
         [self.selfInspectionHeaderView initView:title];
     }else if (section == 15){
+        NSString *title = @"气味";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 16){
+        NSString *title = @"质地";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 17){
+        NSString *title = @"颜色";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 18){
+        NSString *title = @"月经";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 19){
+        NSString *title = @"绝经";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.juejingHideFlag];
+    }else if (section == 20){
+        NSString *title = @"闭经";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.bijingHideFlag];
+    }else if (section == 21){
+        NSString *title = @"初潮年龄";
+        NSString *content1_1 = @"";
+        NSString *content1_2 = @"";
+        NSString *content1_3 = @"";
+        NSString *content2_1 = @"";
+        NSString *content2_2 = @"12";
+        NSString *content2_3 = @"岁";
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+    }else if (section == 22){
+        NSString *title = @"月经周期";
+        NSString *content1_1 = @"";
+        NSString *content1_2 = @"";
+        NSString *content1_3 = @"";
+        NSString *content2_1 = @"";
+        NSString *content2_2 = @"28";
+        NSString *content2_3 = @"天";
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+    }else if (section == 23){
+        NSString *title = @"持续天数";
+        NSString *content1_1 = @"";
+        NSString *content1_2 = @"";
+        NSString *content1_3 = @"";
+        NSString *content2_1 = @"";
+        NSString *content2_2 = @"12";
+        NSString *content2_3 = @"天";
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+    }else if (section == 24){
+        NSString *title = @"经量";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jingliangHideFlag];
+    }else if (section == 25){
+        NSString *title = @"质地";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.zhidiHideFlag];
+    }else if (section == 26){
+        NSString *title = @"颜色";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 27){
+        NSString *title = @"其他经行伴随症状";
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.qitajingHideFlag];
+    }else if (section == 28){
+        NSString *title = @"寒热";
+        [self.selfInspectionHeaderView initView:title];
+    }else if (section == 29){
         NSString *title = @"体温";
         NSString *content = @"37";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
         [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
-    }else if (section == 16){
+    }else if (section == 30){
         NSString *title = @"出汗";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.chuhanHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(chuhanSegmentAction:) forControlEvents:UIControlEventValueChanged];
-    }else if (section == 17){
+    }else if (section == 31){
         NSString *title = @"照片资料";
         NSString *titleFix = @"（请在自然光下拍摄哦）";
         [self.selfInspectionHeaderView initView:title titleFix:titleFix];
