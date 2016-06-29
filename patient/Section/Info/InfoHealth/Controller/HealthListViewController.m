@@ -50,6 +50,11 @@
 @property (strong,nonatomic)NSString *erzi;
 @property (strong,nonatomic)NSString *nver;
 
+@property (strong,nonatomic)NSString *healthId;
+@property (strong,nonatomic)NSString *healthTime;
+@property (strong,nonatomic)NSMutableDictionary *healthResult;
+@property (strong,nonatomic)NSString *healthPhotoString;
+
 @end
 
 @implementation HealthListViewController
@@ -395,17 +400,20 @@
 #pragma mark Data Parse
 -(void)healthListDataParse{
     if (![[self.data1 objectForKey:@"userHistory"] isKindOfClass:[NSNull class]]) {
-        self.jiwangshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	a_history"]];
-        self.shoushushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	b_history"]];
-        self.guomingshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	c_history"]];
-        self.jiazushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	d_history"]];
-        self.hunfou = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	marriage_status"]];
-        self.erzi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	a_son"]];
-        self.nver = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"	b_son"]];
+        self.jiwangshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_history"]];
+        self.shoushushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_history"]];
+        self.guomingshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"c_history"]];
+        self.jiazushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"d_history"]];
+        self.hunfou = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"marriage_status"];
+        self.erzi = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_son"];
+        self.nver = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_son"];
     }
 
     if (![[self.data1 objectForKey:@"healthy"] isKindOfClass:[NSNull class]]) {
-        
+        self.healthId = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"q_healthy_id"]];
+        self.healthTime = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"create_date"]];
+        self.healthResult = [[self.data1 objectForKey:@"healthy"] objectForKey:@"results"];
+        self.healthPhotoString = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"photos"]];
     }
     
     [self sendTestResultListRequest];
