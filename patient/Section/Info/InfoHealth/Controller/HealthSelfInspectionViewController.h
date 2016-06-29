@@ -11,8 +11,6 @@
 
 @interface HealthSelfInspectionViewController : BaseViewController
 
-@property (assign,nonatomic)BOOL sexFlag;
-
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
