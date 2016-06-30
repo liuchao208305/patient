@@ -592,7 +592,7 @@
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Tencent" forKey:@"source"];
-    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    [parameter setValue:@"iOS" forKey:@"equ"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -639,7 +639,7 @@
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weixin" forKey:@"source"];
-    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    [parameter setValue:@"iOS" forKey:@"equ"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -686,7 +686,7 @@
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weibo" forKey:@"source"];
-    [parameter setValue:@"iOS" forKey:@"source_equ"];
+    [parameter setValue:@"iOS" forKey:@"equ"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_LOGIN] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
