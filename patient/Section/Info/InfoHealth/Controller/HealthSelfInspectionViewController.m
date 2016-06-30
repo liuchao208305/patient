@@ -169,6 +169,8 @@
 @property (strong,nonatomic)NSString *hanreGroupString;
 @property (strong,nonatomic)NSString *chuhanGroupString;
 
+@property (strong,nonatomic)NSString *zhaopianGroupString;
+
 @end
 
 @implementation HealthSelfInspectionViewController
@@ -2097,6 +2099,8 @@
     [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
     [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
     
+    [parameter setValue:@"1" forKey:@"photos"];
+    
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_SELF_INSPECTION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
         
@@ -2109,7 +2113,8 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            
+            [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             DLog(@"%@",self.message);
             if (self.code == kTOKENINVALID) {
