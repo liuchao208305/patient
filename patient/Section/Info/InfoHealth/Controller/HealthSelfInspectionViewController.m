@@ -1431,12 +1431,43 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        SelfInspectionOneTableCell *cell = [[SelfInspectionOneTableCell alloc] init];;
-        [cell initViewWithTextField];
-        cell.symtomDelegate = self;
+//        SelfInspectionOneTableCell *cell = [[SelfInspectionOneTableCell alloc] init];;
+//        [cell initViewWithTextField];
+//        cell.symtomDelegate = self;
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initViewWithTextField];
+            cell.symtomDelegate = self;
+        }
         return cell;
     }else if (indexPath.section == 1){
-        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        if (self.shuimianHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//        }else{
+//           [cell initView:6 string1:@"不易入睡" string2:@"睡而复醒，难以复睡" string3:@"时时惊醒，睡不安宁" string4:@"彻夜不眠" string5:@"多梦" string6:@"瞌睡"];
+//            [cell.button1 addTarget:self action:@selector(shuimianButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(shuimianButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(shuimianButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button4 addTarget:self action:@selector(shuimianButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button5 addTarget:self action:@selector(shuimianButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button6 addTarget:self action:@selector(shuimianButton6Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:6 string1:@"不易入睡" string2:@"睡而复醒，难以复睡" string3:@"时时惊醒，睡不安宁" string4:@"彻夜不眠" string5:@"多梦" string6:@"瞌睡"];
+        }
         if (self.shuimianHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1445,7 +1476,12 @@
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
         }else{
-           [cell initView:6 string1:@"不易入睡" string2:@"睡而复醒，难以复睡" string3:@"时时惊醒，睡不安宁" string4:@"彻夜不眠" string5:@"多梦" string6:@"瞌睡"];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
             [cell.button1 addTarget:self action:@selector(shuimianButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(shuimianButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(shuimianButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -1453,9 +1489,31 @@
             [cell.button5 addTarget:self action:@selector(shuimianButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button6 addTarget:self action:@selector(shuimianButton6Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }else if (indexPath.section == 2){
-        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        if (self.yinshiHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//        }else{
+//            [cell initView:4 string1:@"食欲不佳" string2:@"厌食" string3:@"多食易饥" string4:@"饥不择食" string5:@"" string6:@""];
+//            [cell.button1 addTarget:self action:@selector(yinshiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(yinshiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(yinshiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button4 addTarget:self action:@selector(yinshiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:4 string1:@"食欲不佳" string2:@"厌食" string3:@"多食易饥" string4:@"饥不择食" string5:@"" string6:@""];
+        }
         if (self.yinshiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1464,15 +1522,40 @@
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
         }else{
-            [cell initView:4 string1:@"食欲不佳" string2:@"厌食" string3:@"多食易饥" string4:@"饥不择食" string5:@"" string6:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
             [cell.button1 addTarget:self action:@selector(yinshiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(yinshiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(yinshiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button4 addTarget:self action:@selector(yinshiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+        
         return cell;
     }else if (indexPath.section == 3){
-        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
+//        if (self.yinshuiHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//        }else{
+//            [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+//            [cell.button1 addTarget:self action:@selector(yinshuiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(yinshuiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
         if (self.yinshuiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1481,13 +1564,44 @@
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
         }else{
-            [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
             [cell.button1 addTarget:self action:@selector(yinshuiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(yinshuiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }else if (indexPath.section == 8){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        if (self.bianmiHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//            cell.button7.hidden = YES;
+//            cell.button8.hidden = YES;
+//            cell.button9.hidden = YES;
+//            cell.button10.hidden = YES;
+//            cell.button11.hidden = YES;
+//        }else{
+//            [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//            [cell.button1 addTarget:self action:@selector(bianzhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(bianzhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(bianzhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
         if (self.bianmiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1501,14 +1615,50 @@
             cell.button10.hidden = YES;
             cell.button11.hidden = YES;
         }else{
-            [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
             [cell.button1 addTarget:self action:@selector(bianzhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(bianzhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(bianzhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }else if (indexPath.section == 9){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        if (self.paibianganHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//            cell.button7.hidden = YES;
+//            cell.button8.hidden = YES;
+//            cell.button9.hidden = YES;
+//            cell.button10.hidden = YES;
+//            cell.button11.hidden = YES;
+//        }else{
+//            [cell initView:3 string1:@"排便不爽" string2:@"滑泄失禁" string3:@"肛门重坠" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//            [cell.button1 addTarget:self action:@selector(paibianganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(paibianganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(paibianganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"排便不爽" string2:@"滑泄失禁" string3:@"肛门重坠" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
         if (self.paibianganHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1522,15 +1672,64 @@
             cell.button10.hidden = YES;
             cell.button11.hidden = YES;
         }else{
-            [cell initView:3 string1:@"排便不爽" string2:@"滑泄失禁" string3:@"肛门重坠" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
             [cell.button1 addTarget:self action:@selector(paibianganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(paibianganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(paibianganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }else if (indexPath.section == 10){
-        SelfInspectionFourTableCell *cell = [[SelfInspectionFourTableCell alloc] init];
-        [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+//        SelfInspectionFourTableCell *cell = [[SelfInspectionFourTableCell alloc] init];
+//        [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+//        cell.imageView1.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView1Clicked:)];
+//        [cell.imageView1 addGestureRecognizer:imageView1Tap];
+//        cell.imageView2.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView2Clicked:)];
+//        [cell.imageView2 addGestureRecognizer:imageView2Tap];
+//        cell.imageView3.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView3Clicked:)];
+//        [cell.imageView3 addGestureRecognizer:imageView3Tap];
+//        cell.imageView4.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView4Clicked:)];
+//        [cell.imageView4 addGestureRecognizer:imageView4Tap];
+//        cell.imageView5.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView5Clicked:)];
+//        [cell.imageView5 addGestureRecognizer:imageView5Tap];
+//        cell.imageView6.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView6Clicked:)];
+//        [cell.imageView6 addGestureRecognizer:imageView6Tap];
+//        cell.imageView7.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView7Clicked:)];
+//        [cell.imageView7 addGestureRecognizer:imageView7Tap];
+//        cell.imageView8.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView8Clicked:)];
+//        [cell.imageView8 addGestureRecognizer:imageView8Tap];
+//        cell.imageView9.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView9Clicked:)];
+//        [cell.imageView9 addGestureRecognizer:imageView9Tap];
+//        cell.imageView10.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView10Clicked:)];
+//        [cell.imageView10 addGestureRecognizer:imageView10Tap];
+//
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionFourTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionFourTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+        }
         cell.imageView1.userInteractionEnabled = YES;
         UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView1Clicked:)];
         [cell.imageView1 addGestureRecognizer:imageView1Tap];
@@ -1561,10 +1760,37 @@
         cell.imageView10.userInteractionEnabled = YES;
         UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView10Clicked:)];
         [cell.imageView10 addGestureRecognizer:imageView10Tap];
-        
+
         return cell;
     }else if (indexPath.section == 12){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        if (self.sezhiHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//            cell.button7.hidden = YES;
+//            cell.button8.hidden = YES;
+//            cell.button9.hidden = YES;
+//            cell.button10.hidden = YES;
+//            cell.button11.hidden = YES;
+//        }else{
+//            [cell initView:5 string1:@"色清量多" string2:@"色黄短少" string3:@"尿中带血" string4:@"浑浊" string5:@"夹有砂石" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//            [cell.button1 addTarget:self action:@selector(sezhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(sezhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(sezhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button4 addTarget:self action:@selector(sezhiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button5 addTarget:self action:@selector(sezhiButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:5 string1:@"色清量多" string2:@"色黄短少" string3:@"尿中带血" string4:@"浑浊" string5:@"夹有砂石" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
         if (self.sezhiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1578,16 +1804,52 @@
             cell.button10.hidden = YES;
             cell.button11.hidden = YES;
         }else{
-            [cell initView:5 string1:@"色清量多" string2:@"色黄短少" string3:@"尿中带血" string4:@"浑浊" string5:@"夹有砂石" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
             [cell.button1 addTarget:self action:@selector(sezhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(sezhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(sezhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button4 addTarget:self action:@selector(sezhiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button5 addTarget:self action:@selector(sezhiButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+        
         return cell;
     }else if (indexPath.section == 13){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        if (self.painiaoganHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//            cell.button7.hidden = YES;
+//            cell.button8.hidden = YES;
+//            cell.button9.hidden = YES;
+//            cell.button10.hidden = YES;
+//            cell.button11.hidden = YES;
+//        }else{
+//            [cell initView:3 string1:@"小便失禁" string2:@"小便涩痛" string3:@"尿后点滴不尽" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//            [cell.button1 addTarget:self action:@selector(painiaoganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(painiaoganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(painiaoganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"小便失禁" string2:@"小便涩痛" string3:@"尿后点滴不尽" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
         if (self.painiaoganHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1601,23 +1863,81 @@
             cell.button10.hidden = YES;
             cell.button11.hidden = YES;
         }else{
-            [cell initView:3 string1:@"小便失禁" string2:@"小便涩痛" string3:@"尿后点滴不尽" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
             [cell.button1 addTarget:self action:@selector(painiaoganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(painiaoganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(painiaoganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }else if (indexPath.section == 14){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
-        [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+//        [cell.button1 addTarget:self action:@selector(hanreButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.button2 addTarget:self action:@selector(hanreButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.button3 addTarget:self action:@selector(hanreButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.button4 addTarget:self action:@selector(hanreButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        
         [cell.button1 addTarget:self action:@selector(hanreButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button2 addTarget:self action:@selector(hanreButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button3 addTarget:self action:@selector(hanreButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button4 addTarget:self action:@selector(hanreButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+
         return cell;
     }else if (indexPath.section == 16){
-        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
+//        if (self.chuhanHideFlag == YES) {
+//            cell.button1.hidden = YES;
+//            cell.button2.hidden = YES;
+//            cell.button3.hidden = YES;
+//            cell.button4.hidden = YES;
+//            cell.button5.hidden = YES;
+//            cell.button6.hidden = YES;
+//            cell.button7.hidden = YES;
+//            cell.button8.hidden = YES;
+//            cell.button9.hidden = YES;
+//            cell.button10.hidden = YES;
+//            cell.button11.hidden = YES;
+//        }else{
+//            [cell initView:11 string1:@"有汗" string2:@"无汗" string3:@"自汗" string4:@"盗汗" string5:@"绝汗" string6:@"战汗" string7:@"黄汗" string8:@"头汗" string9:@"手足出汗" string10:@"心胸出汗" string11:@"半身出汗"];
+//            [cell.button1 addTarget:self action:@selector(chuhanButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button2 addTarget:self action:@selector(chuhanButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button3 addTarget:self action:@selector(chuhanButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button4 addTarget:self action:@selector(chuhanButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button5 addTarget:self action:@selector(chuhanButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button6 addTarget:self action:@selector(chuhanButton6Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button7 addTarget:self action:@selector(chuhanButton7Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button8 addTarget:self action:@selector(chuhanButton8Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button9 addTarget:self action:@selector(chuhanButton9Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button10 addTarget:self action:@selector(chuhanButton10Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.button11 addTarget:self action:@selector(chuhanButton11Clicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }
+//        return cell;
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:11 string1:@"有汗" string2:@"无汗" string3:@"自汗" string4:@"盗汗" string5:@"绝汗" string6:@"战汗" string7:@"黄汗" string8:@"头汗" string9:@"手足出汗" string10:@"心胸出汗" string11:@"半身出汗"];
+        }
         if (self.chuhanHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -1631,7 +1951,17 @@
             cell.button10.hidden = YES;
             cell.button11.hidden = YES;
         }else{
-            [cell initView:11 string1:@"有汗" string2:@"无汗" string3:@"自汗" string4:@"盗汗" string5:@"绝汗" string6:@"战汗" string7:@"黄汗" string8:@"头汗" string9:@"手足出汗" string10:@"心胸出汗" string11:@"半身出汗"];
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
             [cell.button1 addTarget:self action:@selector(chuhanButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(chuhanButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button3 addTarget:self action:@selector(chuhanButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -1644,6 +1974,7 @@
             [cell.button10 addTarget:self action:@selector(chuhanButton10Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button11 addTarget:self action:@selector(chuhanButton11Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+
         return cell;
     }
     else if (indexPath.section > 1){
