@@ -70,7 +70,8 @@ typedef enum {
 #define kJZK_ORDER_INFORMATION @"private/v1/user/getConuListPage?"//订单列表信息
 #define kJZK_ORDER_DETAIL_INFORMATION @"private/v1/user/getConuBasicByConId?"//订单详情
 
-#define kJZK_HEALTH_LIST_INFORMATION @"private/v2/getJiankan"//健康列表信息
+#define kJZK_HEALTH_LIST_INFORMATION @"private/v2/getJiankan?"//健康列表信息
+#define kJZK_HEALTH_SELF_INSPECTION_CONFIRM @"private/v2/qhealthy/add?"//健康自查提交
 
 #define kJZK_TEST_INFORMATION_GET @"public/v1/pageAnalysis?"//获取体质测试信息
 #define kJZK_TEST_INFORMATION_CONFIRM @"public/v1/commitAnalysis?"//提交体质测试信息

@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SymtomDelegate <NSObject>
+
+-(void)sendTextFieldValue:(NSString *)string;
+
+@end
+
 @interface SelfInspectionOneTableCell : UITableViewCell
 
 @property (strong,nonatomic)UITextField *textField;
 
 -(void)initViewWithTextField;
+
+@property (weak,nonatomic)id<SymtomDelegate> symtomDelegate;
 
 @end

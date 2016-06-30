@@ -20,19 +20,13 @@
 #import "SelfInspectionFourTableCell.h"
 #import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionViewController ()<SymtomDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (strong,nonatomic)NSMutableDictionary *result1;
-@property (assign,nonatomic)NSInteger code1;
-@property (strong,nonatomic)NSString *message1;
-@property (strong,nonatomic)NSMutableDictionary *data1;
-@property (assign,nonatomic)NSError *error1;
-
-@property (strong,nonatomic)NSMutableDictionary *result2;
-@property (assign,nonatomic)NSInteger code2;
-@property (strong,nonatomic)NSString *message2;
-@property (strong,nonatomic)NSMutableDictionary *data2;
-@property (assign,nonatomic)NSError *error2;
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
 
 @property (assign,nonatomic)BOOL shuimianHideFlag;
 @property (assign,nonatomic)BOOL yinshiHideFlag;
@@ -161,6 +155,7 @@
 @property (strong,nonatomic)NSString *chuhanString10;
 @property (strong,nonatomic)NSString *chuhanString11;
 
+@property (strong,nonatomic)NSString *symptoms;
 @property (strong,nonatomic)NSString *shuimianGroupString;
 @property (strong,nonatomic)NSString *yinshiGroupString;
 @property (strong,nonatomic)NSString *yinshuiGroupString;
@@ -259,6 +254,24 @@
 #pragma mark Target Action
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
+    
+//    if ([self.symptoms isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入患者主诉！"];
+//    }else{
+//        
+//    }
+    
+    self.shuimianGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
+    self.yinshiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
+    self.yinshuiGroupString = [NSString stringWithFormat:@"%@,%@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
+    self.bianzhiGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
+    self.paibianganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
+    self.sezhiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
+    self.painiaoganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
+    self.hanreGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
+    self.chuhanGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
+    
+    [self sendSelfInspetionConfirmRequest];
 }
 
 -(void)shuimianSegmentAction:(UISegmentedControl *)Seg{
@@ -1232,6 +1245,12 @@
     }
 }
 
+#pragma mark SymtomDelegate
+-(void)sendTextFieldValue:(NSString *)string{
+    self.symptoms = string;
+    DLog(@"self.symptoms-->%@",self.symptoms);
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 18;
@@ -1414,7 +1433,7 @@
     if (indexPath.section == 0) {
         SelfInspectionOneTableCell *cell = [[SelfInspectionOneTableCell alloc] init];;
         [cell initViewWithTextField];
-        
+        cell.symtomDelegate = self;
         return cell;
     }else if (indexPath.section == 1){
         SelfInspectionTwoTableCell *cell = [[SelfInspectionTwoTableCell alloc] init];
@@ -1640,6 +1659,123 @@
 }
 
 #pragma mark Network Request
+-(void)sendSelfInspetionConfirmRequest{
+    DLog(@"sendSelfInspetionConfirmRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.symptoms forKey:@"a_val"];
+    [parameter setValue:self.shuimianHideFlag == YES? @"1" : @"2" forKey:@"b_status"];
+    [parameter setValue:self.shuimianGroupString forKey:@"b_val"];
+    [parameter setValue:self.yinshiHideFlag == YES? @"1" : @"2" forKey:@"c_status"];
+    [parameter setValue:self.yinshiGroupString forKey:@"c_val"];
+    [parameter setValue:self.yinshuiHideFlag == YES? @"2" : @"1" forKey:@"d_status"];
+    [parameter setValue:self.yinshuiGroupString forKey:@"d_val"];
+    //e_val
+    [parameter setValue:@"1" forKey:@"e_val"];
+    
+    [parameter setValue:self.bianmiHideFlag == YES? @"1" : @"2" forKey:@"e_isBM"];
+    [parameter setValue:self.xiexieHideFlag == YES? @"1" : @"2" forKey:@"e_isXM"];
+    [parameter setValue:self.chengxingHideFlag == YES? @"1" : @"2" forKey:@"e_isCX"];
+    [parameter setValue:self.bianzhiHideFlag == YES? @"1" : @"2" forKey:@"e_isEX"];
+    [parameter setValue:self.bianzhiGroupString forKey:@"e_EX_val"];
+    [parameter setValue:self.paibianganHideFlag == YES? @"1" : @"2" forKey:@"f_status"];
+    [parameter setValue:self.paibianganGroupString forKey:@"f_val"];
+    //e_color
+    [parameter setValue:@"1" forKey:@"e_color"];
+    //g_up_no
+    [parameter setValue:@"1" forKey:@"g_up_no"];
+    //g_down_no
+    [parameter setValue:@"1" forKey:@"g_down_no"];
+    
+    [parameter setValue:self.sezhiHideFlag == YES? @"1" : @"2" forKey:@"h_status"];
+    [parameter setValue:self.sezhiGroupString forKey:@"h_val"];
+    [parameter setValue:self.painiaoganHideFlag == YES? @"1" : @"2" forKey:@"i_status"];
+    [parameter setValue:self.painiaoganGroupString forKey:@"i_val"];
+    //j_status
+    [parameter setValue:@"1" forKey:@"j_status"];
+    //j_val
+    [parameter setValue:@"1" forKey:@"j_val"];
+    //k_status
+    [parameter setValue:@"1" forKey:@"k_status"];
+    //k_val
+    [parameter setValue:@"1" forKey:@"k_val"];
+    //l_color
+    [parameter setValue:@"1" forKey:@"l_color"];
+    //m_status
+    [parameter setValue:@"1" forKey:@"m_status"];
+    //n_status
+    [parameter setValue:@"1" forKey:@"n_status"];
+    //n_val
+    [parameter setValue:@"1" forKey:@"n_val"];
+    //o_age
+    [parameter setValue:@"1" forKey:@"o_age"];
+    //p_val
+    [parameter setValue:@"1" forKey:@"p_val"];
+    //q_val
+    [parameter setValue:@"1" forKey:@"q_val"];
+    //r_status
+    [parameter setValue:@"1" forKey:@"r_status"];
+    //r_val
+    [parameter setValue:@"1" forKey:@"r_val"];
+    //s_status
+    [parameter setValue:@"1" forKey:@"s_status"];
+    //s_val
+    [parameter setValue:@"1" forKey:@"s_val"];
+    //t_color
+    [parameter setValue:@"1" forKey:@"t_color"];
+    //u_status
+    [parameter setValue:@"1" forKey:@"u_status"];
+    //u_val
+    [parameter setValue:@"1" forKey:@"u_val"];
+    //v_status
+    [parameter setValue:@"1" forKey:@"v_status"];
+    
+    [parameter setValue:self.hanreGroupString forKey:@"v_val"];
+    [parameter setValue:self.tiwenHideFlag == YES? @"1" : @"2" forKey:@"w_status"];
+    //w_val
+    [parameter setValue:@"1" forKey:@"w_val"];
+    
+    [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
+    [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_SELF_INSPECTION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            
+        }else{
+            DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
 

@@ -8,6 +8,10 @@
 
 #import "SelfInspectionOneTableCell.h"
 
+@interface SelfInspectionOneTableCell ()<UITextFieldDelegate>
+
+@end
+
 @implementation SelfInspectionOneTableCell
 
 -(void)initViewWithTextField{
@@ -15,6 +19,7 @@
     self.textField.placeholder = @"请输入患者主诉";
     self.textField.layer.borderWidth = 1;
     self.textField.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+    self.textField.delegate = self;
     [self.contentView addSubview:self.textField];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -25,6 +30,13 @@
     }];
 }
 
-
+#pragma mark UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.textField resignFirstResponder];
+    if (self.symtomDelegate && [self.symtomDelegate respondsToSelector:@selector(sendTextFieldValue:)]) {
+        [self.symtomDelegate sendTextFieldValue:self.textField.text];
+    }
+    return YES;
+}
 
 @end
