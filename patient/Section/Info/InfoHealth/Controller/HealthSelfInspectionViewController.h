@@ -15,4 +15,14 @@
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
+@property (strong,nonatomic)NSMutableArray *shuimianGroupArray;
+@property (strong,nonatomic)NSMutableArray *yinshiGroupArray;
+@property (strong,nonatomic)NSMutableArray *yinshuiGroupArray;
+@property (strong,nonatomic)NSMutableArray *bianzhiGroupArray;
+@property (strong,nonatomic)NSMutableArray *paibianganGroupArray;
+@property (strong,nonatomic)NSMutableArray *sezhiGroupArray;
+@property (strong,nonatomic)NSMutableArray *painiaoganGroupArray;
+@property (strong,nonatomic)NSMutableArray *hanreGroupArray;
+@property (strong,nonatomic)NSMutableArray *chuhanGroupArray;
+
 @end

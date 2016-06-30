@@ -110,6 +110,67 @@
 @property (assign,nonatomic)BOOL chuhanClickedFlag10;
 @property (assign,nonatomic)BOOL chuhanClickedFlag11;
 
+@property (strong,nonatomic)NSString *shuimianString1;
+@property (strong,nonatomic)NSString *shuimianString2;
+@property (strong,nonatomic)NSString *shuimianString3;
+@property (strong,nonatomic)NSString *shuimianString4;
+@property (strong,nonatomic)NSString *shuimianString5;
+@property (strong,nonatomic)NSString *shuimianString6;
+
+@property (strong,nonatomic)NSString *yinshiString1;
+@property (strong,nonatomic)NSString *yinshiString2;
+@property (strong,nonatomic)NSString *yinshiString3;
+@property (strong,nonatomic)NSString *yinshiString4;
+
+@property (strong,nonatomic)NSString *yinshuiString1;
+@property (strong,nonatomic)NSString *yinshuiString2;
+
+@property (strong,nonatomic)NSString *bianzhiString1;
+@property (strong,nonatomic)NSString *bianzhiString2;
+@property (strong,nonatomic)NSString *bianzhiString3;
+
+@property (strong,nonatomic)NSString *paibianganString1;
+@property (strong,nonatomic)NSString *paibianganString2;
+@property (strong,nonatomic)NSString *paibianganString3;
+
+@property (strong,nonatomic)NSString *sezhiString1;
+@property (strong,nonatomic)NSString *sezhiString2;
+@property (strong,nonatomic)NSString *sezhiString3;
+@property (strong,nonatomic)NSString *sezhiString4;
+@property (strong,nonatomic)NSString *sezhiString5;
+
+@property (strong,nonatomic)NSString *painiaoganString1;
+@property (strong,nonatomic)NSString *painiaoganString2;
+@property (strong,nonatomic)NSString *painiaoganString3;
+
+@property (strong,nonatomic)NSString *hanreString1;
+@property (strong,nonatomic)NSString *hanreString2;
+@property (strong,nonatomic)NSString *hanreString3;
+@property (strong,nonatomic)NSString *hanreString4;
+@property (strong,nonatomic)NSString *hanreString5;
+
+@property (strong,nonatomic)NSString *chuhanString1;
+@property (strong,nonatomic)NSString *chuhanString2;
+@property (strong,nonatomic)NSString *chuhanString3;
+@property (strong,nonatomic)NSString *chuhanString4;
+@property (strong,nonatomic)NSString *chuhanString5;
+@property (strong,nonatomic)NSString *chuhanString6;
+@property (strong,nonatomic)NSString *chuhanString7;
+@property (strong,nonatomic)NSString *chuhanString8;
+@property (strong,nonatomic)NSString *chuhanString9;
+@property (strong,nonatomic)NSString *chuhanString10;
+@property (strong,nonatomic)NSString *chuhanString11;
+
+@property (strong,nonatomic)NSString *shuimianGroupString;
+@property (strong,nonatomic)NSString *yinshiGroupString;
+@property (strong,nonatomic)NSString *yinshuiGroupString;
+@property (strong,nonatomic)NSString *bianzhiGroupString;
+@property (strong,nonatomic)NSString *paibianganGroupString;
+@property (strong,nonatomic)NSString *sezhiGroupString;
+@property (strong,nonatomic)NSString *painiaoganGroupString;
+@property (strong,nonatomic)NSString *hanreGroupString;
+@property (strong,nonatomic)NSString *chuhanGroupString;
+
 @end
 
 @implementation HealthSelfInspectionViewController
@@ -153,7 +214,15 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.shuimianGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",nil];
+    self.yinshiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",nil];
+    self.yinshuiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",nil];
+    self.bianzhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.paibianganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.sezhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
+    self.painiaoganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
+    self.chuhanGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
 }
 
 #pragma mark Init Section
@@ -389,9 +458,13 @@
     if (self.shuimianClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -400,9 +473,13 @@
     if (self.shuimianClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -411,9 +488,13 @@
     if (self.shuimianClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -422,9 +503,13 @@
     if (self.shuimianClickedFlag4 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -433,9 +518,13 @@
     if (self.shuimianClickedFlag5 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -444,9 +533,13 @@
     if (self.shuimianClickedFlag6 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:5 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:5 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
     }
 }
 
@@ -455,9 +548,13 @@
     if (self.yinshiClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }
 }
 
@@ -466,9 +563,13 @@
     if (self.yinshiClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }
 }
 
@@ -477,9 +578,13 @@
     if (self.yinshiClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }
 }
 
@@ -488,9 +593,13 @@
     if (self.yinshiClickedFlag4 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
     }
 }
 
@@ -499,9 +608,13 @@
     if (self.yinshuiClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
     }
 }
 
@@ -510,9 +623,13 @@
     if (self.yinshuiClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
     }
 }
 
@@ -521,9 +638,13 @@
     if (self.bianzhiClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }
 }
 
@@ -532,9 +653,13 @@
     if (self.bianzhiClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }
 }
 
@@ -543,9 +668,13 @@
     if (self.bianzhiClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
     }
 }
 
@@ -554,9 +683,13 @@
     if (self.paibianganClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }
 }
 
@@ -565,9 +698,13 @@
     if (self.paibianganClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }
 }
 
@@ -576,9 +713,13 @@
     if (self.paibianganClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
     }
 }
 
@@ -731,18 +872,18 @@
     DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
--(void)changeDabianyansePresentation{
-    
-}
-
 -(void)sezhiButton1Clicked:(UIButton *)sender{
     self.sezhiClickedFlag1 = !self.sezhiClickedFlag1;
     if (self.sezhiClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }
 }
 
@@ -751,9 +892,13 @@
     if (self.sezhiClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }
 }
 
@@ -762,9 +907,13 @@
     if (self.sezhiClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }
 }
 
@@ -773,9 +922,13 @@
     if (self.sezhiClickedFlag4 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }
 }
 
@@ -784,9 +937,13 @@
     if (self.sezhiClickedFlag5 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
     }
 }
 
@@ -795,9 +952,13 @@
     if (self.painiaoganClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }
 }
 
@@ -806,9 +967,13 @@
     if (self.painiaoganClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }
 }
 
@@ -817,9 +982,13 @@
     if (self.painiaoganClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
     }
 }
 
@@ -828,9 +997,13 @@
     if (self.hanreClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }
 }
 
@@ -839,9 +1012,13 @@
     if (self.hanreClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }
 }
 
@@ -850,9 +1027,13 @@
     if (self.hanreClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }
 }
 
@@ -861,9 +1042,13 @@
     if (self.hanreClickedFlag4 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }
 }
 
@@ -872,9 +1057,13 @@
     if (self.hanreClickedFlag5 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
     }
 }
 
@@ -883,9 +1072,13 @@
     if (self.chuhanClickedFlag1 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -894,9 +1087,13 @@
     if (self.chuhanClickedFlag2 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -905,9 +1102,13 @@
     if (self.chuhanClickedFlag3 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -916,9 +1117,13 @@
     if (self.chuhanClickedFlag4 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -927,9 +1132,13 @@
     if (self.chuhanClickedFlag5 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -938,9 +1147,13 @@
     if (self.chuhanClickedFlag6 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:5 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:5 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -949,9 +1162,13 @@
     if (self.chuhanClickedFlag7 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:6 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:6 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -960,9 +1177,13 @@
     if (self.chuhanClickedFlag8 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:7 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:7 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -971,9 +1192,13 @@
     if (self.chuhanClickedFlag9 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:8 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:8 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -982,9 +1207,13 @@
     if (self.chuhanClickedFlag10 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:9 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:9 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
@@ -993,9 +1222,13 @@
     if (self.chuhanClickedFlag11 == YES) {
         [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
         sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:10 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }else{
         [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
         sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:10 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
     }
 }
 
