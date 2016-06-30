@@ -8,6 +8,10 @@
 
 #import "SelfInspectionHeaderView.h"
 
+@interface SelfInspectionHeaderView ()<UITextViewDelegate>
+
+@end
+
 @implementation SelfInspectionHeaderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -247,6 +251,7 @@
         self.contentTextField1 = [[UITextField alloc] init];
         self.contentTextField1.text = content1_2;
         self.contentTextField1.textColor = kMAIN_COLOR;
+        self.contentTextField1.delegate = self;
         [self addSubview:self.contentTextField1];
         
         self.contentLabel1_2 = [[UILabel alloc] init];
@@ -263,6 +268,7 @@
     self.contentTextField2 = [[UITextField alloc] init];
     self.contentTextField2.text = content2_2;
     self.contentTextField2.textColor = kMAIN_COLOR;
+    self.contentTextField2.delegate = self;
     [self addSubview:self.contentTextField2];
     
     self.contentLabel2_2 = [[UILabel alloc] init];
@@ -315,6 +321,24 @@
         make.bottom.equalTo(self).offset(0);
         make.height.mas_equalTo(1);
     }];
+}
+
+#pragma mark UITextViewDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.contentTextField1 resignFirstResponder];
+    [self.contentTextField2 resignFirstResponder];
+    if (self.daBianCountDelegate && [self.daBianCountDelegate respondsToSelector:@selector(sendDabianCount:)]) {
+        [self.daBianCountDelegate sendDabianCount:self.contentTextField2.text];
+    }
+    
+    if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianBaitianCount:)]) {
+        [self.xiaoBianCountDelegate sendXiaobianBaitianCount:self.contentTextField1.text];
+    }
+    
+    if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianWanshangCount:)]) {
+        [self.xiaoBianCountDelegate sendXiaobianWanshangCount:self.contentTextField2.text];
+    }
+    return YES;
 }
 
 @end

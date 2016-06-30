@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DaBianCountDelegate <NSObject>
+
+-(void)sendDabianCount:(NSString *)string;
+
+@end
+
+@protocol XiaoBianCountDelegate <NSObject>
+
+-(void)sendXiaobianBaitianCount:(NSString *)string;
+-(void)sendXiaobianWanshangCount:(NSString *)string;
+
+@end
+
 @interface SelfInspectionHeaderView : UIView
 
 @property (strong,nonatomic)UILabel *titleLabel;
@@ -29,5 +42,8 @@
 -(void)initView:(NSString *)title array:(NSArray *)segmentedArray leftHideFlag:(BOOL)leftHideFlag;
 -(void)initView:(NSString *)title array:(NSArray *)segmentedArray righHideFlag:(BOOL)righHideFlag;
 -(void)initView:(NSString *)title content1_1:(NSString *)content1_1 content1_2:(NSString *)content1_2 content1_3:(NSString *)content1_3 content2_1:(NSString *)content2_1 content2_2:(NSString *)content2_2 content2_3:(NSString *)content2_3;
+
+@property (weak,nonatomic)id<DaBianCountDelegate> daBianCountDelegate;
+@property (weak,nonatomic)id<XiaoBianCountDelegate> xiaoBianCountDelegate;
 
 @end

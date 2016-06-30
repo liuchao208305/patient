@@ -20,7 +20,7 @@
 #import "SelfInspectionFourTableCell.h"
 #import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionViewController ()<SymtomDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -155,12 +155,15 @@
 @property (strong,nonatomic)NSString *chuhanString10;
 @property (strong,nonatomic)NSString *chuhanString11;
 
-@property (strong,nonatomic)NSString *symptoms;
+@property (strong,nonatomic)NSString *symptomString;
 @property (strong,nonatomic)NSString *shuimianGroupString;
 @property (strong,nonatomic)NSString *yinshiGroupString;
 @property (strong,nonatomic)NSString *yinshuiGroupString;
+@property (strong,nonatomic)NSString *dabiancishuString;
 @property (strong,nonatomic)NSString *bianzhiGroupString;
 @property (strong,nonatomic)NSString *paibianganGroupString;
+@property (strong,nonatomic)NSString *xiaobiancishuBaitianString;
+@property (strong,nonatomic)NSString *xiaobiancishuWanshangString;
 @property (strong,nonatomic)NSString *sezhiGroupString;
 @property (strong,nonatomic)NSString *painiaoganGroupString;
 @property (strong,nonatomic)NSString *hanreGroupString;
@@ -184,6 +187,9 @@
     [self initView];
     [self initRecognizer];
     
+    self.dabiancishuString = @"1";
+    self.xiaobiancishuBaitianString = @"1";
+    self.xiaobiancishuWanshangString = @"1";
     self.tiwenHideFlag = NO;
 }
 
@@ -1247,8 +1253,25 @@
 
 #pragma mark SymtomDelegate
 -(void)sendTextFieldValue:(NSString *)string{
-    self.symptoms = string;
-    DLog(@"self.symptoms-->%@",self.symptoms);
+    self.symptomString = string;
+    DLog(@"self.symptomString-->%@",self.symptomString);
+}
+
+#pragma mak DaBianCountDelegate
+-(void)sendDabianCount:(NSString *)string{
+    self.dabiancishuString = string;
+    DLog(@"self.dabiancishuString-->%@",self.dabiancishuString);
+}
+
+#pragma mark CountDelegate
+-(void)sendXiaobianBaitianCount:(NSString *)string{
+    self.xiaobiancishuBaitianString = string;
+    DLog(@"self.xiaobiancishuBaitianString-->%@",self.xiaobiancishuBaitianString);
+}
+
+-(void)sendXiaobianWanshangCount:(NSString *)string{
+    self.xiaobiancishuWanshangString = string;
+    DLog(@"self.xiaobiancishuWanshangString-->%@",self.xiaobiancishuWanshangString);
 }
 
 #pragma mark UITableViewDelegate
@@ -1357,9 +1380,10 @@
         NSString *content1_2 = @"";
         NSString *content1_3 = @"";
         NSString *content2_1 = @"每天";
-        NSString *content2_2 = @"1";
+        NSString *content2_2 = self.dabiancishuString;
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.daBianCountDelegate = self;
     }else if (section == 5){
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
@@ -1391,12 +1415,13 @@
     }else if (section == 11){
         NSString *title = @"小便";
         NSString *content1_1 = @"白天";
-        NSString *content1_2 = @"1";
+        NSString *content1_2 = self.xiaobiancishuBaitianString;
         NSString *content1_3 = @"次";
         NSString *content2_1 = @"晚上";
-        NSString *content2_2 = @"1";
+        NSString *content2_2 = self.xiaobiancishuWanshangString;
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.xiaoBianCountDelegate = self;
     }else if (section == 12){
         NSString *title = @"色质";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
@@ -2000,7 +2025,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:self.symptoms forKey:@"a_val"];
+    [parameter setValue:self.symptomString forKey:@"a_val"];
     [parameter setValue:self.shuimianHideFlag == YES? @"1" : @"2" forKey:@"b_status"];
     [parameter setValue:self.shuimianGroupString forKey:@"b_val"];
     [parameter setValue:self.yinshiHideFlag == YES? @"1" : @"2" forKey:@"c_status"];
