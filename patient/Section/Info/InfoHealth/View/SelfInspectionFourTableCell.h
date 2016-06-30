@@ -21,4 +21,6 @@
 @property (strong,nonatomic)UIImageView *imageView9;
 @property (strong,nonatomic)UIImageView *imageView10;
 
+-(void)initView:(NSInteger)count color1:(UIColor *)color1 color2:(UIColor *)color2 color3:(UIColor *)color3 color4:(UIColor *)color4 color5:(UIColor *)color5 color6:(UIColor *)color6 color7:(UIColor *)color7 color8:(UIColor *)color8 color9:(UIColor *)color9 color10:(UIColor *)color10;
+
 @end
