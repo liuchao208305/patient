@@ -2032,9 +2032,7 @@
     [parameter setValue:self.yinshiGroupString forKey:@"c_val"];
     [parameter setValue:self.yinshuiHideFlag == YES? @"2" : @"1" forKey:@"d_status"];
     [parameter setValue:self.yinshuiGroupString forKey:@"d_val"];
-    //e_val
-    [parameter setValue:@"1" forKey:@"e_val"];
-    
+    [parameter setValue:self.dabiancishuString forKey:@"e_val"];
     [parameter setValue:self.bianmiHideFlag == YES? @"1" : @"2" forKey:@"e_isBM"];
     [parameter setValue:self.xiexieHideFlag == YES? @"1" : @"2" forKey:@"e_isXM"];
     [parameter setValue:self.chengxingHideFlag == YES? @"1" : @"2" forKey:@"e_isCX"];
@@ -2044,10 +2042,9 @@
     [parameter setValue:self.paibianganGroupString forKey:@"f_val"];
     //e_color
     [parameter setValue:@"1" forKey:@"e_color"];
-    //g_up_no
-    [parameter setValue:@"1" forKey:@"g_up_no"];
-    //g_down_no
-    [parameter setValue:@"1" forKey:@"g_down_no"];
+    
+    [parameter setValue:self.xiaobiancishuBaitianString forKey:@"g_up_no"];
+    [parameter setValue:self.xiaobiancishuWanshangString forKey:@"g_down_no"];
     
     [parameter setValue:self.sezhiHideFlag == YES? @"1" : @"2" forKey:@"h_status"];
     [parameter setValue:self.sezhiGroupString forKey:@"h_val"];
