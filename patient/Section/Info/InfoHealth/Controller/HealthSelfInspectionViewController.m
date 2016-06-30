@@ -70,7 +70,7 @@
 @property (assign,nonatomic)BOOL paibianganClickedFlag2;
 @property (assign,nonatomic)BOOL paibianganClickedFlag3;
 
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag;
+@property (assign,nonatomic)int dabianyanseClickedNumber;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag1;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag2;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag3;
@@ -589,9 +589,12 @@
     if (self.dabianyanseClickedFlag1 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView2Clicked:(UIGestureRecognizer *)sender{
@@ -601,9 +604,12 @@
     if (self.dabianyanseClickedFlag2 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView3Clicked:(UIGestureRecognizer *)sender{
@@ -613,9 +619,12 @@
     if (self.dabianyanseClickedFlag3 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView4Clicked:(UIGestureRecognizer *)sender{
@@ -625,9 +634,12 @@
     if (self.dabianyanseClickedFlag4 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView5Clicked:(UIGestureRecognizer *)sender{
@@ -637,8 +649,10 @@
     if (self.dabianyanseClickedFlag5 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
 }
 
@@ -649,9 +663,12 @@
     if (self.dabianyanseClickedFlag6 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView7Clicked:(UIGestureRecognizer *)sender{
@@ -661,9 +678,12 @@
     if (self.dabianyanseClickedFlag7 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView8Clicked:(UIGestureRecognizer *)sender{
@@ -673,9 +693,12 @@
     if (self.dabianyanseClickedFlag8 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView9Clicked:(UIGestureRecognizer *)sender{
@@ -685,9 +708,12 @@
     if (self.dabianyanseClickedFlag9 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)dabianyanseImageView10Clicked:(UIGestureRecognizer *)sender{
@@ -697,9 +723,12 @@
     if (self.dabianyanseClickedFlag10 == YES) {
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
     }else{
         clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
     }
+    DLog(@"%d",self.dabianyanseClickedNumber);
 }
 
 -(void)changeDabianyansePresentation{
