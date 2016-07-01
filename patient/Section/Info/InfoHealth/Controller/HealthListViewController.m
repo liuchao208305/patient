@@ -84,6 +84,11 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.jiwangshi = @"";
+    self.shoushushi = @"";
+    self.guomingshi = @"";
+    self.jiazushi = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -281,13 +286,13 @@
         }
         
         cell.jiwangshiLabel1.text = @"既往史：";
-        cell.jiwangshiLabel2.text = @"无";
+        cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
         cell.shoushushiLabel1.text = @"手术史：";
-        cell.shoushushiLabel2.text = @"无";
+        cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
         cell.guomingshiLabel1.text = @"过敏史：";
-        cell.guomingshiLabel2.text = @"无";
+        cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
         cell.jiazushiLabel1.text = @"家族史：";
-        cell.jiazushiLabel2.text = @"无";
+        cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
         cell.hunfouLabel1.text = @"婚否：";
         cell.hunfouLabel2.text = @"无";
         cell.erziLabel1.text = @"儿子：";

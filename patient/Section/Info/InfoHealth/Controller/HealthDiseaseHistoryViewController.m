@@ -51,6 +51,11 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.jiwangshi = @"";
+    self.shoushushi = @"";
+    self.guominshi = @"";
+    self.jiazushi = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -83,7 +88,10 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image"] forBarMetrics:(UIBarMetricsDefault)];
     
     self.title = @"既往史／手术史／过敏史／家族史";
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:(UIBarButtonItemStylePlain) target:self action:@selector(submitButtonClicked)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)initTabBar{
@@ -107,6 +115,28 @@
 }
 
 #pragma mark Target Action
+-(void)submitButtonClicked{
+    DLog(@"submitButtonClicked");
+    
+    if ([self.jiwangshi isEqualToString:@""] && self.jiwangshiHideFlag == NO) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"既往史不能为空！"];
+    }else{
+        if ([self.shoushushi isEqualToString:@""] && self.shoushushiHideFlag == NO) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"手术史不能为空！"];
+        }else{
+            if ([self.guominshi isEqualToString:@""] && self.guominshiHideFlag == NO) {
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"过敏史不能为空！"];
+            }else{
+                if ([self.jiazushi isEqualToString:@""] && self.jiwangshiHideFlag == NO) {
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"家族史不能为空！"];
+                }else{
+                    [self sendDiseaseHistoryConfirmRequest];
+                }
+            }
+        }
+    }
+}
+
 -(void)jiwangshiSegmentAction:(UISegmentedControl *)Seg{
     NSInteger Index = Seg.selectedSegmentIndex;
     DLog(@"Index-->%li", (long)Index);
@@ -250,7 +280,7 @@
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(guominshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 3){
         NSString *title = @"家族史";
-        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"口渴",@"不口渴",nil];
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiazushiHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiazushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }
@@ -299,6 +329,54 @@
 }
 
 #pragma mark Network Request
+-(void)sendDiseaseHistoryConfirmRequest{
+    DLog(@"sendDiseaseHistoryConfirmRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.jiwangshi forKey:@"a_history"];
+    [parameter setValue:self.shoushushi forKey:@"b_history"];
+    [parameter setValue:self.guominshi forKey:@"c_history"];
+    [parameter setValue:self.jiazushi forKey:@"d_history"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
 
