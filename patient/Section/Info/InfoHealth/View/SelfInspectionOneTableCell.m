@@ -14,9 +14,9 @@
 
 @implementation SelfInspectionOneTableCell
 
--(void)initViewWithTextField{
+-(void)initViewWithTextField:(NSString *)placeholder{
     self.textField = [[UITextField alloc] init];
-    self.textField.placeholder = @"请输入患者主诉";
+    self.textField.placeholder = placeholder;
     self.textField.layer.borderWidth = 1;
     self.textField.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
     self.textField.delegate = self;
@@ -35,6 +35,19 @@
     [self.textField resignFirstResponder];
     if (self.symtomDelegate && [self.symtomDelegate respondsToSelector:@selector(sendTextFieldValue:)]) {
         [self.symtomDelegate sendTextFieldValue:self.textField.text];
+    }
+    
+    if (self.jiwangshiDelegate && [self.jiwangshiDelegate respondsToSelector:@selector(sendTextField1Value:)]) {
+        [self.jiwangshiDelegate sendTextField1Value:self.textField.text];
+    }
+    if (self.shoushushiDelegate && [self.shoushushiDelegate respondsToSelector:@selector(sendTextField2Value:)]) {
+        [self.shoushushiDelegate sendTextField2Value:self.textField.text];
+    }
+    if (self.guominshiDelegate && [self.guominshiDelegate respondsToSelector:@selector(sendTextField3Value:)]) {
+        [self.guominshiDelegate sendTextField3Value:self.textField.text];
+    }
+    if (self.jiazushiDelegate && [self.jiazushiDelegate respondsToSelector:@selector(sendTextField4Value:)]) {
+        [self.jiazushiDelegate sendTextField4Value:self.textField.text];
     }
     return YES;
 }

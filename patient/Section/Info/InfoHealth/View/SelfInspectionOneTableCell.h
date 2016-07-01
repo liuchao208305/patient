@@ -14,12 +14,41 @@
 
 @end
 
+@protocol JiwangshiDelegate <NSObject>
+
+-(void)sendTextField1Value:(NSString *)string;
+
+@end
+
+@protocol ShoushushiDelegate <NSObject>
+
+-(void)sendTextField2Value:(NSString *)string;
+
+@end
+
+@protocol GuominshiDelegate <NSObject>
+
+-(void)sendTextField3Value:(NSString *)string;
+
+@end
+
+@protocol JiazushiDelegate <NSObject>
+
+-(void)sendTextField4Value:(NSString *)string;
+
+@end
+
 @interface SelfInspectionOneTableCell : UITableViewCell
 
 @property (strong,nonatomic)UITextField *textField;
 
--(void)initViewWithTextField;
+-(void)initViewWithTextField:(NSString *)placeholder;
 
 @property (weak,nonatomic)id<SymtomDelegate> symtomDelegate;
+
+@property (weak,nonatomic)id<JiwangshiDelegate> jiwangshiDelegate;
+@property (weak,nonatomic)id<ShoushushiDelegate> shoushushiDelegate;
+@property (weak,nonatomic)id<GuominshiDelegate> guominshiDelegate;
+@property (weak,nonatomic)id<JiazushiDelegate> jiazushiDelegate;
 
 @end

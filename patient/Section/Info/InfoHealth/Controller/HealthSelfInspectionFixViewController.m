@@ -616,7 +616,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         SelfInspectionOneTableCell *cell = [[SelfInspectionOneTableCell alloc] init];;
-        [cell initViewWithTextField];
+        [cell initViewWithTextField:@"请输入患者主诉"];
         
         return cell;
     }else if (indexPath.section == 1){

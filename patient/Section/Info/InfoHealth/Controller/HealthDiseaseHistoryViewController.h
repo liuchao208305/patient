@@ -7,7 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "SelfInspectionHeaderView.h"
 
 @interface HealthDiseaseHistoryViewController : BaseViewController
+
+@property (strong,nonatomic)UITableView *tableView;
+
+@property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
 @end
