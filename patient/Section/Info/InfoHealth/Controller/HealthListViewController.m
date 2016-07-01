@@ -201,7 +201,7 @@
     if (indexPath.section == 0) {
         return 130;
     }else if (indexPath.section == 1){
-        return 450;
+        return 480;
     }else if (indexPath.section > 1){
         return 45;
     }
@@ -268,6 +268,21 @@
             cell = [[HealthDiseaseTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
+        cell.jiwangshiLabel1.text = @"既往史：";
+        cell.jiwangshiLabel2.text = @"无";
+        cell.shoushushiLabel1.text = @"手术史：";
+        cell.shoushushiLabel2.text = @"无";
+        cell.guomingshiLabel1.text = @"过敏史：";
+        cell.guomingshiLabel2.text = @"无";
+        cell.jiazushiLabel1.text = @"家族史：";
+        cell.jiazushiLabel2.text = @"无";
+        cell.hunfouLabel1.text = @"婚否：";
+        cell.hunfouLabel2.text = @"无";
+        cell.erziLabel1.text = @"儿子：";
+        cell.erziLabel2.text = @"无";
+        cell.nverLabel1.text = @"女儿：";
+        cell.nverLabel2.text = @"无";
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *cellName = @"HealthInspectionTableCell";
@@ -275,6 +290,29 @@
         if (!cell) {
             cell = [[HealthInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+        
+        cell.timeLabel.text = @"2016-06-07";
+        cell.shuimianLabel1.text = @"睡眠：";
+        cell.shuimianLabel2.text = @"无";
+        cell.yinshiLabel1.text = @"饮食：";
+        cell.yinshiLabel2.text = @"无";
+        cell.yinshuiLabel1.text = @"饮水：";
+        cell.yinshuiLabel2.text = @"无";
+        cell.dabianLabel1.text = @"大便：";
+        cell.dabianLabel2_1.text = @"无";
+        cell.dabianLabel2_2.text = @"无";
+        cell.dabianLabel2_3.text = @"无";
+        cell.xiaobianLabel1.text = @"小便：";
+        cell.xiaobianLabel2_1.text = @"无";
+        cell.xiaobianLabel2_2.text = @"无";
+        cell.hanreLabel1.text = @"寒热：";
+        cell.hanreLabel2.text = @"无";
+        cell.tiwenLabel1.text = @"体温：";
+        cell.tiwenLabel2.text = @"无";
+        cell.chuhanLabel1.text = @"出汗：";
+        cell.chuhanLabel2.text = @"无";
+        cell.zhaopianLabel1.text = @"照片资料：";
+        cell.zhaopianLabel2.text = @"无";
         
         return cell;
     }else if (indexPath.section > 1){

@@ -136,7 +136,7 @@
     
     [self.hunfouLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(25);
-        make.top.equalTo(self.lineView.mas_bottom).offset(20);
+        make.top.equalTo(self.lineView.mas_bottom).offset(15);
     }];
     
     [self.hunfouLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {

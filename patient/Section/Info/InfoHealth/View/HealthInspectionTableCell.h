@@ -33,6 +33,9 @@
 @property (strong,nonatomic)UILabel *hanreLabel1;
 @property (strong,nonatomic)UILabel *hanreLabel2;
 @property (strong,nonatomic)UIView *hanreLineView;
+@property (strong,nonatomic)UILabel *tiwenLabel1;
+@property (strong,nonatomic)UILabel *tiwenLabel2;
+@property (strong,nonatomic)UIView *tiwenLineView;
 @property (strong,nonatomic)UILabel *chuhanLabel1;
 @property (strong,nonatomic)UILabel *chuhanLabel2;
 @property (strong,nonatomic)UIView *chuhanLineView;
