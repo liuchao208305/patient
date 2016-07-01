@@ -1106,24 +1106,45 @@
 }
 
 -(void)paymentInfoWechatPayDataParse{
-    self.payinfo = [self.data4 objectForKey:@"payinfo"];
-    self.appid = [self.payinfo objectForKey:@"appid"];
-    self.noncestr = [self.payinfo objectForKey:@"noncestr"];
-    self.package = [self.payinfo objectForKey:@"package"];
-    self.partnerid = [self.payinfo objectForKey:@"partnerid"];
-    self.prepayid = [self.payinfo objectForKey:@"prepayid"];
-    self.sign = [self.payinfo objectForKey:@"sign"];
-    self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
-    
-    PayReq* req             = [[PayReq alloc] init];
-    req.openID              = self.appid;
-    req.partnerId           = self.partnerid;
-    req.prepayId            = self.prepayid;
-    req.nonceStr            = self.noncestr;
-    req.timeStamp           = self.timeStamp;
-    req.package             = self.package;
-    req.sign                = self.sign;
-    [WXApi sendReq:req];
+    if (self.flag1) {
+        self.payinfo = [self.data4 objectForKey:@"payinfo"];
+        self.appid = [self.payinfo objectForKey:@"appid"];
+        self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+        self.package = [self.payinfo objectForKey:@"package"];
+        self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+        self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+        self.sign = [self.payinfo objectForKey:@"sign"];
+        self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
+        
+        PayReq* req             = [[PayReq alloc] init];
+        req.openID              = self.appid;
+        req.partnerId           = self.partnerid;
+        req.prepayId            = self.prepayid;
+        req.nonceStr            = self.noncestr;
+        req.timeStamp           = self.timeStamp;
+        req.package             = self.package;
+        req.sign                = self.sign;
+        [WXApi sendReq:req];
+    }else if (self.flag2){
+        self.payinfo = [self.data5 objectForKey:@"payinfo"];
+        self.appid = [self.payinfo objectForKey:@"appid"];
+        self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+        self.package = [self.payinfo objectForKey:@"package"];
+        self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+        self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+        self.sign = [self.payinfo objectForKey:@"sign"];
+        self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
+        
+        PayReq* req             = [[PayReq alloc] init];
+        req.openID              = self.appid;
+        req.partnerId           = self.partnerid;
+        req.prepayId            = self.prepayid;
+        req.nonceStr            = self.noncestr;
+        req.timeStamp           = self.timeStamp;
+        req.package             = self.package;
+        req.sign                = self.sign;
+        [WXApi sendReq:req];
+    }
 }
 
 -(void)onResp:(BaseResp *)resp{
