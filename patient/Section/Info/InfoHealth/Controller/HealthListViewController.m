@@ -52,7 +52,19 @@
 
 @property (strong,nonatomic)NSString *healthId;
 @property (strong,nonatomic)NSString *healthTime;
-@property (strong,nonatomic)NSMutableDictionary *healthResult;
+@property (strong,nonatomic)NSString *healthResultString;
+@property (strong,nonatomic)NSDictionary *healthResultDictionary;
+@property (strong,nonatomic)NSString *shuimian;
+@property (strong,nonatomic)NSString *yinshi;
+@property (strong,nonatomic)NSString *yinshui;
+@property (strong,nonatomic)NSString *dabian1;
+@property (strong,nonatomic)NSString *dabian2;
+@property (strong,nonatomic)NSString *dabian3;
+@property (strong,nonatomic)NSString *xiaobian1;
+@property (strong,nonatomic)NSString *xiaobian2;
+@property (strong,nonatomic)NSString *hanre;
+@property (strong,nonatomic)NSString *tiwen;
+@property (strong,nonatomic)NSString *chuhan;
 @property (strong,nonatomic)NSString *healthPhotoString;
 
 @end
@@ -291,28 +303,28 @@
             cell = [[HealthInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.timeLabel.text = @"2016-06-07";
+        cell.timeLabel.text = [self.healthTime substringToIndex:10];
         cell.shuimianLabel1.text = @"睡眠：";
-        cell.shuimianLabel2.text = @"无";
+        cell.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
         cell.yinshiLabel1.text = @"饮食：";
-        cell.yinshiLabel2.text = @"无";
+        cell.yinshiLabel2.text = [self.yinshi isEqualToString:@""] ? @"无" : self.yinshi;
         cell.yinshuiLabel1.text = @"饮水：";
-        cell.yinshuiLabel2.text = @"无";
+        cell.yinshuiLabel2.text = [self.yinshui isEqualToString:@""] ? @"无" : self.yinshui;
         cell.dabianLabel1.text = @"大便：";
-        cell.dabianLabel2_1.text = @"无";
-        cell.dabianLabel2_2.text = @"无";
-        cell.dabianLabel2_3.text = @"无";
+        cell.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
+        cell.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
+        cell.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
         cell.xiaobianLabel1.text = @"小便：";
-        cell.xiaobianLabel2_1.text = @"无";
-        cell.xiaobianLabel2_2.text = @"无";
+        cell.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
+        cell.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
         cell.hanreLabel1.text = @"寒热：";
-        cell.hanreLabel2.text = @"无";
+        cell.hanreLabel2.text = [self.hanre isEqualToString:@""] ? @"无" : self.hanre;
         cell.tiwenLabel1.text = @"体温：";
-        cell.tiwenLabel2.text = @"无";
+        cell.tiwenLabel2.text = [self.tiwen isEqualToString:@""] ? @"无" : self.tiwen;
         cell.chuhanLabel1.text = @"出汗：";
-        cell.chuhanLabel2.text = @"无";
+        cell.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
         cell.zhaopianLabel1.text = @"照片资料：";
-        cell.zhaopianLabel2.text = @"无";
+        cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         
         return cell;
     }else if (indexPath.section > 1){
@@ -450,7 +462,22 @@
     if (![[self.data1 objectForKey:@"healthy"] isKindOfClass:[NSNull class]]) {
         self.healthId = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"q_healthy_id"]];
         self.healthTime = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"create_date"]];
-        self.healthResult = [[self.data1 objectForKey:@"healthy"] objectForKey:@"results"];
+        
+        self.healthResultString = [[self.data1 objectForKey:@"healthy"] objectForKey:@"results"];
+        self.healthResultDictionary = [StringUtil dictionaryWithJsonString:self.healthResultString];
+        
+        self.shuimian = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"b_val"]];
+        self.yinshi = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"c_val"]];
+        self.yinshui = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"d_val"]];
+        self.dabian1 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
+        self.dabian2 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
+        self.dabian3 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
+        self.xiaobian1 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
+        self.xiaobian2 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
+        self.hanre = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
+        self.tiwen = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];
+        self.chuhan = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_val"]];
+        
         self.healthPhotoString = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"healthy"] objectForKey:@"photos"]];
     }
     
