@@ -26,10 +26,7 @@
 }
 
 +(CGFloat)cellWithStr:(NSString *)str fontSize:(CGFloat)fontSize width:(CGFloat)width{
-    // 计算字符串高度
     NSDictionary *dic = [NSDictionary  dictionaryWithObject:[UIFont systemFontOfSize:fontSize] forKey:NSFontAttributeName];
-    
-    // 宽度同label 一样大 高度绝对大
     CGRect frame = [str boundingRectWithSize:CGSizeMake(width, 10000) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dic context:nil];
     return frame.size.height+10;
 }

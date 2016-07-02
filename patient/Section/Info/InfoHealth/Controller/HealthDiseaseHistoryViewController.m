@@ -339,10 +339,15 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
     [parameter setValue:self.jiwangshi forKey:@"a_history"];
     [parameter setValue:self.shoushushi forKey:@"b_history"];
     [parameter setValue:self.guominshi forKey:@"c_history"];
     [parameter setValue:self.jiazushi forKey:@"d_history"];
+    
+    [parameter setValue:[NSString stringWithFormat:@"%d",self.hunfou] forKey:@"marriage_status"];
+    [parameter setValue:[NSString stringWithFormat:@"%d",self.erzi] forKey:@"a_son"];
+    [parameter setValue:[NSString stringWithFormat:@"%d",self.nver] forKey:@"b_son"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);

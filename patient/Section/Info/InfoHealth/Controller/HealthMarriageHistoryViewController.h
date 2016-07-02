@@ -10,6 +10,13 @@
 
 @interface HealthMarriageHistoryViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *diseaseHistoryId;
+
+@property (strong,nonatomic)NSString *jiwangshi;
+@property (strong,nonatomic)NSString *shoushushi;
+@property (strong,nonatomic)NSString *guominshi;
+@property (strong,nonatomic)NSString *jiazushi;
+
 @property (strong,nonatomic)UIView *backView1;
 @property (strong,nonatomic)UILabel *label1;
 @property (strong,nonatomic)UIButton *button1;

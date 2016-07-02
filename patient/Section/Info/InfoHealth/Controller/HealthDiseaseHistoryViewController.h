@@ -11,6 +11,12 @@
 
 @interface HealthDiseaseHistoryViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *diseaseHistoryId;
+
+@property (assign,nonatomic)int hunfou;
+@property (assign,nonatomic)int erzi;
+@property (assign,nonatomic)int nver;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;

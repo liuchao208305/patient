@@ -42,13 +42,14 @@
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
 
+@property (strong,nonatomic)NSString *diseaseHistoryId;
 @property (strong,nonatomic)NSString *jiwangshi;
 @property (strong,nonatomic)NSString *shoushushi;
 @property (strong,nonatomic)NSString *guomingshi;
 @property (strong,nonatomic)NSString *jiazushi;
-@property (strong,nonatomic)NSString *hunfou;
-@property (strong,nonatomic)NSString *erzi;
-@property (strong,nonatomic)NSString *nver;
+@property (assign,nonatomic)int hunfou;
+@property (assign,nonatomic)int erzi;
+@property (assign,nonatomic)int nver;
 
 @property (strong,nonatomic)NSString *healthId;
 @property (strong,nonatomic)NSString *healthTime;
@@ -108,8 +109,8 @@
     self.guomingshi = @"";
     self.jiazushi = @"";
     self.hunfou = @"";
-    self.erzi = @"";
-    self.nver = @"";
+    self.erzi = 0;
+    self.nver = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -205,10 +206,19 @@
     if (buttonIndex == 0){
         DLog(@"既往史／手术史／过敏史／家族史");
         HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+        diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
+        diseasHistoryVC.hunfou = self.hunfou;
+        diseasHistoryVC.erzi = self.erzi;
+        diseasHistoryVC.nver = self.nver;
         [self.navigationController pushViewController:diseasHistoryVC animated:YES];
     }else if (buttonIndex == 1){
         DLog(@"婚育情况");
         HealthMarriageHistoryViewController *marriageHistoryVC = [[HealthMarriageHistoryViewController alloc] init];
+        marriageHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
+        marriageHistoryVC.jiwangshi = self.jiwangshi;
+        marriageHistoryVC.shoushushi = self.shoushushi;
+        marriageHistoryVC.guominshi = self.guomingshi;
+        marriageHistoryVC.jiazushi = self.jiazushi;
         [self.navigationController pushViewController:marriageHistoryVC animated:YES];
     }else if (buttonIndex == 2){
         DLog(@"健康自查");
@@ -316,24 +326,28 @@
         cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
         
         cell.hunfouLabel1.text = @"婚否：";
-        if ([self.hunfou intValue] == 1) {
-            cell.hunfouLabel2.text = @"未婚";
-        }else if ([self.hunfou intValue] == 2){
-            cell.hunfouLabel2.text = @"已婚";
-        }else{
+        if (self.hunfou == 0) {
             cell.hunfouLabel2.text = @"无";
+        }else{
+            if (self.hunfou == 1) {
+                cell.hunfouLabel2.text = @"未婚";
+            }else if (self.hunfou == 2){
+                cell.hunfouLabel2.text = @"已婚";
+            }
         }
+        
         cell.erziLabel1.text = @"儿子：";
-        if ([self.erzi intValue] == 0) {
+        if (self.erzi == 0) {
             cell.erziLabel2.text = @"无";
         }else{
-            cell.erziLabel2.text = self.erzi;
+            cell.erziLabel2.text = [NSString stringWithFormat:@"%d个",self.erzi];
         }
+        
         cell.nverLabel1.text = @"女儿：";
-        if ([self.nver intValue] == 0) {
+        if (self.nver == 0) {
             cell.nverLabel2.text = @"无";
         }else{
-            cell.nverLabel2.text = self.nver;
+            cell.nverLabel2.text = [NSString stringWithFormat:@"%d个",self.nver];
         }
         
         return cell;
@@ -355,6 +369,17 @@
         cell.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
         cell.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
         cell.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
+//        NSString *test = @"0xb6bc16";
+//        unsigned long red = strtoul([test UTF8String],0,0);
+//        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(red)];
+        self.dabianyanseString = @"";
+        
+        if ([self.dabianyanseString isEqualToString:@""]) {
+            [cell.dabianImageView setBackgroundColor:kWHITE_COLOR];
+        }else{
+            unsigned long dabian = strtoul([self.dabianyanseString UTF8String],0,0);
+            [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
+        }
         cell.xiaobianLabel1.text = @"小便：";
         cell.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
         cell.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
@@ -492,13 +517,28 @@
 #pragma mark Data Parse
 -(void)healthListDataParse{
     if (![[self.data1 objectForKey:@"userHistory"] isKindOfClass:[NSNull class]]) {
+        self.diseaseHistoryId = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"ids"]];
         self.jiwangshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_history"]];
         self.shoushushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_history"]];
         self.guomingshi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"c_history"]];
         self.jiazushi = [NullUtil judgeStringNull:[[self.data1 objectForKey:@"userHistory"] objectForKey:@"d_history"]];
-        self.hunfou = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"marriage_status"];
-        self.erzi = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_son"];
-        self.nver = [[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_son"];
+        if ([[[self.data1 objectForKey:@"userHistory"] objectForKey:@"marriage_status"] isKindOfClass:[NSNull class]]) {
+            self.hunfou = 0;
+        }else{
+            self.hunfou = [[[self.data1 objectForKey:@"userHistory"] objectForKey:@"marriage_status"] intValue];
+        }
+        
+        if ([[[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_son"] isKindOfClass:[NSNull class]]) {
+            self.erzi = 0;
+        }else{
+            self.erzi = [[[self.data1 objectForKey:@"userHistory"] objectForKey:@"a_son"] intValue];
+        }
+        
+        if ([[[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_son"] isKindOfClass:[NSNull class]]) {
+            self.nver = 0;
+        }else{
+            self.nver = [[[self.data1 objectForKey:@"userHistory"] objectForKey:@"b_son"] intValue];
+        }
     }
 
     if (![[self.data1 objectForKey:@"healthy"] isKindOfClass:[NSNull class]]) {
@@ -521,18 +561,19 @@
         self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_status"]];
         self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_val"]];
         self.dabianyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_color"]];
-        self.xiaobianBaitianString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"results	g_up_no"]];
+        self.xiaobianBaitianString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
         self.xiaobianWanshangString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_down_no"]];
         self.sezhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_status"]];
         self.sezhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_val"]];
-        self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
-        self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
+        self.painiaoganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
+        self.painiaoganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
         
         self.dabian1 = [NSString stringWithFormat:@"每天%@次；便秘：%@；泄泻：%@；成形：%@；",self.dabianCishu,self.bianmiStatus,self.xiexieStatus,self.chengxingStatus];
         self.dabian2 = [NSString stringWithFormat:@"便质：%@；排便感：%@",self.bianzhiString,self.paibianganString];
         self.dabian3 = @"大便颜色：";
         
-        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；排尿感：%@；",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString,self.painiaoganString];
+        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString];
+        self.xiaobian2 = [NSString stringWithFormat:@"排尿感：%@；",self.painiaoganString];
         
         self.hanre = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
         self.tiwen = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];

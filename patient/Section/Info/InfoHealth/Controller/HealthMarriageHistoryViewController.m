@@ -253,6 +253,8 @@
             }else{
                 [self sendMarriageHistoryConfirmRequest];
             }
+        }else if (self.marryStatus == 1){
+            [self sendMarriageHistoryConfirmRequest];
         }
     }
 }
@@ -316,6 +318,13 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
+    
+    [parameter setValue:self.jiwangshi forKey:@"a_history"];
+    [parameter setValue:self.shoushushi forKey:@"b_history"];
+    [parameter setValue:self.guominshi forKey:@"c_history"];
+    [parameter setValue:self.jiazushi forKey:@"d_history"];
+    
     [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatus] forKey:@"marriage_status"];
     [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"a_son"];
     [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"b_son"];
