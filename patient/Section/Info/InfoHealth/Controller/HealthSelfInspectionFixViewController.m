@@ -17,20 +17,16 @@
 #import "SelfInspectionOneTableCell.h"
 #import "SelfInspectionTwoTableCell.h"
 #import "SelfInspectionThreeTableCell.h"
+#import "SelfInspectionFourTableCell.h"
+#import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionFixViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (strong,nonatomic)NSMutableDictionary *result1;
-@property (assign,nonatomic)NSInteger code1;
-@property (strong,nonatomic)NSString *message1;
-@property (strong,nonatomic)NSMutableDictionary *data1;
-@property (assign,nonatomic)NSError *error1;
-
-@property (strong,nonatomic)NSMutableDictionary *result2;
-@property (assign,nonatomic)NSInteger code2;
-@property (strong,nonatomic)NSString *message2;
-@property (strong,nonatomic)NSMutableDictionary *data2;
-@property (assign,nonatomic)NSError *error2;
+@property (strong,nonatomic)NSMutableDictionary *result;
+@property (assign,nonatomic)NSInteger code;
+@property (strong,nonatomic)NSString *message;
+@property (strong,nonatomic)NSMutableDictionary *data;
+@property (assign,nonatomic)NSError *error;
 
 @property (assign,nonatomic)BOOL shuimianHideFlag;
 @property (assign,nonatomic)BOOL yinshiHideFlag;
@@ -51,6 +47,136 @@
 @property (assign,nonatomic)BOOL zhidiHideFlag;
 @property (assign,nonatomic)BOOL qitajingHideFlag;
 
+@property (assign,nonatomic)BOOL shuimianClickedFlag1;
+@property (assign,nonatomic)BOOL shuimianClickedFlag2;
+@property (assign,nonatomic)BOOL shuimianClickedFlag3;
+@property (assign,nonatomic)BOOL shuimianClickedFlag4;
+@property (assign,nonatomic)BOOL shuimianClickedFlag5;
+@property (assign,nonatomic)BOOL shuimianClickedFlag6;
+
+@property (assign,nonatomic)BOOL yinshiClickedFlag1;
+@property (assign,nonatomic)BOOL yinshiClickedFlag2;
+@property (assign,nonatomic)BOOL yinshiClickedFlag3;
+@property (assign,nonatomic)BOOL yinshiClickedFlag4;
+
+@property (assign,nonatomic)BOOL yinshuiClickedFlag1;
+@property (assign,nonatomic)BOOL yinshuiClickedFlag2;
+
+@property (assign,nonatomic)BOOL bianzhiClickedFlag1;
+@property (assign,nonatomic)BOOL bianzhiClickedFlag2;
+@property (assign,nonatomic)BOOL bianzhiClickedFlag3;
+
+@property (assign,nonatomic)BOOL paibianganClickedFlag1;
+@property (assign,nonatomic)BOOL paibianganClickedFlag2;
+@property (assign,nonatomic)BOOL paibianganClickedFlag3;
+
+@property (assign,nonatomic)int dabianyanseClickedNumber;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag1;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag2;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag3;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag4;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag5;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag6;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag7;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag8;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag9;
+@property (assign,nonatomic)BOOL dabianyanseClickedFlag10;
+
+@property (assign,nonatomic)BOOL sezhiClickedFlag1;
+@property (assign,nonatomic)BOOL sezhiClickedFlag2;
+@property (assign,nonatomic)BOOL sezhiClickedFlag3;
+@property (assign,nonatomic)BOOL sezhiClickedFlag4;
+@property (assign,nonatomic)BOOL sezhiClickedFlag5;
+
+@property (assign,nonatomic)BOOL painiaoganClickedFlag1;
+@property (assign,nonatomic)BOOL painiaoganClickedFlag2;
+@property (assign,nonatomic)BOOL painiaoganClickedFlag3;
+
+@property (assign,nonatomic)BOOL hanreClickedFlag1;
+@property (assign,nonatomic)BOOL hanreClickedFlag2;
+@property (assign,nonatomic)BOOL hanreClickedFlag3;
+@property (assign,nonatomic)BOOL hanreClickedFlag4;
+@property (assign,nonatomic)BOOL hanreClickedFlag5;
+
+@property (assign,nonatomic)BOOL chuhanClickedFlag1;
+@property (assign,nonatomic)BOOL chuhanClickedFlag2;
+@property (assign,nonatomic)BOOL chuhanClickedFlag3;
+@property (assign,nonatomic)BOOL chuhanClickedFlag4;
+@property (assign,nonatomic)BOOL chuhanClickedFlag5;
+@property (assign,nonatomic)BOOL chuhanClickedFlag6;
+@property (assign,nonatomic)BOOL chuhanClickedFlag7;
+@property (assign,nonatomic)BOOL chuhanClickedFlag8;
+@property (assign,nonatomic)BOOL chuhanClickedFlag9;
+@property (assign,nonatomic)BOOL chuhanClickedFlag10;
+@property (assign,nonatomic)BOOL chuhanClickedFlag11;
+
+@property (strong,nonatomic)NSString *shuimianString1;
+@property (strong,nonatomic)NSString *shuimianString2;
+@property (strong,nonatomic)NSString *shuimianString3;
+@property (strong,nonatomic)NSString *shuimianString4;
+@property (strong,nonatomic)NSString *shuimianString5;
+@property (strong,nonatomic)NSString *shuimianString6;
+
+@property (strong,nonatomic)NSString *yinshiString1;
+@property (strong,nonatomic)NSString *yinshiString2;
+@property (strong,nonatomic)NSString *yinshiString3;
+@property (strong,nonatomic)NSString *yinshiString4;
+
+@property (strong,nonatomic)NSString *yinshuiString1;
+@property (strong,nonatomic)NSString *yinshuiString2;
+
+@property (strong,nonatomic)NSString *bianzhiString1;
+@property (strong,nonatomic)NSString *bianzhiString2;
+@property (strong,nonatomic)NSString *bianzhiString3;
+
+@property (strong,nonatomic)NSString *paibianganString1;
+@property (strong,nonatomic)NSString *paibianganString2;
+@property (strong,nonatomic)NSString *paibianganString3;
+
+@property (strong,nonatomic)NSString *sezhiString1;
+@property (strong,nonatomic)NSString *sezhiString2;
+@property (strong,nonatomic)NSString *sezhiString3;
+@property (strong,nonatomic)NSString *sezhiString4;
+@property (strong,nonatomic)NSString *sezhiString5;
+
+@property (strong,nonatomic)NSString *painiaoganString1;
+@property (strong,nonatomic)NSString *painiaoganString2;
+@property (strong,nonatomic)NSString *painiaoganString3;
+
+@property (strong,nonatomic)NSString *hanreString1;
+@property (strong,nonatomic)NSString *hanreString2;
+@property (strong,nonatomic)NSString *hanreString3;
+@property (strong,nonatomic)NSString *hanreString4;
+@property (strong,nonatomic)NSString *hanreString5;
+
+@property (strong,nonatomic)NSString *chuhanString1;
+@property (strong,nonatomic)NSString *chuhanString2;
+@property (strong,nonatomic)NSString *chuhanString3;
+@property (strong,nonatomic)NSString *chuhanString4;
+@property (strong,nonatomic)NSString *chuhanString5;
+@property (strong,nonatomic)NSString *chuhanString6;
+@property (strong,nonatomic)NSString *chuhanString7;
+@property (strong,nonatomic)NSString *chuhanString8;
+@property (strong,nonatomic)NSString *chuhanString9;
+@property (strong,nonatomic)NSString *chuhanString10;
+@property (strong,nonatomic)NSString *chuhanString11;
+
+@property (strong,nonatomic)NSString *symptomString;
+@property (strong,nonatomic)NSString *shuimianGroupString;
+@property (strong,nonatomic)NSString *yinshiGroupString;
+@property (strong,nonatomic)NSString *yinshuiGroupString;
+@property (strong,nonatomic)NSString *dabiancishuString;
+@property (strong,nonatomic)NSString *bianzhiGroupString;
+@property (strong,nonatomic)NSString *paibianganGroupString;
+@property (strong,nonatomic)NSString *xiaobiancishuBaitianString;
+@property (strong,nonatomic)NSString *xiaobiancishuWanshangString;
+@property (strong,nonatomic)NSString *sezhiGroupString;
+@property (strong,nonatomic)NSString *painiaoganGroupString;
+@property (strong,nonatomic)NSString *hanreGroupString;
+@property (strong,nonatomic)NSString *chuhanGroupString;
+
+@property (strong,nonatomic)NSString *zhaopianGroupString;
+
 @end
 
 @implementation HealthSelfInspectionFixViewController
@@ -69,13 +195,16 @@
     [self initView];
     [self initRecognizer];
     
+    self.dabiancishuString = @"1";
+    self.xiaobiancishuBaitianString = @"1";
+    self.xiaobiancishuWanshangString = @"1";
     self.tiwenHideFlag = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    [AnalyticUtil UMBeginLogPageView:@"HealthSelfInspectionViewController"];
+    [AnalyticUtil UMBeginLogPageView:@"HealthSelfInspectionFixViewController"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -85,7 +214,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     
-    [AnalyticUtil UMEndLogPageView:@"HealthSelfInspectionViewController"];
+    [AnalyticUtil UMEndLogPageView:@"HealthSelfInspectionFixViewController"];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -94,7 +223,15 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.shuimianGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",nil];
+    self.yinshiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",nil];
+    self.yinshuiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",nil];
+    self.bianzhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.paibianganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.sezhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
+    self.painiaoganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
+    self.chuhanGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
 }
 
 #pragma mark Init Section
@@ -131,6 +268,18 @@
 #pragma mark Target Action
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
+    
+    self.shuimianGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
+    self.yinshiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
+    self.yinshuiGroupString = [NSString stringWithFormat:@"%@,%@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
+    self.bianzhiGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
+    self.paibianganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
+    self.sezhiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
+    self.painiaoganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
+    self.hanreGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
+    self.chuhanGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
+    
+    [self sendSelfInspetionConfirmRequest];
 }
 
 -(void)shuimianSegmentAction:(UISegmentedControl *)Seg{
@@ -325,10 +474,807 @@
     [self.tableView reloadData];
 }
 
--(void)buttonClicked:(UIButton *)sender{
-    DLog(@"%ld",(long)sender.tag);
+-(void)shuimianButton1Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag1 = !self.shuimianClickedFlag1;
+    if (self.shuimianClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
 }
 
+-(void)shuimianButton2Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag2 = !self.shuimianClickedFlag2;
+    if (self.shuimianClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
+}
+
+-(void)shuimianButton3Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag3 = !self.shuimianClickedFlag3;
+    if (self.shuimianClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
+}
+
+-(void)shuimianButton4Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag4 = !self.shuimianClickedFlag4;
+    if (self.shuimianClickedFlag4 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
+}
+
+-(void)shuimianButton5Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag5 = !self.shuimianClickedFlag5;
+    if (self.shuimianClickedFlag5 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
+}
+
+-(void)shuimianButton6Clicked:(UIButton *)sender{
+    self.shuimianClickedFlag6 = !self.shuimianClickedFlag6;
+    if (self.shuimianClickedFlag6 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:5 withObject:sender.titleLabel.text];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.shuimianGroupArray replaceObjectAtIndex:5 withObject:@""];
+        DLog(@"self.shuimianGroupArray-->%@", self.shuimianGroupArray);
+    }
+}
+
+-(void)yinshiButton1Clicked:(UIButton *)sender{
+    self.yinshiClickedFlag1 = !self.yinshiClickedFlag1;
+    if (self.yinshiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }
+}
+
+-(void)yinshiButton2Clicked:(UIButton *)sender{
+    self.yinshiClickedFlag2 = !self.yinshiClickedFlag2;
+    if (self.yinshiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }
+}
+
+-(void)yinshiButton3Clicked:(UIButton *)sender{
+    self.yinshiClickedFlag3 = !self.yinshiClickedFlag3;
+    if (self.yinshiClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }
+}
+
+-(void)yinshiButton4Clicked:(UIButton *)sender{
+    self.yinshiClickedFlag4 = !self.yinshiClickedFlag4;
+    if (self.yinshiClickedFlag4 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshiGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.yinshiGroupArray-->%@", self.yinshiGroupArray);
+    }
+}
+
+-(void)yinshuiButton1Clicked:(UIButton *)sender{
+    self.yinshuiClickedFlag1 = !self.yinshuiClickedFlag1;
+    if (self.yinshuiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
+    }
+}
+
+-(void)yinshuiButton2Clicked:(UIButton *)sender{
+    self.yinshuiClickedFlag2 = !self.yinshuiClickedFlag2;
+    if (self.yinshuiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yinshuiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yinshuiGroupArray-->%@", self.yinshuiGroupArray);
+    }
+}
+
+-(void)bianzhiButton1Clicked:(UIButton *)sender{
+    self.bianzhiClickedFlag1 = !self.bianzhiClickedFlag1;
+    if (self.bianzhiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }
+}
+
+-(void)bianzhiButton2Clicked:(UIButton *)sender{
+    self.bianzhiClickedFlag2 = !self.bianzhiClickedFlag2;
+    if (self.bianzhiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }
+}
+
+-(void)bianzhiButton3Clicked:(UIButton *)sender{
+    self.bianzhiClickedFlag3 = !self.bianzhiClickedFlag3;
+    if (self.bianzhiClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.bianzhiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.bianzhiGroupArray-->%@", self.bianzhiGroupArray);
+    }
+}
+
+-(void)paibianganButton1Clicked:(UIButton *)sender{
+    self.paibianganClickedFlag1 = !self.paibianganClickedFlag1;
+    if (self.paibianganClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }
+}
+
+-(void)paibianganButton2Clicked:(UIButton *)sender{
+    self.paibianganClickedFlag2 = !self.paibianganClickedFlag2;
+    if (self.paibianganClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }
+}
+
+-(void)paibianganButton3Clicked:(UIButton *)sender{
+    self.paibianganClickedFlag3 = !self.paibianganClickedFlag3;
+    if (self.paibianganClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.paibianganGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.paibianganGroupArray-->%@", self.paibianganGroupArray);
+    }
+}
+
+-(void)dabianyanseImageView1Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag1 = !self.dabianyanseClickedFlag1;
+    if (self.dabianyanseClickedFlag1 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView2Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag2 = !self.dabianyanseClickedFlag2;
+    if (self.dabianyanseClickedFlag2 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView3Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag3 = !self.dabianyanseClickedFlag3;
+    if (self.dabianyanseClickedFlag3 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView4Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag4 = !self.dabianyanseClickedFlag4;
+    if (self.dabianyanseClickedFlag4 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView5Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag5 = !self.dabianyanseClickedFlag5;
+    if (self.dabianyanseClickedFlag5 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+}
+
+-(void)dabianyanseImageView6Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag6 = !self.dabianyanseClickedFlag6;
+    if (self.dabianyanseClickedFlag6 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView7Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag7 = !self.dabianyanseClickedFlag7;
+    if (self.dabianyanseClickedFlag7 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView8Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag8 = !self.dabianyanseClickedFlag8;
+    if (self.dabianyanseClickedFlag8 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView9Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag9 = !self.dabianyanseClickedFlag9;
+    if (self.dabianyanseClickedFlag9 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)dabianyanseImageView10Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.dabianyanseClickedFlag10 = !self.dabianyanseClickedFlag10;
+    if (self.dabianyanseClickedFlag10 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.dabianyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.dabianyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.dabianyanseClickedNumber);
+}
+
+-(void)sezhiButton1Clicked:(UIButton *)sender{
+    self.sezhiClickedFlag1 = !self.sezhiClickedFlag1;
+    if (self.sezhiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }
+}
+
+-(void)sezhiButton2Clicked:(UIButton *)sender{
+    self.sezhiClickedFlag2 = !self.sezhiClickedFlag2;
+    if (self.sezhiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }
+}
+
+-(void)sezhiButton3Clicked:(UIButton *)sender{
+    self.sezhiClickedFlag3 = !self.sezhiClickedFlag3;
+    if (self.sezhiClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }
+}
+
+-(void)sezhiButton4Clicked:(UIButton *)sender{
+    self.sezhiClickedFlag4 = !self.sezhiClickedFlag4;
+    if (self.sezhiClickedFlag4 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }
+}
+
+-(void)sezhiButton5Clicked:(UIButton *)sender{
+    self.sezhiClickedFlag5 = !self.sezhiClickedFlag5;
+    if (self.sezhiClickedFlag5 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.sezhiGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.sezhiGroupArray-->%@", self.sezhiGroupArray);
+    }
+}
+
+-(void)painiaoganButton1Clicked:(UIButton *)sender{
+    self.painiaoganClickedFlag1 = !self.painiaoganClickedFlag1;
+    if (self.painiaoganClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }
+}
+
+-(void)painiaoganButton2Clicked:(UIButton *)sender{
+    self.painiaoganClickedFlag2 = !self.painiaoganClickedFlag2;
+    if (self.painiaoganClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }
+}
+
+-(void)painiaoganButton3Clicked:(UIButton *)sender{
+    self.painiaoganClickedFlag3 = !self.painiaoganClickedFlag3;
+    if (self.painiaoganClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.painiaoganGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.painiaoganGroupArray-->%@", self.painiaoganGroupArray);
+    }
+}
+
+-(void)hanreButton1Clicked:(UIButton *)sender{
+    self.hanreClickedFlag1 = !self.hanreClickedFlag1;
+    if (self.hanreClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }
+}
+
+-(void)hanreButton2Clicked:(UIButton *)sender{
+    self.hanreClickedFlag2 = !self.hanreClickedFlag2;
+    if (self.hanreClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }
+}
+
+-(void)hanreButton3Clicked:(UIButton *)sender{
+    self.hanreClickedFlag3 = !self.hanreClickedFlag3;
+    if (self.hanreClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }
+}
+
+-(void)hanreButton4Clicked:(UIButton *)sender{
+    self.hanreClickedFlag4 = !self.hanreClickedFlag4;
+    if (self.hanreClickedFlag4 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }
+}
+
+-(void)hanreButton5Clicked:(UIButton *)sender{
+    self.hanreClickedFlag5 = !self.hanreClickedFlag5;
+    if (self.hanreClickedFlag5 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.hanreGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.hanreGroupArray-->%@", self.hanreGroupArray);
+    }
+}
+
+-(void)chuhanButton1Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag1 = !self.chuhanClickedFlag1;
+    if (self.chuhanClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton2Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag2 = !self.chuhanClickedFlag2;
+    if (self.chuhanClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton3Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag3 = !self.chuhanClickedFlag3;
+    if (self.chuhanClickedFlag3 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:2 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:2 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton4Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag4 = !self.chuhanClickedFlag4;
+    if (self.chuhanClickedFlag4 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:3 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:3 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton5Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag5 = !self.chuhanClickedFlag5;
+    if (self.chuhanClickedFlag5 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:4 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:4 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton6Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag6 = !self.chuhanClickedFlag6;
+    if (self.chuhanClickedFlag6 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:5 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:5 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton7Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag7 = !self.chuhanClickedFlag7;
+    if (self.chuhanClickedFlag7 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:6 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:6 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton8Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag8 = !self.chuhanClickedFlag8;
+    if (self.chuhanClickedFlag8 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:7 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:7 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton9Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag9 = !self.chuhanClickedFlag9;
+    if (self.chuhanClickedFlag9 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:8 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:8 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton10Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag10 = !self.chuhanClickedFlag10;
+    if (self.chuhanClickedFlag10 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:9 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:9 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+-(void)chuhanButton11Clicked:(UIButton *)sender{
+    self.chuhanClickedFlag11 = !self.chuhanClickedFlag11;
+    if (self.chuhanClickedFlag11 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:10 withObject:sender.titleLabel.text];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.chuhanGroupArray replaceObjectAtIndex:10 withObject:@""];
+        DLog(@"self.chuhanGroupArray-->%@", self.chuhanGroupArray);
+    }
+}
+
+#pragma mark SymtomDelegate
+-(void)sendTextFieldValue:(NSString *)string{
+    self.symptomString = string;
+    DLog(@"self.symptomString-->%@",self.symptomString);
+}
+
+#pragma mak DaBianCountDelegate
+-(void)sendDabianCount:(NSString *)string{
+    self.dabiancishuString = string;
+    DLog(@"self.dabiancishuString-->%@",self.dabiancishuString);
+}
+
+#pragma mark CountDelegate
+-(void)sendXiaobianBaitianCount:(NSString *)string{
+    self.xiaobiancishuBaitianString = string;
+    DLog(@"self.xiaobiancishuBaitianString-->%@",self.xiaobiancishuBaitianString);
+}
+
+-(void)sendXiaobianWanshangCount:(NSString *)string{
+    self.xiaobiancishuWanshangString = string;
+    DLog(@"self.xiaobiancishuWanshangString-->%@",self.xiaobiancishuWanshangString);
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -459,8 +1405,7 @@
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.shuimianHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(shuimianSegmentAction:) forControlEvents:UIControlEventValueChanged];
-    }
-    else if (section == 2){
+    }else if (section == 2){
         NSString *title = @"饮食";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yinshiHideFlag];
@@ -476,9 +1421,10 @@
         NSString *content1_2 = @"";
         NSString *content1_3 = @"";
         NSString *content2_1 = @"每天";
-        NSString *content2_2 = @"1";
+        NSString *content2_2 = self.dabiancishuString;
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.daBianCountDelegate = self;
     }else if (section == 5){
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
@@ -510,12 +1456,13 @@
     }else if (section == 11){
         NSString *title = @"小便";
         NSString *content1_1 = @"白天";
-        NSString *content1_2 = @"1";
+        NSString *content1_2 = self.xiaobiancishuBaitianString;
         NSString *content1_3 = @"次";
         NSString *content2_1 = @"晚上";
-        NSString *content2_2 = @"1";
+        NSString *content2_2 = self.xiaobiancishuWanshangString;
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.xiaoBianCountDelegate = self;
     }else if (section == 12){
         NSString *title = @"色质";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
@@ -615,19 +1562,349 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        SelfInspectionOneTableCell *cell = [[SelfInspectionOneTableCell alloc] init];;
-        [cell initViewWithTextField:@"请输入患者主诉"];
-        
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initViewWithTextField:@"请输入患者主诉"];
+            cell.symtomDelegate = self;
+        }
         return cell;
     }else if (indexPath.section == 1){
-        static NSString *cellName = @"SelfInspectionTwoTableCell";
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
         SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:6 string1:@"不易入睡" string2:@"睡而复醒，难以复睡" string3:@"时时惊醒，睡不安宁" string4:@"彻夜不眠" string5:@"多梦" string6:@"瞌睡"];
+        }
+        if (self.shuimianHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(shuimianButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(shuimianButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(shuimianButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button4 addTarget:self action:@selector(shuimianButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button5 addTarget:self action:@selector(shuimianButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button6 addTarget:self action:@selector(shuimianButton6Clicked:) forControlEvents:UIControlEventTouchUpInside];
         }
         
         return cell;
-    }else if (indexPath.section > 1){
+    }else if (indexPath.section == 2){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:4 string1:@"食欲不佳" string2:@"厌食" string3:@"多食易饥" string4:@"饥不择食" string5:@"" string6:@""];
+        }
+        if (self.yinshiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(yinshiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(yinshiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(yinshiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button4 addTarget:self action:@selector(yinshiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 3){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"口渴多饮" string2:@"渴不多饮" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        if (self.yinshuiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(yinshuiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(yinshuiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 8){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        if (self.bianmiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(bianzhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(bianzhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(bianzhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 9){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"排便不爽" string2:@"滑泄失禁" string3:@"肛门重坠" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        if (self.paibianganHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(paibianganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(paibianganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(paibianganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 10){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionFourTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionFourTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+        }
+        cell.imageView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView1Clicked:)];
+        [cell.imageView1 addGestureRecognizer:imageView1Tap];
+        cell.imageView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView2Clicked:)];
+        [cell.imageView2 addGestureRecognizer:imageView2Tap];
+        cell.imageView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView3Clicked:)];
+        [cell.imageView3 addGestureRecognizer:imageView3Tap];
+        cell.imageView4.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView4Clicked:)];
+        [cell.imageView4 addGestureRecognizer:imageView4Tap];
+        cell.imageView5.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView5Clicked:)];
+        [cell.imageView5 addGestureRecognizer:imageView5Tap];
+        cell.imageView6.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView6Clicked:)];
+        [cell.imageView6 addGestureRecognizer:imageView6Tap];
+        cell.imageView7.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView7Clicked:)];
+        [cell.imageView7 addGestureRecognizer:imageView7Tap];
+        cell.imageView8.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView8Clicked:)];
+        [cell.imageView8 addGestureRecognizer:imageView8Tap];
+        cell.imageView9.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView9Clicked:)];
+        [cell.imageView9 addGestureRecognizer:imageView9Tap];
+        cell.imageView10.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView10Clicked:)];
+        [cell.imageView10 addGestureRecognizer:imageView10Tap];
+        
+        return cell;
+    }else if (indexPath.section == 12){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:5 string1:@"色清量多" string2:@"色黄短少" string3:@"尿中带血" string4:@"浑浊" string5:@"夹有砂石" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        if (self.sezhiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(sezhiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(sezhiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(sezhiButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button4 addTarget:self action:@selector(sezhiButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button5 addTarget:self action:@selector(sezhiButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 13){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:3 string1:@"小便失禁" string2:@"小便涩痛" string3:@"尿后点滴不尽" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        if (self.painiaoganHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(painiaoganButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(painiaoganButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(painiaoganButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 28){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
+        }
+        
+        [cell.button1 addTarget:self action:@selector(hanreButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button2 addTarget:self action:@selector(hanreButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button3 addTarget:self action:@selector(hanreButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button4 addTarget:self action:@selector(hanreButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        return cell;
+    }else if (indexPath.section == 30){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:11 string1:@"有汗" string2:@"无汗" string3:@"自汗" string4:@"盗汗" string5:@"绝汗" string6:@"战汗" string7:@"黄汗" string8:@"头汗" string9:@"手足出汗" string10:@"心胸出汗" string11:@"半身出汗"];
+        }
+        if (self.chuhanHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(chuhanButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(chuhanButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(chuhanButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button4 addTarget:self action:@selector(chuhanButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button5 addTarget:self action:@selector(chuhanButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button6 addTarget:self action:@selector(chuhanButton6Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button7 addTarget:self action:@selector(chuhanButton7Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button8 addTarget:self action:@selector(chuhanButton8Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button9 addTarget:self action:@selector(chuhanButton9Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button10 addTarget:self action:@selector(chuhanButton10Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button11 addTarget:self action:@selector(chuhanButton11Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }
+    else if (indexPath.section > 1){
         static NSString *cellName = @"SelfInspectionThreeTableCell";
         SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -640,6 +1917,123 @@
 }
 
 #pragma mark Network Request
+-(void)sendSelfInspetionConfirmRequest{
+    DLog(@"sendSelfInspetionConfirmRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.symptomString forKey:@"a_val"];
+    [parameter setValue:self.shuimianHideFlag == YES? @"1" : @"2" forKey:@"b_status"];
+    [parameter setValue:self.shuimianGroupString forKey:@"b_val"];
+    [parameter setValue:self.yinshiHideFlag == YES? @"1" : @"2" forKey:@"c_status"];
+    [parameter setValue:self.yinshiGroupString forKey:@"c_val"];
+    [parameter setValue:self.yinshuiHideFlag == YES? @"2" : @"1" forKey:@"d_status"];
+    [parameter setValue:self.yinshuiGroupString forKey:@"d_val"];
+    [parameter setValue:self.dabiancishuString forKey:@"e_val"];
+    [parameter setValue:self.bianmiHideFlag == YES? @"1" : @"2" forKey:@"e_isBM"];
+    [parameter setValue:self.xiexieHideFlag == YES? @"1" : @"2" forKey:@"e_isXM"];
+    [parameter setValue:self.chengxingHideFlag == YES? @"1" : @"2" forKey:@"e_isCX"];
+    [parameter setValue:self.bianzhiHideFlag == YES? @"1" : @"2" forKey:@"e_isEX"];
+    [parameter setValue:self.bianzhiGroupString forKey:@"e_EX_val"];
+    [parameter setValue:self.paibianganHideFlag == YES? @"1" : @"2" forKey:@"f_status"];
+    [parameter setValue:self.paibianganGroupString forKey:@"f_val"];
+    //e_color
+    [parameter setValue:@"1" forKey:@"e_color"];
+    
+    [parameter setValue:self.xiaobiancishuBaitianString forKey:@"g_up_no"];
+    [parameter setValue:self.xiaobiancishuWanshangString forKey:@"g_down_no"];
+    
+    [parameter setValue:self.sezhiHideFlag == YES? @"1" : @"2" forKey:@"h_status"];
+    [parameter setValue:self.sezhiGroupString forKey:@"h_val"];
+    [parameter setValue:self.painiaoganHideFlag == YES? @"1" : @"2" forKey:@"i_status"];
+    [parameter setValue:self.painiaoganGroupString forKey:@"i_val"];
+    //j_status
+    [parameter setValue:@"1" forKey:@"j_status"];
+    //j_val
+    [parameter setValue:@"1" forKey:@"j_val"];
+    //k_status
+    [parameter setValue:@"1" forKey:@"k_status"];
+    //k_val
+    [parameter setValue:@"1" forKey:@"k_val"];
+    //l_color
+    [parameter setValue:@"1" forKey:@"l_color"];
+    //m_status
+    [parameter setValue:@"1" forKey:@"m_status"];
+    //n_status
+    [parameter setValue:@"1" forKey:@"n_status"];
+    //n_val
+    [parameter setValue:@"1" forKey:@"n_val"];
+    //o_age
+    [parameter setValue:@"1" forKey:@"o_age"];
+    //p_val
+    [parameter setValue:@"1" forKey:@"p_val"];
+    //q_val
+    [parameter setValue:@"1" forKey:@"q_val"];
+    //r_status
+    [parameter setValue:@"1" forKey:@"r_status"];
+    //r_val
+    [parameter setValue:@"1" forKey:@"r_val"];
+    //s_status
+    [parameter setValue:@"1" forKey:@"s_status"];
+    //s_val
+    [parameter setValue:@"1" forKey:@"s_val"];
+    //t_color
+    [parameter setValue:@"1" forKey:@"t_color"];
+    //u_status
+    [parameter setValue:@"1" forKey:@"u_status"];
+    //u_val
+    [parameter setValue:@"1" forKey:@"u_val"];
+    //v_status
+    [parameter setValue:@"1" forKey:@"v_status"];
+    
+    [parameter setValue:self.hanreGroupString forKey:@"v_val"];
+    [parameter setValue:self.tiwenHideFlag == YES? @"1" : @"2" forKey:@"w_status"];
+    //w_val
+    [parameter setValue:@"1" forKey:@"w_val"];
+    
+    [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
+    [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
+    
+    [parameter setValue:self.zhaopianGroupString forKey:@"photos"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_SELF_INSPECTION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
 

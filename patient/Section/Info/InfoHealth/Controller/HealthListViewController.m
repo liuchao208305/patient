@@ -194,11 +194,11 @@
         [self.navigationController pushViewController:marriageHistoryVC animated:YES];
     }else if (buttonIndex == 2){
         DLog(@"健康自查");
-        HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
-        [self.navigationController pushViewController:selfInspectionVC animated:YES];
+//        HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
+//        [self.navigationController pushViewController:selfInspectionVC animated:YES];
         
-//        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
-//        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
+        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
+        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
     }else if (buttonIndex == 3){
         DLog(@"体质测试");
         TestFixViewController *testVC = [[TestFixViewController alloc] init];
