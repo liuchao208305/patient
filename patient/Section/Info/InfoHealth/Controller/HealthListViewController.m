@@ -57,11 +57,29 @@
 @property (strong,nonatomic)NSString *shuimian;
 @property (strong,nonatomic)NSString *yinshi;
 @property (strong,nonatomic)NSString *yinshui;
+
 @property (strong,nonatomic)NSString *dabian1;
 @property (strong,nonatomic)NSString *dabian2;
 @property (strong,nonatomic)NSString *dabian3;
 @property (strong,nonatomic)NSString *xiaobian1;
 @property (strong,nonatomic)NSString *xiaobian2;
+
+@property (strong,nonatomic)NSString *dabianCishu;
+@property (strong,nonatomic)NSString *bianmiStatus;
+@property (strong,nonatomic)NSString *xiexieStatus;
+@property (strong,nonatomic)NSString *chengxingStatus;
+@property (strong,nonatomic)NSString *bianzhiStatus;
+@property (strong,nonatomic)NSString *bianzhiString;
+@property (strong,nonatomic)NSString *paibianganStatus;
+@property (strong,nonatomic)NSString *paibianganString;
+@property (strong,nonatomic)NSString *dabianyanseString;
+@property (strong,nonatomic)NSString *xiaobianBaitianString;
+@property (strong,nonatomic)NSString *xiaobianWanshangString;
+@property (strong,nonatomic)NSString *sezhiStatus;
+@property (strong,nonatomic)NSString *sezhiString;
+@property (strong,nonatomic)NSString *painiaoganStatus;
+@property (strong,nonatomic)NSString *painiaoganString;
+
 @property (strong,nonatomic)NSString *hanre;
 @property (strong,nonatomic)NSString *tiwen;
 @property (strong,nonatomic)NSString *chuhan;
@@ -194,11 +212,11 @@
         [self.navigationController pushViewController:marriageHistoryVC animated:YES];
     }else if (buttonIndex == 2){
         DLog(@"健康自查");
-//        HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
-//        [self.navigationController pushViewController:selfInspectionVC animated:YES];
+        HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
+        [self.navigationController pushViewController:selfInspectionVC animated:YES];
         
-        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
-        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
+//        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
+//        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
     }else if (buttonIndex == 3){
         DLog(@"体质测试");
         TestFixViewController *testVC = [[TestFixViewController alloc] init];
@@ -493,11 +511,29 @@
         self.shuimian = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"b_val"]];
         self.yinshi = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"c_val"]];
         self.yinshui = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"d_val"]];
-        self.dabian1 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
-        self.dabian2 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
-        self.dabian3 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
-        self.xiaobian1 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
-        self.xiaobian2 = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
+        
+        self.dabianCishu = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
+        self.bianmiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isBM"]];
+        self.xiexieStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isXM"]];
+        self.chengxingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isCX"]];
+        self.bianzhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isEX"]];
+        self.bianzhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_EX_val"]];
+        self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_status"]];
+        self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_val"]];
+        self.dabianyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_color"]];
+        self.xiaobianBaitianString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"results	g_up_no"]];
+        self.xiaobianWanshangString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_down_no"]];
+        self.sezhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_status"]];
+        self.sezhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_val"]];
+        self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
+        self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
+        
+        self.dabian1 = [NSString stringWithFormat:@"每天%@次；便秘：%@；泄泻：%@；成形：%@；",self.dabianCishu,self.bianmiStatus,self.xiexieStatus,self.chengxingStatus];
+        self.dabian2 = [NSString stringWithFormat:@"便质：%@；排便感：%@",self.bianzhiString,self.paibianganString];
+        self.dabian3 = @"大便颜色：";
+        
+        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；排尿感：%@；",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString,self.painiaoganString];
+        
         self.hanre = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
         self.tiwen = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];
         self.chuhan = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_val"]];
