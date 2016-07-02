@@ -2088,12 +2088,12 @@
     }else if (section == 15){
         NSString *title = @"气味";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.daixiaqiweiHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(daixiaqiweiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 16){
         NSString *title = @"质地";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.daixiazhidiHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(daixiazhidiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 17){
         NSString *title = @"颜色";
@@ -2118,6 +2118,7 @@
         NSString *title = @"闭经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingbijingHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingbijingSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 22){
         NSString *title = @"初潮年龄";
         NSString *content1_1 = @"";
@@ -2149,10 +2150,12 @@
         NSString *title = @"经量";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingjingliangHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingjingliangSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 26){
         NSString *title = @"质地";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingzhidiHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingzhidiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 27){
         NSString *title = @"颜色";
         [self.selfInspectionHeaderView initView:title];
@@ -2160,6 +2163,7 @@
         NSString *title = @"其他经行伴随症状";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingqitaHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingqitaSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 29){
         NSString *title = @"寒热";
         [self.selfInspectionHeaderView initView:title];
