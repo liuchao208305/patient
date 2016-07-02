@@ -38,6 +38,18 @@
 
 @end
 
+@protocol YuejingbijingDelegate <NSObject>
+
+-(void)sendYuejingbijingValue:(NSString *)string;
+
+@end
+
+@protocol YuejingqitaDelegate <NSObject>
+
+-(void)sendYuejingqitaValue:(NSString *)string;
+
+@end
+
 @interface SelfInspectionOneTableCell : UITableViewCell
 
 @property (strong,nonatomic)UITextField *textField;
@@ -50,5 +62,7 @@
 @property (weak,nonatomic)id<ShoushushiDelegate> shoushushiDelegate;
 @property (weak,nonatomic)id<GuominshiDelegate> guominshiDelegate;
 @property (weak,nonatomic)id<JiazushiDelegate> jiazushiDelegate;
+@property (weak,nonatomic)id<YuejingbijingDelegate> yuejingbijingDelegate;
+@property (weak,nonatomic)id<YuejingqitaDelegate> yuejingqitaDelegate;
 
 @end

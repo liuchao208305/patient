@@ -20,7 +20,7 @@
 #import "SelfInspectionFourTableCell.h"
 #import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,YuejingqitaDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -38,14 +38,17 @@
 @property (assign,nonatomic)BOOL paibianganHideFlag;
 @property (assign,nonatomic)BOOL sezhiHideFlag;
 @property (assign,nonatomic)BOOL painiaoganHideFlag;
+
+@property (assign,nonatomic)BOOL daixiaqiweiHideFlag;
+@property (assign,nonatomic)BOOL daixiazhidiHideFlag;
+@property (assign,nonatomic)BOOL yuejingjuejingHideFlag;
+@property (assign,nonatomic)BOOL yuejingbijingHideFlag;
+@property (assign,nonatomic)BOOL yuejingjingliangHideFlag;
+@property (assign,nonatomic)BOOL yuejingzhidiHideFlag;
+@property (assign,nonatomic)BOOL yuejingqitaHideFlag;
+
 @property (assign,nonatomic)BOOL tiwenHideFlag;
 @property (assign,nonatomic)BOOL chuhanHideFlag;
-
-@property (assign,nonatomic)BOOL juejingHideFlag;
-@property (assign,nonatomic)BOOL bijingHideFlag;
-@property (assign,nonatomic)BOOL jingliangHideFlag;
-@property (assign,nonatomic)BOOL zhidiHideFlag;
-@property (assign,nonatomic)BOOL qitajingHideFlag;
 
 @property (assign,nonatomic)BOOL shuimianClickedFlag1;
 @property (assign,nonatomic)BOOL shuimianClickedFlag2;
@@ -1278,7 +1281,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 32;
+    return 33;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -1324,23 +1327,23 @@
         return 60;
     }else if (indexPath.section == 17){
         return 110;
-    }else if (indexPath.section == 20){
+    }else if (indexPath.section == 21){
         return 107;
-    }else if (indexPath.section == 24){
-        return 60;
     }else if (indexPath.section == 25){
         return 60;
     }else if (indexPath.section == 26){
-        return 110;
+        return 60;
     }else if (indexPath.section == 27){
-        return 107;
-    }else if (indexPath.section == 28){
         return 110;
-    }else if (indexPath.section == 30){
+    }else if (indexPath.section == 28){
+        return 107;
+    }else if (indexPath.section == 29){
+        return 110;
+    }else if (indexPath.section == 31){
         if (self.chuhanHideFlag == NO) {
             return 205;
         }
-    }else if (indexPath.section == 31){
+    }else if (indexPath.section == 32){
         return 210;
     }
     return 0;
@@ -1390,6 +1393,8 @@
     }else if (section == 25){
         return 0.01;
     }else if (section == 26){
+        return 0.01;
+    }else if (section == 27){
         return 0.01;
     }
     return 10;
@@ -1478,10 +1483,14 @@
         [self.selfInspectionHeaderView initView:title];
     }else if (section == 15){
         NSString *title = @"气味";
-        [self.selfInspectionHeaderView initView:title];
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(daixiaqiweiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 16){
         NSString *title = @"质地";
-        [self.selfInspectionHeaderView initView:title];
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.painiaoganHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(daixiazhidiSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 17){
         NSString *title = @"颜色";
         [self.selfInspectionHeaderView initView:title];
@@ -1489,14 +1498,23 @@
         NSString *title = @"月经";
         [self.selfInspectionHeaderView initView:title];
     }else if (section == 19){
+        NSString *title = @"末次月经";
+        NSString *content1_1 = @"xx";
+        NSString *content1_2 = @"xx";
+        NSString *content1_3 = @"月";
+        NSString *content2_1 = @"xx";
+        NSString *content2_2 = @"xx";
+        NSString *content2_3 = @"日";
+        [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+    }else if (section == 20){
         NSString *title = @"绝经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.juejingHideFlag];
-    }else if (section == 20){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingjuejingHideFlag];
+    }else if (section == 21){
         NSString *title = @"闭经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.bijingHideFlag];
-    }else if (section == 21){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingbijingHideFlag];
+    }else if (section == 22){
         NSString *title = @"初潮年龄";
         NSString *content1_1 = @"";
         NSString *content1_2 = @"";
@@ -1505,7 +1523,7 @@
         NSString *content2_2 = @"12";
         NSString *content2_3 = @"岁";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
-    }else if (section == 22){
+    }else if (section == 23){
         NSString *title = @"月经周期";
         NSString *content1_1 = @"";
         NSString *content1_2 = @"";
@@ -1514,7 +1532,7 @@
         NSString *content2_2 = @"28";
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
-    }else if (section == 23){
+    }else if (section == 24){
         NSString *title = @"持续天数";
         NSString *content1_1 = @"";
         NSString *content1_2 = @"";
@@ -1523,36 +1541,36 @@
         NSString *content2_2 = @"12";
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
-    }else if (section == 24){
+    }else if (section == 25){
         NSString *title = @"经量";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jingliangHideFlag];
-    }else if (section == 25){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingjingliangHideFlag];
+    }else if (section == 26){
         NSString *title = @"质地";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.zhidiHideFlag];
-    }else if (section == 26){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingzhidiHideFlag];
+    }else if (section == 27){
         NSString *title = @"颜色";
         [self.selfInspectionHeaderView initView:title];
-    }else if (section == 27){
+    }else if (section == 28){
         NSString *title = @"其他经行伴随症状";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.qitajingHideFlag];
-    }else if (section == 28){
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingqitaHideFlag];
+    }else if (section == 29){
         NSString *title = @"寒热";
         [self.selfInspectionHeaderView initView:title];
-    }else if (section == 29){
+    }else if (section == 30){
         NSString *title = @"体温";
         NSString *content = @"37";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
         [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
-    }else if (section == 30){
+    }else if (section == 31){
         NSString *title = @"出汗";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
         [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.chuhanHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(chuhanSegmentAction:) forControlEvents:UIControlEventValueChanged];
-    }else if (section == 31){
+    }else if (section == 32){
         NSString *title = @"照片资料";
         NSString *titleFix = @"（请在自然光下拍摄哦）";
         [self.selfInspectionHeaderView initView:title titleFix:titleFix];
@@ -1843,7 +1861,207 @@
         }
         
         return cell;
+    }else if (indexPath.section == 15){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"臭味" string2:@"腥气" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        if (self.daixiaqiweiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(daixiaqiweiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(daixiaqiweiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 16){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"稀" string2:@"黏稠" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        if (self.daixiazhidiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(daixiazhidiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(daixiazhidiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 17){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionFourTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionFourTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+        }
+        cell.imageView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView1Clicked:)];
+        [cell.imageView1 addGestureRecognizer:imageView1Tap];
+        cell.imageView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView2Clicked:)];
+        [cell.imageView2 addGestureRecognizer:imageView2Tap];
+        cell.imageView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView3Clicked:)];
+        [cell.imageView3 addGestureRecognizer:imageView3Tap];
+        cell.imageView4.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView4Clicked:)];
+        [cell.imageView4 addGestureRecognizer:imageView4Tap];
+        cell.imageView5.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView5Clicked:)];
+        [cell.imageView5 addGestureRecognizer:imageView5Tap];
+        cell.imageView6.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView6Clicked:)];
+        [cell.imageView6 addGestureRecognizer:imageView6Tap];
+        cell.imageView7.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView7Clicked:)];
+        [cell.imageView7 addGestureRecognizer:imageView7Tap];
+        cell.imageView8.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView8Clicked:)];
+        [cell.imageView8 addGestureRecognizer:imageView8Tap];
+        cell.imageView9.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView9Clicked:)];
+        [cell.imageView9 addGestureRecognizer:imageView9Tap];
+        cell.imageView10.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daixiayanseImageView10Clicked:)];
+        [cell.imageView10 addGestureRecognizer:imageView10Tap];
+        
+        return cell;
+    }else if (indexPath.section == 21){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initViewWithTextField:@"请输入患者主诉"];
+            cell.yuejingbijingDelegate = self;
+        }
+        return cell;
+    }else if (indexPath.section == 25){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"少" string2:@"多" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        if (self.yuejingjingliangHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(yuejingjingliangButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(yuejingjingliangButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 26){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:2 string1:@"稀" string2:@"黏稠" string3:@"" string4:@"" string5:@"" string6:@""];
+        }
+        if (self.yuejingzhidiHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            [cell.button1 addTarget:self action:@selector(yuejingzhidiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(yuejingzhidiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 27){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionFourTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionFourTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+        }
+        cell.imageView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView1Clicked:)];
+        [cell.imageView1 addGestureRecognizer:imageView1Tap];
+        cell.imageView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView2Clicked:)];
+        [cell.imageView2 addGestureRecognizer:imageView2Tap];
+        cell.imageView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView3Clicked:)];
+        [cell.imageView3 addGestureRecognizer:imageView3Tap];
+        cell.imageView4.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView4Clicked:)];
+        [cell.imageView4 addGestureRecognizer:imageView4Tap];
+        cell.imageView5.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView5Clicked:)];
+        [cell.imageView5 addGestureRecognizer:imageView5Tap];
+        cell.imageView6.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView6Clicked:)];
+        [cell.imageView6 addGestureRecognizer:imageView6Tap];
+        cell.imageView7.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView7Clicked:)];
+        [cell.imageView7 addGestureRecognizer:imageView7Tap];
+        cell.imageView8.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView8Clicked:)];
+        [cell.imageView8 addGestureRecognizer:imageView8Tap];
+        cell.imageView9.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView9Clicked:)];
+        [cell.imageView9 addGestureRecognizer:imageView9Tap];
+        cell.imageView10.userInteractionEnabled = YES;
+        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yuejingyanseImageView10Clicked:)];
+        [cell.imageView10 addGestureRecognizer:imageView10Tap];
+        
+        return cell;
     }else if (indexPath.section == 28){
+        NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
+        SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initViewWithTextField:@"请填写异常情况"];
+            cell.yuejingqitaDelegate = self;
+        }
+        return cell;
+    }else if (indexPath.section == 29){
         NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
         SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -1858,7 +2076,7 @@
         [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
-    }else if (indexPath.section == 30){
+    }else if (indexPath.section == 31){
         NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
         SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {

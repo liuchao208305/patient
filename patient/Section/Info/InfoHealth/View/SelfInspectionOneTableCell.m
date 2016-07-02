@@ -49,6 +49,13 @@
     if (self.jiazushiDelegate && [self.jiazushiDelegate respondsToSelector:@selector(sendTextField4Value:)]) {
         [self.jiazushiDelegate sendTextField4Value:self.textField.text];
     }
+    
+    if (self.yuejingbijingDelegate && [self.yuejingbijingDelegate respondsToSelector:@selector(sendYuejingbijingValue:)]) {
+        [self.yuejingbijingDelegate sendYuejingbijingValue:self.textField.text];
+    }
+    if (self.yuejingqitaDelegate && [self.yuejingqitaDelegate respondsToSelector:@selector(sendYuejingqitaValue:)]) {
+        [self.yuejingqitaDelegate sendYuejingqitaValue:self.textField.text];
+    }
     return YES;
 }
 
