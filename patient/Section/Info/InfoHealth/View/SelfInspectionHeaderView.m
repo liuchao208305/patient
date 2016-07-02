@@ -349,6 +349,20 @@
     if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianWanshangCount:)]) {
         [self.xiaoBianCountDelegate sendXiaobianWanshangCount:self.contentTextField2.text];
     }
+    
+    if (self.chuchaonianlingDelegate && [self.chuchaonianlingDelegate respondsToSelector:@selector(sendChuchaonianling:)]) {
+        [self.chuchaonianlingDelegate sendChuchaonianling:self.contentTextField2.text];
+    }
+    
+    if (self.yuejingzhouqiDelegate && [self.yuejingzhouqiDelegate respondsToSelector:@selector(sendYuejingzhouqi:)]) {
+        [self.yuejingzhouqiDelegate sendYuejingzhouqi:self.contentTextField2.text];
+    }
+    
+    if (self.chixutianshuDelegate && [self.chixutianshuDelegate respondsToSelector:@selector(sendChixutianshu:)]) {
+        [self.chixutianshuDelegate sendChixutianshu:self.contentTextField2.text];
+    }
+    
+    
     return YES;
 }
 

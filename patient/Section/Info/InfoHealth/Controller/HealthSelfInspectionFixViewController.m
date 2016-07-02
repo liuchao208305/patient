@@ -20,7 +20,7 @@
 #import "SelfInspectionFourTableCell.h"
 #import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,YuejingqitaDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -47,6 +47,7 @@
 @property (assign,nonatomic)BOOL yuejingzhidiHideFlag;
 @property (assign,nonatomic)BOOL yuejingqitaHideFlag;
 
+@property (assign,nonatomic)BOOL hanreHideFlag;
 @property (assign,nonatomic)BOOL tiwenHideFlag;
 @property (assign,nonatomic)BOOL chuhanHideFlag;
 
@@ -207,6 +208,7 @@
 @property (strong,nonatomic)NSString *dabiancishuString;
 @property (strong,nonatomic)NSString *bianzhiGroupString;
 @property (strong,nonatomic)NSString *paibianganGroupString;
+@property (strong,nonatomic)NSString *dabianyaseString;
 @property (strong,nonatomic)NSString *xiaobiancishuBaitianString;
 @property (strong,nonatomic)NSString *xiaobiancishuWanshangString;
 @property (strong,nonatomic)NSString *sezhiGroupString;
@@ -214,9 +216,14 @@
 
 @property (strong,nonatomic)NSString *daixiaqiweiGroupString;
 @property (strong,nonatomic)NSString *daixiazhidiGroupString;
+@property (strong,nonatomic)NSString *daixiayanseString;
 @property (strong,nonatomic)NSString *yuejingbijingString;
+@property (strong,nonatomic)NSString *chuchaonianlingString;
+@property (strong,nonatomic)NSString *yuejingzhouqiString;
+@property (strong,nonatomic)NSString *chixutianshuString;
 @property (strong,nonatomic)NSString *yuejingjingliangGroupString;
 @property (strong,nonatomic)NSString *yuejingzhidiGroupString;
+@property (strong,nonatomic)NSString *yuejingyanseString;
 @property (strong,nonatomic)NSString *yuejingqitaString;
 
 @property (strong,nonatomic)NSString *hanreGroupString;
@@ -609,6 +616,22 @@
     [self.tableView reloadData];
 }
 
+-(void)hanreSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.hanreHideFlag = NO;
+            break;
+        case 1:
+            self.hanreHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
 -(void)tiwenSegmentAction:(UISegmentedControl *)Seg{
     NSInteger Index = Seg.selectedSegmentIndex;
     DLog(@"Index-->%li", (long)Index);
@@ -919,6 +942,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xb6bc16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -934,6 +958,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xb0a547";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -949,6 +974,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xb9ac16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -964,6 +990,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0x8c9014";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -979,6 +1006,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xb79427";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -993,6 +1021,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xc07f19";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -1008,6 +1037,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0xa97421";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -1023,6 +1053,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0x833b0b";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -1038,6 +1069,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0x431e03";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -1053,6 +1085,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.dabianyanseClickedNumber += 1;
+        self.dabianyaseString = @"0x1f1e1e";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.dabianyanseClickedNumber -= 1;
@@ -1248,6 +1281,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xb6bc16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1263,6 +1297,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xb0a547";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1278,6 +1313,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xb9ac16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1293,6 +1329,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0x8c9014";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1308,6 +1345,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xb79427";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1323,6 +1361,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xc07f19";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1338,6 +1377,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0xa97421";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1353,6 +1393,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0x833b0b";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1368,6 +1409,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0x431e03";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1382,6 +1424,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.daixiayanseClickedNumber += 1;
+        self.daixiayanseString = @"0x1f1e1e";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.daixiayanseClickedNumber -= 1;
@@ -1456,6 +1499,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xb6bc16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1471,6 +1515,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xb0a547";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1486,6 +1531,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xb9ac16";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1501,6 +1547,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0x8c9014";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1516,6 +1563,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xb79427";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1531,6 +1579,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xc07f19";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1546,6 +1595,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0xa97421";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1561,6 +1611,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0x833b0b";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1576,6 +1627,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0x431e03";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1591,6 +1643,7 @@
         clickedImageView.layer.borderWidth = 1;
         clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
         self.yuejingyanseClickedNumber += 1;
+        self.yuejingyanseString = @"0x1f1e1e";
     }else{
         clickedImageView.layer.borderWidth = 0;
         self.yuejingyanseClickedNumber -= 1;
@@ -1906,6 +1959,24 @@
     DLog(@"self.yuejingbijingString-->%@",self.yuejingbijingString);
 }
 
+#pragma mark ChuchaonianlingDelegate
+-(void)sendChuchaonianling:(NSString *)string{
+    self.chuchaonianlingString = string;
+    DLog(@"self.chuchaonianlingString-->%@",self.chuchaonianlingString);
+}
+
+#pragma mark YuejingzhouqiDelegate
+-(void)sendYuejingzhouqi:(NSString *)string{
+    self.yuejingzhouqiString = string;
+    DLog(@"self.yuejingzhouqiString-->%@",self.yuejingzhouqiString);
+}
+
+#pragma mark ChixutianshuDelegate
+-(void)sendChixutianshu:(NSString *)string{
+    self.chixutianshuString = string;
+    DLog(@"self.chixutianshuString-->%@",self.chixutianshuString);
+}
+
 #pragma mark YuejingqitaDelegate
 -(void)sendYuejingqitaValue:(NSString *)string{
     self.yuejingqitaString = string;
@@ -2010,7 +2081,9 @@
             return 107;
         }
     }else if (indexPath.section == 29){
-        return 110;
+        if (self.hanreHideFlag == NO) {
+            return 110;
+        }
     }else if (indexPath.section == 31){
         if (self.chuhanHideFlag == NO) {
             return 205;
@@ -2196,6 +2269,7 @@
         NSString *content2_2 = @"12";
         NSString *content2_3 = @"岁";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.chuchaonianlingDelegate = self;
     }else if (section == 23){
         NSString *title = @"月经周期";
         NSString *content1_1 = @"";
@@ -2205,6 +2279,7 @@
         NSString *content2_2 = @"28";
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.yuejingzhouqiDelegate = self;
     }else if (section == 24){
         NSString *title = @"持续天数";
         NSString *content1_1 = @"";
@@ -2214,6 +2289,7 @@
         NSString *content2_2 = @"12";
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.chixutianshuDelegate = self;
     }else if (section == 25){
         NSString *title = @"经量";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
@@ -2234,7 +2310,9 @@
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingqitaSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 29){
         NSString *title = @"寒热";
-        [self.selfInspectionHeaderView initView:title];
+        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.hanreHideFlag];
+        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(hanreSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 30){
         NSString *title = @"体温";
         NSString *content = @"37";
@@ -2837,60 +2915,35 @@
     [parameter setValue:self.bianzhiGroupString forKey:@"e_EX_val"];
     [parameter setValue:self.paibianganHideFlag == YES? @"1" : @"2" forKey:@"f_status"];
     [parameter setValue:self.paibianganGroupString forKey:@"f_val"];
-    //e_color
-    [parameter setValue:@"1" forKey:@"e_color"];
-    
+    [parameter setValue:self.dabianyaseString forKey:@"e_color"];
     [parameter setValue:self.xiaobiancishuBaitianString forKey:@"g_up_no"];
     [parameter setValue:self.xiaobiancishuWanshangString forKey:@"g_down_no"];
-    
     [parameter setValue:self.sezhiHideFlag == YES? @"1" : @"2" forKey:@"h_status"];
     [parameter setValue:self.sezhiGroupString forKey:@"h_val"];
     [parameter setValue:self.painiaoganHideFlag == YES? @"1" : @"2" forKey:@"i_status"];
     [parameter setValue:self.painiaoganGroupString forKey:@"i_val"];
-    //j_status
-    [parameter setValue:@"1" forKey:@"j_status"];
-    //j_val
-    [parameter setValue:@"1" forKey:@"j_val"];
-    //k_status
-    [parameter setValue:@"1" forKey:@"k_status"];
-    //k_val
-    [parameter setValue:@"1" forKey:@"k_val"];
-    //l_color
-    [parameter setValue:@"1" forKey:@"l_color"];
-    //m_status
-    [parameter setValue:@"1" forKey:@"m_status"];
-    //n_status
-    [parameter setValue:@"1" forKey:@"n_status"];
-    //n_val
-    [parameter setValue:@"1" forKey:@"n_val"];
-    //o_age
-    [parameter setValue:@"1" forKey:@"o_age"];
-    //p_val
-    [parameter setValue:@"1" forKey:@"p_val"];
-    //q_val
-    [parameter setValue:@"1" forKey:@"q_val"];
-    //r_status
-    [parameter setValue:@"1" forKey:@"r_status"];
-    //r_val
-    [parameter setValue:@"1" forKey:@"r_val"];
-    //s_status
-    [parameter setValue:@"1" forKey:@"s_status"];
-    //s_val
-    [parameter setValue:@"1" forKey:@"s_val"];
-    //t_color
-    [parameter setValue:@"1" forKey:@"t_color"];
-    //u_status
-    [parameter setValue:@"1" forKey:@"u_status"];
-    //u_val
-    [parameter setValue:@"1" forKey:@"u_val"];
-    //v_status
-    [parameter setValue:@"1" forKey:@"v_status"];
-    
+    [parameter setValue:self.daixiaqiweiHideFlag == YES? @"1" : @"2" forKey:@"j_status"];
+    [parameter setValue:self.daixiaqiweiGroupString forKey:@"j_val"];
+    [parameter setValue:self.daixiazhidiHideFlag == YES? @"1" : @"2" forKey:@"j_status"];
+    [parameter setValue:self.daixiazhidiGroupString forKey:@"j_val"];
+    [parameter setValue:self.daixiayanseString forKey:@"l_color"];
+    [parameter setValue:self.yuejingjuejingHideFlag == YES? @"1" : @"2" forKey:@"m_status"];
+    [parameter setValue:self.yuejingbijingHideFlag == YES? @"1" : @"2" forKey:@"n_status"];
+    [parameter setValue:self.yuejingbijingString forKey:@"n_val"];
+    [parameter setValue:self.chuchaonianlingString forKey:@"o_age"];
+    [parameter setValue:self.yuejingzhouqiString forKey:@"p_val"];
+    [parameter setValue:self.chixutianshuString forKey:@"q_val"];
+    [parameter setValue:self.yuejingjingliangHideFlag == YES? @"1" : @"2" forKey:@"r_status"];
+    [parameter setValue:self.yuejingjingliangGroupString forKey:@"r_val"];
+    [parameter setValue:self.yuejingzhidiHideFlag == YES? @"1" : @"2" forKey:@"s_status"];
+    [parameter setValue:self.yuejingzhidiGroupString forKey:@"s_val"];
+    [parameter setValue:self.yuejingyanseString forKey:@"t_color"];
+    [parameter setValue:self.yuejingqitaHideFlag == YES? @"1" : @"2" forKey:@"s_status"];
+    [parameter setValue:self.yuejingqitaString forKey:@"u_val"];
+    [parameter setValue:self.hanreHideFlag == YES? @"1" : @"2" forKey:@"v_status"];
     [parameter setValue:self.hanreGroupString forKey:@"v_val"];
     [parameter setValue:self.tiwenHideFlag == YES? @"1" : @"2" forKey:@"w_status"];
-    //w_val
-    [parameter setValue:@"1" forKey:@"w_val"];
-    
+    [parameter setValue:self.tiwenString forKey:@"w_val"];
     [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
     [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
     

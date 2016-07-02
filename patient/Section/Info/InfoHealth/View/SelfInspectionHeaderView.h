@@ -21,6 +21,24 @@
 
 @end
 
+@protocol ChuchaonianlingDelegate <NSObject>
+
+-(void)sendChuchaonianling:(NSString *)string;
+
+@end
+
+@protocol YuejingzhouqiDelegate <NSObject>
+
+-(void)sendYuejingzhouqi:(NSString *)string;
+
+@end
+
+@protocol ChixutianshuDelegate <NSObject>
+
+-(void)sendChixutianshu:(NSString *)string;
+
+@end
+
 @interface SelfInspectionHeaderView : UIView
 
 @property (strong,nonatomic)UILabel *titleLabel;
@@ -46,5 +64,8 @@
 
 @property (weak,nonatomic)id<DaBianCountDelegate> daBianCountDelegate;
 @property (weak,nonatomic)id<XiaoBianCountDelegate> xiaoBianCountDelegate;
+@property (weak,nonatomic)id<ChuchaonianlingDelegate> chuchaonianlingDelegate;
+@property (weak,nonatomic)id<YuejingzhouqiDelegate> yuejingzhouqiDelegate;
+@property (weak,nonatomic)id<ChixutianshuDelegate> chixutianshuDelegate;
 
 @end
