@@ -20,7 +20,7 @@
 #import "SelfInspectionFourTableCell.h"
 #import "SelfInspectionFiveTableCell.h"
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,YuejingqitaDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,YuejingqitaDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -220,6 +220,7 @@
 @property (strong,nonatomic)NSString *yuejingqitaString;
 
 @property (strong,nonatomic)NSString *hanreGroupString;
+@property (strong,nonatomic)NSString *tiwenString;
 @property (strong,nonatomic)NSString *chuhanGroupString;
 
 @property (strong,nonatomic)NSString *zhaopianGroupString;
@@ -284,6 +285,7 @@
     self.yuejingzhidiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
     
     self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
+    self.tiwenArray = [NSMutableArray arrayWithObjects:@"35.0",@"35.5",@"36.0",@"36.5",@"37.0",@"37.5",@"38.0",@"38.5",@"39.0",@"39.5",@"40.0",@"40.5",@"41.0",@"41.5",@"42.0",nil];
     self.chuhanGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
 }
 
@@ -1671,6 +1673,45 @@
     }
 }
 
+-(void)tiwenButtonClicked:(UIButton *)sender{
+    DLog(@"tiwenButtonClicked");
+//    self.tiwenPickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 150, SCREEN_WIDTH, 150)];
+//    self.tiwenPickView.delegate = self;
+//    self.tiwenPickView.dataSource = self;
+//    self.tiwenPickView.showsSelectionIndicator = YES;
+//    [self.view addSubview:self.tiwenPickView];
+    
+//    self.actionSheet = [[UIActionSheet alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 200)];
+//    
+//    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 50)];
+//    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+//    [pickerDateToolbar sizeToFit];
+//    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+//    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(toolBarCanelClick)];
+//    [barItems addObject:cancelBtn];
+//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+//    [barItems addObject:flexSpace];
+//    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(toolBarDoneClick)];
+//    [barItems addObject:doneBtn];
+//    [pickerDateToolbar setItems:barItems animated:YES];
+//    [self.actionSheet addSubview:pickerDateToolbar];
+//    
+//    self.tiwenPickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 150)];
+//    self.tiwenPickView.showsSelectionIndicator = YES;
+//    self.tiwenPickView.dataSource = self;
+//    self.tiwenPickView.delegate = self;
+//    [self.actionSheet addSubview:self.tiwenPickView];
+//    
+//    [self.view addSubview:self.actionSheet];
+}
+
+//-(void)toolBarCanelClick{
+//    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+//}
+//-(void)toolBarDoneClick{
+//    [self.actionSheet dismissWithClickedButtonIndex:1 animated:YES];
+//}
+
 -(void)chuhanButton1Clicked:(UIButton *)sender{
     self.chuhanClickedFlag1 = !self.chuhanClickedFlag1;
     if (self.chuhanClickedFlag1 == YES) {
@@ -1869,6 +1910,33 @@
 -(void)sendYuejingqitaValue:(NSString *)string{
     self.yuejingqitaString = string;
     DLog(@"self.yuejingqitaString-->%@",self.yuejingqitaString);
+}
+
+#pragma mark UIPickerViewDelegate
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.tiwenArray.count;
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
+    return SCREEN_WIDTH;
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 50;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return self.tiwenArray[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.tiwenString = self.tiwenArray[row];
+    DLog(@"self.tiwenString-->%@",self.tiwenString);
 }
 
 #pragma mark UITableViewDelegate
@@ -2172,6 +2240,7 @@
         NSString *content = @"37";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
         [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
+        [self.selfInspectionHeaderView.contentButton addTarget:self action:@selector(tiwenButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 31){
         NSString *title = @"出汗";

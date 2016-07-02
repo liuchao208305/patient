@@ -29,6 +29,12 @@
 @property (strong,nonatomic)NSMutableArray *yuejingzhidiGroupArray;
 
 @property (strong,nonatomic)NSMutableArray *hanreGroupArray;
+
+@property (strong,nonatomic)UIPickerView *tiwenPickView;
+@property (strong,nonatomic)NSMutableArray *tiwenArray;
+
+@property (strong,nonatomic)UIActionSheet *actionSheet;
+
 @property (strong,nonatomic)NSMutableArray *chuhanGroupArray;
 
 @end

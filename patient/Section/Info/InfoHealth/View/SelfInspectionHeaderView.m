@@ -95,10 +95,14 @@
     [self addSubview:self.titleLabel];
     
     if (hideFlag == NO) {
-        self.contentTextField = [[UITextField alloc] init];
-        self.contentTextField.text = content;
-        self.contentTextField.textColor = kMAIN_COLOR;
-        [self addSubview:self.contentTextField];
+//        self.contentTextField = [[UITextField alloc] init];
+//        self.contentTextField.text = content;
+//        self.contentTextField.textColor = kMAIN_COLOR;
+//        [self addSubview:self.contentTextField];
+        self.contentButton = [[UIButton alloc] init];
+        [self.contentButton setTitle:content forState:UIControlStateNormal];
+        [self.contentButton setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self addSubview:self.contentButton];
         
         self.contentLabel = [[UILabel alloc] init];
         self.contentLabel.text = @"℃";
@@ -126,13 +130,20 @@
         make.centerY.equalTo(self).offset(0);
     }];
     
-    [self.contentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.contentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self).offset(0);
+//        make.centerY.equalTo(self).offset(0);
+//    }];
+    [self.contentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self).offset(0);
         make.centerY.equalTo(self).offset(0);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(15);
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentTextField.mas_trailing).offset(5);
+//        make.leading.equalTo(self.contentTextField.mas_trailing).offset(5);
+        make.leading.equalTo(self.contentButton.mas_trailing).offset(5);
         make.centerY.equalTo(self).offset(0);
     }];
     

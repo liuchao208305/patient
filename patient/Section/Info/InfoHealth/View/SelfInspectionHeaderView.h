@@ -25,7 +25,8 @@
 
 @property (strong,nonatomic)UILabel *titleLabel;
 @property (strong,nonatomic)UILabel *titleLabelFix;
-@property (strong,nonatomic)UITextField *contentTextField;
+//@property (strong,nonatomic)UITextField *contentTextField;
+@property (strong,nonatomic)UIButton *contentButton;
 @property (strong,nonatomic)UILabel *contentLabel;
 @property (strong,nonatomic)UISegmentedControl *segmentedControl;
 @property (strong,nonatomic)UILabel *contentLabel1_1;
