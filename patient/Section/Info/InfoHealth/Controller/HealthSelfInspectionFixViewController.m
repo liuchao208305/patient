@@ -95,6 +95,42 @@
 @property (assign,nonatomic)BOOL painiaoganClickedFlag2;
 @property (assign,nonatomic)BOOL painiaoganClickedFlag3;
 
+@property (assign,nonatomic)BOOL daixiaqiweiClickedFlag1;
+@property (assign,nonatomic)BOOL daixiaqiweiClickedFlag2;
+
+@property (assign,nonatomic)BOOL daixiazhidiClickedFlag1;
+@property (assign,nonatomic)BOOL daixiazhidiClickedFlag2;
+
+@property (assign,nonatomic)int daixiayanseClickedNumber;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag1;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag2;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag3;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag4;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag5;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag6;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag7;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag8;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag9;
+@property (assign,nonatomic)BOOL daixiayanseClickedFlag10;
+
+@property (assign,nonatomic)BOOL yuejingjingliangClickedFlag1;
+@property (assign,nonatomic)BOOL yuejingjingliangClickedFlag2;
+
+@property (assign,nonatomic)BOOL yuejingzhidiClickedFlag1;
+@property (assign,nonatomic)BOOL yuejingzhidiClickedFlag2;
+
+@property (assign,nonatomic)int yuejingyanseClickedNumber;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag1;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag2;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag3;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag4;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag5;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag6;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag7;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag8;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag9;
+@property (assign,nonatomic)BOOL yuejingyanseClickedFlag10;
+
 @property (assign,nonatomic)BOOL hanreClickedFlag1;
 @property (assign,nonatomic)BOOL hanreClickedFlag2;
 @property (assign,nonatomic)BOOL hanreClickedFlag3;
@@ -175,6 +211,14 @@
 @property (strong,nonatomic)NSString *xiaobiancishuWanshangString;
 @property (strong,nonatomic)NSString *sezhiGroupString;
 @property (strong,nonatomic)NSString *painiaoganGroupString;
+
+@property (strong,nonatomic)NSString *daixiaqiweiGroupString;
+@property (strong,nonatomic)NSString *daixiazhidiGroupString;
+@property (strong,nonatomic)NSString *yuejingbijingString;
+@property (strong,nonatomic)NSString *yuejingjingliangGroupString;
+@property (strong,nonatomic)NSString *yuejingzhidiGroupString;
+@property (strong,nonatomic)NSString *yuejingqitaString;
+
 @property (strong,nonatomic)NSString *hanreGroupString;
 @property (strong,nonatomic)NSString *chuhanGroupString;
 
@@ -233,6 +277,12 @@
     self.paibianganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
     self.sezhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
     self.painiaoganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
+    
+    self.daixiaqiweiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
+    self.daixiazhidiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
+    self.yuejingjingliangGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
+    self.yuejingzhidiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
+    
     self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
     self.chuhanGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
 }
@@ -438,6 +488,118 @@
             break;
         case 1:
             self.painiaoganHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)daixiaqiweiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.daixiaqiweiHideFlag = NO;
+            break;
+        case 1:
+            self.daixiaqiweiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)daixiazhidiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.daixiazhidiHideFlag = NO;
+            break;
+        case 1:
+            self.daixiazhidiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yuejingjuejingSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yuejingjuejingHideFlag = NO;
+            break;
+        case 1:
+            self.yuejingjuejingHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yuejingbijingSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yuejingbijingHideFlag = NO;
+            break;
+        case 1:
+            self.yuejingbijingHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yuejingjingliangSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yuejingjingliangHideFlag = NO;
+            break;
+        case 1:
+            self.yuejingjingliangHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yuejingzhidiSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yuejingzhidiHideFlag = NO;
+            break;
+        case 1:
+            self.yuejingzhidiHideFlag = YES;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)yuejingqitaSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    DLog(@"Index-->%li", (long)Index);
+    switch (Index) {
+        case 0:
+            self.yuejingqitaHideFlag = NO;
+            break;
+        case 1:
+            self.yuejingqitaHideFlag = YES;
             break;
         default:
             break;
@@ -1016,6 +1178,424 @@
     }
 }
 
+-(void)daixiaqiweiButton1Clicked:(UIButton *)sender{
+    self.daixiaqiweiClickedFlag1= !self.daixiaqiweiClickedFlag1;
+    if (self.daixiaqiweiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.daixiaqiweiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.daixiaqiweiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
+    }
+}
+
+-(void)daixiaqiweiButton2Clicked:(UIButton *)sender{
+    self.daixiaqiweiClickedFlag2= !self.daixiaqiweiClickedFlag2;
+    if (self.daixiaqiweiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.daixiaqiweiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.daixiaqiweiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
+    }
+}
+
+-(void)daixiazhidiButton1Clicked:(UIButton *)sender{
+    self.daixiazhidiClickedFlag1= !self.daixiazhidiClickedFlag1;
+    if (self.daixiazhidiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.daixiazhidiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.daixiazhidiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
+    }
+}
+
+-(void)daixiazhidiButton2Clicked:(UIButton *)sender{
+    self.daixiazhidiClickedFlag2= !self.daixiazhidiClickedFlag2;
+    if (self.daixiazhidiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.daixiazhidiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.daixiazhidiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
+    }
+}
+
+-(void)daixiayanseImageView1Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag1 = !self.daixiayanseClickedFlag1;
+    if (self.daixiayanseClickedFlag1 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView2Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag2 = !self.daixiayanseClickedFlag2;
+    if (self.daixiayanseClickedFlag2 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView3Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag3 = !self.daixiayanseClickedFlag3;
+    if (self.daixiayanseClickedFlag3 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView4Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag4 = !self.daixiayanseClickedFlag4;
+    if (self.daixiayanseClickedFlag4 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView5Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag5 = !self.daixiayanseClickedFlag5;
+    if (self.daixiayanseClickedFlag5 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView6Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag6 = !self.daixiayanseClickedFlag6;
+    if (self.daixiayanseClickedFlag6 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView7Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag7 = !self.daixiayanseClickedFlag7;
+    if (self.daixiayanseClickedFlag7 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView8Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag8 = !self.daixiayanseClickedFlag8;
+    if (self.daixiayanseClickedFlag8 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)daixiayanseImageView9Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag9 = !self.daixiayanseClickedFlag9;
+    if (self.daixiayanseClickedFlag9 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+-(void)daixiayanseImageView10Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.daixiayanseClickedFlag10 = !self.daixiayanseClickedFlag10;
+    if (self.daixiayanseClickedFlag10 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.daixiayanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.daixiayanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.daixiayanseClickedNumber);
+}
+
+-(void)yuejingjingliangButton1Clicked:(UIButton *)sender{
+    self.yuejingjingliangClickedFlag1= !self.yuejingjingliangClickedFlag1;
+    if (self.yuejingjingliangClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yuejingjingliangGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yuejingjingliangGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
+    }
+}
+-(void)yuejingjingliangButton2Clicked:(UIButton *)sender{
+    self.yuejingjingliangClickedFlag2= !self.yuejingjingliangClickedFlag2;
+    if (self.yuejingjingliangClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yuejingjingliangGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yuejingjingliangGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
+    }
+}
+
+-(void)yuejingzhidiButton1Clicked:(UIButton *)sender{
+    self.yuejingzhidiClickedFlag1= !self.yuejingzhidiClickedFlag1;
+    if (self.yuejingzhidiClickedFlag1 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yuejingzhidiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
+        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yuejingzhidiGroupArray replaceObjectAtIndex:0 withObject:@""];
+        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
+    }
+}
+
+-(void)yuejingzhidiButton2Clicked:(UIButton *)sender{
+    self.yuejingzhidiClickedFlag2= !self.yuejingzhidiClickedFlag2;
+    if (self.yuejingzhidiClickedFlag2 == YES) {
+        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        sender.layer.borderColor = kMAIN_COLOR.CGColor;
+        [self.yuejingzhidiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
+        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
+    }else{
+        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        [self.yuejingzhidiGroupArray replaceObjectAtIndex:1 withObject:@""];
+        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
+    }
+}
+
+-(void)yuejingyanseImageView1Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag1 = !self.yuejingyanseClickedFlag1;
+    if (self.yuejingyanseClickedFlag1 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView2Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag2 = !self.yuejingyanseClickedFlag2;
+    if (self.yuejingyanseClickedFlag2 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView3Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag3 = !self.yuejingyanseClickedFlag3;
+    if (self.yuejingyanseClickedFlag3 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView4Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag4 = !self.yuejingyanseClickedFlag4;
+    if (self.yuejingyanseClickedFlag4 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView5Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag5 = !self.yuejingyanseClickedFlag5;
+    if (self.yuejingyanseClickedFlag5 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView6Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag6 = !self.yuejingyanseClickedFlag6;
+    if (self.yuejingyanseClickedFlag6 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView7Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag7 = !self.yuejingyanseClickedFlag7;
+    if (self.yuejingyanseClickedFlag7 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView8Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag8 = !self.yuejingyanseClickedFlag8;
+    if (self.yuejingyanseClickedFlag8 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView9Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag9 = !self.yuejingyanseClickedFlag9;
+    if (self.yuejingyanseClickedFlag9 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
+-(void)yuejingyanseImageView10Clicked:(UIGestureRecognizer *)sender{
+    UIView *clickedView = [sender view];
+    UIImageView *clickedImageView = (UIImageView *)clickedView;
+    self.yuejingyanseClickedFlag10 = !self.yuejingyanseClickedFlag10;
+    if (self.yuejingyanseClickedFlag10 == YES) {
+        clickedImageView.layer.borderWidth = 1;
+        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        self.yuejingyanseClickedNumber += 1;
+    }else{
+        clickedImageView.layer.borderWidth = 0;
+        self.yuejingyanseClickedNumber -= 1;
+    }
+    DLog(@"%d",self.yuejingyanseClickedNumber);
+}
+
 -(void)hanreButton1Clicked:(UIButton *)sender{
     self.hanreClickedFlag1 = !self.hanreClickedFlag1;
     if (self.hanreClickedFlag1 == YES) {
@@ -1279,6 +1859,18 @@
     DLog(@"self.xiaobiancishuWanshangString-->%@",self.xiaobiancishuWanshangString);
 }
 
+#pragma mark YuejingbijingDelegate
+-(void)sendYuejingbijingValue:(NSString *)string{
+    self.yuejingbijingString = string;
+    DLog(@"self.yuejingbijingString-->%@",self.yuejingbijingString);
+}
+
+#pragma mark YuejingqitaDelegate
+-(void)sendYuejingqitaValue:(NSString *)string{
+    self.yuejingqitaString = string;
+    DLog(@"self.yuejingqitaString-->%@",self.yuejingqitaString);
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 33;
@@ -1322,21 +1914,33 @@
             return 60;
         }
     }else if (indexPath.section == 15){
-        return 60;
+        if (self.daixiaqiweiHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 16){
-        return 60;
+        if (self.daixiazhidiHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 17){
         return 110;
     }else if (indexPath.section == 21){
-        return 107;
+        if (self.yuejingbijingHideFlag == NO) {
+            return 107;
+        }
     }else if (indexPath.section == 25){
-        return 60;
+        if (self.yuejingjingliangHideFlag == NO) {
+             return 60;
+        }
     }else if (indexPath.section == 26){
-        return 60;
+        if (self.yuejingzhidiHideFlag == NO) {
+            return 60;
+        }
     }else if (indexPath.section == 27){
         return 110;
     }else if (indexPath.section == 28){
-        return 107;
+        if (self.yuejingqitaHideFlag == NO) {
+            return 107;
+        }
     }else if (indexPath.section == 29){
         return 110;
     }else if (indexPath.section == 31){
