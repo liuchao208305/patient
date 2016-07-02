@@ -10,4 +10,17 @@
 
 @interface HealthMarriageHistoryViewController : BaseViewController
 
+@property (strong,nonatomic)UIView *backView1;
+@property (strong,nonatomic)UILabel *label1;
+@property (strong,nonatomic)UIButton *button1;
+@property (strong,nonatomic)UIButton *button2;
+@property (strong,nonatomic)UIView *backView2;
+@property (strong,nonatomic)UILabel *label2_1;
+@property (strong,nonatomic)UITextField *textField2;
+@property (strong,nonatomic)UILabel *label2_2;
+@property (strong,nonatomic)UIView *backView3;
+@property (strong,nonatomic)UILabel *label3_1;
+@property (strong,nonatomic)UITextField *textField3;
+@property (strong,nonatomic)UILabel *label3_2;
+
 @end

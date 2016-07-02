@@ -89,6 +89,9 @@
     self.shoushushi = @"";
     self.guomingshi = @"";
     self.jiazushi = @"";
+    self.hunfou = @"";
+    self.erzi = @"";
+    self.nver = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -293,12 +296,27 @@
         cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
         cell.jiazushiLabel1.text = @"家族史：";
         cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+        
         cell.hunfouLabel1.text = @"婚否：";
-        cell.hunfouLabel2.text = @"无";
+        if ([self.hunfou intValue] == 1) {
+            cell.hunfouLabel2.text = @"未婚";
+        }else if ([self.hunfou intValue] == 2){
+            cell.hunfouLabel2.text = @"已婚";
+        }else{
+            cell.hunfouLabel2.text = @"无";
+        }
         cell.erziLabel1.text = @"儿子：";
-        cell.erziLabel2.text = @"无";
+        if ([self.erzi intValue] == 0) {
+            cell.erziLabel2.text = @"无";
+        }else{
+            cell.erziLabel2.text = self.erzi;
+        }
         cell.nverLabel1.text = @"女儿：";
-        cell.nverLabel2.text = @"无";
+        if ([self.nver intValue] == 0) {
+            cell.nverLabel2.text = @"无";
+        }else{
+            cell.nverLabel2.text = self.nver;
+        }
         
         return cell;
     }else if (indexPath.section == 1){
@@ -385,6 +403,7 @@
             [self healthListDataParse];
         }else{
             DLog(@"%@",self.message1);
+            [HudUtil showSimpleTextOnlyHUD:self.message1 withDelaySeconds:kHud_DelayTime];
             if (self.code1 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];

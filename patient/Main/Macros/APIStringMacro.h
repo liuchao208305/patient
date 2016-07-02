@@ -72,6 +72,7 @@ typedef enum {
 
 #define kJZK_HEALTH_LIST_INFORMATION @"private/v2/getJiankan?"//健康列表信息
 #define kJZK_HEALTH_DISEASE_HISTORY_CONFIRM @"private/v2/qUserHistory/updateOrInster"//疾病史提交
+#define kJZK_HEALTH_MARRIAGE_HISTORY_CONFIRM @"private/v2/qUserHistory/updateOrInster"//婚姻史提交
 #define kJZK_HEALTH_SELF_INSPECTION_CONFIRM @"private/v2/qhealthy/add?"//健康自查提交
 
 #define kJZK_TEST_INFORMATION_GET @"public/v1/pageAnalysis?"//获取体质测试信息
