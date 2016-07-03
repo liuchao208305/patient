@@ -10,6 +10,10 @@
 
 @interface HealthInspectionTableCell : UITableViewCell
 
+@property (strong,nonatomic)UIImageView *noImageView;
+@property (strong,nonatomic)UILabel *noLabel;
+@property (strong,nonatomic)UIButton *noButton;
+
 @property (strong,nonatomic)UILabel *timeLabel;
 @property (strong,nonatomic)UILabel *shuimianLabel1;
 @property (strong,nonatomic)UILabel *shuimianLabel2;

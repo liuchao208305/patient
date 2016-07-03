@@ -20,6 +20,42 @@
 
 #pragma mark Init Section
 -(void)initView{
+    self.noImageView = [[UIImageView alloc] init];
+    [self.noImageView setImage:[UIImage imageNamed:@"info_health_list_no_image"]];
+    [self.contentView addSubview:self.noImageView];
+    
+    self.noLabel = [[UILabel alloc] init];
+    self.noLabel.text = @"暂时无记录";
+    self.noLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.contentView addSubview:self.noLabel];
+    
+    self.noButton = [[UIButton alloc] init];
+    [self.noButton setTitle:@"记一记" forState:UIControlStateNormal];
+    [self.noButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.noButton setBackgroundColor:kMAIN_COLOR];
+    self.noButton.layer.cornerRadius = 5;
+    [self.contentView addSubview:self.noButton];
+    
+    [self.noImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView).offset(0);
+        make.centerY.equalTo(self.contentView).offset(0);
+        make.width.mas_equalTo(60);
+        make.height.mas_equalTo(69);
+    }];
+    
+    [self.noLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView).offset(0);
+        make.top.equalTo(self.noImageView.mas_bottom).offset(18);
+    }];
+    
+    [self.noButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(12);
+        make.trailing.equalTo(self.contentView).offset(-12);
+        make.bottom.equalTo(self.contentView).offset(-15);
+        make.height.mas_equalTo(44);
+    }];
+    
+    
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.font = [UIFont systemFontOfSize:14];
     self.timeLabel.textColor = ColorWithHexRGB(0x909090);

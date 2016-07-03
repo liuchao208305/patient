@@ -361,39 +361,55 @@
             cell = [[HealthInspectionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.timeLabel.text = [self.healthTime substringToIndex:10];
-        cell.shuimianLabel1.text = @"睡眠：";
-        cell.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
-        cell.yinshiLabel1.text = @"饮食：";
-        cell.yinshiLabel2.text = [self.yinshi isEqualToString:@""] ? @"无" : self.yinshi;
-        cell.yinshuiLabel1.text = @"饮水：";
-        cell.yinshuiLabel2.text = [self.yinshui isEqualToString:@""] ? @"无" : self.yinshui;
-        cell.dabianLabel1.text = @"大便：";
-        cell.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
-        cell.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
-        cell.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
-//        NSString *test = @"0xb6bc16";
-//        unsigned long red = strtoul([test UTF8String],0,0);
-//        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(red)];
-        self.dabianyanseString = @"";
-        
-        if ([self.dabianyanseString isEqualToString:@""]) {
-            [cell.dabianImageView setBackgroundColor:kWHITE_COLOR];
+        if (![[self.data1 objectForKey:@"healthy"] isKindOfClass:[NSNull class]]) {
+            cell.noImageView.hidden = YES;
+            cell.noLabel.hidden = YES;
+            cell.noButton.hidden = YES;
+            
+            cell.timeLabel.text = [self.healthTime substringToIndex:10];
+            cell.shuimianLabel1.text = @"睡眠：";
+            cell.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
+            cell.yinshiLabel1.text = @"饮食：";
+            cell.yinshiLabel2.text = [self.yinshi isEqualToString:@""] ? @"无" : self.yinshi;
+            cell.yinshuiLabel1.text = @"饮水：";
+            cell.yinshuiLabel2.text = [self.yinshui isEqualToString:@""] ? @"无" : self.yinshui;
+            cell.dabianLabel1.text = @"大便：";
+            cell.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
+            cell.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
+            cell.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
+            //        NSString *test = @"0xb6bc16";
+            //        unsigned long red = strtoul([test UTF8String],0,0);
+            //        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(red)];
+            self.dabianyanseString = @"";
+            
+            if ([self.dabianyanseString isEqualToString:@""]) {
+                [cell.dabianImageView setBackgroundColor:kWHITE_COLOR];
+            }else{
+                unsigned long dabian = strtoul([self.dabianyanseString UTF8String],0,0);
+                [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
+            }
+            cell.xiaobianLabel1.text = @"小便：";
+            cell.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
+            cell.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
+            cell.hanreLabel1.text = @"寒热：";
+            cell.hanreLabel2.text = [self.hanre isEqualToString:@""] ? @"无" : self.hanre;
+            cell.tiwenLabel1.text = @"体温：";
+            cell.tiwenLabel2.text = [self.tiwen isEqualToString:@""] ? @"无" : self.tiwen;
+            cell.chuhanLabel1.text = @"出汗：";
+            cell.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
+            cell.zhaopianLabel1.text = @"照片资料：";
+            cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         }else{
-            unsigned long dabian = strtoul([self.dabianyanseString UTF8String],0,0);
-            [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
+            cell.shuimianLineView.hidden = YES;
+            cell.yinshiLineView.hidden = YES;
+            cell.yinshuiLineView.hidden = YES;
+            cell.dabianLineView.hidden = YES;
+            cell.xiaobianLineView.hidden = YES;
+            cell.hanreLineView.hidden = YES;
+            cell.tiwenLineView.hidden = YES;
+            cell.chuhanLineView.hidden = YES;
+            [cell.noButton addTarget:self action:@selector(addHealthButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         }
-        cell.xiaobianLabel1.text = @"小便：";
-        cell.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
-        cell.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
-        cell.hanreLabel1.text = @"寒热：";
-        cell.hanreLabel2.text = [self.hanre isEqualToString:@""] ? @"无" : self.hanre;
-        cell.tiwenLabel1.text = @"体温：";
-        cell.tiwenLabel2.text = [self.tiwen isEqualToString:@""] ? @"无" : self.tiwen;
-        cell.chuhanLabel1.text = @"出汗：";
-        cell.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
-        cell.zhaopianLabel1.text = @"照片资料：";
-        cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         
         return cell;
     }else if (indexPath.section > 1){
