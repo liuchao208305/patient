@@ -247,15 +247,16 @@
     if (self.marryStatus == 0) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择您的婚姻情况"];
     }else{
-        if (self.marryStatus == 2) {
-            if (self.erziCount == 0 && self.nverCount == 0) {
-                [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写您的儿女数量"];
-            }else{
-                [self sendMarriageHistoryConfirmRequest];
-            }
-        }else if (self.marryStatus == 1){
-            [self sendMarriageHistoryConfirmRequest];
-        }
+//        if (self.marryStatus == 2) {
+//            if (self.erziCount == 0 && self.nverCount == 0) {
+//                [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写您的儿女数量"];
+//            }else{
+//                [self sendMarriageHistoryConfirmRequest];
+//            }
+//        }else if (self.marryStatus == 1){
+//            [self sendMarriageHistoryConfirmRequest];
+//        }
+        [self sendMarriageHistoryConfirmRequest];
     }
 }
 
