@@ -24,6 +24,7 @@
 #import "HealthMarriageHistoryViewController.h"
 #import "HealthSelfInspectionViewController.h"
 #import "HealthSelfInspectionFixViewController.h"
+#import "HealthListDetailViewController.h"
 
 @interface HealthListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
@@ -198,6 +199,8 @@
 
 -(void)inspectionHeadViewClicked{
     DLog(@"inspectionHeadViewClicked");
+    HealthListDetailViewController *healthListDetailVC = [[HealthListDetailViewController alloc] init];
+    [self.navigationController pushViewController:healthListDetailVC animated:YES];
 }
 
 #pragma mark UIActionSheetDelegate
