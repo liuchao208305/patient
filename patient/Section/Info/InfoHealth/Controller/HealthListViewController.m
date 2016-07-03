@@ -587,6 +587,12 @@
 
 -(void)testResultListDataParse{
     self.resultArray = [ResultData mj_objectArrayWithKeyValuesArray:self.data2];
+    [self.resultPatientIdArray removeAllObjects];
+    [self.resultPatientImageArray removeAllObjects];
+    [self.resultIdArray removeAllObjects];
+    [self.resultMainArray removeAllObjects];
+    [self.resultTrendArray removeAllObjects];
+    [self.resultTimeArray removeAllObjects];
     for (ResultData *resultData in self.resultArray) {
         [self.resultPatientIdArray addObject:[NullUtil judgeStringNull:resultData.user_id]];
         [self.resultPatientImageArray addObject:[NullUtil judgeStringNull:resultData.heand_url]];
