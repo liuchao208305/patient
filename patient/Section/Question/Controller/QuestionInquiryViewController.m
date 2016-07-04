@@ -172,6 +172,7 @@
     self.expertIntroductionLabel = [[UILabel alloc] init];
     self.expertIntroductionLabel.textColor = ColorWithHexRGB(0x646464);
     self.expertIntroductionLabel.numberOfLines = 0;
+    self.expertIntroductionLabel.font = [UIFont systemFontOfSize:13];
     [self.expertBackView addSubview:self.expertIntroductionLabel];
     
     [self.expertImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,10 +198,11 @@
     }];
     
     [self.expertIntroductionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(15);
+        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(0);
         make.leading.equalTo(self.expertNameLabel).offset(0);
         make.trailing.equalTo(self.expertMoneyLabel).offset(0);
-        make.bottom.equalTo(self.expertBackView).offset(-15);
+//        make.bottom.equalTo(self.expertBackView).offset(-15);
+        make.height.mas_equalTo(60);
     }];
 }
 
