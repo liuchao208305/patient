@@ -30,8 +30,4 @@
 
 #define kJZK_questionType @"JZK_questionType"
 
-#define kJZK_inquiryAdd @"kJZK_inquiryAdd"
-#define kJZK_inquiryAddHealthFirst @"JZK_inquiryAddHealthFirst"
-#define kJZK_inquiryAddTestFirst @"JZK_inquiryAddTestFirst"
-
 #endif /* CommonMacro_h */
