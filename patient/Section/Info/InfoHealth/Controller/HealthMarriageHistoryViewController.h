@@ -10,6 +10,8 @@
 
 @interface HealthMarriageHistoryViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 
 @property (strong,nonatomic)NSString *jiwangshi;

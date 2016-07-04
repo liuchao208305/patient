@@ -10,6 +10,8 @@
 
 @interface TestResultListViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)NSString *patientId;

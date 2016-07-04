@@ -11,6 +11,8 @@
 
 @interface HealthSelfInspectionViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;

@@ -9,7 +9,15 @@
 #import "BaseViewController.h"
 #import "HealthListHeaderView.h"
 
+@protocol HealthListDelegate <NSObject>
+
+-(void)healthListChoosed:(NSString *)time type:(NSString *)type;
+
+@end
+
 @interface HealthListDetailViewController : BaseViewController
+
+@property (strong,nonatomic)NSString *sourceVC;
 
 @property (strong,nonatomic)UITableView *tableView;
 
@@ -19,5 +27,7 @@
 @property (strong,nonatomic)NSMutableArray *healthListDetailIdArray;
 @property (strong,nonatomic)NSMutableArray *healthListDetailTimeArray;
 @property (strong,nonatomic)NSMutableArray *healthListDetailResultArray;
+
+@property (weak,nonatomic)id<HealthListDelegate> healthListDelegate;
 
 @end

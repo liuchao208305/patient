@@ -213,6 +213,17 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.sourceVC isEqualToString:@"QuestionInquiryViewController"]) {
+        if (self.healthListDelegate && [self.healthListDelegate respondsToSelector:@selector(healthListChoosed:type:)]) {
+            [self.healthListDelegate healthListChoosed:self.healthListDetailTimeArray[indexPath.section] type:@"健康自查"];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark Network Request
 -(void)sendHealthListDetailRequest{
     DLog(@"sendTestResultListRequest");

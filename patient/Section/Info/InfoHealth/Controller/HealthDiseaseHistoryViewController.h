@@ -11,6 +11,8 @@
 
 @interface HealthDiseaseHistoryViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 
 @property (assign,nonatomic)int hunfou;

@@ -40,4 +40,7 @@
 @property (strong,nonatomic)UILabel *publicLabel;
 @property (strong,nonatomic)UIButton *confirmButton;
 
+@property (strong,nonatomic)NSMutableArray *inquiryTimeArray;
+@property (strong,nonatomic)NSMutableArray *inquiryTypeArray;
+
 @end

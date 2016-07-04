@@ -18,13 +18,10 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "HealthDiseaseHistoryViewController.h"
-#import "HealthMarriageHistoryViewController.h"
-#import "HealthSelfInspectionViewController.h"
-#import "HealthSelfInspectionFixViewController.h"
 #import "HealthListDetailViewController.h"
 #import "TestResultListViewController.h"
 
-@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
+@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,HealthListDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -126,7 +123,8 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.inquiryTimeArray = [NSMutableArray array];
+    self.inquiryTypeArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -400,7 +398,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:@"既往史／手术史／过敏史／家族史", @"婚育情况",@"健康自查",@"体质测试",nil];
+                                  otherButtonTitles:@"既往史／手术史／过敏史／家族史",@"健康自查",@"体质测试",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     actionSheet.tag = 1;
     [actionSheet showInView:self.view];
@@ -461,32 +459,24 @@
         if (buttonIndex == 0){
             DLog(@"既往史／手术史／过敏史／家族史");
             HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+            diseasHistoryVC.sourceVC = @"QuestionInquiryViewController";
             diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
             diseasHistoryVC.hunfou = self.hunfou;
             diseasHistoryVC.erzi = self.erzi;
             diseasHistoryVC.nver = self.nver;
             [self.navigationController pushViewController:diseasHistoryVC animated:YES];
         }else if (buttonIndex == 1){
-            DLog(@"婚育情况");
-            HealthMarriageHistoryViewController *marriageHistoryVC = [[HealthMarriageHistoryViewController alloc] init];
-            marriageHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
-            marriageHistoryVC.jiwangshi = self.jiwangshi;
-            marriageHistoryVC.shoushushi = self.shoushushi;
-            marriageHistoryVC.guominshi = self.guomingshi;
-            marriageHistoryVC.jiazushi = self.jiazushi;
-            [self.navigationController pushViewController:marriageHistoryVC animated:YES];
-        }else if (buttonIndex == 2){
             DLog(@"健康自查");
-            HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
-            [self.navigationController pushViewController:selfInspectionVC animated:YES];
-            
-            //        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
-            //        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
-        }else if (buttonIndex == 3){
+            HealthListDetailViewController *selfInspectionListVC = [[HealthListDetailViewController alloc] init];
+            selfInspectionListVC.sourceVC = @"QuestionInquiryViewController";
+            selfInspectionListVC.healthListDelegate = self;
+            [self.navigationController pushViewController:selfInspectionListVC animated:YES];
+        }else if (buttonIndex == 2){
             DLog(@"体质测试");
             TestResultListViewController *testListVC = [[TestResultListViewController alloc] init];
+            testListVC.sourceVC = @"QuestionInquiryViewController";
             [self.navigationController pushViewController:testListVC animated:YES];
-        }else if (buttonIndex == 4){
+        }else if (buttonIndex == 3){
             DLog(@"取消");
         }
     }else if (actionSheet.tag == 2){
@@ -503,6 +493,14 @@
     
 }
 
+#pragma mark HealthListDelegate
+-(void)healthListChoosed:(NSString *)time type:(NSString *)type{
+    [self.inquiryTimeArray addObject:time];
+    [self.inquiryTypeArray addObject:type];
+    
+    [self.inquiryTableView reloadData];
+}
+
 #pragma mark UITextViewDelegate
 -(void)textViewDidChange:(UITextView *)textView{
     self.inquiryCountLabel.text = [NSString stringWithFormat:@"%ld/200",(long)textView.text.length];
@@ -515,7 +513,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return 1 + self.inquiryTimeArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -541,10 +539,12 @@
         cell.jiazushiLabel1.text = @"家族史：";
         cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
     }else if (indexPath.row == 1){
-        cell.inquiryLabel1.text = @"2016-05-21 体质测试结果";
+//        cell.inquiryLabel1.text = @"2016-05-21 体质测试结果";
+        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTimeArray[0],self.inquiryTypeArray[0]];
         cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
     }else if (indexPath.row == 2){
-        cell.inquiryLabel1.text = @"2016-05-21 健康自查结果";
+//        cell.inquiryLabel1.text = @"2016-05-21 健康自查结果";
+        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@体质测试结果",self.inquiryTimeArray[1],self.inquiryTypeArray[1]];
         cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
     }
     
