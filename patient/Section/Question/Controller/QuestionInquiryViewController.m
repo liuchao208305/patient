@@ -17,6 +17,12 @@
 #import "QuestionInquiryTableCell.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "HealthDiseaseHistoryViewController.h"
+#import "HealthMarriageHistoryViewController.h"
+#import "HealthSelfInspectionViewController.h"
+#import "HealthSelfInspectionFixViewController.h"
+#import "HealthListDetailViewController.h"
+#import "TestResultListViewController.h"
 
 @interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
@@ -39,10 +45,14 @@
 @property (assign,nonatomic)double consultation_money;
 @property (strong,nonatomic)NSString *doctor_descr;
 
-@property (strong,nonatomic)NSString *a_history;
-@property (strong,nonatomic)NSString *b_history;
-@property (strong,nonatomic)NSString *c_history;
-@property (strong,nonatomic)NSString *d_history;
+@property (strong,nonatomic)NSString *diseaseHistoryId;
+@property (strong,nonatomic)NSString *jiwangshi;
+@property (strong,nonatomic)NSString *shoushushi;
+@property (strong,nonatomic)NSString *guomingshi;
+@property (strong,nonatomic)NSString *jiazushi;
+@property (assign,nonatomic)int hunfou;
+@property (assign,nonatomic)int erzi;
+@property (assign,nonatomic)int nver;
 
 @property (assign,nonatomic)double avgMoney;
 
@@ -82,6 +92,14 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.jiwangshi = @"";
+    self.shoushushi = @"";
+    self.guomingshi = @"";
+    self.jiazushi = @"";
+    self.hunfou = 0;
+    self.erzi = 0;
+    self.nver = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -237,7 +255,7 @@
         make.width.mas_equalTo(60);
     }];
     
-    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 105) style:UITableViewStylePlain];
+    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 35) style:UITableViewStylePlain];
     self.inquiryTableView.delegate = self;
     self.inquiryTableView.dataSource = self;
     self.inquiryTableView.showsVerticalScrollIndicator = NO;
@@ -376,7 +394,16 @@
 }
 
 -(void)addButtonClicked{
-    
+    DLog(@"addButtonClicked");
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"既往史／手术史／过敏史／家族史", @"婚育情况",@"健康自查",@"体质测试",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = 1;
+    [actionSheet showInView:self.view];
 }
 
 -(void)publicButtonClicked{
@@ -403,6 +430,7 @@
                                           destructiveButtonTitle:nil
                                           otherButtonTitles:@"支付宝支付", @"微信支付",nil];
             actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+            actionSheet.tag = 2;
             [actionSheet showInView:self.view];
         }else{
             [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
@@ -428,17 +456,51 @@
 }
 
 #pragma mark UIActionSheetDelegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0){
-        //支付宝支付
-        self.payType = @"1";
-        [self sendQuesionConfirmRequest];
-    }else if (buttonIndex == 1){
-        //微信支付
-        self.payType = @"2";
-        [self sendQuesionConfirmRequest];
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet.tag == 1) {
+        if (buttonIndex == 0){
+            DLog(@"既往史／手术史／过敏史／家族史");
+            HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+            diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
+            diseasHistoryVC.hunfou = self.hunfou;
+            diseasHistoryVC.erzi = self.erzi;
+            diseasHistoryVC.nver = self.nver;
+            [self.navigationController pushViewController:diseasHistoryVC animated:YES];
+        }else if (buttonIndex == 1){
+            DLog(@"婚育情况");
+            HealthMarriageHistoryViewController *marriageHistoryVC = [[HealthMarriageHistoryViewController alloc] init];
+            marriageHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
+            marriageHistoryVC.jiwangshi = self.jiwangshi;
+            marriageHistoryVC.shoushushi = self.shoushushi;
+            marriageHistoryVC.guominshi = self.guomingshi;
+            marriageHistoryVC.jiazushi = self.jiazushi;
+            [self.navigationController pushViewController:marriageHistoryVC animated:YES];
+        }else if (buttonIndex == 2){
+            DLog(@"健康自查");
+            HealthSelfInspectionViewController *selfInspectionVC = [[HealthSelfInspectionViewController alloc] init];
+            [self.navigationController pushViewController:selfInspectionVC animated:YES];
+            
+            //        HealthSelfInspectionFixViewController *selfInspectionFixVC = [[HealthSelfInspectionFixViewController alloc] init];
+            //        [self.navigationController pushViewController:selfInspectionFixVC animated:YES];
+        }else if (buttonIndex == 3){
+            DLog(@"体质测试");
+            TestResultListViewController *testListVC = [[TestResultListViewController alloc] init];
+            [self.navigationController pushViewController:testListVC animated:YES];
+        }else if (buttonIndex == 4){
+            DLog(@"取消");
+        }
+    }else if (actionSheet.tag == 2){
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.payType = @"1";
+            [self sendQuesionConfirmRequest];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.payType = @"2";
+            [self sendQuesionConfirmRequest];
+        }
     }
+    
 }
 
 #pragma mark UITextViewDelegate
@@ -453,7 +515,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -468,8 +530,24 @@
     }
     
     [cell.inquiryImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
-    cell.inquiryLabel1.text = @"既往史、过敏史、手术史、家族史";
-    cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+    
+    if (indexPath.row == 0) {
+        cell.jiwangshiLabel1.text = @"既往史：";
+        cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+        cell.shoushushiLabel1.text = @"手术史：";
+        cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+        cell.guomingshiLabel1.text = @"过敏史：";
+        cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+        cell.jiazushiLabel1.text = @"家族史：";
+        cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+    }else if (indexPath.row == 1){
+        cell.inquiryLabel1.text = @"2016-05-21 体质测试结果";
+        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+    }else if (indexPath.row == 2){
+        cell.inquiryLabel1.text = @"2016-05-21 健康自查结果";
+        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+    }
+    
     [cell.inquiryButton setImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
     
     return cell;
@@ -602,14 +680,17 @@
         self.avgMoney = [[self.data objectForKey:@"avgMoney"] doubleValue];
     }
     
-    if (![self.data objectForKey:@"userHistor"]) {
-        self.a_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"a_history"]];
-        self.b_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"b_history"]];
-        self.c_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"c_history"]];
-        self.d_history = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"d_history"]];
+    if (![[self.data objectForKey:@"userHistor"] isKindOfClass:[NSNull class]]) {
+        self.diseaseHistoryId = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"ids"]];
+        self.jiwangshi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"a_history"]];
+        self.shoushushi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"b_history"]];
+        self.guomingshi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"c_history"]];
+        self.jiazushi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userHistor"] objectForKey:@"d_history"]];
     }
     
     self.rebatePay = [NullUtil judgeStringNull:[self.data objectForKey:@"rebatePay"]];
+    
+    [self.inquiryTableView reloadData];
     
     [self sendQuesionInquiryDataFilling];
 }

@@ -109,7 +109,7 @@
     self.shoushushi = @"";
     self.guomingshi = @"";
     self.jiazushi = @"";
-    self.hunfou = @"";
+    self.hunfou = 0;
     self.erzi = 0;
     self.nver = 0;
 }
