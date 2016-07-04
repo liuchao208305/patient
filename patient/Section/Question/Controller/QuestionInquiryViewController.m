@@ -21,7 +21,7 @@
 #import "HealthListDetailViewController.h"
 #import "TestResultListViewController.h"
 
-@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,HealthListDelegate>
+@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -104,6 +104,8 @@
     
     [AnalyticUtil UMBeginLogPageView:@"QuestionInquiryViewController"];
     
+    DLog(@"kJZK_inquiryAddTestFirst-->%@",[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_inquiryAddTestFirst]);
+    
     [self sendQuesionInquiryRequest];
 }
 
@@ -115,6 +117,9 @@
     [super viewWillDisappear:YES];
     
     [AnalyticUtil UMEndLogPageView:@"QuestionInquiryViewController"];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:kJZK_inquiryAddTestFirst];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -125,7 +130,7 @@
 -(void)lazyLoading{
 //    self.inquiryHeathTimeArray = [NSMutableArray arrayWithObjects:@"", nil];
 //    self.inquiryHealthTypeArray = [NSMutableArray arrayWithObjects:@"", nil];
-    self.inquiryHeathTimeArray = [NSMutableArray array];
+    self.inquiryHealthTimeArray = [NSMutableArray array];
     self.inquiryHealthTypeArray = [NSMutableArray array];
     
     self.inquiryTestTimeArray = [NSMutableArray array];
@@ -475,11 +480,21 @@
             HealthListDetailViewController *selfInspectionListVC = [[HealthListDetailViewController alloc] init];
             selfInspectionListVC.sourceVC = @"QuestionInquiryViewController";
             selfInspectionListVC.healthListDelegate = self;
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_inquiryAddTestFirst] isEqualToString:@"YES"]) {
+                
+            }else{
+                [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:kJZK_inquiryAddTestFirst];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
             [self.navigationController pushViewController:selfInspectionListVC animated:YES];
         }else if (buttonIndex == 2){
             DLog(@"体质测试");
             TestResultListViewController *testListVC = [[TestResultListViewController alloc] init];
             testListVC.sourceVC = @"QuestionInquiryViewController";
+            testListVC.testListDelegate = self;
+            [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:kJZK_inquiryAddTestFirst];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self.navigationController pushViewController:testListVC animated:YES];
         }else if (buttonIndex == 3){
             DLog(@"取消");
@@ -500,12 +515,25 @@
 
 #pragma mark HealthListDelegate
 -(void)healthListChoosed:(NSString *)time type:(NSString *)type{
-    if (self.inquiryHeathTimeArray.count > 0) {
-        [self.inquiryHeathTimeArray replaceObjectAtIndex:0 withObject:time];
+    if (self.inquiryHealthTimeArray.count > 0) {
+        [self.inquiryHealthTimeArray replaceObjectAtIndex:0 withObject:time];
         [self.inquiryHealthTypeArray replaceObjectAtIndex:0 withObject:type];
     }else{
-        [self.inquiryHeathTimeArray addObject:time];
+        [self.inquiryHealthTimeArray addObject:time];
         [self.inquiryHealthTypeArray addObject:type];
+    }
+    
+    [self.inquiryTableView reloadData];
+}
+
+#pragma mark TestListDelegate
+-(void)testListChoosed:(NSString *)time type:(NSString *)type{
+    if (self.inquiryTestTimeArray.count > 0) {
+        [self.inquiryTestTimeArray replaceObjectAtIndex:0 withObject:time];
+        [self.inquiryTestTypeArray replaceObjectAtIndex:0 withObject:type];
+    }else{
+        [self.inquiryTestTimeArray addObject:time];
+        [self.inquiryTestTypeArray addObject:type];
     }
     
     [self.inquiryTableView reloadData];
@@ -523,7 +551,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1 + self.inquiryHeathTimeArray.count;
+    return 1 + self.inquiryHealthTimeArray.count + self.inquiryTestTimeArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -539,25 +567,43 @@
     
     [cell.inquiryImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
     
-    if (indexPath.row == 0) {
-        cell.jiwangshiLabel1.text = @"既往史：";
-        cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
-        cell.shoushushiLabel1.text = @"手术史：";
-        cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
-        cell.guomingshiLabel1.text = @"过敏史：";
-        cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
-        cell.jiazushiLabel1.text = @"家族史：";
-        cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
-    }else if (indexPath.row == 1){
-//        cell.inquiryLabel1.text = @"2016-05-21 体质测试结果";
-        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHeathTimeArray[0],self.inquiryHealthTypeArray[0]];
-        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
-    }else if (indexPath.row == 2){
-//        cell.inquiryLabel1.text = @"2016-05-21 健康自查结果";
-//        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTimeArray[1],self.inquiryTypeArray[1]];
-        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
-    }
     
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_inquiryAddTestFirst] isEqualToString:@"YES"]) {
+        if (indexPath.row == 0) {
+            cell.jiwangshiLabel1.text = @"既往史：";
+            cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+            cell.shoushushiLabel1.text = @"手术史：";
+            cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+            cell.guomingshiLabel1.text = @"过敏史：";
+            cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+            cell.jiazushiLabel1.text = @"家族史：";
+            cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+        }else if (indexPath.row == 1){
+            cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTestTimeArray[0],self.inquiryTestTypeArray[0]];
+            cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+        }else if (indexPath.row == 2){
+            cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHealthTimeArray[0],self.inquiryHealthTypeArray[0]];
+            cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+        }
+    }else{
+        if (indexPath.row == 0) {
+            cell.jiwangshiLabel1.text = @"既往史：";
+            cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+            cell.shoushushiLabel1.text = @"手术史：";
+            cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+            cell.guomingshiLabel1.text = @"过敏史：";
+            cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+            cell.jiazushiLabel1.text = @"家族史：";
+            cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+        }else if (indexPath.row == 1){
+            cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHealthTimeArray[0],self.inquiryHealthTypeArray[0]];
+            cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+        }else if (indexPath.row == 2){
+            cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTestTimeArray[0],self.inquiryTestTypeArray[0]];
+            cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+        }
+    }
+
     [cell.inquiryButton setImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
     
     return cell;

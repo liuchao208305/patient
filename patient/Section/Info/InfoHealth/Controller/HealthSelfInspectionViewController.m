@@ -771,7 +771,7 @@
     self.dabianyanseClickedFlag1 = !self.dabianyanseClickedFlag1;
     if (self.dabianyanseClickedFlag1 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0xb6bc16";
     }else{
@@ -787,7 +787,7 @@
     self.dabianyanseClickedFlag2 = !self.dabianyanseClickedFlag2;
     if (self.dabianyanseClickedFlag2 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0xb0a547";
     }else{
@@ -803,7 +803,7 @@
     self.dabianyanseClickedFlag3 = !self.dabianyanseClickedFlag3;
     if (self.dabianyanseClickedFlag3 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0xb9ac16";
     }else{
@@ -819,7 +819,7 @@
     self.dabianyanseClickedFlag4 = !self.dabianyanseClickedFlag4;
     if (self.dabianyanseClickedFlag4 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0x8c9014";
     }else{
@@ -835,7 +835,7 @@
     self.dabianyanseClickedFlag5 = !self.dabianyanseClickedFlag5;
     if (self.dabianyanseClickedFlag5 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0xb79427";
     }else{
@@ -850,7 +850,7 @@
     self.dabianyanseClickedFlag6 = !self.dabianyanseClickedFlag6;
     if (self.dabianyanseClickedFlag6 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
          self.dabianyaseString = @"0xc07f19";
     }else{
@@ -866,7 +866,7 @@
     self.dabianyanseClickedFlag7 = !self.dabianyanseClickedFlag7;
     if (self.dabianyanseClickedFlag7 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0xa97421";
     }else{
@@ -882,7 +882,7 @@
     self.dabianyanseClickedFlag8 = !self.dabianyanseClickedFlag8;
     if (self.dabianyanseClickedFlag8 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0x833b0b";
     }else{
@@ -898,7 +898,7 @@
     self.dabianyanseClickedFlag9 = !self.dabianyanseClickedFlag9;
     if (self.dabianyanseClickedFlag9 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0x431e03";
     }else{
@@ -914,7 +914,7 @@
     self.dabianyanseClickedFlag10 = !self.dabianyanseClickedFlag10;
     if (self.dabianyanseClickedFlag10 == YES) {
         clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = kMAIN_COLOR.CGColor;
+        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
         self.dabianyanseClickedNumber += 1;
         self.dabianyaseString = @"0x1f1e1e";
     }else{

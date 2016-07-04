@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
+@protocol TestListDelegate <NSObject>
+
+-(void)testListChoosed:(NSString *)time type:(NSString *)type;
+
+@end
+
 @interface TestResultListViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSString *sourceVC;
@@ -24,5 +30,7 @@
 @property (strong,nonatomic)NSMutableArray *resultMainArray;
 @property (strong,nonatomic)NSMutableArray *resultTrendArray;
 @property (strong,nonatomic)NSMutableArray *resultTimeArray;
+
+@property (weak,nonatomic)id<TestListDelegate> testListDelegate;
 
 @end

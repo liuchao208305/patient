@@ -19,4 +19,6 @@
 @property (strong,nonatomic)UIView *resultLineView;
 @property (strong,nonatomic)UILabel *resultLabel4;
 
+@property (strong,nonatomic)UILabel *resultLabelFix;
+
 @end

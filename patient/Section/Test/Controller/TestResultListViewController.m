@@ -132,7 +132,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+//    return 150;
+    return 45;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -140,7 +141,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10;
+//    return 10;
+    return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -151,22 +153,31 @@
         cell = [[TestResultListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
     
-    cell.patientId = self.resultPatientIdArray[indexPath.section];
-    cell.resultId = self.resultIdArray[indexPath.section];
-    [cell.resultImageView sd_setImageWithURL:[NSURL URLWithString:self.resultPatientImageArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-    cell.resultLabel1.text = @"你的体质是";
-    cell.resultLabel2.text = self.resultMainArray[indexPath.section];
-    cell.resultLabel3.text = self.resultTrendArray[indexPath.section];
-    cell.resultLabel4.text = self.resultTimeArray[indexPath.section];
+//    cell.patientId = self.resultPatientIdArray[indexPath.section];
+//    cell.resultId = self.resultIdArray[indexPath.section];
+//    [cell.resultImageView sd_setImageWithURL:[NSURL URLWithString:self.resultPatientImageArray[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//    cell.resultLabel1.text = @"你的体质是";
+//    cell.resultLabel2.text = self.resultMainArray[indexPath.section];
+//    cell.resultLabel3.text = self.resultTrendArray[indexPath.section];
+//    cell.resultLabel4.text = self.resultTimeArray[indexPath.section];
+    
+//    cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@, 偏向  %@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
+    cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@, 偏向  %@",self.resultTimeArray[indexPath.section],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
-    detailVC.resultId = self.resultIdArray[indexPath.section];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if ([self.sourceVC isEqualToString:@"QuestionInquiryViewController"]) {
+        if (self.testListDelegate && [self.testListDelegate respondsToSelector:@selector(testListChoosed:type:)]) {
+            [self.testListDelegate testListChoosed:self.resultTimeArray[indexPath.section] type:@"体质测试"];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
+        detailVC.resultId = self.resultIdArray[indexPath.section];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
