@@ -21,6 +21,6 @@
 @property (strong,nonatomic)UILabel *jiazushiLabel2;
 @property (strong,nonatomic)UILabel *inquiryLabel1;
 @property (strong,nonatomic)UILabel *inquiryLabel2;
-@property (strong,nonatomic)UIButton *inquiryButton;
+@property (strong,nonatomic)UIButton *inquiryDeleteButton;
 
 @end

@@ -69,8 +69,8 @@
     self.inquiryLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.inquiryLabel2];
     
-    self.inquiryButton = [[UIButton alloc] init];
-    [self.contentView addSubview:self.inquiryButton];
+    self.inquiryDeleteButton = [[UIButton alloc] init];
+    [self.contentView addSubview:self.inquiryDeleteButton];
     
     [self.inquiryImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
@@ -95,7 +95,7 @@
     }];
     
     [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.inquiryButton.mas_leading).offset(-10);
+        make.trailing.equalTo(self.inquiryDeleteButton.mas_leading).offset(-10);
         make.top.equalTo(self.contentView).offset(0);
     }];
     
@@ -115,14 +115,14 @@
     }];
     
     [self.jiazushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.inquiryButton.mas_leading).offset(-10);
+        make.trailing.equalTo(self.inquiryDeleteButton.mas_leading).offset(-10);
         make.bottom.equalTo(self.contentView).offset(0);
     }];
     
     [self.inquiryLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.inquiryImageView.mas_trailing).offset(13);
         make.centerY.equalTo(self.inquiryImageView).offset(0);
-        make.trailing.equalTo(self.inquiryButton.mas_leading).offset(-13);
+        make.trailing.equalTo(self.inquiryDeleteButton.mas_leading).offset(-13);
     }];
     
     [self.inquiryLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -131,7 +131,7 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
     
-    [self.inquiryButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.inquiryDeleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-12);
         make.centerY.equalTo(self.inquiryImageView).offset(0);
         make.width.mas_equalTo(22);
