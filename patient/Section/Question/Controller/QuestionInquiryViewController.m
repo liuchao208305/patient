@@ -123,8 +123,13 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    self.inquiryTimeArray = [NSMutableArray array];
-    self.inquiryTypeArray = [NSMutableArray array];
+//    self.inquiryHeathTimeArray = [NSMutableArray arrayWithObjects:@"", nil];
+//    self.inquiryHealthTypeArray = [NSMutableArray arrayWithObjects:@"", nil];
+    self.inquiryHeathTimeArray = [NSMutableArray array];
+    self.inquiryHealthTypeArray = [NSMutableArray array];
+    
+    self.inquiryTestTimeArray = [NSMutableArray array];
+    self.inquiryTestTypeArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -253,7 +258,7 @@
         make.width.mas_equalTo(60);
     }];
     
-    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 35) style:UITableViewStylePlain];
+    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 35*3) style:UITableViewStylePlain];
     self.inquiryTableView.delegate = self;
     self.inquiryTableView.dataSource = self;
     self.inquiryTableView.showsVerticalScrollIndicator = NO;
@@ -495,8 +500,13 @@
 
 #pragma mark HealthListDelegate
 -(void)healthListChoosed:(NSString *)time type:(NSString *)type{
-    [self.inquiryTimeArray addObject:time];
-    [self.inquiryTypeArray addObject:type];
+    if (self.inquiryHeathTimeArray.count > 0) {
+        [self.inquiryHeathTimeArray replaceObjectAtIndex:0 withObject:time];
+        [self.inquiryHealthTypeArray replaceObjectAtIndex:0 withObject:type];
+    }else{
+        [self.inquiryHeathTimeArray addObject:time];
+        [self.inquiryHealthTypeArray addObject:type];
+    }
     
     [self.inquiryTableView reloadData];
 }
@@ -513,7 +523,7 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1 + self.inquiryTimeArray.count;
+    return 1 + self.inquiryHeathTimeArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -540,11 +550,11 @@
         cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
     }else if (indexPath.row == 1){
 //        cell.inquiryLabel1.text = @"2016-05-21 体质测试结果";
-        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTimeArray[0],self.inquiryTypeArray[0]];
+        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHeathTimeArray[0],self.inquiryHealthTypeArray[0]];
         cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
     }else if (indexPath.row == 2){
 //        cell.inquiryLabel1.text = @"2016-05-21 健康自查结果";
-        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@体质测试结果",self.inquiryTimeArray[1],self.inquiryTypeArray[1]];
+//        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTimeArray[1],self.inquiryTypeArray[1]];
         cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
     }
     
