@@ -950,6 +950,8 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:self.expertId forKey:@"doctor_id"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:@"1" forKey:@"type"];
     
     DLog(@"parameter-->%@",parameter);
     
