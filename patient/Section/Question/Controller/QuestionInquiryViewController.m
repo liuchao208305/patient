@@ -72,6 +72,9 @@
 @property (strong,nonatomic)NSString *sign;
 @property (nonatomic, assign)UInt32 timeStamp;
 
+@property (assign,nonatomic)BOOL healthAddFlag;
+@property (assign,nonatomic)BOOL testAddFlag;
+
 @end
 
 @implementation QuestionInquiryViewController
@@ -374,7 +377,7 @@
     [self.inquiryBackView addSubview:self.healthLabel1];
     
     self.healthLabel2 = [[UILabel alloc] init];
-    self.healthLabel2.font = [UIFont systemFontOfSize:14];
+    self.healthLabel2.font = [UIFont systemFontOfSize:12];
     self.healthLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.inquiryBackView addSubview:self.healthLabel2];
     
@@ -624,10 +627,24 @@
 
 -(void)healthButtonClicked{
     DLog(@"healthButtonClicked");
+    
+    self.healthAddFlag = NO;
+    
+    self.healthImageView.hidden = YES;
+    self.healthLabel1.hidden = YES;
+    self.healthLabel2.hidden = YES;
+    self.healthButton.hidden = YES;
 }
 
 -(void)testButtonClicked{
     DLog(@"testButtonClicked");
+    
+    self.testAddFlag = NO;
+    
+    self.testImageView.hidden = YES;
+    self.testLabel1.hidden = YES;
+    self.testLabel2.hidden = YES;
+    self.testButton.hidden = YES;
 }
 
 -(void)addButtonClicked{
@@ -744,6 +761,16 @@
 //    }
     
 //    [self.inquiryTableView reloadData];
+    
+    self.healthAddFlag = YES;
+    
+    self.healthImageView.hidden = NO;
+    self.healthLabel1.hidden = NO;
+    self.healthLabel2.hidden = NO;
+    self.healthButton.hidden = NO;
+    
+    self.healthLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
+    self.healthLabel2.text = @"（公开提问其他人不可见）";
 }
 
 #pragma mark TestListDelegate
@@ -757,6 +784,16 @@
 //    }
     
 //    [self.inquiryTableView reloadData];
+    
+    self.testAddFlag = YES;
+    
+    self.testImageView.hidden = NO;
+    self.testLabel1.hidden = NO;
+    self.testLabel2.hidden = NO;
+    self.testButton.hidden = NO;
+    
+    self.testLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
+    self.testLabel2.text = @"（公开提问其他人不可见）";
 }
 
 #pragma mark UITextViewDelegate
@@ -1062,6 +1099,20 @@
         
         self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
         self.diseaseLabel2.text = @"（公开提问其他人不可见）";
+    }
+    
+    if (self.healthAddFlag == NO) {
+        self.healthImageView.hidden = YES;
+        self.healthLabel1.hidden = YES;
+        self.healthLabel2.hidden = YES;
+        self.healthButton.hidden = YES;
+    }
+    
+    if (self.testAddFlag == NO) {
+        self.testImageView.hidden = YES;
+        self.testLabel1.hidden = YES;
+        self.testLabel2.hidden = YES;
+        self.testButton.hidden = YES;
     }
     
     self.inquiryMoneyLabel1.text = @"该问题您计划使用多少钱进行提问";
