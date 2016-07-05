@@ -30,6 +30,16 @@
 @property (strong,nonatomic)UIButton *clinicTimeButton;
 
 @property (strong,nonatomic)UIView *patientBackView;
+@property (strong,nonatomic)UILabel *patientNameLabel;
+@property (strong,nonatomic)UITextField *patientNameTextField;
+@property (strong,nonatomic)UIButton *patientSexButton;
+@property (strong,nonatomic)UILabel *patientAgeLabel;
+@property (strong,nonatomic)UIView *patientLineView1;
+@property (strong,nonatomic)UILabel *patientIdLabel;
+@property (strong,nonatomic)UITextField *patientIdTextField;
+@property (strong,nonatomic)UIView *patientLineView2;
+@property (strong,nonatomic)UILabel *patientPhoneLabel;
+@property (strong,nonatomic)UITextField *patientPhoneTextField;
 
 @property (strong,nonatomic)UIView *inquiryBackView;
 @property (strong,nonatomic)PlaceholderTextView * inquiryTextView;

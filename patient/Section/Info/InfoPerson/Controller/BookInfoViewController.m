@@ -13,10 +13,14 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "AdaptionUtil.h"
+#import "VerifyUtil.h"
+#import "DateUtil.h"
 #import "LoginViewController.h"
 #import "HealthDiseaseHistoryViewController.h"
 #import "HealthListDetailViewController.h"
 #import "TestResultListViewController.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
 @interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
 
@@ -39,6 +43,16 @@
 @property (assign,nonatomic)double consultation_money;
 @property (strong,nonatomic)NSString *doctor_descr;
 
+@property (strong,nonatomic)NSString *clinicAddress;
+@property (strong,nonatomic)NSString *clinicTime;
+
+@property (strong,nonatomic)NSString *patientId;
+@property (strong,nonatomic)NSString *patientName;
+@property (assign,nonatomic)int patientSex;
+@property (strong,nonatomic)NSString *patientAge;
+@property (strong,nonatomic)NSString *patientIdNo;
+@property (strong,nonatomic)NSString *patientPhone;
+
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 @property (strong,nonatomic)NSString *jiwangshi;
 @property (strong,nonatomic)NSString *shoushushi;
@@ -55,6 +69,23 @@
 
 @property (assign,nonatomic)BOOL healthAddFlag;
 @property (assign,nonatomic)BOOL testAddFlag;
+
+@property (strong,nonatomic)NSString *payType;
+
+@property (strong,nonatomic)NSString *paymentInfomation;
+
+@property (strong,nonatomic)NSString *alipayMomo;
+@property (strong,nonatomic)NSString *alipayResult;
+@property (strong,nonatomic)NSString *alipayResultStatus;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo;
+@property (strong,nonatomic)NSString *appid;
+@property (strong,nonatomic)NSString *noncestr;
+@property (strong,nonatomic)NSString *package;
+@property (strong,nonatomic)NSString *partnerid;
+@property (strong,nonatomic)NSString *prepayid;
+@property (strong,nonatomic)NSString *sign;
+@property (nonatomic, assign)UInt32 timeStamp;
 
 @end
 
@@ -270,7 +301,105 @@
 }
 
 -(void)initPatientSubView{
+    self.patientNameLabel = [[UILabel alloc] init];
+    self.patientNameLabel.font = [UIFont systemFontOfSize:14];
+    [self.patientBackView addSubview:self.patientNameLabel];
     
+    self.patientNameTextField = [[UITextField alloc] init];
+    self.patientNameTextField.font = [UIFont systemFontOfSize:14];
+    self.patientNameTextField.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView addSubview:self.patientNameTextField];
+    
+    self.patientSexButton = [[UIButton alloc] init];
+    [self.patientSexButton setFont:[UIFont systemFontOfSize:14]];
+    [self.patientSexButton setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];\
+    [self.patientSexButton addTarget:self action:@selector(patientSexButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.patientBackView addSubview:self.patientSexButton];
+    
+    self.patientAgeLabel = [[UILabel alloc] init];
+    self.patientAgeLabel.font = [UIFont systemFontOfSize:14];
+    self.patientAgeLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView addSubview:self.patientAgeLabel];
+    
+    self.patientLineView1 = [[UIView alloc] init];
+    self.patientLineView1.backgroundColor = kBACKGROUND_COLOR;
+    [self.patientBackView addSubview:self.patientLineView1];
+    
+    self.patientIdLabel = [[UILabel alloc] init];
+    self.patientIdLabel.font = [UIFont systemFontOfSize:14];
+    [self.patientBackView addSubview:self.patientIdLabel];
+    
+    self.patientIdTextField = [[UITextField alloc] init];
+    self.patientIdTextField.font = [UIFont systemFontOfSize:12];
+    self.patientIdTextField.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView addSubview:self.patientIdTextField];
+    
+    self.patientLineView2 = [[UIView alloc] init];
+    self.patientLineView2.backgroundColor = kBACKGROUND_COLOR;
+    [self.patientBackView addSubview:self.patientLineView2];
+    
+    self.patientPhoneLabel = [[UILabel alloc] init];
+    self.patientPhoneLabel.font = [UIFont systemFontOfSize:14];
+    [self.patientBackView addSubview:self.patientPhoneLabel];
+    
+    self.patientPhoneTextField = [[UITextField alloc] init];
+    self.patientPhoneTextField.font = [UIFont systemFontOfSize:12];
+    self.patientPhoneTextField.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView addSubview:self.patientPhoneTextField];
+    
+    [self.patientNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView).offset(12);
+        make.top.equalTo(self.patientBackView).offset(11);
+    }];
+    
+    [self.patientNameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientNameLabel.mas_trailing).offset(10);
+        make.centerY.equalTo(self.patientNameLabel).offset(0);
+    }];
+    
+    [self.patientSexButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientNameTextField.mas_trailing).offset(20);
+        make.centerY.equalTo(self.patientNameLabel).offset(0);
+    }];
+    
+    [self.patientAgeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientSexButton.mas_trailing).offset(10);
+        make.centerY.equalTo(self.patientNameLabel).offset(0);
+    }];
+    
+    [self.patientLineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView).offset(0);
+        make.trailing.equalTo(self.patientBackView).offset(0);
+        make.top.equalTo(self.patientNameLabel.mas_bottom).offset(11);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientIdLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView).offset(12);
+        make.top.equalTo(self.patientLineView1.mas_bottom).offset(11);
+    }];
+    
+    [self.patientIdTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientIdLabel.mas_trailing).offset(10);
+        make.centerY.equalTo(self.patientIdLabel).offset(0);
+    }];
+    
+    [self.patientLineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView).offset(0);
+        make.trailing.equalTo(self.patientBackView).offset(0);
+        make.top.equalTo(self.patientIdLabel.mas_bottom).offset(11);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientPhoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView).offset(12);
+        make.top.equalTo(self.patientLineView2.mas_bottom).offset(11);
+    }];
+    
+    [self.patientPhoneTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientPhoneLabel.mas_trailing).offset(10);
+        make.centerY.equalTo(self.patientPhoneLabel).offset(0);
+    }];
 }
 
 -(void)initInquirySubView{
@@ -521,7 +650,7 @@
     }];
     
     self.bookButton = [[UIButton alloc] init];
-    [self.bookButton setTitle:@"提问" forState:UIControlStateNormal];
+    [self.bookButton setTitle:@"预约" forState:UIControlStateNormal];
     [self.bookButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
     [self.bookButton setBackgroundColor:kMAIN_COLOR];
     [self.inquiryBackView addSubview:self.bookButton];
@@ -545,6 +674,10 @@
 
 #pragma mark Target Action
 - (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [self.patientNameTextField resignFirstResponder];
+    [self.patientIdTextField resignFirstResponder];
+    [self.patientPhoneTextField resignFirstResponder];
+    
     [self.inquiryTextView resignFirstResponder];
 }
 
@@ -554,6 +687,19 @@
 
 -(void)clinicTimeButtonClicked{
     DLog(@"clinicTimeButtonClicked");
+}
+
+-(void)patientSexButtonClicked{
+    DLog(@"patientSexButtonClicked");
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"男",@"女",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = 3;
+    [actionSheet showInView:self.view];
 }
 
 -(void)diseaseButtonClicked{
@@ -614,36 +760,66 @@
     if ([self.inquiryTextView.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
         [self.inquiryTextView becomeFirstResponder];
+    }else if (self.consultation_money > 0){
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:@"请选择支付方式"
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.tag = 2;
+        [actionSheet showInView:self.view];
     }else{
-        
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
     }
 }
 
 #pragma mark UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
-        DLog(@"既往史／手术史／过敏史／家族史");
-        HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
-        diseasHistoryVC.sourceVC = @"QuestionInquiryViewController";
-        diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
-        diseasHistoryVC.hunfou = self.hunfou;
-        diseasHistoryVC.erzi = self.erzi;
-        diseasHistoryVC.nver = self.nver;
-        [self.navigationController pushViewController:diseasHistoryVC animated:YES];
-    }else if (buttonIndex == 1){
-        DLog(@"健康自查");
-        HealthListDetailViewController *selfInspectionListVC = [[HealthListDetailViewController alloc] init];
-        selfInspectionListVC.sourceVC = @"QuestionInquiryViewController";
-        selfInspectionListVC.healthListDelegate = self;
-        [self.navigationController pushViewController:selfInspectionListVC animated:YES];
-    }else if (buttonIndex == 2){
-        DLog(@"体质测试");
-        TestResultListViewController *testListVC = [[TestResultListViewController alloc] init];
-        testListVC.sourceVC = @"QuestionInquiryViewController";
-        testListVC.testListDelegate = self;
-        [self.navigationController pushViewController:testListVC animated:YES];
-    }else if (buttonIndex == 3){
-        DLog(@"取消");
+    if (actionSheet.tag == 1) {
+        if (buttonIndex == 0){
+            DLog(@"既往史／手术史／过敏史／家族史");
+            HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+            diseasHistoryVC.sourceVC = @"QuestionInquiryViewController";
+            diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
+            diseasHistoryVC.hunfou = self.hunfou;
+            diseasHistoryVC.erzi = self.erzi;
+            diseasHistoryVC.nver = self.nver;
+            [self.navigationController pushViewController:diseasHistoryVC animated:YES];
+        }else if (buttonIndex == 1){
+            DLog(@"健康自查");
+            HealthListDetailViewController *selfInspectionListVC = [[HealthListDetailViewController alloc] init];
+            selfInspectionListVC.sourceVC = @"QuestionInquiryViewController";
+            selfInspectionListVC.healthListDelegate = self;
+            [self.navigationController pushViewController:selfInspectionListVC animated:YES];
+        }else if (buttonIndex == 2){
+            DLog(@"体质测试");
+            TestResultListViewController *testListVC = [[TestResultListViewController alloc] init];
+            testListVC.sourceVC = @"QuestionInquiryViewController";
+            testListVC.testListDelegate = self;
+            [self.navigationController pushViewController:testListVC animated:YES];
+        }else if (buttonIndex == 3){
+            DLog(@"取消");
+        }
+    }else if (actionSheet.tag == 2){
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.payType = @"1";
+            [self sendBookConfirmRequest];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.payType = @"2";
+            [self sendBookConfirmRequest];
+        }
+    }else if (actionSheet.tag == 3){
+        if (buttonIndex == 0){
+            self.patientSex = 1;
+            [self sendBookInfoDataFilling];
+        }else if (buttonIndex == 1){
+            self.patientSex = 2;
+            [self sendBookInfoDataFilling];
+        }
     }
 }
 
@@ -715,7 +891,7 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            [self sendQuesionInquiryDataParse];
+            [self sendBookInfoDataParse];
         }else{
             DLog(@"%@",self.message);
             [HudUtil showSimpleTextOnlyHUD:self.message withDelaySeconds:kHud_DelayTime];
@@ -737,8 +913,98 @@
     }];
 }
 
+-(void)sendBookConfirmRequest{
+    DLog(@"sendBookConfirmRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"a_user_id"];
+    [parameter setValue:self.inquiryTextView.text forKey:@"complain"];
+    [parameter setValue:self.payType forKey:@"pay_type"];
+    [parameter setValue:self.expertId forKey:@"min_doctor_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%.2f",self.consultation_money] forKey:@"money"];
+    
+    [parameter setValue:@"上午2016-06-29 10:00:00" forKey:@"bespoke_date"];
+    [parameter setValue:@"测试" forKey:@"org_name"];
+    
+    [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
+    [parameter setValue:self.patientIdTextField.text forKey:@"ID_no"];
+    [parameter setValue:self.patientAgeLabel.text forKey:@"age"];
+    [parameter setValue:self.patientNameTextField.text forKey:@"name"];
+    [parameter setValue:[NSString stringWithFormat:@"%d",self.patientSex] forKey:@"sex"];
+    
+    [parameter setValue:@"1" forKey:@"qenclosures[0].type"];
+    [parameter setValue:self.jiwangshi forKey:@"qenclosures[0].a_history"];
+    [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
+    [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
+    [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].obj_id"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].jiankang"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].enclosure"];
+    
+    [parameter setValue:@"2" forKey:@"qenclosures[1].type"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].a_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].b_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].c_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].d_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].obj_id"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].jiankang"];
+    [parameter setValue:self.testResult forKey:@"qenclosures[1].enclosure"];
+    
+    [parameter setValue:@"3" forKey:@"qenclosures[2].type"];
+    [parameter setValue:self.jiwangshi forKey:@"qenclosures[2].a_history"];
+    [parameter setValue:self.shoushushi forKey:@"qenclosures[2].b_history"];
+    [parameter setValue:self.guomingshi forKey:@"qenclosures[2].c_history"];
+    [parameter setValue:self.jiazushi forKey:@"qenclosures[2].d_history"];
+    [parameter setValue:self.healthId forKey:@"qenclosures[2].obj_id"];
+    [parameter setValue:self.healthResult forKey:@"qenclosures[2].jiankang"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].enclosure"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_BOOK_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            if ([self.payType isEqualToString:@"1"]) {
+                [self paymentInfoAliPayDataParse];
+            }else if ([self.payType isEqualToString:@"2"]){
+                [self paymentInfoWechatPayDataParse];
+            }
+        }else{
+            DLog(@"%@",self.message2);
+            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
--(void)sendQuesionInquiryDataParse{
+-(void)sendBookInfoDataParse{
     self.doctor_id = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_id"]];
     self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"heand_url"]];
     self.doctor_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_name"]];
@@ -752,9 +1018,78 @@
         self.shoushushi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"b_history"]];
         self.guomingshi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"c_history"]];
         self.jiazushi = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"d_history"]];
+        
+        self.patientId = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"user_id"]];
+        self.patientName = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"real_name"]];
+        self.patientSex = [[[self.data objectForKey:@"userInfo"] objectForKey:@"user_sex"] intValue];
+        self.patientIdNo = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"ID_number"]];
+        self.patientPhone = [NullUtil judgeStringNull:[[self.data objectForKey:@"userInfo"] objectForKey:@"phone"]];
     }
     
     [self sendBookInfoDataFilling];
+}
+
+-(void)paymentInfoAliPayDataParse{
+    self.paymentInfomation = [self.data2 objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo = [resultDic objectForKey:@"memo"];
+        self.alipayResult = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+        }else if ([self.alipayResultStatus integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+    }];
+}
+
+-(void)paymentInfoWechatPayDataParse{
+    self.payinfo = [self.data2 objectForKey:@"payinfo"];
+    self.appid = [self.payinfo objectForKey:@"appid"];
+    self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+    self.package = [self.payinfo objectForKey:@"package"];
+    self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+    self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+    self.sign = [self.payinfo objectForKey:@"sign"];
+    self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
+    
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid;
+    req.partnerId           = self.partnerid;
+    req.prepayId            = self.prepayid;
+    req.nonceStr            = self.noncestr;
+    req.timeStamp           = self.timeStamp;
+    req.package             = self.package;
+    req.sign                = self.sign;
+    [WXApi sendReq:req];
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+    
+    switch (resp.errCode) {
+        case WXSuccess:
+            strMsg = @"支付结果：成功！";
+            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+            break;
+            
+        default:
+            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+            break;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 #pragma mark Data Filling
@@ -764,6 +1099,19 @@
     self.expertTitleLabel.text = self.titleName;
     self.expertMoneyLabel.text = [NSString stringWithFormat:@"¥%.2f元",self.consultation_money];
     self.expertIntroductionLabel.text = self.doctor_descr;
+    
+    self.patientNameLabel.text = @"姓名：";
+    self.patientNameTextField.text = self.patientName;
+    if (self.patientSex == 1) {
+        [self.patientSexButton setTitle:@"男" forState:UIControlStateNormal];
+    }else if (self.patientSex == 2){
+        [self.patientSexButton setTitle:@"女 " forState:UIControlStateNormal];
+    }
+    self.patientIdLabel.text = @"身份证号：";
+    self.patientIdTextField.text = self.patientIdNo;
+    [self calculateAgeAccordingIdNo:self.patientIdTextField.text];
+    self.patientPhoneLabel.text = @"电话号码：";
+    self.patientPhoneTextField.text = self.patientPhone;
     
     if (![[self.data objectForKey:@"userInfo"] isKindOfClass:[NSNull class]]) {
         self.diseaseLabel1.hidden = YES;
@@ -815,6 +1163,46 @@
         self.testLabel1.hidden = YES;
         self.testLabel2.hidden = YES;
         self.testButton.hidden = YES;
+    }
+}
+
+-(void)calculateAgeAccordingIdNo:(NSString *)idNo{
+    int birthYear = 0;
+    int birthMonth = 0;
+    int birthDay = 0;
+    if ([VerifyUtil iDCardNumberCheck:idNo]){
+        if ([idNo length] == 15) {
+            birthYear = [[idNo substringWithRange:NSMakeRange(6, 2)] intValue] +1900;
+            birthMonth = [[idNo substringWithRange:NSMakeRange(8, 2)] intValue];
+            birthDay = [[idNo substringWithRange:NSMakeRange(10, 2)] intValue];
+        }else if ([idNo length] == 18){
+            birthYear = [[idNo substringWithRange:NSMakeRange(6, 4)] intValue];
+            birthMonth = [[idNo substringWithRange:NSMakeRange(10, 2)] intValue];
+            birthDay = [[idNo substringWithRange:NSMakeRange(12, 2)] intValue];
+        }
+        
+        int currentYear = [[DateUtil getCurrentYear] intValue];
+        int currentMonth = [[DateUtil getCurrentMonth] intValue];
+        int currentDay = [[DateUtil getCurrentDay] intValue];
+        
+        int age = 0;
+        if (currentMonth > birthMonth) {
+            age = currentYear - birthYear;
+        }else if(currentMonth < birthMonth){
+            age = currentYear - birthYear - 1;
+        }else if (currentMonth == birthMonth){
+            if (currentDay > birthDay) {
+                age = currentYear - birthYear;
+            }else if (currentDay < birthDay){
+                age = currentYear - birthYear - 1;
+            }else if (currentDay == birthDay){
+                age = currentYear - birthYear;
+            }
+        }
+        
+        self.patientAgeLabel.text = [NSString stringWithFormat:@"%d岁",age];
+    }else{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
     }
 }
 
