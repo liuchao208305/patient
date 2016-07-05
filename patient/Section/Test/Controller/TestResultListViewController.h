@@ -10,7 +10,7 @@
 
 @protocol TestListDelegate <NSObject>
 
--(void)testListChoosed:(NSString *)time type:(NSString *)type;
+-(void)testListChoosed:(NSString *)tid time:(NSString *)time type:(NSString *)type;
 
 @end
 

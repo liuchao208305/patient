@@ -169,8 +169,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.sourceVC isEqualToString:@"QuestionInquiryViewController"]) {
-        if (self.testListDelegate && [self.testListDelegate respondsToSelector:@selector(testListChoosed:type:)]) {
-            [self.testListDelegate testListChoosed:self.resultTimeArray[indexPath.section] type:@"体质测试"];
+        if (self.testListDelegate && [self.testListDelegate respondsToSelector:@selector(testListChoosed:time:type:)]) {
+            [self.testListDelegate testListChoosed:self.resultIdArray[indexPath.section] time:self.resultTimeArray[indexPath.section] type:@"体质测试"];
         }
         [self.navigationController popViewControllerAnimated:YES];
     }else{

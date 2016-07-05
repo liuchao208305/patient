@@ -51,7 +51,9 @@
 @property (assign,nonatomic)int erzi;
 @property (assign,nonatomic)int nver;
 
+@property (strong,nonatomic)NSString *healthId;
 @property (strong,nonatomic)NSString *healthResult;
+@property (strong,nonatomic)NSString *testId;
 @property (strong,nonatomic)NSString *testResult;
 
 @property (assign,nonatomic)double avgMoney;
@@ -779,7 +781,7 @@
 }
 
 #pragma mark HealthListDelegate
--(void)healthListChoosed:(NSString *)time type:(NSString *)type{
+-(void)healthListChoosed:(NSString *)hid time:(NSString *)time type:(NSString *)type{
 //    if (self.inquiryHealthTimeArray.count > 0) {
 //        [self.inquiryHealthTimeArray replaceObjectAtIndex:0 withObject:time];
 //        [self.inquiryHealthTypeArray replaceObjectAtIndex:0 withObject:type];
@@ -800,11 +802,12 @@
     self.healthLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
     self.healthLabel2.text = @"（公开提问其他人不可见）";
     
+    self.healthId = hid;
     self.healthResult = self.healthLabel1.text;
 }
 
 #pragma mark TestListDelegate
--(void)testListChoosed:(NSString *)time type:(NSString *)type{
+-(void)testListChoosed:(NSString *)tid time:(NSString *)time type:(NSString *)type{
 //    if (self.inquiryTestTimeArray.count > 0) {
 //        [self.inquiryTestTimeArray replaceObjectAtIndex:0 withObject:time];
 //        [self.inquiryTestTypeArray replaceObjectAtIndex:0 withObject:type];
@@ -825,6 +828,7 @@
     self.testLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
     self.testLabel2.text = @"（公开提问其他人不可见）";
     
+    self.testId = tid;
     self.testResult = self.testLabel1.text;
 }
 
@@ -957,6 +961,7 @@
     [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
     [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
     [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
+    [parameter setValue:self.healthId forKey:@"qenclosures[0].obj_id"];
     [parameter setValue:self.healthResult forKey:@"qenclosures[0].jiankang"];
     [parameter setValue:self.testResult forKey:@"qenclosures[0].enclosure"];
     

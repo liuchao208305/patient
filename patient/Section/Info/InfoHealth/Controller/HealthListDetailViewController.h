@@ -11,7 +11,7 @@
 
 @protocol HealthListDelegate <NSObject>
 
--(void)healthListChoosed:(NSString *)time type:(NSString *)type;
+-(void)healthListChoosed:(NSString *)hid time:(NSString *)time type:(NSString *)type;
 
 @end
 
