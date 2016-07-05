@@ -51,6 +51,9 @@
 @property (assign,nonatomic)int erzi;
 @property (assign,nonatomic)int nver;
 
+@property (strong,nonatomic)NSString *healthResult;
+@property (strong,nonatomic)NSString *testResult;
+
 @property (assign,nonatomic)double avgMoney;
 
 @property (strong,nonatomic)NSString *rebatePay;
@@ -718,6 +721,7 @@
                                           destructiveButtonTitle:nil
                                           otherButtonTitles:@"支付宝支付", @"微信支付",nil];
             actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+            actionSheet.tag = 3;
             [actionSheet showInView:self.view];
         }
     }
@@ -760,6 +764,16 @@
             self.payType = @"2";
             [self sendQuesionConfirmRequest];
         }
+    }else if (actionSheet.tag == 3){
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.payType = @"1";
+            [self sendQuesionConfirmRequest];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.payType = @"2";
+            [self sendQuesionConfirmRequest];
+        }
     }
     
 }
@@ -785,6 +799,8 @@
     
     self.healthLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
     self.healthLabel2.text = @"（公开提问其他人不可见）";
+    
+    self.healthResult = self.healthLabel1.text;
 }
 
 #pragma mark TestListDelegate
@@ -808,6 +824,8 @@
     
     self.testLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
     self.testLabel2.text = @"（公开提问其他人不可见）";
+    
+    self.testResult = self.testLabel1.text;
 }
 
 #pragma mark UITextViewDelegate
@@ -934,6 +952,13 @@
     }else{
         [parameter setValue:@"2" forKey:@"is_public"];
     }
+    
+    [parameter setValue:self.jiwangshi forKey:@"qenclosures[0].a_history"];
+    [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
+    [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
+    [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
+    [parameter setValue:self.healthResult forKey:@"qenclosures[0].jiankang"];
+    [parameter setValue:self.testResult forKey:@"qenclosures[0].enclosure"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_CONFIRM_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
