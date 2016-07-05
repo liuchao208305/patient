@@ -26,7 +26,27 @@
 @property (strong,nonatomic)UIView *inquiryBackView;
 @property (strong,nonatomic)PlaceholderTextView * inquiryTextView;
 @property (strong,nonatomic)UILabel *inquiryCountLabel;
-@property (strong,nonatomic)UITableView *inquiryTableView;
+//@property (strong,nonatomic)UITableView *inquiryTableView;
+@property (strong,nonatomic)UIImageView *diseaseImageView;
+@property (strong,nonatomic)UILabel *jiwangshiLabel1;
+@property (strong,nonatomic)UILabel *jiwangshiLabel2;
+@property (strong,nonatomic)UILabel *shoushushiLabel1;
+@property (strong,nonatomic)UILabel *shoushushiLabel2;
+@property (strong,nonatomic)UILabel *guomingshiLabel1;
+@property (strong,nonatomic)UILabel *guomingshiLabel2;
+@property (strong,nonatomic)UILabel *jiazushiLabel1;
+@property (strong,nonatomic)UILabel *jiazushiLabel2;
+@property (strong,nonatomic)UILabel *diseaseLabel1;
+@property (strong,nonatomic)UILabel *diseaseLabel2;
+@property (strong,nonatomic)UIButton *diseaseButton;
+@property (strong,nonatomic)UIImageView *healthImageView;
+@property (strong,nonatomic)UILabel *healthLabel1;
+@property (strong,nonatomic)UILabel *healthLabel2;
+@property (strong,nonatomic)UIButton *healthButton;
+@property (strong,nonatomic)UIImageView *testImageView;
+@property (strong,nonatomic)UILabel *testLabel1;
+@property (strong,nonatomic)UILabel *testLabel2;
+@property (strong,nonatomic)UIButton *testButton;
 @property (strong,nonatomic)UIButton *inquiryAddButton;
 
 @property (strong,nonatomic)UILabel *inquiryMoneyLabel1;

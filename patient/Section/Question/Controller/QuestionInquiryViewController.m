@@ -262,19 +262,224 @@
         make.width.mas_equalTo(60);
     }];
     
-    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 35*3) style:UITableViewStylePlain];
-    self.inquiryTableView.delegate = self;
-    self.inquiryTableView.dataSource = self;
-    self.inquiryTableView.showsVerticalScrollIndicator = NO;
-    self.inquiryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.inquiryBackView addSubview:self.inquiryTableView];
+//    self.inquiryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 13+165+15, SCREEN_WIDTH, 35*3) style:UITableViewStylePlain];
+//    self.inquiryTableView.delegate = self;
+//    self.inquiryTableView.dataSource = self;
+//    self.inquiryTableView.showsVerticalScrollIndicator = NO;
+//    self.inquiryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.inquiryBackView addSubview:self.inquiryTableView];
+    
+    self.diseaseImageView = [[UIImageView alloc] init];
+    [self.diseaseImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
+    [self.inquiryBackView addSubview:self.diseaseImageView];
+    
+    self.diseaseLabel1 = [[UILabel alloc] init];
+    self.diseaseLabel1.font = [UIFont systemFontOfSize:14];
+    self.diseaseLabel1.textColor = ColorWithHexRGB(0x646464);
+    [self.inquiryBackView addSubview:self.diseaseLabel1];
+    
+    self.diseaseLabel2 = [[UILabel alloc] init];
+    self.diseaseLabel2.font = [UIFont systemFontOfSize:12];
+    self.diseaseLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.diseaseLabel2];
+    
+    self.diseaseButton = [[UIButton alloc] init];
+    [self.diseaseButton setBackgroundImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
+    [self.diseaseButton addTarget:self action:@selector(diseaseButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.inquiryBackView addSubview:self.diseaseButton];
+    
+    self.jiwangshiLabel1 = [[UILabel alloc] init];
+    self.jiwangshiLabel1.font = [UIFont systemFontOfSize:14];
+    [self.inquiryBackView addSubview:self.jiwangshiLabel1];
+    
+    self.jiwangshiLabel2 = [[UILabel alloc] init];
+    self.jiwangshiLabel2.font = [UIFont systemFontOfSize:14];
+    self.jiwangshiLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.jiwangshiLabel2];
+    
+    self.shoushushiLabel1 = [[UILabel alloc] init];
+    self.shoushushiLabel1.font = [UIFont systemFontOfSize:14];
+    [self.inquiryBackView addSubview:self.shoushushiLabel1];
+    
+    self.shoushushiLabel2 = [[UILabel alloc] init];
+    self.shoushushiLabel2.font = [UIFont systemFontOfSize:14];
+    self.shoushushiLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.shoushushiLabel2];
+    
+    self.guomingshiLabel1 = [[UILabel alloc] init];
+    self.guomingshiLabel1.font = [UIFont systemFontOfSize:14];
+    [self.inquiryBackView addSubview:self.guomingshiLabel1];
+    
+    self.guomingshiLabel2 = [[UILabel alloc] init];
+    self.guomingshiLabel2.font = [UIFont systemFontOfSize:14];
+    self.guomingshiLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.guomingshiLabel2];
+    
+    self.jiazushiLabel1 = [[UILabel alloc] init];
+    self.jiazushiLabel1.font = [UIFont systemFontOfSize:14];
+    [self.inquiryBackView addSubview:self.jiazushiLabel1];
+    
+    self.jiazushiLabel2 = [[UILabel alloc] init];
+    self.jiazushiLabel2.font = [UIFont systemFontOfSize:14];
+    self.jiazushiLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.jiazushiLabel2];
+    
+    [self.jiwangshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(10);
+        make.centerY.equalTo(self.diseaseImageView).offset(-8);
+    }];
+    
+    [self.jiwangshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.jiwangshiLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+    }];
+    
+    [self.shoushushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
+        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+    }];
+    
+    [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
+        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+    }];
+    
+    [self.guomingshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(10);
+        make.centerY.equalTo(self.diseaseImageView).offset(8);
+    }];
+    
+    [self.guomingshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+    }];
+    
+    [self.jiazushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
+        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+    }];
+    
+    [self.jiazushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
+        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+    }];
+    
+    self.healthImageView = [[UIImageView alloc] init];
+    [self.healthImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
+    [self.inquiryBackView addSubview:self.healthImageView];
+    
+    self.healthLabel1 = [[UILabel alloc] init];
+    self.healthLabel1.font = [UIFont systemFontOfSize:14];
+    self.healthLabel1.textColor = ColorWithHexRGB(0x646464);
+    [self.inquiryBackView addSubview:self.healthLabel1];
+    
+    self.healthLabel2 = [[UILabel alloc] init];
+    self.healthLabel2.font = [UIFont systemFontOfSize:14];
+    self.healthLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.healthLabel2];
+    
+    self.healthButton = [[UIButton alloc] init];
+    [self.healthButton setBackgroundImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
+    [self.healthButton addTarget:self action:@selector(healthButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.inquiryBackView addSubview:self.healthButton];
+    
+    self.testImageView = [[UIImageView alloc] init];
+    [self.testImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
+    [self.inquiryBackView addSubview:self.testImageView];
+    
+    self.testLabel1 = [[UILabel alloc] init];
+    self.testLabel1.font = [UIFont systemFontOfSize:14];
+    self.testLabel1.textColor = ColorWithHexRGB(0x646464);
+    [self.inquiryBackView addSubview:self.testLabel1];
+    
+    self.testLabel2 = [[UILabel alloc] init];
+    self.testLabel2.font = [UIFont systemFontOfSize:12];
+    self.testLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.inquiryBackView addSubview:self.testLabel2];
+    
+    self.testButton = [[UIButton alloc] init];
+    [self.testButton setBackgroundImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
+    [self.testButton addTarget:self action:@selector(testButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.inquiryBackView addSubview:self.testButton];
+    
+    [self.diseaseImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.inquiryBackView).offset(12);
+        make.top.equalTo(self.inquiryTextView.mas_bottom).offset(17);
+        make.width.mas_equalTo(12);
+        make.height.mas_equalTo(16);
+    }];
+    
+    [self.diseaseLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(13);
+        make.centerY.equalTo(self.diseaseImageView).offset(0);
+    }];
+    
+    [self.diseaseLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diseaseLabel1).offset(0);
+        make.top.equalTo(self.diseaseLabel1.mas_bottom).offset(5);
+    }];
+    
+    [self.diseaseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.inquiryBackView).offset(-12);
+        make.centerY.equalTo(self.diseaseImageView).offset(0);
+        make.width.mas_equalTo(22);
+        make.height.mas_equalTo(22);
+    }];
+    
+    [self.healthImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.inquiryBackView).offset(12);
+        make.top.equalTo(self.diseaseLabel2.mas_bottom).offset(15);
+        make.width.mas_equalTo(12);
+        make.height.mas_equalTo(16);
+    }];
+    
+    [self.healthLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.healthImageView.mas_trailing).offset(13);
+        make.centerY.equalTo(self.healthImageView).offset(0);
+    }];
+    
+    [self.healthLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.healthLabel1).offset(0);
+        make.top.equalTo(self.healthLabel1.mas_bottom).offset(5);
+    }];
+    
+    [self.healthButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.inquiryBackView).offset(-12);
+        make.centerY.equalTo(self.healthImageView).offset(0);
+        make.width.mas_equalTo(22);
+        make.height.mas_equalTo(22);
+    }];
+    
+    [self.testImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.inquiryBackView).offset(12);
+        make.top.equalTo(self.healthLabel2.mas_bottom).offset(15);
+        make.width.mas_equalTo(12);
+        make.height.mas_equalTo(16);
+    }];
+    
+    [self.testLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.testImageView.mas_trailing).offset(13);
+        make.centerY.equalTo(self.testImageView).offset(0);
+    }];
+    
+    [self.testLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.testLabel1).offset(0);
+        make.top.equalTo(self.testLabel1.mas_bottom).offset(5);
+    }];
+    
+    [self.testButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.inquiryBackView).offset(-12);
+        make.centerY.equalTo(self.testImageView).offset(0);
+        make.width.mas_equalTo(22);
+        make.height.mas_equalTo(22);
+    }];
     
     self.inquiryAddButton = [[UIButton alloc] init];
     [self.inquiryAddButton setImage:[UIImage imageNamed:@"quesiton_inquiry_add_button"] forState:UIControlStateNormal];
     [self.inquiryBackView addSubview:self.inquiryAddButton];
     
     [self.inquiryAddButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.inquiryTableView.mas_bottom).offset(25);
+        make.top.equalTo(self.testLabel2.mas_bottom).offset(25);
         make.trailing.equalTo(self.inquiryBackView).offset(-12);
         make.width.mas_equalTo(22);
         make.height.mas_equalTo(22);
@@ -400,6 +605,31 @@
     [self.inquiryMoneyTextField resignFirstResponder];
 }
 
+-(void)diseaseButtonClicked{
+    DLog(@"diseaseButtonClicked");
+    self.jiwangshiLabel1.hidden = YES;
+    self.jiwangshiLabel2.hidden = YES;
+    self.shoushushiLabel1.hidden = YES;
+    self.shoushushiLabel2.hidden = YES;
+    self.guomingshiLabel1.hidden = YES;
+    self.guomingshiLabel2.hidden = YES;
+    self.jiazushiLabel1.hidden = YES;
+    self.jiazushiLabel2.hidden = YES;
+    
+    self.diseaseLabel1.hidden = NO;
+    self.diseaseLabel2.hidden = NO;
+    self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
+    self.diseaseLabel2.text = @"（公开提问其他人不可见）";
+}
+
+-(void)healthButtonClicked{
+    DLog(@"healthButtonClicked");
+}
+
+-(void)testButtonClicked{
+    DLog(@"testButtonClicked");
+}
+
 -(void)addButtonClicked{
     DLog(@"addButtonClicked");
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
@@ -505,28 +735,28 @@
 
 #pragma mark HealthListDelegate
 -(void)healthListChoosed:(NSString *)time type:(NSString *)type{
-    if (self.inquiryHealthTimeArray.count > 0) {
-        [self.inquiryHealthTimeArray replaceObjectAtIndex:0 withObject:time];
-        [self.inquiryHealthTypeArray replaceObjectAtIndex:0 withObject:type];
-    }else{
-        [self.inquiryHealthTimeArray addObject:time];
-        [self.inquiryHealthTypeArray addObject:type];
-    }
+//    if (self.inquiryHealthTimeArray.count > 0) {
+//        [self.inquiryHealthTimeArray replaceObjectAtIndex:0 withObject:time];
+//        [self.inquiryHealthTypeArray replaceObjectAtIndex:0 withObject:type];
+//    }else{
+//        [self.inquiryHealthTimeArray addObject:time];
+//        [self.inquiryHealthTypeArray addObject:type];
+//    }
     
-    [self.inquiryTableView reloadData];
+//    [self.inquiryTableView reloadData];
 }
 
 #pragma mark TestListDelegate
 -(void)testListChoosed:(NSString *)time type:(NSString *)type{
-    if (self.inquiryTestTimeArray.count > 0) {
-        [self.inquiryTestTimeArray replaceObjectAtIndex:0 withObject:time];
-        [self.inquiryTestTypeArray replaceObjectAtIndex:0 withObject:type];
-    }else{
-        [self.inquiryTestTimeArray addObject:time];
-        [self.inquiryTestTypeArray addObject:type];
-    }
+//    if (self.inquiryTestTimeArray.count > 0) {
+//        [self.inquiryTestTimeArray replaceObjectAtIndex:0 withObject:time];
+//        [self.inquiryTestTypeArray replaceObjectAtIndex:0 withObject:type];
+//    }else{
+//        [self.inquiryTestTimeArray addObject:time];
+//        [self.inquiryTestTypeArray addObject:type];
+//    }
     
-    [self.inquiryTableView reloadData];
+//    [self.inquiryTableView reloadData];
 }
 
 #pragma mark UITextViewDelegate
@@ -539,45 +769,45 @@
     }
 }
 
-#pragma mark UITableViewDelegate
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1 + self.inquiryHealthTimeArray.count + self.inquiryTestTimeArray.count;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 35;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"QuestionInquiryTableCell";
-    QuestionInquiryTableCell *cell = [self.inquiryTableView dequeueReusableCellWithIdentifier:cellName];
-    if (!cell) {
-        cell = [[QuestionInquiryTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-    }
-    
-    [cell.inquiryImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
-    
-    if (indexPath.row == 0) {
-        cell.jiwangshiLabel1.text = @"既往史：";
-        cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
-        cell.shoushushiLabel1.text = @"手术史：";
-        cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
-        cell.guomingshiLabel1.text = @"过敏史：";
-        cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
-        cell.jiazushiLabel1.text = @"家族史：";
-        cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
-    }else if (indexPath.row == 1){
-        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHealthTimeArray[0],self.inquiryHealthTypeArray[0]];
-        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
-    }else if (indexPath.row == 2){
-        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTestTimeArray[0],self.inquiryTestTypeArray[0]];
-        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
-    }
-
-    [cell.inquiryDeleteButton setImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
-    
-    return cell;
-}
+//#pragma mark UITableViewDelegate
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return 1 + self.inquiryHealthTimeArray.count + self.inquiryTestTimeArray.count;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 35;
+//}
+//
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    static NSString *cellName = @"QuestionInquiryTableCell";
+//    QuestionInquiryTableCell *cell = [self.inquiryTableView dequeueReusableCellWithIdentifier:cellName];
+//    if (!cell) {
+//        cell = [[QuestionInquiryTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//    }
+//    
+//    [cell.inquiryImageView setImage:[UIImage imageNamed:@"question_inquiry_title_image"]];
+//    
+//    if (indexPath.row == 0) {
+//        cell.jiwangshiLabel1.text = @"既往史：";
+//        cell.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+//        cell.shoushushiLabel1.text = @"手术史：";
+//        cell.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+//        cell.guomingshiLabel1.text = @"过敏史：";
+//        cell.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+//        cell.jiazushiLabel1.text = @"家族史：";
+//        cell.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+//    }else if (indexPath.row == 1){
+//        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryHealthTimeArray[0],self.inquiryHealthTypeArray[0]];
+//        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+//    }else if (indexPath.row == 2){
+//        cell.inquiryLabel1.text = [NSString stringWithFormat:@"%@ %@结果",self.inquiryTestTimeArray[0],self.inquiryTestTypeArray[0]];
+//        cell.inquiryLabel2.text = @"（公开提问其他人不可见）";
+//    }
+//
+//    [cell.inquiryDeleteButton setImage:[UIImage imageNamed:@"question_inquiry_close_button"] forState:UIControlStateNormal];
+//    
+//    return cell;
+//}
 
 #pragma mark Network Request
 -(void)sendQuesionInquiryRequest{
@@ -716,7 +946,7 @@
     
     self.rebatePay = [NullUtil judgeStringNull:[self.data objectForKey:@"rebatePay"]];
     
-    [self.inquiryTableView reloadData];
+//    [self.inquiryTableView reloadData];
     
     [self sendQuesionInquiryDataFilling];
 }
@@ -795,6 +1025,44 @@
     self.expertTitleLabel.text = self.titleName;
     self.expertMoneyLabel.text = [NSString stringWithFormat:@"¥%.2f元",self.consultation_money];
     self.expertIntroductionLabel.text = self.doctor_descr;
+    
+    if (![[self.data objectForKey:@"userHistor"] isKindOfClass:[NSNull class]]) {
+        self.diseaseLabel1.hidden = YES;
+        self.diseaseLabel2.hidden = YES;
+        
+        self.jiwangshiLabel1.hidden = NO;
+        self.jiwangshiLabel2.hidden = NO;
+        self.shoushushiLabel1.hidden = NO;
+        self.shoushushiLabel2.hidden = NO;
+        self.guomingshiLabel1.hidden = NO;
+        self.guomingshiLabel2.hidden = NO;
+        self.jiazushiLabel1.hidden = NO;
+        self.jiazushiLabel2.hidden = NO;
+        
+        self.jiwangshiLabel1.text = @"既往史：";
+        self.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+        self.shoushushiLabel1.text = @"手术史：";
+        self.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+        self.guomingshiLabel1.text = @"过敏史：";
+        self.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+        self.jiazushiLabel1.text = @"家族史：";
+        self.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+    }else{
+        self.jiwangshiLabel1.hidden = YES;
+        self.jiwangshiLabel2.hidden = YES;
+        self.shoushushiLabel1.hidden = YES;
+        self.shoushushiLabel2.hidden = YES;
+        self.guomingshiLabel1.hidden = YES;
+        self.guomingshiLabel2.hidden = YES;
+        self.jiazushiLabel1.hidden = YES;
+        self.jiazushiLabel2.hidden = YES;
+        
+        self.diseaseLabel1.hidden = NO;
+        self.diseaseLabel2.hidden = NO;
+        
+        self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
+        self.diseaseLabel2.text = @"（公开提问其他人不可见）";
+    }
     
     self.inquiryMoneyLabel1.text = @"该问题您计划使用多少钱进行提问";
     self.inquiryMoneyLabel2.text = [NSString stringWithFormat:@"其他用户平均使用%.2f元提问",self.avgMoney];
