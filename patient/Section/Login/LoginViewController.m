@@ -751,16 +751,19 @@
 #pragma mark Data Parse
 -(void)tencentLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)weixinLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)weiboLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"token"] forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
