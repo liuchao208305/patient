@@ -92,6 +92,8 @@ typedef enum {
 #define kJZK_QUESTION_FUFEITING_INFORMATION @"private/v2/clickAnswerPay?"//问题付费听接口
 #define kJZK_QUESTION_MIANFEITING_INFORMATION @"private/v2/clickAnswer?"//问题免费听接口
 
+#define kJZK_BOOK_INFORMATION @"private/v2/user/conu/toAdd?"//专家预约接口
+
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"private/v1/user/getUserMessagePage?"//消息列表信息
 #define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"private/v1/user/messageDatailByID?"//消息详情信息

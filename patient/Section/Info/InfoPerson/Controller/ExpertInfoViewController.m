@@ -27,6 +27,7 @@
 #import "AnalyticUtil.h"
 #import "ClinicInfoFixViewController.h"
 #import "QuestionInquiryViewController.h"
+#import "BookInfoViewController.h"
 
 @interface ExpertInfoViewController ()<FiterViewClickDelegate,UIActionSheetDelegate>
 
@@ -364,7 +365,6 @@
 -(void)inquiryViewClicked{
     DLog(@"inquiryViewClicked");
     QuestionInquiryViewController *inquiryVC = [[QuestionInquiryViewController alloc] init];
-    inquiryVC.hidesBottomBarWhenPushed = YES;
     inquiryVC.isForSpecialDoctor = YES;
     inquiryVC.expertId = self.expertId;
     [self.navigationController pushViewController:inquiryVC animated:YES];
@@ -372,6 +372,9 @@
 
 -(void)bookViewClicked{
     DLog(@"bookViewClicked");
+    BookInfoViewController *bookInfoVC = [[BookInfoViewController alloc] init];
+    bookInfoVC.expertId = self.expertId;
+    [self.navigationController pushViewController:bookInfoVC animated:YES];
 }
 
 -(void)stretchButtonClicked{
