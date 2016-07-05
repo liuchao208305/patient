@@ -956,14 +956,32 @@
     }else{
         [parameter setValue:@"2" forKey:@"is_public"];
     }
-    
+    [parameter setValue:@"1" forKey:@"qenclosures[0].type"];
     [parameter setValue:self.jiwangshi forKey:@"qenclosures[0].a_history"];
     [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
     [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
     [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
-    [parameter setValue:self.healthId forKey:@"qenclosures[0].obj_id"];
-    [parameter setValue:self.healthResult forKey:@"qenclosures[0].jiankang"];
-    [parameter setValue:self.testResult forKey:@"qenclosures[0].enclosure"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].obj_id"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].jiankang"];
+    [parameter setValue:@"" forKey:@"qenclosures[0].enclosure"];
+    
+    [parameter setValue:@"2" forKey:@"qenclosures[1].type"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].a_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].b_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].c_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].d_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].obj_id"];
+    [parameter setValue:@"" forKey:@"qenclosures[1].jiankang"];
+    [parameter setValue:self.testResult forKey:@"qenclosures[1].enclosure"];
+    
+    [parameter setValue:@"3" forKey:@"qenclosures[2].type"];
+    [parameter setValue:self.jiwangshi forKey:@"qenclosures[2].a_history"];
+    [parameter setValue:self.shoushushi forKey:@"qenclosures[2].b_history"];
+    [parameter setValue:self.guomingshi forKey:@"qenclosures[2].c_history"];
+    [parameter setValue:self.jiazushi forKey:@"qenclosures[2].d_history"];
+    [parameter setValue:self.healthId forKey:@"qenclosures[2].obj_id"];
+    [parameter setValue:self.healthResult forKey:@"qenclosures[2].jiankang"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].enclosure"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_CONFIRM_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         

@@ -523,7 +523,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendWeixinLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendWeixinLoginRequest:snsAccount.unionId name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }

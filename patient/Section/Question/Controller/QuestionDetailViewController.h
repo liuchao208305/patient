@@ -30,6 +30,7 @@
 @property (strong,nonatomic)UILabel *diseaseHistoryLabel4;
 @property (strong,nonatomic)UILabel *physiqueHistoryLabel;
 @property (strong,nonatomic)UILabel *healthHistoryLabel;
+@property (strong,nonatomic)UIButton *healthHistoryButton;
 /********************************************************/
 @property (strong,nonatomic)UIImageView *expertImageView1;
 @property (strong,nonatomic)UIImageView *expertSoundImageView;

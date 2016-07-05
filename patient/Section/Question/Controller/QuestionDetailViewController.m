@@ -18,6 +18,7 @@
 #import "LVRecordTool.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "HealthListDetailViewController.h"
 
 @interface QuestionDetailViewController ()<UIActionSheetDelegate>
 
@@ -49,6 +50,7 @@
 @property (strong,nonatomic)NSString *diseaseHistory3;
 @property (strong,nonatomic)NSString *diseaseHistory4;
 @property (strong,nonatomic)NSString *physiqueHistory;
+@property (strong,nonatomic)NSString *healthId;
 @property (strong,nonatomic)NSString *healthHistory;
 @property (strong,nonatomic)NSString *expertImage1;
 
@@ -249,6 +251,12 @@
         self.healthHistoryLabel.font = [UIFont systemFontOfSize:12];
         [self.questionBackView addSubview:self.healthHistoryLabel];
         
+        self.healthHistoryButton = [[UIButton alloc] init];
+        [self.healthHistoryButton setFont:[UIFont systemFontOfSize:13]];
+        [self.healthHistoryButton setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        [self.healthHistoryButton addTarget:self action:@selector(healthHistoryButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [self.questionBackView addSubview:self.healthHistoryButton];
+        
 //        [self.diseaseHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.leading.equalTo(self.questionBackView).offset(12);
 //            make.top.equalTo(self.questionContentLabel.mas_bottom).offset(20);
@@ -291,8 +299,14 @@
         
         [self.healthHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.questionBackView).offset(12);
-            make.trailing.equalTo(self.questionBackView).offset(-12);
             make.top.equalTo(self.physiqueHistoryLabel.mas_bottom).offset(9);
+        }];
+        
+        [self.healthHistoryButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.healthHistoryLabel.mas_trailing).offset(0);
+            make.centerY.equalTo(self.healthHistoryLabel).offset(0);
+            make.width.mas_equalTo(120);
+            make.height.mas_equalTo(15);
         }];
     }else{
         self.physiqueHistoryLabel = [[UILabel alloc] init];
@@ -571,6 +585,12 @@
     }
 }
 
+-(void)healthHistoryButtonClicked{
+    DLog(@"healthHistoryButtonClicked");
+    HealthListDetailViewController *healthListDetailVC = [[HealthListDetailViewController alloc] init];
+    [self.navigationController pushViewController:healthListDetailVC animated:YES];
+}
+
 #pragma mark UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -746,21 +766,38 @@
     self.questionMoney = [NullUtil judgeStringNull:[self.data objectForKey:@"money"]];
     self.questionContent = [NullUtil judgeStringNull:[self.data objectForKey:@"content"]];
     
-//    if ([[self.data objectForKey:@"enclosures"] count] > 0) {
+    if ([[self.data objectForKey:@"enclosures"] count] > 0) {
 //        self.diseaseHistory1 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"a_history"]];
 //        self.diseaseHistory2 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"b_history"]];
 //        self.diseaseHistory3 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"c_history"]];
 //        self.diseaseHistory4 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"d_history"]];
 //        self.physiqueHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"enclosure"]];
 //        self.healthHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"] objectForKey:@"jiankang"]];
-//    }else{
-//        self.diseaseHistory1 = @"";
-//        self.diseaseHistory2 = @"";
-//        self.diseaseHistory3 = @"";
-//        self.diseaseHistory4 = @"";
-//        self.physiqueHistory = @"";
-//        self.healthHistory = @"";
-//    }
+        for (int i = 0; i < [[self.data objectForKey:@"enclosures"] count]; i++) {
+            if ([[[self.data objectForKey:@"enclosures"][i] objectForKey:@"type"] intValue] == 1) {
+                DLog(@"疾病史-->%d",i);
+                self.diseaseHistory1 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"a_history"]];
+                self.diseaseHistory2 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"b_history"]];
+                self.diseaseHistory3 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"c_history"]];
+                self.diseaseHistory4 = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"d_history"]];
+
+            }else if ([[[self.data objectForKey:@"enclosures"][i] objectForKey:@"type"] intValue] == 2){
+                DLog(@"体质测试-->%d",i);
+                self.physiqueHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"enclosure"]];
+            }else if ([[[self.data objectForKey:@"enclosures"][i] objectForKey:@"type"] intValue] == 3){
+                DLog(@"健康自查-->%d",i);
+                self.healthId = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"obj_id"]];
+                self.healthHistory = [NullUtil judgeStringNull:[[self.data objectForKey:@"enclosures"][i] objectForKey:@"jiankang"]];
+            }
+        }
+    }else{
+        self.diseaseHistory1 = @"";
+        self.diseaseHistory2 = @"";
+        self.diseaseHistory3 = @"";
+        self.diseaseHistory4 = @"";
+        self.physiqueHistory = @"";
+        self.healthHistory = @"";
+    }
     
     self.expertImage1 = [NullUtil judgeStringNull:[self.data objectForKey:@"doctorHeandUrl"]];
     self.questionPayStatus = [self.data objectForKey:@"is_pay"];
@@ -889,6 +926,7 @@
         self.healthHistoryLabel.text = @"健康自查情况：暂无";
     }else{
         self.healthHistoryLabel.text = [NSString stringWithFormat:@"健康自查情况：%@",self.healthHistory];
+        [self.healthHistoryButton setTitle:@"（点击查看详情）" forState:UIControlStateNormal];
     }
     
     
