@@ -179,7 +179,8 @@
     if ([metadataObjects count] > 0){
         AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects objectAtIndex:0];
         NSString *string = metadataObject.stringValue;
-        DLog(@"%@",string);
+        DLog(@"string-->%@",string);
+        
         //此处根据结果做出相应处理
     }
     [self.session stopRunning];
