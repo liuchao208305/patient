@@ -54,6 +54,7 @@
 @property (strong,nonatomic)UILabel *inquiryMoneyLabel3_1;
 @property (strong,nonatomic)UITextField *inquiryMoneyTextField;
 @property (strong,nonatomic)UILabel *inquiryMoneyLabel3_2;
+@property (strong,nonatomic)UILabel *inquiryMoneyLabel3_3;
 
 @property (assign,nonatomic)BOOL publicFlag;
 @property (strong,nonatomic)UIButton *publicButton;

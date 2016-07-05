@@ -505,11 +505,14 @@
         
         self.inquiryMoneyLabel3_1 = [[UILabel alloc] init];
         self.inquiryMoneyLabel3_1.text = @"¥";
+        self.inquiryMoneyLabel3_1.textColor = ColorWithHexRGB(0xff9e3d);
         [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_1];
         
         self.inquiryMoneyTextField = [[UITextField alloc] init];
+        self.inquiryMoneyTextField.font = [UIFont systemFontOfSize:16];
+        self.inquiryMoneyTextField.textColor = ColorWithHexRGB(0xff9e3d);
         self.inquiryMoneyTextField.textAlignment = NSTextAlignmentCenter;
-        self.inquiryMoneyTextField.placeholder = @"_ _ _ _";
+        self.inquiryMoneyTextField.placeholder = @"______";
         [self.inquiryBackView addSubview:self.inquiryMoneyTextField];
         
         self.inquiryMoneyLabel3_2 = [[UILabel alloc] init];
@@ -517,6 +520,12 @@
         self.inquiryMoneyLabel3_2.font = [UIFont systemFontOfSize:12];
         self.inquiryMoneyLabel3_2.textColor = ColorWithHexRGB(0x909090);
         [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_2];
+        
+        self.inquiryMoneyLabel3_3 = [[UILabel alloc] init];
+        self.inquiryMoneyLabel3_3.font = [UIFont systemFontOfSize:12];
+        self.inquiryMoneyLabel3_3.text = @"（超过12小时未答，将按支付路径全款退还）";
+        self.inquiryMoneyLabel3_3.textColor = ColorWithHexRGB(0x909090);
+        [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_3];
         
         [self.inquiryMoneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.inquiryAddButton.mas_bottom).offset(25);
@@ -545,6 +554,11 @@
             make.leading.equalTo(self.inquiryMoneyTextField.mas_trailing).offset(10);
             make.centerY.equalTo(self.inquiryMoneyTextField).offset(0);
         }];
+        
+        [self.inquiryMoneyLabel3_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.inquiryBackView).offset(0);
+            make.top.equalTo(self.inquiryMoneyTextField.mas_bottom).offset(10);
+        }];
     }
     
     self.publicButton = [[UIButton alloc] init];
@@ -571,7 +585,7 @@
     }else{
         [self.publicButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.inquiryBackView).offset(12);
-            make.top.equalTo(self.inquiryMoneyTextField.mas_bottom).offset(25);
+            make.top.equalTo(self.inquiryMoneyLabel3_3.mas_bottom).offset(25);
             make.width.mas_equalTo(18);
             make.height.mas_equalTo(18);
         }];
@@ -1116,7 +1130,7 @@
     }
     
     self.inquiryMoneyLabel1.text = @"该问题您计划使用多少钱进行提问";
-    self.inquiryMoneyLabel2.text = [NSString stringWithFormat:@"其他用户平均使用%.2f元提问",self.avgMoney];
+    self.inquiryMoneyLabel2.text = [NSString stringWithFormat:@"（其他用户平均使用%.2f元提问）",self.avgMoney];
     
     self.publicFlag = NO;
     [self.publicButton setImage:[UIImage imageNamed:@"question_inquiry_unselected_button"] forState:UIControlStateNormal];
