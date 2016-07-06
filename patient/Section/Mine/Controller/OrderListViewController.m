@@ -754,10 +754,12 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:@"0" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -770,7 +772,7 @@
         self.data1 = [self.result1 objectForKey:@"data"];
         
         if (self.code1 == kSUCCESS) {
-            [self orderListDataParse1];
+//            [self orderListDataParse1];
         }else{
             DLog(@"%@",self.message1);
             if (self.code1 == kTOKENINVALID) {

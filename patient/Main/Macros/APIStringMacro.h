@@ -95,6 +95,9 @@ typedef enum {
 #define kJZK_BOOK_INFORMATION @"private/v2/user/conu/toAdd?"//专家预约查询接口
 #define kJZK_BOOK_CONFIRM @"private/v1/user/confReservation?"//专家预约提交接口
 
+#define kJZK_ORDER_INFORMATION_FIX @"private/v2/userCore/getUserConuPageByUserId?"//订单列表信息
+#define kJZK_ORDER_DETAIL_INFORMATION_FIX @"private/v2/userCore/getConuBasicByConIDv?"//订单详情
+
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"private/v1/user/getUserMessagePage?"//消息列表信息
 #define kJZK_MINE_MESSAGE_DETAIL_INFORMATION @"private/v1/user/messageDatailByID?"//消息详情信息
