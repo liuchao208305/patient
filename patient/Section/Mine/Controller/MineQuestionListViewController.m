@@ -160,6 +160,7 @@
     self.questionArrayAll = [NSMutableArray array];
     self.questionIdArrayAll = [NSMutableArray array];
     self.questionPayStatusArrayAll = [NSMutableArray array];
+    self.questionAnswerStatusArrayAll = [NSMutableArray array];
     self.questionPublicStatusArrayAll = [NSMutableArray array];
     self.questionContentArrayAll = [NSMutableArray array];
     self.questionAskTimeArrayAll = [NSMutableArray array];
@@ -173,6 +174,7 @@
     self.questionArrayUnpayed = [NSMutableArray array];
     self.questionIdArrayUnpayed = [NSMutableArray array];
     self.questionPayStatusArrayUnpayed = [NSMutableArray array];
+    self.questionAnswerStatusArrayUnPayed = [NSMutableArray array];
     self.questionPublicStatusArrayUnpayed = [NSMutableArray array];
     self.questionContentArrayUnpayed = [NSMutableArray array];
     self.questionAskTimeArrayUnpayed = [NSMutableArray array];
@@ -186,6 +188,7 @@
     self.questionArrayUnanswered = [NSMutableArray array];
     self.questionIdArrayUnanswered = [NSMutableArray array];
     self.questionPayStatusArrayUnanswered = [NSMutableArray array];
+    self.questionAnswerStatusArrayUnanswered = [NSMutableArray array];
     self.questionPublicStatusArrayUnanswered = [NSMutableArray array];
     self.questionContentArrayUnanswered = [NSMutableArray array];
     self.questionAskTimeArrayUnanswered = [NSMutableArray array];
@@ -199,6 +202,7 @@
     self.questionArrayAnswered = [NSMutableArray array];
     self.questionIdArrayAnswered = [NSMutableArray array];
     self.questionPayStatusArrayAnswered = [NSMutableArray array];
+    self.questionAnswerStatusArrayAnswered = [NSMutableArray array];
     self.questionPublicStatusArrayAnswered = [NSMutableArray array];
     self.questionContentArrayAnswered = [NSMutableArray array];
     self.questionAskTimeArrayAnswered = [NSMutableArray array];
@@ -212,6 +216,7 @@
     self.questionArrayPublic = [NSMutableArray array];
     self.questionIdArrayPublic = [NSMutableArray array];
     self.questionPayStatusArrayPublic = [NSMutableArray array];
+    self.questionAnswerStatusArrayPublic = [NSMutableArray array];
     self.questionPublicStatusArrayPublic = [NSMutableArray array];
     self.questionContentArrayPublic = [NSMutableArray array];
     self.questionAskTimeArrayPublic = [NSMutableArray array];

@@ -29,6 +29,7 @@
 @property (strong,nonatomic)NSMutableArray *questionArrayAll;
 @property (strong,nonatomic)NSMutableArray *questionIdArrayAll;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusArrayAll;
+@property (strong,nonatomic)NSMutableArray *questionAnswerStatusArrayAll;
 @property (strong,nonatomic)NSMutableArray *questionPublicStatusArrayAll;
 @property (strong,nonatomic)NSMutableArray *questionContentArrayAll;
 @property (strong,nonatomic)NSMutableArray *questionAskTimeArrayAll;
@@ -42,6 +43,7 @@
 @property (strong,nonatomic)NSMutableArray *questionArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *questionIdArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusArrayUnpayed;
+@property (strong,nonatomic)NSMutableArray *questionAnswerStatusArrayUnPayed;
 @property (strong,nonatomic)NSMutableArray *questionPublicStatusArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *questionContentArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *questionAskTimeArrayUnpayed;
@@ -55,6 +57,7 @@
 @property (strong,nonatomic)NSMutableArray *questionArrayUnanswered;
 @property (strong,nonatomic)NSMutableArray *questionIdArrayUnanswered;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusArrayUnanswered;
+@property (strong,nonatomic)NSMutableArray *questionAnswerStatusArrayUnanswered;
 @property (strong,nonatomic)NSMutableArray *questionPublicStatusArrayUnanswered;
 @property (strong,nonatomic)NSMutableArray *questionContentArrayUnanswered;
 @property (strong,nonatomic)NSMutableArray *questionAskTimeArrayUnanswered;
@@ -68,6 +71,7 @@
 @property (strong,nonatomic)NSMutableArray *questionArrayAnswered;
 @property (strong,nonatomic)NSMutableArray *questionIdArrayAnswered;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusArrayAnswered;
+@property (strong,nonatomic)NSMutableArray *questionAnswerStatusArrayAnswered;
 @property (strong,nonatomic)NSMutableArray *questionPublicStatusArrayAnswered;
 @property (strong,nonatomic)NSMutableArray *questionContentArrayAnswered;
 @property (strong,nonatomic)NSMutableArray *questionAskTimeArrayAnswered;
@@ -81,6 +85,7 @@
 @property (strong,nonatomic)NSMutableArray *questionArrayPublic;
 @property (strong,nonatomic)NSMutableArray *questionIdArrayPublic;
 @property (strong,nonatomic)NSMutableArray *questionPayStatusArrayPublic;
+@property (strong,nonatomic)NSMutableArray *questionAnswerStatusArrayPublic;
 @property (strong,nonatomic)NSMutableArray *questionPublicStatusArrayPublic;
 @property (strong,nonatomic)NSMutableArray *questionContentArrayPublic;
 @property (strong,nonatomic)NSMutableArray *questionAskTimeArrayPublic;
