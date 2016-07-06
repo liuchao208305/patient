@@ -9,6 +9,8 @@
 #import "ScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AnalyticUtil.h"
+#import "GTMBase64.h"
+#import "StringUtil.h"
 
 @interface ScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -180,6 +182,14 @@
         AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects objectAtIndex:0];
         NSString *string = metadataObject.stringValue;
         DLog(@"string-->%@",string);
+        NSString *decodedString = [GTMBase64 decodeBase64String:string];
+        DLog(@"decodedString-->%@",decodedString);
+        NSDictionary *dictionary = [StringUtil dictionaryWithJsonString:decodedString];
+        NSString *type = [dictionary objectForKey:@"key"];
+        NSString *expertId = [dictionary objectForKey:@"value"];
+        DLog(@"type-->%@",type);
+        DLog(@"expertId-->%@",expertId);
+        
         
         //此处根据结果做出相应处理
     }
