@@ -55,7 +55,7 @@ typedef enum {
 #define kJZK_SCHEDULE_INFORMATION @"public/v1/user/selDoctorPaiban?"//时间表信息
 
 #define kJZK_TREATMENT_INFORMATION @"private/v1/getConuTx?"//预约单信息
-#define kJZK_TREATMENT_CONFIRM_INFORMATION @"private/v1/user/confReservation?"//预约单确认
+//#define kJZK_TREATMENT_CONFIRM_INFORMATION @"private/v1/user/confReservation?"//预约单确认
 #define kJZK_TREATMENT_CANCEL_INFORMATION @"private/v1/user/exitConuBasic?"//预约单取消
 #define kJZK_TREATMENT_DETAIL_INFORMATION @"private/v1/user/getConuByOrder?"//预约单详情
 #define kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW @"private/v1/user/pay?"//预约单详情—立即支付

@@ -882,7 +882,7 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"%@%@",kServerAddress,kJZK_BOOK_INFORMATION);
         DLog(@"responseObject-->%@",responseObject);
         self.result = (NSMutableDictionary *)responseObject;
         
@@ -928,12 +928,12 @@
     [parameter setValue:self.expertId forKey:@"min_doctor_id"];
     [parameter setValue:[NSString stringWithFormat:@"%.2f",self.consultation_money] forKey:@"money"];
     
-    [parameter setValue:@"上午2016-06-29 10:00:00" forKey:@"bespoke_date"];
+    [parameter setValue:@"2016-06-29 10:00:00" forKey:@"bespoke_date"];
     [parameter setValue:@"测试" forKey:@"org_name"];
     
     [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
     [parameter setValue:self.patientIdTextField.text forKey:@"ID_no"];
-    [parameter setValue:self.patientAgeLabel.text forKey:@"age"];
+    [parameter setValue:@"58" forKey:@"age"];
     [parameter setValue:self.patientNameTextField.text forKey:@"name"];
     [parameter setValue:[NSString stringWithFormat:@"%d",self.patientSex] forKey:@"sex"];
     
@@ -964,11 +964,13 @@
     [parameter setValue:self.healthResult forKey:@"qenclosures[2].jiankang"];
     [parameter setValue:@"" forKey:@"qenclosures[2].enclosure"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_BOOK_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    DLog(@"%@%@",kServerAddressPay,kJZK_BOOK_CONFIRM);
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_BOOK_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_INFO_INFORMATION);
+        DLog(@"%@%@",kServerAddressPay,kJZK_BOOK_CONFIRM);
         DLog(@"responseObject-->%@",responseObject);
         self.result2 = (NSMutableDictionary *)responseObject;
         
