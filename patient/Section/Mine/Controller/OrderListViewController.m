@@ -493,12 +493,16 @@
         return self.orderArrayAll.count == 0 ? 0 : self.orderArrayAll.count;
     }else if (self.flag2){
 //        return self.orderArrayBooked.count == 0 ? 0 : self.orderArrayBooked.count;
+        return self.orderArrayUnpayed.count == 0 ? 0 : self.orderArrayUnpayed.count;
     }else if (self.flag3){
 //        return self.orderArrayProceeding.count == 0 ? 0 : self.orderArrayProceeding.count;
+        return self.orderArrayUntreated.count == 0 ? 0 : self.orderArrayUntreated.count;
     }else if (self.flag4){
 //        return self.orderArrayEvaluating.count == 0 ? 0 : self.orderArrayEvaluating.count;
+        return self.orderArrayTreated.count == 0 ? 0 : self.orderArrayTreated.count;
     }else if (self.flag5){
 //        return self.orderArrayCompleted.count == 0 ? 0 : self.orderArrayCompleted.count;
+        return self.orderArrayInvalid.count == 0 ? 0 : self.orderArrayInvalid.count;
     }
     return 0;
 }
@@ -526,12 +530,13 @@
 //        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
 //            return 135;
 //        }
+        return 150;
     }else if (self.flag3){
-        return 135;
+        return 110;
     }else if (self.flag4){
-        return 195;
+        return 110;
     }else if (self.flag5){
-        return 135;
+        return 110;
     }
     
     return 0;
@@ -660,6 +665,17 @@
 //            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayBooked[indexPath.section]];
 //        }
         
+        cell.createTimeLabel.text = self.orderCreatTimeArrayUnpayed[indexPath.section];
+        cell.statusLabel.text = @"待支付";
+        cell.statusLabel.textColor = [UIColor redColor];
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayUnpayed[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayUnpayed[indexPath.section]];
+        cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayUnpayed[indexPath.section]];
+        cell.clinicAddressLabel.text = [NSString stringWithFormat:@"接诊地点：%@",self.orderClinicAddressArrayUnpayed[indexPath.section]];
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.orderMoneyArrayUnpayed[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
+        
         
     }else if (self.flag3){
 //        cell.label1_1.text = self.orderPatientNameArrayProceeding[indexPath.section];
@@ -687,6 +703,18 @@
 //        }else{
 //            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayProceeding[indexPath.section]];
 //        }
+        
+        cell.createTimeLabel.text = self.orderCreatTimeArrayUntreated[indexPath.section];
+        cell.statusLabel.text = @"待就诊";
+        cell.statusLabel.textColor = [UIColor redColor];
+        cell.payButton.hidden = YES;
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayUntreated[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayUntreated[indexPath.section]];
+        cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayUntreated[indexPath.section]];
+        cell.clinicAddressLabel.text = [NSString stringWithFormat:@"接诊地点：%@",self.orderClinicAddressArrayUntreated[indexPath.section]];
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.orderMoneyArrayUntreated[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
     }else if (self.flag4){
 //        cell.label1_1.text = self.orderPatientNameArrayEvaluating[indexPath.section];
 //        cell.label1_2.text = self.orderBookTimeArrayEvaluating[indexPath.section];
@@ -712,6 +740,18 @@
 //        }else{
 //            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayEvaluating[indexPath.section]];
 //        }
+        
+        cell.createTimeLabel.text = self.orderCreatTimeArrayTreated[indexPath.section];
+        cell.statusLabel.text = @"已就诊";
+        cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+        cell.payButton.hidden = YES;
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayTreated[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayTreated[indexPath.section]];
+        cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayTreated[indexPath.section]];
+        cell.clinicAddressLabel.text = [NSString stringWithFormat:@"接诊地点：%@",self.orderClinicAddressArrayTreated[indexPath.section]];
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.orderMoneyArrayTreated[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
     }else if (self.flag5){
 //        cell.label1_1.text = self.orderPatientNameArrayCompleted[indexPath.section];
 //        cell.label1_2.text = self.orderBookTimeArrayCompleted[indexPath.section];
@@ -736,6 +776,18 @@
 //        }else{
 //            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayCompleted[indexPath.section]];
 //        }
+        
+        cell.createTimeLabel.text = self.orderCreatTimeArrayInvalid[indexPath.section];
+        cell.statusLabel.text = @"已取消";
+        cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+        cell.payButton.hidden = YES;
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayInvalid[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayInvalid[indexPath.section]];
+        cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayInvalid[indexPath.section]];
+        cell.clinicAddressLabel.text = [NSString stringWithFormat:@"接诊地点：%@",self.orderClinicAddressArrayInvalid[indexPath.section]];
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.orderMoneyArrayInvalid[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
     }
     
     return cell;
@@ -903,11 +955,12 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
     [parameter setValue:@"1" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -952,15 +1005,16 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
     [parameter setValue:@"2" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize3] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        DLog(@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION);
+        DLog(@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX);
         DLog(@"responseObject-->%@",responseObject);
         self.result3 = (NSMutableDictionary *)responseObject;
         
@@ -1001,11 +1055,12 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:@"5" forKey:@"type"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:@"3" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize4] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -1050,11 +1105,12 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:@"6" forKey:@"type"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:@"4" forKey:@"type"];
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize5] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -1204,6 +1260,32 @@
 //        [self.orderPayStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
 //    }
     
+    self.orderArrayUnpayed = [OrderFixData mj_objectArrayWithKeyValuesArray:self.data2];
+    
+    [self.orderIdArrayUnpayed removeAllObjects];
+    [self.orderStatusArrayUnpayed removeAllObjects];
+    [self.orderPayStatusArrayUnpayed removeAllObjects];
+    [self.orderCreatTimeArrayUnpayed removeAllObjects];
+    [self.orderBookTimeArrayUnpayed removeAllObjects];
+    [self.orderMoneyArrayUnpayed removeAllObjects];
+    [self.orderExpertIdArrayUnpayed removeAllObjects];
+    [self.orderExpertNameArrayUnpayed removeAllObjects];
+    [self.orderExpertImageArrayUnpayed removeAllObjects];
+    [self.orderClinicAddressArrayUnpayed removeAllObjects];
+    
+    for (OrderFixData *orderFixData in self.orderArrayUnpayed) {
+        [self.orderIdArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
+        [self.orderStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderPayStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
+        [self.orderCreatTimeArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
+        [self.orderBookTimeArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
+        [self.orderMoneyArrayUnpayed addObject:[NSString stringWithFormat:@"%f",orderFixData.money]];
+        [self.orderExpertIdArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
+        [self.orderExpertNameArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
+        [self.orderExpertImageArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
+        [self.orderClinicAddressArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+    }
+    
     [self.tableView2 reloadData];
     
     [self.tableView2.mj_header endRefreshing];
@@ -1250,6 +1332,32 @@
 //        [self.orderPayIdArrayProceeding addObject:[NullUtil judgeStringNull:orderData.order_no]];
 //        [self.orderPayStatusArrayProceeding addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
 //    }
+    
+    self.orderArrayUntreated = [OrderFixData mj_objectArrayWithKeyValuesArray:self.data3];
+    
+    [self.orderIdArrayUntreated removeAllObjects];
+    [self.orderStatusArrayUntreated removeAllObjects];
+    [self.orderPayStatusArrayUntreated removeAllObjects];
+    [self.orderCreatTimeArrayUntreated removeAllObjects];
+    [self.orderBookTimeArrayUntreated removeAllObjects];
+    [self.orderMoneyArrayUntreated removeAllObjects];
+    [self.orderExpertIdArrayUntreated removeAllObjects];
+    [self.orderExpertNameArrayUntreated removeAllObjects];
+    [self.orderExpertImageArrayUntreated removeAllObjects];
+    [self.orderClinicAddressArrayUntreated removeAllObjects];
+    
+    for (OrderFixData *orderFixData in self.orderArrayUntreated) {
+        [self.orderIdArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
+        [self.orderStatusArrayUntreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderPayStatusArrayUntreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
+        [self.orderCreatTimeArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
+        [self.orderBookTimeArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
+        [self.orderMoneyArrayUntreated addObject:[NSString stringWithFormat:@"%f",orderFixData.money]];
+        [self.orderExpertIdArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
+        [self.orderExpertNameArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
+        [self.orderExpertImageArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
+        [self.orderClinicAddressArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+    }
     
     [self.tableView3 reloadData];
     
@@ -1298,6 +1406,32 @@
 //        [self.orderPayStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
 //    }
     
+    self.orderArrayTreated = [OrderFixData mj_objectArrayWithKeyValuesArray:self.data4];
+    
+    [self.orderIdArrayTreated removeAllObjects];
+    [self.orderStatusArrayTreated removeAllObjects];
+    [self.orderPayStatusArrayTreated removeAllObjects];
+    [self.orderCreatTimeArrayTreated removeAllObjects];
+    [self.orderBookTimeArrayTreated removeAllObjects];
+    [self.orderMoneyArrayTreated removeAllObjects];
+    [self.orderExpertIdArrayTreated removeAllObjects];
+    [self.orderExpertNameArrayTreated removeAllObjects];
+    [self.orderExpertImageArrayTreated removeAllObjects];
+    [self.orderClinicAddressArrayTreated removeAllObjects];
+    
+    for (OrderFixData *orderFixData in self.orderArrayTreated) {
+        [self.orderIdArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
+        [self.orderStatusArrayTreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderPayStatusArrayTreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
+        [self.orderCreatTimeArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
+        [self.orderBookTimeArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
+        [self.orderMoneyArrayTreated addObject:[NSString stringWithFormat:@"%f",orderFixData.money]];
+        [self.orderExpertIdArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
+        [self.orderExpertNameArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
+        [self.orderExpertImageArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
+        [self.orderClinicAddressArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+    }
+    
     [self.tableView4 reloadData];
     
     [self.tableView4.mj_header endRefreshing];
@@ -1344,6 +1478,32 @@
 //        [self.orderPayIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.order_no]];
 //        [self.orderPayStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
 //    }
+    
+    self.orderArrayInvalid = [OrderFixData mj_objectArrayWithKeyValuesArray:self.data5];
+    
+    [self.orderIdArrayInvalid removeAllObjects];
+    [self.orderStatusArrayInvalid removeAllObjects];
+    [self.orderPayStatusArrayInvalid removeAllObjects];
+    [self.orderCreatTimeArrayInvalid removeAllObjects];
+    [self.orderBookTimeArrayInvalid removeAllObjects];
+    [self.orderMoneyArrayInvalid removeAllObjects];
+    [self.orderExpertIdArrayInvalid removeAllObjects];
+    [self.orderExpertNameArrayInvalid removeAllObjects];
+    [self.orderExpertImageArrayInvalid removeAllObjects];
+    [self.orderClinicAddressArrayInvalid removeAllObjects];
+    
+    for (OrderFixData *orderFixData in self.orderArrayInvalid) {
+        [self.orderIdArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
+        [self.orderStatusArrayInvalid addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderPayStatusArrayInvalid addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
+        [self.orderCreatTimeArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
+        [self.orderBookTimeArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
+        [self.orderMoneyArrayInvalid addObject:[NSString stringWithFormat:@"%f",orderFixData.money]];
+        [self.orderExpertIdArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
+        [self.orderExpertNameArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
+        [self.orderExpertImageArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
+        [self.orderClinicAddressArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+    }
     
     [self.tableView5 reloadData];
     
