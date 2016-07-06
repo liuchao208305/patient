@@ -56,8 +56,10 @@
 //            cell.label.text = labelArray[i];
 //        }
 //    }
-    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_favorite",@"mine_bottom_doctor",@"mine_bottom_coupon",@"mine_bottom_body",@"mine_bottom_service",@"mine_bottom_contact",nil];
-    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"我的专家",@"我的优惠券",@"我的体质",@"联系客服",@"常用联系人", nil];
+//    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_favorite",@"mine_bottom_doctor",@"mine_bottom_coupon",@"mine_bottom_body",@"mine_bottom_service",@"mine_bottom_contact",nil];
+//    NSArray *labelArray = [NSArray arrayWithObjects:@"收藏夹",@"我的专家",@"我的优惠券",@"我的体质",@"联系客服",@"常用联系人", nil];
+    NSArray *imageArray = [NSArray arrayWithObjects:@"mine_bottom_body_fix",@"mine_bottom_disease_fix",@"mine_bottom_expert_fix",@"mine_bottom_inspection_fix",@"mine_bottom_marriage_fix",@"mine_bottom_wallet_fix",nil];
+    NSArray *labelArray = [NSArray arrayWithObjects:@"我的体质",@"我的病史",@"我的医生",@"自查纪录",@"婚育情况",@"我的钱包", nil];
     for (int i = 0; i < 6; i++) {
         if (indexPath.row == i) {
             [cell.imageView setImage:[UIImage imageNamed:imageArray[i]]];

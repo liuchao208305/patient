@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "OrderHeadView.h"
 #import "RecordHeaderView.h"
+#import "QuestionHeaderView.h"
 
 @interface MineViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
@@ -29,6 +30,7 @@
 @property (strong,nonatomic)UIView *headView;
 @property (strong,nonatomic)UIView *footView;
 
+@property (strong,nonatomic)QuestionHeaderView *questionHeaderView;
 @property (strong,nonatomic)OrderHeadView *orderHeadView;
 @property (strong,nonatomic)RecordHeaderView *recordHeaderView;
 

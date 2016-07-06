@@ -1,14 +1,14 @@
 //
-//  OrderHeadView.m
+//  QuestionHeaderView.m
 //  patient
 //
-//  Created by ChaosLiu on 16/4/12.
+//  Created by ChaosLiu on 16/7/6.
 //  Copyright © 2016年 Hangzhou Congbao Technology Co.,Ltd. All rights reserved.
 //
 
-#import "OrderHeadView.h"
+#import "QuestionHeaderView.h"
 
-@implementation OrderHeadView
+@implementation QuestionHeaderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -23,7 +23,7 @@
     
     self.leftLabel = [[UILabel alloc] init];
     self.leftLabel.font = [UIFont systemFontOfSize:16];
-    self.leftLabel.text = @"我的预约";
+    self.leftLabel.text = @"我的回答";
     [self addSubview:self.leftLabel];
     
     self.rightLabel = [[UILabel alloc] init];
@@ -72,8 +72,8 @@
 }
 
 -(void)orderHeadViewClicked{
-    if (self.orderHeadViewClickedDelegate && [self.orderHeadViewClickedDelegate respondsToSelector:@selector(orderHeadViewClicked)]) {
-        [self.orderHeadViewClickedDelegate orderHeadViewClicked];
+    if (self.questionHeadViewClickedDelegate && [self.questionHeadViewClickedDelegate respondsToSelector:@selector(questionHeadViewClicked)]) {
+        [self.questionHeadViewClickedDelegate questionHeadViewClicked];
     }
 }
 

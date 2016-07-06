@@ -33,7 +33,7 @@
 #import "AgreementViewController.h"
 #import "MineCustomServiceViewController.h"
 
-@interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate>
+@interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
 @property (assign,nonatomic)BOOL loginFlag;
 
@@ -314,10 +314,10 @@
         UITapGestureRecognizer *backView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView4Clicked)];
         [cell.backView4 addGestureRecognizer:backView4Tap];
         
-        cell.superscript1.text = [NSString stringWithFormat:@"%ld",(long)self.bespoke];
-        cell.superscript2.text = [NSString stringWithFormat:@"%ld",(long)self.runs];
-        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
-        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
+//        cell.superscript1.text = [NSString stringWithFormat:@"%ld",(long)self.bespoke];
+//        cell.superscript2.text = [NSString stringWithFormat:@"%ld",(long)self.runs];
+//        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
+//        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -366,13 +366,22 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        self.orderHeadView = [[OrderHeadView alloc] init];
+//        self.orderHeadView.orderHeadViewClickedDelegate = self;
+//        return self.orderHeadView;
+//    }else if (section == 1){
+//        self.recordHeaderView = [[RecordHeaderView alloc] init];
+//        return self.recordHeaderView;
+//    }
     if (section == 0) {
+        self.questionHeaderView = [[QuestionHeaderView alloc] init];
+        self.questionHeaderView.questionHeadViewClickedDelegate = self;
+        return self.questionHeaderView;
+    }else if (section == 1){
         self.orderHeadView = [[OrderHeadView alloc] init];
         self.orderHeadView.orderHeadViewClickedDelegate = self;
         return self.orderHeadView;
-    }else if (section == 1){
-        self.recordHeaderView = [[RecordHeaderView alloc] init];
-        return self.recordHeaderView;
     }
     return nil;
 }
@@ -418,6 +427,10 @@
                                          destructiveButtonTitle:nil
                                               otherButtonTitles:@"从相册选取", @"拍照",nil];
     [sheet showInView:self.view];
+}
+
+-(void)questionHeadViewClicked{
+    DLog(@"questionHeadViewClicked");
 }
 
 -(void)orderHeadViewClicked{
@@ -513,34 +526,34 @@
 -(void)function1Clicked{
     DLog(@"function1Clicked");
     
-    MineFavouriteViewController *mineFavouriteVC = [[MineFavouriteViewController alloc] init];
-    mineFavouriteVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:mineFavouriteVC animated:YES];
+//    MineFavouriteViewController *mineFavouriteVC = [[MineFavouriteViewController alloc] init];
+//    mineFavouriteVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:mineFavouriteVC animated:YES];
 }
 
 -(void)function2Clicked{
     DLog(@"function2Clicked");
     
-    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
-    mineExpertVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:mineExpertVC animated:YES];
+//    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
+//    mineExpertVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:mineExpertVC animated:YES];
 }
 
 -(void)function3Clicked{
     DLog(@"function3Clicked");
     
-    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
-    couponCheckVC.hidesBottomBarWhenPushed = YES;
-    couponCheckVC.isFromMineVC = YES;
-    [self.navigationController pushViewController:couponCheckVC animated:YES];
+//    CouponCheckViewController *couponCheckVC = [[CouponCheckViewController alloc] init];
+//    couponCheckVC.hidesBottomBarWhenPushed = YES;
+//    couponCheckVC.isFromMineVC = YES;
+//    [self.navigationController pushViewController:couponCheckVC animated:YES];
 }
 
 -(void)function4Clicked{
     DLog(@"function4Clicked");
     
-    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
-    listVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:listVC animated:YES];
+//    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
+//    listVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:listVC animated:YES];
 }
 
 -(void)function5Clicked{
@@ -550,18 +563,18 @@
 //    agreementVC.urlStr = @"http://www.jiuzhekan.com/agreement.html";
 //    agreementVC.titleStr = @"联系客服";
 //    [self.navigationController pushViewController:agreementVC animated:YES];
-    MineCustomServiceViewController *customServiceVC = [[MineCustomServiceViewController alloc] init];
-    customServiceVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:customServiceVC animated:YES];
+//    MineCustomServiceViewController *customServiceVC = [[MineCustomServiceViewController alloc] init];
+//    customServiceVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:customServiceVC animated:YES];
 }
 
 -(void)function6Clicked{
     DLog(@"function6Clicked");
     
-    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
-    contactCheckVC.hidesBottomBarWhenPushed = YES;
-    contactCheckVC.isFromMineVC = YES;
-    [self.navigationController pushViewController:contactCheckVC animated:YES];
+//    ContactCheckViewController *contactCheckVC = [[ContactCheckViewController alloc] init];
+//    contactCheckVC.hidesBottomBarWhenPushed = YES;
+//    contactCheckVC.isFromMineVC = YES;
+//    [self.navigationController pushViewController:contactCheckVC animated:YES];
 }
 
 //-(void)function7Clicked{
