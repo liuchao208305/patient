@@ -33,6 +33,7 @@
 #import "AgreementViewController.h"
 #import "MineCustomServiceViewController.h"
 #import "MineQuestionTableCell.h"
+#import "MineQuestionListViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -450,6 +451,10 @@
 
 -(void)questionHeadViewClicked{
     DLog(@"questionHeadViewClicked");
+    MineQuestionListViewController *questionListVC = [[MineQuestionListViewController alloc] init];
+    questionListVC.hidesBottomBarWhenPushed = YES;
+    questionListVC.questionType = 0;
+    [self.navigationController pushViewController:questionListVC animated:YES];
 }
 
 -(void)orderHeadViewClicked{
@@ -462,34 +467,34 @@
 
 -(void)backView1FixClicked{
     DLog(@"backView1FixClicked");
-//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
-//    orderListVC.hidesBottomBarWhenPushed = YES;
-//    orderListVC.orderType = 1;
-//    [self.navigationController pushViewController:orderListVC animated:YES];
+    MineQuestionListViewController *questionListVC = [[MineQuestionListViewController alloc] init];
+    questionListVC.hidesBottomBarWhenPushed = YES;
+    questionListVC.questionType = 1;
+    [self.navigationController pushViewController:questionListVC animated:YES];
 }
 
 -(void)backView2FixClicked{
     DLog(@"backView2FixClicked");
-//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
-//    orderListVC.hidesBottomBarWhenPushed = YES;
-//    orderListVC.orderType = 2;
-//    [self.navigationController pushViewController:orderListVC animated:YES];
+    MineQuestionListViewController *questionListVC = [[MineQuestionListViewController alloc] init];
+    questionListVC.hidesBottomBarWhenPushed = YES;
+    questionListVC.questionType = 2;
+    [self.navigationController pushViewController:questionListVC animated:YES];
 }
 
 -(void)backView3FixClicked{
     DLog(@"backView3FixClicked");
-//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
-//    orderListVC.hidesBottomBarWhenPushed = YES;
-//    orderListVC.orderType = 3;
-//    [self.navigationController pushViewController:orderListVC animated:YES];
+    MineQuestionListViewController *questionListVC = [[MineQuestionListViewController alloc] init];
+    questionListVC.hidesBottomBarWhenPushed = YES;
+    questionListVC.questionType = 3;
+    [self.navigationController pushViewController:questionListVC animated:YES];
 }
 
 -(void)backView4FixClicked{
     DLog(@"backView4FixClicked");
-//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
-//    orderListVC.hidesBottomBarWhenPushed = YES;
-//    orderListVC.orderType = 4;
-//    [self.navigationController pushViewController:orderListVC animated:YES];
+    MineQuestionListViewController *questionListVC = [[MineQuestionListViewController alloc] init];
+    questionListVC.hidesBottomBarWhenPushed = YES;
+    questionListVC.questionType = 4;
+    [self.navigationController pushViewController:questionListVC animated:YES];
 }
 
 -(void)backView1Clicked{
