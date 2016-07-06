@@ -41,7 +41,7 @@
 
 -(void)initBackView1{
     self.imageBigView1 = [[UIImageView alloc] init];
-    [self.imageBigView1 setImage:[UIImage imageNamed:@"mine_orderstatus_reserved"]];
+    [self.imageBigView1 setImage:[UIImage imageNamed:@"mine_orderstatus_unpayed"]];
     [self.backView1 addSubview:self.imageBigView1];
     
 //    self.imageSmallView1 = [[UIImageView alloc] init];
@@ -57,15 +57,17 @@
 //    [self.imageSmallView1 addSubview:self.superscript1];
     
     self.label1 = [[UILabel alloc] init];
-    self.label1.text = @"已预约";
+    self.label1.font = [UIFont systemFontOfSize:14];
+    self.label1.text = @"待支付";
+    self.label1.textColor = ColorWithHexRGB(0x646464);
     self.label1.textAlignment = NSTextAlignmentCenter;
     [self.backView1 addSubview:self.label1];
     
     [self.imageBigView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView1).offset(0);
-        make.top.equalTo(self.backView1).offset(10);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
+        make.top.equalTo(self.backView1).offset(15);
+        make.width.mas_equalTo(35);
+        make.height.mas_equalTo(35);
     }];
     
 //    [self.imageSmallView1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,16 +85,16 @@
 //    }];
 
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageBigView1).offset(40+6);
+        make.top.equalTo(self.imageBigView1.mas_bottom).offset(8);
         make.centerX.equalTo(self.backView1).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
+//        make.width.mas_equalTo(100);
+//        make.height.mas_equalTo(13);
     }];
 }
 
 -(void)initBackView2{
     self.imageBigView2 = [[UIImageView alloc] init];
-    [self.imageBigView2 setImage:[UIImage imageNamed:@"mine_orderstatus_tobecontinued"]];
+    [self.imageBigView2 setImage:[UIImage imageNamed:@"mine_orderstatus_untreated"]];
     [self.backView2 addSubview:self.imageBigView2];
     
 //    self.imageSmallView2 = [[UIImageView alloc] init];
@@ -108,15 +110,17 @@
 //    [self.imageSmallView2 addSubview:self.superscript2];
     
     self.label2 = [[UILabel alloc] init];
-    self.label2.text = @"进行中";
+    self.label2.font = [UIFont systemFontOfSize:14];
+    self.label2.text = @"待就诊";
+    self.label2.textColor = ColorWithHexRGB(0x646464);
     self.label2.textAlignment = NSTextAlignmentCenter;
     [self.backView2 addSubview:self.label2];
     
     [self.imageBigView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView2).offset(0);
-        make.top.equalTo(self.backView2).offset(10);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
+        make.top.equalTo(self.backView2).offset(15);
+        make.width.mas_equalTo(35);
+        make.height.mas_equalTo(35);
     }];
     
 //    [self.imageSmallView2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,16 +138,14 @@
 //    }];
     
     [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageBigView2).offset(40+6);
+        make.top.equalTo(self.imageBigView2.mas_bottom).offset(8);
         make.centerX.equalTo(self.backView2).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
     }];
 }
 
 -(void)initBackView3{
     self.imageBigView3 = [[UIImageView alloc] init];
-    [self.imageBigView3 setImage:[UIImage imageNamed:@"mine_orderstatus_tobeevaluated"]];
+    [self.imageBigView3 setImage:[UIImage imageNamed:@"mine_orderstatus_treated"]];
     [self.backView3 addSubview:self.imageBigView3];
     
 //    self.imageSmallView3 = [[UIImageView alloc] init];
@@ -159,15 +161,17 @@
 //    [self.imageSmallView3 addSubview:self.superscript3];
     
     self.label3 = [[UILabel alloc] init];
-    self.label3.text = @"待评价";
+    self.label3.font = [UIFont systemFontOfSize:14];
+    self.label3.text = @"已就诊";
+    self.label3.textColor = ColorWithHexRGB(0x646464);
     self.label3.textAlignment = NSTextAlignmentCenter;
     [self.backView3 addSubview:self.label3];
     
     [self.imageBigView3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView3).offset(0);
-        make.top.equalTo(self.backView3).offset(10);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
+        make.top.equalTo(self.backView3).offset(15);
+        make.width.mas_equalTo(35);
+        make.height.mas_equalTo(35);
     }];
     
 //    [self.imageSmallView3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -185,16 +189,14 @@
 //    }];
     
     [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageBigView3).offset(40+6);
+        make.top.equalTo(self.imageBigView3.mas_bottom).offset(8);
         make.centerX.equalTo(self.backView3).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
     }];
 }
 
 -(void)initBackView4{
     self.imageBigView4 = [[UIImageView alloc] init];
-    [self.imageBigView4 setImage:[UIImage imageNamed:@"mine_orderstatus_completed"]];
+    [self.imageBigView4 setImage:[UIImage imageNamed:@"mine_orderstatus_invalid"]];
     [self.backView4 addSubview:self.imageBigView4];
     
 //    self.imageSmallView4 = [[UIImageView alloc] init];
@@ -210,15 +212,17 @@
 //    [self.imageSmallView4 addSubview:self.superscript4];
     
     self.label4 = [[UILabel alloc] init];
-    self.label4.text = @"已完成";
+    self.label4.font = [UIFont systemFontOfSize:14];
+    self.label4.text = @"无效";
+    self.label4.textColor = ColorWithHexRGB(0x646464);
     self.label4.textAlignment = NSTextAlignmentCenter;
     [self.backView4 addSubview:self.label4];
     
     [self.imageBigView4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView4).offset(0);
-        make.top.equalTo(self.backView4).offset(10);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
+        make.top.equalTo(self.backView4).offset(15);
+        make.width.mas_equalTo(35);
+        make.height.mas_equalTo(35);
     }];
     
 //    [self.imageSmallView4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -236,10 +240,8 @@
 //    }];
     
     [self.label4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageBigView4).offset(40+6);
+        make.top.equalTo(self.imageBigView4.mas_bottom).offset(8);
         make.centerX.equalTo(self.backView4).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(13);
     }];
 }
 

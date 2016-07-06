@@ -281,9 +281,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 85;
-    }else if (indexPath.section == 1){
         return 110;
+    }else if (indexPath.section == 1){
+        return 85;
     }else if (indexPath.section == 2){
         return 161;
     }
@@ -292,6 +292,18 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0){
+        //        static NSString *cellName = @"MineRecordTableCell";
+        //        MineRecordTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        //        if (!cell) {
+        //            cell = [[MineRecordTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        //        }
+        
+        MineRecordTableCell *cell = [[MineRecordTableCell alloc] init];
+        [cell initView:self.recordIdArray.count Withid:self.recordIdArray image:self.recordImageArray name:self.recordNameArray patientName:self.recordPatientNameArray];
+        cell.recordViewDelegate = self;
+        
+        return cell;
+    }else if (indexPath.section == 1){
         static NSString *cellName = @"MineOrderTableCell";
         MineOrderTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
@@ -314,22 +326,10 @@
         UITapGestureRecognizer *backView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView4Clicked)];
         [cell.backView4 addGestureRecognizer:backView4Tap];
         
-//        cell.superscript1.text = [NSString stringWithFormat:@"%ld",(long)self.bespoke];
-//        cell.superscript2.text = [NSString stringWithFormat:@"%ld",(long)self.runs];
-//        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
-//        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
-        
-        return cell;
-    }else if (indexPath.section == 1){
-//        static NSString *cellName = @"MineRecordTableCell";
-//        MineRecordTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-//        if (!cell) {
-//            cell = [[MineRecordTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-//        }
-        
-        MineRecordTableCell *cell = [[MineRecordTableCell alloc] init];
-        [cell initView:self.recordIdArray.count Withid:self.recordIdArray image:self.recordImageArray name:self.recordNameArray patientName:self.recordPatientNameArray];
-        cell.recordViewDelegate = self;
+        //        cell.superscript1.text = [NSString stringWithFormat:@"%ld",(long)self.bespoke];
+        //        cell.superscript2.text = [NSString stringWithFormat:@"%ld",(long)self.runs];
+        //        cell.superscript3.text = [NSString stringWithFormat:@"%ld",(long)self.comments];
+        //        cell.superscript4.text = [NSString stringWithFormat:@"%ld",(long)self.dones];
         
         return cell;
     }else if (indexPath.section == 2){
