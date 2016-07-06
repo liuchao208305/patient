@@ -21,6 +21,7 @@
 #import "RecordDetailViewController.h"
 #import "TreatmentFinishViewController.h"
 #import "OrderFixData.h"
+#import "OrderListFixTableCell.h"
 
 @interface OrderListViewController ()
 
@@ -513,7 +514,12 @@
 //        }else{
 //            return 195;
 //        }
-        return 145;
+        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1) {
+            return 150;
+        }else{
+            return 110;
+        }
+
     }else if (self.flag2){
 //        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
 //            return 195;
@@ -540,10 +546,15 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"OrderListTableCell";
-    OrderListTableCell *cell = [self.tableView1 dequeueReusableCellWithIdentifier:cellName];
+//    static NSString *cellName = @"OrderListTableCell";
+//    OrderListTableCell *cell = [self.tableView1 dequeueReusableCellWithIdentifier:cellName];
+//    if (!cell) {
+//        cell = [[OrderListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//    }
+    static NSString *cellName = @"OrderListFixTableCell";
+    OrderListFixTableCell *cell = [self.tableView1 dequeueReusableCellWithIdentifier:cellName];
     if (!cell) {
-        cell = [[OrderListTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        cell = [[OrderListFixTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
     
     if (self.flag1) {
@@ -592,6 +603,31 @@
 //        }else{
 //            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayAll[indexPath.section]];
 //        }
+        
+        cell.createTimeLabel.text = self.orderCreatTimeArrayAll[indexPath.section];
+        if ([self.orderStatusArrayAll[indexPath.section] intValue] == 1) {
+            cell.statusLabel.text = @"待支付";
+            cell.statusLabel.textColor = [UIColor redColor];
+        }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 2){
+            cell.statusLabel.text = @"待就诊";
+            cell.statusLabel.textColor = [UIColor redColor];
+            cell.payButton.hidden = YES;
+        }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 3){
+            cell.statusLabel.text = @"已就诊";
+            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+            cell.payButton.hidden = YES;
+        }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 4){
+            cell.statusLabel.text = @"已取消";
+            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+            cell.payButton.hidden = YES;
+        }
+        [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayAll[indexPath.section]];
+        cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayAll[indexPath.section]];
+        cell.clinicAddressLabel.text = [NSString stringWithFormat:@"接诊地点：%@",self.orderClinicAddressArrayAll[indexPath.section]];
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.orderMoneyArrayAll[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
     }else if (self.flag2){
 //        cell.label1_1.text = self.orderPatientNameArrayBooked[indexPath.section];
 //        cell.label1_2.text = self.orderBookTimeArrayBooked[indexPath.section];
@@ -1113,7 +1149,7 @@
         [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
-        [self.orderMoneyArrayAll addObject:[NSString stringWithFormat:@"%.2f",orderFixData.money]];
+        [self.orderMoneyArrayAll addObject:[NSString stringWithFormat:@"%f",orderFixData.money]];
         [self.orderExpertIdArrayAll addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
         [self.orderExpertNameArrayAll addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayAll addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
