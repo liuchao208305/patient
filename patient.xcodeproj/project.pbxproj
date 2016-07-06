@@ -509,6 +509,7 @@
 		70924ACD1D2CEB20001DFE85 /* OrderFixData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ACC1D2CEB20001DFE85 /* OrderFixData.m */; };
 		70924AD01D2D44EA001DFE85 /* OrderListFixTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ACF1D2D44EA001DFE85 /* OrderListFixTableCell.m */; };
 		70924AD91D2D660A001DFE85 /* MineQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AD81D2D660A001DFE85 /* MineQuestionListViewController.m */; };
+		70924ADC1D2D6673001DFE85 /* MineQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ADB1D2D6673001DFE85 /* MineQuestionData.m */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -1435,6 +1436,8 @@
 		70924ACF1D2D44EA001DFE85 /* OrderListFixTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListFixTableCell.m; sourceTree = "<group>"; };
 		70924AD71D2D660A001DFE85 /* MineQuestionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineQuestionListViewController.h; sourceTree = "<group>"; };
 		70924AD81D2D660A001DFE85 /* MineQuestionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQuestionListViewController.m; sourceTree = "<group>"; };
+		70924ADA1D2D6673001DFE85 /* MineQuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineQuestionData.h; sourceTree = "<group>"; };
+		70924ADB1D2D6673001DFE85 /* MineQuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQuestionData.m; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -3169,6 +3172,8 @@
 			children = (
 				70B4EA8B1CCD1D9600141E38 /* RecordData.h */,
 				70B4EA8C1CCD1D9600141E38 /* RecordData.m */,
+				70924ADA1D2D6673001DFE85 /* MineQuestionData.h */,
+				70924ADB1D2D6673001DFE85 /* MineQuestionData.m */,
 				70924ACB1D2CEB20001DFE85 /* OrderFixData.h */,
 				70924ACC1D2CEB20001DFE85 /* OrderFixData.m */,
 				70B4EAB51CD08DE000141E38 /* OrderData.h */,
@@ -4392,6 +4397,7 @@
 				70EAAA471D2942480025C6D5 /* HealthListDetailData.m in Sources */,
 				708274E41CF8222D0016AE3C /* TestChooseContactViewController.m in Sources */,
 				70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */,
+				70924ADC1D2D6673001DFE85 /* MineQuestionData.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,
