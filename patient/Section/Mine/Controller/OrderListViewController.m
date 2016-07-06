@@ -20,6 +20,7 @@
 #import "LoginViewController.h"
 #import "RecordDetailViewController.h"
 #import "TreatmentFinishViewController.h"
+#import "OrderFixData.h"
 
 @interface OrderListViewController ()
 
@@ -162,105 +163,166 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
+//    self.orderArrayAll = [NSMutableArray array];
+//    self.orderIdArrayAll = [NSMutableArray array];
+//    self.orderStatusArrayAll = [NSMutableArray array];
+//    self.orderCreatTimeArrayAll = [NSMutableArray array];
+//    self.orderBookTimeArrayAll = [NSMutableArray array];
+//    self.orderMoneyArrayAll = [NSMutableArray array];
+//    self.orderExpertIdArrayAll = [NSMutableArray array];
+//    self.orderExpertNameArrayAll = [NSMutableArray array];
+//    self.orderExpertImageArrayAll = [NSMutableArray array];
+//    self.orderClinicNameArrayAll = [NSMutableArray array];
+//    self.orderClinicAddressArrayAll = [NSMutableArray array];
+//    self.orderDoctorIdArrayAll = [NSMutableArray array];
+//    self.orderDoctorNameArrayAll = [NSMutableArray array];
+//    self.orderDoctorImageArrayAll = [NSMutableArray array];
+//    self.orderPatientIdArrayAll = [NSMutableArray array];
+//    self.orderPatientNameArrayAll = [NSMutableArray array];
+//    
+//    self.orderPayIdArrayAll = [NSMutableArray array];
+//    self.orderPayStatusArrayAll = [NSMutableArray array];
+//    
+//    self.orderArrayBooked = [NSMutableArray array];
+//    self.orderIdArrayBooked = [NSMutableArray array];
+//    self.orderStatusArrayBooked = [NSMutableArray array];
+//    self.orderCreatTimeArrayBooked = [NSMutableArray array];
+//    self.orderBookTimeArrayBooked = [NSMutableArray array];
+//    self.orderMoneyArrayBooked = [NSMutableArray array];
+//    self.orderExpertIdArrayBooked = [NSMutableArray array];
+//    self.orderExpertNameArrayBooked = [NSMutableArray array];
+//    self.orderExpertImageArrayBooked = [NSMutableArray array];
+//    self.orderClinicNameArrayBooked = [NSMutableArray array];
+//    self.orderClinicAddressArrayBooked = [NSMutableArray array];
+//    self.orderDoctorIdArrayBooked = [NSMutableArray array];
+//    self.orderDoctorNameArrayBooked = [NSMutableArray array];
+//    self.orderDoctorImageArrayBooked = [NSMutableArray array];
+//    self.orderPatientIdArrayBooked = [NSMutableArray array];
+//    self.orderPatientNameArrayBooked = [NSMutableArray array];
+//    
+//    self.orderPayIdArrayBooked = [NSMutableArray array];
+//    self.orderPayStatusArrayBooked = [NSMutableArray array];
+//    
+//    self.orderArrayProceeding = [NSMutableArray array];
+//    self.orderIdArrayProceeding = [NSMutableArray array];
+//    self.orderStatusArrayProceeding = [NSMutableArray array];
+//    self.orderCreatTimeArrayProceeding = [NSMutableArray array];
+//    self.orderBookTimeArrayProceeding = [NSMutableArray array];
+//    self.orderMoneyArrayProceeding = [NSMutableArray array];
+//    self.orderExpertIdArrayProceeding = [NSMutableArray array];
+//    self.orderExpertNameArrayProceeding = [NSMutableArray array];
+//    self.orderExpertImageArrayProceeding = [NSMutableArray array];
+//    self.orderClinicNameArrayProceeding = [NSMutableArray array];
+//    self.orderClinicAddressArrayProceeding = [NSMutableArray array];
+//    self.orderDoctorIdArrayProceeding = [NSMutableArray array];
+//    self.orderDoctorNameArrayProceeding = [NSMutableArray array];
+//    self.orderDoctorImageArrayProceeding = [NSMutableArray array];
+//    self.orderPatientIdArrayProceeding = [NSMutableArray array];
+//    self.orderPatientNameArrayProceeding = [NSMutableArray array];
+//    
+//    self.orderPayIdArrayProceeding = [NSMutableArray array];
+//    self.orderPayStatusArrayProceeding = [NSMutableArray array];
+//    
+//    self.orderArrayCompleted = [NSMutableArray array];
+//    self.orderIdArrayCompleted = [NSMutableArray array];
+//    self.orderStatusArrayCompleted = [NSMutableArray array];
+//    self.orderCreatTimeArrayCompleted = [NSMutableArray array];
+//    self.orderBookTimeArrayCompleted = [NSMutableArray array];
+//    self.orderMoneyArrayCompleted = [NSMutableArray array];
+//    self.orderExpertIdArrayCompleted = [NSMutableArray array];
+//    self.orderExpertNameArrayCompleted = [NSMutableArray array];
+//    self.orderExpertImageArrayCompleted = [NSMutableArray array];
+//    self.orderClinicNameArrayCompleted = [NSMutableArray array];
+//    self.orderClinicAddressArrayCompleted = [NSMutableArray array];
+//    self.orderDoctorIdArrayCompleted = [NSMutableArray array];
+//    self.orderDoctorNameArrayCompleted = [NSMutableArray array];
+//    self.orderDoctorImageArrayCompleted = [NSMutableArray array];
+//    self.orderPatientIdArrayCompleted = [NSMutableArray array];
+//    self.orderPatientNameArrayCompleted = [NSMutableArray array];
+//    
+//    self.orderPayIdArrayCompleted = [NSMutableArray array];
+//    self.orderPayStatusArrayCompleted = [NSMutableArray array];
+//    
+//    self.orderArrayEvaluating = [NSMutableArray array];
+//    self.orderIdArrayEvaluating = [NSMutableArray array];
+//    self.orderStatusArrayEvaluating = [NSMutableArray array];
+//    self.orderCreatTimeArrayEvaluating = [NSMutableArray array];
+//    self.orderBookTimeArrayEvaluating = [NSMutableArray array];
+//    self.orderMoneyArrayEvaluating = [NSMutableArray array];
+//    self.orderExpertIdArrayEvaluating = [NSMutableArray array];
+//    self.orderExpertNameArrayEvaluating = [NSMutableArray array];
+//    self.orderExpertImageArrayEvaluating = [NSMutableArray array];
+//    self.orderClinicNameArrayEvaluating = [NSMutableArray array];
+//    self.orderClinicAddressArrayEvaluating = [NSMutableArray array];
+//    self.orderDoctorIdArrayEvaluating = [NSMutableArray array];
+//    self.orderDoctorNameArrayEvaluating = [NSMutableArray array];
+//    self.orderDoctorImageArrayEvaluating = [NSMutableArray array];
+//    self.orderPatientIdArrayEvaluating = [NSMutableArray array];
+//    self.orderPatientNameArrayEvaluating = [NSMutableArray array];
+//    
+//    self.orderPayIdArrayEvaluating = [NSMutableArray array];
+//    self.orderPayStatusArrayEvaluating = [NSMutableArray array];
+    
     self.orderArrayAll = [NSMutableArray array];
     self.orderIdArrayAll = [NSMutableArray array];
     self.orderStatusArrayAll = [NSMutableArray array];
+    self.orderPayStatusArrayAll = [NSMutableArray array];
     self.orderCreatTimeArrayAll = [NSMutableArray array];
     self.orderBookTimeArrayAll = [NSMutableArray array];
     self.orderMoneyArrayAll = [NSMutableArray array];
     self.orderExpertIdArrayAll = [NSMutableArray array];
     self.orderExpertNameArrayAll = [NSMutableArray array];
     self.orderExpertImageArrayAll = [NSMutableArray array];
-    self.orderClinicNameArrayAll = [NSMutableArray array];
     self.orderClinicAddressArrayAll = [NSMutableArray array];
-    self.orderDoctorIdArrayAll = [NSMutableArray array];
-    self.orderDoctorNameArrayAll = [NSMutableArray array];
-    self.orderDoctorImageArrayAll = [NSMutableArray array];
-    self.orderPatientIdArrayAll = [NSMutableArray array];
-    self.orderPatientNameArrayAll = [NSMutableArray array];
     
-    self.orderPayIdArrayAll = [NSMutableArray array];
-    self.orderPayStatusArrayAll = [NSMutableArray array];
+    self.orderArrayUnpayed = [NSMutableArray array];
+    self.orderIdArrayUnpayed = [NSMutableArray array];
+    self.orderStatusArrayUnpayed = [NSMutableArray array];
+    self.orderPayStatusArrayUnpayed = [NSMutableArray array];
+    self.orderCreatTimeArrayUnpayed = [NSMutableArray array];
+    self.orderBookTimeArrayUnpayed = [NSMutableArray array];
+    self.orderMoneyArrayUnpayed = [NSMutableArray array];
+    self.orderExpertIdArrayUnpayed = [NSMutableArray array];
+    self.orderExpertNameArrayUnpayed = [NSMutableArray array];
+    self.orderExpertImageArrayUnpayed = [NSMutableArray array];
+    self.orderClinicAddressArrayUnpayed = [NSMutableArray array];
     
-    self.orderArrayBooked = [NSMutableArray array];
-    self.orderIdArrayBooked = [NSMutableArray array];
-    self.orderStatusArrayBooked = [NSMutableArray array];
-    self.orderCreatTimeArrayBooked = [NSMutableArray array];
-    self.orderBookTimeArrayBooked = [NSMutableArray array];
-    self.orderMoneyArrayBooked = [NSMutableArray array];
-    self.orderExpertIdArrayBooked = [NSMutableArray array];
-    self.orderExpertNameArrayBooked = [NSMutableArray array];
-    self.orderExpertImageArrayBooked = [NSMutableArray array];
-    self.orderClinicNameArrayBooked = [NSMutableArray array];
-    self.orderClinicAddressArrayBooked = [NSMutableArray array];
-    self.orderDoctorIdArrayBooked = [NSMutableArray array];
-    self.orderDoctorNameArrayBooked = [NSMutableArray array];
-    self.orderDoctorImageArrayBooked = [NSMutableArray array];
-    self.orderPatientIdArrayBooked = [NSMutableArray array];
-    self.orderPatientNameArrayBooked = [NSMutableArray array];
+    self.orderArrayUntreated = [NSMutableArray array];
+    self.orderIdArrayUntreated = [NSMutableArray array];
+    self.orderStatusArrayUntreated = [NSMutableArray array];
+    self.orderPayStatusArrayUntreated = [NSMutableArray array];
+    self.orderCreatTimeArrayUntreated = [NSMutableArray array];
+    self.orderBookTimeArrayUntreated = [NSMutableArray array];
+    self.orderMoneyArrayUntreated = [NSMutableArray array];
+    self.orderExpertIdArrayUntreated = [NSMutableArray array];
+    self.orderExpertNameArrayUntreated = [NSMutableArray array];
+    self.orderExpertImageArrayUntreated = [NSMutableArray array];
+    self.orderClinicAddressArrayUntreated = [NSMutableArray array];
     
-    self.orderPayIdArrayBooked = [NSMutableArray array];
-    self.orderPayStatusArrayBooked = [NSMutableArray array];
+    self.orderArrayTreated = [NSMutableArray array];
+    self.orderIdArrayTreated = [NSMutableArray array];
+    self.orderStatusArrayTreated = [NSMutableArray array];
+    self.orderPayStatusArrayTreated = [NSMutableArray array];
+    self.orderCreatTimeArrayTreated = [NSMutableArray array];
+    self.orderBookTimeArrayTreated = [NSMutableArray array];
+    self.orderMoneyArrayTreated = [NSMutableArray array];
+    self.orderExpertIdArrayTreated = [NSMutableArray array];
+    self.orderExpertNameArrayTreated = [NSMutableArray array];
+    self.orderExpertImageArrayTreated = [NSMutableArray array];
+    self.orderClinicAddressArrayTreated = [NSMutableArray array];
     
-    self.orderArrayProceeding = [NSMutableArray array];
-    self.orderIdArrayProceeding = [NSMutableArray array];
-    self.orderStatusArrayProceeding = [NSMutableArray array];
-    self.orderCreatTimeArrayProceeding = [NSMutableArray array];
-    self.orderBookTimeArrayProceeding = [NSMutableArray array];
-    self.orderMoneyArrayProceeding = [NSMutableArray array];
-    self.orderExpertIdArrayProceeding = [NSMutableArray array];
-    self.orderExpertNameArrayProceeding = [NSMutableArray array];
-    self.orderExpertImageArrayProceeding = [NSMutableArray array];
-    self.orderClinicNameArrayProceeding = [NSMutableArray array];
-    self.orderClinicAddressArrayProceeding = [NSMutableArray array];
-    self.orderDoctorIdArrayProceeding = [NSMutableArray array];
-    self.orderDoctorNameArrayProceeding = [NSMutableArray array];
-    self.orderDoctorImageArrayProceeding = [NSMutableArray array];
-    self.orderPatientIdArrayProceeding = [NSMutableArray array];
-    self.orderPatientNameArrayProceeding = [NSMutableArray array];
     
-    self.orderPayIdArrayProceeding = [NSMutableArray array];
-    self.orderPayStatusArrayProceeding = [NSMutableArray array];
-    
-    self.orderArrayCompleted = [NSMutableArray array];
-    self.orderIdArrayCompleted = [NSMutableArray array];
-    self.orderStatusArrayCompleted = [NSMutableArray array];
-    self.orderCreatTimeArrayCompleted = [NSMutableArray array];
-    self.orderBookTimeArrayCompleted = [NSMutableArray array];
-    self.orderMoneyArrayCompleted = [NSMutableArray array];
-    self.orderExpertIdArrayCompleted = [NSMutableArray array];
-    self.orderExpertNameArrayCompleted = [NSMutableArray array];
-    self.orderExpertImageArrayCompleted = [NSMutableArray array];
-    self.orderClinicNameArrayCompleted = [NSMutableArray array];
-    self.orderClinicAddressArrayCompleted = [NSMutableArray array];
-    self.orderDoctorIdArrayCompleted = [NSMutableArray array];
-    self.orderDoctorNameArrayCompleted = [NSMutableArray array];
-    self.orderDoctorImageArrayCompleted = [NSMutableArray array];
-    self.orderPatientIdArrayCompleted = [NSMutableArray array];
-    self.orderPatientNameArrayCompleted = [NSMutableArray array];
-    
-    self.orderPayIdArrayCompleted = [NSMutableArray array];
-    self.orderPayStatusArrayCompleted = [NSMutableArray array];
-    
-    self.orderArrayEvaluating = [NSMutableArray array];
-    self.orderIdArrayEvaluating = [NSMutableArray array];
-    self.orderStatusArrayEvaluating = [NSMutableArray array];
-    self.orderCreatTimeArrayEvaluating = [NSMutableArray array];
-    self.orderBookTimeArrayEvaluating = [NSMutableArray array];
-    self.orderMoneyArrayEvaluating = [NSMutableArray array];
-    self.orderExpertIdArrayEvaluating = [NSMutableArray array];
-    self.orderExpertNameArrayEvaluating = [NSMutableArray array];
-    self.orderExpertImageArrayEvaluating = [NSMutableArray array];
-    self.orderClinicNameArrayEvaluating = [NSMutableArray array];
-    self.orderClinicAddressArrayEvaluating = [NSMutableArray array];
-    self.orderDoctorIdArrayEvaluating = [NSMutableArray array];
-    self.orderDoctorNameArrayEvaluating = [NSMutableArray array];
-    self.orderDoctorImageArrayEvaluating = [NSMutableArray array];
-    self.orderPatientIdArrayEvaluating = [NSMutableArray array];
-    self.orderPatientNameArrayEvaluating = [NSMutableArray array];
-    
-    self.orderPayIdArrayEvaluating = [NSMutableArray array];
-    self.orderPayStatusArrayEvaluating = [NSMutableArray array];
+    self.orderArrayInvalid = [NSMutableArray array];
+    self.orderIdArrayInvalid = [NSMutableArray array];
+    self.orderStatusArrayInvalid = [NSMutableArray array];
+    self.orderPayStatusArrayInvalid = [NSMutableArray array];
+    self.orderCreatTimeArrayInvalid = [NSMutableArray array];
+    self.orderBookTimeArrayInvalid = [NSMutableArray array];
+    self.orderMoneyArrayInvalid = [NSMutableArray array];
+    self.orderExpertIdArrayInvalid = [NSMutableArray array];
+    self.orderExpertNameArrayInvalid = [NSMutableArray array];
+    self.orderExpertImageArrayInvalid = [NSMutableArray array];
+    self.orderClinicAddressArrayInvalid = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -387,25 +449,25 @@
     DLog(@"allButtonClicked");
     DLog(@"%ld",(long)sender.tag);
     DLog(@"%@",sender.titleLabel.text);
-    if ([sender.titleLabel.text isEqualToString:@"立即支付"]) {
-        TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
-        detaiVC.isFromOrderListVC = YES;
-        detaiVC.orderNumber = self.orderPayIdArrayAll[sender.tag-10000];
-        [self.navigationController pushViewController:detaiVC animated:YES];
-    }else{
-        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-        medicineVC.orderNumber = self.orderIdArrayAll[sender.tag-10000];
-        [self.navigationController pushViewController:medicineVC animated:YES];
-    }
+//    if ([sender.titleLabel.text isEqualToString:@"立即支付"]) {
+//        TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+//        detaiVC.isFromOrderListVC = YES;
+//        detaiVC.orderNumber = self.orderPayIdArrayAll[sender.tag-10000];
+//        [self.navigationController pushViewController:detaiVC animated:YES];
+//    }else{
+//        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//        medicineVC.orderNumber = self.orderIdArrayAll[sender.tag-10000];
+//        [self.navigationController pushViewController:medicineVC animated:YES];
+//    }
 }
 
 -(void)bookedButtonClicked:(UIButton *)sender{
     DLog(@"bookedButtonClicked");
     DLog(@"%ld",(long)sender.tag);
-    TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
-    detaiVC.isFromOrderListVC = YES;
-    detaiVC.orderNumber = self.orderPayIdArrayBooked[sender.tag-20000];
-    [self.navigationController pushViewController:detaiVC animated:YES];
+//    TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+//    detaiVC.isFromOrderListVC = YES;
+//    detaiVC.orderNumber = self.orderPayIdArrayBooked[sender.tag-20000];
+//    [self.navigationController pushViewController:detaiVC animated:YES];
 }
 
 -(void)proceedingButtonClicked{
@@ -415,9 +477,9 @@
 -(void)evaluatingButtonClicked:(UIButton *)sender{
     DLog(@"evaluatingButtonClicked");
     DLog(@"%ld",(long)sender.tag);
-    MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-    medicineVC.orderNumber = self.orderIdArrayEvaluating[sender.tag-40000];
-    [self.navigationController pushViewController:medicineVC animated:YES];
+//    MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//    medicineVC.orderNumber = self.orderIdArrayEvaluating[sender.tag-40000];
+//    [self.navigationController pushViewController:medicineVC animated:YES];
 }
 
 -(void)completedButtonClicked{
@@ -429,13 +491,13 @@
     if (self.flag1) {
         return self.orderArrayAll.count == 0 ? 0 : self.orderArrayAll.count;
     }else if (self.flag2){
-        return self.orderArrayBooked.count == 0 ? 0 : self.orderArrayBooked.count;
+//        return self.orderArrayBooked.count == 0 ? 0 : self.orderArrayBooked.count;
     }else if (self.flag3){
-        return self.orderArrayProceeding.count == 0 ? 0 : self.orderArrayProceeding.count;
+//        return self.orderArrayProceeding.count == 0 ? 0 : self.orderArrayProceeding.count;
     }else if (self.flag4){
-        return self.orderArrayEvaluating.count == 0 ? 0 : self.orderArrayEvaluating.count;
+//        return self.orderArrayEvaluating.count == 0 ? 0 : self.orderArrayEvaluating.count;
     }else if (self.flag5){
-        return self.orderArrayCompleted.count == 0 ? 0 : self.orderArrayCompleted.count;
+//        return self.orderArrayCompleted.count == 0 ? 0 : self.orderArrayCompleted.count;
     }
     return 0;
 }
@@ -446,17 +508,18 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 6) {
-            return 135;
-        }else{
-            return 195;
-        }
+//        if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 6) {
+//            return 135;
+//        }else{
+//            return 195;
+//        }
+        return 145;
     }else if (self.flag2){
-        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
-            return 195;
-        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
-            return 135;
-        }
+//        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
+//            return 195;
+//        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
+//            return 135;
+//        }
     }else if (self.flag3){
         return 135;
     }else if (self.flag4){
@@ -484,159 +547,159 @@
     }
     
     if (self.flag1) {
-        cell.label1_1.text = self.orderPatientNameArrayAll[indexPath.section];
-        cell.label1_2.text = self.orderBookTimeArrayAll[indexPath.section];
-        
-        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1){
-            if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 0) {
-                cell.label1_3.text = @"未支付";
-                cell.button.tag = 10000+indexPath.section;
-                [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
-                [cell.button addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            }else if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1){
-                cell.label1_3.text = @"已支付";
-                cell.lineView2.hidden = YES;
-                cell.button.hidden = YES;
-            }
-        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4){
-            cell.label1_3.text = @"进行中";
-            
-            cell.lineView2.hidden = YES;
-            cell.button.hidden = YES;
-        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 5){
-            cell.label1_3.text = @"待评价";
-            [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
-        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 6){
-            cell.label1_3.text = @"已完成";
-            
-            cell.lineView2.hidden = YES;
-            cell.button.hidden = YES;
-        }
-        
-        cell.label2_1.text = [self.orderCreatTimeArrayAll[indexPath.section] substringToIndex:4];
-        cell.label2_2.text = [self.orderCreatTimeArrayAll[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-        cell.label2_3.text = [self.orderCreatTimeArrayAll[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
-        
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.label2_7.text = self.orderExpertNameArrayAll[indexPath.section];
-        cell.label2_8.text = self.orderDoctorNameArrayAll[indexPath.section];
-        cell.label2_9.text = self.orderClinicNameArrayAll[indexPath.section];
-        
-        if ([self.orderMoneyArrayAll[indexPath.section] doubleValue] < 0) {
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
-        }else{
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayAll[indexPath.section]];
-        }
+//        cell.label1_1.text = self.orderPatientNameArrayAll[indexPath.section];
+//        cell.label1_2.text = self.orderBookTimeArrayAll[indexPath.section];
+//        
+//        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1){
+//            if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 0) {
+//                cell.label1_3.text = @"未支付";
+//                cell.button.tag = 10000+indexPath.section;
+//                [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
+//                [cell.button addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//            }else if ([self.orderPayStatusArrayAll[indexPath.section] integerValue] == 1){
+//                cell.label1_3.text = @"已支付";
+//                cell.lineView2.hidden = YES;
+//                cell.button.hidden = YES;
+//            }
+//        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 2 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 3 || [self.orderStatusArrayAll[indexPath.section] integerValue] == 4){
+//            cell.label1_3.text = @"进行中";
+//            
+//            cell.lineView2.hidden = YES;
+//            cell.button.hidden = YES;
+//        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 5){
+//            cell.label1_3.text = @"待评价";
+//            [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
+//        }else if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 6){
+//            cell.label1_3.text = @"已完成";
+//            
+//            cell.lineView2.hidden = YES;
+//            cell.button.hidden = YES;
+//        }
+//        
+//        cell.label2_1.text = [self.orderCreatTimeArrayAll[indexPath.section] substringToIndex:4];
+//        cell.label2_2.text = [self.orderCreatTimeArrayAll[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+//        cell.label2_3.text = [self.orderCreatTimeArrayAll[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+//        
+//        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.label2_7.text = self.orderExpertNameArrayAll[indexPath.section];
+//        cell.label2_8.text = self.orderDoctorNameArrayAll[indexPath.section];
+//        cell.label2_9.text = self.orderClinicNameArrayAll[indexPath.section];
+//        
+//        if ([self.orderMoneyArrayAll[indexPath.section] doubleValue] < 0) {
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+//        }else{
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayAll[indexPath.section]];
+//        }
     }else if (self.flag2){
-        cell.label1_1.text = self.orderPatientNameArrayBooked[indexPath.section];
-        cell.label1_2.text = self.orderBookTimeArrayBooked[indexPath.section];
-        
-        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
-            cell.label1_3.text = @"未支付";
-            cell.button.tag = 20000+indexPath.section;
-            [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
-            [cell.button addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
-            cell.label1_3.text = @"已支付";
-            cell.lineView2.hidden = YES;
-            cell.button.hidden = YES;
-        }
-        
-        cell.label2_1.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringToIndex:4];
-        cell.label2_2.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-        cell.label2_3.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
-        
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayBooked[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayBooked[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.label2_7.text = self.orderExpertNameArrayBooked[indexPath.section];
-        cell.label2_8.text = self.orderDoctorNameArrayBooked[indexPath.section];
-        cell.label2_9.text = self.orderClinicNameArrayBooked[indexPath.section];
-        
-        if ([self.orderMoneyArrayBooked[indexPath.section] doubleValue] < 0) {
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
-        }else{
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayBooked[indexPath.section]];
-        }
+//        cell.label1_1.text = self.orderPatientNameArrayBooked[indexPath.section];
+//        cell.label1_2.text = self.orderBookTimeArrayBooked[indexPath.section];
+//        
+//        if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 0) {
+//            cell.label1_3.text = @"未支付";
+//            cell.button.tag = 20000+indexPath.section;
+//            [cell.button setTitle:@"立即支付" forState:UIControlStateNormal];
+//            [cell.button addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        }else if ([self.orderPayStatusArrayBooked[indexPath.section] integerValue] == 1){
+//            cell.label1_3.text = @"已支付";
+//            cell.lineView2.hidden = YES;
+//            cell.button.hidden = YES;
+//        }
+//        
+//        cell.label2_1.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringToIndex:4];
+//        cell.label2_2.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+//        cell.label2_3.text = [self.orderCreatTimeArrayBooked[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+//        
+//        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayBooked[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayBooked[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.label2_7.text = self.orderExpertNameArrayBooked[indexPath.section];
+//        cell.label2_8.text = self.orderDoctorNameArrayBooked[indexPath.section];
+//        cell.label2_9.text = self.orderClinicNameArrayBooked[indexPath.section];
+//        
+//        if ([self.orderMoneyArrayBooked[indexPath.section] doubleValue] < 0) {
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+//        }else{
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayBooked[indexPath.section]];
+//        }
         
         
     }else if (self.flag3){
-        cell.label1_1.text = self.orderPatientNameArrayProceeding[indexPath.section];
-        cell.label1_2.text = self.orderBookTimeArrayProceeding[indexPath.section];
-        
-        cell.label1_3.text = @"进行中";
-        cell.lineView2.hidden = YES;
-        cell.button.hidden = YES;
-        
-        if (![self.orderCreatTimeArrayProceeding[indexPath.section] isEqualToString:@""]) {
-            cell.label2_1.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringToIndex:4];
-            cell.label2_2.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-            cell.label2_3.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
-        }
-        
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.label2_7.text = self.orderExpertNameArrayProceeding[indexPath.section];
-        cell.label2_8.text = self.orderDoctorNameArrayProceeding[indexPath.section];
-        cell.label2_9.text = self.orderClinicNameArrayProceeding[indexPath.section];
-        
-        if ([self.orderMoneyArrayProceeding[indexPath.section] doubleValue] < 0) {
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
-        }else{
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayProceeding[indexPath.section]];
-        }
+//        cell.label1_1.text = self.orderPatientNameArrayProceeding[indexPath.section];
+//        cell.label1_2.text = self.orderBookTimeArrayProceeding[indexPath.section];
+//        
+//        cell.label1_3.text = @"进行中";
+//        cell.lineView2.hidden = YES;
+//        cell.button.hidden = YES;
+//        
+//        if (![self.orderCreatTimeArrayProceeding[indexPath.section] isEqualToString:@""]) {
+//            cell.label2_1.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringToIndex:4];
+//            cell.label2_2.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+//            cell.label2_3.text = [self.orderCreatTimeArrayProceeding[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+//        }
+//        
+//        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayProceeding[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.label2_7.text = self.orderExpertNameArrayProceeding[indexPath.section];
+//        cell.label2_8.text = self.orderDoctorNameArrayProceeding[indexPath.section];
+//        cell.label2_9.text = self.orderClinicNameArrayProceeding[indexPath.section];
+//        
+//        if ([self.orderMoneyArrayProceeding[indexPath.section] doubleValue] < 0) {
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+//        }else{
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayProceeding[indexPath.section]];
+//        }
     }else if (self.flag4){
-        cell.label1_1.text = self.orderPatientNameArrayEvaluating[indexPath.section];
-        cell.label1_2.text = self.orderBookTimeArrayEvaluating[indexPath.section];
-        
-        cell.label1_3.text = @"待评价";
-        cell.button.tag = 40000+indexPath.section;
-        [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
-        [cell.button addTarget:self action:@selector(evaluatingButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        cell.label2_1.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringToIndex:4];
-        cell.label2_2.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-        cell.label2_3.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
-        
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayEvaluating[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayEvaluating[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.label2_7.text = self.orderExpertNameArrayEvaluating[indexPath.section];
-        cell.label2_8.text = self.orderDoctorNameArrayEvaluating[indexPath.section];
-        cell.label2_9.text = self.orderClinicNameArrayEvaluating[indexPath.section];
-        
-        if ([self.orderMoneyArrayEvaluating[indexPath.section] doubleValue] < 0) {
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
-        }else{
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayEvaluating[indexPath.section]];
-        }
+//        cell.label1_1.text = self.orderPatientNameArrayEvaluating[indexPath.section];
+//        cell.label1_2.text = self.orderBookTimeArrayEvaluating[indexPath.section];
+//        
+//        cell.label1_3.text = @"待评价";
+//        cell.button.tag = 40000+indexPath.section;
+//        [cell.button setTitle:@"立即评价" forState:UIControlStateNormal];
+//        [cell.button addTarget:self action:@selector(evaluatingButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        cell.label2_1.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringToIndex:4];
+//        cell.label2_2.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+//        cell.label2_3.text = [self.orderCreatTimeArrayEvaluating[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+//        
+//        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayEvaluating[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayEvaluating[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.label2_7.text = self.orderExpertNameArrayEvaluating[indexPath.section];
+//        cell.label2_8.text = self.orderDoctorNameArrayEvaluating[indexPath.section];
+//        cell.label2_9.text = self.orderClinicNameArrayEvaluating[indexPath.section];
+//        
+//        if ([self.orderMoneyArrayEvaluating[indexPath.section] doubleValue] < 0) {
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+//        }else{
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayEvaluating[indexPath.section]];
+//        }
     }else if (self.flag5){
-        cell.label1_1.text = self.orderPatientNameArrayCompleted[indexPath.section];
-        cell.label1_2.text = self.orderBookTimeArrayCompleted[indexPath.section];
-        
-        cell.label1_3.text = @"已完成";
-        cell.lineView2.hidden = YES;
-        cell.button.hidden = YES;
-        
-        cell.label2_1.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringToIndex:4];
-        cell.label2_2.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
-        cell.label2_3.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
-        
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayCompleted[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayCompleted[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
-        
-        cell.label2_7.text = self.orderExpertNameArrayCompleted[indexPath.section];
-        cell.label2_8.text = self.orderDoctorNameArrayCompleted[indexPath.section];
-        cell.label2_9.text = self.orderClinicNameArrayCompleted[indexPath.section];
-        
-        if ([self.orderMoneyArrayCompleted[indexPath.section] doubleValue] < 0) {
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
-        }else{
-            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayCompleted[indexPath.section]];
-        }
+//        cell.label1_1.text = self.orderPatientNameArrayCompleted[indexPath.section];
+//        cell.label1_2.text = self.orderBookTimeArrayCompleted[indexPath.section];
+//        
+//        cell.label1_3.text = @"已完成";
+//        cell.lineView2.hidden = YES;
+//        cell.button.hidden = YES;
+//        
+//        cell.label2_1.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringToIndex:4];
+//        cell.label2_2.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringWithRange:NSMakeRange(5, 5)];
+//        cell.label2_3.text = [self.orderCreatTimeArrayCompleted[indexPath.section] substringWithRange:NSMakeRange(11, 5)];
+//        
+//        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayCompleted[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.orderDoctorImageArrayCompleted[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+//        
+//        cell.label2_7.text = self.orderExpertNameArrayCompleted[indexPath.section];
+//        cell.label2_8.text = self.orderDoctorNameArrayCompleted[indexPath.section];
+//        cell.label2_9.text = self.orderClinicNameArrayCompleted[indexPath.section];
+//        
+//        if ([self.orderMoneyArrayCompleted[indexPath.section] doubleValue] < 0) {
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ 0"];
+//        }else{
+//            cell.label2_10.text = [NSString stringWithFormat:@"¥ %@",self.orderMoneyArrayCompleted[indexPath.section]];
+//        }
     }
     
     return cell;
@@ -645,43 +708,43 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-        if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"1"]) {
-            TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
-            detaiVC.isFromOrderListVC = YES;
-            detaiVC.orderNumber = self.orderPayIdArrayAll[indexPath.section];
-            [self.navigationController pushViewController:detaiVC animated:YES];
-        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"5"]){
-            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
-            [self.navigationController pushViewController:medicineVC animated:YES];
-        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"6"]){
-            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
-            [self.navigationController pushViewController:medicineVC animated:YES];
-        }else{
-            TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
-            finishVC.orderNumber = self.orderIdArrayAll[indexPath.section];
-            [self.navigationController pushViewController:finishVC animated:YES];
-        }
+//        if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"1"]) {
+//            TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+//            detaiVC.isFromOrderListVC = YES;
+//            detaiVC.orderNumber = self.orderPayIdArrayAll[indexPath.section];
+//            [self.navigationController pushViewController:detaiVC animated:YES];
+//        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"5"]){
+//            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+//            [self.navigationController pushViewController:medicineVC animated:YES];
+//        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"6"]){
+//            MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//            medicineVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+//            [self.navigationController pushViewController:medicineVC animated:YES];
+//        }else{
+//            TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
+//            finishVC.orderNumber = self.orderIdArrayAll[indexPath.section];
+//            [self.navigationController pushViewController:finishVC animated:YES];
+//        }
         
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag2){
-        TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
-        detaiVC.isFromOrderListVC = YES;
-        detaiVC.orderNumber = self.orderPayIdArrayBooked[indexPath.section];
-        [self.navigationController pushViewController:detaiVC animated:YES];
+//        TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
+//        detaiVC.isFromOrderListVC = YES;
+//        detaiVC.orderNumber = self.orderPayIdArrayBooked[indexPath.section];
+//        [self.navigationController pushViewController:detaiVC animated:YES];
 
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
-        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
-        finishVC.orderNumber = self.orderIdArrayProceeding[indexPath.section];
-        [self.navigationController pushViewController:finishVC animated:YES];
+//        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
+//        finishVC.orderNumber = self.orderIdArrayProceeding[indexPath.section];
+//        [self.navigationController pushViewController:finishVC animated:YES];
         
         [self.tableView3 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag4){
-        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-        medicineVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
-        [self.navigationController pushViewController:medicineVC animated:YES];
+//        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//        medicineVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
+//        [self.navigationController pushViewController:medicineVC animated:YES];
         
 //        RecordDetailViewController *recordDetailVC = [[RecordDetailViewController alloc] init];
 //        recordDetailVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
@@ -689,9 +752,9 @@
         
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
-        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-        medicineVC.orderNumber = self.orderIdArrayCompleted[indexPath.section];
-        [self.navigationController pushViewController:medicineVC animated:YES];
+//        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+//        medicineVC.orderNumber = self.orderIdArrayCompleted[indexPath.section];
+//        [self.navigationController pushViewController:medicineVC animated:YES];
         
         [self.tableView5 deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -772,7 +835,7 @@
         self.data1 = [self.result1 objectForKey:@"data"];
         
         if (self.code1 == kSUCCESS) {
-//            [self orderListDataParse1];
+            [self orderListDataParse1];
         }else{
             DLog(@"%@",self.message1);
             if (self.code1 == kTOKENINVALID) {
@@ -992,44 +1055,71 @@
 #pragma mark Data Parse
 -(void)orderListDataParse1{
     DLog(@"orderListDataParse1");
-    self.orderArrayAll = [OrderData mj_objectArrayWithKeyValuesArray:self.data1];
+//    self.orderArrayAll = [OrderData mj_objectArrayWithKeyValuesArray:self.data1];
+//    
+//    [self.orderIdArrayAll removeAllObjects];
+//    [self.orderStatusArrayAll removeAllObjects];
+//    [self.orderCreatTimeArrayAll removeAllObjects];
+//    [self.orderBookTimeArrayAll removeAllObjects];
+//    [self.orderMoneyArrayAll removeAllObjects];
+//    [self.orderExpertIdArrayAll removeAllObjects];
+//    [self.orderExpertNameArrayAll removeAllObjects];
+//    [self.orderExpertImageArrayAll removeAllObjects];
+//    [self.orderClinicNameArrayAll removeAllObjects];
+//    [self.orderClinicAddressArrayAll removeAllObjects];
+//    [self.orderDoctorIdArrayAll removeAllObjects];
+//    [self.orderDoctorNameArrayAll removeAllObjects];
+//    [self.orderDoctorImageArrayAll removeAllObjects];
+//    [self.orderPatientNameArrayAll removeAllObjects];
+//    [self.orderPayIdArrayAll removeAllObjects];
+//    [self.orderPayStatusArrayAll removeAllObjects];
+//    
+//    for (OrderData *orderData in self.orderArrayAll) {
+//        [self.orderIdArrayAll addObject:[NullUtil judgeStringNull:orderData.consult_id]];
+//        [self.orderStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
+//        [self.orderCreatTimeArrayAll addObject:[NullUtil judgeStringNull:orderData.create_date]];
+//        [self.orderBookTimeArrayAll addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
+//        [self.orderMoneyArrayAll addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
+//        [self.orderExpertIdArrayAll addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
+//        [self.orderExpertNameArrayAll addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
+//        [self.orderExpertImageArrayAll addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
+//        [self.orderClinicNameArrayAll addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
+//        [self.orderClinicAddressArrayAll addObject:[NullUtil judgeStringNull:orderData.address]];
+//        [self.orderDoctorIdArrayAll addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
+//        [self.orderDoctorNameArrayAll addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
+//        [self.orderDoctorImageArrayAll addObject:[NullUtil judgeStringNull:orderData.minHeand]];
+//        [self.orderPatientNameArrayAll addObject:[NullUtil judgeStringNull:orderData.userName]];
+//        
+//        [self.orderPayIdArrayAll addObject:[NullUtil judgeStringNull:orderData.order_no]];
+//        [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+//    }
+    
+    self.orderArrayAll = [OrderFixData mj_objectArrayWithKeyValuesArray:self.data1];
     
     [self.orderIdArrayAll removeAllObjects];
     [self.orderStatusArrayAll removeAllObjects];
+    [self.orderPayStatusArrayAll removeAllObjects];
     [self.orderCreatTimeArrayAll removeAllObjects];
     [self.orderBookTimeArrayAll removeAllObjects];
     [self.orderMoneyArrayAll removeAllObjects];
     [self.orderExpertIdArrayAll removeAllObjects];
     [self.orderExpertNameArrayAll removeAllObjects];
     [self.orderExpertImageArrayAll removeAllObjects];
-    [self.orderClinicNameArrayAll removeAllObjects];
     [self.orderClinicAddressArrayAll removeAllObjects];
-    [self.orderDoctorIdArrayAll removeAllObjects];
-    [self.orderDoctorNameArrayAll removeAllObjects];
-    [self.orderDoctorImageArrayAll removeAllObjects];
-    [self.orderPatientNameArrayAll removeAllObjects];
-    [self.orderPayIdArrayAll removeAllObjects];
-    [self.orderPayStatusArrayAll removeAllObjects];
     
-    for (OrderData *orderData in self.orderArrayAll) {
-        [self.orderIdArrayAll addObject:[NullUtil judgeStringNull:orderData.consult_id]];
-        [self.orderStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
-        [self.orderCreatTimeArrayAll addObject:[NullUtil judgeStringNull:orderData.create_date]];
-        [self.orderBookTimeArrayAll addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
-        [self.orderMoneyArrayAll addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
-        [self.orderExpertIdArrayAll addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
-        [self.orderExpertNameArrayAll addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
-        [self.orderExpertImageArrayAll addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
-        [self.orderClinicNameArrayAll addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
-        [self.orderClinicAddressArrayAll addObject:[NullUtil judgeStringNull:orderData.address]];
-        [self.orderDoctorIdArrayAll addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
-        [self.orderDoctorNameArrayAll addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
-        [self.orderDoctorImageArrayAll addObject:[NullUtil judgeStringNull:orderData.minHeand]];
-        [self.orderPatientNameArrayAll addObject:[NullUtil judgeStringNull:orderData.userName]];
-        
-        [self.orderPayIdArrayAll addObject:[NullUtil judgeStringNull:orderData.order_no]];
-        [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+    for (OrderFixData *orderFixData in self.orderArrayAll) {
+        [self.orderIdArrayAll addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
+        [self.orderStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
+        [self.orderCreatTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
+        [self.orderBookTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
+        [self.orderMoneyArrayAll addObject:[NSString stringWithFormat:@"%.2f",orderFixData.money]];
+        [self.orderExpertIdArrayAll addObject:[NullUtil judgeStringNull:orderFixData.doctor_id]];
+        [self.orderExpertNameArrayAll addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
+        [self.orderExpertImageArrayAll addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
+        [self.orderClinicAddressArrayAll addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
     }
+
     
     [self.tableView1 reloadData];
     
@@ -1039,44 +1129,44 @@
 
 -(void)orderListDataParse2{
     DLog(@"orderListDataParse2");
-    self.orderArrayBooked = [OrderData mj_objectArrayWithKeyValuesArray:self.data2];
-    
-    [self.orderIdArrayBooked removeAllObjects];
-    [self.orderStatusArrayBooked removeAllObjects];
-    [self.orderCreatTimeArrayBooked removeAllObjects];
-    [self.orderBookTimeArrayBooked removeAllObjects];
-    [self.orderMoneyArrayBooked removeAllObjects];
-    [self.orderExpertIdArrayBooked removeAllObjects];
-    [self.orderExpertNameArrayBooked removeAllObjects];
-    [self.orderExpertImageArrayBooked removeAllObjects];
-    [self.orderClinicNameArrayBooked removeAllObjects];
-    [self.orderClinicAddressArrayBooked removeAllObjects];
-    [self.orderDoctorIdArrayBooked removeAllObjects];
-    [self.orderDoctorNameArrayBooked removeAllObjects];
-    [self.orderDoctorImageArrayBooked removeAllObjects];
-    [self.orderPatientNameArrayBooked removeAllObjects];
-    [self.orderPayIdArrayBooked removeAllObjects];
-    [self.orderPayStatusArrayBooked removeAllObjects];
-    
-    for (OrderData *orderData in self.orderArrayBooked) {
-        [self.orderIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.consult_id]];
-        [self.orderStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
-        [self.orderCreatTimeArrayBooked addObject:[NullUtil judgeStringNull:orderData.create_date]];
-        [self.orderBookTimeArrayBooked addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
-        [self.orderMoneyArrayBooked addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
-        [self.orderExpertIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
-        [self.orderExpertNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
-        [self.orderExpertImageArrayBooked addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
-        [self.orderClinicNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
-        [self.orderClinicAddressArrayBooked addObject:[NullUtil judgeStringNull:orderData.address]];
-        [self.orderDoctorIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
-        [self.orderDoctorNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
-        [self.orderDoctorImageArrayBooked addObject:[NullUtil judgeStringNull:orderData.minHeand]];
-        [self.orderPatientNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.userName]];
-        
-        [self.orderPayIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.order_no]];
-        [self.orderPayStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
-    }
+//    self.orderArrayBooked = [OrderData mj_objectArrayWithKeyValuesArray:self.data2];
+//    
+//    [self.orderIdArrayBooked removeAllObjects];
+//    [self.orderStatusArrayBooked removeAllObjects];
+//    [self.orderCreatTimeArrayBooked removeAllObjects];
+//    [self.orderBookTimeArrayBooked removeAllObjects];
+//    [self.orderMoneyArrayBooked removeAllObjects];
+//    [self.orderExpertIdArrayBooked removeAllObjects];
+//    [self.orderExpertNameArrayBooked removeAllObjects];
+//    [self.orderExpertImageArrayBooked removeAllObjects];
+//    [self.orderClinicNameArrayBooked removeAllObjects];
+//    [self.orderClinicAddressArrayBooked removeAllObjects];
+//    [self.orderDoctorIdArrayBooked removeAllObjects];
+//    [self.orderDoctorNameArrayBooked removeAllObjects];
+//    [self.orderDoctorImageArrayBooked removeAllObjects];
+//    [self.orderPatientNameArrayBooked removeAllObjects];
+//    [self.orderPayIdArrayBooked removeAllObjects];
+//    [self.orderPayStatusArrayBooked removeAllObjects];
+//    
+//    for (OrderData *orderData in self.orderArrayBooked) {
+//        [self.orderIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.consult_id]];
+//        [self.orderStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
+//        [self.orderCreatTimeArrayBooked addObject:[NullUtil judgeStringNull:orderData.create_date]];
+//        [self.orderBookTimeArrayBooked addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
+//        [self.orderMoneyArrayBooked addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
+//        [self.orderExpertIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
+//        [self.orderExpertNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
+//        [self.orderExpertImageArrayBooked addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
+//        [self.orderClinicNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
+//        [self.orderClinicAddressArrayBooked addObject:[NullUtil judgeStringNull:orderData.address]];
+//        [self.orderDoctorIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
+//        [self.orderDoctorNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
+//        [self.orderDoctorImageArrayBooked addObject:[NullUtil judgeStringNull:orderData.minHeand]];
+//        [self.orderPatientNameArrayBooked addObject:[NullUtil judgeStringNull:orderData.userName]];
+//        
+//        [self.orderPayIdArrayBooked addObject:[NullUtil judgeStringNull:orderData.order_no]];
+//        [self.orderPayStatusArrayBooked addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+//    }
     
     [self.tableView2 reloadData];
     
@@ -1086,44 +1176,44 @@
 
 -(void)orderListDataParse3{
     DLog(@"orderListDataParse3");
-    self.orderArrayProceeding = [OrderData mj_objectArrayWithKeyValuesArray:self.data3];
-    
-    [self.orderIdArrayProceeding  removeAllObjects];
-    [self.orderStatusArrayProceeding  removeAllObjects];
-    [self.orderCreatTimeArrayProceeding  removeAllObjects];
-    [self.orderBookTimeArrayProceeding  removeAllObjects];
-    [self.orderMoneyArrayProceeding  removeAllObjects];
-    [self.orderExpertIdArrayProceeding  removeAllObjects];
-    [self.orderExpertNameArrayProceeding  removeAllObjects];
-    [self.orderExpertImageArrayProceeding  removeAllObjects];
-    [self.orderClinicNameArrayProceeding  removeAllObjects];
-    [self.orderClinicAddressArrayProceeding  removeAllObjects];
-    [self.orderDoctorIdArrayProceeding  removeAllObjects];
-    [self.orderDoctorNameArrayProceeding  removeAllObjects];
-    [self.orderDoctorImageArrayProceeding  removeAllObjects];
-    [self.orderPatientNameArrayProceeding  removeAllObjects];
-    [self.orderPayIdArrayProceeding removeAllObjects];
-    [self.orderPayStatusArrayProceeding removeAllObjects];
-    
-    for (OrderData *orderData in self.orderArrayProceeding ) {
-        [self.orderIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.consult_id]];
-        [self.orderStatusArrayProceeding  addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
-        [self.orderCreatTimeArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.create_date]];
-        [self.orderBookTimeArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
-        [self.orderMoneyArrayProceeding  addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
-        [self.orderExpertIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
-        [self.orderExpertNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
-        [self.orderExpertImageArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
-        [self.orderClinicNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
-        [self.orderClinicAddressArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.address]];
-        [self.orderDoctorIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
-        [self.orderDoctorNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
-        [self.orderDoctorImageArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minHeand]];
-        [self.orderPatientNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.userName]];
-        
-        [self.orderPayIdArrayProceeding addObject:[NullUtil judgeStringNull:orderData.order_no]];
-        [self.orderPayStatusArrayProceeding addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
-    }
+//    self.orderArrayProceeding = [OrderData mj_objectArrayWithKeyValuesArray:self.data3];
+//    
+//    [self.orderIdArrayProceeding  removeAllObjects];
+//    [self.orderStatusArrayProceeding  removeAllObjects];
+//    [self.orderCreatTimeArrayProceeding  removeAllObjects];
+//    [self.orderBookTimeArrayProceeding  removeAllObjects];
+//    [self.orderMoneyArrayProceeding  removeAllObjects];
+//    [self.orderExpertIdArrayProceeding  removeAllObjects];
+//    [self.orderExpertNameArrayProceeding  removeAllObjects];
+//    [self.orderExpertImageArrayProceeding  removeAllObjects];
+//    [self.orderClinicNameArrayProceeding  removeAllObjects];
+//    [self.orderClinicAddressArrayProceeding  removeAllObjects];
+//    [self.orderDoctorIdArrayProceeding  removeAllObjects];
+//    [self.orderDoctorNameArrayProceeding  removeAllObjects];
+//    [self.orderDoctorImageArrayProceeding  removeAllObjects];
+//    [self.orderPatientNameArrayProceeding  removeAllObjects];
+//    [self.orderPayIdArrayProceeding removeAllObjects];
+//    [self.orderPayStatusArrayProceeding removeAllObjects];
+//    
+//    for (OrderData *orderData in self.orderArrayProceeding ) {
+//        [self.orderIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.consult_id]];
+//        [self.orderStatusArrayProceeding  addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
+//        [self.orderCreatTimeArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.create_date]];
+//        [self.orderBookTimeArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
+//        [self.orderMoneyArrayProceeding  addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
+//        [self.orderExpertIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
+//        [self.orderExpertNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
+//        [self.orderExpertImageArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
+//        [self.orderClinicNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
+//        [self.orderClinicAddressArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.address]];
+//        [self.orderDoctorIdArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
+//        [self.orderDoctorNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
+//        [self.orderDoctorImageArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.minHeand]];
+//        [self.orderPatientNameArrayProceeding  addObject:[NullUtil judgeStringNull:orderData.userName]];
+//        
+//        [self.orderPayIdArrayProceeding addObject:[NullUtil judgeStringNull:orderData.order_no]];
+//        [self.orderPayStatusArrayProceeding addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+//    }
     
     [self.tableView3 reloadData];
     
@@ -1133,44 +1223,44 @@
 
 -(void)orderListDataParse4{
     DLog(@"orderListDataParse4");
-    self.orderArrayEvaluating = [OrderData mj_objectArrayWithKeyValuesArray:self.data4];
-    
-    [self.orderIdArrayEvaluating removeAllObjects];
-    [self.orderStatusArrayEvaluating removeAllObjects];
-    [self.orderCreatTimeArrayEvaluating removeAllObjects];
-    [self.orderBookTimeArrayEvaluating removeAllObjects];
-    [self.orderMoneyArrayEvaluating removeAllObjects];
-    [self.orderExpertIdArrayEvaluating removeAllObjects];
-    [self.orderExpertNameArrayEvaluating removeAllObjects];
-    [self.orderExpertImageArrayEvaluating removeAllObjects];
-    [self.orderClinicNameArrayEvaluating removeAllObjects];
-    [self.orderClinicAddressArrayEvaluating removeAllObjects];
-    [self.orderDoctorIdArrayEvaluating removeAllObjects];
-    [self.orderDoctorNameArrayEvaluating removeAllObjects];
-    [self.orderDoctorImageArrayEvaluating removeAllObjects];
-    [self.orderPatientNameArrayEvaluating removeAllObjects];
-    [self.orderPayIdArrayEvaluating removeAllObjects];
-    [self.orderPayStatusArrayEvaluating removeAllObjects];
-    
-    for (OrderData *orderData in self.orderArrayEvaluating) {
-        [self.orderIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.consult_id]];
-        [self.orderStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
-        [self.orderCreatTimeArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.create_date]];
-        [self.orderBookTimeArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
-        [self.orderMoneyArrayEvaluating addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
-        [self.orderExpertIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
-        [self.orderExpertNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
-        [self.orderExpertImageArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
-        [self.orderClinicNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
-        [self.orderClinicAddressArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.address]];
-        [self.orderDoctorIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
-        [self.orderDoctorNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
-        [self.orderDoctorImageArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minHeand]];
-        [self.orderPatientNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.userName]];
-        
-        [self.orderPayIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.order_no]];
-        [self.orderPayStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
-    }
+//    self.orderArrayEvaluating = [OrderData mj_objectArrayWithKeyValuesArray:self.data4];
+//    
+//    [self.orderIdArrayEvaluating removeAllObjects];
+//    [self.orderStatusArrayEvaluating removeAllObjects];
+//    [self.orderCreatTimeArrayEvaluating removeAllObjects];
+//    [self.orderBookTimeArrayEvaluating removeAllObjects];
+//    [self.orderMoneyArrayEvaluating removeAllObjects];
+//    [self.orderExpertIdArrayEvaluating removeAllObjects];
+//    [self.orderExpertNameArrayEvaluating removeAllObjects];
+//    [self.orderExpertImageArrayEvaluating removeAllObjects];
+//    [self.orderClinicNameArrayEvaluating removeAllObjects];
+//    [self.orderClinicAddressArrayEvaluating removeAllObjects];
+//    [self.orderDoctorIdArrayEvaluating removeAllObjects];
+//    [self.orderDoctorNameArrayEvaluating removeAllObjects];
+//    [self.orderDoctorImageArrayEvaluating removeAllObjects];
+//    [self.orderPatientNameArrayEvaluating removeAllObjects];
+//    [self.orderPayIdArrayEvaluating removeAllObjects];
+//    [self.orderPayStatusArrayEvaluating removeAllObjects];
+//    
+//    for (OrderData *orderData in self.orderArrayEvaluating) {
+//        [self.orderIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.consult_id]];
+//        [self.orderStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
+//        [self.orderCreatTimeArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.create_date]];
+//        [self.orderBookTimeArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
+//        [self.orderMoneyArrayEvaluating addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
+//        [self.orderExpertIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
+//        [self.orderExpertNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
+//        [self.orderExpertImageArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
+//        [self.orderClinicNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
+//        [self.orderClinicAddressArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.address]];
+//        [self.orderDoctorIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
+//        [self.orderDoctorNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
+//        [self.orderDoctorImageArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.minHeand]];
+//        [self.orderPatientNameArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.userName]];
+//        
+//        [self.orderPayIdArrayEvaluating addObject:[NullUtil judgeStringNull:orderData.order_no]];
+//        [self.orderPayStatusArrayEvaluating addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+//    }
     
     [self.tableView4 reloadData];
     
@@ -1180,44 +1270,44 @@
 
 -(void)orderListDataParse5{
     DLog(@"orderListDataParse5");
-    self.orderArrayCompleted = [OrderData mj_objectArrayWithKeyValuesArray:self.data5];
-    
-    [self.orderIdArrayCompleted removeAllObjects];
-    [self.orderStatusArrayCompleted removeAllObjects];
-    [self.orderCreatTimeArrayCompleted removeAllObjects];
-    [self.orderBookTimeArrayCompleted removeAllObjects];
-    [self.orderMoneyArrayCompleted removeAllObjects];
-    [self.orderExpertIdArrayCompleted removeAllObjects];
-    [self.orderExpertNameArrayCompleted removeAllObjects];
-    [self.orderExpertImageArrayCompleted removeAllObjects];
-    [self.orderClinicNameArrayCompleted removeAllObjects];
-    [self.orderClinicAddressArrayCompleted removeAllObjects];
-    [self.orderDoctorIdArrayCompleted removeAllObjects];
-    [self.orderDoctorNameArrayCompleted removeAllObjects];
-    [self.orderDoctorImageArrayCompleted removeAllObjects];
-    [self.orderPatientNameArrayCompleted removeAllObjects];
-    [self.orderPayIdArrayCompleted removeAllObjects];
-    [self.orderPayStatusArrayCompleted removeAllObjects];
-    
-    for (OrderData *orderData in self.orderArrayCompleted) {
-        [self.orderIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.consult_id]];
-        [self.orderStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
-        [self.orderCreatTimeArrayCompleted addObject:[NullUtil judgeStringNull:orderData.create_date]];
-        [self.orderBookTimeArrayCompleted addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
-        [self.orderMoneyArrayCompleted addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
-        [self.orderExpertIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
-        [self.orderExpertNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
-        [self.orderExpertImageArrayCompleted addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
-        [self.orderClinicNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
-        [self.orderClinicAddressArrayCompleted addObject:[NullUtil judgeStringNull:orderData.address]];
-        [self.orderDoctorIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
-        [self.orderDoctorNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
-        [self.orderDoctorImageArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minHeand]];
-        [self.orderPatientNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.userName]];
-        
-        [self.orderPayIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.order_no]];
-        [self.orderPayStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
-    }
+//    self.orderArrayCompleted = [OrderData mj_objectArrayWithKeyValuesArray:self.data5];
+//    
+//    [self.orderIdArrayCompleted removeAllObjects];
+//    [self.orderStatusArrayCompleted removeAllObjects];
+//    [self.orderCreatTimeArrayCompleted removeAllObjects];
+//    [self.orderBookTimeArrayCompleted removeAllObjects];
+//    [self.orderMoneyArrayCompleted removeAllObjects];
+//    [self.orderExpertIdArrayCompleted removeAllObjects];
+//    [self.orderExpertNameArrayCompleted removeAllObjects];
+//    [self.orderExpertImageArrayCompleted removeAllObjects];
+//    [self.orderClinicNameArrayCompleted removeAllObjects];
+//    [self.orderClinicAddressArrayCompleted removeAllObjects];
+//    [self.orderDoctorIdArrayCompleted removeAllObjects];
+//    [self.orderDoctorNameArrayCompleted removeAllObjects];
+//    [self.orderDoctorImageArrayCompleted removeAllObjects];
+//    [self.orderPatientNameArrayCompleted removeAllObjects];
+//    [self.orderPayIdArrayCompleted removeAllObjects];
+//    [self.orderPayStatusArrayCompleted removeAllObjects];
+//    
+//    for (OrderData *orderData in self.orderArrayCompleted) {
+//        [self.orderIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.consult_id]];
+//        [self.orderStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.status]];
+//        [self.orderCreatTimeArrayCompleted addObject:[NullUtil judgeStringNull:orderData.create_date]];
+//        [self.orderBookTimeArrayCompleted addObject:[NullUtil judgeStringNull:orderData.bespoke_date]];
+//        [self.orderMoneyArrayCompleted addObject:[NSString stringWithFormat:@"%.2f",orderData.price]];
+//        [self.orderExpertIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.max_doctor_id]];
+//        [self.orderExpertNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.maxDoctorName]];
+//        [self.orderExpertImageArrayCompleted addObject:[NullUtil judgeStringNull:orderData.maxHeand]];
+//        [self.orderClinicNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.outpat_name]];
+//        [self.orderClinicAddressArrayCompleted addObject:[NullUtil judgeStringNull:orderData.address]];
+//        [self.orderDoctorIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.min_doctor_id]];
+//        [self.orderDoctorNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minDoctorName]];
+//        [self.orderDoctorImageArrayCompleted addObject:[NullUtil judgeStringNull:orderData.minHeand]];
+//        [self.orderPatientNameArrayCompleted addObject:[NullUtil judgeStringNull:orderData.userName]];
+//        
+//        [self.orderPayIdArrayCompleted addObject:[NullUtil judgeStringNull:orderData.order_no]];
+//        [self.orderPayStatusArrayCompleted addObject:[NSString stringWithFormat:@"%ld",(long)orderData.pay_status]];
+//    }
     
     [self.tableView5 reloadData];
     
