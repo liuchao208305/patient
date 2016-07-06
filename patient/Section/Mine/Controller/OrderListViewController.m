@@ -282,7 +282,7 @@
 }
 
 -(void)initView:(NSInteger)number{
-    NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:@"全部", @"已预约", @"进行中",@"待评价",@"已完成",nil];
+    NSMutableArray *segmentedArray = [NSMutableArray arrayWithObjects:@"全部", @"待支付", @"待就诊",@"已就诊",@"无效",nil];
     self.segmentControl = [YJSegmentedControl segmentedControlFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) titleDataSource:segmentedArray backgroundColor:kBACKGROUND_COLOR titleColor:kLIGHT_GRAY_COLOR titleFont:[UIFont systemFontOfSize:14] selectColor:kBLACK_COLOR buttonDownColor:kMAIN_COLOR Delegate:self selectSeugment:number];
     
     [self.view addSubview:self.segmentControl];
