@@ -32,6 +32,7 @@
 #import "RecordListViewController.h"
 #import "AgreementViewController.h"
 #import "MineCustomServiceViewController.h"
+#import "MineQuestionTableCell.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -281,7 +282,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 110;
+        return 85;
     }else if (indexPath.section == 1){
         return 85;
     }else if (indexPath.section == 2){
@@ -292,15 +293,33 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0){
-        //        static NSString *cellName = @"MineRecordTableCell";
-        //        MineRecordTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-        //        if (!cell) {
-        //            cell = [[MineRecordTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-        //        }
+//        MineRecordTableCell *cell = [[MineRecordTableCell alloc] init];
+//        [cell initView:self.recordIdArray.count Withid:self.recordIdArray image:self.recordImageArray name:self.recordNameArray patientName:self.recordPatientNameArray];
+//        cell.recordViewDelegate = self;
+//        
+//        return cell;
         
-        MineRecordTableCell *cell = [[MineRecordTableCell alloc] init];
-        [cell initView:self.recordIdArray.count Withid:self.recordIdArray image:self.recordImageArray name:self.recordNameArray patientName:self.recordPatientNameArray];
-        cell.recordViewDelegate = self;
+        static NSString *cellName = @"MineQuestionTableCell";
+        MineQuestionTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[MineQuestionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        //填充数据
+        cell.backView1.userInteractionEnabled = YES;
+        UITapGestureRecognizer *backView1FixTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView1FixClicked)];
+        [cell.backView1 addGestureRecognizer:backView1FixTap];
+        
+        cell.backView2.userInteractionEnabled = YES;
+        UITapGestureRecognizer *backView2FixTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView2FixClicked)];
+        [cell.backView2 addGestureRecognizer:backView2FixTap];
+        
+        cell.backView3.userInteractionEnabled = YES;
+        UITapGestureRecognizer *backView3FixTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView3FixClicked)];
+        [cell.backView3 addGestureRecognizer:backView3FixTap];
+        
+        cell.backView4.userInteractionEnabled = YES;
+        UITapGestureRecognizer *backView4FixTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backView4FixClicked)];
+        [cell.backView4 addGestureRecognizer:backView4FixTap];
         
         return cell;
     }else if (indexPath.section == 1){
@@ -439,6 +458,38 @@
     orderListVC.hidesBottomBarWhenPushed = YES;
     orderListVC.orderType = 0;
     [self.navigationController pushViewController:orderListVC animated:YES];
+}
+
+-(void)backView1FixClicked{
+    DLog(@"backView1FixClicked");
+//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+//    orderListVC.hidesBottomBarWhenPushed = YES;
+//    orderListVC.orderType = 1;
+//    [self.navigationController pushViewController:orderListVC animated:YES];
+}
+
+-(void)backView2FixClicked{
+    DLog(@"backView2FixClicked");
+//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+//    orderListVC.hidesBottomBarWhenPushed = YES;
+//    orderListVC.orderType = 2;
+//    [self.navigationController pushViewController:orderListVC animated:YES];
+}
+
+-(void)backView3FixClicked{
+    DLog(@"backView3FixClicked");
+//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+//    orderListVC.hidesBottomBarWhenPushed = YES;
+//    orderListVC.orderType = 3;
+//    [self.navigationController pushViewController:orderListVC animated:YES];
+}
+
+-(void)backView4FixClicked{
+    DLog(@"backView4FixClicked");
+//    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+//    orderListVC.hidesBottomBarWhenPushed = YES;
+//    orderListVC.orderType = 4;
+//    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)backView1Clicked{
