@@ -80,9 +80,9 @@
 
 #pragma mark Call Back
 -(void)successCallBack{
-    if (self.loginDelegate && [self.loginDelegate respondsToSelector:@selector(loginSuccess:userId:)]) {
+    if (self.loginDelegate && [self.loginDelegate respondsToSelector:@selector(loginSuccess:userId:userSex:)]) {
 //        [self.loginDelegate loginSuccess:self.loginModel];
-        [self.loginDelegate loginSuccess:[self.data objectForKey:@"token"] userId:[self.data objectForKey:@"user_id"]];
+        [self.loginDelegate loginSuccess:[self.data objectForKey:@"token"] userId:[self.data objectForKey:@"user_id"] userSex:[self.data objectForKey:@"user_sex"]];
     }
 }
 

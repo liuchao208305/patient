@@ -12,7 +12,7 @@
 @protocol LoginDelegate <NSObject>
 
 //-(void)loginSuccess:(LoginModel *)loginModel;
--(void)loginSuccess:(NSString *)token userId:(NSString *)userId;
+-(void)loginSuccess:(NSString *)token userId:(NSString *)userId userSex:(NSString *)userSex;
 -(void)loginError:(NSInteger)code errMsg:(NSString *)message;
 -(void)loginFailure:(NSError *)error;
 

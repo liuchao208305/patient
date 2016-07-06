@@ -23,6 +23,8 @@
 
 #define kJZK_userId @"JZK_userId"
 
+#define kJZK_userSex @"JZK_userSex"
+
 #define kJZK_city @"JZK_city"
 
 #define kJZK_accout @"JZK_account"

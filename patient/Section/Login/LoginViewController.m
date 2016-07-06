@@ -752,18 +752,21 @@
 -(void)tencentLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"token"] forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_sex"] forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)weixinLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"token"] forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_sex"] forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)weiboLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"token"] forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_sex"] forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -796,13 +799,14 @@
 }
 
 #pragma mark LoginDelegate
--(void)loginSuccess:(NSString *)token userId:(NSString *)userId{
+-(void)loginSuccess:(NSString *)token userId:(NSString *)userId userSex:(NSString *)userSex{
     DLog(@"登录成功回调！");
     
     [CommonUtil changeIsLoginSuccess:YES];
     
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:kJZK_token];
     [[NSUserDefaults standardUserDefaults] setValue:userId forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:userSex forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
