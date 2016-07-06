@@ -238,7 +238,6 @@
 		706838091D2987E60007FCBD /* info_health_list_no_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 706838061D2987E60007FCBD /* info_health_list_no_image.png */; };
 		7068380B1D2BB0050007FCBD /* info_expert_guanzhu_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7068380A1D2BB0050007FCBD /* info_expert_guanzhu_normal@3x.png */; };
 		7068380E1D2BB0C10007FCBD /* BookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7068380D1D2BB0C10007FCBD /* BookInfoViewController.m */; };
-		706838111D2BB0D60007FCBD /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706838101D2BB0D60007FCBD /* BookDetailViewController.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -1038,8 +1037,6 @@
 		7068380A1D2BB0050007FCBD /* info_expert_guanzhu_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_expert_guanzhu_normal@3x.png"; sourceTree = "<group>"; };
 		7068380C1D2BB0C10007FCBD /* BookInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoViewController.h; sourceTree = "<group>"; };
 		7068380D1D2BB0C10007FCBD /* BookInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoViewController.m; sourceTree = "<group>"; };
-		7068380F1D2BB0D60007FCBD /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
-		706838101D2BB0D60007FCBD /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -2846,8 +2843,6 @@
 				7046ADC61CA10F7A00BB6818 /* ExpertInfoViewController.m */,
 				7068380C1D2BB0C10007FCBD /* BookInfoViewController.h */,
 				7068380D1D2BB0C10007FCBD /* BookInfoViewController.m */,
-				7068380F1D2BB0D60007FCBD /* BookDetailViewController.h */,
-				706838101D2BB0D60007FCBD /* BookDetailViewController.m */,
 				7046ADC81CA10F8C00BB6818 /* ClinicInfoViewController.h */,
 				7046ADC91CA10F8C00BB6818 /* ClinicInfoViewController.m */,
 				7005E36D1CBF656B002CA541 /* ClinicInfoFixViewController.h */,
@@ -4209,7 +4204,6 @@
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */,
-				706838111D2BB0D60007FCBD /* BookDetailViewController.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				708995711CF3E5DF00B40F97 /* MineMessageData.m in Sources */,
 				708274AF1CF710060016AE3C /* RecordListTestTableCell.m in Sources */,
