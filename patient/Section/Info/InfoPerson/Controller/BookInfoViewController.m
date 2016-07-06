@@ -49,7 +49,7 @@
 @property (strong,nonatomic)NSString *patientId;
 @property (strong,nonatomic)NSString *patientName;
 @property (assign,nonatomic)int patientSex;
-@property (strong,nonatomic)NSString *patientAge;
+@property (assign,nonatomic)int patientAge;
 @property (strong,nonatomic)NSString *patientIdNo;
 @property (strong,nonatomic)NSString *patientPhone;
 
@@ -933,7 +933,7 @@
     
     [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
     [parameter setValue:self.patientIdTextField.text forKey:@"ID_no"];
-    [parameter setValue:@"58" forKey:@"age"];
+    [parameter setValue:[NSString stringWithFormat:@"%d",self.patientAge] forKey:@"age"];
     [parameter setValue:self.patientNameTextField.text forKey:@"name"];
     [parameter setValue:[NSString stringWithFormat:@"%d",self.patientSex] forKey:@"sex"];
     
@@ -1202,6 +1202,7 @@
             }
         }
         
+        self.patientAge = age;
         self.patientAgeLabel.text = [NSString stringWithFormat:@"%d岁",age];
     }else{
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
