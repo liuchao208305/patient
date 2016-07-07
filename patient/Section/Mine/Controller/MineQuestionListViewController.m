@@ -365,20 +365,23 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
-//        if ([self.orderStatusArrayAll[indexPath.section] integerValue] == 1) {
-//            return 150;
-//        }else{
-//            return 110;
-//        }
-        return 150;
+        if ([self.questionPayStatusArrayAll[indexPath.section] intValue] == 1) {
+            return 150;
+        }else if ([self.questionPayStatusArrayAll[indexPath.section] intValue] == 2){
+            return 200;
+        }
     }else if (self.flag2){
         return 150;
     }else if (self.flag3){
-        return 110;
+        return 200;
     }else if (self.flag4){
-        return 110;
+        return 200;
     }else if (self.flag5){
-        return 110;
+        if ([self.questionPayStatusArrayAll[indexPath.section] intValue] == 1) {
+            return 150;
+        }else if ([self.questionPayStatusArrayAll[indexPath.section] intValue] == 2){
+            return 200;
+        }
     }
     
     return 0;
