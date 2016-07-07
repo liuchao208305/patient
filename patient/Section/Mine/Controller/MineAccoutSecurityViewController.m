@@ -192,11 +192,32 @@
         }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
-            
+            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
+            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@,openid-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL,snsAccount.openId);
+                    [self sendTencentLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+                }
+            });
         }else if (indexPath.row == 1){
-            
+            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+                    [self sendWeixinLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+                }
+            });
         }else if (indexPath.row == 2){
-            
+            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+                    [self sendWeiboLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
+                }
+            });
         }
     }
     
@@ -236,6 +257,144 @@
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
             }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendTencentLoginRequest:(NSString *)openId name:(NSString *)userName image:(NSString *)iconURL{
+    DLog(@"sendTencentLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:openId forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
+    [parameter setValue:@"Tencent" forKey:@"source"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_AUTHORIZATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result1 = (NSMutableDictionary *)responseObject;
+        
+        self.code1 = [[self.result1 objectForKey:@"code"] integerValue];
+        self.message1 = [self.result1 objectForKey:@"message"];
+        self.data1 = [self.result1 objectForKey:@"data"];
+        
+        if (self.code1 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"QQ授权成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self sendAccountSecurityRequest];
+        }else{
+            DLog(@"%ld",(long)self.code1);
+            DLog(@"%@",self.message1);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendWeixinLoginRequest:(NSString *)openId name:(NSString *)userName image:(NSString *)iconURL{
+    DLog(@"sendWeixinLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:openId forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
+    [parameter setValue:@"Weixin" forKey:@"source"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_AUTHORIZATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"微信授权成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self sendAccountSecurityRequest];
+        }else{
+            DLog(@"%ld",(long)self.code2);
+            DLog(@"%@",self.message2);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendWeiboLoginRequest:(NSString *)usid name:(NSString *)userName image:(NSString *)iconURL{
+    DLog(@"sendWeiboLoginRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:usid forKey:@"code"];
+    [parameter setValue:userName forKey:@"name"];
+    [parameter setValue:iconURL forKey:@"head_url"];
+    [parameter setValue:@"Weibo" forKey:@"source"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_THIRD_AUTHORIZATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"微博授权成功！" withDelaySeconds:kHud_DelayTime];
+            
+            [self sendAccountSecurityRequest];
+        }else{
+            DLog(@"%ld",(long)self.code3);
+            DLog(@"%@",self.message3);
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
