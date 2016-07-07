@@ -54,7 +54,7 @@
 
 @property (strong,nonatomic)UITextField *textField;
 
--(void)initViewWithTextField:(NSString *)placeholder;
+-(void)initViewWithTextField:(NSString *)placeholder text:(NSString *)text;
 
 @property (weak,nonatomic)id<SymtomDelegate> symtomDelegate;
 

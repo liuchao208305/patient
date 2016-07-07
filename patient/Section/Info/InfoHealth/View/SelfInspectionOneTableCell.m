@@ -14,9 +14,13 @@
 
 @implementation SelfInspectionOneTableCell
 
--(void)initViewWithTextField:(NSString *)placeholder{
+-(void)initViewWithTextField:(NSString *)placeholder text:(NSString *)text{
     self.textField = [[UITextField alloc] init];
-    self.textField.placeholder = placeholder;
+    if ([text isEqualToString:@""]) {
+        self.textField.placeholder = placeholder;
+    }else{
+        self.textField.text = text;
+    }
     self.textField.layer.borderWidth = 1;
     self.textField.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
     self.textField.delegate = self;

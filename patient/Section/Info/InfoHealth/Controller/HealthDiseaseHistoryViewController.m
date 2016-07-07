@@ -24,6 +24,12 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
+
 @property (assign,nonatomic)BOOL jiwangshiHideFlag;
 @property (assign,nonatomic)BOOL shoushushiHideFlag;
 @property (assign,nonatomic)BOOL guominshiHideFlag;
@@ -33,6 +39,12 @@
 @property (strong,nonatomic)NSString *shoushushi;
 @property (strong,nonatomic)NSString *guominshi;
 @property (strong,nonatomic)NSString *jiazushi;
+
+@property (strong,nonatomic)NSString *diseaseHistoryIdFix;
+@property (strong,nonatomic)NSString *jiwangshiFix;
+@property (strong,nonatomic)NSString *shoushushiFix;
+@property (strong,nonatomic)NSString *guominshiFix;
+@property (strong,nonatomic)NSString *jiazushiFix;
 
 @end
 
@@ -56,12 +68,22 @@
     self.shoushushi = @"";
     self.guominshi = @"";
     self.jiazushi = @"";
+    
+    self.diseaseHistoryIdFix = @"";
+    self.jiwangshiFix = @"";
+    self.shoushushiFix = @"";
+    self.guominshiFix = @"";
+    self.jiazushiFix = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"HealthDiseaseHistoryViewController"];
+    
+    self.navigationController.navigationBar.hidden = NO;
+    
+    [self sendDiseaseHistoryRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -118,16 +140,16 @@
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
     
-    if ([self.jiwangshi isEqualToString:@""] && self.jiwangshiHideFlag == NO) {
+    if ([self.jiwangshi isEqualToString:@""] && self.jiwangshiHideFlag == NO  && [self.jiwangshiFix isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"既往史不能为空！"];
     }else{
-        if ([self.shoushushi isEqualToString:@""] && self.shoushushiHideFlag == NO) {
+        if ([self.shoushushi isEqualToString:@""] && self.shoushushiHideFlag == NO && [self.shoushushiFix isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"手术史不能为空！"];
         }else{
-            if ([self.guominshi isEqualToString:@""] && self.guominshiHideFlag == NO) {
+            if ([self.guominshi isEqualToString:@""] && self.guominshiHideFlag == NO && [self.guominshiFix isEqualToString:@""]) {
                 [AlertUtil showSimpleAlertWithTitle:nil message:@"过敏史不能为空！"];
             }else{
-                if ([self.jiazushi isEqualToString:@""] && self.jiwangshiHideFlag == NO) {
+                if ([self.jiazushi isEqualToString:@""] && self.jiwangshiHideFlag == NO && [self.jiazushiFix isEqualToString:@""]) {
                     [AlertUtil showSimpleAlertWithTitle:nil message:@"家族史不能为空！"];
                 }else{
                     [self sendDiseaseHistoryConfirmRequest];
@@ -293,7 +315,8 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initViewWithTextField:@"请在此处填写您的既往病史"];
+//            [cell initViewWithTextField:@"请在此处填写您的既往病史"];
+            [cell initViewWithTextField:@"请在此处填写您的既往病史" text:self.jiwangshiFix];
             cell.jiwangshiDelegate = self;
         }
         return cell;
@@ -302,7 +325,8 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initViewWithTextField:@"请在此处填写您的手术史"];
+//            [cell initViewWithTextField:@"请在此处填写您的手术史"];
+            [cell initViewWithTextField:@"请在此处填写您的手术史" text:self.shoushushiFix];
             cell.shoushushiDelegate = self;
         }
         return cell;
@@ -311,7 +335,8 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initViewWithTextField:@"请在此处填写您的过敏原"];
+//            [cell initViewWithTextField:@"请在此处填写您的过敏原"];
+            [cell initViewWithTextField:@"请在此处填写您的过敏原" text:self.guominshiFix];
             cell.guominshiDelegate = self;
         }
         return cell;
@@ -320,7 +345,8 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等"];
+//            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等"];
+            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等" text:self.jiazushiFix];
             cell.jiazushiDelegate = self;
         }
         return cell;
@@ -339,11 +365,37 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
-    [parameter setValue:self.jiwangshi forKey:@"a_history"];
-    [parameter setValue:self.shoushushi forKey:@"b_history"];
-    [parameter setValue:self.guominshi forKey:@"c_history"];
-    [parameter setValue:self.jiazushi forKey:@"d_history"];
+    
+    if ([self.diseaseHistoryIdFix isEqualToString:@""]) {
+        [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
+    }else{
+        [parameter setValue:self.diseaseHistoryIdFix forKey:@"ids"];
+    }
+    
+    if ([self.jiwangshi isEqualToString:@""]) {
+        [parameter setValue:self.jiwangshiFix forKey:@"a_history"];
+    }else{
+        [parameter setValue:self.jiwangshi forKey:@"a_history"];
+    }
+    
+    if ([self.shoushushi isEqualToString:@""]) {
+        [parameter setValue:self.shoushushiFix forKey:@"b_history"];
+    }else{
+        [parameter setValue:self.shoushushi forKey:@"b_history"];
+    }
+    
+    if ([self.guominshi isEqualToString:@""]) {
+        [parameter setValue:self.guominshiFix forKey:@"c_history"];
+    }else{
+        [parameter setValue:self.guominshi forKey:@"c_history"];
+    }
+    
+    if ([self.jiazushi isEqualToString:@""]) {
+        [parameter setValue:self.jiazushiFix forKey:@"d_history"];
+    }else{
+        [parameter setValue:self.jiazushi forKey:@"d_history"];
+    }
+    
     
     [parameter setValue:[NSString stringWithFormat:@"%d",self.hunfou] forKey:@"marriage_status"];
     [parameter setValue:[NSString stringWithFormat:@"%d",self.erzi] forKey:@"a_son"];
@@ -383,6 +435,62 @@
     }];
 }
 
+-(void)sendDiseaseHistoryRequest{
+    DLog(@"sendDiseaseHistoryRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_AND_MARRIAGE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [self diseaseHistoryDataParse];
+        }else{
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
+-(void)diseaseHistoryDataParse{
+    if (![self.data2 isKindOfClass:[NSNull class]]) {
+        self.diseaseHistoryIdFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"ids"]];
+        self.jiwangshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"a_history"]];
+        self.shoushushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"b_history"]];
+        self.guominshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"c_history"]];
+        self.jiazushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"d_history"]];
+    }
+    
+    [self.tableView removeFromSuperview];
+    [self initView];
+}
 
 @end

@@ -1501,7 +1501,8 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initViewWithTextField:@"请输入患者主诉"];
+//            [cell initViewWithTextField:@"请输入患者主诉"];
+            [cell initViewWithTextField:@"请输入患者主诉" text:@""];
             cell.symtomDelegate = self;
         }
         return cell;

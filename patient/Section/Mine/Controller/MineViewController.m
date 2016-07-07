@@ -36,6 +36,8 @@
 #import "MineQuestionListViewController.h"
 #import "MineSettingFixViewController.h"
 #import "HealthListDetailViewController.h"
+#import "HealthDiseaseHistoryViewController.h"
+#import "HealthMarriageHistoryViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -604,6 +606,11 @@
 //    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
 //    mineExpertVC.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:mineExpertVC animated:YES];
+    
+    HealthDiseaseHistoryViewController *diseaseVC = [[HealthDiseaseHistoryViewController alloc] init];
+    diseaseVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:diseaseVC animated:YES];
+
 }
 
 -(void)function3Clicked{
