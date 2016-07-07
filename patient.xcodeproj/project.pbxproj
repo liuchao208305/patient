@@ -517,6 +517,10 @@
 		70924AEF1D2E3340001DFE85 /* mine_setting_more_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AEC1D2E3340001DFE85 /* mine_setting_more_image@3x.png */; };
 		70924AF01D2E3340001DFE85 /* mine_setting_more_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AED1D2E3340001DFE85 /* mine_setting_more_image@2x.png */; };
 		70924AF11D2E3340001DFE85 /* mine_setting_more_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AEE1D2E3340001DFE85 /* mine_setting_more_image.png */; };
+		70924AF41D2E3B61001DFE85 /* MineFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AF31D2E3B61001DFE85 /* MineFeedBackViewController.m */; };
+		70924AF71D2E3BA5001DFE85 /* MineNotificationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AF61D2E3BA5001DFE85 /* MineNotificationSettingViewController.m */; };
+		70924AFA1D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AF91D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m */; };
+		70924AFD1D2E3C73001DFE85 /* MinePersonInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AFC1D2E3C73001DFE85 /* MinePersonInformationViewController.m */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -1456,6 +1460,14 @@
 		70924AEC1D2E3340001DFE85 /* mine_setting_more_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_setting_more_image@3x.png"; sourceTree = "<group>"; };
 		70924AED1D2E3340001DFE85 /* mine_setting_more_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_setting_more_image@2x.png"; sourceTree = "<group>"; };
 		70924AEE1D2E3340001DFE85 /* mine_setting_more_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_setting_more_image.png; sourceTree = "<group>"; };
+		70924AF21D2E3B61001DFE85 /* MineFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineFeedBackViewController.h; sourceTree = "<group>"; };
+		70924AF31D2E3B61001DFE85 /* MineFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineFeedBackViewController.m; sourceTree = "<group>"; };
+		70924AF51D2E3BA5001DFE85 /* MineNotificationSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNotificationSettingViewController.h; sourceTree = "<group>"; };
+		70924AF61D2E3BA5001DFE85 /* MineNotificationSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNotificationSettingViewController.m; sourceTree = "<group>"; };
+		70924AF81D2E3BD9001DFE85 /* MineAccoutSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineAccoutSecurityViewController.h; sourceTree = "<group>"; };
+		70924AF91D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineAccoutSecurityViewController.m; sourceTree = "<group>"; };
+		70924AFB1D2E3C73001DFE85 /* MinePersonInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePersonInformationViewController.h; sourceTree = "<group>"; };
+		70924AFC1D2E3C73001DFE85 /* MinePersonInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePersonInformationViewController.m; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -3164,6 +3176,14 @@
 				70B4EA891CCD0A9600141E38 /* MineSettingViewController.m */,
 				70924AE01D2E1F88001DFE85 /* MineSettingFixViewController.h */,
 				70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */,
+				70924AFB1D2E3C73001DFE85 /* MinePersonInformationViewController.h */,
+				70924AFC1D2E3C73001DFE85 /* MinePersonInformationViewController.m */,
+				70924AF81D2E3BD9001DFE85 /* MineAccoutSecurityViewController.h */,
+				70924AF91D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m */,
+				70924AF51D2E3BA5001DFE85 /* MineNotificationSettingViewController.h */,
+				70924AF61D2E3BA5001DFE85 /* MineNotificationSettingViewController.m */,
+				70924AF21D2E3B61001DFE85 /* MineFeedBackViewController.h */,
+				70924AF31D2E3B61001DFE85 /* MineFeedBackViewController.m */,
 				708274F31CF936080016AE3C /* MineCustomServiceViewController.h */,
 				708274F41CF936080016AE3C /* MineCustomServiceViewController.m */,
 				708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */,
@@ -4260,6 +4280,7 @@
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
 				70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */,
 				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
+				70924AFA1D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m in Sources */,
 				708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
@@ -4348,6 +4369,7 @@
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
 				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
+				70924AFD1D2E3C73001DFE85 /* MinePersonInformationViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,
 				70FD8E651CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m in Sources */,
@@ -4420,8 +4442,10 @@
 				708B53071CEB28F00033C479 /* DishStepTableCell.m in Sources */,
 				708FD5F11CE086E0002CDFA8 /* ResultCityController.m in Sources */,
 				70B4EAF51CD870B800141E38 /* MRYinshiTableCell.m in Sources */,
+				70924AF71D2E3BA5001DFE85 /* MineNotificationSettingViewController.m in Sources */,
 				70A9BD2B1C87FF320035B5E0 /* CommonUtil.m in Sources */,
 				70B4EABD1CD265C000141E38 /* InfoMoreStudioViewController.m in Sources */,
+				70924AF41D2E3B61001DFE85 /* MineFeedBackViewController.m in Sources */,
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
