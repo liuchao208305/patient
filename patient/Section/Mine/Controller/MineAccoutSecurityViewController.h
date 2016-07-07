@@ -10,6 +10,6 @@
 
 @interface MineAccoutSecurityViewController : BaseViewController
 
-@property (strong,nonatomic)UIScrollView *scrollView;
+@property (strong,nonatomic)UITableView *tableView;
 
 @end
