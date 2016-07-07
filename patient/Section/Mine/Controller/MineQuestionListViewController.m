@@ -429,13 +429,103 @@
             cell.payTimeLabel.text = [NSString stringWithFormat:@"支付：%@",self.questionPayTimeArrayAll[indexPath.section]];
         }
     }else if (self.flag2){
-        
+        cell.contentLabel.text = self.questionContentArrayUnpayed[indexPath.section];
+        if ([self.questionPublicStatusArrayUnpayed[indexPath.section] intValue] == 1) {
+            [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+            cell.audienceLabel.hidden = YES;
+        }else if ([self.questionPublicStatusArrayUnpayed[indexPath.section] intValue] == 2){
+            cell.publicImageView.hidden = YES;
+            cell.audienceLabel.hidden = YES;
+        }
+        cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayUnpayed[indexPath.section]];
+        cell.answerTimeLabel.text = @"回答：待回答";
+        if ([self.questionExpertNameArrayUnpayed[indexPath.section] isEqualToString:@""]) {
+            cell.expertNameLabel.text = @"医生：未选择";
+        }else{
+            cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.questionExpertNameArrayUnpayed[indexPath.section]];
+        }
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.questionMoneyArrayUnpayed[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
+        cell.payTimeLabel.text = @"支付：待支付";
     }else if (self.flag3){
-        
+        cell.contentLabel.text = self.questionContentArrayUnanswered[indexPath.section];
+        if ([self.questionPublicStatusArrayUnanswered[indexPath.section] intValue] == 1) {
+            [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+            cell.audienceLabel.hidden = YES;
+        }else if ([self.questionPublicStatusArrayUnanswered[indexPath.section] intValue] == 2){
+            cell.publicImageView.hidden = YES;
+            cell.audienceLabel.hidden = YES;
+        }
+        cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayUnanswered[indexPath.section]];
+        cell.answerTimeLabel.text = @"回答：待回答";
+        if ([self.questionExpertNameArrayUnanswered[indexPath.section] isEqualToString:@""]) {
+            cell.expertNameLabel.text = @"医生：未选择";
+        }else{
+            cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.questionExpertNameArrayUnanswered[indexPath.section]];
+        }
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.questionMoneyArrayUnanswered[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
+        cell.payTimeLabel.text = [NSString stringWithFormat:@"支付：%@",self.questionPayTimeArrayUnanswered[indexPath.section]];
     }else if (self.flag4){
-        
+        cell.contentLabel.text = self.questionContentArrayAnswered[indexPath.section];
+        if ([self.questionPublicStatusArrayAnswered[indexPath.section] intValue] == 1) {
+            [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+            if ([self.questionPayStatusArrayAnswered[indexPath.section] intValue] == 1) {
+                cell.audienceLabel.hidden = YES;
+            }else if ([self.questionPayStatusArrayAnswered[indexPath.section] intValue] == 2){
+                cell.audienceLabel.hidden = NO;
+                cell.audienceLabel.text = [NSString stringWithFormat:@"收听数：%@",self.questionAudienceArrayAnswered[indexPath.section]];
+            }
+        }else if ([self.questionPublicStatusArrayAnswered[indexPath.section] intValue] == 2){
+            cell.publicImageView.hidden = YES;
+            cell.audienceLabel.hidden = YES;
+        }
+        cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayAnswered[indexPath.section]];
+        cell.answerTimeLabel.text = [NSString stringWithFormat:@"回答：%@",self.questionAnswerTimeArrayAnswered[indexPath.section]];
+        if ([self.questionExpertNameArrayAnswered[indexPath.section] isEqualToString:@""]) {
+            cell.expertNameLabel.text = @"医生：未选择";
+        }else{
+            cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.questionExpertNameArrayAnswered[indexPath.section]];
+        }
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.questionMoneyArrayAnswered[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
+        cell.payTimeLabel.text = [NSString stringWithFormat:@"支付：%@",self.questionPayTimeArrayAnswered[indexPath.section]];
     }else if (self.flag5){
-        
+        cell.contentLabel.text = self.questionContentArrayPublic[indexPath.section];
+        if ([self.questionPublicStatusArrayPublic[indexPath.section] intValue] == 1) {
+            [cell.publicImageView setImage:[UIImage imageNamed:@"question_list_public_flag_image"]];
+            if ([self.questionPayStatusArrayPublic[indexPath.section] intValue] == 1) {
+                cell.audienceLabel.hidden = YES;
+            }else if ([self.questionPayStatusArrayPublic[indexPath.section] intValue] == 2){
+                cell.audienceLabel.hidden = NO;
+                cell.audienceLabel.text = [NSString stringWithFormat:@"收听数：%@",self.questionAudienceArrayPublic[indexPath.section]];
+            }
+        }else if ([self.questionPublicStatusArrayPublic[indexPath.section] intValue] == 2){
+            cell.publicImageView.hidden = YES;
+            cell.audienceLabel.hidden = YES;
+        }
+        cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayPublic[indexPath.section]];
+        if ([self.questionAnswerStatusArrayPublic[indexPath.section] intValue] == 1) {
+            cell.answerTimeLabel.text = @"回答：待回答";
+        }else if ([self.questionAnswerStatusArrayPublic[indexPath.section] intValue] == 2){
+            cell.answerTimeLabel.text = [NSString stringWithFormat:@"回答：%@",self.questionAnswerTimeArrayPublic[indexPath.section]];
+        }
+        if ([self.questionExpertNameArrayPublic[indexPath.section] isEqualToString:@""]) {
+            cell.expertNameLabel.text = @"医生：未选择";
+        }else{
+            cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.questionExpertNameArrayPublic[indexPath.section]];
+        }
+        cell.moneyLabel1.text = @"¥";
+        cell.moneyLabel2.text = [NSString stringWithFormat:@"%.2f",[self.questionMoneyArrayPublic[indexPath.section] doubleValue]];
+        cell.moneyLabel3.text = @"元";
+        if ([self.questionPayStatusArrayPublic[indexPath.section] intValue] == 1) {
+            cell.payTimeLabel.text = @"支付：待支付";
+        }else if ([self.questionPayStatusArrayPublic[indexPath.section] intValue] == 2){
+            cell.payTimeLabel.text = [NSString stringWithFormat:@"支付：%@",self.questionPayTimeArrayPublic[indexPath.section]];
+        }
     }
     
     return cell;
