@@ -23,6 +23,10 @@
 #import "MineCustomServiceViewController.h"
 #import "MineSettingOneTableCell.h"
 #import "MineSettingTwoTableCell.h"
+#import "MinePersonInformationViewController.h"
+#import "MineAccoutSecurityViewController.h"
+#import "MineNotificationSettingViewController.h"
+#import "MineFeedBackViewController.h"
 
 @interface MineSettingFixViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -233,16 +237,20 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"%ld",indexPath.section);
     if (indexPath.section == 0) {
-        
+        MinePersonInformationViewController *minePersonInfoVC = [[MinePersonInformationViewController alloc] init];
+        [self.navigationController pushViewController:minePersonInfoVC animated:YES];
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
-            
+            MineAccoutSecurityViewController *mineAccountSecurityVC = [[MineAccoutSecurityViewController alloc] init];
+            [self.navigationController pushViewController:mineAccountSecurityVC animated:YES];
         }else if (indexPath.row == 1){
-            
+            MineNotificationSettingViewController *mineNotificationSettingVC = [[MineNotificationSettingViewController alloc] init];
+            [self.navigationController pushViewController:mineNotificationSettingVC animated:YES];
         }
     }else if (indexPath.section == 2){
         if (indexPath.row == 0) {
-            
+            MineFeedBackViewController *mineFeedBackVC = [[MineFeedBackViewController alloc] init];
+            [self.navigationController pushViewController:mineFeedBackVC animated:YES];
         }else if (indexPath.row == 1){
             NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"400-800-1801"];
             UIWebView * callWebview = [[UIWebView alloc] init];
