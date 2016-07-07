@@ -35,6 +35,7 @@
 #import "MineQuestionTableCell.h"
 #import "MineQuestionListViewController.h"
 #import "MineSettingFixViewController.h"
+#import "HealthListDetailViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -590,6 +591,11 @@
 //    MineFavouriteViewController *mineFavouriteVC = [[MineFavouriteViewController alloc] init];
 //    mineFavouriteVC.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:mineFavouriteVC animated:YES];
+    
+    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
+    listVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:listVC animated:YES];
+
 }
 
 -(void)function2Clicked{
@@ -607,6 +613,11 @@
 //    couponCheckVC.hidesBottomBarWhenPushed = YES;
 //    couponCheckVC.isFromMineVC = YES;
 //    [self.navigationController pushViewController:couponCheckVC animated:YES];
+    
+    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
+    mineExpertVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:mineExpertVC animated:YES];
+
 }
 
 -(void)function4Clicked{
@@ -615,6 +626,11 @@
 //    TestResultListViewController *listVC = [[TestResultListViewController alloc] init];
 //    listVC.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:listVC animated:YES];
+    
+    HealthListDetailViewController *healthVC = [[HealthListDetailViewController alloc] init];
+    healthVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:healthVC animated:YES];
+
 }
 
 -(void)function5Clicked{
