@@ -65,11 +65,19 @@
     self.moneyLabel3.textColor = kMAIN_COLOR;
     [self.contentView addSubview:self.moneyLabel3];
     
+    self.waitTimeImageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:self.waitTimeImageView];
+    
+    self.waitTimeLabel = [[UILabel alloc] init];
+    self.waitTimeLabel.font = [UIFont systemFontOfSize:13];
+    self.waitTimeLabel.textColor = [UIColor redColor];
+    [self.contentView addSubview:self.waitTimeLabel];
+    
     self.payButton = [[UIButton alloc] init];
     [self.payButton setFont:[UIFont systemFontOfSize:13]];
     [self.payButton setTitle:@"立即支付" forState:UIControlStateNormal];
     [self.payButton setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-    [self.payButton setBackgroundColor:[UIColor orangeColor]];
+    [self.payButton setBackgroundColor:ColorWithHexRGB(0xfbd359)];
     self.payButton.layer.cornerRadius = 3;
     [self.contentView addSubview:self.payButton];
     
@@ -125,6 +133,18 @@
     [self.moneyLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-12);
         make.bottom.equalTo(self.expertNameLabel).offset(0);
+    }];
+    
+    [self.waitTimeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.clinicAddressLabel).offset(0);
+        make.centerY.equalTo(self.payButton).offset(0);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.waitTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.waitTimeImageView.mas_trailing).offset(5);
+        make.centerY.equalTo(self.payButton).offset(0);
     }];
     
     [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {

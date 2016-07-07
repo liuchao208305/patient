@@ -20,5 +20,7 @@
 @property (strong,nonatomic)NSString *org_name;
 @property (assign,nonatomic)int pay_status;
 @property (assign,nonatomic)int status;
+@property (assign,nonatomic)int orderStatus;
+@property (strong,nonatomic)NSString *endTime;
 
 @end

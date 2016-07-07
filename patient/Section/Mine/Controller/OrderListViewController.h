@@ -131,6 +131,7 @@
 @property (strong,nonatomic)NSMutableArray *orderArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayAll;
+@property (strong,nonatomic)NSMutableArray *orderStatusFixArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderPayStatusArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderCreatTimeArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderBookTimeArrayAll;
@@ -139,10 +140,12 @@
 @property (strong,nonatomic)NSMutableArray *orderExpertNameArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderExpertImageArrayAll;
 @property (strong,nonatomic)NSMutableArray *orderClinicAddressArrayAll;
+@property (strong,nonatomic)NSMutableArray *orderWaitTimeArrayAll;
 
 @property (strong,nonatomic)NSMutableArray *orderArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayUnpayed;
+@property (strong,nonatomic)NSMutableArray *orderStatusFixArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderPayStatusArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderCreatTimeArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderBookTimeArrayUnpayed;
@@ -151,10 +154,12 @@
 @property (strong,nonatomic)NSMutableArray *orderExpertNameArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderExpertImageArrayUnpayed;
 @property (strong,nonatomic)NSMutableArray *orderClinicAddressArrayUnpayed;
+@property (strong,nonatomic)NSMutableArray *orderWaitTimeArrayUnpayed;
 
 @property (strong,nonatomic)NSMutableArray *orderArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayUntreated;
+@property (strong,nonatomic)NSMutableArray *orderStatusFixArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderPayStatusArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderCreatTimeArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderBookTimeArrayUntreated;
@@ -163,10 +168,12 @@
 @property (strong,nonatomic)NSMutableArray *orderExpertNameArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderExpertImageArrayUntreated;
 @property (strong,nonatomic)NSMutableArray *orderClinicAddressArrayUntreated;
+@property (strong,nonatomic)NSMutableArray *orderWaitTimeArrayUntreated;
 
 @property (strong,nonatomic)NSMutableArray *orderArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayTreated;
+@property (strong,nonatomic)NSMutableArray *orderStatusFixArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderPayStatusArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderCreatTimeArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderBookTimeArrayTreated;
@@ -175,11 +182,12 @@
 @property (strong,nonatomic)NSMutableArray *orderExpertNameArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderExpertImageArrayTreated;
 @property (strong,nonatomic)NSMutableArray *orderClinicAddressArrayTreated;
-
+@property (strong,nonatomic)NSMutableArray *orderWaitTimeArrayTreated;
 
 @property (strong,nonatomic)NSMutableArray *orderArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderIdArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderStatusArrayInvalid;
+@property (strong,nonatomic)NSMutableArray *orderStatusFixArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderPayStatusArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderCreatTimeArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderBookTimeArrayInvalid;
@@ -188,5 +196,6 @@
 @property (strong,nonatomic)NSMutableArray *orderExpertNameArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderExpertImageArrayInvalid;
 @property (strong,nonatomic)NSMutableArray *orderClinicAddressArrayInvalid;
+@property (strong,nonatomic)NSMutableArray *orderWaitTimeArrayInvalid;
 
 @end

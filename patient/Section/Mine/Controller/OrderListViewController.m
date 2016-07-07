@@ -267,6 +267,7 @@
     self.orderArrayAll = [NSMutableArray array];
     self.orderIdArrayAll = [NSMutableArray array];
     self.orderStatusArrayAll = [NSMutableArray array];
+    self.orderStatusFixArrayAll = [NSMutableArray array];
     self.orderPayStatusArrayAll = [NSMutableArray array];
     self.orderCreatTimeArrayAll = [NSMutableArray array];
     self.orderBookTimeArrayAll = [NSMutableArray array];
@@ -275,10 +276,12 @@
     self.orderExpertNameArrayAll = [NSMutableArray array];
     self.orderExpertImageArrayAll = [NSMutableArray array];
     self.orderClinicAddressArrayAll = [NSMutableArray array];
+    self.orderWaitTimeArrayAll = [NSMutableArray array];
     
     self.orderArrayUnpayed = [NSMutableArray array];
     self.orderIdArrayUnpayed = [NSMutableArray array];
     self.orderStatusArrayUnpayed = [NSMutableArray array];
+    self.orderStatusFixArrayUnpayed = [NSMutableArray array];
     self.orderPayStatusArrayUnpayed = [NSMutableArray array];
     self.orderCreatTimeArrayUnpayed = [NSMutableArray array];
     self.orderBookTimeArrayUnpayed = [NSMutableArray array];
@@ -287,10 +290,12 @@
     self.orderExpertNameArrayUnpayed = [NSMutableArray array];
     self.orderExpertImageArrayUnpayed = [NSMutableArray array];
     self.orderClinicAddressArrayUnpayed = [NSMutableArray array];
+    self.orderWaitTimeArrayUnpayed = [NSMutableArray array];
     
     self.orderArrayUntreated = [NSMutableArray array];
     self.orderIdArrayUntreated = [NSMutableArray array];
     self.orderStatusArrayUntreated = [NSMutableArray array];
+    self.orderStatusFixArrayUntreated = [NSMutableArray array];
     self.orderPayStatusArrayUntreated = [NSMutableArray array];
     self.orderCreatTimeArrayUntreated = [NSMutableArray array];
     self.orderBookTimeArrayUntreated = [NSMutableArray array];
@@ -299,10 +304,12 @@
     self.orderExpertNameArrayUntreated = [NSMutableArray array];
     self.orderExpertImageArrayUntreated = [NSMutableArray array];
     self.orderClinicAddressArrayUntreated = [NSMutableArray array];
+    self.orderWaitTimeArrayUntreated = [NSMutableArray array];
     
     self.orderArrayTreated = [NSMutableArray array];
     self.orderIdArrayTreated = [NSMutableArray array];
     self.orderStatusArrayTreated = [NSMutableArray array];
+    self.orderStatusFixArrayTreated = [NSMutableArray array];
     self.orderPayStatusArrayTreated = [NSMutableArray array];
     self.orderCreatTimeArrayTreated = [NSMutableArray array];
     self.orderBookTimeArrayTreated = [NSMutableArray array];
@@ -311,11 +318,12 @@
     self.orderExpertNameArrayTreated = [NSMutableArray array];
     self.orderExpertImageArrayTreated = [NSMutableArray array];
     self.orderClinicAddressArrayTreated = [NSMutableArray array];
-    
+    self.orderWaitTimeArrayTreated = [NSMutableArray array];
     
     self.orderArrayInvalid = [NSMutableArray array];
     self.orderIdArrayInvalid = [NSMutableArray array];
     self.orderStatusArrayInvalid = [NSMutableArray array];
+    self.orderStatusFixArrayInvalid = [NSMutableArray array];
     self.orderPayStatusArrayInvalid = [NSMutableArray array];
     self.orderCreatTimeArrayInvalid = [NSMutableArray array];
     self.orderBookTimeArrayInvalid = [NSMutableArray array];
@@ -324,6 +332,7 @@
     self.orderExpertNameArrayInvalid = [NSMutableArray array];
     self.orderExpertImageArrayInvalid = [NSMutableArray array];
     self.orderClinicAddressArrayInvalid = [NSMutableArray array];
+    self.orderWaitTimeArrayInvalid = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -613,6 +622,9 @@
         if ([self.orderStatusArrayAll[indexPath.section] intValue] == 1) {
             cell.statusLabel.text = @"待支付";
             cell.statusLabel.textColor = [UIColor redColor];
+            
+            [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+            cell.waitTimeLabel.text = [NSString stringWithFormat:@"已等待%@",self.orderWaitTimeArrayAll[indexPath.section]];
         }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 2){
             cell.statusLabel.text = @"待就诊";
             cell.statusLabel.textColor = [UIColor redColor];
@@ -622,9 +634,19 @@
             cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
             cell.payButton.hidden = YES;
         }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 4){
-            cell.statusLabel.text = @"已取消";
-            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
-            cell.payButton.hidden = YES;
+            if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 1) {
+                cell.statusLabel.text = @"已取消";
+                cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+                cell.payButton.hidden = YES;
+            }else if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 2){
+                cell.statusLabel.text = @"已过期";
+                cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+                cell.payButton.hidden = YES;
+            }else if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 3){
+                cell.statusLabel.text = @"已退单";
+                cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+                cell.payButton.hidden = YES;
+            }
         }
         [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayAll[indexPath.section]];
@@ -778,9 +800,22 @@
 //        }
         
         cell.createTimeLabel.text = self.orderCreatTimeArrayInvalid[indexPath.section];
-        cell.statusLabel.text = @"已取消";
-        cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
-        cell.payButton.hidden = YES;
+//        cell.statusLabel.text = @"已取消";
+//        cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+//        cell.payButton.hidden = YES;
+        if ([self.orderStatusFixArrayInvalid[indexPath.section] intValue] == 1) {
+            cell.statusLabel.text = @"已取消";
+            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+            cell.payButton.hidden = YES;
+        }else if ([self.orderStatusFixArrayInvalid[indexPath.section] intValue] == 2){
+            cell.statusLabel.text = @"已过期";
+            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+            cell.payButton.hidden = YES;
+        }else if ([self.orderStatusFixArrayInvalid[indexPath.section] intValue] == 3){
+            cell.statusLabel.text = @"已退单";
+            cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
+            cell.payButton.hidden = YES;
+        }
         [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayInvalid[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayInvalid[indexPath.section]];
         cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayInvalid[indexPath.section]];
@@ -1190,6 +1225,7 @@
     
     [self.orderIdArrayAll removeAllObjects];
     [self.orderStatusArrayAll removeAllObjects];
+    [self.orderStatusFixArrayAll removeAllObjects];
     [self.orderPayStatusArrayAll removeAllObjects];
     [self.orderCreatTimeArrayAll removeAllObjects];
     [self.orderBookTimeArrayAll removeAllObjects];
@@ -1198,10 +1234,12 @@
     [self.orderExpertNameArrayAll removeAllObjects];
     [self.orderExpertImageArrayAll removeAllObjects];
     [self.orderClinicAddressArrayAll removeAllObjects];
+    [self.orderWaitTimeArrayAll removeAllObjects];
     
     for (OrderFixData *orderFixData in self.orderArrayAll) {
         [self.orderIdArrayAll addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
         [self.orderStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderStatusFixArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.orderStatus]];
         [self.orderPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
@@ -1210,6 +1248,7 @@
         [self.orderExpertNameArrayAll addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayAll addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
         [self.orderClinicAddressArrayAll addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+        [self.orderWaitTimeArrayAll addObject:[NullUtil judgeStringNull:orderFixData.endTime]];
     }
 
     
@@ -1264,6 +1303,7 @@
     
     [self.orderIdArrayUnpayed removeAllObjects];
     [self.orderStatusArrayUnpayed removeAllObjects];
+    [self.orderStatusFixArrayUnpayed removeAllObjects];
     [self.orderPayStatusArrayUnpayed removeAllObjects];
     [self.orderCreatTimeArrayUnpayed removeAllObjects];
     [self.orderBookTimeArrayUnpayed removeAllObjects];
@@ -1272,10 +1312,12 @@
     [self.orderExpertNameArrayUnpayed removeAllObjects];
     [self.orderExpertImageArrayUnpayed removeAllObjects];
     [self.orderClinicAddressArrayUnpayed removeAllObjects];
+    [self.orderWaitTimeArrayUnpayed removeAllObjects];
     
     for (OrderFixData *orderFixData in self.orderArrayUnpayed) {
         [self.orderIdArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
         [self.orderStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderStatusFixArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.orderStatus]];
         [self.orderPayStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
@@ -1284,6 +1326,7 @@
         [self.orderExpertNameArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
         [self.orderClinicAddressArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+        [self.orderWaitTimeArrayUnpayed addObject:[NullUtil judgeStringNull:orderFixData.endTime]];
     }
     
     [self.tableView2 reloadData];
@@ -1337,6 +1380,7 @@
     
     [self.orderIdArrayUntreated removeAllObjects];
     [self.orderStatusArrayUntreated removeAllObjects];
+    [self.orderStatusFixArrayUntreated removeAllObjects];
     [self.orderPayStatusArrayUntreated removeAllObjects];
     [self.orderCreatTimeArrayUntreated removeAllObjects];
     [self.orderBookTimeArrayUntreated removeAllObjects];
@@ -1345,10 +1389,12 @@
     [self.orderExpertNameArrayUntreated removeAllObjects];
     [self.orderExpertImageArrayUntreated removeAllObjects];
     [self.orderClinicAddressArrayUntreated removeAllObjects];
+    [self.orderWaitTimeArrayUntreated removeAllObjects];
     
     for (OrderFixData *orderFixData in self.orderArrayUntreated) {
         [self.orderIdArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
         [self.orderStatusArrayUntreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderStatusFixArrayUntreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.orderStatus]];
         [self.orderPayStatusArrayUntreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
@@ -1357,6 +1403,7 @@
         [self.orderExpertNameArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
         [self.orderClinicAddressArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+        [self.orderWaitTimeArrayUntreated addObject:[NullUtil judgeStringNull:orderFixData.endTime]];
     }
     
     [self.tableView3 reloadData];
@@ -1410,6 +1457,7 @@
     
     [self.orderIdArrayTreated removeAllObjects];
     [self.orderStatusArrayTreated removeAllObjects];
+    [self.orderStatusFixArrayTreated removeAllObjects];
     [self.orderPayStatusArrayTreated removeAllObjects];
     [self.orderCreatTimeArrayTreated removeAllObjects];
     [self.orderBookTimeArrayTreated removeAllObjects];
@@ -1418,10 +1466,12 @@
     [self.orderExpertNameArrayTreated removeAllObjects];
     [self.orderExpertImageArrayTreated removeAllObjects];
     [self.orderClinicAddressArrayTreated removeAllObjects];
+    [self.orderWaitTimeArrayTreated removeAllObjects];
     
     for (OrderFixData *orderFixData in self.orderArrayTreated) {
         [self.orderIdArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
         [self.orderStatusArrayTreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderStatusFixArrayTreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.orderStatus]];
         [self.orderPayStatusArrayTreated addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
@@ -1430,6 +1480,7 @@
         [self.orderExpertNameArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
         [self.orderClinicAddressArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+        [self.orderWaitTimeArrayTreated addObject:[NullUtil judgeStringNull:orderFixData.endTime]];
     }
     
     [self.tableView4 reloadData];
@@ -1483,6 +1534,7 @@
     
     [self.orderIdArrayInvalid removeAllObjects];
     [self.orderStatusArrayInvalid removeAllObjects];
+    [self.orderStatusFixArrayInvalid removeAllObjects];
     [self.orderPayStatusArrayInvalid removeAllObjects];
     [self.orderCreatTimeArrayInvalid removeAllObjects];
     [self.orderBookTimeArrayInvalid removeAllObjects];
@@ -1491,10 +1543,12 @@
     [self.orderExpertNameArrayInvalid removeAllObjects];
     [self.orderExpertImageArrayInvalid removeAllObjects];
     [self.orderClinicAddressArrayInvalid removeAllObjects];
+    [self.orderWaitTimeArrayInvalid removeAllObjects];
     
     for (OrderFixData *orderFixData in self.orderArrayInvalid) {
         [self.orderIdArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.consult_id]];
         [self.orderStatusArrayInvalid addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.status]];
+        [self.orderStatusFixArrayInvalid addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.orderStatus]];
         [self.orderPayStatusArrayInvalid addObject:[NSString stringWithFormat:@"%ld",(long)orderFixData.pay_status]];
         [self.orderCreatTimeArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.create_date]];
         [self.orderBookTimeArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.baspoke_date]];
@@ -1503,6 +1557,7 @@
         [self.orderExpertNameArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.doctor_name]];
         [self.orderExpertImageArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.heand_url]];
         [self.orderClinicAddressArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.org_name]];
+        [self.orderWaitTimeArrayInvalid addObject:[NullUtil judgeStringNull:orderFixData.endTime]];
     }
     
     [self.tableView5 reloadData];

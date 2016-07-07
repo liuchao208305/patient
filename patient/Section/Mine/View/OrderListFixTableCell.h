@@ -20,6 +20,8 @@
 @property (strong,nonatomic)UILabel *moneyLabel1;
 @property (strong,nonatomic)UILabel *moneyLabel2;
 @property (strong,nonatomic)UILabel *moneyLabel3;
+@property (strong,nonatomic)UIImageView *waitTimeImageView;
+@property (strong,nonatomic)UILabel *waitTimeLabel;
 @property (strong,nonatomic)UIButton *payButton;
 
 @end
