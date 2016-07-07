@@ -23,6 +23,11 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (assign,nonatomic)BOOL flag1;
+@property (assign,nonatomic)BOOL flag2;
+@property (assign,nonatomic)BOOL flag3;
+@property (strong,nonatomic)NSString *type;
+
 @end
 
 @implementation MineFeedBackViewController
@@ -40,6 +45,8 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.type = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -75,6 +82,9 @@
 -(void)initNavBar{
     self.title = @"意见反馈";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:(UIBarButtonItemStylePlain) target:self action:@selector(commitButtonClicked)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)initTabBar{
@@ -105,6 +115,7 @@
     [self.scrollView addSubview:self.titleLabel];
     
     self.chooseButton1 = [[UIButton alloc] init];
+    [self.chooseButton1 addTarget:self action:@selector(chooseButton1Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.chooseButton1];
     
     self.chooseLabel1 = [[UILabel alloc] init];
@@ -112,6 +123,7 @@
     [self.scrollView addSubview:self.chooseLabel1];
     
     self.chooseButton2 = [[UIButton alloc] init];
+    [self.chooseButton2 addTarget:self action:@selector(chooseButton2Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.chooseButton2];
     
     self.chooseLabel2 = [[UILabel alloc] init];
@@ -119,6 +131,7 @@
     [self.scrollView addSubview:self.chooseLabel2];
     
     self.chooseButton3 = [[UIButton alloc] init];
+    [self.chooseButton3 addTarget:self action:@selector(chooseButton3Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.chooseButton3];
     
     self.chooseLabel3 = [[UILabel alloc] init];
@@ -132,7 +145,7 @@
     self.contentTextView = [[PlaceholderTextView alloc] initWithFrame:CGRectMake(12, 120, SCREEN_WIDTH-24, 134)];
     self.contentTextView.backgroundColor = ColorWithHexRGB(0xf5f5f5);
     self.contentTextView.delegate = self;
-    self.contentTextView.font = [UIFont systemFontOfSize:14];
+    self.contentTextView.font = [UIFont systemFontOfSize:15];
     self.contentTextView.textAlignment = NSTextAlignmentLeft;
     self.contentTextView.editable = YES;
     self.contentTextView.placeholderColor = ColorWithHexRGB(0xb2b2b2);
@@ -225,14 +238,134 @@
 }
 
 -(void)initRecognizer{
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewClicked:)];
+    [self.scrollView addGestureRecognizer:tap];
 }
 
 #pragma mark Target Action
+- (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [self.contentTextView resignFirstResponder];
+    [self.phoneTextField resignFirstResponder];
+    [self.otherTextField resignFirstResponder];
+}
+
+-(void)commitButtonClicked{
+    DLog(@"commitButtonClicked");
+    if ([self.type isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择意见反馈的类型！"];
+    }else{
+        if (self.contentTextView.text.length == 0) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"意见反馈内容不能为空！"];
+        }else{
+            if (self.phoneTextField.text.length == 0 && self.otherTextField.text.length == 0) {
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"电话号码和其他联系方式必须填写一项！"];
+            }else{
+                [self sendFeedBackRequest];
+            }
+        }
+    }
+}
+
+-(void)chooseButton1Clicked{
+    DLog(@"chooseButton1Clicked");
+    self.flag1 = YES;
+    self.flag2 = NO;
+    self.flag3 = NO;
+    [self changeButtonPresentation];
+    self.type = @"1";
+}
+
+-(void)chooseButton2Clicked{
+    DLog(@"chooseButton2Clicked");
+    self.flag1 = NO;
+    self.flag2 = YES;
+    self.flag3 = NO;
+    [self changeButtonPresentation];
+    self.type = @"2";
+}
+
+-(void)chooseButton3Clicked{
+    DLog(@"chooseButton3Clicked");
+    self.flag1 = NO;
+    self.flag2 = NO;
+    self.flag3 = YES;
+    [self changeButtonPresentation];
+    self.type = @"3";
+}
+
+-(void)changeButtonPresentation{
+    if (self.flag1 == YES) {
+        [self.chooseButton1 setImage:[UIImage imageNamed:@"mine_feedback_selected"] forState:UIControlStateNormal];
+        [self.chooseButton2 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+        [self.chooseButton3 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+    }else if (self.flag2 == YES){
+        [self.chooseButton1 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+        [self.chooseButton2 setImage:[UIImage imageNamed:@"mine_feedback_selected"] forState:UIControlStateNormal];
+        [self.chooseButton3 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+    }else if (self.flag3 == YES){
+        [self.chooseButton1 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+        [self.chooseButton2 setImage:[UIImage imageNamed:@"mine_feedback_normal"] forState:UIControlStateNormal];
+        [self.chooseButton3 setImage:[UIImage imageNamed:@"mine_feedback_selected"] forState:UIControlStateNormal];
+    }
+}
 
 #pragma mark UITextViewDelegate
+-(void)textViewDidChange:(UITextView *)textView{
+    if (textView.text.length < 200) {
+        self.contentTextView.editable = YES;
+    }else{
+        self.contentTextView.editable = NO;
+    }
+}
 
 #pragma mark Network Request
+-(void)sendFeedBackRequest{
+    DLog(@"sendFeedBackRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:self.type forKey:@"opinion_type"];
+    [parameter setValue:self.contentTextView.text forKey:@"opinion_content"];
+    [parameter setValue:self.phoneTextField.text forKey:@"phone"];
+    [parameter setValue:self.otherTextField.text forKey:@"other_b"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_FEEDBACK_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result = (NSMutableDictionary *)responseObject;
+        
+        self.code = [[self.result objectForKey:@"code"] integerValue];
+        self.message = [self.result objectForKey:@"message"];
+        self.data = [self.result objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            DLog(@"%ld",(long)self.code);
+            DLog(@"%@",self.message);
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
 

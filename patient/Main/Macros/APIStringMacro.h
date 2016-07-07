@@ -100,6 +100,8 @@ typedef enum {
 
 #define kJZK_MINE_QUESTION_INFORMATION @"private/v2/user/getInterPageList?"//问答列表信息
 
+#define kJZK_MINE_FEEDBACK_CONFIRM @"public/v2/opinion/add?"//意见反馈信息提交
+
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
 #define kJZK_MINE_MESSAGE_INFORMATION @"private/v1/user/getUserMessagePage?"//消息列表信息
