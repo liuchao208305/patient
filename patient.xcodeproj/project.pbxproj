@@ -512,6 +512,11 @@
 		70924ADC1D2D6673001DFE85 /* MineQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ADB1D2D6673001DFE85 /* MineQuestionData.m */; };
 		70924ADF1D2D673F001DFE85 /* MineQuestionListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ADE1D2D673F001DFE85 /* MineQuestionListTableCell.m */; };
 		70924AE21D2E1F88001DFE85 /* MineSettingFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */; };
+		70924AE51D2E2A87001DFE85 /* MineSettingOneTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AE41D2E2A87001DFE85 /* MineSettingOneTableCell.m */; };
+		70924AE81D2E2A9D001DFE85 /* MineSettingTwoTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AE71D2E2A9D001DFE85 /* MineSettingTwoTableCell.m */; };
+		70924AEF1D2E3340001DFE85 /* mine_setting_more_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AEC1D2E3340001DFE85 /* mine_setting_more_image@3x.png */; };
+		70924AF01D2E3340001DFE85 /* mine_setting_more_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AED1D2E3340001DFE85 /* mine_setting_more_image@2x.png */; };
+		70924AF11D2E3340001DFE85 /* mine_setting_more_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924AEE1D2E3340001DFE85 /* mine_setting_more_image.png */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -1444,6 +1449,13 @@
 		70924ADE1D2D673F001DFE85 /* MineQuestionListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQuestionListTableCell.m; sourceTree = "<group>"; };
 		70924AE01D2E1F88001DFE85 /* MineSettingFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingFixViewController.h; sourceTree = "<group>"; };
 		70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingFixViewController.m; sourceTree = "<group>"; };
+		70924AE31D2E2A87001DFE85 /* MineSettingOneTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingOneTableCell.h; sourceTree = "<group>"; };
+		70924AE41D2E2A87001DFE85 /* MineSettingOneTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingOneTableCell.m; sourceTree = "<group>"; };
+		70924AE61D2E2A9D001DFE85 /* MineSettingTwoTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingTwoTableCell.h; sourceTree = "<group>"; };
+		70924AE71D2E2A9D001DFE85 /* MineSettingTwoTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTwoTableCell.m; sourceTree = "<group>"; };
+		70924AEC1D2E3340001DFE85 /* mine_setting_more_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_setting_more_image@3x.png"; sourceTree = "<group>"; };
+		70924AED1D2E3340001DFE85 /* mine_setting_more_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_setting_more_image@2x.png"; sourceTree = "<group>"; };
+		70924AEE1D2E3340001DFE85 /* mine_setting_more_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_setting_more_image.png; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -2172,6 +2184,9 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70924AEC1D2E3340001DFE85 /* mine_setting_more_image@3x.png */,
+				70924AED1D2E3340001DFE85 /* mine_setting_more_image@2x.png */,
+				70924AEE1D2E3340001DFE85 /* mine_setting_more_image.png */,
 				70924AB31D2CD7D9001DFE85 /* mine_questionstatus_unpayed@3x.png */,
 				70924AB41D2CD7D9001DFE85 /* mine_questionstatus_unpayed@2x.png */,
 				70924AB51D2CD7D9001DFE85 /* mine_questionstatus_unpayed.png */,
@@ -3271,6 +3286,10 @@
 				7089956A1CF3E53700B40F97 /* MineMessageTableCell.m */,
 				7089956C1CF3E54D00B40F97 /* MineMessageDetailTableCell.h */,
 				7089956D1CF3E54D00B40F97 /* MineMessageDetailTableCell.m */,
+				70924AE31D2E2A87001DFE85 /* MineSettingOneTableCell.h */,
+				70924AE41D2E2A87001DFE85 /* MineSettingOneTableCell.m */,
+				70924AE61D2E2A9D001DFE85 /* MineSettingTwoTableCell.h */,
+				70924AE71D2E2A9D001DFE85 /* MineSettingTwoTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3815,6 +3834,7 @@
 				7002D86E1CB3BBBF0074426A /* info_treatment_confirm_normal.png in Resources */,
 				708275F11D0001840016AE3C /* info_expert_guanzhu_normal@2x.png in Resources */,
 				70CBC6C71D224E730095592C /* info_more_person_anwer_image.png in Resources */,
+				70924AEF1D2E3340001DFE85 /* mine_setting_more_image@3x.png in Resources */,
 				70FEAD9D1CA51F76006A044A /* info_expert_zhuzhi_image.png in Resources */,
 				70B4EA8F1CCDBF8C00141E38 /* test_result_detail_share_button.png in Resources */,
 				70B429BB1D1283A50036F525 /* info_scan_image.png in Resources */,
@@ -3873,6 +3893,7 @@
 				705EF80B1CBD02A300732886 /* mine_top_patient_image.png in Resources */,
 				708275051CFC11C20016AE3C /* cell_health_title_button@3x.png in Resources */,
 				702779BC1D1A7DF70044D024 /* question_inquiry_unselected_button.png in Resources */,
+				70924AF01D2E3340001DFE85 /* mine_setting_more_image@2x.png in Resources */,
 				7046AD181C97E5D700BB6818 /* cell_disease_pifuke_button.png in Resources */,
 				70B429B51D12819A0036F525 /* info_xiaotuoyuan.png in Resources */,
 				708274F81CF939E00016AE3C /* mine_customservice_hotline_image.png in Resources */,
@@ -4031,6 +4052,7 @@
 				700CF0481D2293C9008C9776 /* info_studio_jianjie_image.png in Resources */,
 				708274F91CF939E00016AE3C /* mine_customservice_logo_image.png in Resources */,
 				70926CE21CC4DA4600CB0416 /* info_coupon_blue_back_image.png in Resources */,
+				70924AF11D2E3340001DFE85 /* mine_setting_more_image.png in Resources */,
 				708276101D00073D0016AE3C /* info_treatment_lianxiren_image@3x.png in Resources */,
 				7046ADB91CA0F8B400BB6818 /* info_scrollview1.png in Resources */,
 				702779DF1D1AFD9E0044D024 /* question_list_sound_image_green_3@2x.png in Resources */,
@@ -4215,6 +4237,7 @@
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */,
+				70924AE51D2E2A87001DFE85 /* MineSettingOneTableCell.m in Sources */,
 				700CF0811D23E823008C9776 /* HealthSelfInspectionFixViewController.m in Sources */,
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				70B429E91D17E4D10036F525 /* QuestionListData.m in Sources */,
@@ -4402,6 +4425,7 @@
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
+				70924AE81D2E2A9D001DFE85 /* MineSettingTwoTableCell.m in Sources */,
 				708274B21CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
 				708274AC1CF70FE60016AE3C /* RecordListRecordTableCell.m in Sources */,

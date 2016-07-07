@@ -21,8 +21,10 @@
 #import "MineChangePasswordViewController.h"
 #import "MineAboutUsViewController.h"
 #import "MineCustomServiceViewController.h"
+#import "MineSettingOneTableCell.h"
+#import "MineSettingTwoTableCell.h"
 
-@interface MineSettingFixViewController ()
+@interface MineSettingFixViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 
 
@@ -88,7 +90,16 @@
 }
 
 -(void)initView{
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115+64) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
+    self.tableView.tableFooterView = self.footView;
+    
+    [self.view addSubview:self.tableView];
 }
 
 -(void)initRecognizer{
@@ -96,6 +107,117 @@
 }
 
 #pragma mark Target Action
+
+#pragma mark UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 1;
+    }else if (section == 1){
+        return 2;
+    }else if (section == 2){
+        return 3;
+    }
+    return 0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
+
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 75;
+    }else if (indexPath.section == 1){
+        return 45;
+    }else if (indexPath.section == 2){
+        return 45;
+    }
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        static NSString *cellName = @"MineSettingOneTableCell";
+        MineSettingOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[MineSettingOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        cell.personLabel.text = @"个人信息";
+        [cell.personImageView sd_setImageWithURL:[NSURL URLWithString:self.personImageString] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+        
+        return cell;
+    }else if (indexPath.section == 1){
+        static NSString *cellName = @"MineSettingTwoTableCell";
+        MineSettingTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[MineSettingTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.titleLabel.text = @"账号安全";
+            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
+        }else if (indexPath.row == 1){
+            cell.titleLabel.text = @"通知设置";
+            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
+        }
+        
+        return cell;
+    }else if (indexPath.section == 2){
+        static NSString *cellName = @"MineSettingTwoTableCell";
+        MineSettingTwoTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[MineSettingTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.titleLabel.text = @"意见反馈";
+            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
+        }else if (indexPath.row == 1){
+            cell.titleLabel.text = @"联系客服";
+            cell.phoneLabel.text = @"400 800 1801";
+        }else if (indexPath.row == 2){
+            cell.titleLabel.text = @"关于我们";
+            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
+        }
+        
+        return cell;
+    }
+    return nil;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"%ld",indexPath.section);
+    if (indexPath.section == 0) {
+        
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 0) {
+            
+        }else if (indexPath.row == 1){
+            
+        }
+    }else if (indexPath.section == 2){
+        if (indexPath.row == 0) {
+            
+        }else if (indexPath.row == 1){
+            
+        }else if (indexPath.row == 2){
+            
+        }
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark Network Request
 

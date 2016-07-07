@@ -440,6 +440,7 @@
 //    [self.navigationController pushViewController:settingVC animated:YES];
     MineSettingFixViewController *settingVC = [[MineSettingFixViewController alloc] init];
     settingVC.hidesBottomBarWhenPushed = YES;
+    settingVC.personImageString = self.heand_url;
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 
