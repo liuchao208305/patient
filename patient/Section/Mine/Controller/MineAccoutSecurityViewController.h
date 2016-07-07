@@ -10,4 +10,6 @@
 
 @interface MineAccoutSecurityViewController : BaseViewController
 
+@property (strong,nonatomic)UIScrollView *scrollView;
+
 @end

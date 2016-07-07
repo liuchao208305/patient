@@ -10,4 +10,6 @@
 
 @interface MinePersonInformationViewController : BaseViewController
 
+@property (strong,nonatomic)UIScrollView *scrollView;
+
 @end
