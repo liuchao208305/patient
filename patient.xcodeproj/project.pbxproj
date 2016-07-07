@@ -511,6 +511,7 @@
 		70924AD91D2D660A001DFE85 /* MineQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AD81D2D660A001DFE85 /* MineQuestionListViewController.m */; };
 		70924ADC1D2D6673001DFE85 /* MineQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ADB1D2D6673001DFE85 /* MineQuestionData.m */; };
 		70924ADF1D2D673F001DFE85 /* MineQuestionListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924ADE1D2D673F001DFE85 /* MineQuestionListTableCell.m */; };
+		70924AE21D2E1F88001DFE85 /* MineSettingFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -1441,6 +1442,8 @@
 		70924ADB1D2D6673001DFE85 /* MineQuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQuestionData.m; sourceTree = "<group>"; };
 		70924ADD1D2D673F001DFE85 /* MineQuestionListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineQuestionListTableCell.h; sourceTree = "<group>"; };
 		70924ADE1D2D673F001DFE85 /* MineQuestionListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineQuestionListTableCell.m; sourceTree = "<group>"; };
+		70924AE01D2E1F88001DFE85 /* MineSettingFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingFixViewController.h; sourceTree = "<group>"; };
+		70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingFixViewController.m; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -3144,6 +3147,8 @@
 				702939911C9273FA008280E2 /* MineViewController.m */,
 				70B4EA881CCD0A9600141E38 /* MineSettingViewController.h */,
 				70B4EA891CCD0A9600141E38 /* MineSettingViewController.m */,
+				70924AE01D2E1F88001DFE85 /* MineSettingFixViewController.h */,
+				70924AE11D2E1F88001DFE85 /* MineSettingFixViewController.m */,
 				708274F31CF936080016AE3C /* MineCustomServiceViewController.h */,
 				708274F41CF936080016AE3C /* MineCustomServiceViewController.m */,
 				708274EE1CF846EA0016AE3C /* MineAboutUsViewController.h */,
@@ -4276,6 +4281,7 @@
 				707E5B941C965F9B00101B30 /* BaseCollectionView.m in Sources */,
 				70B4EB5C1CDB36F600141E38 /* LVRecordTool.m in Sources */,
 				705EF7FB1CBCA08C00732886 /* OrderHeadView.m in Sources */,
+				70924AE21D2E1F88001DFE85 /* MineSettingFixViewController.m in Sources */,
 				708FD5F91CE086EE002CDFA8 /* CustomSearchView.m in Sources */,
 				708274C11CF7E6960016AE3C /* RDQitaTableCell.m in Sources */,
 				708B52F01CEB077C0033C479 /* InfoMoreHealthViewController.m in Sources */,

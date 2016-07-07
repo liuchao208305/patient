@@ -34,6 +34,7 @@
 #import "MineCustomServiceViewController.h"
 #import "MineQuestionTableCell.h"
 #import "MineQuestionListViewController.h"
+#import "MineSettingFixViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -426,16 +427,19 @@
 }
 
 -(void)rightButtonClicked{
-    MineSettingViewController *settingVC = [[MineSettingViewController alloc] init];
+//    MineSettingViewController *settingVC = [[MineSettingViewController alloc] init];
+//    settingVC.hidesBottomBarWhenPushed = YES;
+//    
+//    settingVC.publicUserName = self.user_name;
+//    settingVC.publicRealName = self.real_name;
+//    settingVC.publicIdNumber = self.ID_number;
+//    settingVC.publicSsNumber = self.ID_medical;
+//    settingVC.publicUserAge = self.user_age;
+//    settingVC.publicUserSex = self.user_sex;
+//    
+//    [self.navigationController pushViewController:settingVC animated:YES];
+    MineSettingFixViewController *settingVC = [[MineSettingFixViewController alloc] init];
     settingVC.hidesBottomBarWhenPushed = YES;
-    
-    settingVC.publicUserName = self.user_name;
-    settingVC.publicRealName = self.real_name;
-    settingVC.publicIdNumber = self.ID_number;
-    settingVC.publicSsNumber = self.ID_medical;
-    settingVC.publicUserAge = self.user_age;
-    settingVC.publicUserSex = self.user_sex;
-    
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 
