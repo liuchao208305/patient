@@ -97,6 +97,22 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
+    
+    self.logoutButton = [[UIButton alloc] init];
+    [self.logoutButton setFont:[UIFont systemFontOfSize:17]];
+    [self.logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    [self.logoutButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.logoutButton setBackgroundColor:kMAIN_COLOR];
+    [self.logoutButton addTarget:self action:@selector(logoutButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.footView addSubview:self.logoutButton];
+    
+    [self.logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.footView).offset(20);
+        make.trailing.equalTo(self.footView).offset(-20);
+        make.height.mas_equalTo(44);
+        make.centerY.equalTo(self.footView).offset(0);
+    }];
+    
     self.tableView.tableFooterView = self.footView;
     
     [self.view addSubview:self.tableView];
@@ -107,6 +123,16 @@
 }
 
 #pragma mark Target Action
+-(void)logoutButtonClicked{
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:kJZK_token];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window setRootViewController:rootVC];
+    [self.window addSubview:rootVC.view];
+    [self.window makeKeyAndVisible];
+}
 
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -210,9 +236,13 @@
         if (indexPath.row == 0) {
             
         }else if (indexPath.row == 1){
-            
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"400-800-1801"];
+            UIWebView * callWebview = [[UIWebView alloc] init];
+            [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+            [self.view addSubview:callWebview];
         }else if (indexPath.row == 2){
-            
+            MineAboutUsViewController *mineAboutUsVC = [[MineAboutUsViewController alloc] init];
+            [self.navigationController pushViewController:mineAboutUsVC animated:YES];
         }
     }
     

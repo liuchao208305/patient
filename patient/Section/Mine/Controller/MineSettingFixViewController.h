@@ -16,4 +16,6 @@
 @property (strong,nonatomic)UIView *footView;
 @property (strong,nonatomic)UIButton *logoutButton;
 
+@property (strong, nonatomic) UIWindow *window;
+
 @end
