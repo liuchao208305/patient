@@ -20,8 +20,11 @@
 @property (strong,nonatomic)UIButton *chooseButton3;
 @property (strong,nonatomic)UILabel *chooseLabel3;
 @property (strong,nonatomic)UILabel *contentLabel;
+@property (strong,nonatomic)UIView *contentView;
 @property (strong,nonatomic)PlaceholderTextView * contentTextView;
+@property (strong,nonatomic)UILabel *phoneLabel;
 @property (strong,nonatomic)UITextField *phoneTextField;
+@property (strong,nonatomic)UILabel *otherLabel;
 @property (strong,nonatomic)UITextField *otherTextField;
 
 @end
