@@ -21,5 +21,6 @@
 @property (assign,nonatomic)int records;
 @property (strong,nonatomic)NSString *answer_date;
 @property (assign,nonatomic)int pay_status;
+@property (assign,nonatomic)int status;
 
 @end

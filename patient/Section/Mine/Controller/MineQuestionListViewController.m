@@ -531,7 +531,7 @@
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize1] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_QUESTION_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -581,7 +581,7 @@
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize2] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_QUESTION_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -631,7 +631,7 @@
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize3] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_QUESTION_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -681,7 +681,7 @@
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize4] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_QUESTION_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -731,7 +731,7 @@
     [parameter setValue:@"1" forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize5] forKey:@"pageSize"];
     
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_ORDER_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_QUESTION_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -769,6 +769,36 @@
 -(void)questionListDataParse1{
     DLog(@"questionListDataParse1");
     
+    self.questionArrayAll = [MineQuestionData mj_objectArrayWithKeyValuesArray:self.data1];
+    
+    [self.questionIdArrayAll removeAllObjects];
+    [self.questionPayStatusArrayAll removeAllObjects];
+    [self.questionAnswerStatusArrayAll removeAllObjects];
+    [self.questionPublicStatusArrayAll removeAllObjects];
+    [self.questionContentArrayAll removeAllObjects];
+    [self.questionAskTimeArrayAll removeAllObjects];
+    [self.questionAnswerTimeArrayAll removeAllObjects];
+    [self.questionPayTimeArrayAll removeAllObjects];
+    [self.questionMoneyArrayAll removeAllObjects];
+    [self.questionExpertIdArrayAll removeAllObjects];
+    [self.questionExpertNameArrayAll removeAllObjects];
+    [self.questionAudienceArrayAll removeAllObjects];
+    
+    for (MineQuestionData *mineQuestionData in self.questionArrayAll) {
+        [self.questionIdArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.interloution_id]];
+        [self.questionPayStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.pay_status]];
+        [self.questionAnswerStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.status]];
+        [self.questionPublicStatusArrayAll addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.is_public]];
+        [self.questionContentArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.content]];
+        [self.questionAskTimeArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.create_date]];
+        [self.questionAnswerTimeArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.answer_date]];
+        [self.questionPayTimeArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.pay_date]];
+        [self.questionMoneyArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.money]];
+        [self.questionExpertIdArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_id]];
+        [self.questionExpertNameArrayAll addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_name]];
+        [self.questionAudienceArrayAll addObject:[NSString stringWithFormat:@"%d",mineQuestionData.records]];
+    }
+    
     [self.tableView1 reloadData];
     
     [self.tableView1.mj_header endRefreshing];
@@ -777,6 +807,36 @@
 
 -(void)questionListDataParse2{
     DLog(@"questionListDataParse2");
+    
+    self.questionArrayUnpayed = [MineQuestionData mj_objectArrayWithKeyValuesArray:self.data2];
+    
+    [self.questionIdArrayUnpayed removeAllObjects];
+    [self.questionPayStatusArrayUnpayed removeAllObjects];
+    [self.questionAnswerStatusArrayUnPayed removeAllObjects];
+    [self.questionPublicStatusArrayUnpayed removeAllObjects];
+    [self.questionContentArrayUnpayed removeAllObjects];
+    [self.questionAskTimeArrayUnpayed removeAllObjects];
+    [self.questionAnswerTimeArrayUnpayed removeAllObjects];
+    [self.questionPayTimeArrayUnpayed removeAllObjects];
+    [self.questionMoneyArrayUnpayed removeAllObjects];
+    [self.questionExpertIdArrayUnpayed removeAllObjects];
+    [self.questionExpertNameArrayUnpayed removeAllObjects];
+    [self.questionAudienceArrayUnpayed removeAllObjects];
+    
+    for (MineQuestionData *mineQuestionData in self.questionArrayUnpayed) {
+        [self.questionIdArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.interloution_id]];
+        [self.questionPayStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.pay_status]];
+        [self.questionAnswerStatusArrayUnPayed addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.status]];
+        [self.questionPublicStatusArrayUnpayed addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.is_public]];
+        [self.questionContentArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.content]];
+        [self.questionAskTimeArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.create_date]];
+        [self.questionAnswerTimeArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.answer_date]];
+        [self.questionPayTimeArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.pay_date]];
+        [self.questionMoneyArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.money]];
+        [self.questionExpertIdArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_id]];
+        [self.questionExpertNameArrayUnpayed addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_name]];
+        [self.questionAudienceArrayUnpayed addObject:[NSString stringWithFormat:@"%d",mineQuestionData.records]];
+    }
     
     [self.tableView2 reloadData];
     
@@ -787,6 +847,36 @@
 -(void)questionListDataParse3{
     DLog(@"questionListDataParse3");
     
+    self.questionArrayUnanswered = [MineQuestionData mj_objectArrayWithKeyValuesArray:self.data3];
+    
+    [self.questionIdArrayUnanswered removeAllObjects];
+    [self.questionPayStatusArrayUnanswered removeAllObjects];
+    [self.questionAnswerStatusArrayUnanswered removeAllObjects];
+    [self.questionPublicStatusArrayUnanswered removeAllObjects];
+    [self.questionContentArrayUnanswered removeAllObjects];
+    [self.questionAskTimeArrayUnanswered removeAllObjects];
+    [self.questionAnswerTimeArrayUnanswered removeAllObjects];
+    [self.questionPayTimeArrayUnanswered removeAllObjects];
+    [self.questionMoneyArrayUnanswered removeAllObjects];
+    [self.questionExpertIdArrayUnanswered removeAllObjects];
+    [self.questionExpertNameArrayUnanswered removeAllObjects];
+    [self.questionAudienceArrayUnanswered removeAllObjects];
+    
+    for (MineQuestionData *mineQuestionData in self.questionArrayUnanswered) {
+        [self.questionIdArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.interloution_id]];
+        [self.questionPayStatusArrayUnanswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.pay_status]];
+        [self.questionAnswerStatusArrayUnanswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.status]];
+        [self.questionPublicStatusArrayUnanswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.is_public]];
+        [self.questionContentArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.content]];
+        [self.questionAskTimeArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.create_date]];
+        [self.questionAnswerTimeArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.answer_date]];
+        [self.questionPayTimeArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.pay_date]];
+        [self.questionMoneyArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.money]];
+        [self.questionExpertIdArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_id]];
+        [self.questionExpertNameArrayUnanswered addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_name]];
+        [self.questionAudienceArrayUnanswered addObject:[NSString stringWithFormat:@"%d",mineQuestionData.records]];
+    }
+    
     [self.tableView3 reloadData];
     
     [self.tableView3.mj_header endRefreshing];
@@ -796,6 +886,36 @@
 -(void)questionListDataParse4{
     DLog(@"questionListDataParse4");
     
+    self.questionArrayAnswered = [MineQuestionData mj_objectArrayWithKeyValuesArray:self.data4];
+    
+    [self.questionIdArrayAnswered removeAllObjects];
+    [self.questionPayStatusArrayAnswered removeAllObjects];
+    [self.questionAnswerStatusArrayAnswered removeAllObjects];
+    [self.questionPublicStatusArrayAnswered removeAllObjects];
+    [self.questionContentArrayAnswered removeAllObjects];
+    [self.questionAskTimeArrayAnswered removeAllObjects];
+    [self.questionAnswerTimeArrayAnswered removeAllObjects];
+    [self.questionPayTimeArrayAnswered removeAllObjects];
+    [self.questionMoneyArrayAnswered removeAllObjects];
+    [self.questionExpertIdArrayAnswered removeAllObjects];
+    [self.questionExpertNameArrayAnswered removeAllObjects];
+    [self.questionAudienceArrayAnswered removeAllObjects];
+    
+    for (MineQuestionData *mineQuestionData in self.questionArrayAnswered) {
+        [self.questionIdArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.interloution_id]];
+        [self.questionPayStatusArrayAnswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.pay_status]];
+        [self.questionAnswerStatusArrayAnswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.status]];
+        [self.questionPublicStatusArrayAnswered addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.is_public]];
+        [self.questionContentArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.content]];
+        [self.questionAskTimeArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.create_date]];
+        [self.questionAnswerTimeArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.answer_date]];
+        [self.questionPayTimeArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.pay_date]];
+        [self.questionMoneyArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.money]];
+        [self.questionExpertIdArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_id]];
+        [self.questionExpertNameArrayAnswered addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_name]];
+        [self.questionAudienceArrayAnswered addObject:[NSString stringWithFormat:@"%d",mineQuestionData.records]];
+    }
+    
     [self.tableView4 reloadData];
     
     [self.tableView4.mj_header endRefreshing];
@@ -804,6 +924,36 @@
 
 -(void)questionListDataParse5{
     DLog(@"questionListDataParse5");
+    
+    self.questionArrayPublic = [MineQuestionData mj_objectArrayWithKeyValuesArray:self.data5];
+    
+    [self.questionIdArrayPublic removeAllObjects];
+    [self.questionPayStatusArrayPublic removeAllObjects];
+    [self.questionAnswerStatusArrayPublic removeAllObjects];
+    [self.questionPublicStatusArrayPublic removeAllObjects];
+    [self.questionContentArrayPublic removeAllObjects];
+    [self.questionAskTimeArrayPublic removeAllObjects];
+    [self.questionAnswerTimeArrayPublic removeAllObjects];
+    [self.questionPayTimeArrayPublic removeAllObjects];
+    [self.questionMoneyArrayPublic removeAllObjects];
+    [self.questionExpertIdArrayPublic removeAllObjects];
+    [self.questionExpertNameArrayPublic removeAllObjects];
+    [self.questionAudienceArrayPublic removeAllObjects];
+    
+    for (MineQuestionData *mineQuestionData in self.questionArrayPublic) {
+        [self.questionIdArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.interloution_id]];
+        [self.questionPayStatusArrayPublic addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.pay_status]];
+        [self.questionAnswerStatusArrayPublic addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.status]];
+        [self.questionPublicStatusArrayPublic addObject:[NSString stringWithFormat:@"%ld",(long)mineQuestionData.is_public]];
+        [self.questionContentArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.content]];
+        [self.questionAskTimeArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.create_date]];
+        [self.questionAnswerTimeArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.answer_date]];
+        [self.questionPayTimeArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.pay_date]];
+        [self.questionMoneyArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.money]];
+        [self.questionExpertIdArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_id]];
+        [self.questionExpertNameArrayPublic addObject:[NullUtil judgeStringNull:mineQuestionData.doctor_name]];
+        [self.questionAudienceArrayPublic addObject:[NSString stringWithFormat:@"%d",mineQuestionData.records]];
+    }
     
     [self.tableView5 reloadData];
     
