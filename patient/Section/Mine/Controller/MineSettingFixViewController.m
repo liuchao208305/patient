@@ -124,14 +124,22 @@
 
 #pragma mark Target Action
 -(void)logoutButtonClicked{
-    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:kJZK_token];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window setRootViewController:rootVC];
-    [self.window addSubview:rootVC.view];
-    [self.window makeKeyAndVisible];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提醒" message:@"确定要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:kJZK_token];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [self.window setRootViewController:rootVC];
+        [self.window addSubview:rootVC.view];
+        [self.window makeKeyAndVisible];
+    }
 }
 
 #pragma mark UITableViewDelegate
