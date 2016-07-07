@@ -118,7 +118,7 @@
     
     [self.expertNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.askTimeLabel.mas_bottom).offset(10);
+        make.top.equalTo(self.answerTimeLabel.mas_bottom).offset(10);
     }];
     
     [self.payTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,7 +128,7 @@
     
     [self.audienceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-12);
-        make.centerY.equalTo(self.askTimeLabel).offset(0);
+        make.centerY.equalTo(self.expertNameLabel).offset(0);
     }];
 }
 
