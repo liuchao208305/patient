@@ -11,6 +11,8 @@
 
 @interface OrderListViewController : BaseViewController<YJSegmentedControlDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property(strong,nonatomic)NSString *sourceVC;
+
 @property (assign,nonatomic)NSInteger orderType;
 
 @property (assign,nonatomic)BOOL flag1;

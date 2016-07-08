@@ -24,6 +24,7 @@
 #import "OrderListFixTableCell.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "MineViewController.h"
 
 @interface OrderListViewController ()<UIActionSheetDelegate>
 
@@ -397,6 +398,11 @@
 //    self.navigationItem.titleView = label;
     self.title=@"订单列表";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    if ([self.sourceVC isEqualToString:@"BookInfoViewController"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    }
 }
 
 -(void)initTabBar{
@@ -505,6 +511,14 @@
 }
 
 #pragma mark Target Action
+-(void)backButtonClicked{
+    DLog(@"backButtonClicked");
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    [self.navigationController popToViewController:mineVC animated:YES];
+}
+
 -(void)allButtonClicked:(UIButton *)sender{
     DLog(@"allButtonClicked");
     DLog(@"%ld",(long)sender.tag);

@@ -21,6 +21,7 @@
 #import "TestResultListViewController.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "OrderListViewController.h"
 
 @interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
 
@@ -1053,6 +1054,10 @@
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
         }
     }];
+    
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.sourceVC = @"BookInfoViewController";
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)paymentInfoWechatPayDataParse{
@@ -1074,6 +1079,10 @@
     req.package             = self.package;
     req.sign                = self.sign;
     [WXApi sendReq:req];
+    
+    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+    orderListVC.sourceVC = @"BookInfoViewController";
+    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)onResp:(BaseResp *)resp{
