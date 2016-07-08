@@ -161,7 +161,7 @@
     if ([AdaptionUtil isIphoneFour]) {
         self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneFive]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.3*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
         self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
     }
