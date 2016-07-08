@@ -129,7 +129,7 @@
 //    
 //    self.navigationItem.titleView = self.searchView;
     
-    self.title=@"专家列表";
+    self.title=@"医生列表";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];

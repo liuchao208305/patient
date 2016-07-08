@@ -16,10 +16,14 @@
 @property (strong,nonatomic)UILabel *expertUnitLabel;
 @property (strong,nonatomic)UILabel *expertDepartLabel;
 @property (strong,nonatomic)UILabel *expertDetailLabel;
+
+@property (strong,nonatomic)UILabel *expertShanchangLabel;
+
 @property (strong,nonatomic)UIImageView *expertAnswserImageView;
 @property (strong,nonatomic)UILabel *expertAnswerLabel;
 @property (strong,nonatomic)UIImageView *expertFocusImageView;
 @property (strong,nonatomic)UILabel *expertFocusLabel;
+
 //@property (strong,nonatomic)UIButton *expertStatusButton;
 //@property (strong,nonatomic)UIImageView *expertFlagImageView1;
 //@property (strong,nonatomic)UILabel *expertFlagNameLabel1;

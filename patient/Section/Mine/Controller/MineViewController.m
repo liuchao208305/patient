@@ -38,6 +38,7 @@
 #import "HealthListDetailViewController.h"
 #import "HealthDiseaseHistoryViewController.h"
 #import "HealthMarriageHistoryViewController.h"
+#import "MineExpertFixViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -621,9 +622,13 @@
 //    couponCheckVC.isFromMineVC = YES;
 //    [self.navigationController pushViewController:couponCheckVC animated:YES];
     
-    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
-    mineExpertVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:mineExpertVC animated:YES];
+//    MineExpertViewController *mineExpertVC = [[MineExpertViewController alloc] init];
+//    mineExpertVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:mineExpertVC animated:YES];
+    
+    MineExpertFixViewController *mineExpertFixVC = [[MineExpertFixViewController alloc] init];
+    mineExpertFixVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:mineExpertFixVC animated:YES];
 
 }
 

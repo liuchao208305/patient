@@ -46,6 +46,10 @@
     self.expertDetailLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.expertDetailLabel];
     
+    self.expertShanchangLabel = [[UILabel alloc] init];
+    self.expertShanchangLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.contentView addSubview:self.expertShanchangLabel];
+    
     self.expertAnswserImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:self.expertAnswserImageView];
     
@@ -141,6 +145,12 @@
     [self.expertDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.expertUnitLabel.mas_bottom).offset(5);
         make.leading.equalTo(self.expertUnitLabel).offset(0);
+        make.trailing.equalTo(self.contentView).offset(-10);
+    }];
+    
+    [self.expertShanchangLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.expertDetailLabel.mas_bottom).offset(5);
+        make.leading.equalTo(self.expertDetailLabel).offset(0);
         make.trailing.equalTo(self.contentView).offset(-10);
     }];
     

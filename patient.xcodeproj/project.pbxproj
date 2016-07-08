@@ -716,6 +716,8 @@
 		70EAAA441D293DFF0025C6D5 /* HealthListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EAAA431D293DFF0025C6D5 /* HealthListDetailViewController.m */; };
 		70EAAA471D2942480025C6D5 /* HealthListDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EAAA461D2942480025C6D5 /* HealthListDetailData.m */; };
 		70EAAA4A1D2947C20025C6D5 /* HealthListDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */; };
+		70EE2C321D2F77ED00ADD36B /* MineExpertFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */; };
+		70EE2C351D2F7B6D00ADD36B /* MineExpertFixData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1781,6 +1783,10 @@
 		70EAAA461D2942480025C6D5 /* HealthListDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListDetailData.m; sourceTree = "<group>"; };
 		70EAAA481D2947C20025C6D5 /* HealthListDetailTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthListDetailTableCell.h; sourceTree = "<group>"; };
 		70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListDetailTableCell.m; sourceTree = "<group>"; };
+		70EE2C301D2F77ED00ADD36B /* MineExpertFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertFixViewController.h; sourceTree = "<group>"; };
+		70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertFixViewController.m; sourceTree = "<group>"; };
+		70EE2C331D2F7B6D00ADD36B /* MineExpertFixData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertFixData.h; sourceTree = "<group>"; };
+		70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertFixData.m; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -3232,6 +3238,8 @@
 				708274A51CF6F1DE0016AE3C /* RecordDetailViewController.m */,
 				70FD8E721CEC78E500DA22E5 /* MineExpertViewController.h */,
 				70FD8E731CEC78E500DA22E5 /* MineExpertViewController.m */,
+				70EE2C301D2F77ED00ADD36B /* MineExpertFixViewController.h */,
+				70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */,
 				70FD8E751CEC791300DA22E5 /* MineFavouriteViewController.h */,
 				70FD8E761CEC791300DA22E5 /* MineFavouriteViewController.m */,
 				708995631CF3E4B000B40F97 /* MineMessageViewController.h */,
@@ -3257,6 +3265,8 @@
 				708274A81CF7086E0016AE3C /* RecordListData.m */,
 				70FD8E781CEC7CE900DA22E5 /* MineExpertData.h */,
 				70FD8E791CEC7CE900DA22E5 /* MineExpertData.m */,
+				70EE2C331D2F7B6D00ADD36B /* MineExpertFixData.h */,
+				70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */,
 				70FD8E8C1CEDD35800DA22E5 /* MineFavouriteData.h */,
 				70FD8E8D1CEDD35800DA22E5 /* MineFavouriteData.m */,
 				7089956F1CF3E5DF00B40F97 /* MineMessageData.h */,
@@ -4315,6 +4325,7 @@
 				702938FE1C8D16BE008280E2 /* UIColor+Extension.m in Sources */,
 				700CF0601D22B0D9008C9776 /* HealthListHeaderView.m in Sources */,
 				70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */,
+				70EE2C351D2F7B6D00ADD36B /* MineExpertFixData.m in Sources */,
 				7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */,
 				70FD8E501CEC041400DA22E5 /* FoodDishData.m in Sources */,
 				702939151C8D5D83008280E2 /* LocationUtil.m in Sources */,
@@ -4468,6 +4479,7 @@
 				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				708B52FB1CEB19070033C479 /* HealthDishInfoViewController.m in Sources */,
+				70EE2C321D2F77ED00ADD36B /* MineExpertFixViewController.m in Sources */,
 				708274F51CF936080016AE3C /* MineCustomServiceViewController.m in Sources */,
 				70924B241D2F6B10001DFE85 /* QuestionData.m in Sources */,
 				708274D01CF7E7460016AE3C /* RDFYcishuTableCell.m in Sources */,
