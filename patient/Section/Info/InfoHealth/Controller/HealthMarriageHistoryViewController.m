@@ -23,12 +23,27 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
+
 @property (assign,nonatomic)int marryStatus;
 @property (assign,nonatomic)BOOL unmarriedClickedFlag;
 @property (assign,nonatomic)BOOL marriedClickedFlag;
 
 @property (assign,nonatomic)int erziCount;
 @property (assign,nonatomic)int nverCount;
+
+@property (strong,nonatomic)NSString *diseaseHistoryIdFix;
+@property (strong,nonatomic)NSString *jiwangshiFix;
+@property (strong,nonatomic)NSString *shoushushiFix;
+@property (strong,nonatomic)NSString *guominshiFix;
+@property (strong,nonatomic)NSString *jiazushiFix;
+@property (assign,nonatomic)int marryStatusFix;
+@property (assign,nonatomic)int erziCountFix;
+@property (assign,nonatomic)int nverCountFix;
 
 @end
 
@@ -47,12 +62,25 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    self.marryStatus = 0;
+    self.nverCount = 0;
+    self.erziCount = 0;
+    
+    self.diseaseHistoryIdFix = @"";
+    self.marryStatusFix = 0;
+    self.nverCountFix = 0;
+    self.erziCountFix = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"HealthMarriageHistoryViewController"];
+    
+    self.navigationController.navigationBar.hidden = NO;
+    
+    [self sendMarriageHistoryRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -265,6 +293,7 @@
     self.marriedClickedFlag = NO;
     [self changeButtonPresentation];
     self.marryStatus = 1;
+    self.marryStatusFix = 1;
     DLog(@"self.marryStatus-->%d",self.marryStatus);
 }
 
@@ -273,6 +302,7 @@
     self.marriedClickedFlag = YES;
     [self changeButtonPresentation];
     self.marryStatus = 2;
+    self.marryStatusFix = 2;
     DLog(@"self.marryStatus-->%d",self.marryStatus);
 }
 
@@ -319,16 +349,65 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
     
-    [parameter setValue:self.jiwangshi forKey:@"a_history"];
-    [parameter setValue:self.shoushushi forKey:@"b_history"];
-    [parameter setValue:self.guominshi forKey:@"c_history"];
-    [parameter setValue:self.jiazushi forKey:@"d_history"];
+//    [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
+//    
+//    [parameter setValue:self.jiwangshi forKey:@"a_history"];
+//    [parameter setValue:self.shoushushi forKey:@"b_history"];
+//    [parameter setValue:self.guominshi forKey:@"c_history"];
+//    [parameter setValue:self.jiazushi forKey:@"d_history"];
+//    
+//    [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatus] forKey:@"marriage_status"];
+//    [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"a_son"];
+//    [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"b_son"];
     
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatus] forKey:@"marriage_status"];
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"a_son"];
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"b_son"];
+    if ([self.diseaseHistoryIdFix isEqualToString:@""]) {
+        [parameter setValue:self.diseaseHistoryId forKey:@"ids"];
+    }else{
+        [parameter setValue:self.diseaseHistoryIdFix forKey:@"ids"];
+    }
+    
+    if ([self.jiwangshi isEqualToString:@""]) {
+        [parameter setValue:self.jiwangshiFix forKey:@"a_history"];
+    }else{
+        [parameter setValue:self.jiwangshi forKey:@"a_history"];
+    }
+    
+    if ([self.shoushushi isEqualToString:@""]) {
+        [parameter setValue:self.shoushushiFix forKey:@"b_history"];
+    }else{
+        [parameter setValue:self.shoushushi forKey:@"b_history"];
+    }
+    
+    if ([self.guominshi isEqualToString:@""]) {
+        [parameter setValue:self.guominshiFix forKey:@"c_history"];
+    }else{
+        [parameter setValue:self.guominshi forKey:@"c_history"];
+    }
+    
+    if ([self.jiazushi isEqualToString:@""]) {
+        [parameter setValue:self.jiazushiFix forKey:@"d_history"];
+    }else{
+        [parameter setValue:self.jiazushi forKey:@"d_history"];
+    }
+    
+    if (self.marryStatus == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatusFix] forKey:@"marriage_status"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatus] forKey:@"marriage_status"];
+    }
+    
+    if (self.nverCount == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"a_son"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"a_son"];
+    }
+    
+    if (self.erziCount == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"b_son"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"b_son"];
+    }
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_MARRIAGE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -364,6 +443,76 @@
     }];
 }
 
+-(void)sendMarriageHistoryRequest{
+    DLog(@"sendMarriageHistoryRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_AND_MARRIAGE_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [self marriageHistoryDataParse];
+        }else{
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+#pragma mark Data Parse
+-(void)marriageHistoryDataParse{
+    if (![self.data2 isKindOfClass:[NSNull class]]) {
+        self.diseaseHistoryIdFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"ids"]];
+        self.jiwangshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"a_history"]];
+        self.shoushushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"b_history"]];
+        self.guominshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"c_history"]];
+        self.jiazushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"d_history"]];
+        self.marryStatusFix = [[self.data2 objectForKey:@"marriage_status"] intValue];
+        self.nverCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
+        self.erziCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
+    }
+    
+    [self marriageHistoryDataFilling];
+}
+
 #pragma mark Data Filling
+-(void)marriageHistoryDataFilling{
+    if (self.marryStatusFix == 1) {
+        [self unmarriedButtonClicked];
+    }else if (self.marryStatusFix == 2){
+        [self marriedButtonClicked];
+        
+        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
+        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+    }
+}
 
 @end

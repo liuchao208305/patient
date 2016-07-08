@@ -15,9 +15,9 @@
 
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 
-@property (assign,nonatomic)int hunfou;
-@property (assign,nonatomic)int erzi;
-@property (assign,nonatomic)int nver;
+@property (assign,nonatomic)int marryStatus;
+@property (assign,nonatomic)int erziCount;
+@property (assign,nonatomic)int nverCount;
 
 @property (strong,nonatomic)UITableView *tableView;
 

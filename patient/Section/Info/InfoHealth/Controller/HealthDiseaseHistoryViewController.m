@@ -45,6 +45,9 @@
 @property (strong,nonatomic)NSString *shoushushiFix;
 @property (strong,nonatomic)NSString *guominshiFix;
 @property (strong,nonatomic)NSString *jiazushiFix;
+@property (assign,nonatomic)int marryStatusFix;
+@property (assign,nonatomic)int erziCountFix;
+@property (assign,nonatomic)int nverCountFix;
 
 @end
 
@@ -397,9 +400,23 @@
     }
     
     
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.hunfou] forKey:@"marriage_status"];
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.erzi] forKey:@"a_son"];
-    [parameter setValue:[NSString stringWithFormat:@"%d",self.nver] forKey:@"b_son"];
+    if (self.marryStatus == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatusFix] forKey:@"marriage_status"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatus] forKey:@"marriage_status"];
+    }
+    
+    if (self.nverCount == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"a_son"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"a_son"];
+    }
+    
+    if (self.erziCount == 0) {
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"b_son"];
+    }else{
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"b_son"];
+    }
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -487,6 +504,9 @@
         self.shoushushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"b_history"]];
         self.guominshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"c_history"]];
         self.jiazushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"d_history"]];
+        self.marryStatusFix = [[self.data2 objectForKey:@"marriage_status"] intValue];
+        self.nverCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
+        self.erziCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
     }
     
     [self.tableView removeFromSuperview];

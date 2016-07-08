@@ -655,6 +655,10 @@
 //    MineCustomServiceViewController *customServiceVC = [[MineCustomServiceViewController alloc] init];
 //    customServiceVC.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:customServiceVC animated:YES];
+    
+    HealthMarriageHistoryViewController *marriageVC = [[HealthMarriageHistoryViewController alloc] init];
+    marriageVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:marriageVC animated:YES];
 }
 
 -(void)function6Clicked{

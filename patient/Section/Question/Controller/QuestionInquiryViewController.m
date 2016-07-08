@@ -737,9 +737,9 @@
             HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
             diseasHistoryVC.sourceVC = @"QuestionInquiryViewController";
             diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
-            diseasHistoryVC.hunfou = self.hunfou;
-            diseasHistoryVC.erzi = self.erzi;
-            diseasHistoryVC.nver = self.nver;
+            diseasHistoryVC.marryStatus = self.hunfou;
+            diseasHistoryVC.erziCount = self.erzi;
+            diseasHistoryVC.nverCount = self.nver;
             [self.navigationController pushViewController:diseasHistoryVC animated:YES];
         }else if (buttonIndex == 1){
             DLog(@"健康自查");

@@ -210,9 +210,9 @@
         DLog(@"既往史／手术史／过敏史／家族史");
         HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
         diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
-        diseasHistoryVC.hunfou = self.hunfou;
-        diseasHistoryVC.erzi = self.erzi;
-        diseasHistoryVC.nver = self.nver;
+        diseasHistoryVC.marryStatus = self.hunfou;
+        diseasHistoryVC.erziCount = self.erzi;
+        diseasHistoryVC.nverCount = self.nver;
         [self.navigationController pushViewController:diseasHistoryVC animated:YES];
     }else if (buttonIndex == 1){
         DLog(@"婚育情况");
