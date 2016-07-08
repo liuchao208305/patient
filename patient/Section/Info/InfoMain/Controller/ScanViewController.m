@@ -11,6 +11,7 @@
 #import "AnalyticUtil.h"
 #import "GTMBase64.h"
 #import "StringUtil.h"
+#import "ExpertInfoViewController.h"
 
 @interface ScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -189,9 +190,12 @@
         NSString *expertId = [dictionary objectForKey:@"value"];
         DLog(@"type-->%@",type);
         DLog(@"expertId-->%@",expertId);
-        
-        
         //此处根据结果做出相应处理
+        ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+        expertVC.hidesBottomBarWhenPushed = YES;
+        expertVC.sourceVC = @"ScanViewController";
+        expertVC.expertId = expertId;
+        [self.navigationController pushViewController:expertVC animated:YES];
     }
     [self.session stopRunning];
 }

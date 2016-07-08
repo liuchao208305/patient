@@ -200,6 +200,11 @@
 //    self.navigationItem.titleView = label;
     self.title = self.expertName;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    if ([self.sourceVC isEqualToString:@"ScanViewController"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"< 返回" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    }
 }
 
 -(void)initTabBar{
@@ -347,6 +352,11 @@
 }
 
 #pragma mark Target Action
+-(void)backButtonClicked{
+    DLog(@"backButtonClicked");
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 -(void)focusButtonClicked:(BOOL)isFocus{
     DLog(@"focusButtonClicked");
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] isEqualToString:@""]) {
@@ -354,7 +364,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self presentViewController:navController animated:YES completion:nil];
     }else{
-        [self sendExpertFocusRequest];
+        [self sendExpertFocusRequest:@"1"];
     }
 }
 
@@ -949,7 +959,7 @@
 //    }];
 //}
 
--(void)sendExpertFocusRequest{
+-(void)sendExpertFocusRequest:(NSString *)type{
     DLog(@"sendExpertFocusRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -960,7 +970,7 @@
     [parameter setValue:self.expertId forKey:@"doctor_id"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:@"1" forKey:@"type"];
+    [parameter setValue:type forKey:@"type"];
     
     DLog(@"parameter-->%@",parameter);
     
@@ -1032,6 +1042,10 @@
     
     if ([[self.data objectForKey:@"is_atteation"] intValue] == 0) {
         self.isFocused = NO;
+        
+        if ([self.sourceVC isEqualToString:@"ScanViewController"]) {
+            [self sendExpertFocusRequest:@"3"];
+        }
     }else if ([[self.data objectForKey:@"is_atteation"] intValue] == 1) {
         self.isFocused = YES;
     }

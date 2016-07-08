@@ -12,6 +12,8 @@
 
 @interface ExpertInfoViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)NSString *expertId;
 @property (strong,nonatomic)NSString *expertName;
 
