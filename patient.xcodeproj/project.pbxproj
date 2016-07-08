@@ -718,6 +718,7 @@
 		70EAAA4A1D2947C20025C6D5 /* HealthListDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */; };
 		70EE2C321D2F77ED00ADD36B /* MineExpertFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */; };
 		70EE2C351D2F7B6D00ADD36B /* MineExpertFixData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */; };
+		70EE2C381D2F8EB600ADD36B /* MineWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1787,6 +1788,8 @@
 		70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertFixViewController.m; sourceTree = "<group>"; };
 		70EE2C331D2F7B6D00ADD36B /* MineExpertFixData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineExpertFixData.h; sourceTree = "<group>"; };
 		70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertFixData.m; sourceTree = "<group>"; };
+		70EE2C361D2F8EB600ADD36B /* MineWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletViewController.h; sourceTree = "<group>"; };
+		70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletViewController.m; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -3246,6 +3249,8 @@
 				708995641CF3E4B000B40F97 /* MineMessageViewController.m */,
 				708995661CF3E4DA00B40F97 /* MineMessageDetailViewController.h */,
 				708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */,
+				70EE2C361D2F8EB600ADD36B /* MineWalletViewController.h */,
+				70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4259,6 +4264,7 @@
 				70924AD91D2D660A001DFE85 /* MineQuestionListViewController.m in Sources */,
 				70B4EADA1CD86FA100141E38 /* MRPatientTableCell.m in Sources */,
 				704006931CE30DCC004E5D7E /* TextEntity.m in Sources */,
+				70EE2C381D2F8EB600ADD36B /* MineWalletViewController.m in Sources */,
 				70FEADF11CA90C23006A044A /* ClinicDoctorView.m in Sources */,
 				7046AD3A1C98107F00BB6818 /* ScanViewController.m in Sources */,
 				70924ADF1D2D673F001DFE85 /* MineQuestionListTableCell.m in Sources */,

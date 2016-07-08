@@ -39,6 +39,7 @@
 #import "HealthDiseaseHistoryViewController.h"
 #import "HealthMarriageHistoryViewController.h"
 #import "MineExpertFixViewController.h"
+#import "MineWalletViewController.h"
 
 @interface MineViewController ()<FunctionDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,OrderHeadViewClickedDelegate,RecordViewDelegate,QuestionHeadViewClickedDelegate>
 
@@ -668,6 +669,10 @@
 //    contactCheckVC.hidesBottomBarWhenPushed = YES;
 //    contactCheckVC.isFromMineVC = YES;
 //    [self.navigationController pushViewController:contactCheckVC animated:YES];
+    
+    MineWalletViewController *walletVC = [[MineWalletViewController alloc] init];
+    walletVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:walletVC animated:YES];
 }
 
 //-(void)function7Clicked{
