@@ -928,7 +928,7 @@
     [parameter setValue:self.expertId forKey:@"min_doctor_id"];
     [parameter setValue:[NSString stringWithFormat:@"%.2f",self.consultation_money] forKey:@"money"];
     
-    [parameter setValue:@"2016-07-06 10:00:00" forKey:@"bespoke_date"];
+    [parameter setValue:[DateUtil getCurrentTime] forKey:@"bespoke_date"];
     [parameter setValue:@"测试" forKey:@"org_name"];
     
     [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
