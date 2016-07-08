@@ -103,8 +103,46 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 70)];
+    self.headView.backgroundColor = kWHITE_COLOR;
     
-    self.headView.backgroundColor = [UIColor redColor];
+    self.accountLabel = [[UILabel alloc] init];
+    self.accountLabel.font = [UIFont systemFontOfSize:16];
+    self.accountLabel.textColor = ColorWithHexRGB(0x65b317);
+    [self.headView addSubview:self.accountLabel];
+    
+    self.moneyLabel1 = [[UILabel alloc] init];
+    self.moneyLabel1.font = [UIFont systemFontOfSize:12];
+    self.moneyLabel1.textColor = ColorWithHexRGB(0x909090);
+    [self.headView addSubview:self.moneyLabel1];
+    
+    self.moneyLabel2 = [[UILabel alloc] init];
+    self.moneyLabel2.font = [UIFont systemFontOfSize:20];
+    [self.headView addSubview:self.moneyLabel2];
+    
+    self.moneyLabel3 = [[UILabel alloc] init];
+    self.moneyLabel3.font = [UIFont systemFontOfSize:13];
+    self.moneyLabel3.textColor = ColorWithHexRGB(0x909090);
+    [self.headView addSubview:self.moneyLabel3];
+    
+    [self.accountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.headView).offset(15);
+        make.centerY.equalTo(self.headView).offset(0);
+    }];
+    
+    [self.moneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.moneyLabel2.mas_leading).offset(5);
+        make.bottom.equalTo(self.moneyLabel2).offset(0);
+    }];
+    
+    [self.moneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.moneyLabel3.mas_leading).offset(5);
+        make.centerY.equalTo(self.headView).offset(0);
+    }];
+    
+    [self.moneyLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.headView).offset(-15);
+        make.bottom.equalTo(self.moneyLabel2).offset(0);
+    }];
     
     self.tableView.tableHeaderView = self.headView;
     
@@ -139,6 +177,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    self.mineWalletHeaderView = [[MineWalletHeaderView alloc] init];
+    
+    self.mineWalletHeaderView.titleLabel.text = @"交易纪录";
+    
+    return self.mineWalletHeaderView;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

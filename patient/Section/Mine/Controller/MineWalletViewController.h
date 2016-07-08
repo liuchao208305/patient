@@ -11,7 +11,13 @@
 
 @interface MineWalletViewController : BaseViewController
 
+@property (strong,nonatomic)MineWalletHeaderView *mineWalletHeaderView;
+
 @property (strong,nonatomic)UITableView *tableView;
 @property (strong,nonatomic)UIView *headView;
+@property (strong,nonatomic)UILabel *accountLabel;
+@property (strong,nonatomic)UILabel *moneyLabel1;
+@property (strong,nonatomic)UILabel *moneyLabel2;
+@property (strong,nonatomic)UILabel *moneyLabel3;
 
 @end
