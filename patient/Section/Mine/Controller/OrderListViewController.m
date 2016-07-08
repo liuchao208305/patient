@@ -22,8 +22,10 @@
 #import "TreatmentFinishViewController.h"
 #import "OrderFixData.h"
 #import "OrderListFixTableCell.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
-@interface OrderListViewController ()
+@interface OrderListViewController ()<UIActionSheetDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -69,6 +71,54 @@
 
 @property (assign,nonatomic)NSInteger currentPage5;
 @property (assign,nonatomic)NSInteger pageSize5;
+/********************************************************/
+@property (strong,nonatomic)NSMutableDictionary *result6;
+@property (assign,nonatomic)NSInteger code6;
+@property (strong,nonatomic)NSString *message6;
+@property (strong,nonatomic)NSMutableDictionary *data6;
+@property (assign,nonatomic)NSError *error6;
+
+@property (strong,nonatomic)NSString *orderId1;
+@property (assign,nonatomic)NSInteger paymentType1;
+
+@property (strong,nonatomic)NSString *paymentInfomation1;
+
+@property (strong,nonatomic)NSString *alipayMomo1;
+@property (strong,nonatomic)NSString *alipayResult1;
+@property (strong,nonatomic)NSString *alipayResultStatus1;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo1;
+@property (strong,nonatomic)NSString *appid1;
+@property (strong,nonatomic)NSString *noncestr1;
+@property (strong,nonatomic)NSString *package1;
+@property (strong,nonatomic)NSString *partnerid1;
+@property (strong,nonatomic)NSString *prepayid1;
+@property (strong,nonatomic)NSString *sign1;
+@property (nonatomic, assign)UInt32 timeStamp1;
+/********************************************************/
+@property (strong,nonatomic)NSMutableDictionary *result7;
+@property (assign,nonatomic)NSInteger code7;
+@property (strong,nonatomic)NSString *message7;
+@property (strong,nonatomic)NSMutableDictionary *data7;
+@property (assign,nonatomic)NSError *error7;
+
+@property (strong,nonatomic)NSString *orderId2;
+@property (assign,nonatomic)NSInteger paymentType2;
+
+@property (strong,nonatomic)NSString *paymentInfomation2;
+
+@property (strong,nonatomic)NSString *alipayMomo2;
+@property (strong,nonatomic)NSString *alipayResult2;
+@property (strong,nonatomic)NSString *alipayResultStatus2;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo2;
+@property (strong,nonatomic)NSString *appid2;
+@property (strong,nonatomic)NSString *noncestr2;
+@property (strong,nonatomic)NSString *package2;
+@property (strong,nonatomic)NSString *partnerid2;
+@property (strong,nonatomic)NSString *prepayid2;
+@property (strong,nonatomic)NSString *sign2;
+@property (nonatomic, assign)UInt32 timeStamp2;
 
 @end
 
@@ -469,31 +519,86 @@
 //        medicineVC.orderNumber = self.orderIdArrayAll[sender.tag-10000];
 //        [self.navigationController pushViewController:medicineVC animated:YES];
 //    }
+    
+    self.orderId1 = self.orderIdArrayAll[sender.tag - 10000];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择支付方式"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = 1;
+    [actionSheet showInView:self.view];
 }
 
 -(void)bookedButtonClicked:(UIButton *)sender{
     DLog(@"bookedButtonClicked");
     DLog(@"%ld",(long)sender.tag);
+    DLog(@"%@",sender.titleLabel.text);
 //    TreatmentDetailViewController *detaiVC = [[TreatmentDetailViewController alloc] init];
 //    detaiVC.isFromOrderListVC = YES;
 //    detaiVC.orderNumber = self.orderPayIdArrayBooked[sender.tag-20000];
 //    [self.navigationController pushViewController:detaiVC animated:YES];
+    
+    self.orderId2 = self.orderIdArrayUnpayed[sender.tag - 20000];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择支付方式"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = 2;
+    [actionSheet showInView:self.view];
 }
 
--(void)proceedingButtonClicked{
-    DLog(@"proceedingButtonClicked");
-}
+//-(void)proceedingButtonClicked{
+//    DLog(@"proceedingButtonClicked");
+//}
+//
+//-(void)evaluatingButtonClicked:(UIButton *)sender{
+//    DLog(@"evaluatingButtonClicked");
+//    DLog(@"%ld",(long)sender.tag);
+////    MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
+////    medicineVC.orderNumber = self.orderIdArrayEvaluating[sender.tag-40000];
+////    [self.navigationController pushViewController:medicineVC animated:YES];
+//}
+//
+//-(void)completedButtonClicked{
+//    DLog(@"completedButtonClicked");
+//}
 
--(void)evaluatingButtonClicked:(UIButton *)sender{
-    DLog(@"evaluatingButtonClicked");
-    DLog(@"%ld",(long)sender.tag);
-//    MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
-//    medicineVC.orderNumber = self.orderIdArrayEvaluating[sender.tag-40000];
-//    [self.navigationController pushViewController:medicineVC animated:YES];
-}
-
--(void)completedButtonClicked{
-    DLog(@"completedButtonClicked");
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet.tag == 1) {
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.paymentType1 = 1;
+            [self sendPayNowInfoRequest1:self.orderId1 payType:self.paymentType1];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.paymentType1 = 2;
+            [self sendPayNowInfoRequest1:self.orderId1 payType:self.paymentType1];
+        }else if (buttonIndex == 2){
+            //取消
+        }
+    }else if (actionSheet.tag == 2){
+        if (buttonIndex == 0){
+            //支付宝支付
+            self.paymentType2 = 1;
+            [self sendPayNowInfoRequest2:self.orderId2 payType:self.paymentType2];
+        }else if (buttonIndex == 1){
+            //微信支付
+            self.paymentType2 = 2;
+            [self sendPayNowInfoRequest2:self.orderId2 payType:self.paymentType2];
+        }else if (buttonIndex == 2){
+            //取消
+        }
+    }
+    
 }
 
 #pragma mark UITableViewDelegate
@@ -625,6 +730,9 @@
             
             [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
             cell.waitTimeLabel.text = [NSString stringWithFormat:@"已等待%@",self.orderWaitTimeArrayAll[indexPath.section]];
+            
+            cell.payButton.tag = 10000+indexPath.section;
+            [cell.payButton addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 2){
             cell.statusLabel.text = @"待就诊";
             cell.statusLabel.textColor = [UIColor redColor];
@@ -690,6 +798,10 @@
         cell.createTimeLabel.text = self.orderCreatTimeArrayUnpayed[indexPath.section];
         cell.statusLabel.text = @"待支付";
         cell.statusLabel.textColor = [UIColor redColor];
+        [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
+        cell.waitTimeLabel.text = [NSString stringWithFormat:@"已等待%@",self.orderWaitTimeArrayUnpayed[indexPath.section]];
+        cell.payButton.tag = 20000+indexPath.section;
+        [cell.payButton addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayUnpayed[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
         cell.expertNameLabel.text = [NSString stringWithFormat:@"医生：%@",self.orderExpertNameArrayUnpayed[indexPath.section]];
         cell.bookTimeLabel.text = [NSString stringWithFormat:@"接诊时间：%@",self.orderBookTimeArrayUnpayed[indexPath.section]];
@@ -1179,6 +1291,108 @@
     }];
 }
 
+-(void)sendPayNowInfoRequest1:(NSString *)orderId payType:(NSInteger)payType{
+    DLog(@"sendPayNowInfoRequest1");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:orderId forKey:@"consult_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)payType] forKey:@"pay_type"];
+    
+    DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW);
+    DLog(@"%@",parameter);
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_ORDER_LIST_PAY] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result6 = (NSMutableDictionary *)responseObject;
+        
+        self.code6 = [[self.result6 objectForKey:@"code"] integerValue];
+        self.message6 = [self.result6 objectForKey:@"message"];
+        self.data6 = [self.result6 objectForKey:@"data"];
+        
+        if (self.code6 == kSUCCESS) {
+            if (self.paymentType1 == 1) {
+                [self paymentInfoAliPayDataParse1];
+            }else if (self.paymentType1 == 2){
+                [self paymentInfoWechatPayDataParse1];
+            }
+        }else{
+            DLog(@"%@",self.message6);
+            if (self.code6 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendPayNowInfoRequest2:(NSString *)orderId payType:(NSInteger)payType{
+    DLog(@"sendPayNowInfoRequest1");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:orderId forKey:@"consult_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)payType] forKey:@"pay_type"];
+    
+    DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW);
+    DLog(@"%@",parameter);
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_ORDER_LIST_PAY] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result7 = (NSMutableDictionary *)responseObject;
+        
+        self.code7 = [[self.result7 objectForKey:@"code"] integerValue];
+        self.message7 = [self.result7 objectForKey:@"message"];
+        self.data7 = [self.result7 objectForKey:@"data"];
+        
+        if (self.code7 == kSUCCESS) {
+            if (self.paymentType2 == 1) {
+                [self paymentInfoAliPayDataParse2];
+            }else if (self.paymentType2 == 2){
+                [self paymentInfoWechatPayDataParse2];
+            }
+        }else{
+            DLog(@"%@",self.message7);
+            if (self.code7 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 #pragma mark Data Parse
 -(void)orderListDataParse1{
     DLog(@"orderListDataParse1");
@@ -1564,6 +1778,116 @@
     
     [self.tableView5.mj_header endRefreshing];
     [self.tableView5.mj_footer endRefreshing];
+}
+
+-(void)paymentInfoAliPayDataParse1{
+    self.paymentInfomation1 = [self.data6 objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation1 fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo1 = [resultDic objectForKey:@"memo"];
+        self.alipayResult1 = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus1 = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus1 integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+            
+        }else if ([self.alipayResultStatus1 integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+    }];
+}
+
+-(void)paymentInfoWechatPayDataParse1{
+    self.payinfo1 = [self.data6 objectForKey:@"payinfo"];
+    self.appid1 = [self.payinfo1 objectForKey:@"appid"];
+    self.noncestr1 = [self.payinfo1 objectForKey:@"noncestr"];
+    self.package1 = [self.payinfo1 objectForKey:@"package"];
+    self.partnerid1 = [self.payinfo1 objectForKey:@"partnerid"];
+    self.prepayid1 = [self.payinfo1 objectForKey:@"prepayid"];
+    self.sign1 = [self.payinfo1 objectForKey:@"sign"];
+    self.timeStamp1 = [[self.payinfo1 objectForKey:@"timestamp"] intValue];
+    
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid1;
+    req.partnerId           = self.partnerid1;
+    req.prepayId            = self.prepayid1;
+    req.nonceStr            = self.noncestr1;
+    req.timeStamp           = self.timeStamp1;
+    req.package             = self.package1;
+    req.sign                = self.sign1;
+    [WXApi sendReq:req];
+}
+
+-(void)paymentInfoAliPayDataParse2{
+    self.paymentInfomation2 = [self.data7 objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation2 fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo2 = [resultDic objectForKey:@"memo"];
+        self.alipayResult2 = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus2 = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus2 integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+            
+        }else if ([self.alipayResultStatus2 integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+    }];
+}
+
+-(void)paymentInfoWechatPayDataParse2{
+    self.payinfo2 = [self.data7 objectForKey:@"payinfo"];
+    self.appid2 = [self.payinfo2 objectForKey:@"appid"];
+    self.noncestr2 = [self.payinfo2 objectForKey:@"noncestr"];
+    self.package2 = [self.payinfo2 objectForKey:@"package"];
+    self.partnerid2 = [self.payinfo2 objectForKey:@"partnerid"];
+    self.prepayid2 = [self.payinfo2 objectForKey:@"prepayid"];
+    self.sign2 = [self.payinfo2 objectForKey:@"sign"];
+    self.timeStamp2 = [[self.payinfo2 objectForKey:@"timestamp"] intValue];
+    
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid2;
+    req.partnerId           = self.partnerid2;
+    req.prepayId            = self.prepayid2;
+    req.nonceStr            = self.noncestr2;
+    req.timeStamp           = self.timeStamp2;
+    req.package             = self.package2;
+    req.sign                = self.sign2;
+    [WXApi sendReq:req];
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+    
+    switch (resp.errCode) {
+        case WXSuccess:
+            strMsg = @"支付结果：成功！";
+            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+            break;
+            
+        default:
+            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+            break;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end
