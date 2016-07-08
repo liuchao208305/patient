@@ -104,8 +104,9 @@ typedef enum {
 
 #define kJZK_MINE_EXPERT_FIX_INFORMATION @"private/v2/userCore/getUserDoctoryByUserId?"//我的专家信息
 
-#define kJZK_MINE_FEEDBACK_CONFIRM @"public/v2/opinion/add?"//意见反馈信息提交
+#define kJZK_MINE_INFORMATION_FIX @"private/v2/user/selUserInfo?"//个人中心信息
 
+#define kJZK_MINE_FEEDBACK_CONFIRM @"public/v2/opinion/add?"//意见反馈信息提交
 #define kJZK_ACCOUNT_SECURITY_INFORMATION @"private/v2/safe/toSafe?"//账户安全信息获取接口
 #define kJZK_THIRD_AUTHORIZATION @"private/v2/auth/binding?"//第三方授权接口
 

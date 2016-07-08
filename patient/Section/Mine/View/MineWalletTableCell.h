@@ -10,4 +10,10 @@
 
 @interface MineWalletTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *typeLabel1;
+@property (strong,nonatomic)UILabel *typeLabel2;
+@property (strong,nonatomic)UILabel *moneyLabel;
+@property (strong,nonatomic)UILabel *timeLabel;
+@property (strong,nonatomic)UIView *lineView;
+
 @end

@@ -63,6 +63,12 @@
 @property (strong,nonatomic)NSMutableDictionary *data3;
 @property (assign,nonatomic)NSError *error3;
 
+@property (strong,nonatomic)NSMutableDictionary *result4;
+@property (assign,nonatomic)NSInteger code4;
+@property (strong,nonatomic)NSString *message4;
+@property (strong,nonatomic)NSMutableDictionary *data4;
+@property (assign,nonatomic)NSError *error4;
+
 @property (strong,nonatomic)NSString *user_id;
 @property (strong,nonatomic)NSString *user_name;
 @property (strong,nonatomic)NSString *ID_number;
@@ -115,7 +121,7 @@
 //    if (!self.loginFlag) {
 //        [self sendMineInfoRequest];
 //    }
-    [self sendMineInfoRequest];
+    [self sendMineInfoFixRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -684,6 +690,52 @@
 //}
 
 #pragma mark Network Request
+-(void)sendMineInfoFixRequest{
+    DLog(@"sendMineInfoFixRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_INFORMATION_FIX] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result4 = (NSMutableDictionary *)responseObject;
+        
+        self.code4 = [[self.result4 objectForKey:@"code"] integerValue];
+        self.message4 = [self.result4 objectForKey:@"message"];
+        self.data4 = [self.result4 objectForKey:@"data"];
+        
+        if (self.code4 == kSUCCESS) {
+            [self mineInfoFixDataParse];
+        }else{
+            DLog(@"%@",self.message4);
+            if (self.code4 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+                
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView.mj_footer endRefreshing];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+
 -(void)sendMineInfoRequest{
     DLog(@"sendMineInfoRequest");
     
@@ -826,6 +878,27 @@
 }
 
 #pragma mark Data Parse
+-(void)mineInfoFixDataParse{
+    self.user_id = [NullUtil judgeStringNull:[self.data4 objectForKey:@"user_id"]];
+    self.user_name = [NullUtil judgeStringNull:[self.data4 objectForKey:@"user_name"]];
+    self.ID_number = [NullUtil judgeStringNull:[self.data4 objectForKey:@"ID_number"]];
+    self.ID_medical = [NullUtil judgeStringNull:[self.data4 objectForKey:@"ID_medical"]];
+    self.user_age = [NullUtil judgeStringNull:[self.data4 objectForKey:@"user_age"]];
+    self.user_sex = [[self.data4 objectForKey:@"user_sex"] integerValue];
+    self.qr_code_url = [NullUtil judgeStringNull:[self.data4 objectForKey:@"qr_code_url"]];
+    
+    self.heand_url = [NullUtil judgeStringNull:[self.data4 objectForKey:@"heand_url"]];
+    self.real_name = [NullUtil judgeStringNull:[self.data4 objectForKey:@"real_name"]];
+    
+    self.messageNum = [[[self.data objectForKey:@"user"] objectForKey:@"messageNum"] integerValue];
+    
+    if (self.messageNum == 0) {
+        self.leftButtonImageView.hidden = YES;
+    }
+    
+    [self mineInfoDataFilling];
+}
+
 -(void)mineInfoDataParse{
     self.user_id = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"user_id"]];
     self.user_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"user"] objectForKey:@"user_name"]];

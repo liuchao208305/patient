@@ -10,4 +10,6 @@
 
 @interface MineWalletHeaderView : UIView
 
+@property (strong,nonatomic)UILabel *titleLabel;
+
 @end

@@ -14,8 +14,10 @@
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
 #import "LoginViewController.h"
+#import "MineWalletTableCell.h"
+#import "MineWalletData.h"
 
-@interface MineWalletViewController ()
+@interface MineWalletViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -94,7 +96,19 @@
 }
 
 -(void)initView{
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-115+64) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 70)];
+    
+    self.headView.backgroundColor = [UIColor redColor];
+    
+    self.tableView.tableHeaderView = self.headView;
+    
+    [self.view addSubview:self.tableView];
 }
 
 -(void)initRecognizer{
@@ -104,6 +118,37 @@
 #pragma mark Target Action
 -(void)tixianButtonClicked{
     DLog(@"tixianButtonClicked");
+}
+
+#pragma mark UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellName = @"MineWalletTableCell";
+    MineWalletTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+    if (!cell) {
+        cell = [[MineWalletTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+    }
+    
+    return cell;
 }
 
 #pragma mark Network Request

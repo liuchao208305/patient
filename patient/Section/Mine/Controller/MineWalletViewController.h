@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "MineWalletHeaderView.h"
 
 @interface MineWalletViewController : BaseViewController
+
+@property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *headView;
 
 @end

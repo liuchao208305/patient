@@ -10,4 +10,24 @@
 
 @implementation MineWalletHeaderView
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initView];
+    }
+    return self;
+}
+
+-(void)initView{
+    self.backgroundColor = ColorWithHexRGB(0xf5f5f5);
+    
+    self.titleLabel = [[UILabel alloc] init];
+    [self addSubview:self.titleLabel];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
+        make.leading.equalTo(self).offset(12);
+        make.centerY.equalTo(self).offset(0);
+    }];
+}
+
 @end
