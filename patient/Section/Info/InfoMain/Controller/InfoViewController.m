@@ -35,6 +35,8 @@
 #import "HealhTableCellFix.h"
 #import "TestFixViewController.h"
 #import "HealthListViewController.h"
+#import "TestViewController.h"
+#import "CustomAlert.h"
 
 @interface InfoViewController ()<SDCycleScrollViewDelegate,HealthViewDelegate>
 {
@@ -627,9 +629,42 @@
 
 -(void)healthFix3Clicked{
     DLog(@"healthFix3Clicked");
-    TestFixViewController *testVC = [[TestFixViewController alloc] init];
-    testVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:testVC animated:YES];
+//    TestFixViewController *testVC = [[TestFixViewController alloc] init];
+//    testVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:testVC animated:YES];
+    
+    /**
+     *  判断有没有本地缓存(plist)，没有就直接进入,有就弹出AlertView
+     */
+    NSString *homepath =NSHomeDirectory();
+    NSString *path = [homepath stringByAppendingPathComponent:@"Documents/cellBtnStatuArr.plist"];
+    NSLog(@"cellBtnStatuArr:%@",path);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        
+        TestViewController *testVC = [[TestViewController alloc] init];
+        testVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:testVC animated:YES];
+        
+    } else {
+        
+        CustomAlert *alert = [[CustomAlert alloc] initWithTitle:nil withMsg:@"您有正在进行中的体质测试，\n是否继续上次测试？" withCancel:@"继续测试" withSure:@"重新开始"];
+        [alert alertViewShow];
+        alert.alertViewBlock = ^(NSInteger index) {
+            
+            /**
+             *  点击重新开始就直接进入，点击继续测试就加载本地缓存
+             */
+            if (index == 2) {
+                TestViewController *testVC = [[TestViewController alloc] init];
+                testVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:testVC animated:YES];
+            } else {
+                TestViewController *testVC = [[TestViewController alloc] initWithCellBtnStatuArr:[NSMutableArray arrayWithContentsOfFile:path]];
+                testVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:testVC animated:YES];
+            }
+        };
+    }
 }
 
 -(void)guominImageViewClicked{

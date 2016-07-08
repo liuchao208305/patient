@@ -530,6 +530,10 @@
 		70924B0D1D2E727D001DFE85 /* mine_noti_setting_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924B0A1D2E727D001DFE85 /* mine_noti_setting_add@3x.png */; };
 		70924B0E1D2E727D001DFE85 /* mine_noti_setting_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924B0B1D2E727D001DFE85 /* mine_noti_setting_add@2x.png */; };
 		70924B0F1D2E727D001DFE85 /* mine_noti_setting_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 70924B0C1D2E727D001DFE85 /* mine_noti_setting_add.png */; };
+		70924B1E1D2F6AE1001DFE85 /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924B1C1D2F6AE1001DFE85 /* CustomAlert.m */; };
+		70924B211D2F6B02001DFE85 /* TestQuestionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924B1F1D2F6B02001DFE85 /* TestQuestionTableCell.m */; };
+		70924B241D2F6B10001DFE85 /* QuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924B221D2F6B10001DFE85 /* QuestionData.m */; };
+		70924B271D2F6B18001DFE85 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70924B251D2F6B18001DFE85 /* TestViewController.m */; };
 		70926CD71CC46F5C00CB0416 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD61CC46F5C00CB0416 /* ContactData.m */; };
 		70926CDA1CC4AB0600CB0416 /* CouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926CD91CC4AB0600CB0416 /* CouponTableCell.m */; };
 		70926CE11CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png in Resources */ = {isa = PBXBuildFile; fileRef = 70926CDB1CC4DA4600CB0416 /* info_coupon_blue_back_image_fix.png */; };
@@ -545,9 +549,6 @@
 		70926D951CC7329100CB0416 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D941CC7329100CB0416 /* QuartzCore.framework */; };
 		70926D971CC7329C00CB0416 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D961CC7329C00CB0416 /* CoreText.framework */; };
 		70926D991CC732D700CB0416 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D981CC732D700CB0416 /* CoreMotion.framework */; };
-		70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926D9E1CC77C3E00CB0416 /* TestViewController.m */; };
-		70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926DA11CC77D3100CB0416 /* QuestionData.m */; };
-		70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
 		70A9BD281C87D9DE0035B5E0 /* NetworkMonitorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD271C87D9DE0035B5E0 /* NetworkMonitorUtil.m */; };
@@ -1486,6 +1487,14 @@
 		70924B0A1D2E727D001DFE85 /* mine_noti_setting_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_noti_setting_add@3x.png"; sourceTree = "<group>"; };
 		70924B0B1D2E727D001DFE85 /* mine_noti_setting_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_noti_setting_add@2x.png"; sourceTree = "<group>"; };
 		70924B0C1D2E727D001DFE85 /* mine_noti_setting_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_noti_setting_add.png; sourceTree = "<group>"; };
+		70924B1C1D2F6AE1001DFE85 /* CustomAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
+		70924B1D1D2F6AE1001DFE85 /* CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
+		70924B1F1D2F6B02001DFE85 /* TestQuestionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestQuestionTableCell.m; sourceTree = "<group>"; };
+		70924B201D2F6B02001DFE85 /* TestQuestionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestQuestionTableCell.h; sourceTree = "<group>"; };
+		70924B221D2F6B10001DFE85 /* QuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionData.m; sourceTree = "<group>"; };
+		70924B231D2F6B10001DFE85 /* QuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionData.h; sourceTree = "<group>"; };
+		70924B251D2F6B18001DFE85 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		70924B261D2F6B18001DFE85 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		70926CD51CC46F5C00CB0416 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		70926CD61CC46F5C00CB0416 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		70926CD81CC4AB0600CB0416 /* CouponTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponTableCell.h; sourceTree = "<group>"; };
@@ -1504,12 +1513,6 @@
 		70926D941CC7329100CB0416 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		70926D961CC7329C00CB0416 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		70926D981CC732D700CB0416 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		70926D9D1CC77C3E00CB0416 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		70926D9E1CC77C3E00CB0416 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		70926DA01CC77D3100CB0416 /* QuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionData.h; sourceTree = "<group>"; };
-		70926DA11CC77D3100CB0416 /* QuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionData.m; sourceTree = "<group>"; };
-		70926DA31CC782B400CB0416 /* TestQuestionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestQuestionTableCell.h; sourceTree = "<group>"; };
-		70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestQuestionTableCell.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		70A9BD151C8686930035B5E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		70A9BD1B1C86B7460035B5E0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -2176,6 +2179,8 @@
 		70265CA91C858B7F0091C01F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				70924B1C1D2F6AE1001DFE85 /* CustomAlert.m */,
+				70924B1D1D2F6AE1001DFE85 /* CustomAlert.h */,
 				70A9BD291C87FF320035B5E0 /* CommonUtil.h */,
 				70A9BD2A1C87FF320035B5E0 /* CommonUtil.m */,
 				70A9BD231C87C9D90035B5E0 /* NetworkUtil.h */,
@@ -3410,8 +3415,8 @@
 		70926D9A1CC77BC800CB0416 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				70926D9D1CC77C3E00CB0416 /* TestViewController.h */,
-				70926D9E1CC77C3E00CB0416 /* TestViewController.m */,
+				70924B251D2F6B18001DFE85 /* TestViewController.m */,
+				70924B261D2F6B18001DFE85 /* TestViewController.h */,
 				708274E21CF8222D0016AE3C /* TestChooseContactViewController.h */,
 				708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */,
 				70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */,
@@ -3427,8 +3432,8 @@
 		70926D9B1CC77BD000CB0416 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				70926DA01CC77D3100CB0416 /* QuestionData.h */,
-				70926DA11CC77D3100CB0416 /* QuestionData.m */,
+				70924B221D2F6B10001DFE85 /* QuestionData.m */,
+				70924B231D2F6B10001DFE85 /* QuestionData.h */,
 				70B4EA761CCB725500141E38 /* ResultData.h */,
 				70B4EA771CCB725500141E38 /* ResultData.m */,
 			);
@@ -3438,8 +3443,8 @@
 		70926D9C1CC77BD500CB0416 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				70926DA31CC782B400CB0416 /* TestQuestionTableCell.h */,
-				70926DA41CC782B400CB0416 /* TestQuestionTableCell.m */,
+				70924B1F1D2F6B02001DFE85 /* TestQuestionTableCell.m */,
+				70924B201D2F6B02001DFE85 /* TestQuestionTableCell.h */,
 				70B4EA731CCB6A8A00141E38 /* TestResultListTableCell.h */,
 				70B4EA741CCB6A8A00141E38 /* TestResultListTableCell.m */,
 				708274E51CF8227F0016AE3C /* TestContactCollectionCell.h */,
@@ -4223,6 +4228,7 @@
 				70B4EB131CD8719F00141E38 /* MRYuejingTableCell.m in Sources */,
 				708274CD1CF7E7300016AE3C /* RDFYshijianTableCell.m in Sources */,
 				704006901CE30AEF004E5D7E /* ExpertAdvantageFixTableCell.m in Sources */,
+				70924B1E1D2F6AE1001DFE85 /* CustomAlert.m in Sources */,
 				70B4EAF81CD870CB00141E38 /* MRYinshuiTableCell.m in Sources */,
 				708B530A1CEB29520033C479 /* DishTabooTableCell.m in Sources */,
 				70FD8E681CEC3E2A00DA22E5 /* DiseaseExpertTableCell.m in Sources */,
@@ -4264,7 +4270,6 @@
 				70B429FB1D18E0CB0036F525 /* QuestionDetailViewController.m in Sources */,
 				7046AD7F1C9BD29200BB6818 /* LoginModel.m in Sources */,
 				70FD8E5F1CEC3DCA00DA22E5 /* DiseaseSymptomTableCell.m in Sources */,
-				70926DA21CC77D3100CB0416 /* QuestionData.m in Sources */,
 				708274A91CF7086E0016AE3C /* RecordListData.m in Sources */,
 				7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */,
 				708FD5FA1CE086EE002CDFA8 /* CustomTopView.m in Sources */,
@@ -4354,6 +4359,7 @@
 				70B4EABA1CD0A52600141E38 /* OrderListTableCell.m in Sources */,
 				702939921C9273FA008280E2 /* MineViewController.m in Sources */,
 				708275011CFC04730016AE3C /* VerifyUtil.m in Sources */,
+				70924B211D2F6B02001DFE85 /* TestQuestionTableCell.m in Sources */,
 				70B4EAC91CD26A4F00141E38 /* MoreStudioData.m in Sources */,
 				708274C41CF7E6AC0016AE3C /* RDZhaopianTableCell.m in Sources */,
 				706838381D2CB0BA0007FCBD /* QuestionHeaderView.m in Sources */,
@@ -4387,11 +4393,11 @@
 				70B42A0A1D18E5FE0036F525 /* QuestionInquiryData.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,
 				70A9BD3E1C8809160035B5E0 /* GTMBase64.m in Sources */,
-				70926D9F1CC77C3E00CB0416 /* TestViewController.m in Sources */,
 				708274D31CF7E75D0016AE3C /* RDYizhuTextTableCell.m in Sources */,
 				708274E71CF8227F0016AE3C /* TestContactCollectionCell.m in Sources */,
 				70FD8E561CEC399000DA22E5 /* DiseaseInfoViewController.m in Sources */,
 				708B52D61CE9AEAE0033C479 /* StudioInfoViewController.m in Sources */,
+				70924B271D2F6B18001DFE85 /* TestViewController.m in Sources */,
 				7046AC771C974C9F00BB6818 /* PersonTableCell.m in Sources */,
 				7046AE471CA1458700BB6818 /* ExpertAdvantageTableCell.m in Sources */,
 				7046AD7B1C9A5CAE00BB6818 /* AgreementViewController.m in Sources */,
@@ -4403,7 +4409,6 @@
 				708274D61CF7E7710016AE3C /* RDYizhuSoundTableCell.m in Sources */,
 				70FD8E881CEDD25400DA22E5 /* MineFavouriteHealthTableCell.m in Sources */,
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
-				70926DA51CC782B400CB0416 /* TestQuestionTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				70924AFD1D2E3C73001DFE85 /* MinePersonInformationViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
@@ -4464,6 +4469,7 @@
 				702939071C8D1795008280E2 /* UIImageView+Extension.m in Sources */,
 				708B52FB1CEB19070033C479 /* HealthDishInfoViewController.m in Sources */,
 				708274F51CF936080016AE3C /* MineCustomServiceViewController.m in Sources */,
+				70924B241D2F6B10001DFE85 /* QuestionData.m in Sources */,
 				708274D01CF7E7460016AE3C /* RDFYcishuTableCell.m in Sources */,
 				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
 				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,
