@@ -719,6 +719,9 @@
 		70EE2C321D2F77ED00ADD36B /* MineExpertFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C311D2F77ED00ADD36B /* MineExpertFixViewController.m */; };
 		70EE2C351D2F7B6D00ADD36B /* MineExpertFixData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */; };
 		70EE2C381D2F8EB600ADD36B /* MineWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */; };
+		70EE2C3B1D2F9AF200ADD36B /* MineWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C3A1D2F9AF200ADD36B /* MineWalletHeaderView.m */; };
+		70EE2C3E1D2F9B1A00ADD36B /* MineWalletTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */; };
+		70EE2C411D2F9B3000ADD36B /* MineWalletData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C401D2F9B3000ADD36B /* MineWalletData.m */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1790,6 +1793,12 @@
 		70EE2C341D2F7B6D00ADD36B /* MineExpertFixData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineExpertFixData.m; sourceTree = "<group>"; };
 		70EE2C361D2F8EB600ADD36B /* MineWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletViewController.h; sourceTree = "<group>"; };
 		70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletViewController.m; sourceTree = "<group>"; };
+		70EE2C391D2F9AF200ADD36B /* MineWalletHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletHeaderView.h; sourceTree = "<group>"; };
+		70EE2C3A1D2F9AF200ADD36B /* MineWalletHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletHeaderView.m; sourceTree = "<group>"; };
+		70EE2C3C1D2F9B1A00ADD36B /* MineWalletTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletTableCell.h; sourceTree = "<group>"; };
+		70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletTableCell.m; sourceTree = "<group>"; };
+		70EE2C3F1D2F9B3000ADD36B /* MineWalletData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletData.h; sourceTree = "<group>"; };
+		70EE2C401D2F9B3000ADD36B /* MineWalletData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletData.m; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -3278,6 +3287,8 @@
 				708995701CF3E5DF00B40F97 /* MineMessageData.m */,
 				708995721CF3E5F100B40F97 /* MineMessageDetailData.h */,
 				708995731CF3E5F100B40F97 /* MineMessageDetailData.m */,
+				70EE2C3F1D2F9B3000ADD36B /* MineWalletData.h */,
+				70EE2C401D2F9B3000ADD36B /* MineWalletData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3357,6 +3368,10 @@
 				70924AE41D2E2A87001DFE85 /* MineSettingOneTableCell.m */,
 				70924AE61D2E2A9D001DFE85 /* MineSettingTwoTableCell.h */,
 				70924AE71D2E2A9D001DFE85 /* MineSettingTwoTableCell.m */,
+				70EE2C391D2F9AF200ADD36B /* MineWalletHeaderView.h */,
+				70EE2C3A1D2F9AF200ADD36B /* MineWalletHeaderView.m */,
+				70EE2C3C1D2F9B1A00ADD36B /* MineWalletTableCell.h */,
+				70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4313,6 +4328,7 @@
 				708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */,
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
+				70EE2C3B1D2F9AF200ADD36B /* MineWalletHeaderView.m in Sources */,
 				708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */,
 				70924AE51D2E2A87001DFE85 /* MineSettingOneTableCell.m in Sources */,
 				700CF0811D23E823008C9776 /* HealthSelfInspectionFixViewController.m in Sources */,
@@ -4404,6 +4420,7 @@
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
 				700CF0571D22AAA1008C9776 /* HealthDiseaseTableCell.m in Sources */,
 				70FD8E7A1CEC7CE900DA22E5 /* MineExpertData.m in Sources */,
+				70EE2C3E1D2F9B1A00ADD36B /* MineWalletTableCell.m in Sources */,
 				700CF04B1D229E7D008C9776 /* HealthListViewController.m in Sources */,
 				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
@@ -4535,6 +4552,7 @@
 				700CF07B1D23C468008C9776 /* SelfInspectionTwoTableCell.m in Sources */,
 				70FD8E911CF02BC900DA22E5 /* ClinicDoctorData.m in Sources */,
 				708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */,
+				70EE2C411D2F9B3000ADD36B /* MineWalletData.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
 				70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */,
 			);
