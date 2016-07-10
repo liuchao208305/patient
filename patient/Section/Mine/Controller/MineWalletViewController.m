@@ -16,6 +16,7 @@
 #import "LoginViewController.h"
 #import "MineWalletTableCell.h"
 #import "MineWalletData.h"
+#import "MineWalletTixianOneViewController.h"
 
 @interface MineWalletViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -168,6 +169,9 @@
 #pragma mark Target Action
 -(void)tixianButtonClicked{
     DLog(@"tixianButtonClicked");
+    
+    MineWalletTixianOneViewController *mineWalletTixianVC = [[MineWalletTixianOneViewController alloc] init];
+    [self.navigationController pushViewController:mineWalletTixianVC animated:YES];
 }
 
 #pragma mark UITableViewDelegate

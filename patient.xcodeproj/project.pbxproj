@@ -722,6 +722,15 @@
 		70EE2C3B1D2F9AF200ADD36B /* MineWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C3A1D2F9AF200ADD36B /* MineWalletHeaderView.m */; };
 		70EE2C3E1D2F9B1A00ADD36B /* MineWalletTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */; };
 		70EE2C411D2F9B3000ADD36B /* MineWalletData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C401D2F9B3000ADD36B /* MineWalletData.m */; };
+		70EE2C441D31E42200ADD36B /* MineWalletTixianOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C431D31E42200ADD36B /* MineWalletTixianOneViewController.m */; };
+		70EE2C471D31E43400ADD36B /* MineWalletTixianTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C461D31E43400ADD36B /* MineWalletTixianTwoViewController.m */; };
+		70EE2C4A1D31E54D00ADD36B /* MineWalletTixianTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C491D31E54D00ADD36B /* MineWalletTixianTableCell.m */; };
+		70EE2C511D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4B1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png */; };
+		70EE2C521D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4C1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@2x.png */; };
+		70EE2C531D31EAE500ADD36B /* mine_wallet_tixian_zhifubao.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4D1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao.png */; };
+		70EE2C541D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4E1D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png */; };
+		70EE2C551D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4F1D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png */; };
+		70EE2C561D31EAE500ADD36B /* mine_wallet_tixian_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C501D31EAE500ADD36B /* mine_wallet_tixian_weixin.png */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1799,6 +1808,18 @@
 		70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletTableCell.m; sourceTree = "<group>"; };
 		70EE2C3F1D2F9B3000ADD36B /* MineWalletData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletData.h; sourceTree = "<group>"; };
 		70EE2C401D2F9B3000ADD36B /* MineWalletData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletData.m; sourceTree = "<group>"; };
+		70EE2C421D31E42200ADD36B /* MineWalletTixianOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletTixianOneViewController.h; sourceTree = "<group>"; };
+		70EE2C431D31E42200ADD36B /* MineWalletTixianOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletTixianOneViewController.m; sourceTree = "<group>"; };
+		70EE2C451D31E43400ADD36B /* MineWalletTixianTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletTixianTwoViewController.h; sourceTree = "<group>"; };
+		70EE2C461D31E43400ADD36B /* MineWalletTixianTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletTixianTwoViewController.m; sourceTree = "<group>"; };
+		70EE2C481D31E54D00ADD36B /* MineWalletTixianTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWalletTixianTableCell.h; sourceTree = "<group>"; };
+		70EE2C491D31E54D00ADD36B /* MineWalletTixianTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWalletTixianTableCell.m; sourceTree = "<group>"; };
+		70EE2C4B1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_zhifubao@3x.png"; sourceTree = "<group>"; };
+		70EE2C4C1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_zhifubao@2x.png"; sourceTree = "<group>"; };
+		70EE2C4D1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_wallet_tixian_zhifubao.png; sourceTree = "<group>"; };
+		70EE2C4E1D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_weixin@3x.png"; sourceTree = "<group>"; };
+		70EE2C4F1D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_weixin@2x.png"; sourceTree = "<group>"; };
+		70EE2C501D31EAE500ADD36B /* mine_wallet_tixian_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_wallet_tixian_weixin.png; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -2237,6 +2258,12 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				70EE2C4B1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png */,
+				70EE2C4C1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@2x.png */,
+				70EE2C4D1D31EAE500ADD36B /* mine_wallet_tixian_zhifubao.png */,
+				70EE2C4E1D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png */,
+				70EE2C4F1D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png */,
+				70EE2C501D31EAE500ADD36B /* mine_wallet_tixian_weixin.png */,
 				70924B0A1D2E727D001DFE85 /* mine_noti_setting_add@3x.png */,
 				70924B0B1D2E727D001DFE85 /* mine_noti_setting_add@2x.png */,
 				70924B0C1D2E727D001DFE85 /* mine_noti_setting_add.png */,
@@ -3260,6 +3287,10 @@
 				708995671CF3E4DA00B40F97 /* MineMessageDetailViewController.m */,
 				70EE2C361D2F8EB600ADD36B /* MineWalletViewController.h */,
 				70EE2C371D2F8EB600ADD36B /* MineWalletViewController.m */,
+				70EE2C421D31E42200ADD36B /* MineWalletTixianOneViewController.h */,
+				70EE2C431D31E42200ADD36B /* MineWalletTixianOneViewController.m */,
+				70EE2C451D31E43400ADD36B /* MineWalletTixianTwoViewController.h */,
+				70EE2C461D31E43400ADD36B /* MineWalletTixianTwoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3372,6 +3403,8 @@
 				70EE2C3A1D2F9AF200ADD36B /* MineWalletHeaderView.m */,
 				70EE2C3C1D2F9B1A00ADD36B /* MineWalletTableCell.h */,
 				70EE2C3D1D2F9B1A00ADD36B /* MineWalletTableCell.m */,
+				70EE2C481D31E54D00ADD36B /* MineWalletTixianTableCell.h */,
+				70EE2C491D31E54D00ADD36B /* MineWalletTixianTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3818,6 +3851,7 @@
 				706838271D2CAE780007FCBD /* mine_bottom_marriage_fix@3x.png in Resources */,
 				7046AD2E1C97E5D700BB6818 /* tabbar_mine_normal.png in Resources */,
 				708275EA1D0001840016AE3C /* info_expert_shaixuan_down@3x.png in Resources */,
+				70EE2C561D31EAE500ADD36B /* mine_wallet_tixian_weixin.png in Resources */,
 				7002D8641CACC19F0074426A /* info_clinic_schedule_coupon_button.png in Resources */,
 				708103681CEB8BDF009BC871 /* info_health_dish_comment_button_normal.png in Resources */,
 				702779C81D1A7DF70044D024 /* quesiton_inquiry_add_button.png in Resources */,
@@ -3972,6 +4006,7 @@
 				702779F31D1BC0FE0044D024 /* question_list_sound_image_red_2@3x.png in Resources */,
 				702779F61D1BC0FE0044D024 /* question_list_sound_image_red_1@3x.png in Resources */,
 				708275531CFC32E80016AE3C /* info_health_favourite_fix@3x.png in Resources */,
+				70EE2C521D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@2x.png in Resources */,
 				7082753D1CFC15E50016AE3C /* tabbar_test_selected@3x.png in Resources */,
 				7046AD781C9A481C00BB6818 /* login_confirm_login_selected.png in Resources */,
 				7082759C1CFFF9D00016AE3C /* mine_bottom_service@3x.png in Resources */,
@@ -3994,6 +4029,7 @@
 				7046AD261C97E5D700BB6818 /* guideview3.jpg in Resources */,
 				7046AD1F1C97E5D700BB6818 /* cell_person_songshihua_button.png in Resources */,
 				7046AD521C9869A400BB6818 /* scan_back_image.png in Resources */,
+				70EE2C541D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png in Resources */,
 				708276001D0004930016AE3C /* info_clinic_expert_title_image@3x.png in Resources */,
 				702779E01D1AFD9E0044D024 /* question_list_sound_image_green_3.png in Resources */,
 				7082751D1CFC14760016AE3C /* navbar_left_item3x.png in Resources */,
@@ -4058,6 +4094,7 @@
 				70FEAD9A1CA51F76006A044A /* info_expert_shanchang_image.png in Resources */,
 				70B429B31D12819A0036F525 /* info_xiaotuoyuan@3x.png in Resources */,
 				708275301CFC15E50016AE3C /* tabbar_info_selected@2x.png in Resources */,
+				70EE2C511D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png in Resources */,
 				70B429F01D18095E0036F525 /* question_list_right_barbuttonitem@3x.png in Resources */,
 				708275A01CFFF9D00016AE3C /* mine_bottom_doctor@3x.png in Resources */,
 				708275E71D0001840016AE3C /* info_expert_xiangshang_image@2x.png in Resources */,
@@ -4113,6 +4150,7 @@
 				7046ADA21CA0168500BB6818 /* cell_person_title_button.png in Resources */,
 				705EF7F41CBC947600732886 /* mine_orderstatus_tobeevaluated.png in Resources */,
 				7082752E1CFC15E50016AE3C /* tabbar_info_normal@2x.png in Resources */,
+				70EE2C551D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png in Resources */,
 				70B429F61D1809E10036F525 /* question_list_public_flag_image@3x.png in Resources */,
 				70924B041D2E4EE5001DFE85 /* mine_feedback_selected@3x.png in Resources */,
 				70C03E0E1CA2C22D00DBA175 /* full_play_btn_hl@2x.png in Resources */,
@@ -4168,6 +4206,7 @@
 				70FD8E831CED80ED00DA22E5 /* info_health_comment_before.png in Resources */,
 				7082755F1CFC35F90016AE3C /* info_health_comment_before_fix@3x.png in Resources */,
 				705EF7E81CBC947600732886 /* mine_bottom_coupon.png in Resources */,
+				70EE2C531D31EAE500ADD36B /* mine_wallet_tixian_zhifubao.png in Resources */,
 				7002D8701CB3BBBF0074426A /* info_treatment_lianxiren_image.png in Resources */,
 				70B429AE1D127E520036F525 /* info_jiankangjilu@2x.png in Resources */,
 				706838451D2CB7990007FCBD /* mine_orderstatus_untreated@3x.png in Resources */,
@@ -4415,6 +4454,7 @@
 				70C03E1D1CA44FD800DBA175 /* ExpertCommentData.m in Sources */,
 				700CF0631D23653E008C9776 /* SelfInspectionHeaderView.m in Sources */,
 				708B53011CEB28890033C479 /* DishDetailTableCell.m in Sources */,
+				70EE2C441D31E42200ADD36B /* MineWalletTixianOneViewController.m in Sources */,
 				70FD8E6B1CEC3E3C00DA22E5 /* DiseaseHealthTableCell.m in Sources */,
 				7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */,
 				70B4EB041CD8712200141E38 /* MRTiwenTableCell.m in Sources */,
@@ -4482,6 +4522,7 @@
 				70EAAA4A1D2947C20025C6D5 /* HealthListDetailTableCell.m in Sources */,
 				70FD8E711CEC45B700DA22E5 /* DiseaseHealthData.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
+				70EE2C471D31E43400ADD36B /* MineWalletTixianTwoViewController.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
 				70B4EB431CD9DB1E00141E38 /* MRChufangData.m in Sources */,
 				70FD8E591CEC3AA600DA22E5 /* DiseaseHeaderView.m in Sources */,
@@ -4538,6 +4579,7 @@
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,
+				70EE2C4A1D31E54D00ADD36B /* MineWalletTixianTableCell.m in Sources */,
 				70B429EC1D17E6AA0036F525 /* QuestionListTableCell.m in Sources */,
 				708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
