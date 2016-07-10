@@ -39,6 +39,9 @@
         
         if (self.code == kSUCCESS) {
             [self successCallBack];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:phone forKey:kJZK_accout];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }else{
             [self errorCallBack];
         }
@@ -68,6 +71,9 @@
         
         if (self.code == kSUCCESS) {
             [self successCallBack];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:username forKey:kJZK_accout];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }else{
             [self errorCallBack];
         }
