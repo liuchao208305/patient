@@ -1156,6 +1156,7 @@
     }else if(self.isConsulted == NO){
         //不可提问
         self.inquiryBackView.userInteractionEnabled = NO;
+        self.inquiryBackView.backgroundColor = kBACKGROUND_COLOR;
     }
     
     if (self.isBooked == YES) {
@@ -1166,6 +1167,7 @@
     }else if(self.isBooked == NO){
         //不可预约
         self.bookBackView.userInteractionEnabled = NO;
+        self.bookBackView.backgroundColor = kBACKGROUND_COLOR;
     }
 }
 
