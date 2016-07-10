@@ -449,6 +449,7 @@
 //    settingVC.publicUserSex = self.user_sex;
 //    
 //    [self.navigationController pushViewController:settingVC animated:YES];
+    
     MineSettingFixViewController *settingVC = [[MineSettingFixViewController alloc] init];
     settingVC.hidesBottomBarWhenPushed = YES;
     settingVC.personImageString = self.heand_url;
