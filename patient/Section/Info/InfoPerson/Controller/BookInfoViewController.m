@@ -26,7 +26,7 @@
 #import "BookExpertTimeData.h"
 
 
-@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate>
+@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate,ClinicTimeDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -59,6 +59,8 @@
 @property (assign,nonatomic)double consultation_money;
 @property (strong,nonatomic)NSString *doctor_descr;
 
+@property (assign,nonatomic)BOOL isAddressSelected;
+@property (assign,nonatomic)BOOL isTimeSelected;
 @property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *clinicAddress;
 @property (strong,nonatomic)NSString *clinicTime;
@@ -162,6 +164,12 @@
     self.addressArray = [NSMutableArray array];
     self.addressIdArray = [NSMutableArray array];
     self.addressUnitArray = [NSMutableArray array];
+    
+    self.timeArray = [NSMutableArray array];
+    self.timeUnformatArray = [NSMutableArray array];
+    self.timeFormatArray = [NSMutableArray array];
+    self.timePeriodArray = [NSMutableArray array];
+    self.timeFullFlagArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -705,7 +713,11 @@
 -(void)clinicTimeButtonClicked{
     DLog(@"clinicTimeButtonClicked");
     
-    [self sendExpertTimeListRequest];
+    if (!self.isAddressSelected == YES) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请先选择就诊地点！"];
+    }else{
+        [self sendExpertTimeListRequest];
+    }
 }
 
 -(void)patientSexButtonClicked{
@@ -776,21 +788,29 @@
 -(void)bookButtonClicked{
     DLog(@"bookButtonClicked");
     
-    if ([self.inquiryTextView.text isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
-        [self.inquiryTextView becomeFirstResponder];
-    }else if (self.consultation_money > 0){
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                      initWithTitle:@"请选择支付方式"
-                                      delegate:self
-                                      cancelButtonTitle:@"取消"
-                                      destructiveButtonTitle:nil
-                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        actionSheet.tag = 2;
-        [actionSheet showInView:self.view];
+    if (!self.isAddressSelected == YES) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择就诊地点！"];
     }else{
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
+        if (!self.isTimeSelected == YES) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择就诊时间"];
+        }else{
+            if ([self.inquiryTextView.text isEqualToString:@""]) {
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
+                [self.inquiryTextView becomeFirstResponder];
+            }else if (self.consultation_money > 0){
+                UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                              initWithTitle:@"请选择支付方式"
+                                              delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              destructiveButtonTitle:nil
+                                              otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+                actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+                actionSheet.tag = 2;
+                [actionSheet showInView:self.view];
+            }else{
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
+            }
+        }
     }
 }
 
@@ -878,9 +898,19 @@
 -(void)clinicAddressSelected:(NSString *)addressId addressUnit:(NSString *)addressUnit{
     [self.bookClinicAddressPopView removeFromSuperview];
     
+    self.isAddressSelected = YES;
     self.clinicId = addressId;
     self.clinicAddress = addressUnit;
     [self.clinicAddressButton setTitle:addressUnit forState:UIControlStateNormal];
+}
+
+#pragma mark ClinicTimeDelegate
+-(void)clinicTimeSelected:(NSString *)unformatTime formatTime:(NSString *)formatTime{
+    [self.bookExpertTimePopView removeFromSuperview];
+    
+    self.isTimeSelected = YES;
+    self.clinicTime = unformatTime;
+    [self.clinicTimeButton setTitle:formatTime forState:UIControlStateNormal];
 }
 
 #pragma mark UITextViewDelegate
@@ -956,8 +986,8 @@
     [parameter setValue:self.expertId forKey:@"min_doctor_id"];
     [parameter setValue:[NSString stringWithFormat:@"%.2f",self.consultation_money] forKey:@"money"];
     
-    [parameter setValue:[DateUtil getCurrentTime] forKey:@"bespoke_date"];
-    [parameter setValue:@"测试" forKey:@"org_name"];
+    [parameter setValue:self.clinicTime forKey:@"bespoke_date"];
+    [parameter setValue:self.clinicAddress forKey:@"org_name"];
     
     [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
     [parameter setValue:self.patientIdTextField.text forKey:@"ID_no"];
@@ -1086,7 +1116,8 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.expertId forKey:@"doctor_id"];
+    [parameter setValue:self.clinicId forKey:@"aid"];
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_BOOK_EXPERT_TIME_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
@@ -1234,7 +1265,22 @@
 }
 
 -(void)bookExpertTimeDataParse{
+    self.timeArray = [BookExpertTimeData mj_objectArrayWithKeyValuesArray:self.data4];
+    [self.timeUnformatArray removeAllObjects];
+    [self.timeFormatArray removeAllObjects];
+    [self.timePeriodArray removeAllObjects];
+    [self.timeFullFlagArray removeAllObjects];
+    for (BookExpertTimeData *bookExpertTimeData in self.timeArray) {
+        [self.timeUnformatArray addObject:[NullUtil judgeStringNull:bookExpertTimeData.dates]];
+        [self.timeFormatArray addObject:[NullUtil judgeStringNull:bookExpertTimeData.dateSty]];
+        [self.timePeriodArray addObject:[NSString stringWithFormat:@"%d",bookExpertTimeData.upOrdown]];
+        [self.timeFullFlagArray addObject:[NSString stringWithFormat:@"%d",bookExpertTimeData.is_man]];
+    }
     
+    self.bookExpertTimePopView = [[BookExpertTimePopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.bookExpertTimePopView initViewWithTimeUnformatArray:self.timeUnformatArray timeFormatArray:self.timeFormatArray timePeriodArray:self.timePeriodArray timeFullFlagArray:self.timeFullFlagArray];
+    self.bookExpertTimePopView.clinicTimeDelegate = self;
+    [self.view addSubview:self.bookExpertTimePopView];
 }
 
 #pragma mark Data Filling

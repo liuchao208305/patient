@@ -77,5 +77,12 @@
 @property (strong,nonatomic)NSMutableArray *addressIdArray;
 @property (strong,nonatomic)NSMutableArray *addressUnitArray;
 
+@property (strong,nonatomic)BookExpertTimePopView *bookExpertTimePopView;
+
+@property (strong,nonatomic)NSMutableArray *timeArray;
+@property (strong,nonatomic)NSMutableArray *timeUnformatArray;
+@property (strong,nonatomic)NSMutableArray *timeFormatArray;
+@property (strong,nonatomic)NSMutableArray *timePeriodArray;
+@property (strong,nonatomic)NSMutableArray *timeFullFlagArray;
 
 @end

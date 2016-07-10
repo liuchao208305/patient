@@ -94,6 +94,10 @@
 
 @property (assign,nonatomic)BOOL isFocused;
 
+@property (assign,nonatomic)BOOL isConsulted;
+
+@property (assign,nonatomic)BOOL isBooked;
+
 @end
 
 @implementation ExpertInfoViewController
@@ -341,14 +345,6 @@
     self.focusBackView.userInteractionEnabled = YES;
     UITapGestureRecognizer *focusTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusButtonClicked:)];
     [self.focusBackView addGestureRecognizer:focusTap];
-    
-    self.inquiryBackView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *inquiryTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inquiryViewClicked)];
-    [self.inquiryBackView addGestureRecognizer:inquiryTap];
-    
-    self.bookBackView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *bookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bookViewClicked)];
-    [self.bookBackView addGestureRecognizer:bookTap];
 }
 
 #pragma mark Target Action
@@ -1049,6 +1045,20 @@
     }else if ([[self.data objectForKey:@"is_atteation"] intValue] == 1) {
         self.isFocused = YES;
     }
+    
+    if ([[self.data objectForKey:@"is_inter"] intValue] == 2) {
+        self.isConsulted = NO;
+    }else if ([[self.data objectForKey:@"is_inter"] intValue] == 1) {
+        self.isConsulted = YES;
+    }
+    
+    if ([[self.data objectForKey:@"is_yuyue"] intValue] == 2) {
+        self.isBooked = NO;
+    }else if ([[self.data objectForKey:@"is_yuyue"] intValue] == 1) {
+        self.isBooked = YES;
+    }
+    
+    
 
 //    [self initView];
     [self.tableView reloadData];
@@ -1136,6 +1146,26 @@
         //未关注
         [self.focusImageView setImage:[UIImage imageNamed:@"info_expert_guanzhu_normal"]];
         self.focusLabel.text = @"关注";
+    }
+    
+    if (self.isConsulted == YES) {
+        //可提问
+        self.inquiryBackView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *inquiryTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inquiryViewClicked)];
+        [self.inquiryBackView addGestureRecognizer:inquiryTap];
+    }else if(self.isConsulted == NO){
+        //不可提问
+        self.inquiryBackView.userInteractionEnabled = NO;
+    }
+    
+    if (self.isBooked == YES) {
+        //可预约
+        self.bookBackView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *bookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bookViewClicked)];
+        [self.bookBackView addGestureRecognizer:bookTap];
+    }else if(self.isBooked == NO){
+        //不可预约
+        self.bookBackView.userInteractionEnabled = NO;
     }
 }
 
