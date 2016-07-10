@@ -155,18 +155,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"%ld",indexPath.section);
-//    if (indexPath.section == 0) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至支付宝" message:self.zhifubaoName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//        alert.tag = 1;
-//        [alert show];
-//    }else if (indexPath.section == 1){
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至微信" message:self.weixinName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//        alert.tag = 2;
-//        [alert show];
-//    }
     
-    MineWalletTixianTwoViewController *mineWalletTixian2VC = [[MineWalletTixianTwoViewController alloc] init];
-    [self.navigationController pushViewController:mineWalletTixian2VC animated:YES];
+    if (indexPath.section == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至支付宝" message:self.zhifubaoName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 1;
+        [alert show];
+    }else if (indexPath.section == 1){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至微信" message:self.weixinName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 2;
+        [alert show];
+    }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -266,6 +264,7 @@
             DLog(@"%ld",(long)self.code2);
             DLog(@"%@",self.message2);
             [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往［设置－账号安全］绑定手机号！"];
             if (self.code2 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -295,8 +294,13 @@
 -(void)mineTixianDataParse2{
     self.tixianPhone = [NullUtil judgeStringNull:[self.data2 objectForKey:@"phone"]];
     
-    MineWalletTixianTwoViewController *mineWalletTixian2VC = [[MineWalletTixianTwoViewController alloc] init];
-    [self.navigationController pushViewController:mineWalletTixian2VC animated:YES];
+    if (![self.tixianPhone isEqualToString:@""]) {
+        MineWalletTixianTwoViewController *mineWalletTixian2VC = [[MineWalletTixianTwoViewController alloc] init];
+        mineWalletTixian2VC.tixianPhone = self.tixianPhone;
+        [self.navigationController pushViewController:mineWalletTixian2VC animated:YES];
+    }else{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往［设置－账号安全］绑定手机号！"];
+    }
 }
 
 #pragma mark Data Filling

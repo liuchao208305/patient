@@ -23,6 +23,9 @@
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
 
+@property (assign,nonatomic)int timeCount;
+@property (strong,nonatomic)NSThread *thread;
+
 @end
 
 @implementation MineWalletTixianTwoViewController
@@ -46,6 +49,9 @@
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"MineWalletTixianTwoViewController"];
+    
+    self.thread = [[NSThread alloc]initWithTarget:self selector:@selector(beginCountUp) object:nil];
+    [self.thread start];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -56,6 +62,10 @@
     [super viewWillDisappear:YES];
     
     [AnalyticUtil UMEndLogPageView:@"MineWalletTixianTwoViewController"];
+    
+    if (self.thread != nil) {
+        [self.thread cancel];
+    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -128,25 +138,38 @@
     self.promptLabel2.textColor = ColorWithHexRGB(0x646464);
     [self.scrollView addSubview:self.promptLabel2];
     
-    self.codeTextField1 = [[UITextField alloc] init];
-    self.codeTextField1.backgroundColor = kWHITE_COLOR;
-    self.codeTextField1.keyboardType = UIKeyboardTypeNumberPad;
-    [self.scrollView addSubview:self.codeTextField1];
+//    self.codeTextField1 = [[UITextField alloc] init];
+//    self.codeTextField1.backgroundColor = kWHITE_COLOR;
+//    self.codeTextField1.keyboardType = UIKeyboardTypeNumberPad;
+//    [self.scrollView addSubview:self.codeTextField1];
+//    
+//    self.codeTextField2 = [[UITextField alloc] init];
+//    self.codeTextField2.backgroundColor = kWHITE_COLOR;
+//    self.codeTextField2.keyboardType = UIKeyboardTypeNumberPad;
+//    [self.scrollView addSubview:self.codeTextField2];
+//    
+//    self.codeTextField3 = [[UITextField alloc] init];
+//    self.codeTextField3.backgroundColor = kWHITE_COLOR;
+//    self.codeTextField3.keyboardType = UIKeyboardTypeNumberPad;
+//    [self.scrollView addSubview:self.codeTextField3];
+//    
+//    self.codeTextField4 = [[UITextField alloc] init];
+//    self.codeTextField4.backgroundColor = kWHITE_COLOR;
+//    self.codeTextField4.keyboardType = UIKeyboardTypeNumberPad;
+//    [self.scrollView addSubview:self.codeTextField4];
     
-    self.codeTextField2 = [[UITextField alloc] init];
-    self.codeTextField2.backgroundColor = kWHITE_COLOR;
-    self.codeTextField2.keyboardType = UIKeyboardTypeNumberPad;
-    [self.scrollView addSubview:self.codeTextField2];
+    self.codeTextField = [[UITextField alloc] init];
+    [self.scrollView addSubview:self.codeTextField];
     
-    self.codeTextField3 = [[UITextField alloc] init];
-    self.codeTextField3.backgroundColor = kWHITE_COLOR;
-    self.codeTextField3.keyboardType = UIKeyboardTypeNumberPad;
-    [self.scrollView addSubview:self.codeTextField3];
+    self.codeLineView = [[UIView alloc] init];
+    self.codeLineView.backgroundColor = ColorWithHexRGB(0x646464);
+    [self.scrollView addSubview:self.codeLineView];
     
-    self.codeTextField4 = [[UITextField alloc] init];
-    self.codeTextField4.backgroundColor = kWHITE_COLOR;
-    self.codeTextField4.keyboardType = UIKeyboardTypeNumberPad;
-    [self.scrollView addSubview:self.codeTextField4];
+    self.completeButton = [[UIButton alloc] init];
+    [self.completeButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.completeButton setBackgroundColor:kMAIN_COLOR];
+    [self.completeButton addTarget:self action:@selector(completeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:self.completeButton];
     
     [self.promptLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.scrollView).offset(0);
@@ -178,32 +201,55 @@
         make.top.equalTo(self.timeLabel.mas_bottom).offset(15);
     }];
     
-    [self.codeTextField1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.scrollView).offset((SCREEN_WIDTH-230)/2);
-        make.top.equalTo(self.promptLabel2.mas_bottom).offset(23);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(50);
+//    [self.codeTextField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.scrollView).offset((SCREEN_WIDTH-230)/2);
+//        make.top.equalTo(self.promptLabel2.mas_bottom).offset(23);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(50);
+//    }];
+//    
+//    [self.codeTextField2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.codeTextField1.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.codeTextField1).offset(0);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(50);
+//    }];
+//    
+//    [self.codeTextField3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.codeTextField2.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.codeTextField2).offset(0);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(50);
+//    }];
+//    
+//    [self.codeTextField4 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.codeTextField3.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.codeTextField3).offset(0);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(50);
+//    }];
+    
+    [self.codeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.scrollView).offset(0);
+        make.top.equalTo(self.promptLabel2.mas_bottom).offset(10);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(40);
     }];
     
-    [self.codeTextField2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.codeTextField1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.codeTextField1).offset(0);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(50);
+    [self.codeLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.scrollView).offset(20);
+        //        make.trailing.equalTo(self.scrollView).offset(-43);
+        make.top.equalTo(self.codeTextField.mas_bottom).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-40);
+        make.height.mas_equalTo(1);
     }];
     
-    [self.codeTextField3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.codeTextField2.mas_trailing).offset(10);
-        make.centerY.equalTo(self.codeTextField2).offset(0);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(50);
-    }];
-    
-    [self.codeTextField4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.codeTextField3.mas_trailing).offset(10);
-        make.centerY.equalTo(self.codeTextField3).offset(0);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(50);
+    [self.completeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.scrollView).offset(20);
+        //        make.trailing.equalTo(self.scrollView).offset(-20);
+        make.top.equalTo(self.codeLineView.mas_bottom).offset(45);
+        make.width.mas_equalTo(SCREEN_WIDTH-40);
+        make.height.mas_equalTo(45);
     }];
     
     [self mineTixianDataFilling];
@@ -216,7 +262,34 @@
 
 #pragma mark Target Action
 - (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
+    [self.codeTextField resignFirstResponder];
+}
+
+-(void)beginCountUp{
+    self.timeCount = 1;
+    while (self.timeCount > 0 && !self.thread.isCancelled && self.timeCount < 60) {
+        [self performSelectorOnMainThread:@selector(updateTimeLabel) withObject:nil waitUntilDone:NO];
+        [NSThread sleepForTimeInterval:1];
+        self.timeCount++;
+    }
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码已过期，请重新发起提现！"];
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+}
+
+- (void)updateTimeLabel{
+    NSString *timeCountString = [NSString stringWithFormat:@"已发送(%d秒)", self.timeCount];
+    self.timeLabel.text = timeCountString;
+}
+
+-(void)completeButtonClicked{
+    if ([self.codeTextField.text isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
+    }else{
+        [self sendMineTixianRequest3];
+    }
 }
 
 #pragma mark UITextViewDelegate
@@ -233,7 +306,7 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_accout] forKey:@"phone"];
-    [parameter setValue:self.tixianCode forKey:@"code"];
+    [parameter setValue:self.codeTextField.text forKey:@"code"];
     [parameter setValue:@"1" forKey:@"type"];
     
     DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_THREE);
@@ -254,6 +327,7 @@
         }else{
             DLog(@"%ld",(long)self.code);
             DLog(@"%@",self.message);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
             if (self.code == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -275,13 +349,11 @@
 #pragma mark Data Filling
 -(void)mineTixianDataFilling{
     self.promptLabel1.text = @"验证码已经发送至您的手机";
-    self.phoneLabel1.text = @"188";
+    self.phoneLabel1.text = [self.tixianPhone substringWithRange:NSMakeRange(0, 3)];
     self.phoneLabel2.text = @"****";
-    self.phoneLabel3.text = @"8888";
-    self.timeLabel.text = @"已发送（33秒）";
+    self.phoneLabel3.text = [self.tixianPhone substringWithRange:NSMakeRange(7, 4)];
     self.promptLabel2.text = @"请在下方输入您收到的验证码";
-    
-    [self.codeTextField1 becomeFirstResponder];
+    [self.completeButton setTitle:@"完成" forState:UIControlStateNormal];
 }
 
 @end
