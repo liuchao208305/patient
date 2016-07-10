@@ -104,6 +104,9 @@ typedef enum {
 
 #define kJZK_MINE_EXPERT_FIX_INFORMATION @"private/v2/userCore/getUserDoctoryByUserId?"//我的专家信息
 
+#define kJZK_MINE_WALLET_INFORMATION_ONE @"private/v2/user/getUserMoney?"//我的钱包信息1
+#define kJZK_MINE_WALLET_INFORMATION_TWO @"private/v2/user/getUserMoneyPageList?"//我的钱包信息2
+
 #define kJZK_MINE_INFORMATION_FIX @"private/v2/user/selUserInfo?"//个人中心信息
 
 #define kJZK_MINE_FEEDBACK_CONFIRM @"public/v2/opinion/add?"//意见反馈信息提交

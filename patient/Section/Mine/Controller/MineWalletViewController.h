@@ -20,4 +20,10 @@
 @property (strong,nonatomic)UILabel *moneyLabel2;
 @property (strong,nonatomic)UILabel *moneyLabel3;
 
+@property (strong,nonatomic)NSMutableArray *tradeArray;
+@property (strong,nonatomic)NSMutableArray *tradeIdArray;
+@property (strong,nonatomic)NSMutableArray *tradeTypeArray;
+@property (strong,nonatomic)NSMutableArray *tradeMoneyArray;
+@property (strong,nonatomic)NSMutableArray *tradeTimeArray;
+
 @end
