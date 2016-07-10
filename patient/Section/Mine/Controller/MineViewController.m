@@ -264,11 +264,11 @@
     self.tableView.tableFooterView = self.footView;
     
     self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self sendMineInfoRequest];
+        [self sendMineInfoFixRequest];
     }];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self sendMineInfoRequest];
+        [self sendMineInfoFixRequest];
     }];
     
     [self.view addSubview:self.tableView];
@@ -713,15 +713,15 @@
         
         if (self.code4 == kSUCCESS) {
             [self mineInfoFixDataParse];
+            
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
         }else{
             DLog(@"%@",self.message4);
             if (self.code4 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
-                
-                [self.tableView.mj_header endRefreshing];
-                [self.tableView.mj_footer endRefreshing];
             }
         }
         
