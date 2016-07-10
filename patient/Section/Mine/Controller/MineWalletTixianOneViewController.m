@@ -170,6 +170,8 @@
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_accout] forKey:@"phone"];
     [parameter setValue:@"1" forKey:@"userType"];
     
+    DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE);
+    
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
         

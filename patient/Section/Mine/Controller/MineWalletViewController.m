@@ -299,6 +299,8 @@
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];
     [parameter setValue:@"0" forKey:@"type"];
     
+    DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_INFORMATION_TWO);
+    
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_WALLET_INFORMATION_TWO] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
