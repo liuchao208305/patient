@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "PlaceholderTextView.h"
+#import "BookClinicAddressPopView.h"
+#import "BookExpertTimePopView.h"
 
 @interface BookInfoViewController : BaseViewController
 
@@ -66,9 +68,14 @@
 @property (strong,nonatomic)UILabel *testLabel2;
 @property (strong,nonatomic)UIButton *testButton;
 @property (strong,nonatomic)UIButton *inquiryAddButton;
-
 @property (strong,nonatomic)UIButton *bookButton;
 
+
+@property (strong,nonatomic)BookClinicAddressPopView *bookClinicAddressPopView;
+
+@property (strong,nonatomic)NSMutableArray *addressArray;
+@property (strong,nonatomic)NSMutableArray *addressIdArray;
+@property (strong,nonatomic)NSMutableArray *addressUnitArray;
 
 
 @end

@@ -22,6 +22,9 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "OrderListViewController.h"
+#import "BookClinicAddressData.h"
+#import "BookExpertTimeData.h"
+
 
 @interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
 
@@ -155,7 +158,9 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.addressArray = [NSMutableArray array];
+    self.addressIdArray = [NSMutableArray array];
+    self.addressUnitArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -1045,7 +1050,7 @@
         self.data3 = [self.result3 objectForKey:@"data"];
         
         if (self.code3 == kSUCCESS) {
-            
+            [self bookClinicAddressDataParse];
         }else{
             DLog(@"%ld",(long)self.code3);
             DLog(@"%@",self.message3);
@@ -1089,7 +1094,7 @@
         self.data4 = [self.result4 objectForKey:@"data"];
         
         if (self.code4 == kSUCCESS) {
-            
+            [self bookExpertTimeDataParse];
         }else{
             DLog(@"%ld",(long)self.code4);
             DLog(@"%@",self.message4);
@@ -1205,6 +1210,22 @@
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+}
+
+-(void)bookClinicAddressDataParse{
+    self.addressArray = [BookClinicAddressData mj_objectArrayWithKeyValuesArray:self.data3];
+    [self.addressIdArray removeAllObjects];
+    [self.addressUnitArray removeAllObjects];
+    for (BookClinicAddressData *bookClinicAddressData in self.addressArray) {
+        [self.addressIdArray addObject:[NullUtil judgeStringNull:bookClinicAddressData.aid]];
+        [self.addressUnitArray addObject:[NullUtil judgeStringNull:bookClinicAddressData.org_name]];
+    }
+    
+    
+}
+
+-(void)bookExpertTimeDataParse{
+    
 }
 
 #pragma mark Data Filling

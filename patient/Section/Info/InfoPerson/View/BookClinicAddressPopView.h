@@ -10,4 +10,6 @@
 
 @interface BookClinicAddressPopView : UIView
 
+@property (strong,nonatomic)UITableView *tableView;
+
 @end

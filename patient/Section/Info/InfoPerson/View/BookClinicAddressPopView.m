@@ -10,4 +10,18 @@
 
 @implementation BookClinicAddressPopView
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initView];
+    }
+    return self;
+}
+
+-(void)initView{
+    self.backgroundColor = kWHITE_COLOR;
+    
+    
+}
+
 @end
