@@ -10,4 +10,20 @@
 
 @interface MineWalletTixianTwoViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *tixianPhone;
+@property (strong,nonatomic)NSString *tixianCode;
+
+@property (strong,nonatomic)UIScrollView *scrollView;
+
+@property (strong,nonatomic)UILabel *promptLabel1;
+@property (strong,nonatomic)UILabel *phoneLabel1;
+@property (strong,nonatomic)UILabel *phoneLabel2;
+@property (strong,nonatomic)UILabel *phoneLabel3;
+@property (strong,nonatomic)UILabel *timeLabel;
+@property (strong,nonatomic)UILabel *promptLabel2;
+@property (strong,nonatomic)UITextField *codeTextField1;
+@property (strong,nonatomic)UITextField *codeTextField2;
+@property (strong,nonatomic)UITextField *codeTextField3;
+@property (strong,nonatomic)UITextField *codeTextField4;
+
 @end
