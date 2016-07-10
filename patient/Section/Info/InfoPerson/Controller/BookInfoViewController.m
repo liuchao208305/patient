@@ -37,6 +37,18 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableArray *data3;
+@property (assign,nonatomic)NSError *error3;
+
+@property (strong,nonatomic)NSMutableDictionary *result4;
+@property (assign,nonatomic)NSInteger code4;
+@property (strong,nonatomic)NSString *message4;
+@property (strong,nonatomic)NSMutableArray *data4;
+@property (assign,nonatomic)NSError *error4;
+
 @property (strong,nonatomic)NSString *doctor_id;
 @property (strong,nonatomic)NSString *heand_url;
 @property (strong,nonatomic)NSString *doctor_name;
@@ -684,10 +696,14 @@
 
 -(void)clinicAddressButtonClicked{
     DLog(@"clinicAddressButtonClicked");
+    
+    [self sendClinicAddressListRequest];
 }
 
 -(void)clinicTimeButtonClicked{
     DLog(@"clinicTimeButtonClicked");
+    
+    [self sendExpertTimeListRequest];
 }
 
 -(void)patientSexButtonClicked{
@@ -997,6 +1013,94 @@
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendClinicAddressListRequest{
+    DLog(@"sendClinicAddressListRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:self.expertId forKey:@"doctor_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_BOOK_CLINIC_ADDRESS_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            
+        }else{
+            DLog(@"%ld",(long)self.code3);
+            DLog(@"%@",self.message3);
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendExpertTimeListRequest{
+    DLog(@"sendExpertTimeListRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_BOOK_EXPERT_TIME_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result4 = (NSMutableDictionary *)responseObject;
+        
+        self.code4 = [[self.result4 objectForKey:@"code"] integerValue];
+        self.message4 = [self.result4 objectForKey:@"message"];
+        self.data4 = [self.result4 objectForKey:@"data"];
+        
+        if (self.code4 == kSUCCESS) {
+            
+        }else{
+            DLog(@"%ld",(long)self.code4);
+            DLog(@"%@",self.message4);
+            if (self.code4 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];

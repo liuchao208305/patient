@@ -94,6 +94,8 @@ typedef enum {
 #define kJZK_QUESTION_MIANFEITING_INFORMATION @"private/v2/clickAnswer?"//问题免费听接口
 
 #define kJZK_BOOK_INFORMATION @"private/v2/user/conu/toAdd?"//专家预约查询接口
+#define kJZK_BOOK_CLINIC_ADDRESS_INFORMATION @"private/v2/user/conu/getDoctorAComms?"//专家预约页面诊所地址信息
+#define kJZK_BOOK_EXPERT_TIME_INFORMATION @"private/v2/user/conu/getDatesByComm?"//专家预约页面时间信息
 #define kJZK_BOOK_CONFIRM @"private/v2/user/confReservation?"//专家预约提交接口
 
 #define kJZK_MINE_QUESTION_INFORMATION @"private/v2/user/getInterPageList?"//问答列表信息
