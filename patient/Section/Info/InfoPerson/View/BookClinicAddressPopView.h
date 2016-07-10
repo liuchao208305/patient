@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ClinicAddressDelegate <NSObject>
+
+-(void)clinicAddressSelected:(NSString *)addressId addressUnit:(NSString *)addressUnit;
+
+@end
+
 @interface BookClinicAddressPopView : UIView
 
 @property (strong,nonatomic)UITableView *tableView;
+
+@property (strong,nonatomic)NSMutableArray *addressIdArray;
+@property (strong,nonatomic)NSMutableArray *addressUnitArray;
+
+-(void)initViewWithIdArray:(NSMutableArray *)addressIdArray addressUnitArray:(NSMutableArray *)addressUnitArray;
+
+@property (weak,nonatomic)id<ClinicAddressDelegate> clinicAddressDelegate;
 
 @end

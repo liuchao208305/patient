@@ -737,6 +737,7 @@
 		70EE2C6B1D32A9FB00ADD36B /* BookExpertTimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C6A1D32A9FB00ADD36B /* BookExpertTimeData.m */; };
 		70EE2C6E1D32AABD00ADD36B /* BookClinicAddressPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C6D1D32AABD00ADD36B /* BookClinicAddressPopView.m */; };
 		70EE2C711D32AADA00ADD36B /* BookExpertTimePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C701D32AADA00ADD36B /* BookExpertTimePopView.m */; };
+		70EE2C741D32B48700ADD36B /* BookClinicAddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C731D32B48700ADD36B /* BookClinicAddressTableCell.m */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1838,6 +1839,8 @@
 		70EE2C6D1D32AABD00ADD36B /* BookClinicAddressPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookClinicAddressPopView.m; sourceTree = "<group>"; };
 		70EE2C6F1D32AADA00ADD36B /* BookExpertTimePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookExpertTimePopView.h; sourceTree = "<group>"; };
 		70EE2C701D32AADA00ADD36B /* BookExpertTimePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookExpertTimePopView.m; sourceTree = "<group>"; };
+		70EE2C721D32B48700ADD36B /* BookClinicAddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookClinicAddressTableCell.h; sourceTree = "<group>"; };
+		70EE2C731D32B48700ADD36B /* BookClinicAddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookClinicAddressTableCell.m; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -3264,6 +3267,8 @@
 				70B4EB391CD8730200141E38 /* MRYizhuSoundTableCell.m */,
 				70EE2C6C1D32AABD00ADD36B /* BookClinicAddressPopView.h */,
 				70EE2C6D1D32AABD00ADD36B /* BookClinicAddressPopView.m */,
+				70EE2C721D32B48700ADD36B /* BookClinicAddressTableCell.h */,
+				70EE2C731D32B48700ADD36B /* BookClinicAddressTableCell.m */,
 				70EE2C6F1D32AADA00ADD36B /* BookExpertTimePopView.h */,
 				70EE2C701D32AADA00ADD36B /* BookExpertTimePopView.m */,
 			);
@@ -4396,6 +4401,7 @@
 				70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				700CF05D1D22AB60008C9776 /* HealthTestTableCell.m in Sources */,
+				70EE2C741D32B48700ADD36B /* BookClinicAddressTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
 				708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */,
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,

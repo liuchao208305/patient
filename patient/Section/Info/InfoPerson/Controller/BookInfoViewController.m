@@ -26,7 +26,7 @@
 #import "BookExpertTimeData.h"
 
 
-@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
+@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -59,6 +59,7 @@
 @property (assign,nonatomic)double consultation_money;
 @property (strong,nonatomic)NSString *doctor_descr;
 
+@property (strong,nonatomic)NSString *clinicId;
 @property (strong,nonatomic)NSString *clinicAddress;
 @property (strong,nonatomic)NSString *clinicTime;
 
@@ -294,8 +295,6 @@
     [self.clinicAddressButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.clinicBackView).offset(-12);
         make.centerY.equalTo(self.clinicAddressLabel).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(15);
     }];
     
     [self.clinicLineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -313,8 +312,6 @@
     [self.clinicTimeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.clinicBackView).offset(-12);
         make.centerY.equalTo(self.clinicTimeLabel).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(15);
     }];
 }
 
@@ -877,6 +874,15 @@
     self.testResult = self.testLabel1.text;
 }
 
+#pragma mark ClinicAddressDelegate
+-(void)clinicAddressSelected:(NSString *)addressId addressUnit:(NSString *)addressUnit{
+    [self.bookClinicAddressPopView removeFromSuperview];
+    
+    self.clinicId = addressId;
+    self.clinicAddress = addressUnit;
+    [self.clinicAddressButton setTitle:addressUnit forState:UIControlStateNormal];
+}
+
 #pragma mark UITextViewDelegate
 -(void)textViewDidChange:(UITextView *)textView{
     self.inquiryCountLabel.text = [NSString stringWithFormat:@"%ld/200",(long)textView.text.length];
@@ -1221,7 +1227,10 @@
         [self.addressUnitArray addObject:[NullUtil judgeStringNull:bookClinicAddressData.org_name]];
     }
     
-    
+    self.bookClinicAddressPopView = [[BookClinicAddressPopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.bookClinicAddressPopView initViewWithIdArray:self.addressIdArray addressUnitArray:self.addressUnitArray];
+    self.bookClinicAddressPopView.clinicAddressDelegate = self;
+    [self.view addSubview:self.bookClinicAddressPopView];
 }
 
 -(void)bookExpertTimeDataParse{
