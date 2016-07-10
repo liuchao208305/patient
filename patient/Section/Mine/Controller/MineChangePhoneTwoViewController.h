@@ -10,4 +10,10 @@
 
 @interface MineChangePhoneTwoViewController : BaseViewController
 
+@property (strong,nonatomic)UIScrollView *scrollView;
+
+@property (strong,nonatomic)UITextField *phoneTextField;
+@property (strong,nonatomic)UIView *phoneLineView;
+@property (strong,nonatomic)UIButton *commitButton;
+
 @end

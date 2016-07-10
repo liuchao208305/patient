@@ -12,7 +12,8 @@
 
 @property (strong,nonatomic)NSString *soureVC;
 
-@property (strong,nonatomic)NSString *phoneString;
+@property (strong,nonatomic)NSString *OldPhoneString;
+@property (strong,nonatomic)NSString *NewPhoneString;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
 

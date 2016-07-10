@@ -14,6 +14,7 @@
 #import "AnalyticUtil.h"
 #import "AdaptionUtil.h"
 #import "LoginViewController.h"
+#import "MineChangePhoneTwoViewController.h"
 
 @interface MineChangePhoneOneViewController ()
 
@@ -262,7 +263,11 @@
 }
 
 -(void)completeButtonClicked{
-    
+    if ([self.codeTextField.text isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
+    }else{
+        [self sendCommitCaptchaRequest];
+    }
 }
 
 #pragma mark Network Request
@@ -274,7 +279,12 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:self.phoneString forKey:@"phone"];
+    if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+        [parameter setValue:self.OldPhoneString forKey:@"phone"];
+    }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+        [parameter setValue:self.NewPhoneString forKey:@"phone"];
+    }
+    
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -310,13 +320,75 @@
     }];
 }
 
-
+-(void)sendCommitCaptchaRequest{
+    DLog(@"sendCommitCaptchaRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+        [parameter setValue:self.OldPhoneString forKey:@"phone"];
+    }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+        [parameter setValue:self.NewPhoneString forKey:@"phone"];
+    }
+    
+    [parameter setValue:self.codeTextField.text forKey:@"code"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_TWO] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+                MineChangePhoneTwoViewController *changePhoneTwoVC = [[MineChangePhoneTwoViewController alloc] init];
+                [self.navigationController pushViewController:changePhoneTwoVC animated:YES];
+            }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+           
+        }else{
+            DLog(@"%ld",(long)self.code2);
+            DLog(@"%@",self.message2);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
 
 #pragma mark Data Parse
 
 #pragma mark Data Filling
 -(void)changePhoneDataFilling{
-    self.phoneLabel.text = [NSString stringWithFormat:@"+86%@",self.phoneString];
+    if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+        self.phoneLabel.text = [NSString stringWithFormat:@"+86%@",self.OldPhoneString];
+    }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+        self.phoneLabel.text = [NSString stringWithFormat:@"+86%@",self.NewPhoneString];
+    }
+    
     self.promptLabel.text = @"已发送验证码到上面的手机";
     self.resendLabel.text = @"未收到验证码？";
     [self.resendButton setTitle:@"重发短信" forState:UIControlStateNormal];

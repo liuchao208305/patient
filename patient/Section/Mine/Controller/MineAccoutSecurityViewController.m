@@ -435,11 +435,7 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-//    [parameter setValue:self.phoneString forKey:@"phone"];
-    
-    /***************************************************/
-    [parameter setValue:@"13175265412" forKey:@"phone"];
-    /***************************************************/
+    [parameter setValue:self.phoneString forKey:@"phone"];
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -465,7 +461,7 @@
             DLog(@"%ld",(long)self.code4);
             DLog(@"%@",self.message4);
             [AlertUtil showSimpleAlertWithTitle:nil message:self.message4];
-            if (self.code == kTOKENINVALID) {
+            if (self.code4 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
@@ -491,11 +487,7 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-//        [parameter setValue:self.phoneString forKey:@"phone"];
-    
-    /***************************************************/
-    [parameter setValue:@"13175265412" forKey:@"phone"];
-    /***************************************************/
+    [parameter setValue:self.phoneString forKey:@"phone"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -513,11 +505,7 @@
             
             MineChangePhoneOneViewController *changePhoneOneVC = [[MineChangePhoneOneViewController alloc] init];
             changePhoneOneVC.soureVC = @"MineAccoutSecurityViewController";
-            changePhoneOneVC.phoneString = self.phoneString;
-            
-            /***************************************************/
-            changePhoneOneVC.phoneString = @"13175265412";
-            /***************************************************/
+            changePhoneOneVC.OldPhoneString = self.phoneString;
             
             [self.navigationController pushViewController:changePhoneOneVC animated:YES];
         }else{
