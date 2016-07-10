@@ -18,6 +18,7 @@
 #import "NullUtil.h"
 #import "LoginViewController.h"
 #import "MineSettingTwoTableCell.h"
+#import "CustomAlert.h"
 
 @interface MineAccoutSecurityViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -50,6 +51,12 @@
 @property (strong,nonatomic)NSString *message3;
 @property (strong,nonatomic)NSMutableDictionary *data3;
 @property (assign,nonatomic)NSError *error3;
+
+@property (strong,nonatomic)NSMutableDictionary *result4;
+@property (assign,nonatomic)NSInteger code4;
+@property (strong,nonatomic)NSString *message4;
+@property (strong,nonatomic)NSMutableDictionary *data4;
+@property (assign,nonatomic)NSError *error4;
 
 @end
 
@@ -186,7 +193,11 @@
     DLog(@"%ld",indexPath.section);
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            
+            if ([self.phoneString isEqualToString:@""]) {
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"请先进行第三方平台认证！"];
+            }else{
+                [self sendChangePhoneRequest];
+            }
         }else if (indexPath.row == 1){
             
         }
@@ -395,6 +406,65 @@
         }else{
             DLog(@"%ld",(long)self.code3);
             DLog(@"%@",self.message3);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendChangePhoneRequest{
+    DLog(@"sendChangePhoneRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:self.phoneString forKey:@"phone"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result4 = (NSMutableDictionary *)responseObject;
+        
+        self.code4 = [[self.result4 objectForKey:@"code"] integerValue];
+        self.message4 = [self.result4 objectForKey:@"message"];
+        self.data4 = [self.result4 objectForKey:@"data"];
+        
+        if (self.code4 == kSUCCESS) {
+            NSString *msg = [NSString stringWithFormat:@"%@\n来完成手机号更换",self.phoneString];
+            CustomAlert *alert = [[CustomAlert alloc] initWithTitle:@"将发送验证码至您的手机" withMsg:msg withCancel:@"确定" withSure:@"取消"];
+            [alert alertViewShow];
+            alert.alertViewBlock = ^(NSInteger index) {
+                if (index == 1) {
+//                    [self getverifyTextFieldRequest];
+                    
+//                    VerifyLoginViewController *verifyLoginVC = [[VerifyLoginViewController alloc] init];
+//                    verifyLoginVC.view.backgroundColor = [UIColor whiteColor];
+//                    verifyLoginVC.phoneLabel.text = self.phoneLabel1.text;
+//                    verifyLoginVC.hidesBottomBarWhenPushed = YES;
+//                    [self.navigationController pushViewController:verifyLoginVC animated:YES];
+                }
+            };
+        }else{
+            DLog(@"%ld",(long)self.code4);
+            DLog(@"%@",self.message4);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message4];
+            if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
