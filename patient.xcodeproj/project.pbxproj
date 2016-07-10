@@ -731,6 +731,8 @@
 		70EE2C541D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4E1D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png */; };
 		70EE2C551D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C4F1D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png */; };
 		70EE2C561D31EAE500ADD36B /* mine_wallet_tixian_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 70EE2C501D31EAE500ADD36B /* mine_wallet_tixian_weixin.png */; };
+		70EE2C621D324D9900ADD36B /* MineChangePhoneOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C611D324D9900ADD36B /* MineChangePhoneOneViewController.m */; };
+		70EE2C651D324DB400ADD36B /* MineChangePhoneTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EE2C641D324DB400ADD36B /* MineChangePhoneTwoViewController.m */; };
 		70FD8E3E1CEBFBCE00DA22E5 /* FoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */; };
 		70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E401CEBFBEC00DA22E5 /* FoodBasicTableCell.m */; };
 		70FD8E441CEBFC8900DA22E5 /* FoodValueTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FD8E431CEBFC8900DA22E5 /* FoodValueTableCell.m */; };
@@ -1820,6 +1822,10 @@
 		70EE2C4E1D31EAE500ADD36B /* mine_wallet_tixian_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_weixin@3x.png"; sourceTree = "<group>"; };
 		70EE2C4F1D31EAE500ADD36B /* mine_wallet_tixian_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_wallet_tixian_weixin@2x.png"; sourceTree = "<group>"; };
 		70EE2C501D31EAE500ADD36B /* mine_wallet_tixian_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_wallet_tixian_weixin.png; sourceTree = "<group>"; };
+		70EE2C601D324D9900ADD36B /* MineChangePhoneOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineChangePhoneOneViewController.h; sourceTree = "<group>"; };
+		70EE2C611D324D9900ADD36B /* MineChangePhoneOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineChangePhoneOneViewController.m; sourceTree = "<group>"; };
+		70EE2C631D324DB400ADD36B /* MineChangePhoneTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineChangePhoneTwoViewController.h; sourceTree = "<group>"; };
+		70EE2C641D324DB400ADD36B /* MineChangePhoneTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineChangePhoneTwoViewController.m; sourceTree = "<group>"; };
 		70FD8E3C1CEBFBCE00DA22E5 /* FoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodHeaderView.h; sourceTree = "<group>"; };
 		70FD8E3D1CEBFBCE00DA22E5 /* FoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderView.m; sourceTree = "<group>"; };
 		70FD8E3F1CEBFBEC00DA22E5 /* FoodBasicTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBasicTableCell.h; sourceTree = "<group>"; };
@@ -3257,6 +3263,10 @@
 				70924AFC1D2E3C73001DFE85 /* MinePersonInformationViewController.m */,
 				70924AF81D2E3BD9001DFE85 /* MineAccoutSecurityViewController.h */,
 				70924AF91D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m */,
+				70EE2C601D324D9900ADD36B /* MineChangePhoneOneViewController.h */,
+				70EE2C611D324D9900ADD36B /* MineChangePhoneOneViewController.m */,
+				70EE2C631D324DB400ADD36B /* MineChangePhoneTwoViewController.h */,
+				70EE2C641D324DB400ADD36B /* MineChangePhoneTwoViewController.m */,
 				70924AF51D2E3BA5001DFE85 /* MineNotificationSettingViewController.h */,
 				70924AF61D2E3BA5001DFE85 /* MineNotificationSettingViewController.m */,
 				70924AF21D2E3B61001DFE85 /* MineFeedBackViewController.h */,
@@ -4309,6 +4319,7 @@
 				705EF8111CBDD41D00732886 /* MineFunctionCollectionCell.m in Sources */,
 				70B4EB071CD8713800141E38 /* MRChuhanTableCell.m in Sources */,
 				70B42A041D18E5CA0036F525 /* QuestionInquiryTableCell.m in Sources */,
+				70EE2C621D324D9900ADD36B /* MineChangePhoneOneViewController.m in Sources */,
 				7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */,
 				70B4EAB71CD08DE000141E38 /* OrderData.m in Sources */,
 				70FD8E8B1CEDD26600DA22E5 /* MineFavouriteDiseaseTableCell.m in Sources */,
@@ -4576,6 +4587,7 @@
 				708274E41CF8222D0016AE3C /* TestChooseContactViewController.m in Sources */,
 				70FD8E4A1CEBFCC900DA22E5 /* FoodChooseTableCell.m in Sources */,
 				70924ADC1D2D6673001DFE85 /* MineQuestionData.m in Sources */,
+				70EE2C651D324DB400ADD36B /* MineChangePhoneTwoViewController.m in Sources */,
 				70B4EA8D1CCD1D9600141E38 /* RecordData.m in Sources */,
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,

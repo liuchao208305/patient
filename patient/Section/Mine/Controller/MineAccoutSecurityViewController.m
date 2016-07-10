@@ -19,6 +19,7 @@
 #import "LoginViewController.h"
 #import "MineSettingTwoTableCell.h"
 #import "CustomAlert.h"
+#import "MineChangePhoneOneViewController.h"
 
 @interface MineAccoutSecurityViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -57,6 +58,12 @@
 @property (strong,nonatomic)NSString *message4;
 @property (strong,nonatomic)NSMutableDictionary *data4;
 @property (assign,nonatomic)NSError *error4;
+
+@property (strong,nonatomic)NSMutableDictionary *result5;
+@property (assign,nonatomic)NSInteger code5;
+@property (strong,nonatomic)NSString *message5;
+@property (strong,nonatomic)NSMutableDictionary *data5;
+@property (assign,nonatomic)NSError *error5;
 
 @end
 
@@ -428,7 +435,11 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:self.phoneString forKey:@"phone"];
+//    [parameter setValue:self.phoneString forKey:@"phone"];
+    
+    /***************************************************/
+    [parameter setValue:@"13175265412" forKey:@"phone"];
+    /***************************************************/
     
     [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
@@ -447,13 +458,7 @@
             [alert alertViewShow];
             alert.alertViewBlock = ^(NSInteger index) {
                 if (index == 1) {
-//                    [self getverifyTextFieldRequest];
-                    
-//                    VerifyLoginViewController *verifyLoginVC = [[VerifyLoginViewController alloc] init];
-//                    verifyLoginVC.view.backgroundColor = [UIColor whiteColor];
-//                    verifyLoginVC.phoneLabel.text = self.phoneLabel1.text;
-//                    verifyLoginVC.hidesBottomBarWhenPushed = YES;
-//                    [self.navigationController pushViewController:verifyLoginVC animated:YES];
+                    [self sendGetCaptchaRequest];
                 }
             };
         }else{
@@ -461,6 +466,64 @@
             DLog(@"%@",self.message4);
             [AlertUtil showSimpleAlertWithTitle:nil message:self.message4];
             if (self.code == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendGetCaptchaRequest{
+    DLog(@"sendGetCaptchaRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+//        [parameter setValue:self.phoneString forKey:@"phone"];
+    
+    /***************************************************/
+    [parameter setValue:@"13175265412" forKey:@"phone"];
+    /***************************************************/
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_LOGIN_GET_CATPCHA] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result5 = (NSMutableDictionary *)responseObject;
+        
+        self.code5 = [[self.result5 objectForKey:@"code"] integerValue];
+        self.message5 = [self.result5 objectForKey:@"message"];
+        self.data5 = [self.result5 objectForKey:@"data"];
+        
+        if (self.code == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"验证码发送成功！" withDelaySeconds:kHud_DelayTime];
+            
+            MineChangePhoneOneViewController *changePhoneOneVC = [[MineChangePhoneOneViewController alloc] init];
+            changePhoneOneVC.soureVC = @"MineAccoutSecurityViewController";
+            changePhoneOneVC.phoneString = self.phoneString;
+            
+            /***************************************************/
+            changePhoneOneVC.phoneString = @"13175265412";
+            /***************************************************/
+            
+            [self.navigationController pushViewController:changePhoneOneVC animated:YES];
+        }else{
+            DLog(@"%ld",(long)self.code5);
+            DLog(@"%@",self.message5);
+            if (self.code5 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
