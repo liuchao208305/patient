@@ -21,6 +21,7 @@
 #import "CustomAlert.h"
 #import "MineChangePhoneOneViewController.h"
 #import "MineChangePhoneTwoViewController.h"
+#import "MineChangeEmailViewController.h"
 
 @interface MineAccoutSecurityViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -221,7 +222,9 @@
                 };
             }
         }else if (indexPath.row == 1){
-            
+            MineChangeEmailViewController *changeEmailVC = [[MineChangeEmailViewController alloc] init];
+            changeEmailVC.emailString = self.emailString;
+            [self.navigationController pushViewController:changeEmailVC animated:YES];
         }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
