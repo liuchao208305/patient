@@ -2089,7 +2089,7 @@
             return 205;
         }
     }else if (indexPath.section == 32){
-        return 210;
+        return 310;
     }
     return 0;
 }
@@ -2879,13 +2879,23 @@
         }
         
         return cell;
-    }
-    else if (indexPath.section > 1){
+    }else if (indexPath.section == 32){
         static NSString *cellName = @"SelfInspectionThreeTableCell";
         SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
+        
+        return cell;
+    }
+    else if (indexPath.section > 1){
+        static NSString *cellName = @"SelfInspectionFiveTableCell";
+        SelfInspectionFiveTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[SelfInspectionFiveTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+        }
+        
+        
         
         return cell;
     }
