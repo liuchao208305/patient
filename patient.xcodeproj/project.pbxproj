@@ -549,6 +549,36 @@
 		70926D951CC7329100CB0416 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D941CC7329100CB0416 /* QuartzCore.framework */; };
 		70926D971CC7329C00CB0416 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D961CC7329C00CB0416 /* CoreText.framework */; };
 		70926D991CC732D700CB0416 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D981CC732D700CB0416 /* CoreMotion.framework */; };
+		7095F4EB1D33815000C27969 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E51D33815000C27969 /* PictureViewController.m */; };
+		7095F4EC1D33815000C27969 /* PictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */; };
+		7095F4ED1D33815000C27969 /* PictureAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E91D33815000C27969 /* PictureAddCell.m */; };
+		7095F4FD1D33815B00C27969 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4EE1D33815B00C27969 /* SDWebImageManager+MJ.m */; };
+		7095F4FE1D33815B00C27969 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4F01D33815B00C27969 /* MJPhotoView.m */; };
+		7095F4FF1D33815B00C27969 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4F21D33815B00C27969 /* MJPhotoToolbar.m */; };
+		7095F5001D33815B00C27969 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4F41D33815B00C27969 /* MJPhotoProgressView.m */; };
+		7095F5011D33815B00C27969 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4F61D33815B00C27969 /* MJPhotoLoadingView.m */; };
+		7095F5021D33815B00C27969 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4F81D33815B00C27969 /* MJPhotoBrowser.m */; };
+		7095F5031D33815B00C27969 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7095F4FA1D33815B00C27969 /* MJPhotoBrowser.bundle */; };
+		7095F5041D33815B00C27969 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4FB1D33815B00C27969 /* MJPhoto.m */; };
+		7095F5201D33816400C27969 /* radio_btn_onTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F5051D33816400C27969 /* radio_btn_onTwo.png */; };
+		7095F5211D33816400C27969 /* radio_btn_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F5061D33816400C27969 /* radio_btn_on@2x.png */; };
+		7095F5221D33816400C27969 /* radio_btn_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F5071D33816400C27969 /* radio_btn_on.png */; };
+		7095F5231D33816400C27969 /* radio_btn_offTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F5081D33816400C27969 /* radio_btn_offTwo.png */; };
+		7095F5241D33816400C27969 /* radio_btn_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F5091D33816400C27969 /* radio_btn_off.png */; };
+		7095F5251D33816400C27969 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F50A1D33816400C27969 /* ELCOverlayImageView.m */; };
+		7095F5261D33816400C27969 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F50C1D33816400C27969 /* ELCImagePickerController.m */; };
+		7095F5271D33816400C27969 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F50E1D33816400C27969 /* ELCConsole.m */; };
+		7095F5281D33816400C27969 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F5101D33816400C27969 /* ELCAssetTablePicker.m */; };
+		7095F5291D33816400C27969 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F5141D33816400C27969 /* ELCAssetCell.m */; };
+		7095F52A1D33816400C27969 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F5161D33816400C27969 /* ELCAsset.m */; };
+		7095F52B1D33816400C27969 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F5181D33816400C27969 /* ELCAlbumPickerController.m */; };
+		7095F52C1D33816400C27969 /* 添加照片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51A1D33816400C27969 /* 添加照片@3x.png */; };
+		7095F52D1D33816400C27969 /* 添加照片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51B1D33816400C27969 /* 添加照片@2x.png */; };
+		7095F52E1D33816400C27969 /* 添加照片.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51C1D33816400C27969 /* 添加照片.png */; };
+		7095F52F1D33816400C27969 /* 添加@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51D1D33816400C27969 /* 添加@3x.png */; };
+		7095F5301D33816400C27969 /* 添加@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51E1D33816400C27969 /* 添加@2x.png */; };
+		7095F5311D33816400C27969 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 7095F51F1D33816400C27969 /* 添加.png */; };
+		7095F5341D33877C00C27969 /* SelfInspectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F5331D33877C00C27969 /* SelfInspectionFootView.m */; };
 		7097A9331D334972006A4265 /* MineChangeEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7097A9321D334972006A4265 /* MineChangeEmailViewController.m */; };
 		70A9BD161C8686930035B5E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD151C8686930035B5E0 /* BaseViewController.m */; };
 		70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A9BD241C87C9D90035B5E0 /* NetworkUtil.m */; };
@@ -1537,6 +1567,56 @@
 		70926D941CC7329100CB0416 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		70926D961CC7329C00CB0416 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		70926D981CC732D700CB0416 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		7095F4E51D33815000C27969 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		7095F4E61D33815000C27969 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCollectionViewCell.m; sourceTree = "<group>"; };
+		7095F4E81D33815000C27969 /* PictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCollectionViewCell.h; sourceTree = "<group>"; };
+		7095F4E91D33815000C27969 /* PictureAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureAddCell.m; sourceTree = "<group>"; };
+		7095F4EA1D33815000C27969 /* PictureAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureAddCell.h; sourceTree = "<group>"; };
+		7095F4EE1D33815B00C27969 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		7095F4EF1D33815B00C27969 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		7095F4F01D33815B00C27969 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		7095F4F11D33815B00C27969 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		7095F4F21D33815B00C27969 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		7095F4F31D33815B00C27969 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		7095F4F41D33815B00C27969 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		7095F4F51D33815B00C27969 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		7095F4F61D33815B00C27969 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		7095F4F71D33815B00C27969 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		7095F4F81D33815B00C27969 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		7095F4F91D33815B00C27969 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		7095F4FA1D33815B00C27969 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		7095F4FB1D33815B00C27969 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		7095F4FC1D33815B00C27969 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		7095F5051D33816400C27969 /* radio_btn_onTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_onTwo.png; sourceTree = "<group>"; };
+		7095F5061D33816400C27969 /* radio_btn_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_btn_on@2x.png"; sourceTree = "<group>"; };
+		7095F5071D33816400C27969 /* radio_btn_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_on.png; sourceTree = "<group>"; };
+		7095F5081D33816400C27969 /* radio_btn_offTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_offTwo.png; sourceTree = "<group>"; };
+		7095F5091D33816400C27969 /* radio_btn_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_off.png; sourceTree = "<group>"; };
+		7095F50A1D33816400C27969 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		7095F50B1D33816400C27969 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		7095F50C1D33816400C27969 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		7095F50D1D33816400C27969 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		7095F50E1D33816400C27969 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		7095F50F1D33816400C27969 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		7095F5101D33816400C27969 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		7095F5111D33816400C27969 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		7095F5121D33816400C27969 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		7095F5131D33816400C27969 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		7095F5141D33816400C27969 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		7095F5151D33816400C27969 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		7095F5161D33816400C27969 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		7095F5171D33816400C27969 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		7095F5181D33816400C27969 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		7095F5191D33816400C27969 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		7095F51A1D33816400C27969 /* 添加照片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加照片@3x.png"; sourceTree = "<group>"; };
+		7095F51B1D33816400C27969 /* 添加照片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加照片@2x.png"; sourceTree = "<group>"; };
+		7095F51C1D33816400C27969 /* 添加照片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加照片.png"; sourceTree = "<group>"; };
+		7095F51D1D33816400C27969 /* 添加@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@3x.png"; sourceTree = "<group>"; };
+		7095F51E1D33816400C27969 /* 添加@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@2x.png"; sourceTree = "<group>"; };
+		7095F51F1D33816400C27969 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
+		7095F5321D33877C00C27969 /* SelfInspectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionFootView.h; sourceTree = "<group>"; };
+		7095F5331D33877C00C27969 /* SelfInspectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionFootView.m; sourceTree = "<group>"; };
 		7097A9311D334972006A4265 /* MineChangeEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineChangeEmailViewController.h; sourceTree = "<group>"; };
 		7097A9321D334972006A4265 /* MineChangeEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineChangeEmailViewController.m; sourceTree = "<group>"; };
 		70A9BD141C8686930035B5E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -2204,6 +2284,7 @@
 		70265CA71C858B5A0091C01F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				7095F4B61D33808700C27969 /* ShowPicture */,
 				708B52E61CEAFB400033C479 /* WeixinPay */,
 				708FD5E41CE08693002CDFA8 /* selectCity */,
 				70B4EB5D1CDB374900141E38 /* lame */,
@@ -3080,6 +3161,8 @@
 				700CF0861D240BE7008C9776 /* SelfInspectionFiveTableCell.m */,
 				70EAAA481D2947C20025C6D5 /* HealthListDetailTableCell.h */,
 				70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */,
+				7095F5321D33877C00C27969 /* SelfInspectionFootView.h */,
+				7095F5331D33877C00C27969 /* SelfInspectionFootView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3561,6 +3644,85 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7095F4B61D33808700C27969 /* ShowPicture */ = {
+			isa = PBXGroup;
+			children = (
+				7095F4B91D3380B100C27969 /* PictureCollectionViewController */,
+				7095F4B81D3380A400C27969 /* MJPhotoBrowser */,
+				7095F4B71D33809B00C27969 /* ImagePicker */,
+			);
+			path = ShowPicture;
+			sourceTree = "<group>";
+		};
+		7095F4B71D33809B00C27969 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				7095F5051D33816400C27969 /* radio_btn_onTwo.png */,
+				7095F5061D33816400C27969 /* radio_btn_on@2x.png */,
+				7095F5071D33816400C27969 /* radio_btn_on.png */,
+				7095F5081D33816400C27969 /* radio_btn_offTwo.png */,
+				7095F5091D33816400C27969 /* radio_btn_off.png */,
+				7095F50A1D33816400C27969 /* ELCOverlayImageView.m */,
+				7095F50B1D33816400C27969 /* ELCOverlayImageView.h */,
+				7095F50C1D33816400C27969 /* ELCImagePickerController.m */,
+				7095F50D1D33816400C27969 /* ELCImagePickerController.h */,
+				7095F50E1D33816400C27969 /* ELCConsole.m */,
+				7095F50F1D33816400C27969 /* ELCConsole.h */,
+				7095F5101D33816400C27969 /* ELCAssetTablePicker.m */,
+				7095F5111D33816400C27969 /* ELCAssetTablePicker.h */,
+				7095F5121D33816400C27969 /* ELCAssetSelectionDelegate.h */,
+				7095F5131D33816400C27969 /* ELCAssetPickerFilterDelegate.h */,
+				7095F5141D33816400C27969 /* ELCAssetCell.m */,
+				7095F5151D33816400C27969 /* ELCAssetCell.h */,
+				7095F5161D33816400C27969 /* ELCAsset.m */,
+				7095F5171D33816400C27969 /* ELCAsset.h */,
+				7095F5181D33816400C27969 /* ELCAlbumPickerController.m */,
+				7095F5191D33816400C27969 /* ELCAlbumPickerController.h */,
+				7095F51A1D33816400C27969 /* 添加照片@3x.png */,
+				7095F51B1D33816400C27969 /* 添加照片@2x.png */,
+				7095F51C1D33816400C27969 /* 添加照片.png */,
+				7095F51D1D33816400C27969 /* 添加@3x.png */,
+				7095F51E1D33816400C27969 /* 添加@2x.png */,
+				7095F51F1D33816400C27969 /* 添加.png */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		7095F4B81D3380A400C27969 /* MJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				7095F4EE1D33815B00C27969 /* SDWebImageManager+MJ.m */,
+				7095F4EF1D33815B00C27969 /* SDWebImageManager+MJ.h */,
+				7095F4F01D33815B00C27969 /* MJPhotoView.m */,
+				7095F4F11D33815B00C27969 /* MJPhotoView.h */,
+				7095F4F21D33815B00C27969 /* MJPhotoToolbar.m */,
+				7095F4F31D33815B00C27969 /* MJPhotoToolbar.h */,
+				7095F4F41D33815B00C27969 /* MJPhotoProgressView.m */,
+				7095F4F51D33815B00C27969 /* MJPhotoProgressView.h */,
+				7095F4F61D33815B00C27969 /* MJPhotoLoadingView.m */,
+				7095F4F71D33815B00C27969 /* MJPhotoLoadingView.h */,
+				7095F4F81D33815B00C27969 /* MJPhotoBrowser.m */,
+				7095F4F91D33815B00C27969 /* MJPhotoBrowser.h */,
+				7095F4FA1D33815B00C27969 /* MJPhotoBrowser.bundle */,
+				7095F4FB1D33815B00C27969 /* MJPhoto.m */,
+				7095F4FC1D33815B00C27969 /* MJPhoto.h */,
+			);
+			path = MJPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		7095F4B91D3380B100C27969 /* PictureCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7095F4E51D33815000C27969 /* PictureViewController.m */,
+				7095F4E61D33815000C27969 /* PictureViewController.h */,
+				7095F4E81D33815000C27969 /* PictureCollectionViewCell.h */,
+				7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */,
+				7095F4EA1D33815000C27969 /* PictureAddCell.h */,
+				7095F4E91D33815000C27969 /* PictureAddCell.m */,
+			);
+			path = PictureCollectionViewController;
+			sourceTree = "<group>";
+		};
 		70B429BC1D12891D0036F525 /* Question */ = {
 			isa = PBXGroup;
 			children = (
@@ -3843,6 +4005,7 @@
 				702779BE1D1A7DF70044D024 /* question_inquiry_title_image@2x.png in Resources */,
 				70FEAD911CA45959006A044A /* bg_media_default@2x.jpg in Resources */,
 				70B429DD1D128AFC0036F525 /* tabbar_info_selected_fix.png in Resources */,
+				7095F5241D33816400C27969 /* radio_btn_off.png in Resources */,
 				70924ACA1D2CD7D9001DFE85 /* mine_questionstatus_answered.png in Resources */,
 				708276051D0004930016AE3C /* info_clinic_clinic_title_image@2x.png in Resources */,
 				708275DB1D0001840016AE3C /* info_expert_zhuzhi_image@2x.png in Resources */,
@@ -3879,6 +4042,7 @@
 				70B429AD1D127E520036F525 /* info_jiankangjilu@3x.png in Resources */,
 				70B4EA971CCF553D00141E38 /* info_expert_comment_image_default.png in Resources */,
 				706838081D2987E60007FCBD /* info_health_list_no_image@2x.png in Resources */,
+				7095F52D1D33816400C27969 /* 添加照片@2x.png in Resources */,
 				705EF7EF1CBC947600732886 /* mine_navbar_item_left.png in Resources */,
 				70FD8E851CED80ED00DA22E5 /* info_health_favourite_before.png in Resources */,
 				708275E51D0001840016AE3C /* info_expert_xiangxia_image@2x.png in Resources */,
@@ -3891,6 +4055,7 @@
 				706838071D2987E60007FCBD /* info_health_list_no_image@3x.png in Resources */,
 				706838341D2CAE780007FCBD /* mine_bottom_body_fix@2x.png in Resources */,
 				70C03E0A1CA2926A00DBA175 /* mini_launchFullScreen_btn222@2x.png in Resources */,
+				7095F52F1D33816400C27969 /* 添加@3x.png in Resources */,
 				7068382E1D2CAE780007FCBD /* mine_bottom_expert_fix@2x.png in Resources */,
 				70B429F11D18095E0036F525 /* question_list_right_barbuttonitem@2x.png in Resources */,
 				706838271D2CAE780007FCBD /* mine_bottom_marriage_fix@3x.png in Resources */,
@@ -3950,6 +4115,7 @@
 				706838461D2CB7990007FCBD /* mine_orderstatus_untreated@2x.png in Resources */,
 				702779F51D1BC0FE0044D024 /* question_list_sound_image_red_2.png in Resources */,
 				7082755D1CFC35F90016AE3C /* info_health_comment_before_fix.png in Resources */,
+				7095F5301D33816400C27969 /* 添加@2x.png in Resources */,
 				70C03E001CA2923800DBA175 /* full_play_btn_hl222@2x.png in Resources */,
 				70B429D51D128AFC0036F525 /* tabbar_quesiton_selected@3x.png in Resources */,
 				705EF7ED1CBC947600732886 /* mine_bottom_useful.png in Resources */,
@@ -3957,6 +4123,7 @@
 				702779BB1D1A7DF70044D024 /* question_inquiry_unselected_button@2x.png in Resources */,
 				708275E91D0001840016AE3C /* info_expert_shanchang_image@2x.png in Resources */,
 				70924B0E1D2E727D001DFE85 /* mine_noti_setting_add@2x.png in Resources */,
+				7095F5211D33816400C27969 /* radio_btn_on@2x.png in Resources */,
 				70CBC6D21D227B630095592C /* info_expert_info_money_image1@2x.png in Resources */,
 				70B429AB1D127E520036F525 /* info_tizhiceshi@2x.png in Resources */,
 				708275901CFFF9D00016AE3C /* mine_orderstatus_reserved@3x.png in Resources */,
@@ -4024,6 +4191,7 @@
 				708276151D0010970016AE3C /* info_treatment_shijian_image@2x.png in Resources */,
 				708275341CFC15E50016AE3C /* tabbar_mine_selected@2x.png in Resources */,
 				70CBC6CF1D227B630095592C /* info_expert_info_money_image2@2x.png in Resources */,
+				7095F5311D33816400C27969 /* 添加.png in Resources */,
 				70FD8E841CED80ED00DA22E5 /* info_health_favourite_after.png in Resources */,
 				702779D41D1AAD1D0044D024 /* info_expert_book_image.png in Resources */,
 				70FEAD981CA51F76006A044A /* info_expert_guanzhu_selected.png in Resources */,
@@ -4079,6 +4247,7 @@
 				702779E01D1AFD9E0044D024 /* question_list_sound_image_green_3.png in Resources */,
 				7082751D1CFC14760016AE3C /* navbar_left_item3x.png in Resources */,
 				7046AD531C9869A400BB6818 /* scan_line_image.png in Resources */,
+				7095F52E1D33816400C27969 /* 添加照片.png in Resources */,
 				708275111CFC13A90016AE3C /* cell_health_more_button@3x.png in Resources */,
 				702779C21D1A7DF70044D024 /* question_inquiry_selected_button.png in Resources */,
 				708275A61CFFF9D00016AE3C /* mine_bottom_body@3x.png in Resources */,
@@ -4141,6 +4310,7 @@
 				708275301CFC15E50016AE3C /* tabbar_info_selected@2x.png in Resources */,
 				70EE2C511D31EAE500ADD36B /* mine_wallet_tixian_zhifubao@3x.png in Resources */,
 				70B429F01D18095E0036F525 /* question_list_right_barbuttonitem@3x.png in Resources */,
+				7095F5231D33816400C27969 /* radio_btn_offTwo.png in Resources */,
 				708275A01CFFF9D00016AE3C /* mine_bottom_doctor@3x.png in Resources */,
 				708275E71D0001840016AE3C /* info_expert_xiangshang_image@2x.png in Resources */,
 				702779E51D1AFD9E0044D024 /* question_list_sound_image_green_1@2x.png in Resources */,
@@ -4154,6 +4324,7 @@
 				708275911CFFF9D00016AE3C /* mine_orderstatus_reserved@2x.png in Resources */,
 				7046AC6E1C974C5100BB6818 /* HealthTableCell.xib in Resources */,
 				708274FE1CFB1BFC0016AE3C /* info_expert_xiangshang_image.png in Resources */,
+				7095F52C1D33816400C27969 /* 添加照片@3x.png in Resources */,
 				70CBC6DE1D227D5A0095592C /* info_expert_info_focus_image@2x.png in Resources */,
 				7082758F1CFFF9D00016AE3C /* mine_orderstatus_tobecontinued@2x.png in Resources */,
 				70FEAD9B1CA51F76006A044A /* info_expert_xiangxia_image.png in Resources */,
@@ -4171,6 +4342,7 @@
 				70B429BA1D1283A50036F525 /* info_scan_image@2x.png in Resources */,
 				70CBC6DF1D227D5A0095592C /* info_expert_info_focus_image.png in Resources */,
 				7002D8821CB4AA0F0074426A /* info_treatment_paynow_selected.png in Resources */,
+				7095F5221D33816400C27969 /* radio_btn_on.png in Resources */,
 				7082755C1CFC35F90016AE3C /* info_health_comment_after_fix@3x.png in Resources */,
 				702779E11D1AFD9E0044D024 /* question_list_sound_image_green_2@3x.png in Resources */,
 				705EF7E91CBC947600732886 /* mine_bottom_doctor.png in Resources */,
@@ -4201,6 +4373,7 @@
 				70C03E0E1CA2C22D00DBA175 /* full_play_btn_hl@2x.png in Resources */,
 				702779BD1D1A7DF70044D024 /* question_inquiry_title_image@3x.png in Resources */,
 				7046AD241C97E5D700BB6818 /* guideview1.jpg in Resources */,
+				7095F5201D33816400C27969 /* radio_btn_onTwo.png in Resources */,
 				702779E31D1AFD9E0044D024 /* question_list_sound_image_green_2.png in Resources */,
 				70924AC71D2CD7D9001DFE85 /* mine_questionstatus_public.png in Resources */,
 				708275181CFC14310016AE3C /* navbar_right_item@2x.png in Resources */,
@@ -4265,6 +4438,7 @@
 				7068382D1D2CAE780007FCBD /* mine_bottom_expert_fix@3x.png in Resources */,
 				708275361CFC15E50016AE3C /* tabbar_search_normal@2x.png in Resources */,
 				7002D8711CB3BBBF0074426A /* info_treatment_selected_button.png in Resources */,
+				7095F5031D33815B00C27969 /* MJPhotoBrowser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4411,10 +4585,12 @@
 				70FD8E4D1CEBFCDB00DA22E5 /* FoodTabooTableCell.m in Sources */,
 				70B4EB1F1CD871FC00141E38 /* MRZhongyiTableCell.m in Sources */,
 				700CF05D1D22AB60008C9776 /* HealthTestTableCell.m in Sources */,
+				7095F5281D33816400C27969 /* ELCAssetTablePicker.m in Sources */,
 				70EE2C741D32B48700ADD36B /* BookClinicAddressTableCell.m in Sources */,
 				708FD5F81CE086EE002CDFA8 /* CityTableViewCell.m in Sources */,
 				708274A31CF6F1B80016AE3C /* RecordListViewController.m in Sources */,
 				708B53041CEB28CE0033C479 /* DishFoodTableCell.m in Sources */,
+				7095F4FE1D33815B00C27969 /* MJPhotoView.m in Sources */,
 				707E5B881C9653FA00101B30 /* BaseView.m in Sources */,
 				70EE2C3B1D2F9AF200ADD36B /* MineWalletHeaderView.m in Sources */,
 				708103731CEB9229009BC871 /* HealthFoodInfoViewController.m in Sources */,
@@ -4442,12 +4618,16 @@
 				7046ADA91CA0DE8000BB6818 /* TimeData.m in Sources */,
 				70B4EB371CD872DA00141E38 /* MRYizhuTextTableCell.m in Sources */,
 				7005E3891CC0D188002CA541 /* RecordCheckViewController.m in Sources */,
+				7095F4ED1D33815000C27969 /* PictureAddCell.m in Sources */,
 				70924AFA1D2E3BD9001DFE85 /* MineAccoutSecurityViewController.m in Sources */,
 				708274DF1CF7ECE00016AE3C /* RDZhaopianCollectionCell.m in Sources */,
+				7095F52A1D33816400C27969 /* ELCAsset.m in Sources */,
+				7095F5021D33815B00C27969 /* MJPhotoBrowser.m in Sources */,
 				7029390A1C8D17F3008280E2 /* UIButton+Extension.m in Sources */,
 				70B4EAC31CD2686C00141E38 /* MoreStudioTableCell.m in Sources */,
 				708103531CEB831F009BC871 /* DishFoodData.m in Sources */,
 				707E5BC51C96C04D00101B30 /* PersonData.m in Sources */,
+				7095F4FF1D33815B00C27969 /* MJPhotoToolbar.m in Sources */,
 				70B4EB4E1CDB10F700141E38 /* MRZhaopianCollectionCell.m in Sources */,
 				70924AB21D2CD507001DFE85 /* MineQuestionTableCell.m in Sources */,
 				707E5B911C965F7900101B30 /* BaseTableView.m in Sources */,
@@ -4552,6 +4732,7 @@
 				700CF04E1D229F67008C9776 /* HealthDiseaseHistoryViewController.m in Sources */,
 				70FD8E411CEBFBEC00DA22E5 /* FoodBasicTableCell.m in Sources */,
 				70B4EA851CCCC7E100141E38 /* SNChartBar.m in Sources */,
+				7095F5041D33815B00C27969 /* MJPhoto.m in Sources */,
 				70B4EAE31CD8702500141E38 /* MRXianbingshiTableCell.m in Sources */,
 				70B4EB1C1CD871E000141E38 /* MRMaixiangTableCell.m in Sources */,
 				70FD8E621CEC3DEA00DA22E5 /* DiseaseCauseTableCell.m in Sources */,
@@ -4569,8 +4750,10 @@
 				70B4EB311CD8729700141E38 /* MRFYcishuTableCell.m in Sources */,
 				70A9BD311C87FFDD0035B5E0 /* HudUtil.m in Sources */,
 				708275621CFC52BC0016AE3C /* DiseaseSymptomData.m in Sources */,
+				7095F4FD1D33815B00C27969 /* SDWebImageManager+MJ.m in Sources */,
 				70EAAA4A1D2947C20025C6D5 /* HealthListDetailTableCell.m in Sources */,
 				70FD8E711CEC45B700DA22E5 /* DiseaseHealthData.m in Sources */,
+				7095F5291D33816400C27969 /* ELCAssetCell.m in Sources */,
 				70A9BD2E1C87FFD00035B5E0 /* AlertUtil.m in Sources */,
 				70EE2C471D31E43400ADD36B /* MineWalletTixianTwoViewController.m in Sources */,
 				70A9BD251C87C9D90035B5E0 /* NetworkUtil.m in Sources */,
@@ -4587,8 +4770,10 @@
 				7046AC7C1C97640A00BB6818 /* DiseaseTableCell.m in Sources */,
 				702939891C9273C4008280E2 /* InfoViewController.m in Sources */,
 				702939101C8D184A008280E2 /* UIView+Extension.m in Sources */,
+				7095F4EC1D33815000C27969 /* PictureCollectionViewCell.m in Sources */,
 				70B429FE1D18E1220036F525 /* QuestionInquiryViewController.m in Sources */,
 				70B4EACC1CD26A5F00141E38 /* MorePersonData.m in Sources */,
+				7095F5011D33815B00C27969 /* MJPhotoLoadingView.m in Sources */,
 				70B4EA781CCB725500141E38 /* ResultData.m in Sources */,
 				708274BE1CF7E67F0016AE3C /* RDXiyiTableCell.m in Sources */,
 				70B4EAE91CD8705B00141E38 /* MRShoushushiTableCell.m in Sources */,
@@ -4601,6 +4786,7 @@
 				70B4EB0D1CD8716B00141E38 /* MRHunyuTableCell.m in Sources */,
 				70B4EB251CD8722D00141E38 /* MRZhaopianTableCell.m in Sources */,
 				7046AE441CA1457B00BB6818 /* ExpertDetailTableCell.m in Sources */,
+				7095F5001D33815B00C27969 /* MJPhotoProgressView.m in Sources */,
 				708995741CF3E5F100B40F97 /* MineMessageDetailData.m in Sources */,
 				7046ADD31CA10FEB00BB6818 /* TreatmentDetailViewController.m in Sources */,
 				70B4EAEF1CD8708900141E38 /* MRJiazushiTableCell.m in Sources */,
@@ -4618,6 +4804,7 @@
 				705EF8041CBCA41A00732886 /* MineRecordTableCell.m in Sources */,
 				702939041C8D177C008280E2 /* UITextField+Extension.m in Sources */,
 				70B4EB2B1CD8726500141E38 /* MRFYfangfaTableCell.m in Sources */,
+				7095F5251D33816400C27969 /* ELCOverlayImageView.m in Sources */,
 				70924AE81D2E2A9D001DFE85 /* MineSettingTwoTableCell.m in Sources */,
 				708274B21CF7E5D00016AE3C /* RDTemplateGeneralTableCell.m in Sources */,
 				7046ADCA1CA10F8C00BB6818 /* ClinicInfoViewController.m in Sources */,
@@ -4632,23 +4819,28 @@
 				70926CE91CC4F55B00CB0416 /* CouponData.m in Sources */,
 				70B4EB281CD8724000141E38 /* MRChufangTableCell.m in Sources */,
 				70EE2C4A1D31E54D00ADD36B /* MineWalletTixianTableCell.m in Sources */,
+				7095F5271D33816400C27969 /* ELCConsole.m in Sources */,
 				70B429EC1D17E6AA0036F525 /* QuestionListTableCell.m in Sources */,
 				708B52E21CE9C0900033C479 /* StudioHeadView.m in Sources */,
 				70FEADA01CA53E55006A044A /* ExpertClinicData.m in Sources */,
 				700CF0871D240BE7008C9776 /* SelfInspectionFiveTableCell.m in Sources */,
 				7046ADA61CA0D78300BB6818 /* BannerData.m in Sources */,
+				7095F5261D33816400C27969 /* ELCImagePickerController.m in Sources */,
 				702939741C916D21008280E2 /* GuideViewController.m in Sources */,
 				708B530D1CEB296C0033C479 /* DishExpertTableCell.m in Sources */,
 				70B4EA841CCCC7E100141E38 /* SNChart.m in Sources */,
 				708995711CF3E5DF00B40F97 /* MineMessageData.m in Sources */,
+				7095F52B1D33816400C27969 /* ELCAlbumPickerController.m in Sources */,
 				708274AF1CF710060016AE3C /* RecordListTestTableCell.m in Sources */,
 				7046AD6A1C99C42E00BB6818 /* YJSegmentedControl.m in Sources */,
 				700CF07B1D23C468008C9776 /* SelfInspectionTwoTableCell.m in Sources */,
 				70FD8E911CF02BC900DA22E5 /* ClinicDoctorData.m in Sources */,
+				7095F5341D33877C00C27969 /* SelfInspectionFootView.m in Sources */,
 				708B52ED1CEAFB7D0033C479 /* WXApiManager.m in Sources */,
 				70EE2C411D2F9B3000ADD36B /* MineWalletData.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
 				70EE2C771D32C34400ADD36B /* BookExpertTimeTableCell.m in Sources */,
+				7095F4EB1D33815000C27969 /* PictureViewController.m in Sources */,
 				70EE2C6E1D32AABD00ADD36B /* BookClinicAddressPopView.m in Sources */,
 				70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */,
 			);

@@ -8,10 +8,14 @@
 
 #import "BaseViewController.h"
 #import "SelfInspectionHeaderView.h"
+#import "SelfInspectionFootView.h"
 
 @interface HealthSelfInspectionFixViewController : BaseViewController
 
 @property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)SelfInspectionFootView *selfInspectionFootView;
+@property(nonatomic,strong)UICollectionView *pictureCollectonView;
+@property(nonatomic,strong)NSMutableArray *itemsSectionPictureArray;
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
