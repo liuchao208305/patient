@@ -30,6 +30,12 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
+
 @end
 
 @implementation MineChangePhoneOneViewController
@@ -266,7 +272,11 @@
     if ([self.codeTextField.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
     }else{
-        [self sendCommitCaptchaRequest];
+        if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+            [self sendCommitCaptchaFixRequest];
+        }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+            [self sendCommitCaptchaRequest];
+        }
     }
 }
 
@@ -338,7 +348,7 @@
     
     [parameter setValue:self.codeTextField.text forKey:@"code"];
     
-    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_TWO] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_FOUR] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -363,6 +373,64 @@
             DLog(@"%@",self.message2);
             [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
             if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendCommitCaptchaFixRequest{
+    DLog(@"sendCommitCaptchaFixRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+        [parameter setValue:self.OldPhoneString forKey:@"phone"];
+    }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+        [parameter setValue:self.NewPhoneString forKey:@"phone"];
+    }
+    
+    [parameter setValue:self.codeTextField.text forKey:@"code"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_CHANGE_PHONE_INFORMATION_TWO] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+                MineChangePhoneTwoViewController *changePhoneTwoVC = [[MineChangePhoneTwoViewController alloc] init];
+                changePhoneTwoVC.sourceVC = @"MineChangePhoneOneViewController";
+                [self.navigationController pushViewController:changePhoneTwoVC animated:YES];
+            }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        }else{
+            DLog(@"%ld",(long)self.code3);
+            DLog(@"%@",self.message3);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+            if (self.code3 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
