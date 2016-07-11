@@ -27,6 +27,7 @@
 @property (strong,nonatomic)NSMutableArray *healthListDetailIdArray;
 @property (strong,nonatomic)NSMutableArray *healthListDetailTimeArray;
 @property (strong,nonatomic)NSMutableArray *healthListDetailResultArray;
+@property (strong,nonatomic)NSMutableArray *healthListDetailPhotoArray;
 
 @property (weak,nonatomic)id<HealthListDelegate> healthListDelegate;
 

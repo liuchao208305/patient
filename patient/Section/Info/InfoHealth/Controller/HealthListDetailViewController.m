@@ -17,7 +17,7 @@
 #import "HealthListDetailData.h"
 #import "HealthListDetailTableCell.h"
 
-@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -77,6 +77,7 @@
     self.healthListDetailIdArray = [NSMutableArray array];
     self.healthListDetailTimeArray = [NSMutableArray array];
     self.healthListDetailResultArray = [NSMutableArray array];
+    self.healthListDetailPhotoArray  = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -209,6 +210,14 @@
     cell.chuhanLabel1.text = @"出汗：";
     cell.chuhanLabel2.text = [chuhan isEqualToString:@""] ? @"无" : chuhan;
     cell.zhaopianLabel1.text = @"照片资料：";
+    if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
+        cell.zhaopianLabel2.hidden = NO;
+        cell.zhaopianLabel2.text = @"无";
+    }else{
+        cell.zhaopianLabel2.hidden = YES;
+        
+        
+    }
     
     return cell;
 }
@@ -280,10 +289,12 @@
     [self.healthListDetailIdArray removeAllObjects];
     [self.healthListDetailTimeArray removeAllObjects];
     [self.healthListDetailResultArray removeAllObjects];
+    [self.healthListDetailPhotoArray removeAllObjects];
     for (HealthListDetailData *healthListDetailData in self.healthListDetailArray) {
         [self.healthListDetailIdArray addObject:[NullUtil judgeStringNull:healthListDetailData.q_healthy_id]];
         [self.healthListDetailTimeArray addObject:[NullUtil judgeStringNull:healthListDetailData.create_date]];
         [self.healthListDetailResultArray addObject:[NullUtil judgeStringNull:healthListDetailData.results]];
+        [self.healthListDetailPhotoArray addObject:[NullUtil judgeStringNull:healthListDetailData.photos]];
     }
     
     [self.tableView reloadData];
