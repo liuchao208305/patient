@@ -219,6 +219,9 @@
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
+            }else if (self.code == 4){
+                [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }
         
