@@ -13,6 +13,7 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
+#import "ImageUtil.h"
 #import "LoginViewController.h"
 #import "SelfInspectionOneTableCell.h"
 #import "SelfInspectionTwoTableCell.h"
@@ -35,6 +36,12 @@
 @property (strong,nonatomic)NSString *message;
 @property (strong,nonatomic)NSMutableDictionary *data;
 @property (assign,nonatomic)NSError *error;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSString *data2;
+@property (assign,nonatomic)NSError *error2;
 
 @property (assign,nonatomic)BOOL shuimianHideFlag;
 @property (assign,nonatomic)BOOL yinshiHideFlag;
@@ -2258,7 +2265,10 @@
             if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
                 if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
                     UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
-                    [images addObject:image];
+                    UIImage *newImage = [ImageUtil imageWithImageSimpleBySize:image scaledToSize:CGSizeMake(100, 100)];
+                    [images addObject:newImage];
+                    
+                    [self sendImageViewRequest:images];
                 } else {
                     NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
                 }
@@ -2308,6 +2318,7 @@
     
     
     [self.itemsSectionPictureArray addObject:image];
+    
     __weak HealthSelfInspectionViewController *wself = self;
     
     [picker dismissViewControllerAnimated:YES completion:^{
@@ -2338,6 +2349,46 @@
 }
 
 #pragma mark Network Request
+-(void)sendImageViewRequest:(NSMutableArray *)imageArray{
+    DLog(@"sendImageViewRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = @"图片上传中...";
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    
+    [[NetworkUtil sharedInstance] upImageWithParameter:parameter imageArray:imageArray url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_FILE_UPLOAD] successBlock:^(NSURLSessionDataTask *task, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"图片上传成功！" withDelaySeconds:kHud_DelayTime];
+        }else{
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+    } failureBlock:^(NSURLSessionDataTask *task, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
 -(void)sendSelfInspetionConfirmRequest{
     DLog(@"sendSelfInspetionConfirmRequest");
     
@@ -2348,6 +2399,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    
     [parameter setValue:self.symptomString forKey:@"a_val"];
     [parameter setValue:self.shuimianHideFlag == YES? @"1" : @"2" forKey:@"b_status"];
     [parameter setValue:self.shuimianGroupString forKey:@"b_val"];
@@ -2377,7 +2429,7 @@
     [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
     [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
     
-//    [parameter setValue:self.zhaopianGroupString forKey:@"photos"];
+    [parameter setValue:self.data2 forKey:@"photos"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_SELF_INSPECTION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);

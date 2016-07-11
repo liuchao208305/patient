@@ -858,7 +858,7 @@
         self.data3 = [self.result3 objectForKey:@"data"];
         
         if (self.code3 == kSUCCESS) {
-            [self sendMineInfoRequest];
+            [self sendMineInfoFixRequest];
         }else{
             DLog(@"%@",self.message3);
             if (self.code3 == kTOKENINVALID) {
