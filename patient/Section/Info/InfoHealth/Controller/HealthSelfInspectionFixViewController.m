@@ -2978,7 +2978,7 @@
             
             return;
         }
-        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从手机选择",@"精美配图", @"拍照", nil];
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从手机选择", @"拍照", nil];
         sheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [sheet showInView:self.view];
     }else
@@ -3071,11 +3071,13 @@
         //    elcPicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;//过渡特效
         [self presentViewController:elcPicker animated:YES completion:nil];
         
-    }else if (buttonIndex == 1)
-    {
-        NSLog(@"点击了精美配图");
-        
-    }else if (buttonIndex == 2)
+    }
+//    else if (buttonIndex == 1)
+//    {
+//        NSLog(@"点击了精美配图");
+//        
+//    }
+    else if (buttonIndex == 1)
     {
         NSLog(@"点击了拍照");
         
