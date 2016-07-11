@@ -403,14 +403,28 @@
             cell.zhaopianLabel1.text = @"照片资料：";
             cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         }else{
+            cell.shuimianLabel1.hidden = YES;
             cell.shuimianLineView.hidden = YES;
+            cell.yinshiLabel1.hidden = YES;
             cell.yinshiLineView.hidden = YES;
+            cell.yinshuiLabel1.hidden = YES;
             cell.yinshuiLineView.hidden = YES;
+            cell.dabianLabel1.hidden = YES;
             cell.dabianLineView.hidden = YES;
+            cell.xiaobianLabel1.hidden = YES;
             cell.xiaobianLineView.hidden = YES;
+            cell.hanreLabel1.hidden = YES;
             cell.hanreLineView.hidden = YES;
+            cell.tiwenLabel1.hidden = YES;
             cell.tiwenLineView.hidden = YES;
+            cell.chuhanLabel1.hidden = YES;
             cell.chuhanLineView.hidden = YES;
+            cell.zhaopianLabel1.hidden = YES;
+            cell.zhaopianLabel2.hidden = YES;
+            
+            cell.noImageView.hidden = NO;
+            cell.noLabel.hidden = NO;
+            cell.noButton.hidden = NO;
             [cell.noButton addTarget:self action:@selector(addHealthButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         }
         
