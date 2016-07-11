@@ -534,7 +534,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendWeiboLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendWeiboLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -545,7 +545,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@,openid-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL,snsAccount.openId);
-            [self sendTencentLoginRequest:snsAccount.accessToken name:snsAccount.userName image:snsAccount.iconURL];
+            [self sendTencentLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
         }
     });
 }
@@ -580,7 +580,7 @@
     }];
 }
 
--(void)sendTencentLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
+-(void)sendTencentLoginRequest:(NSString *)uniqueId name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendTencentLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -588,7 +588,7 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:uniqueId forKey:@"code"];
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Tencent" forKey:@"source"];
@@ -627,7 +627,7 @@
     }];
 }
 
--(void)sendWeixinLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
+-(void)sendWeixinLoginRequest:(NSString *)uniqueId name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendWeixinLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -635,7 +635,7 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:uniqueId forKey:@"code"];
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weixin" forKey:@"source"];
@@ -674,7 +674,7 @@
     }];
 }
 
--(void)sendWeiboLoginRequest:(NSString *)accessToken name:(NSString *)userName image:(NSString *)iconURL{
+-(void)sendWeiboLoginRequest:(NSString *)uniqueId name:(NSString *)userName image:(NSString *)iconURL{
     DLog(@"sendWeiboLoginRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -682,7 +682,7 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:accessToken forKey:@"code"];
+    [parameter setValue:uniqueId forKey:@"code"];
     [parameter setValue:userName forKey:@"name"];
     [parameter setValue:iconURL forKey:@"head_url"];
     [parameter setValue:@"Weibo" forKey:@"source"];
