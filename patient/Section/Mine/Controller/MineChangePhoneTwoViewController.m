@@ -15,6 +15,7 @@
 #import "AdaptionUtil.h"
 #import "LoginViewController.h"
 #import "MineChangePhoneOneViewController.h"
+#import "MineAccoutSecurityViewController.h"
 
 @interface MineChangePhoneTwoViewController ()
 
@@ -82,6 +83,11 @@
 -(void)initNavBar{
     self.title = @"新手机号码";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    if ([self.sourceVC isEqualToString:@"MineAccoutSecurityViewController"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"< 返回" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    }
 }
 
 -(void)initTabBar{
@@ -150,6 +156,11 @@
 #pragma mark Target Action
 - (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
     [self.phoneTextField resignFirstResponder];
+}
+
+-(void)backButtonClicked{
+    DLog(@"backButtonClicked");
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)commitButtonClicked{

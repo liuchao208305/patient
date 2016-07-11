@@ -10,6 +10,8 @@
 
 @interface MineChangePhoneTwoViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)UIScrollView *scrollView;
 
 @property (strong,nonatomic)UITextField *phoneTextField;

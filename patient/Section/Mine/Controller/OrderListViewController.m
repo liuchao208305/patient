@@ -513,10 +513,10 @@
 #pragma mark Target Action
 -(void)backButtonClicked{
     DLog(@"backButtonClicked");
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
-    MineViewController *mineVC = [[MineViewController alloc] init];
-    [self.navigationController popToViewController:mineVC animated:YES];
+//    MineViewController *mineVC = [[MineViewController alloc] init];
+//    [self.navigationController popToViewController:mineVC animated:YES];
 }
 
 -(void)allButtonClicked:(UIButton *)sender{

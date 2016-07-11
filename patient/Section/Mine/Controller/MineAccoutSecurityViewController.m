@@ -20,6 +20,7 @@
 #import "MineSettingTwoTableCell.h"
 #import "CustomAlert.h"
 #import "MineChangePhoneOneViewController.h"
+#import "MineChangePhoneTwoViewController.h"
 
 @interface MineAccoutSecurityViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -201,9 +202,23 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             if ([self.phoneString isEqualToString:@""]) {
-                [AlertUtil showSimpleAlertWithTitle:nil message:@"请先进行第三方平台认证！"];
+                if ([self.tencentString isEqualToString:@""] && [self.weixinString isEqualToString:@""] && [self.weiboString isEqualToString:@""]) {
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"请先进行第三方平台认证！"];
+                }else{
+                    MineChangePhoneTwoViewController *changePhoneTwoVC = [[MineChangePhoneTwoViewController alloc] init];
+                    changePhoneTwoVC.sourceVC = @"MineAccoutSecurityViewController";
+                    [self.navigationController pushViewController:changePhoneTwoVC animated:YES];
+                }
             }else{
-                [self sendChangePhoneRequest];
+//                [self sendChangePhoneRequest];
+                NSString *msg = [NSString stringWithFormat:@"%@\n来完成手机号更换",self.phoneString];
+                CustomAlert *alert = [[CustomAlert alloc] initWithTitle:@"将发送验证码至您的手机" withMsg:msg withCancel:@"确定" withSure:@"取消"];
+                [alert alertViewShow];
+                alert.alertViewBlock = ^(NSInteger index) {
+                    if (index == 1) {
+                        [self sendGetCaptchaRequest];
+                    }
+                };
             }
         }else if (indexPath.row == 1){
             

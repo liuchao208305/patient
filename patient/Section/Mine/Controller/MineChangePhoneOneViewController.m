@@ -352,6 +352,7 @@
         if (self.code2 == kSUCCESS) {
             if ([self.soureVC isEqualToString:@"MineAccoutSecurityViewController"]) {
                 MineChangePhoneTwoViewController *changePhoneTwoVC = [[MineChangePhoneTwoViewController alloc] init];
+                changePhoneTwoVC.sourceVC = @"MineChangePhoneOneViewController";
                 [self.navigationController pushViewController:changePhoneTwoVC animated:YES];
             }else if ([self.soureVC isEqualToString:@"MineChangePhoneTwoViewController"]){
                 [self.navigationController popToRootViewControllerAnimated:YES];
