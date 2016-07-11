@@ -17,7 +17,7 @@
 #import "HealthListDetailData.h"
 #import "HealthListDetailTableCell.h"
 
-@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
