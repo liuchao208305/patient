@@ -7,19 +7,25 @@
 //
 
 #import "HealthListDetailTableCell.h"
+#import "MRZhaopianCollectionCell.h"
+#import "xPhotoViewController.h"
+
+@interface HealthListDetailTableCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@end
 
 @implementation HealthListDetailTableCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self initView];
+//        [self initView];
     }
     return self;
 }
 
 #pragma mark Init Section
--(void)initView{
+-(void)initViewWithPhotoArray:(NSMutableArray *)photoArray{
     self.shuimianLabel1 = [[UILabel alloc] init];
     self.shuimianLabel1.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.shuimianLabel1];
@@ -318,6 +324,65 @@
         make.leading.equalTo(self.zhaopianLabel1.mas_trailing).offset(10);
         make.centerY.equalTo(self.zhaopianLabel1).offset(0);
     }];
+    
+    self.photoArray = photoArray;
+    
+    if (self.photoArray.count > 0) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 5;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        CGFloat height = 0;
+        if (self.photoArray.count<=3) {
+            height= SCREEN_WIDTH/3;
+        } else if (self.photoArray.count <=6) {
+            height= SCREEN_WIDTH/3*2;
+        } else if (self.photoArray.count <=9) {
+            height= SCREEN_WIDTH/3*3;
+        } else {
+            height= SCREEN_WIDTH/3*3;
+        }
+        
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,450, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.scrollEnabled = NO;
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:collectionView];
+        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+    }
 }
+
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (self.photoArray.count>0){
+        if (self.photoArray.count>9){
+            return 9;
+        }else{
+            return self.photoArray.count;
+        }
+    }else{
+        return 0;
+    }
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    MRZhaopianCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MRZhaopianCollectionCell" forIndexPath:indexPath];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photoArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    
+    return cell;
+}
+
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    xPhotoViewController *photoViewController = [[xPhotoViewController alloc] init];
+//    photoViewController.index = indexPath.row;
+//    photoViewController.photoPaths = self.photoArray;
+//    
+//    [self.navigationController pushViewController:photoViewController animated:YES];
+//}
+
+
 
 @end

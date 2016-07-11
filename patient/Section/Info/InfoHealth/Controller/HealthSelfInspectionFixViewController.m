@@ -3297,7 +3297,7 @@
     [parameter setValue:self.chuhanHideFlag == YES? @"1" : @"2" forKey:@"x_status"];
     [parameter setValue:self.chuhanGroupString forKey:@"x_val"];
     
-    [parameter setValue:self.zhaopianGroupString forKey:@"photos"];
+    [parameter setValue:self.data2 forKey:@"photos"];
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_SELF_INSPECTION_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
         DLog(@"responseObject-->%@",responseObject);

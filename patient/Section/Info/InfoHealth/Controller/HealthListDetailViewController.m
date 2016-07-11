@@ -124,7 +124,23 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 450;
+//    return 450;
+    if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
+        return 450;
+    }else{
+        NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
+        CGFloat height = 0;
+        if (zhaopianArray.count<=3) {
+            height= SCREEN_WIDTH/3;
+        } else if (zhaopianArray.count <=6) {
+            height= SCREEN_WIDTH/3*2;
+        } else if (zhaopianArray.count <=9) {
+            height= SCREEN_WIDTH/3*3;
+        } else {
+            height= SCREEN_WIDTH/3*3;
+        }
+        return 460+height;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -142,11 +158,15 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"HealthListDetailTableCell";
-    HealthListDetailTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-    if (!cell) {
-        cell = [[HealthListDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-    }
+//    static NSString *cellName = @"HealthListDetailTableCell";
+//    HealthListDetailTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+//    if (!cell) {
+//        cell = [[HealthListDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+//    }
+    
+    NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
+    HealthListDetailTableCell *cell = [[HealthListDetailTableCell alloc] init];
+    [cell initViewWithPhotoArray:zhaopianArray];
     
     NSString *shuimian = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]];
     NSString *yinshi = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"c_val"]];
@@ -215,8 +235,6 @@
         cell.zhaopianLabel2.text = @"无";
     }else{
         cell.zhaopianLabel2.hidden = YES;
-        
-        
     }
     
     return cell;

@@ -41,4 +41,7 @@
 @property (strong,nonatomic)UILabel *zhaopianLabel1;
 @property (strong,nonatomic)UILabel *zhaopianLabel2;
 
+@property (strong,nonatomic)NSMutableArray *photoArray;
+-(void)initViewWithPhotoArray:(NSMutableArray *)photoArray;
+
 @end
