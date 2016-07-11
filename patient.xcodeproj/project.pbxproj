@@ -549,7 +549,6 @@
 		70926D951CC7329100CB0416 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D941CC7329100CB0416 /* QuartzCore.framework */; };
 		70926D971CC7329C00CB0416 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D961CC7329C00CB0416 /* CoreText.framework */; };
 		70926D991CC732D700CB0416 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70926D981CC732D700CB0416 /* CoreMotion.framework */; };
-		7095F4EB1D33815000C27969 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E51D33815000C27969 /* PictureViewController.m */; };
 		7095F4EC1D33815000C27969 /* PictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */; };
 		7095F4ED1D33815000C27969 /* PictureAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4E91D33815000C27969 /* PictureAddCell.m */; };
 		7095F4FD1D33815B00C27969 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 7095F4EE1D33815B00C27969 /* SDWebImageManager+MJ.m */; };
@@ -1567,8 +1566,6 @@
 		70926D941CC7329100CB0416 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		70926D961CC7329C00CB0416 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		70926D981CC732D700CB0416 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		7095F4E51D33815000C27969 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
-		7095F4E61D33815000C27969 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCollectionViewCell.m; sourceTree = "<group>"; };
 		7095F4E81D33815000C27969 /* PictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCollectionViewCell.h; sourceTree = "<group>"; };
 		7095F4E91D33815000C27969 /* PictureAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureAddCell.m; sourceTree = "<group>"; };
@@ -3713,8 +3710,6 @@
 		7095F4B91D3380B100C27969 /* PictureCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7095F4E51D33815000C27969 /* PictureViewController.m */,
-				7095F4E61D33815000C27969 /* PictureViewController.h */,
 				7095F4E81D33815000C27969 /* PictureCollectionViewCell.h */,
 				7095F4E71D33815000C27969 /* PictureCollectionViewCell.m */,
 				7095F4EA1D33815000C27969 /* PictureAddCell.h */,
@@ -4840,7 +4835,6 @@
 				70EE2C411D2F9B3000ADD36B /* MineWalletData.m in Sources */,
 				70C03DFD1CA2920E00DBA175 /* FullView.m in Sources */,
 				70EE2C771D32C34400ADD36B /* BookExpertTimeTableCell.m in Sources */,
-				7095F4EB1D33815000C27969 /* PictureViewController.m in Sources */,
 				70EE2C6E1D32AABD00ADD36B /* BookClinicAddressPopView.m in Sources */,
 				70B4EAFE1CD870F600141E38 /* MRXiaobianTableCell.m in Sources */,
 			);
