@@ -118,6 +118,7 @@ typedef enum {
 #define kJZK_ACCOUNT_SECURITY_INFORMATION @"private/v2/safe/toSafe?"//账户安全信息获取接口
 #define kJZK_CHANGE_PHONE_INFORMATION_ONE @"private/v2/user/getPhoneCode?"//绑定手机号接口1
 #define kJZK_CHANGE_PHONE_INFORMATION_TWO @"private/v2/user/updateBindingPhone?"//绑定手机号接口2
+#define kJZK_CHANGE_EMAIL_INFORMATION @"private/v2/user/updateUserEmail?"//修改绑定邮箱接口
 #define kJZK_THIRD_AUTHORIZATION @"private/v2/auth/binding?"//第三方授权接口
 
 #define kJZK_MINE_INFORMATION @"private/v1/user/selUserInfo?"//个人中心信息
