@@ -1060,7 +1060,7 @@
         cell.label4.hidden = YES;
     }else if (indexPath.row == 1){
         cell.titleLabel.hidden = YES;
-        cell.backgroundColor = ColorWithHexRGB(0x909090);
+        cell.backgroundColor = ColorWithHexRGB(0xf5f5f5);
         cell.label1.text = @"药名";
         cell.label2.text = @"剂量";
         cell.label3.text = @"规格";
