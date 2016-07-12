@@ -18,7 +18,10 @@
 #import "StringUtil.h"
 #import "LoginViewController.h"
 
-@interface OrderListDetailViewController ()
+#import "MRZhaopianCollectionCell.h"
+#import "xPhotoViewController.h"
+
+@interface OrderListDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -93,11 +96,11 @@
 @property (strong,nonatomic)NSString *sezhiString;
 @property (strong,nonatomic)NSString *painiaoganStatus;
 @property (strong,nonatomic)NSString *painiaoganString;
-
 @property (strong,nonatomic)NSString *hanre;
 @property (strong,nonatomic)NSString *tiwen;
 @property (strong,nonatomic)NSString *chuhan;
 @property (strong,nonatomic)NSString *healthPhotoString;
+@property (strong,nonatomic)NSMutableArray *photoArray;
 
 @property (strong,nonatomic)NSString *bianzhengString;
 @property (strong,nonatomic)NSString *bianbingString;
@@ -124,7 +127,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+//    [self initView];
     [self initRecognizer];
 }
 
@@ -156,7 +159,7 @@
 
 #pragma mark Lazy Loading
 -(void)lazyLoading{
-    
+    self.photoArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -657,6 +660,33 @@
     self.zhaopianLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.patientBackView3 addSubview:self.zhaopianLabel2];
     
+    if (self.photoArray.count > 0) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 5;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        CGFloat height = 0;
+        if (self.photoArray.count<=3) {
+            height= SCREEN_WIDTH/3;
+        } else if (self.photoArray.count <=6) {
+            height= SCREEN_WIDTH/3*2;
+        } else if (self.photoArray.count <=9) {
+            height= SCREEN_WIDTH/3*3;
+        } else {
+            height= SCREEN_WIDTH/3*3;
+        }
+        
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,480, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.scrollEnabled = NO;
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [self.patientBackView3 addSubview:collectionView];
+        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+    }
+    
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.patientBackView3).offset(12);
         make.top.equalTo(self.patientBackView3).offset(15);
@@ -853,6 +883,34 @@
     DLog(@"scrollViewClicked");
 }
 
+#pragma mark UICollectionViewDelegate
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (self.photoArray.count>0){
+        if (self.photoArray.count>9){
+            return 9;
+        }else{
+            return self.photoArray.count;
+        }
+    }else{
+        return 0;
+    }
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    MRZhaopianCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MRZhaopianCollectionCell" forIndexPath:indexPath];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photoArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    xPhotoViewController *photoViewController = [[xPhotoViewController alloc] init];
+    photoViewController.index = indexPath.row;
+    photoViewController.photoPaths = self.photoArray;
+    
+    [self.navigationController pushViewController:photoViewController animated:YES];
+}
+
 #pragma mark Network Request
 -(void)sendOrderDetailRequest{
     DLog(@"sendOrderDetailRequest");
@@ -959,6 +1017,7 @@
         self.chuhan = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_val"]];
     }
     self.healthPhotoString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"healthyPhotos"]];
+    self.photoArray = [NSMutableArray arrayWithArray:[self.healthPhotoString componentsSeparatedByString:@","]];
     
     self.bianzhengString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"dialec"]];
     self.bianbingString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"disease"]];
@@ -968,6 +1027,8 @@
     self.fuyaofangfa = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication"]];
     self.fuyaoshijian = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication_date"]];
     self.fuyaocishu = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medicationC"]];
+    
+    [self initView];
     
     [self orderDetailDataFilling];
 }
