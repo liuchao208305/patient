@@ -97,7 +97,7 @@
 @property (strong,nonatomic)UILabel *maixiangLabel1;
 @property (strong,nonatomic)UILabel *maixiangLabel2;
 
-@property (strong,nonatomic)UIView *prescriptionBackView;
+@property (strong,nonatomic)UITableView *prescriptionTableView;
 
 @property (strong,nonatomic)UIView *medicineBackView;
 @property (strong,nonatomic)UILabel *medicineTitleLabel;

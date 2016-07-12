@@ -23,7 +23,7 @@
 #import "MRChufangTableCell.h"
 #import "MRChufangData.h"
 
-@interface OrderListDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface OrderListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -219,12 +219,14 @@
     [self initDiagnoseSubView];
     [self.scrollView addSubview:self.diagnoseBackView];
     
-    self.prescriptionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 100)];
-    self.prescriptionBackView.backgroundColor = kWHITE_COLOR;
-    [self initPrescriptionSubView];
-    [self.scrollView addSubview:self.prescriptionBackView];
+    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+    self.prescriptionTableView.delegate = self;
+    self.prescriptionTableView.dataSource = self;
+    self.prescriptionTableView.showsVerticalScrollIndicator = YES;
+    self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.scrollView addSubview:self.prescriptionTableView];
     
-    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+100+10, SCREEN_WIDTH, 145)];
+    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
     self.medicineBackView.backgroundColor = kWHITE_COLOR;
     [self initMedicineSubView];
     [self.scrollView addSubview:self.medicineBackView];
@@ -956,10 +958,6 @@
     }];
 }
 
--(void)initPrescriptionSubView{
-    
-}
-
 -(void)initMedicineSubView{
     self.medicineTitleLabel = [[UILabel alloc] init];
     self.medicineTitleLabel.textColor = ColorWithHexRGB(0x909090);
@@ -1036,6 +1034,50 @@
 #pragma mark Target Action
 - (void)scrollViewClicked:(UITapGestureRecognizer *)tap{
     DLog(@"scrollViewClicked");
+}
+
+#pragma mark UITableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.chufangArray.count == 0 ? 2: self.chufangArray.count+2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellName = @"MRChufangTableCell";
+    MRChufangTableCell *cell = [self.prescriptionTableView dequeueReusableCellWithIdentifier:cellName];
+    if (!cell) {
+        cell = [[MRChufangTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+    }
+    
+    if (indexPath.row == 0) {
+        cell.titleLabel.text = @"建议处方";
+        cell.label1.hidden = YES;
+        cell.label2.hidden = YES;
+        cell.label3.hidden = YES;
+        cell.label4.hidden = YES;
+    }else if (indexPath.row == 1){
+        cell.titleLabel.hidden = YES;
+        cell.backgroundColor = ColorWithHexRGB(0x909090);
+        cell.label1.text = @"药名";
+        cell.label2.text = @"剂量";
+        cell.label3.text = @"规格";
+        cell.label4.text = @"用法";
+    }else{
+        for (int i = 2; i<self.chufangArray.count+2; i++) {
+            if (indexPath.row == i){
+                cell.titleLabel.hidden = YES;
+                cell.label1.text = self.chufangNameArray[indexPath.row-2];
+                cell.label2.text = self.chufangQuantityArray[indexPath.row-2];
+                cell.label3.text = self.chufangUnitArray[indexPath.row-2];
+                cell.label4.text = self.chufangUsageArray[indexPath.row-2];
+            }
+        }
+    }
+    
+    return cell;
 }
 
 #pragma mark UICollectionViewDelegate
