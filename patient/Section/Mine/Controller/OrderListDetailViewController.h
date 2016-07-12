@@ -108,4 +108,11 @@
 @property (strong,nonatomic)UILabel *fuyaocishuLabel1;
 @property (strong,nonatomic)UILabel *fuyaocishuLabel2;
 
+@property (strong,nonatomic)NSMutableArray *chufangArray;
+@property (strong,nonatomic)NSMutableArray *chufangIdArray;
+@property (strong,nonatomic)NSMutableArray *chufangNameArray;
+@property (strong,nonatomic)NSMutableArray *chufangQuantityArray;
+@property (strong,nonatomic)NSMutableArray *chufangUnitArray;
+@property (strong,nonatomic)NSMutableArray *chufangUsageArray;
+
 @end

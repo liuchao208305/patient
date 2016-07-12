@@ -20,6 +20,8 @@
 
 #import "MRZhaopianCollectionCell.h"
 #import "xPhotoViewController.h"
+#import "MRChufangTableCell.h"
+#import "MRChufangData.h"
 
 @interface OrderListDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -160,6 +162,13 @@
 #pragma mark Lazy Loading
 -(void)lazyLoading{
     self.photoArray = [NSMutableArray array];
+    
+    self.chufangArray = [NSMutableArray array];
+    self.chufangIdArray = [NSMutableArray array];
+    self.chufangNameArray = [NSMutableArray array];
+    self.chufangQuantityArray = [NSMutableArray array];
+    self.chufangUnitArray = [NSMutableArray array];
+    self.chufangUsageArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -1170,6 +1179,22 @@
     self.bianbingString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"disease"]];
     self.shexiangString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"tongue"]];
     self.maixiangString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"pulse"]];
+    
+    if (![[self.data1 objectForKey:@"details"] isKindOfClass:[NSNull class]]){
+        self.chufangArray = [MRChufangData mj_objectArrayWithKeyValuesArray:[self.data1 objectForKey:@"details"]];
+        [self.chufangIdArray removeAllObjects];
+        [self.chufangNameArray removeAllObjects];
+        [self.chufangQuantityArray removeAllObjects];
+        [self.chufangUnitArray removeAllObjects];
+        [self.chufangUsageArray removeAllObjects];
+        for (MRChufangData *chufangData in self.chufangArray) {
+            [self.chufangIdArray addObject:chufangData.detail_id];
+            [self.chufangNameArray addObject:chufangData.storage_id];
+            [self.chufangQuantityArray addObject:chufangData.dose];
+            [self.chufangUnitArray addObject:chufangData.unit];
+            [self.chufangUsageArray addObject:chufangData.uses];
+        }
+    }
     
     self.fuyaofangfa = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication"]];
     self.fuyaoshijian = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication_date"]];
