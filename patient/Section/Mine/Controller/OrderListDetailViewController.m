@@ -218,7 +218,7 @@
     
     self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+100+10, SCREEN_WIDTH, 145)];
     self.medicineBackView.backgroundColor = kWHITE_COLOR;
-    [self medicineBackView];
+    [self initMedicineSubView];
     [self.scrollView addSubview:self.medicineBackView];
 }
 
@@ -519,7 +519,7 @@
         make.leading.equalTo(self.patientBackView2).offset(0);
         make.trailing.equalTo(self.patientBackView2).offset(0);
         make.top.equalTo(self.patientTestLabel.mas_bottom).offset(15);
-        make.width.mas_equalTo(1);
+        make.height.mas_equalTo(1);
     }];
 }
 
@@ -862,7 +862,90 @@
 }
 
 -(void)initDiagnoseSubView{
+    self.diagnoseTitleLabel = [[UILabel alloc] init];
+    self.diagnoseTitleLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.diagnoseBackView addSubview:self.diagnoseTitleLabel];
     
+    self.bianzhengLabel1 = [[UILabel alloc] init];
+    self.bianzhengLabel1.font = [UIFont systemFontOfSize:14];
+    [self.diagnoseBackView addSubview:self.bianzhengLabel1];
+    
+    self.bianzhengLabel2 = [[UILabel alloc] init];
+    self.bianzhengLabel2.font = [UIFont systemFontOfSize:14];
+    self.bianzhengLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.diagnoseBackView addSubview:self.bianzhengLabel2];
+    
+    self.bianbingLabel1 = [[UILabel alloc] init];
+    self.bianbingLabel1.font = [UIFont systemFontOfSize:14];
+    [self.diagnoseBackView addSubview:self.bianbingLabel1];
+    
+    self.bianbingLabel2 = [[UILabel alloc] init];
+    self.bianbingLabel2.font = [UIFont systemFontOfSize:14];
+    self.bianbingLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.diagnoseBackView addSubview:self.bianbingLabel2];
+    
+    self.shexiangLabel1 = [[UILabel alloc] init];
+    self.shexiangLabel1.font = [UIFont systemFontOfSize:14];
+    [self.diagnoseBackView addSubview:self.shexiangLabel1];
+    
+    self.shexiangLabel2 = [[UILabel alloc] init];
+    self.shexiangLabel2.font = [UIFont systemFontOfSize:14];
+    self.shexiangLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.diagnoseBackView addSubview:self.shexiangLabel2];
+    
+    self.maixiangLabel1 = [[UILabel alloc] init];
+    self.maixiangLabel1.font = [UIFont systemFontOfSize:14];
+    [self.diagnoseBackView addSubview:self.maixiangLabel1];
+    
+    self.maixiangLabel2 = [[UILabel alloc] init];
+    self.maixiangLabel2.font = [UIFont systemFontOfSize:14];
+    self.maixiangLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.diagnoseBackView addSubview:self.maixiangLabel2];
+    
+    [self.diagnoseTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diagnoseBackView).offset(12);
+        make.top.equalTo(self.diagnoseBackView).offset(10);
+    }];
+    
+    [self.bianzhengLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diagnoseBackView).offset(12);
+        make.top.equalTo(self.diagnoseTitleLabel.mas_bottom).offset(10);
+    }];
+    
+    [self.bianzhengLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.bianzhengLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.bianzhengLabel1).offset(0);
+    }];
+    
+    [self.bianbingLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diagnoseBackView).offset(12);
+        make.top.equalTo(self.bianzhengLabel1.mas_bottom).offset(8);
+    }];
+    
+    [self.bianbingLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.bianbingLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.bianbingLabel1).offset(0);
+    }];
+    
+    [self.shexiangLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diagnoseBackView).offset(12);
+        make.top.equalTo(self.bianbingLabel1.mas_bottom).offset(8);
+    }];
+    
+    [self.shexiangLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.shexiangLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.shexiangLabel1).offset(0);
+    }];
+    
+    [self.maixiangLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.diagnoseBackView).offset(12);
+        make.top.equalTo(self.shexiangLabel1.mas_bottom).offset(8);
+    }];
+    
+    [self.maixiangLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.maixiangLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.maixiangLabel1).offset(0);
+    }];
 }
 
 -(void)initPrescriptionSubView{
@@ -870,7 +953,71 @@
 }
 
 -(void)initMedicineSubView{
+    self.medicineTitleLabel = [[UILabel alloc] init];
+    self.medicineTitleLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.medicineBackView addSubview:self.medicineTitleLabel];
     
+    self.fuyaofangfaLabel1 = [[UILabel alloc] init];
+    self.fuyaofangfaLabel1.font = [UIFont systemFontOfSize:14];
+    [self.medicineBackView addSubview:self.fuyaofangfaLabel1];
+    
+    self.fuyaofangfaLabel2 = [[UILabel alloc] init];
+    self.fuyaofangfaLabel2.font = [UIFont systemFontOfSize:14];
+    self.fuyaofangfaLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.medicineBackView addSubview:self.fuyaofangfaLabel2];
+    
+    self.fuyaoshijianLabel1 = [[UILabel alloc] init];
+    self.fuyaoshijianLabel1.font = [UIFont systemFontOfSize:14];
+    [self.medicineBackView addSubview:self.fuyaoshijianLabel1];
+    
+    self.fuyaoshijianLabel2 = [[UILabel alloc] init];
+    self.fuyaoshijianLabel2.font = [UIFont systemFontOfSize:14];
+    self.fuyaoshijianLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.medicineBackView addSubview:self.fuyaoshijianLabel2];
+    
+    self.fuyaocishuLabel1 = [[UILabel alloc] init];
+    self.fuyaocishuLabel1.font = [UIFont systemFontOfSize:14];
+    [self.medicineBackView addSubview:self.fuyaocishuLabel1];
+    
+    self.fuyaocishuLabel2 = [[UILabel alloc] init];
+    self.fuyaocishuLabel2.font = [UIFont systemFontOfSize:14];
+    self.fuyaocishuLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.medicineBackView addSubview:self.fuyaocishuLabel2];
+    
+    [self.medicineTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.medicineBackView).offset(12);
+        make.top.equalTo(self.medicineBackView).offset(15);
+    }];
+    
+    [self.fuyaofangfaLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.medicineBackView).offset(12);
+        make.top.equalTo(self.medicineTitleLabel.mas_bottom).offset(15);
+    }];
+    
+    [self.fuyaofangfaLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.fuyaofangfaLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.fuyaofangfaLabel1).offset(0);
+    }];
+    
+    [self.fuyaoshijianLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.medicineBackView).offset(12);
+        make.top.equalTo(self.fuyaofangfaLabel1.mas_bottom).offset(10);
+    }];
+    
+    [self.fuyaoshijianLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.fuyaoshijianLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.fuyaoshijianLabel1).offset(0);
+    }];
+    
+    [self.fuyaocishuLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.medicineBackView).offset(12);
+        make.top.equalTo(self.fuyaoshijianLabel1.mas_bottom).offset(10);
+    }];
+    
+    [self.fuyaocishuLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.fuyaocishuLabel1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.fuyaocishuLabel1).offset(10);
+    }];
 }
 
 -(void)initRecognizer{
@@ -1099,6 +1246,24 @@
     self.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
     self.zhaopianLabel1.text = @"照片资料：";
     self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
+    
+    self.diagnoseTitleLabel.text = @"诊断";
+    self.bianzhengLabel1.text = @"辨证：";
+    self.bianzhengLabel2.text = self.bianzhengString;
+    self.bianbingLabel1.text = @"辨病：";
+    self.bianbingLabel2.text = self.bianbingString;
+    self.shexiangLabel1.text = @"舌象：";
+    self.shexiangLabel2.text = self.shexiangString;
+    self.maixiangLabel1.text = @"脉象：";
+    self.maixiangLabel2.text = self.maixiangString;
+    
+    self.medicineTitleLabel.text = @"建议服药";
+    self.fuyaofangfaLabel1.text = @"服药方法：";
+    self.fuyaofangfaLabel2.text = self.fuyaofangfa;
+    self.fuyaoshijianLabel1.text = @"服药时间：";
+    self.fuyaoshijianLabel2.text = self.fuyaoshijian;
+    self.fuyaocishuLabel1.text = @"服药次数：";
+    self.fuyaocishuLabel2.text = self.fuyaocishu;
 }
 
 @end

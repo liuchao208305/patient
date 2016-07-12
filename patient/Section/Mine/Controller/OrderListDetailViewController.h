@@ -87,9 +87,25 @@
 @property (strong,nonatomic)UILabel *zhaopianLabel2;
 
 @property (strong,nonatomic)UIView *diagnoseBackView;
+@property (strong,nonatomic)UILabel *diagnoseTitleLabel;
+@property (strong,nonatomic)UILabel *bianzhengLabel1;
+@property (strong,nonatomic)UILabel *bianzhengLabel2;
+@property (strong,nonatomic)UILabel *bianbingLabel1;
+@property (strong,nonatomic)UILabel *bianbingLabel2;
+@property (strong,nonatomic)UILabel *shexiangLabel1;
+@property (strong,nonatomic)UILabel *shexiangLabel2;
+@property (strong,nonatomic)UILabel *maixiangLabel1;
+@property (strong,nonatomic)UILabel *maixiangLabel2;
 
 @property (strong,nonatomic)UIView *prescriptionBackView;
 
 @property (strong,nonatomic)UIView *medicineBackView;
+@property (strong,nonatomic)UILabel *medicineTitleLabel;
+@property (strong,nonatomic)UILabel *fuyaofangfaLabel1;
+@property (strong,nonatomic)UILabel *fuyaofangfaLabel2;
+@property (strong,nonatomic)UILabel *fuyaoshijianLabel1;
+@property (strong,nonatomic)UILabel *fuyaoshijianLabel2;
+@property (strong,nonatomic)UILabel *fuyaocishuLabel1;
+@property (strong,nonatomic)UILabel *fuyaocishuLabel2;
 
 @end
