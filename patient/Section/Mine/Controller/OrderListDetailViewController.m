@@ -23,13 +23,19 @@
 #import "MRChufangTableCell.h"
 #import "MRChufangData.h"
 
-@interface OrderListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface OrderListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAlertViewDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
 @property (strong,nonatomic)NSString *message1;
 @property (strong,nonatomic)NSMutableDictionary *data1;
 @property (assign,nonatomic)NSError *error1;
+
+@property (strong,nonatomic)NSMutableDictionary *result2;
+@property (assign,nonatomic)NSInteger code2;
+@property (strong,nonatomic)NSString *message2;
+@property (strong,nonatomic)NSMutableDictionary *data2;
+@property (assign,nonatomic)NSError *error2;
 
 @property (strong,nonatomic)NSString *doctorImageString;
 @property (strong,nonatomic)NSString *doctorName;
@@ -174,6 +180,14 @@
 -(void)initNavBar{
     self.title = @"预约详情";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
+    
+    if (self.orderType == 1) {
+        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消预约" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }else if (self.orderType == 2){
+        UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消预约" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
+        self.navigationItem.rightBarButtonItem = rightButtonItem;
+    }
 }
 
 -(void)initTabBar{
@@ -1036,6 +1050,20 @@
     DLog(@"scrollViewClicked");
 }
 
+-(void)cancelButtonClicked{
+    DLog(@"cancelButtonClicked");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定要取消吗？" message:@"" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是",nil];
+    [alert show];
+}
+
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+    }else if (buttonIndex == 1){
+        [self sendCancelTreatmentRequest];
+    }
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.chufangArray.count == 0 ? 2: self.chufangArray.count+2;
@@ -1146,6 +1174,51 @@
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendCancelTreatmentRequest{
+    DLog(@"sendCancelTreatmentRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.orderId forKey:@"consult_id"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_TREATMENT_CANCEL_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
+        self.message2 = [self.result2 objectForKey:@"message"];
+        self.data2 = [self.result2 objectForKey:@"data"];
+        
+        if (self.code2 == kSUCCESS) {
+            [HudUtil showSimpleTextOnlyHUD:@"取消成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            DLog(@"%@",self.message2);
+            if (self.code2 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
