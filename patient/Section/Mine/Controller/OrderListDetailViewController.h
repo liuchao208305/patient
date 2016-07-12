@@ -86,6 +86,8 @@
 @property (strong,nonatomic)UILabel *zhaopianLabel1;
 @property (strong,nonatomic)UILabel *zhaopianLabel2;
 
+@property (strong,nonatomic)UIButton *payButton;
+
 @property (strong,nonatomic)UIView *diagnoseBackView;
 @property (strong,nonatomic)UILabel *diagnoseTitleLabel;
 @property (strong,nonatomic)UILabel *bianzhengLabel1;

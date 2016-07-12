@@ -18,12 +18,15 @@
 #import "StringUtil.h"
 #import "LoginViewController.h"
 
+#import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
+
 #import "MRZhaopianCollectionCell.h"
 #import "xPhotoViewController.h"
 #import "MRChufangTableCell.h"
 #import "MRChufangData.h"
 
-@interface OrderListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAlertViewDelegate>
+@interface OrderListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAlertViewDelegate,UIActionSheetDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -36,6 +39,12 @@
 @property (strong,nonatomic)NSString *message2;
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
+
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
 
 @property (strong,nonatomic)NSString *doctorImageString;
 @property (strong,nonatomic)NSString *doctorName;
@@ -119,6 +128,22 @@
 @property (strong,nonatomic)NSString *fuyaoshijian;
 @property (strong,nonatomic)NSString *fuyaocishu;
 
+@property (assign,nonatomic)NSInteger paymentType;
+
+@property (strong,nonatomic)NSString *paymentInfomation;
+
+@property (strong,nonatomic)NSString *alipayMomo;
+@property (strong,nonatomic)NSString *alipayResult;
+@property (strong,nonatomic)NSString *alipayResultStatus;
+
+@property (strong,nonatomic)NSMutableDictionary *payinfo;
+@property (strong,nonatomic)NSString *appid;
+@property (strong,nonatomic)NSString *noncestr;
+@property (strong,nonatomic)NSString *package;
+@property (strong,nonatomic)NSString *partnerid;
+@property (strong,nonatomic)NSString *prepayid;
+@property (strong,nonatomic)NSString *sign;
+@property (nonatomic, assign)UInt32 timeStamp;
 
 @end
 
@@ -228,22 +253,36 @@
     [self initPatientSubView3];
     [self.scrollView addSubview:self.patientBackView3];
     
-    self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
-    self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
-    [self initDiagnoseSubView];
-    [self.scrollView addSubview:self.diagnoseBackView];
+    self.payButton = [[UIButton alloc] init];
+    [self.payButton setTitle:@"支付" forState:UIControlStateNormal];
+    [self.payButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+    [self.payButton setBackgroundColor:kMAIN_COLOR];
+    [self.payButton addTarget:self action:@selector(payButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:self.payButton];
     
-    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
-    self.prescriptionTableView.delegate = self;
-    self.prescriptionTableView.dataSource = self;
-    self.prescriptionTableView.showsVerticalScrollIndicator = YES;
-    self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.scrollView addSubview:self.prescriptionTableView];
+    [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.patientBackView3.mas_bottom).offset(20);
+        make.leading.equalTo(self.scrollView).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(50);
+    }];
     
-    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
-    self.medicineBackView.backgroundColor = kWHITE_COLOR;
-    [self initMedicineSubView];
-    [self.scrollView addSubview:self.medicineBackView];
+//    self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
+//    self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
+//    [self initDiagnoseSubView];
+//    [self.scrollView addSubview:self.diagnoseBackView];
+//    
+//    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+//    self.prescriptionTableView.delegate = self;
+//    self.prescriptionTableView.dataSource = self;
+//    self.prescriptionTableView.showsVerticalScrollIndicator = YES;
+//    self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.scrollView addSubview:self.prescriptionTableView];
+//    
+//    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
+//    self.medicineBackView.backgroundColor = kWHITE_COLOR;
+//    [self initMedicineSubView];
+//    [self.scrollView addSubview:self.medicineBackView];
 }
 
 -(void)initDoctorSubView{
@@ -1056,6 +1095,34 @@
     [alert show];
 }
 
+-(void)payButtonClicked:(UIButton *)sender{
+    DLog(@"allButtonClicked");
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择支付方式"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        //支付宝支付
+        self.paymentType = 1;
+        [self sendPayNowInfoRequest:self.orderId payType:self.paymentType];
+    }else if (buttonIndex == 1){
+        //微信支付
+        self.paymentType = 2;
+        [self sendPayNowInfoRequest:self.orderId payType:self.paymentType];
+    }else if (buttonIndex == 2){
+        //取消
+    }
+}
+
 #pragma mark UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
@@ -1228,6 +1295,58 @@
     }];
 }
 
+-(void)sendPayNowInfoRequest:(NSString *)orderId payType:(NSInteger)payType{
+    DLog(@"sendPayNowInfoRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:orderId forKey:@"consult_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld",(long)payType] forKey:@"pay_type"];
+    
+    DLog(@"%@%@",kServerAddressPay,kJZK_TREATMENT_DETAIL_INFORMATION_PAYNOW);
+    DLog(@"%@",parameter);
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_ORDER_LIST_PAY] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"responseObject-->%@",responseObject);
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            if (self.paymentType == 1) {
+                [self paymentInfoAliPayDataParse];
+            }else if (self.paymentType == 2){
+                [self paymentInfoWechatPayDataParse];
+            }
+        }else{
+            DLog(@"%@",self.message3);
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+
 #pragma mark Data Parse
 -(void)orderDetailDataParse{
     self.doctorImageString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"heand_url"]];
@@ -1315,6 +1434,52 @@
     [self initView];
     
     [self orderDetailDataFilling];
+}
+
+-(void)paymentInfoAliPayDataParse{
+    self.paymentInfomation = [self.data3 objectForKey:@"payinfo"];
+    
+    NSString *appScheme = @"alipaytest";
+    
+    [[AlipaySDK defaultService] payOrder:self.paymentInfomation fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        DLog(@"resultDic-->%@",resultDic);
+        self.alipayMomo = [resultDic objectForKey:@"memo"];
+        self.alipayResult = [resultDic objectForKey:@"result"];
+        self.alipayResultStatus = [resultDic objectForKey:@"resultStatus"];
+        
+        if ([self.alipayResultStatus integerValue] == 9000) {
+            //支付成功
+            [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+            
+        }else if ([self.alipayResultStatus integerValue] == 8000){
+            //支付结果确认中
+            [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+        }else{
+            //支付失败
+            [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+        }
+    }];
+}
+
+-(void)paymentInfoWechatPayDataParse{
+    self.payinfo = [self.data3 objectForKey:@"payinfo"];
+    self.appid = [self.payinfo objectForKey:@"appid"];
+    self.noncestr = [self.payinfo objectForKey:@"noncestr"];
+    self.package = [self.payinfo objectForKey:@"package"];
+    self.partnerid = [self.payinfo objectForKey:@"partnerid"];
+    self.prepayid = [self.payinfo objectForKey:@"prepayid"];
+    self.sign = [self.payinfo objectForKey:@"sign"];
+    self.timeStamp = [[self.payinfo objectForKey:@"timestamp"] intValue];
+    
+    PayReq* req             = [[PayReq alloc] init];
+    req.openID              = self.appid;
+    req.partnerId           = self.partnerid;
+    req.prepayId            = self.prepayid;
+    req.nonceStr            = self.noncestr;
+    req.timeStamp           = self.timeStamp;
+    req.package             = self.package;
+    req.sign                = self.sign;
+    [WXApi sendReq:req];
 }
 
 #pragma mark Data Filling
