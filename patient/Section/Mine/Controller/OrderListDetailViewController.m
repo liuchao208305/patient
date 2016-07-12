@@ -253,36 +253,40 @@
     [self initPatientSubView3];
     [self.scrollView addSubview:self.patientBackView3];
     
-    self.payButton = [[UIButton alloc] init];
-    [self.payButton setTitle:@"支付" forState:UIControlStateNormal];
-    [self.payButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
-    [self.payButton setBackgroundColor:kMAIN_COLOR];
-    [self.payButton addTarget:self action:@selector(payButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:self.payButton];
-    
-    [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.patientBackView3.mas_bottom).offset(20);
-        make.leading.equalTo(self.scrollView).offset(0);
-        make.width.mas_equalTo(SCREEN_WIDTH);
-        make.height.mas_equalTo(50);
-    }];
-    
-//    self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
-//    self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
-//    [self initDiagnoseSubView];
-//    [self.scrollView addSubview:self.diagnoseBackView];
-//    
-//    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
-//    self.prescriptionTableView.delegate = self;
-//    self.prescriptionTableView.dataSource = self;
-//    self.prescriptionTableView.showsVerticalScrollIndicator = YES;
-//    self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    [self.scrollView addSubview:self.prescriptionTableView];
-//    
-//    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
-//    self.medicineBackView.backgroundColor = kWHITE_COLOR;
-//    [self initMedicineSubView];
-//    [self.scrollView addSubview:self.medicineBackView];
+    if (self.orderType == 1) {
+        self.payButton = [[UIButton alloc] init];
+        [self.payButton setTitle:@"支付" forState:UIControlStateNormal];
+        [self.payButton setTitleColor:kWHITE_COLOR forState:UIControlStateNormal];
+        [self.payButton setBackgroundColor:kMAIN_COLOR];
+        [self.payButton addTarget:self action:@selector(payButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollView addSubview:self.payButton];
+        
+        [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.patientBackView3.mas_bottom).offset(20);
+            make.leading.equalTo(self.scrollView).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+            make.height.mas_equalTo(50);
+        }];
+    }else if (self.orderType == 2){
+        
+    }else if (self.orderType == 3){
+        self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
+        self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
+        [self initDiagnoseSubView];
+        [self.scrollView addSubview:self.diagnoseBackView];
+        
+        self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+        self.prescriptionTableView.delegate = self;
+        self.prescriptionTableView.dataSource = self;
+        self.prescriptionTableView.showsVerticalScrollIndicator = YES;
+        self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.scrollView addSubview:self.prescriptionTableView];
+        
+        self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
+        self.medicineBackView.backgroundColor = kWHITE_COLOR;
+        [self initMedicineSubView];
+        [self.scrollView addSubview:self.medicineBackView];
+    }
 }
 
 -(void)initDoctorSubView{
