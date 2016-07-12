@@ -15,6 +15,7 @@
 #import "AdaptionUtil.h"
 #import "VerifyUtil.h"
 #import "DateUtil.h"
+#import "StringUtil.h"
 #import "LoginViewController.h"
 
 @interface OrderListDetailViewController ()
@@ -66,6 +67,37 @@
 @property (strong,nonatomic)NSString *tiwenString;
 @property (strong,nonatomic)NSString *chuhanString;
 @property (strong,nonatomic)NSString *photoString;
+
+@property (strong,nonatomic)NSString *healthResultString;
+@property (strong,nonatomic)NSDictionary *healthResultDictionary;
+@property (strong,nonatomic)NSString *shuimian;
+@property (strong,nonatomic)NSString *yinshi;
+@property (strong,nonatomic)NSString *yinshui;
+@property (strong,nonatomic)NSString *dabian1;
+@property (strong,nonatomic)NSString *dabian2;
+@property (strong,nonatomic)NSString *dabian3;
+@property (strong,nonatomic)NSString *xiaobian1;
+@property (strong,nonatomic)NSString *xiaobian2;
+@property (strong,nonatomic)NSString *dabianCishu;
+@property (strong,nonatomic)NSString *bianmiStatus;
+@property (strong,nonatomic)NSString *xiexieStatus;
+@property (strong,nonatomic)NSString *chengxingStatus;
+@property (strong,nonatomic)NSString *bianzhiStatus;
+@property (strong,nonatomic)NSString *bianzhiString;
+@property (strong,nonatomic)NSString *paibianganStatus;
+@property (strong,nonatomic)NSString *paibianganString;
+@property (strong,nonatomic)NSString *dabianyanseString;
+@property (strong,nonatomic)NSString *xiaobianBaitianString;
+@property (strong,nonatomic)NSString *xiaobianWanshangString;
+@property (strong,nonatomic)NSString *sezhiStatus;
+@property (strong,nonatomic)NSString *sezhiString;
+@property (strong,nonatomic)NSString *painiaoganStatus;
+@property (strong,nonatomic)NSString *painiaoganString;
+
+@property (strong,nonatomic)NSString *hanre;
+@property (strong,nonatomic)NSString *tiwen;
+@property (strong,nonatomic)NSString *chuhan;
+@property (strong,nonatomic)NSString *healthPhotoString;
 
 @property (strong,nonatomic)NSString *bianzhengString;
 @property (strong,nonatomic)NSString *bianbingString;
@@ -896,6 +928,38 @@
     self.inspectionTime = [NullUtil judgeStringNull:[self.data1 objectForKey:@"healthy_date"]];
     self.inspectionResult = [NullUtil judgeStringNull:[self.data1 objectForKey:@"results"]];
     
+    if (![[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+        self.healthResultString = [self.data1 objectForKey:@"results"];
+        self.healthResultDictionary = [StringUtil dictionaryWithJsonString:self.healthResultString];
+        self.shuimian = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"b_val"]];
+        self.yinshi = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"c_val"]];
+        self.yinshui = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"d_val"]];
+        self.dabianCishu = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
+        self.bianmiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isBM"]];
+        self.xiexieStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isXM"]];
+        self.chengxingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isCX"]];
+        self.bianzhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isEX"]];
+        self.bianzhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_EX_val"]];
+        self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_status"]];
+        self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_val"]];
+        self.dabianyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_color"]];
+        self.xiaobianBaitianString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
+        self.xiaobianWanshangString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_down_no"]];
+        self.sezhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_status"]];
+        self.sezhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_val"]];
+        self.painiaoganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
+        self.painiaoganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
+        self.dabian1 = [NSString stringWithFormat:@"每天%@次；便秘：%@；泄泻：%@；成形：%@；",self.dabianCishu,self.bianmiStatus,self.xiexieStatus,self.chengxingStatus];
+        self.dabian2 = [NSString stringWithFormat:@"便质：%@；排便感：%@",self.bianzhiString,self.paibianganString];
+        self.dabian3 = @"大便颜色：";
+        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString];
+        self.xiaobian2 = [NSString stringWithFormat:@"排尿感：%@；",self.painiaoganString];
+        self.hanre = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
+        self.tiwen = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];
+        self.chuhan = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_val"]];
+    }
+    self.healthPhotoString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"healthyPhotos"]];
+    
     self.bianzhengString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"dialec"]];
     self.bianbingString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"disease"]];
     self.shexiangString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"tongue"]];
@@ -943,37 +1007,37 @@
         self.timeLabel.text = [self.inspectionTime substringToIndex:10];
     }
     self.shuimianLabel1.text = @"睡眠：";
-//    self.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
+    self.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
     self.yinshiLabel1.text = @"饮食：";
-//    self.yinshiLabel2.text = [self.yinshi isEqualToString:@""] ? @"无" : self.yinshi;
+    self.yinshiLabel2.text = [self.yinshi isEqualToString:@""] ? @"无" : self.yinshi;
     self.yinshuiLabel1.text = @"饮水：";
-//    self.yinshuiLabel2.text = [self.yinshui isEqualToString:@""] ? @"无" : self.yinshui;
+    self.yinshuiLabel2.text = [self.yinshui isEqualToString:@""] ? @"无" : self.yinshui;
     self.dabianLabel1.text = @"大便：";
-//    self.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
-//    self.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
-//    self.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
+    self.dabianLabel2_1.text = [self.dabian1 isEqualToString:@""] ? @"无" : self.dabian1;
+    self.dabianLabel2_2.text = [self.dabian2 isEqualToString:@""] ? @"无" : self.dabian2;
+    self.dabianLabel2_3.text = [self.dabian3 isEqualToString:@""] ? @"无" : self.dabian3;
     //        NSString *test = @"0xb6bc16";
     //        unsigned long red = strtoul([test UTF8String],0,0);
     //        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(red)];
-//    self.dabianyanseString = @"";
+    self.dabianyanseString = @"";
     
-//    if ([self.dabianyanseString isEqualToString:@""]) {
-//        [cell.dabianImageView setBackgroundColor:kWHITE_COLOR];
-//    }else{
-//        unsigned long dabian = strtoul([self.dabianyanseString UTF8String],0,0);
-//        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
-//    }
+    if ([self.dabianyanseString isEqualToString:@""]) {
+        [self.dabianImageView setBackgroundColor:kWHITE_COLOR];
+    }else{
+        unsigned long dabian = strtoul([self.dabianyanseString UTF8String],0,0);
+        [self.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
+    }
     self.xiaobianLabel1.text = @"小便：";
-//    self.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
-//    self.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
+    self.xiaobianLabel2_1.text = [self.xiaobian1 isEqualToString:@""] ? @"无" : self.xiaobian1;
+    self.xiaobianLabel2_2.text = [self.xiaobian2 isEqualToString:@""] ? @"无" : self.xiaobian2;
     self.hanreLabel1.text = @"寒热：";
-//    self.hanreLabel2.text = [self.hanre isEqualToString:@""] ? @"无" : self.hanre;
+    self.hanreLabel2.text = [self.hanre isEqualToString:@""] ? @"无" : self.hanre;
     self.tiwenLabel1.text = @"体温：";
-//    self.tiwenLabel2.text = [self.tiwen isEqualToString:@""] ? @"无" : self.tiwen;
+    self.tiwenLabel2.text = [self.tiwen isEqualToString:@""] ? @"无" : self.tiwen;
     self.chuhanLabel1.text = @"出汗：";
-//    self.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
+    self.chuhanLabel2.text = [self.chuhan isEqualToString:@""] ? @"无" : self.chuhan;
     self.zhaopianLabel1.text = @"照片资料：";
-//    self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
+    self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
 }
 
 @end
