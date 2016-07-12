@@ -34,7 +34,7 @@
 
 @property (strong,nonatomic)NSString *patientName;
 @property (assign,nonatomic)int patientSex;
-@property (strong,nonatomic)NSString *patientAge;
+@property (assign,nonatomic)int patientAge;
 @property (strong,nonatomic)NSString *patientIdNumber;
 @property (strong,nonatomic)NSString *patientPhone;
 
@@ -145,11 +145,363 @@
     }else if ([AdaptionUtil isIphoneFive]){
         self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 2.5*SCREEN_HEIGHT);
     }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
+    
+    self.doctorBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 115)];
+    self.doctorBackView.backgroundColor = kWHITE_COLOR;
+    [self initDoctorSubView];
+    [self.scrollView addSubview:self.doctorBackView];
+    
+    self.patientBackView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10, SCREEN_WIDTH, 120)];
+    self.patientBackView1.backgroundColor = kWHITE_COLOR;
+    [self initPatientSubView1];
+    [self.scrollView addSubview:self.patientBackView1];
+    
+    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 200)];
+    self.patientBackView2.backgroundColor = ColorWithHexRGB(0xf8f8f8);
+    [self initPatientSubView2];
+    [self.scrollView addSubview:self.patientBackView2];
+    
+    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200, SCREEN_WIDTH, 650)];
+    self.patientBackView3.backgroundColor = kWHITE_COLOR;
+    [self initPatientSubView3];
+    [self.scrollView addSubview:self.patientBackView3];
+    
+    self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
+    self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
+    [self initDiagnoseSubView];
+    [self.scrollView addSubview:self.diagnoseBackView];
+    
+    self.prescriptionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 100)];
+    self.prescriptionBackView.backgroundColor = kWHITE_COLOR;
+    [self initPrescriptionSubView];
+    [self.scrollView addSubview:self.prescriptionBackView];
+    
+    self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+100+10, SCREEN_WIDTH, 145)];
+    self.medicineBackView.backgroundColor = kWHITE_COLOR;
+    [self medicineBackView];
+    [self.scrollView addSubview:self.medicineBackView];
+}
+
+-(void)initDoctorSubView{
+    self.doctorImageView = [[UIImageView alloc] init];
+    self.doctorImageView.layer.cornerRadius = 33;
+    [self.doctorBackView addSubview:self.doctorImageView];
+    
+    self.doctorNameLabel = [[UILabel alloc] init];
+    self.doctorNameLabel.font = [UIFont systemFontOfSize:16];
+    [self.doctorBackView addSubview:self.doctorNameLabel];
+    
+    self.doctorTitleLabel = [[UILabel alloc] init];
+    self.doctorTitleLabel.font = [UIFont systemFontOfSize:14];
+    self.doctorTitleLabel.textColor = ColorWithHexRGB(0x909090);
+    [self.doctorBackView addSubview:self.doctorTitleLabel];
+    
+    self.doctorMoneyLabel1 = [[UILabel alloc] init];
+    self.doctorMoneyLabel1.font = [UIFont systemFontOfSize:12];
+    self.doctorMoneyLabel1.textColor = kMAIN_COLOR;
+    [self.doctorBackView addSubview:self.doctorMoneyLabel1];
+    
+    self.doctorMoneyLabel2 = [[UILabel alloc] init];
+    self.doctorMoneyLabel2.font = [UIFont systemFontOfSize:20];
+    self.doctorMoneyLabel2.textColor = kMAIN_COLOR;
+    [self.doctorBackView addSubview:self.doctorMoneyLabel2];
+    
+    self.doctorMoneyLabel3 = [[UILabel alloc] init];
+    self.doctorMoneyLabel3.font = [UIFont systemFontOfSize:13];
+    self.doctorMoneyLabel3.textColor = kMAIN_COLOR;
+    [self.doctorBackView addSubview:self.doctorMoneyLabel3];
+    
+    self.doctorTimeLabel1 = [[UILabel alloc] init];
+    self.doctorTimeLabel1.font = [UIFont systemFontOfSize:14];
+    [self.doctorBackView addSubview:self.doctorTimeLabel1];
+    
+    self.doctorTimeLabel2 = [[UILabel alloc] init];
+    self.doctorTimeLabel2.font = [UIFont systemFontOfSize:13];
+    self.doctorTimeLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.doctorBackView addSubview:self.doctorTimeLabel2];
+    
+    self.doctorAddressLabel1 = [[UILabel alloc] init];
+    self.doctorAddressLabel1.font = [UIFont systemFontOfSize:14];
+    [self.doctorBackView addSubview:self.doctorAddressLabel1];
+    
+    self.doctorAddressLabel2 = [[UILabel alloc] init];
+    self.doctorAddressLabel2.font = [UIFont systemFontOfSize:13];
+    self.doctorAddressLabel2.textColor = ColorWithHexRGB(0x646464);
+    [self.doctorBackView addSubview:self.doctorAddressLabel2];
+    
+    [self.doctorImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.doctorBackView).offset(12);
+        make.top.equalTo(self.doctorBackView).offset(16);
+        make.width.mas_equalTo(66);
+        make.height.mas_equalTo(66);
+    }];
+    
+    [self.doctorNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.doctorImageView).offset(0);
+        make.leading.equalTo(self.doctorImageView.mas_trailing).offset(11);
+    }];
+    
+    [self.doctorTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.doctorNameLabel.mas_trailing).offset(22);
+        make.centerY.equalTo(self.doctorNameLabel).offset(0);
+    }];
+    
+    [self.doctorMoneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.doctorMoneyLabel2.mas_leading).offset(-2);
+        make.bottom.equalTo(self.doctorMoneyLabel2).offset(0);
+    }];
+    
+    [self.doctorMoneyLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.doctorMoneyLabel3.mas_leading).offset(-2);
+        make.centerY.equalTo(self.doctorNameLabel).offset(0);
+    }];
+    
+    [self.doctorMoneyLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.doctorBackView).offset(-12);
+        make.bottom.equalTo(self.doctorMoneyLabel2).offset(0);
+    }];
+    
+    [self.doctorTimeLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.doctorNameLabel).offset(0);
+        make.top.equalTo(self.doctorNameLabel.mas_bottom).offset(12);
+    }];
+    
+    [self.doctorTimeLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.doctorBackView).offset(-12);
+        make.centerY.equalTo(self.doctorTimeLabel1).offset(0);
+    }];
+    
+    [self.doctorAddressLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.doctorTimeLabel1).offset(0);
+        make.top.equalTo(self.doctorTimeLabel1.mas_bottom).offset(12);
+    }];
+    
+    [self.doctorAddressLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.doctorBackView).offset(-12);
+        make.centerY.equalTo(self.doctorAddressLabel1).offset(0);
+    }];
+}
+
+-(void)initPatientSubView1{
+    self.patientNameLabel1 = [[UILabel alloc] init];
+    [self.patientBackView1 addSubview:self.patientNameLabel1];
+    
+    self.patientNameLabel2 = [[UILabel alloc] init];
+    self.patientNameLabel2.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView1 addSubview:self.patientNameLabel2];
+    
+    self.patientSexLabel = [[UILabel alloc] init];
+    self.patientSexLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView1 addSubview:self.patientSexLabel];
+    
+    self.patientAgeLabel = [[UILabel alloc] init];
+    self.patientAgeLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView1 addSubview:self.patientAgeLabel];
+    
+    self.patientLineView1 = [[UIView alloc] init];
+    self.patientLineView1.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self.patientBackView1 addSubview:self.patientLineView1];
+    
+    self.patientIdNumberLabel1 = [[UILabel alloc] init];
+    [self.patientBackView1 addSubview:self.patientIdNumberLabel1];
+    
+    self.patientIdNumberLabel2 = [[UILabel alloc] init];
+    self.patientIdNumberLabel2.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView1 addSubview:self.patientIdNumberLabel2];
+    
+    self.patientLineView2 = [[UIView alloc] init];
+    self.patientLineView2.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self.patientBackView1 addSubview:self.patientLineView2];
+    
+    self.patientPhoneLabel1 = [[UILabel alloc] init];
+    [self.patientBackView1 addSubview:self.patientPhoneLabel1];
+    
+    self.patientPhoneLabel2 = [[UILabel alloc] init];
+    self.patientPhoneLabel2.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView1 addSubview:self.patientPhoneLabel2];
+    
+    self.patientLineView3 = [[UIView alloc] init];
+    self.patientLineView3.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self.patientBackView1 addSubview:self.patientLineView3];
+    
+    [self.patientNameLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(12);
+        make.top.equalTo(self.patientBackView1).offset(10);
+    }];
+    
+    [self.patientNameLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientNameLabel1.mas_trailing).offset(10);
+        make.centerY.equalTo(self.patientNameLabel1).offset(0);
+    }];
+    
+    [self.patientSexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientNameLabel2.mas_trailing).offset(30);
+        make.centerY.equalTo(self.patientNameLabel1).offset(0);
+    }];
+    
+    [self.patientAgeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.patientBackView1).offset(-12);
+        make.centerY.equalTo(self.patientNameLabel1).offset(0);
+    }];
+    
+    [self.patientLineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(0);
+        make.trailing.equalTo(self.patientBackView1).offset(0);
+        make.top.equalTo(self.patientNameLabel1.mas_bottom).offset(10);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientIdNumberLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(12);
+        make.top.equalTo(self.patientLineView1.mas_bottom).offset(10);
+    }];
+    
+    [self.patientIdNumberLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.patientBackView1).offset(-12);
+        make.centerY.equalTo(self.patientIdNumberLabel1).offset(0);
+    }];
+    
+    [self.patientLineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(0);
+        make.trailing.equalTo(self.patientBackView1).offset(0);
+        make.top.equalTo(self.patientIdNumberLabel1.mas_bottom).offset(10);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientPhoneLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(12);
+        make.top.equalTo(self.patientLineView2.mas_bottom).offset(10);
+    }];
+    
+    [self.patientPhoneLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.patientBackView1).offset(-12);
+        make.centerY.equalTo(self.patientPhoneLabel1).offset(0);
+    }];
+    
+    [self.patientLineView3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView1).offset(0);
+        make.trailing.equalTo(self.patientBackView1).offset(0);
+        make.top.equalTo(self.patientPhoneLabel1.mas_bottom).offset(10);
+        make.height.mas_equalTo(1);
+    }];
+}
+
+-(void)initPatientSubView2{
+    self.patientProblemLabel = [[UILabel alloc] init];
+    self.patientProblemLabel.numberOfLines = 0;
+    self.patientProblemLabel.font = [UIFont systemFontOfSize:14];
+    self.patientProblemLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientProblemLabel];
+    
+    self.patientLineView4 = [[UIView alloc] init];
+    self.patientLineView4.backgroundColor = ColorWithHexRGB(0xd6d6d6);
+    [self.patientBackView2 addSubview:self.patientLineView4];
+    
+    self.patientJiwangshiLabel = [[UILabel alloc] init];
+    self.patientJiwangshiLabel.font = [UIFont systemFontOfSize:13];
+    self.patientJiwangshiLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientJiwangshiLabel];
+    
+    self.patientShoushushiLabel = [[UILabel alloc] init];
+    self.patientShoushushiLabel.font = [UIFont systemFontOfSize:13];
+    self.patientShoushushiLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientShoushushiLabel];
+    
+    self.patientGuominshiLabel = [[UILabel alloc] init];
+    self.patientGuominshiLabel.font = [UIFont systemFontOfSize:13];
+    self.patientGuominshiLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientGuominshiLabel];
+    
+    self.patientJiazushiLabel = [[UILabel alloc] init];
+    self.patientJiazushiLabel.font = [UIFont systemFontOfSize:13];
+    self.patientJiazushiLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientJiazushiLabel];
+    
+    self.patientLineView5 = [[UIView alloc] init];
+    self.patientLineView5.backgroundColor = ColorWithHexRGB(0xd6d6d6);
+    [self.patientBackView2 addSubview:self.patientLineView5];
+    
+    self.patientTestLabel = [[UILabel alloc] init];
+    self.patientTestLabel.font = [UIFont systemFontOfSize:14];
+    self.patientTestLabel.textColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientTestLabel];
+    
+    self.patientLineView6 = [[UIView alloc] init];
+    self.patientLineView6.backgroundColor = ColorWithHexRGB(0x646464);
+    [self.patientBackView2 addSubview:self.patientLineView6];
+    
+    [self.patientProblemLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.trailing.equalTo(self.patientBackView2).offset(-12);
+        make.top.equalTo(self.patientBackView2).offset(12);
+    }];
+    
+    [self.patientLineView4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(0);
+        make.trailing.equalTo(self.patientBackView2).offset(0);
+        make.top.equalTo(self.patientProblemLabel.mas_bottom).offset(12);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientJiwangshiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.top.equalTo(self.patientLineView4.mas_bottom).offset(12);
+    }];
+    
+    [self.patientShoushushiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.patientBackView2).offset(-12);
+        make.centerY.equalTo(self.patientJiwangshiLabel).offset(0);
+    }];
+    
+    [self.patientGuominshiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.top.equalTo(self.patientJiwangshiLabel.mas_bottom).offset(15);
+    }];
+    
+    [self.patientJiazushiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.patientBackView2).offset(-12);
+        make.centerY.equalTo(self.patientGuominshiLabel).offset(0);
+    }];
+    
+    [self.patientLineView5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(0);
+        make.trailing.equalTo(self.patientBackView2).offset(0);
+        make.top.equalTo(self.patientGuominshiLabel.mas_bottom).offset(12);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.patientTestLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.top.equalTo(self.patientLineView5.mas_bottom).offset(15);
+    }];
+    
+    [self.patientLineView6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.patientBackView2).offset(0);
+        make.trailing.equalTo(self.patientBackView2).offset(0);
+        make.top.equalTo(self.patientTestLabel.mas_bottom).offset(15);
+        make.width.mas_equalTo(1);
+    }];
+}
+
+-(void)initPatientSubView3{
+    
+}
+
+-(void)initDiagnoseSubView{
+    
+}
+
+-(void)initPrescriptionSubView{
+    
+}
+
+-(void)initMedicineSubView{
+    
 }
 
 -(void)initRecognizer{
@@ -220,7 +572,7 @@
     
     self.patientName = [NullUtil judgeStringNull:[self.data1 objectForKey:@"name"]];
     self.patientSex = [[self.data1 objectForKey:@"sex"] intValue];
-    self.patientAge = [NullUtil judgeStringNull:[self.data1 objectForKey:@"age"]];
+    self.patientAge = [[self.data1 objectForKey:@"age"] intValue];
     self.patientIdNumber = [NullUtil judgeStringNull:[self.data1 objectForKey:@"ID_no"]];
     self.patientPhone = [NullUtil judgeStringNull:[self.data1 objectForKey:@"phone"]];
     
@@ -251,7 +603,32 @@
 
 #pragma mark Data Filling
 -(void)orderDetailDataFilling{
+    [self.doctorImageView sd_setImageWithURL:[NSURL URLWithString:self.doctorImageString] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
+    self.doctorNameLabel.text = self.doctorName;
+    self.doctorTitleLabel.text = self.doctorTitle;
+    self.doctorMoneyLabel1.text = @"¥";
+    self.doctorMoneyLabel2.text = [NSString stringWithFormat:@"%.2f",self.doctorMoney];
+    self.doctorMoneyLabel3.text = @"元";
+    self.doctorTimeLabel1.text = @"就诊时间";
+    self.doctorTimeLabel2.text = self.doctorTime;
+    self.doctorAddressLabel1.text = @"就诊地点";
+    self.doctorAddressLabel2.text = self.doctorAddress;
     
+    self.patientNameLabel1.text = @"用户姓名：";
+    self.patientNameLabel2.text = self.patientName;
+    self.patientSexLabel.text = self.patientSex == 1 ? @"男" : @"女";
+    self.patientAgeLabel.text = [NSString stringWithFormat:@"%d岁",self.patientAge];
+    self.patientIdNumberLabel1.text = @"身份证号：";
+    self.patientIdNumberLabel2.text = self.patientIdNumber;
+    self.patientPhoneLabel1.text = @"电话号码：";
+    self.patientPhoneLabel2.text = self.patientPhone;
+    
+    self.patientProblemLabel.text = self.patientProblem;
+    self.patientJiwangshiLabel.text = [NSString stringWithFormat:@"既往史：%@",self.patientJiwangshi];
+    self.patientShoushushiLabel.text = [NSString stringWithFormat:@"手术史：%@",self.patientShoushushi];
+    self.patientGuominshiLabel.text = [NSString stringWithFormat:@"过敏史：%@",self.patientGuominshi];
+    self.patientJiazushiLabel.text = [NSString stringWithFormat:@"家族史：%@",self.patientJiazushi];
+    self.patientTestLabel.text = [NSString stringWithFormat:@"%@的体质是：%@ 偏向%@",self.patientTestTime,self.patientZhutizhi,self.patientPiantizhi];
 }
 
 @end
