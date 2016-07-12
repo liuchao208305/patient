@@ -164,7 +164,6 @@
     self.photoArray = [NSMutableArray array];
     
     self.chufangArray = [NSMutableArray array];
-    self.chufangIdArray = [NSMutableArray array];
     self.chufangNameArray = [NSMutableArray array];
     self.chufangQuantityArray = [NSMutableArray array];
     self.chufangUnitArray = [NSMutableArray array];
@@ -1182,13 +1181,11 @@
     
     if (![[self.data1 objectForKey:@"details"] isKindOfClass:[NSNull class]]){
         self.chufangArray = [MRChufangData mj_objectArrayWithKeyValuesArray:[self.data1 objectForKey:@"details"]];
-        [self.chufangIdArray removeAllObjects];
         [self.chufangNameArray removeAllObjects];
         [self.chufangQuantityArray removeAllObjects];
         [self.chufangUnitArray removeAllObjects];
         [self.chufangUsageArray removeAllObjects];
         for (MRChufangData *chufangData in self.chufangArray) {
-            [self.chufangIdArray addObject:chufangData.detail_id];
             [self.chufangNameArray addObject:chufangData.storage_id];
             [self.chufangQuantityArray addObject:chufangData.dose];
             [self.chufangUnitArray addObject:chufangData.unit];

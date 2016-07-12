@@ -1003,6 +1003,11 @@
 //        recordDetailVC.orderNumber = self.orderIdArrayEvaluating[indexPath.section];
 //        [self.navigationController pushViewController:recordDetailVC animated:YES];
         
+        OrderListDetailViewController *detailVC = [[OrderListDetailViewController alloc] init];
+        detailVC.orderType = 3;
+        detailVC.orderId = self.orderIdArrayTreated[indexPath.section];
+        [self.navigationController pushViewController:detailVC animated:YES];
+        
         [self.tableView4 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag5){
 //        MedicineReceivingViewController *medicineVC = [[MedicineReceivingViewController alloc] init];
