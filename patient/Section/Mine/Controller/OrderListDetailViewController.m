@@ -25,6 +25,58 @@
 @property (strong,nonatomic)NSMutableDictionary *data1;
 @property (assign,nonatomic)NSError *error1;
 
+@property (strong,nonatomic)NSString *doctorImageString;
+@property (strong,nonatomic)NSString *doctorName;
+@property (strong,nonatomic)NSString *doctorTitle;
+@property (assign,nonatomic)double doctorMoney;
+@property (strong,nonatomic)NSString *doctorTime;
+@property (strong,nonatomic)NSString *doctorAddress;
+
+@property (strong,nonatomic)NSString *patientName;
+@property (assign,nonatomic)int patientSex;
+@property (strong,nonatomic)NSString *patientAge;
+@property (strong,nonatomic)NSString *patientIdNumber;
+@property (strong,nonatomic)NSString *patientPhone;
+
+@property (strong,nonatomic)NSString *patientProblem;
+@property (strong,nonatomic)NSString *patientJiwangshi;
+@property (strong,nonatomic)NSString *patientShoushushi;
+@property (strong,nonatomic)NSString *patientGuominshi;
+@property (strong,nonatomic)NSString *patientJiazushi;
+@property (strong,nonatomic)NSString *patientTestTime;
+@property (strong,nonatomic)NSString *patientZhutizhi;
+@property (strong,nonatomic)NSString *patientPiantizhi;
+
+@property (strong,nonatomic)NSString *inspectionTime;
+@property (strong,nonatomic)NSString *inspectionResult;
+@property (strong,nonatomic)NSString *shuimianString;
+@property (strong,nonatomic)NSString *yinshiString;
+@property (strong,nonatomic)NSString *yinshuiString;
+@property (strong,nonatomic)NSString *dabiancishu;
+@property (strong,nonatomic)NSString *dabianBianmi;
+@property (strong,nonatomic)NSString *dabianXiexie;
+@property (strong,nonatomic)NSString *dabianChengxing;
+@property (strong,nonatomic)NSString *dabianBianzhi;
+@property (strong,nonatomic)NSString *dabianFeel;
+@property (strong,nonatomic)NSString *xiaobiancishu1;
+@property (strong,nonatomic)NSString *xiaobiancishu2;
+@property (strong,nonatomic)NSString *xiaobiansezhi;
+@property (strong,nonatomic)NSString *xiaobianFeel;
+@property (strong,nonatomic)NSString *hanreString;
+@property (strong,nonatomic)NSString *tiwenString;
+@property (strong,nonatomic)NSString *chuhanString;
+@property (strong,nonatomic)NSString *photoString;
+
+@property (strong,nonatomic)NSString *bianzhengString;
+@property (strong,nonatomic)NSString *bianbingString;
+@property (strong,nonatomic)NSString *shexiangString;
+@property (strong,nonatomic)NSString *maixiangString;
+
+@property (strong,nonatomic)NSString *fuyaofangfa;
+@property (strong,nonatomic)NSString *fuyaoshijian;
+@property (strong,nonatomic)NSString *fuyaocishu;
+
+
 @end
 
 @implementation OrderListDetailViewController
@@ -135,7 +187,7 @@
         self.data1 = [self.result1 objectForKey:@"data"];
         
         if (self.code1 == kSUCCESS) {
-            
+            [self orderDetailDataParse];
         }else{
             DLog(@"%@",self.message1);
             [HudUtil showSimpleTextOnlyHUD:self.message1 withDelaySeconds:kHud_DelayTime];
@@ -157,6 +209,49 @@
     }];
 }
 
+#pragma mark Data Parse
+-(void)orderDetailDataParse{
+    self.doctorImageString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"heand_url"]];
+    self.doctorName = [NullUtil judgeStringNull:[self.data1 objectForKey:@"doctor_name"]];
+    self.doctorTitle = [NullUtil judgeStringNull:[self.data1 objectForKey:@"title_name"]];
+    self.doctorMoney = [[self.data1 objectForKey:@"price"] doubleValue];
+    self.doctorTime = [NullUtil judgeStringNull:[self.data1 objectForKey:@"bespoke_date"]];
+    self.doctorAddress = [NullUtil judgeStringNull:[self.data1 objectForKey:@"address"]];
+    
+    self.patientName = [NullUtil judgeStringNull:[self.data1 objectForKey:@"name"]];
+    self.patientSex = [[self.data1 objectForKey:@"sex"] intValue];
+    self.patientAge = [NullUtil judgeStringNull:[self.data1 objectForKey:@"age"]];
+    self.patientIdNumber = [NullUtil judgeStringNull:[self.data1 objectForKey:@"ID_no"]];
+    self.patientPhone = [NullUtil judgeStringNull:[self.data1 objectForKey:@"phone"]];
+    
+    self.patientProblem = [NullUtil judgeStringNull:[self.data1 objectForKey:@"complain"]];
+    self.patientJiwangshi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"a_history"]];
+    self.patientShoushushi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"b_history"]];
+    self.patientGuominshi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"c_history"]];
+    self.patientJiazushi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"d_history"]];
+    
+    self.patientTestTime = [NullUtil judgeStringNull:[self.data1 objectForKey:@"tizhi_date"]];
+    self.patientZhutizhi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"main_result"]];
+    self.patientPiantizhi = [NullUtil judgeStringNull:[self.data1 objectForKey:@"trend_result"]];
+    
+    self.inspectionTime = [NullUtil judgeStringNull:[self.data1 objectForKey:@"healthy_date"]];
+    self.inspectionResult = [NullUtil judgeStringNull:[self.data1 objectForKey:@"results"]];
+    
+    self.bianzhengString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"dialec"]];
+    self.bianbingString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"disease"]];
+    self.shexiangString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"tongue"]];
+    self.maixiangString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"pulse"]];
+    
+    self.fuyaofangfa = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication"]];
+    self.fuyaoshijian = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication_date"]];
+    self.fuyaocishu = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medicationC"]];
+    
+    [self orderDetailDataFilling];
+}
+
 #pragma mark Data Filling
+-(void)orderDetailDataFilling{
+    
+}
 
 @end
