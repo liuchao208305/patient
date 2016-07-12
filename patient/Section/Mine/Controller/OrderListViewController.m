@@ -973,11 +973,6 @@
             detailVC.orderType = 3;
             detailVC.orderId = self.orderIdArrayAll[indexPath.section];
             [self.navigationController pushViewController:detailVC animated:YES];
-        }else if ([self.orderStatusArrayAll[indexPath.section] isEqualToString:@"4"]){
-            OrderListDetailViewController *detailVC = [[OrderListDetailViewController alloc] init];
-            detailVC.orderType = 4;
-            detailVC.orderId = self.orderIdArrayAll[indexPath.section];
-            [self.navigationController pushViewController:detailVC animated:YES];
         }
         
         [self.tableView1 deselectRowAtIndexPath:indexPath animated:YES];
@@ -986,12 +981,21 @@
 //        detaiVC.isFromOrderListVC = YES;
 //        detaiVC.orderNumber = self.orderPayIdArrayBooked[indexPath.section];
 //        [self.navigationController pushViewController:detaiVC animated:YES];
+        
+        OrderListDetailViewController *detailVC = [[OrderListDetailViewController alloc] init];
+        detailVC.orderType = 1;
+        detailVC.orderId = self.orderIdArrayUnpayed[indexPath.section];
 
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
 //        TreatmentFinishViewController *finishVC = [[TreatmentFinishViewController alloc] init];
 //        finishVC.orderNumber = self.orderIdArrayProceeding[indexPath.section];
 //        [self.navigationController pushViewController:finishVC animated:YES];
+        
+        OrderListDetailViewController *detailVC = [[OrderListDetailViewController alloc] init];
+        detailVC.orderType = 2;
+        detailVC.orderId = self.orderIdArrayUntreated[indexPath.section];
+        [self.navigationController pushViewController:detailVC animated:YES];
         
         [self.tableView3 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag4){
