@@ -269,6 +269,7 @@
 		7068384E1D2CB7990007FCBD /* mine_orderstatus_invalid@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 706838421D2CB7990007FCBD /* mine_orderstatus_invalid@3x.png */; };
 		7068384F1D2CB7990007FCBD /* mine_orderstatus_invalid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 706838431D2CB7990007FCBD /* mine_orderstatus_invalid@2x.png */; };
 		706838501D2CB7990007FCBD /* mine_orderstatus_invalid.png in Resources */ = {isa = PBXBuildFile; fileRef = 706838441D2CB7990007FCBD /* mine_orderstatus_invalid.png */; };
+		706B9E4F1D348C080072EFE3 /* OrderListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B9E4E1D348C080072EFE3 /* OrderListDetailViewController.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -1191,6 +1192,8 @@
 		706838421D2CB7990007FCBD /* mine_orderstatus_invalid@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_orderstatus_invalid@3x.png"; sourceTree = "<group>"; };
 		706838431D2CB7990007FCBD /* mine_orderstatus_invalid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine_orderstatus_invalid@2x.png"; sourceTree = "<group>"; };
 		706838441D2CB7990007FCBD /* mine_orderstatus_invalid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_orderstatus_invalid.png; sourceTree = "<group>"; };
+		706B9E4D1D348C080072EFE3 /* OrderListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListDetailViewController.h; sourceTree = "<group>"; };
+		706B9E4E1D348C080072EFE3 /* OrderListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListDetailViewController.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -3396,6 +3399,8 @@
 				70924AD81D2D660A001DFE85 /* MineQuestionListViewController.m */,
 				70B4EAB21CD088FA00141E38 /* OrderListViewController.h */,
 				70B4EAB31CD088FB00141E38 /* OrderListViewController.m */,
+				706B9E4D1D348C080072EFE3 /* OrderListDetailViewController.h */,
+				706B9E4E1D348C080072EFE3 /* OrderListDetailViewController.m */,
 				708274A11CF6F1B80016AE3C /* RecordListViewController.h */,
 				708274A21CF6F1B80016AE3C /* RecordListViewController.m */,
 				708274A41CF6F1DE0016AE3C /* RecordDetailViewController.h */,
@@ -4710,6 +4715,7 @@
 				70B4EB221CD8720F00141E38 /* MRXiyiTableCell.m in Sources */,
 				7046ADD61CA1100600BB6818 /* ReservationListViewController.m in Sources */,
 				70924AFD1D2E3C73001DFE85 /* MinePersonInformationViewController.m in Sources */,
+				706B9E4F1D348C080072EFE3 /* OrderListDetailViewController.m in Sources */,
 				7029390D1C8D1809008280E2 /* UIBarButtonItem+Extension.m in Sources */,
 				7046AC6D1C974C5100BB6818 /* HealthTableCell.m in Sources */,
 				70FD8E651CEC3E1100DA22E5 /* DiseaseAttentionTableCell.m in Sources */,
