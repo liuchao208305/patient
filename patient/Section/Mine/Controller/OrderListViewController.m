@@ -156,7 +156,8 @@
         self.flag5 = NO;
         
         [self initSubView1];
-        [self sendOrderListRequest1];
+//        [self sendOrderListRequest1];
+        [self.tableView1.mj_header beginRefreshing];
     }else if (self.orderType == 1){
         self.flag1 = NO;
         self.flag2 = YES;
@@ -165,7 +166,8 @@
         self.flag5 = NO;
         
         [self initSubView2];
-        [self sendOrderListRequest2];
+//        [self sendOrderListRequest2];
+        [self.tableView2.mj_header beginRefreshing];
     }else if (self.orderType == 2){
         self.flag1 = NO;
         self.flag2 = NO;
@@ -174,7 +176,8 @@
         self.flag5 = NO;
         
         [self initSubView3];
-        [self sendOrderListRequest3];
+//        [self sendOrderListRequest3];
+        [self.tableView3.mj_header beginRefreshing];
     }else if (self.orderType == 3){
         self.flag1 = NO;
         self.flag2 = NO;
@@ -183,7 +186,8 @@
         self.flag5 = NO;
         
         [self initSubView4];
-        [self sendOrderListRequest4];
+//        [self sendOrderListRequest4];
+        [self.tableView4.mj_header beginRefreshing];
     }else if (self.orderType == 4){
         self.flag1 = NO;
         self.flag2 = NO;
@@ -192,7 +196,8 @@
         self.flag5 = YES;
         
         [self initSubView5];
-        [self sendOrderListRequest5];
+//        [self sendOrderListRequest5];
+        [self.tableView5.mj_header beginRefreshing];
     }
 }
 
@@ -985,6 +990,7 @@
         OrderListDetailViewController *detailVC = [[OrderListDetailViewController alloc] init];
         detailVC.orderType = 1;
         detailVC.orderId = self.orderIdArrayUnpayed[indexPath.section];
+        [self.navigationController pushViewController:detailVC animated:YES];
 
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }else if (self.flag3){
