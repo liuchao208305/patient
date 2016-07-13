@@ -22,17 +22,13 @@
 
 @interface MineWalletTixianOneViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (strong,nonatomic)NSMutableDictionary *result;
-@property (assign,nonatomic)NSInteger code;
-@property (strong,nonatomic)NSString *message;
-@property (strong,nonatomic)NSMutableDictionary *data;
-@property (assign,nonatomic)NSError *error;
+@property (strong,nonatomic)NSMutableDictionary *result1;
+@property (assign,nonatomic)NSInteger code1;
+@property (strong,nonatomic)NSString *message1;
+@property (strong,nonatomic)NSMutableDictionary *data1;
+@property (assign,nonatomic)NSError *error1;
 
-@property (strong,nonatomic)NSMutableDictionary *result2;
-@property (assign,nonatomic)NSInteger code2;
-@property (strong,nonatomic)NSString *message2;
-@property (strong,nonatomic)NSMutableDictionary *data2;
-@property (assign,nonatomic)NSError *error2;
+@property (strong,nonatomic)NSString *tixianPhoneFix;
 
 @end
 
@@ -57,8 +53,6 @@
     [super viewWillAppear:YES];
     
     [AnalyticUtil UMBeginLogPageView:@"MineWalletTixianOneViewController"];
-    
-    [self sendMineTixianRequest];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -169,11 +163,11 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag == 1) {
         if (buttonIndex==1) {
-            [self sendMineTixianRequest2];
+            [self sendMineTixianRequest];
         }
     }else if (alertView.tag == 2){
         if (buttonIndex==1) {
-            [self sendMineTixianRequest2];
+            [self sendMineTixianRequest];
         }
     }
     
@@ -190,58 +184,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_accout] forKey:@"phone"];
-    [parameter setValue:@"1" forKey:@"userType"];
-    
-    DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE);
-    
-    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
-        DLog(@"responseObject-->%@",responseObject);
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
-        self.result = (NSMutableDictionary *)responseObject;
-        
-        self.code = [[self.result objectForKey:@"code"] integerValue];
-        self.message = [self.result objectForKey:@"message"];
-        self.data = [self.result objectForKey:@"data"];
-        
-        if (self.code == kSUCCESS) {
-            [self mineTixianDataParse];
-        }else{
-            DLog(@"%ld",(long)self.code);
-            DLog(@"%@",self.message);
-            if (self.code == kTOKENINVALID) {
-                LoginViewController *loginVC = [[LoginViewController alloc] init];
-                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-                [self presentViewController:navController animated:YES completion:nil];
-            }else if (self.code == 4){
-                [AlertUtil showSimpleAlertWithTitle:nil message:self.message];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-        }
-        
-    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
-        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-        DLog(@"errorStr-->%@",errorStr);
-        
-        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
-    }];
-}
-
--(void)sendMineTixianRequest2{
-    DLog(@"sendMineTixianRequest2");
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDAnimationFade;
-    hud.labelText = kNetworkStatusLoadingText;
-    
-    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:self.tixianPhone forKey:@"phone"];
     [parameter setValue:@"1" forKey:@"userType"];
     
     DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_TWO);
@@ -251,20 +194,20 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        self.result2 = (NSMutableDictionary *)responseObject;
+        self.result1 = (NSMutableDictionary *)responseObject;
         
-        self.code2 = [[self.result2 objectForKey:@"code"] integerValue];
-        self.message2 = [self.result2 objectForKey:@"message"];
-        self.data2 = [self.result2 objectForKey:@"data"];
+        self.code1 = [[self.result1 objectForKey:@"code"] integerValue];
+        self.message1 = [self.result1 objectForKey:@"message"];
+        self.data1 = [self.result1 objectForKey:@"data"];
         
-        if (self.code2 == kSUCCESS) {
-            [self mineTixianDataParse2];
+        if (self.code1 == kSUCCESS) {
+            [self mineTixianDataParse];
         }else{
-            DLog(@"%ld",(long)self.code2);
-            DLog(@"%@",self.message2);
-            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
+            DLog(@"%ld",(long)self.code1);
+            DLog(@"%@",self.message1);
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message1];
 //            [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往［设置－账号安全］绑定手机号！"];
-            if (self.code2 == kTOKENINVALID) {
+            if (self.code1 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
@@ -282,20 +225,14 @@
     }];
 }
 
+
 #pragma mark Data Parse
 -(void)mineTixianDataParse{
-    self.zhifubaoName = [NullUtil judgeStringNull:[self.data objectForKey:@"Alipay"]];
-    self.weixinName = [NullUtil judgeStringNull:[self.data objectForKey:@"Weixin"]];
+    self.tixianPhoneFix = [NullUtil judgeStringNull:[self.data1 objectForKey:@"phone"]];
     
-    [self.tableView reloadData];
-}
-
--(void)mineTixianDataParse2{
-    self.tixianPhone = [NullUtil judgeStringNull:[self.data2 objectForKey:@"phone"]];
-    
-    if (![self.tixianPhone isEqualToString:@""]) {
+    if (![self.tixianPhoneFix isEqualToString:@""]) {
         MineWalletTixianTwoViewController *mineWalletTixian2VC = [[MineWalletTixianTwoViewController alloc] init];
-        mineWalletTixian2VC.tixianPhone = self.tixianPhone;
+        mineWalletTixian2VC.tixianPhone = self.tixianPhoneFix;
         [self.navigationController pushViewController:mineWalletTixian2VC animated:YES];
     }else{
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往［设置－账号安全］绑定手机号！"];
