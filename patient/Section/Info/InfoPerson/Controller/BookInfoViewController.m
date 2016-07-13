@@ -987,7 +987,7 @@
     [parameter setValue:[NSString stringWithFormat:@"%.2f",self.consultation_money] forKey:@"money"];
     
     [parameter setValue:self.clinicTime forKey:@"bespoke_date"];
-    [parameter setValue:self.clinicAddress forKey:@"org_name"];
+    [parameter setValue:self.clinicId forKey:@"org_name"];
     
     [parameter setValue:self.patientPhoneTextField.text forKey:@"phone"];
     [parameter setValue:self.patientIdTextField.text forKey:@"ID_no"];
