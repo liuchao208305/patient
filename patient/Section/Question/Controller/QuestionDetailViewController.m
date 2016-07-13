@@ -19,6 +19,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "HealthListDetailViewController.h"
+#import "ExpertInfoViewController.h"
 
 @interface QuestionDetailViewController ()<UIActionSheetDelegate>
 
@@ -396,6 +397,10 @@
 }
 
 -(void)initExpertSubView{
+    self.expertBackView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expertBackViewClicked)];
+    [self.expertBackView addGestureRecognizer:recognizer];
+    
     self.expertImageView2 = [[UIImageView alloc] init];
     [self.expertBackView addSubview:self.expertImageView2];
     
@@ -589,6 +594,15 @@
     DLog(@"healthHistoryButtonClicked");
     HealthListDetailViewController *healthListDetailVC = [[HealthListDetailViewController alloc] init];
     [self.navigationController pushViewController:healthListDetailVC animated:YES];
+}
+
+-(void)expertBackViewClicked{
+    DLog(@"expertBackViewClicked");
+    
+    ExpertInfoViewController *expertVC = [[ExpertInfoViewController alloc] init];
+    expertVC.expertId = self.expertId;
+    expertVC.expertName = self.expertName;
+    [self.navigationController pushViewController:expertVC animated:YES];
 }
 
 #pragma mark UIActionSheetDelegate
