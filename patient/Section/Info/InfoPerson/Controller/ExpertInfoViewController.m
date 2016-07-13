@@ -285,7 +285,7 @@
     }];
     
     self.inquiryBackView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/5*1, self.tableView.size.height, SCREEN_WIDTH/5*2, 55)];
-    [self.inquiryBackView setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+//    [self.inquiryBackView setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
     [self.view addSubview:self.inquiryBackView];
     
     self.inquiryImageView = [[UIImageView alloc] init];
@@ -310,7 +310,7 @@
     }];
     
     self.bookBackView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/5*3, self.tableView.size.height, SCREEN_WIDTH/5*2, 55)];
-    [self.bookBackView setBackgroundColor:ColorWithHexRGB(0x0fcf41)];
+//    [self.bookBackView setBackgroundColor:ColorWithHexRGB(0x0fcf41)];
     [self.view addSubview:self.bookBackView];
     
     self.bookImageView = [[UIImageView alloc] init];
@@ -318,7 +318,7 @@
     
     self.bookLabel = [[UILabel alloc] init];
     self.bookLabel.font = [UIFont systemFontOfSize:14];
-    self.bookLabel.textColor = kWHITE_COLOR;
+//    self.bookLabel.textColor = kWHITE_COLOR;
     [self.bookBackView addSubview:self.bookLabel];
     
     [self.bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -335,10 +335,10 @@
         make.height.mas_equalTo(15);
     }];
     
-    [self.inquiryImageView setImage:[UIImage imageNamed:@"info_expert_inquiry_image"]];
-    self.inquiryLabel.text = @"问问";
-    [self.bookImageView setImage:[UIImage imageNamed:@"info_expert_book_image"]];
-    self.bookLabel.text = @"预约";
+//    [self.inquiryImageView setImage:[UIImage imageNamed:@"info_expert_inquiry_image"]];
+//    self.inquiryLabel.text = @"问问";
+//    [self.bookImageView setImage:[UIImage imageNamed:@"info_expert_book_image"]];
+//    self.bookLabel.text = @"预约";
 }
 
 -(void)initRecognizer{
@@ -1153,10 +1153,16 @@
         self.inquiryBackView.userInteractionEnabled = YES;
         UITapGestureRecognizer *inquiryTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inquiryViewClicked)];
         [self.inquiryBackView addGestureRecognizer:inquiryTap];
+        [self.inquiryBackView setBackgroundColor:ColorWithHexRGB(0xf5f5f5)];
+        [self.inquiryImageView setImage:[UIImage imageNamed:@"info_expert_inquiry_image"]];
+        self.inquiryLabel.text = @"问问";
     }else if(self.isConsulted == NO){
         //不可提问
         self.inquiryBackView.userInteractionEnabled = NO;
-        self.inquiryBackView.backgroundColor = kBACKGROUND_COLOR;
+        self.inquiryBackView.backgroundColor = ColorWithHexRGB(0xdddddd);
+        [self.inquiryImageView setImage:[UIImage imageNamed:@"info_expert_inquiry_image_no"]];
+        self.inquiryLabel.text = @"不可问问";
+        self.inquiryLabel.textColor = ColorWithHexRGB(0xa2a2a2);
     }
     
     if (self.isBooked == YES) {
@@ -1164,10 +1170,17 @@
         self.bookBackView.userInteractionEnabled = YES;
         UITapGestureRecognizer *bookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bookViewClicked)];
         [self.bookBackView addGestureRecognizer:bookTap];
+        [self.bookBackView setBackgroundColor:ColorWithHexRGB(0x0fcf41)];
+        [self.bookImageView setImage:[UIImage imageNamed:@"info_expert_book_image"]];
+        self.bookLabel.text = @"预约";
+        self.bookLabel.textColor = kWHITE_COLOR;
     }else if(self.isBooked == NO){
         //不可预约
         self.bookBackView.userInteractionEnabled = NO;
-        self.bookBackView.backgroundColor = kBACKGROUND_COLOR;
+        self.bookBackView.backgroundColor = ColorWithHexRGB(0xdddddd);
+        [self.bookImageView setImage:[UIImage imageNamed:@"info_expert_book_image_no"]];
+        self.bookLabel.text = @"不可预约";
+        self.bookLabel.textColor = ColorWithHexRGB(0xa2a2a2);
     }
 }
 
