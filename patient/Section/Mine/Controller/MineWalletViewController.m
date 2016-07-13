@@ -32,6 +32,12 @@
 @property (strong,nonatomic)NSMutableArray *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (strong,nonatomic)NSMutableDictionary *result3;
+@property (assign,nonatomic)NSInteger code3;
+@property (strong,nonatomic)NSString *message3;
+@property (strong,nonatomic)NSMutableDictionary *data3;
+@property (assign,nonatomic)NSError *error3;
+
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
 
@@ -170,8 +176,7 @@
 -(void)tixianButtonClicked{
     DLog(@"tixianButtonClicked");
     
-    MineWalletTixianOneViewController *mineWalletTixianVC = [[MineWalletTixianOneViewController alloc] init];
-    [self.navigationController pushViewController:mineWalletTixianVC animated:YES];
+    [self sendMineTixianRequest];
 }
 
 #pragma mark UITableViewDelegate
@@ -325,6 +330,57 @@
         }
         
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendMineTixianRequest{
+    DLog(@"sendMineTixianRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
+    [parameter setValue:@"1" forKey:@"userType"];
+    
+    DLog(@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE);
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_MINE_WALLET_TIXIAN_ONE] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result3 = (NSMutableDictionary *)responseObject;
+        
+        self.code3 = [[self.result3 objectForKey:@"code"] integerValue];
+        self.message3 = [self.result3 objectForKey:@"message"];
+        self.data3 = [self.result3 objectForKey:@"data"];
+        
+        if (self.code3 == kSUCCESS) {
+            MineWalletTixianOneViewController *mineWalletTixianVC = [[MineWalletTixianOneViewController alloc] init];
+            [self.navigationController pushViewController:mineWalletTixianVC animated:YES];
+        }else{
+            DLog(@"%ld",(long)self.code3);
+            DLog(@"%@",self.message3);
+            if (self.code3 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }else if (self.code3 == 4){
+                [HudUtil showSimpleTextOnlyHUD:self.message3 withDelaySeconds:kHud_DelayTime];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
