@@ -38,6 +38,10 @@
 @property (strong,nonatomic)NSMutableDictionary *data3;
 @property (assign,nonatomic)NSError *error3;
 
+@property (strong,nonatomic)NSString *zhifubaoName;
+@property (strong,nonatomic)NSString *weixinName;
+@property (strong,nonatomic)NSString *tixianPhone;
+
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
 
@@ -365,7 +369,14 @@
         self.data3 = [self.result3 objectForKey:@"data"];
         
         if (self.code3 == kSUCCESS) {
+            self.zhifubaoName = [NullUtil judgeStringNull:[self.data3 objectForKey:@"Alipay"]];
+            self.weixinName = [NullUtil judgeStringNull:[self.data3 objectForKey:@"Weixin"]];
+            self.tixianPhone = [NullUtil judgeStringNull:[self.data3 objectForKey:@"phone"]];
+            
             MineWalletTixianOneViewController *mineWalletTixianVC = [[MineWalletTixianOneViewController alloc] init];
+            mineWalletTixianVC.zhifubaoName = self.zhifubaoName;
+            mineWalletTixianVC.weixinName = self.weixinName;
+            mineWalletTixianVC.tixianPhone = self.tixianPhone;
             [self.navigationController pushViewController:mineWalletTixianVC animated:YES];
         }else{
             DLog(@"%ld",(long)self.code3);

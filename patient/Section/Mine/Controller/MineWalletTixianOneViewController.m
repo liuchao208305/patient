@@ -34,10 +34,6 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
-@property (strong,nonatomic)NSString *zhifubaoName;
-@property (strong,nonatomic)NSString *weixinName;
-
-@property (strong,nonatomic)NSString *tixianPhone;
 @end
 
 @implementation MineWalletTixianOneViewController

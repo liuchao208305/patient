@@ -10,6 +10,10 @@
 
 @interface MineWalletTixianOneViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *zhifubaoName;
+@property (strong,nonatomic)NSString *weixinName;
+@property (strong,nonatomic)NSString *tixianPhone;
+
 @property (strong,nonatomic)UITableView *tableView;
 
 @end
