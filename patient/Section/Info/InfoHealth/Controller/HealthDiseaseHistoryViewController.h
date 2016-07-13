@@ -11,7 +11,7 @@
 
 @interface HealthDiseaseHistoryViewController : BaseViewController
 
-@property (strong,nonatomic)NSString *sourceVC;
+@property (assign,nonatomic)BOOL isEditable;
 
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 

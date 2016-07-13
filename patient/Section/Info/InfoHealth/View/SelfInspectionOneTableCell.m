@@ -13,6 +13,20 @@
 @end
 
 @implementation SelfInspectionOneTableCell
+-(void)initViewWithLabel:(NSString *)text{
+    self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont systemFontOfSize:13];
+    self.label.text = text;
+    self.label.textColor = ColorWithHexRGB(0xb2b2b2);
+    self.label.numberOfLines = 0;
+    [self.contentView addSubview:self.label];
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(12);
+        make.trailing.equalTo(self.contentView).offset(-12);
+        make.top.equalTo(self.contentView).offset(10);
+    }];
+}
 
 -(void)initViewWithTextField:(NSString *)placeholder text:(NSString *)text{
     self.textField = [[UITextField alloc] init];

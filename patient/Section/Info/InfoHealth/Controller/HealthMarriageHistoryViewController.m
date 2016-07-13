@@ -269,6 +269,10 @@
 }
 
 #pragma mark Target Action
+-(void)changeButtonClicked{
+    DLog(@"changeButtonClicked");
+}
+
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
     

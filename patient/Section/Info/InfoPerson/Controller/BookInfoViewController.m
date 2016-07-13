@@ -820,7 +820,7 @@
         if (buttonIndex == 0){
             DLog(@"既往史／手术史／过敏史／家族史");
             HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
-            diseasHistoryVC.sourceVC = @"QuestionInquiryViewController";
+            diseasHistoryVC.isEditable = YES;
             diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
             diseasHistoryVC.marryStatus = self.hunfou;
             diseasHistoryVC.nverCount = self.nver;

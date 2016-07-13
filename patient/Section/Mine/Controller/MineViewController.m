@@ -618,6 +618,7 @@
     
     HealthDiseaseHistoryViewController *diseaseVC = [[HealthDiseaseHistoryViewController alloc] init];
     diseaseVC.hidesBottomBarWhenPushed = YES;
+    diseaseVC.isEditable = NO;
     [self.navigationController pushViewController:diseaseVC animated:YES];
 
 }

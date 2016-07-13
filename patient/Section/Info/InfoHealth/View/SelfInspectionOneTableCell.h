@@ -52,6 +52,10 @@
 
 @interface SelfInspectionOneTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *label;
+
+-(void)initViewWithLabel:(NSString *)text;
+
 @property (strong,nonatomic)UITextField *textField;
 
 -(void)initViewWithTextField:(NSString *)placeholder text:(NSString *)text;

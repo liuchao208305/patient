@@ -115,8 +115,13 @@
     self.title = @"既往史／手术史／过敏史／家族史";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:(UIBarButtonItemStylePlain) target:self action:@selector(submitButtonClicked)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    if (self.isEditable == YES) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:(UIBarButtonItemStylePlain) target:self action:@selector(submitButtonClicked)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    }else if (self.isEditable == NO){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"修改" style:(UIBarButtonItemStylePlain) target:self action:@selector(changeButtonClicked)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    }
 }
 
 -(void)initTabBar{
@@ -140,6 +145,15 @@
 }
 
 #pragma mark Target Action
+-(void)changeButtonClicked{
+    DLog(@"changeButtonClicked");
+    
+    self.isEditable = YES;
+    [self.tableView removeFromSuperview];
+    [self initNavBar];
+    [self initView];
+}
+
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
     
@@ -289,25 +303,41 @@
     self.selfInspectionHeaderView = [[SelfInspectionHeaderView alloc] init];
     if (section == 0) {
         NSString *title = @"既往史";
-        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiwangshiHideFlag];
-        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiwangshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        if (self.isEditable == YES) {
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiwangshiHideFlag];
+            [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiwangshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        }else if (self.isEditable == NO){
+            [self.selfInspectionHeaderView initView:title];
+        }
     }else if (section == 1){
         NSString *title = @"手术史";
-        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.shoushushiHideFlag];
-        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(shoushushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        if (self.isEditable == YES) {
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.shoushushiHideFlag];
+            [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(shoushushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        }else if (self.isEditable == NO){
+            [self.selfInspectionHeaderView initView:title];
+        }
     }
     else if (section == 2){
         NSString *title = @"过敏史";
-        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.guominshiHideFlag];
-        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(guominshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        if (self.isEditable == YES) {
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.guominshiHideFlag];
+            [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(guominshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        }else if (self.isEditable == NO){
+            [self.selfInspectionHeaderView initView:title];
+        }
     }else if (section == 3){
         NSString *title = @"家族史";
-        NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiazushiHideFlag];
-        [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiazushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        if (self.isEditable == YES) {
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiazushiHideFlag];
+            [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiazushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        }else if (self.isEditable == NO){
+            [self.selfInspectionHeaderView initView:title];
+        }
     }
     return self.selfInspectionHeaderView;
 }
@@ -319,8 +349,12 @@
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
 //            [cell initViewWithTextField:@"请在此处填写您的既往病史"];
-            [cell initViewWithTextField:@"请在此处填写您的既往病史" text:self.jiwangshiFix];
-            cell.jiwangshiDelegate = self;
+            if (self.isEditable == YES) {
+                [cell initViewWithTextField:@"请在此处填写您的既往病史" text:self.jiwangshiFix];
+                cell.jiwangshiDelegate = self;
+            }else if (self.isEditable == NO){
+                [cell initViewWithLabel:self.jiwangshiFix];
+            }
         }
         return cell;
     }else if (indexPath.section == 1){
@@ -329,8 +363,12 @@
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
 //            [cell initViewWithTextField:@"请在此处填写您的手术史"];
-            [cell initViewWithTextField:@"请在此处填写您的手术史" text:self.shoushushiFix];
-            cell.shoushushiDelegate = self;
+            if (self.isEditable == YES) {
+                [cell initViewWithTextField:@"请在此处填写您的手术史" text:self.shoushushiFix];
+                cell.shoushushiDelegate = self;
+            }else if (self.isEditable == NO){
+                [cell initViewWithLabel:self.shoushushiFix];
+            }
         }
         return cell;
     }else if (indexPath.section == 2){
@@ -339,8 +377,12 @@
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
 //            [cell initViewWithTextField:@"请在此处填写您的过敏原"];
-            [cell initViewWithTextField:@"请在此处填写您的过敏原" text:self.guominshiFix];
-            cell.guominshiDelegate = self;
+            if (self.isEditable == YES) {
+                [cell initViewWithTextField:@"请在此处填写您的过敏原" text:self.guominshiFix];
+                cell.guominshiDelegate = self;
+            }else if (self.isEditable == NO){
+                [cell initViewWithLabel:self.guominshiFix];
+            }
         }
         return cell;
     }else if (indexPath.section == 3){
@@ -349,8 +391,12 @@
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
 //            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等"];
-            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等" text:self.jiazushiFix];
-            cell.jiazushiDelegate = self;
+            if (self.isEditable == YES) {
+                [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等" text:self.jiazushiFix];
+                cell.jiazushiDelegate = self;
+            }else if (self.isEditable == NO){
+                [cell initViewWithLabel:self.jiazushiFix];
+            }
         }
         return cell;
     }
