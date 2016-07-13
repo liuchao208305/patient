@@ -155,7 +155,8 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 2;
+//        return 2;
+        return 1;
     }else if (section == 2){
         return 3;
     }
@@ -205,10 +206,11 @@
         if (indexPath.row == 0) {
             cell.titleLabel.text = @"账号安全";
             [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
-        }else if (indexPath.row == 1){
-            cell.titleLabel.text = @"通知设置";
-            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
         }
+//        else if (indexPath.row == 1){
+//            cell.titleLabel.text = @"通知设置";
+//            [cell.moreImageView setImage:[UIImage imageNamed:@"mine_setting_more_image"]];
+//        }
         
         return cell;
     }else if (indexPath.section == 2){
@@ -243,10 +245,11 @@
         if (indexPath.row == 0) {
             MineAccoutSecurityViewController *mineAccountSecurityVC = [[MineAccoutSecurityViewController alloc] init];
             [self.navigationController pushViewController:mineAccountSecurityVC animated:YES];
-        }else if (indexPath.row == 1){
-            MineNotificationSettingViewController *mineNotificationSettingVC = [[MineNotificationSettingViewController alloc] init];
-            [self.navigationController pushViewController:mineNotificationSettingVC animated:YES];
         }
+//        else if (indexPath.row == 1){
+//            MineNotificationSettingViewController *mineNotificationSettingVC = [[MineNotificationSettingViewController alloc] init];
+//            [self.navigationController pushViewController:mineNotificationSettingVC animated:YES];
+//        }
     }else if (indexPath.section == 2){
         if (indexPath.row == 0) {
             MineFeedBackViewController *mineFeedBackVC = [[MineFeedBackViewController alloc] init];
