@@ -176,7 +176,6 @@
             [self sendMineTixianRequest];
         }
     }
-    
 }
 
 #pragma mark Network Request
@@ -209,7 +208,9 @@
         if (self.code1 == kSUCCESS) {
             self.tixianPhoneFix = [NullUtil judgeStringNull:[self.data1 objectForKey:@"phone"]];
             
-            [self sendGetCaptchaRequest];
+            MineWalletTixianTwoViewController *mineWalletTixian2VC = [[MineWalletTixianTwoViewController alloc] init];
+            mineWalletTixian2VC.tixianPhone = self.tixianPhoneFix;
+            [self.navigationController pushViewController:mineWalletTixian2VC animated:YES];
         }else{
             DLog(@"%ld",(long)self.code1);
             DLog(@"%@",self.message1);

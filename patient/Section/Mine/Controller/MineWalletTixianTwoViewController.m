@@ -273,10 +273,10 @@
         self.timeCount++;
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码已过期，请重新发起提现！"];
-        [self.navigationController popViewControllerAnimated:YES];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码已过期，请重新发起提现！"];
+//        [self.navigationController popViewControllerAnimated:YES];
+//    });
 }
 
 - (void)updateTimeLabel{
@@ -288,15 +288,15 @@
     if ([self.codeTextField.text isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"验证码不能为空！"];
     }else{
-        [self sendMineTixianRequest3];
+        [self sendMineTixianRequest];
     }
 }
 
 #pragma mark UITextViewDelegate
 
 #pragma mark Network Request
--(void)sendMineTixianRequest3{
-    DLog(@"sendMineTixianRequest3");
+-(void)sendMineTixianRequest{
+    DLog(@"sendMineTixianRequest");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
