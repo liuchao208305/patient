@@ -11,7 +11,6 @@
 @interface MineWalletTixianTwoViewController : BaseViewController
 
 @property (strong,nonatomic)NSString *tixianPhone;
-@property (strong,nonatomic)NSString *tixianCode;
 
 @property (strong,nonatomic)UIScrollView *scrollView;
 

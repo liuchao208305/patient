@@ -305,7 +305,7 @@
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
-    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_accout] forKey:@"phone"];
+    [parameter setValue:self.tixianPhone forKey:@"phone"];
     [parameter setValue:self.codeTextField.text forKey:@"code"];
     [parameter setValue:@"1" forKey:@"type"];
     
@@ -323,7 +323,8 @@
         self.data = [self.result objectForKey:@"data"];
         
         if (self.code == kSUCCESS) {
-            
+            [HudUtil showSimpleTextOnlyHUD:@"提现成功！" withDelaySeconds:kHud_DelayTime];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             DLog(@"%ld",(long)self.code);
             DLog(@"%@",self.message);
