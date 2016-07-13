@@ -109,8 +109,13 @@
     self.title = @"婚育情况";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:(UIBarButtonItemStylePlain) target:self action:@selector(submitButtonClicked)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    if (self.isEditable == YES) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:(UIBarButtonItemStylePlain) target:self action:@selector(submitButtonClicked)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    }else if (self.isEditable == NO){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"修改" style:(UIBarButtonItemStylePlain) target:self action:@selector(changeButtonClicked)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    }
 }
 
 -(void)initTabBar{
@@ -161,42 +166,54 @@
     self.label1.text = @"婚育情况";
     [self.backView1 addSubview:self.label1];
     
-    self.button1 = [[UIButton alloc] init];
-    [self.button1 setTitle:@"未婚" forState:UIControlStateNormal];
-    [self.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-    self.button1.layer.cornerRadius = 5;
-    self.button1.layer.borderWidth = 1;
-    self.button1.layer.borderColor = ColorWithHexRGB(0x646464).CGColor;
-    [self.button1 addTarget:self action:@selector(unmarriedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.backView1 addSubview:self.button1];
-    
-    self.button2 = [[UIButton alloc] init];
-    [self.button2 setTitle:@"已婚" forState:UIControlStateNormal];
-    [self.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-    self.button2.layer.cornerRadius = 5;
-    self.button2.layer.borderWidth = 1;
-    self.button2.layer.borderColor = ColorWithHexRGB(0x646464).CGColor;
-    [self.button2 addTarget:self action:@selector(marriedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.backView1 addSubview:self.button2];
-    
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView1).offset(12);
         make.centerY.equalTo(self.backView1).offset(0);
     }];
     
-    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.button2.mas_leading).offset(-12);
-        make.centerY.equalTo(self.backView1).offset(0);
-        make.width.mas_equalTo(55);
-        make.height.mas_equalTo(30);
-    }];
-    
-    [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.backView1).offset(-12);
-        make.centerY.equalTo(self.backView1).offset(0);
-        make.width.mas_equalTo(55);
-        make.height.mas_equalTo(30);
-    }];
+    if (self.isEditable == YES) {
+        self.button1 = [[UIButton alloc] init];
+        [self.button1 setTitle:@"未婚" forState:UIControlStateNormal];
+        [self.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        self.button1.layer.cornerRadius = 5;
+        self.button1.layer.borderWidth = 1;
+        self.button1.layer.borderColor = ColorWithHexRGB(0x646464).CGColor;
+        [self.button1 addTarget:self action:@selector(unmarriedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [self.backView1 addSubview:self.button1];
+        
+        self.button2 = [[UIButton alloc] init];
+        [self.button2 setTitle:@"已婚" forState:UIControlStateNormal];
+        [self.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+        self.button2.layer.cornerRadius = 5;
+        self.button2.layer.borderWidth = 1;
+        self.button2.layer.borderColor = ColorWithHexRGB(0x646464).CGColor;
+        [self.button2 addTarget:self action:@selector(marriedButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [self.backView1 addSubview:self.button2];
+        
+        [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.button2.mas_leading).offset(-12);
+            make.centerY.equalTo(self.backView1).offset(0);
+            make.width.mas_equalTo(55);
+            make.height.mas_equalTo(30);
+        }];
+        
+        [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.backView1).offset(-12);
+            make.centerY.equalTo(self.backView1).offset(0);
+            make.width.mas_equalTo(55);
+            make.height.mas_equalTo(30);
+        }];
+    }else if (self.isEditable == NO){
+        self.label1Fix = [[UILabel alloc] init];
+        self.label1Fix.textColor = ColorWithHexRGB(0x646464);
+        [self.backView1 addSubview:self.label1Fix];
+        
+        [self.label1Fix mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(self.backView1).offset(-12);
+            make.centerY.equalTo(self.label1).offset(0);
+        }];
+    }
+
 }
 
 -(void)initSubView2{
@@ -271,6 +288,15 @@
 #pragma mark Target Action
 -(void)changeButtonClicked{
     DLog(@"changeButtonClicked");
+    
+    self.isEditable = YES;
+    [self.backView1 removeFromSuperview];
+    [self.backView2 removeFromSuperview];
+    [self.backView3 removeFromSuperview];
+    
+    [self initNavBar];
+    [self initView];
+    [self sendMarriageHistoryRequest];
 }
 
 -(void)submitButtonClicked{
@@ -509,13 +535,26 @@
 
 #pragma mark Data Filling
 -(void)marriageHistoryDataFilling{
-    if (self.marryStatusFix == 1) {
-        [self unmarriedButtonClicked];
-    }else if (self.marryStatusFix == 2){
-        [self marriedButtonClicked];
-        
-        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
-        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+    if (self.isEditable == YES) {
+        if (self.marryStatusFix == 1) {
+            [self unmarriedButtonClicked];
+        }else if (self.marryStatusFix == 2){
+            [self marriedButtonClicked];
+            
+            self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
+            self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        }
+    }else if (self.isEditable == NO){
+        if (self.marryStatusFix == 1) {
+            self.label1Fix.text = @"未婚";
+        }else if (self.marryStatusFix == 2){
+            self.label1Fix.text = @"已婚";
+            
+            self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
+            self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+            self.textField2.userInteractionEnabled = NO;
+            self.textField3.userInteractionEnabled = NO;
+        }
     }
 }
 

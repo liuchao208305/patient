@@ -667,6 +667,7 @@
     
     HealthMarriageHistoryViewController *marriageVC = [[HealthMarriageHistoryViewController alloc] init];
     marriageVC.hidesBottomBarWhenPushed = YES;
+    marriageVC.isEditable = NO;
     [self.navigationController pushViewController:marriageVC animated:YES];
 }
 

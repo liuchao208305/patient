@@ -10,7 +10,7 @@
 
 @interface HealthMarriageHistoryViewController : BaseViewController
 
-@property (strong,nonatomic)NSString *sourceVC;
+@property (assign,nonatomic)BOOL isEditable;
 
 @property (strong,nonatomic)NSString *diseaseHistoryId;
 
@@ -23,6 +23,7 @@
 @property (strong,nonatomic)UILabel *label1;
 @property (strong,nonatomic)UIButton *button1;
 @property (strong,nonatomic)UIButton *button2;
+@property (strong,nonatomic)UILabel *label1Fix;
 @property (strong,nonatomic)UIView *backView2;
 @property (strong,nonatomic)UILabel *label2_1;
 @property (strong,nonatomic)UITextField *textField2;
