@@ -218,6 +218,7 @@
     }else if (buttonIndex == 1){
         DLog(@"婚育情况");
         HealthMarriageHistoryViewController *marriageHistoryVC = [[HealthMarriageHistoryViewController alloc] init];
+        marriageHistoryVC.isEditable = YES;
         marriageHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
         marriageHistoryVC.jiwangshi = self.jiwangshi;
         marriageHistoryVC.shoushushi = self.shoushushi;
