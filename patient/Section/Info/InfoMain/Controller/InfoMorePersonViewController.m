@@ -49,10 +49,10 @@
     [self initView];
     [self initRecognizer];
     
-    self.area = @"杭州";
+    self.area = @"";
     
     if ([self.sourceVC isEqualToString:@"personHeadViewClicked"] || [self.sourceVC isEqualToString:@"laotouImageViewClicked"]) {
-        [self sendMorePersonRequestWithDepartID:nil area:@"杭州" currentPage:1 pageSize:10 seach:nil];
+        [self sendMorePersonRequestWithDepartID:nil area:@"" currentPage:1 pageSize:10 seach:nil];
     }else if ([self.sourceVC isEqualToString:@"keshiView1Clicked"]){
         DLog(@"%@",self.departID);
         [self sendMorePersonRequestWithDepartID:self.departID area:@"杭州" currentPage:1 pageSize:10 seach:nil];
@@ -135,7 +135,7 @@
     self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
     
     self.cityLabel = [[UILabel alloc] init];
-    self.cityLabel.text = @"杭州";
+    self.cityLabel.text = @"全国";
     self.cityLabel.textColor = kWHITE_COLOR;
     self.cityLabel.textAlignment = NSTextAlignmentRight;
     [self.cityViewFix addSubview:self.cityLabel];
