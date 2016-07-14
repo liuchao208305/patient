@@ -26,6 +26,7 @@
     [self.contentView addSubview:self.expertImageView];
     
     self.expertNameLabel = [[UILabel alloc] init];
+    self.expertNameLabel.font = [UIFont systemFontOfSize:16];
 //    self.expertNameLabel.text = @"有卫平";
     [self.contentView addSubview:self.expertNameLabel];
     
@@ -36,13 +37,16 @@
     [self.contentView addSubview:self.expertTitleLabel];
     
     self.expertUnitLabel = [[UILabel alloc] init];
+    self.expertUnitLabel.font = [UIFont systemFontOfSize:14];
 //    self.expertUnitLabel.text = @"浙江胜利同德医院";
     [self.contentView addSubview:self.expertUnitLabel];
     
     self.expertDepartLabel = [[UILabel alloc] init];
+    self.expertDepartLabel.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.expertDepartLabel];
     
     self.expertDetailLabel = [[UILabel alloc] init];
+    self.expertDetailLabel.font = [UIFont systemFontOfSize:14];
     self.expertDetailLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.expertDetailLabel];
     
@@ -55,7 +59,7 @@
     
     self.expertAnswerLabel = [[UILabel alloc] init];
     self.expertAnswerLabel.font = [UIFont systemFontOfSize:13];
-    self.expertAnswerLabel.textColor = ColorWithHexRGB(0x909090);
+    self.expertAnswerLabel.textColor = ColorWithHexRGB(0xa2a2a2);
     [self.contentView addSubview:self.expertAnswerLabel];
     
     self.expertFocusImageView = [[UIImageView alloc] init];
@@ -63,7 +67,7 @@
     
     self.expertFocusLabel = [[UILabel alloc] init];
     self.expertFocusLabel.font = [UIFont systemFontOfSize:13];
-    self.expertFocusLabel.textColor = ColorWithHexRGB(0x909090);
+    self.expertFocusLabel.textColor = ColorWithHexRGB(0xa2a2a2);
     [self.contentView addSubview:self.expertFocusLabel];
     
 //    self.expertStatusButton = [[UIButton alloc] init];
@@ -126,7 +130,7 @@
     [self.expertTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
         make.centerY.equalTo(self.expertNameLabel).offset(0);
-        make.width.mas_equalTo(120);
+//        make.width.mas_equalTo(120);
         make.height.mas_equalTo(14);
     }];
     

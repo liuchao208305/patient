@@ -13,6 +13,7 @@
 #import "HudUtil.h"
 #import "AlertUtil.h"
 #import "NullUtil.h"
+#import "AdaptionUtil.h"
 #import "AnalyticUtil.h"
 #import "CityViewController.h"
 #import "ExpertInfoViewController.h"
@@ -132,7 +133,15 @@
     self.title=@"医生列表";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
-    self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
+    if ([AdaptionUtil isIphoneFour]) {
+        self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
+    }else if ([AdaptionUtil isIphoneFive]){
+        self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 0, 70, 30)];
+    }else if ([AdaptionUtil isIphoneSix]){
+        self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
+    }else if ([AdaptionUtil isIphoneSixPlus]){
+        self.cityViewFix = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-145, 0, 140, 30)];
+    }
     
     self.cityLabel = [[UILabel alloc] init];
     self.cityLabel.text = @"全国";
@@ -145,9 +154,10 @@
     [self.cityViewFix addSubview:self.cityImage];
     
     [self.cityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.cityViewFix).offset(0);
+//        make.leading.equalTo(self.cityViewFix).offset(0);
+        make.trailing.equalTo(self.cityImage.mas_leading).offset(-5);
         make.centerY.equalTo(self.cityViewFix).offset(0);
-        make.width.mas_equalTo(120);
+//        make.width.mas_equalTo(120);
         make.height.mas_equalTo(30);
     }];
     
