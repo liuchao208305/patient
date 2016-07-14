@@ -490,25 +490,11 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0.1;
-    }
-//    else if (section == 1){
-//        return 0.1;
-//    }
-//    else if (section == 2){
-//        return 0.1;
-//    }else if (section == 3){
-//        return 0.1;
-//    }
-    else if (section == 1){
-        return 0.1;
-    }
-    return 0;
+    return 0.01;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10;
+    return 0.01;
 }
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
