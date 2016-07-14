@@ -68,7 +68,8 @@
     _tableView.dataSource = self;
     _tableView.tableHeaderView  = _searchView;
     _tableView.showsVerticalScrollIndicator = NO;
-    _tableView.sectionIndexColor = [UIColor redColor];
+//    _tableView.sectionIndexColor = [UIColor redColor];
+    _tableView.sectionIndexColor = kMAIN_COLOR;
     [self.view addSubview:_tableView];
     
     self.navView = [[CustomTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
