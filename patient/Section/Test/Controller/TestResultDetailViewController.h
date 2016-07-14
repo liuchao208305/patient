@@ -10,6 +10,8 @@
 
 @interface TestResultDetailViewController : BaseViewController
 
+@property (strong,nonatomic)NSString *sourceVC;
+
 @property (strong,nonatomic)NSString *resultId;
 
 @property (strong,nonatomic)UIScrollView *scrollView;

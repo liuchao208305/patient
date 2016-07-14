@@ -403,7 +403,8 @@
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
-    [parameter setValue:self.contactId forKey:@"contact_id"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"contact_id"];
+//    [parameter setValue:self.contactId forKey:@"contact_id"];
     
     for (int i = 0; i<_cellBtnStatuArrLocal.count; i++) {
         NSString *str = _cellBtnStatuArrLocal[i];
@@ -454,8 +455,8 @@
             NSString *resultId = [self.data2 objectForKey:@"analy_result_id"];
             
             TestResultDetailViewController *detailVC = [[TestResultDetailViewController alloc] init];
-            detailVC.hidesBottomBarWhenPushed = YES;
-            
+//            detailVC.hidesBottomBarWhenPushed = YES;
+            detailVC.sourceVC = @"TestViewController";
             detailVC.resultId = resultId;
             [self.navigationController pushViewController:detailVC animated:YES];
             NSString *homepath =NSHomeDirectory();

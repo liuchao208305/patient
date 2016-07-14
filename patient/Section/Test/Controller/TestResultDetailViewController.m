@@ -109,6 +109,11 @@
     self.title=@"体质测试结果详情";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
+    if ([self.sourceVC isEqualToString:@"TestViewController"]) {
+        UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"< 返回" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+        self.navigationItem.leftBarButtonItem = leftButtonItem;
+    }
+    
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"test_result_detail_share_button"] style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClicked)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
@@ -125,27 +130,27 @@
     self.scrollView.showsVerticalScrollIndicator = YES;
     [self.view addSubview:self.scrollView];
     
-    self.backView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 85)];
-    self.backView1.backgroundColor = kWHITE_COLOR;
-    [self initBackView1];
-    [self.scrollView addSubview:self.backView1];
+//    self.backView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 85)];
+//    self.backView1.backgroundColor = kWHITE_COLOR;
+//    [self initBackView1];
+//    [self.scrollView addSubview:self.backView1];
     
-    self.backView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10, SCREEN_WIDTH, 190)];
+    self.backView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 190)];
     self.backView2.backgroundColor = kWHITE_COLOR;
 //    [self initBackView2];
     [self.scrollView addSubview:self.backView2];
     
-    self.backView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10+190+10, SCREEN_WIDTH, 250)];
+    self.backView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 190+10, SCREEN_WIDTH, 250)];
     self.backView3.backgroundColor = kWHITE_COLOR;
     [self initBackView3];
     [self.scrollView addSubview:self.backView3];
     
-    self.backView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10+190+10+250+10, SCREEN_WIDTH, 260)];
+    self.backView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 190+10+250+10, SCREEN_WIDTH, 260)];
     self.backView4.backgroundColor = kWHITE_COLOR;
     [self initBackView4];
     [self.scrollView addSubview:self.backView4];
     
-    self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 85+10+190+10+250+10+260+10, SCREEN_WIDTH, 90)];
+    self.backView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 190+10+250+10+260+10, SCREEN_WIDTH, 90)];
     self.backView5.backgroundColor = kWHITE_COLOR;
     [self initBackView5];
     [self.scrollView addSubview:self.backView5];
@@ -363,6 +368,12 @@
 }
 
 #pragma mark Target Action
+-(void)backButtonClicked{
+    DLog(@"backButtonClicked");
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 -(void)shareButtonClicked{
     DLog(@"shareButtonClicked");
     
@@ -457,7 +468,9 @@
     
     self.label3_1.text = @"您的体质是：";
     self.label3_2.text = self.main_result;
-    self.label3_3.text = [NSString stringWithFormat:@"(倾向%@)",self.trend_result];
+    if (![self.trend_result isEqualToString:@""]) {
+        self.label3_3.text = [NSString stringWithFormat:@"(倾向%@)",self.trend_result];
+    }
     self.label3_4.text = [NSString stringWithFormat:@"%@%@",self.main_result,self.tt_prescription];
     self.label3_5.text = self.tt_point;
     

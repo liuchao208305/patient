@@ -3626,8 +3626,8 @@
 		70926D9A1CC77BC800CB0416 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				70924B251D2F6B18001DFE85 /* TestViewController.m */,
 				70924B261D2F6B18001DFE85 /* TestViewController.h */,
+				70924B251D2F6B18001DFE85 /* TestViewController.m */,
 				708274E21CF8222D0016AE3C /* TestChooseContactViewController.h */,
 				708274E31CF8222D0016AE3C /* TestChooseContactViewController.m */,
 				70B4EA6A1CC9AF8D00141E38 /* TestFixViewController.h */,
