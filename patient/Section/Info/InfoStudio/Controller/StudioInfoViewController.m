@@ -13,6 +13,7 @@
 #import "CommonUtil.h"
 #import "HudUtil.h"
 #import "AnalyticUtil.h"
+#import "StringUtil.h"
 #import "StutioAdvantageTabelCell.h"
 #import "StudioExpertTableCell.h"
 #import "StudioExpertData.h"
@@ -170,7 +171,16 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 110;
+//        return 110;
+        if (indexPath.row == 0) {
+            return [StringUtil cellWithStr:self.advantageLabel1 fontSize:14 width:SCREEN_WIDTH]*3;
+        }else if (indexPath.row == 1){
+            return [StringUtil cellWithStr:self.advantageLabel2 fontSize:14 width:SCREEN_WIDTH]*3;
+        }else if (indexPath.row == 2){
+//            return [StringUtil cellWithStr:self.advantageLabel3 fontSize:14 width:SCREEN_WIDTH]*1.7;
+            return [StringUtil cellWithStr:self.advantageLabel3 fontSize:14 width:SCREEN_WIDTH]*3;
+        }
+        return 0;
     }else if (indexPath.section == 1){
         return 340;
     }

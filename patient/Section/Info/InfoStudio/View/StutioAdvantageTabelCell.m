@@ -60,8 +60,8 @@
     [self.titleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(12);
         make.top.equalTo(self.mainView).offset(16);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(15);
+        make.width.mas_equalTo(17);
+        make.height.mas_equalTo(17);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,8 +74,8 @@
     [self.bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mainView).offset(12);
         make.trailing.equalTo(self.mainView).offset(-12);
-        make.top.equalTo(self.titleImageView).offset(15+5);
-        make.bottom.equalTo(self.mainView).offset(-5);
+        make.top.equalTo(self.titleImageView.mas_bottom).offset(12);
+//        make.bottom.equalTo(self.mainView).offset(-5);
     }];
 }
 
