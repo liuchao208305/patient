@@ -77,9 +77,10 @@
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label1_1.mas_bottom).offset(7);
+        make.top.equalTo(self.label1_1.mas_bottom).offset(5);
         make.leading.equalTo(self.backView1).offset(10);
         make.trailing.equalTo(self.backView1).offset(-10);
+        make.height.mas_equalTo(40);
     }];
     
 }
@@ -115,9 +116,10 @@
     }];
     
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label2_1.mas_bottom).offset(7);
+        make.top.equalTo(self.label2_1.mas_bottom).offset(5);
         make.leading.equalTo(self.backView2).offset(10);
         make.trailing.equalTo(self.backView2).offset(-10);
+        make.height.mas_equalTo(40);
     }];
 }
 
@@ -152,9 +154,10 @@
     }];
     
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label3_1.mas_bottom).offset(7);
+        make.top.equalTo(self.label3_1.mas_bottom).offset(5);
         make.leading.equalTo(self.backView3).offset(10);
         make.trailing.equalTo(self.backView3).offset(-10);
+        make.height.mas_equalTo(40);
     }];
 }
 
@@ -164,12 +167,12 @@
 
 -(void)fontAdaption{
     if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
-        self.label1_1.font = [UIFont systemFontOfSize:13];
-        self.label1_2.font = [UIFont systemFontOfSize:10];
-        self.label2_1.font = [UIFont systemFontOfSize:13];
-        self.label2_2.font = [UIFont systemFontOfSize:10];
-        self.label3_1.font = [UIFont systemFontOfSize:13];
-        self.label3_2.font = [UIFont systemFontOfSize:10];
+        self.label1_1.font = [UIFont systemFontOfSize:15];
+        self.label1_2.font = [UIFont systemFontOfSize:13];
+        self.label2_1.font = [UIFont systemFontOfSize:15];
+        self.label2_2.font = [UIFont systemFontOfSize:13];
+        self.label3_1.font = [UIFont systemFontOfSize:15];
+        self.label3_2.font = [UIFont systemFontOfSize:13];
     }
 }
 
