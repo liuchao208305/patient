@@ -14,5 +14,6 @@
 @property (strong,nonatomic)UILabel *titleLabel;
 @property (strong,nonatomic)UILabel *moreLabel;
 @property (strong,nonatomic)UIImageView *moreImage;
+@property (strong,nonatomic)UIView *lineView;
 
 @end

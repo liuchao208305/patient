@@ -210,15 +210,16 @@
 }
 
 -(void)initHeadView{
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.35)];
     self.localImageArray = [NSMutableArray array];
     for (int i = 1; i<4; i++) {
         NSMutableString *imageName = [NSMutableString stringWithFormat:@"info_scrollview%d.png",i];
         UIImage *image = [UIImage imageNamed:imageName];
         [self.localImageArray addObject:image];
     }
-    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.3) imageNamesGroup:self.localImageArray];
-    scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
+    scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.35) imageNamesGroup:self.localImageArray];
+//    scrollView.currentPageDotColor = [UIColor colorWithRed:82/255.0 green:205/255.0 blue:175/255.0 alpha:1];
+    scrollView.currentPageDotColor = kMAIN_COLOR;
     scrollView.autoScrollTimeInterval = 5;
     scrollView.delegate = self;
     [self.headView addSubview:scrollView];
@@ -475,7 +476,7 @@
     }else if (section == 1){
         return 0.01;
     }
-    return 29;
+    return 40;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -512,20 +513,20 @@
 //        
 //    }
     else if (section == 2){
-        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_studio_title_button"];
-        self.infoHeadView.titleLabel.text = @"推荐名老中医工作室";
+//        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_studio_title_button"];
+        self.infoHeadView.titleLabel.text = @"名医工作室";
         self.infoHeadView.moreLabel.text = @"更多";
-        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_studio_more_button"];
+        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"info_main_more_image"];
         
         self.infoHeadView.userInteractionEnabled = YES;
         UITapGestureRecognizer *studioHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(studioHeadViewClicked)];
         [self.infoHeadView addGestureRecognizer:studioHeadViewTap];
         
     }else if (section == 3){
-        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_person_title_button"];
-        self.infoHeadView.titleLabel.text = @"推荐名老中医";
+//        self.infoHeadView.titleImage.image = [UIImage imageNamed:@"cell_person_title_button"];
+        self.infoHeadView.titleLabel.text = @"名老中医";
         self.infoHeadView.moreLabel.text = @"更多";
-        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"cell_person_more_button"];
+        self.infoHeadView.moreImage.image = [UIImage imageNamed:@"info_main_more_image"];
         
         self.infoHeadView.userInteractionEnabled = YES;
         UITapGestureRecognizer *personHeadViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personHeadViewClicked)];
@@ -536,7 +537,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DLog(@"%ld",indexPath.section);
+    DLog(@"%ld",(long)indexPath.section);
     if (indexPath.section == 0) {
         
     }else if (indexPath.section == 1){
@@ -570,7 +571,7 @@
 
 #pragma mark SDCycleScrollViewDelegate
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"点击了第%ld张图片", index);
+    NSLog(@"点击了第%ld张图片", (long)index);
     AgreementViewController *webVC = [[AgreementViewController alloc] init];
     webVC.hidesBottomBarWhenPushed = YES;
     webVC.urlStr = self.adUrlArray[index];

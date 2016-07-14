@@ -58,26 +58,26 @@
     self.label1_2 = [[UILabel alloc] init];
     self.label1_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label1_2.numberOfLines = 0;
-    self.label1_2.font = [UIFont systemFontOfSize:12];
+    self.label1_2.font = [UIFont systemFontOfSize:13];
     self.label1_2.textAlignment = NSTextAlignmentCenter;
     [self.backView1 addSubview:self.label1_2];
     
     [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView1).offset(0);
-        make.top.equalTo(self.backView1).offset(8);
+        make.top.equalTo(self.backView1).offset(12);
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(70);
     }];
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView1).offset(0);
-        make.top.equalTo(self.imageView1).offset(70+10);
+        make.top.equalTo(self.imageView1.mas_bottom).offset(10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label1_1).offset(12+5);
+        make.top.equalTo(self.label1_1.mas_bottom).offset(7);
         make.leading.equalTo(self.backView1).offset(10);
         make.trailing.equalTo(self.backView1).offset(-10);
     }];
@@ -96,26 +96,26 @@
     self.label2_2 = [[UILabel alloc] init];
     self.label2_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label2_2.numberOfLines = 0;
-    self.label2_2.font = [UIFont systemFontOfSize:12];
+    self.label2_2.font = [UIFont systemFontOfSize:13];
     self.label2_2.textAlignment = NSTextAlignmentCenter;
     [self.backView2 addSubview:self.label2_2];
     
     [self.imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView2).offset(0);
-        make.top.equalTo(self.backView2).offset(8);
+        make.top.equalTo(self.backView2).offset(12);
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(70);
     }];
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView2).offset(0);
-        make.top.equalTo(self.imageView2).offset(70+10);
+        make.top.equalTo(self.imageView2.mas_bottom).offset(10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label2_1).offset(12+5);
+        make.top.equalTo(self.label2_1.mas_bottom).offset(7);
         make.leading.equalTo(self.backView2).offset(10);
         make.trailing.equalTo(self.backView2).offset(-10);
     }];
@@ -133,26 +133,26 @@
     self.label3_2 = [[UILabel alloc] init];
     self.label3_2.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label3_2.numberOfLines = 0;
-    self.label3_2.font = [UIFont systemFontOfSize:12];
+    self.label3_2.font = [UIFont systemFontOfSize:13];
     self.label3_2.textAlignment = NSTextAlignmentCenter;
     [self.backView3 addSubview:self.label3_2];
     
     [self.imageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backView3).offset(0);
-        make.top.equalTo(self.backView3).offset(8);
+        make.top.equalTo(self.backView3).offset(12);
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(70);
     }];
     
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView3).offset(0);
-        make.top.equalTo(self.imageView3).offset(70+10);
+        make.top.equalTo(self.imageView3.mas_bottom).offset(10);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
     
     [self.label3_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.label3_1).offset(12+5);
+        make.top.equalTo(self.label3_1.mas_bottom).offset(7);
         make.leading.equalTo(self.backView3).offset(10);
         make.trailing.equalTo(self.backView3).offset(-10);
     }];
