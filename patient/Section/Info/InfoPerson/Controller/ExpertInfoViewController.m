@@ -557,11 +557,11 @@
         cell.expertDepartLabel.text = self.expertDepartString;
         
         [cell.expertMoneyImageView1 setImage:[UIImage imageNamed:@"info_expert_info_money_image1"]];
-        cell.expertMoneyLabel1_1.text = @"咨询费   ¥";
+        cell.expertMoneyLabel1_1.text = @"咨询费 ¥";
         cell.expertMoneyLabel1_2.text = [NSString stringWithFormat:@"%.2f",self.expertMoney1];
         cell.expertMoneyLabel1_3.text = @"元";
         [cell.expertMoneyImageView2 setImage:[UIImage imageNamed:@"info_expert_info_money_image2"]];
-        cell.expertMoneyLabel2_1.text = @"预约费   ¥";
+        cell.expertMoneyLabel2_1.text = @"预约费 ¥";
         cell.expertMoneyLabel2_2.text = [NSString stringWithFormat:@"%.2f",self.expertMoney2];
         cell.expertMoneyLabel2_3.text = @"元";
         

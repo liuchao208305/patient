@@ -30,6 +30,7 @@
     [self.contentView addSubview:self.backView1];
     
     self.backView2 = [[UIView alloc] init];
+    self.backView2.backgroundColor = ColorWithHexRGB(0xf5f5f5);
     [self initBackView2];
     [self.contentView addSubview:self.backView2];
     
@@ -78,24 +79,36 @@
     [self.backView1 addSubview:self.expertMoneyImageView1];
     
     self.expertMoneyLabel1_1 = [[UILabel alloc] init];
+    self.expertMoneyLabel1_1.font = [UIFont systemFontOfSize:12];
+    self.expertMoneyLabel1_1.textColor = ColorWithHexRGB(0x909090);
     [self.backView1 addSubview:self.expertMoneyLabel1_1];
     
     self.expertMoneyLabel1_2 = [[UILabel alloc] init];
+    self.expertMoneyLabel1_2.font = [UIFont systemFontOfSize:13];
+    self.expertMoneyLabel1_2.textColor = ColorWithHexRGB(0x646464);
     [self.backView1 addSubview:self.expertMoneyLabel1_2];
     
     self.expertMoneyLabel1_3 = [[UILabel alloc] init];
+    self.expertMoneyLabel1_3.font = [UIFont systemFontOfSize:10];
+    self.expertMoneyLabel1_3.textColor = ColorWithHexRGB(0x909090);
     [self.backView1 addSubview:self.expertMoneyLabel1_3];
     
     self.expertMoneyImageView2 = [[UIImageView alloc] init];
     [self.backView1 addSubview:self.expertMoneyImageView2];
     
     self.expertMoneyLabel2_1 = [[UILabel alloc] init];
+    self.expertMoneyLabel2_1.font = [UIFont systemFontOfSize:12];
+    self.expertMoneyLabel2_1.textColor = ColorWithHexRGB(0x909090);
     [self.backView1 addSubview:self.expertMoneyLabel2_1];
     
     self.expertMoneyLabel2_2 = [[UILabel alloc] init];
+    self.expertMoneyLabel2_2.font = [UIFont systemFontOfSize:13];
+    self.expertMoneyLabel2_2.textColor = ColorWithHexRGB(0x646464);
     [self.backView1 addSubview:self.expertMoneyLabel2_2];
     
     self.expertMoneyLabel2_3 = [[UILabel alloc] init];
+    self.expertMoneyLabel2_3.font = [UIFont systemFontOfSize:10];
+    self.expertMoneyLabel2_3.textColor = ColorWithHexRGB(0x909090);
     [self.backView1 addSubview:self.expertMoneyLabel2_3];
     
     [self.expertImageView mas_makeConstraints:^(MASConstraintMaker *make) {
