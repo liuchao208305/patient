@@ -2481,7 +2481,7 @@
             cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
             [cell initView:3 string1:@"软" string2:@"干硬" string3:@"稀" string4:@"" string5:@"" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
         }
-        if (self.bianmiHideFlag == YES) {
+        if (self.bianzhiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
             cell.button3.hidden = YES;
