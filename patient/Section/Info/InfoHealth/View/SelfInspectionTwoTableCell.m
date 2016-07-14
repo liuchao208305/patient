@@ -7,6 +7,7 @@
 //
 
 #import "SelfInspectionTwoTableCell.h"
+#import "AdaptionUtil.h"
 
 @interface SelfInspectionTwoTableCell ()
 
@@ -117,6 +118,19 @@
         make.width.mas_equalTo((SCREEN_WIDTH-36)/2);
         make.height.mas_equalTo(34);
     }];
+    
+    [self fontAdaption];
+}
+
+-(void)fontAdaption{
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        [self.button1 setFont:[UIFont systemFontOfSize:14]];
+        [self.button2 setFont:[UIFont systemFontOfSize:14]];
+        [self.button3 setFont:[UIFont systemFontOfSize:14]];
+        [self.button4 setFont:[UIFont systemFontOfSize:14]];
+        [self.button5 setFont:[UIFont systemFontOfSize:14]];
+        [self.button6 setFont:[UIFont systemFontOfSize:14]];
+    }
 }
 
 @end
