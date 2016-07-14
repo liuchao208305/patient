@@ -141,18 +141,10 @@
 }
 
 -(void)initRecognizer{
-    self.view.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(wholeViewClicked)];
-    [self.view addGestureRecognizer:tap];
+    
 }
 
 #pragma mark Target Action
--(void)wholeViewClicked{
-    DLog(@"wholeViewClicked");
-    
-    
-}
-
 -(void)changeButtonClicked{
     DLog(@"changeButtonClicked");
     
