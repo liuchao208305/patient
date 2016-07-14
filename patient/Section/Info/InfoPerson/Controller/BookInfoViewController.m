@@ -713,7 +713,7 @@
 -(void)clinicTimeButtonClicked{
     DLog(@"clinicTimeButtonClicked");
     
-    if (!self.isAddressSelected == YES) {
+    if (!(self.isAddressSelected == YES)) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请先选择就诊地点！"];
     }else{
         [self sendExpertTimeListRequest];
@@ -788,10 +788,10 @@
 -(void)bookButtonClicked{
     DLog(@"bookButtonClicked");
     
-    if (!self.isAddressSelected == YES) {
+    if (!(self.isAddressSelected == YES)) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择就诊地点！"];
     }else{
-        if (!self.isTimeSelected == YES) {
+        if (!(self.isTimeSelected == YES)) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择就诊时间"];
         }else{
             if ([self.inquiryTextView.text isEqualToString:@""]) {
@@ -1393,9 +1393,10 @@
         
         self.patientAge = age;
         self.patientAgeLabel.text = [NSString stringWithFormat:@"%d岁",age];
-    }else{
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
     }
+//    else{
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的身份证号码！"];
+//    }
 }
 
 @end
