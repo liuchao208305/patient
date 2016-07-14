@@ -51,6 +51,7 @@
     [self.contentView addSubview:self.expertDetailLabel];
     
     self.expertShanchangLabel = [[UILabel alloc] init];
+    self.expertShanchangLabel.font = [UIFont systemFontOfSize:14];
     self.expertShanchangLabel.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.expertShanchangLabel];
     
