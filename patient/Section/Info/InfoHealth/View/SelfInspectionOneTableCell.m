@@ -38,6 +38,7 @@
     self.textField.layer.borderWidth = 1;
     self.textField.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
     self.textField.delegate = self;
+    self.textField.returnKeyType = UIReturnKeyDone;
     [self.contentView addSubview:self.textField];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,6 +76,33 @@
         [self.yuejingqitaDelegate sendYuejingqitaValue:self.textField.text];
     }
     return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.textField resignFirstResponder];
+    if (self.symtomDelegate && [self.symtomDelegate respondsToSelector:@selector(sendTextFieldValue:)]) {
+        [self.symtomDelegate sendTextFieldValue:self.textField.text];
+    }
+    
+    if (self.jiwangshiDelegate && [self.jiwangshiDelegate respondsToSelector:@selector(sendTextField1Value:)]) {
+        [self.jiwangshiDelegate sendTextField1Value:self.textField.text];
+    }
+    if (self.shoushushiDelegate && [self.shoushushiDelegate respondsToSelector:@selector(sendTextField2Value:)]) {
+        [self.shoushushiDelegate sendTextField2Value:self.textField.text];
+    }
+    if (self.guominshiDelegate && [self.guominshiDelegate respondsToSelector:@selector(sendTextField3Value:)]) {
+        [self.guominshiDelegate sendTextField3Value:self.textField.text];
+    }
+    if (self.jiazushiDelegate && [self.jiazushiDelegate respondsToSelector:@selector(sendTextField4Value:)]) {
+        [self.jiazushiDelegate sendTextField4Value:self.textField.text];
+    }
+    
+    if (self.yuejingbijingDelegate && [self.yuejingbijingDelegate respondsToSelector:@selector(sendYuejingbijingValue:)]) {
+        [self.yuejingbijingDelegate sendYuejingbijingValue:self.textField.text];
+    }
+    if (self.yuejingqitaDelegate && [self.yuejingqitaDelegate respondsToSelector:@selector(sendYuejingqitaValue:)]) {
+        [self.yuejingqitaDelegate sendYuejingqitaValue:self.textField.text];
+    }
 }
 
 @end
