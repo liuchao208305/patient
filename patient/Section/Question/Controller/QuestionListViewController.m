@@ -13,6 +13,7 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
+#import "AdaptionUtil.h"
 #import "LoginViewController.h"
 #import "QuestionListData.h"
 #import "QuestionListTableCell.h"
@@ -187,7 +188,15 @@
     [self.segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = self.segmentedControl;
     
-    self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-112, 0, 16+4+80+12, 30)];
+    if ([AdaptionUtil isIphoneFour]) {
+        self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-40, 0, 40, 30)];
+    }else if ([AdaptionUtil isIphoneFive]){
+        self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 30)];
+    }else if ([AdaptionUtil isIphoneSix]){
+        self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-112, 0, 16+4+80+12, 30)];
+    }else if ([AdaptionUtil isIphoneSixPlus]){
+        self.questionView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-112, 0, 16+4+80+12, 30)];
+    }
     
     self.questionImage = [[UIImageView alloc] init];
     self.questionImage.layer.cornerRadius = 8;
