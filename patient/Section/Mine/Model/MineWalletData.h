@@ -10,7 +10,7 @@
 
 @interface MineWalletData : NSObject
 
-@property (strong,nonatomic)NSString *price;
+@property (assign,nonatomic)double price;
 @property (strong,nonatomic)NSString *dates;
 @property (assign,nonatomic)int type;
 @property (strong,nonatomic)NSString *obj_id;

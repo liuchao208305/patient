@@ -419,7 +419,7 @@
     for (MineWalletData *mineWalletData in self.tradeArray) {
         [self.tradeIdArray addObject:[NullUtil judgeStringNull:mineWalletData.deal_id]];
         [self.tradeTypeArray addObject:[NullUtil judgeStringNull:[NSString stringWithFormat:@"%d",mineWalletData.type]]];
-        [self.tradeMoneyArray addObject:[NullUtil judgeStringNull:mineWalletData.price]];
+        [self.tradeMoneyArray addObject:[NSString stringWithFormat:@"%.2f",mineWalletData.price]];
         [self.tradeTimeArray addObject:[NullUtil judgeStringNull:mineWalletData.dates]];
     }
     
