@@ -228,7 +228,7 @@
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView).offset(-1);
-        make.leading.equalTo(self.contentView).offset(0);
+        make.leading.equalTo(self.contentView).offset(12);
         make.trailing.equalTo(self.contentView).offset(0);
         make.height.mas_equalTo(1);
     }];

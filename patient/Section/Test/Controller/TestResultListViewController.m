@@ -163,9 +163,9 @@
     
 //    cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@, 偏向  %@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
     if (![self.resultTrendArray[indexPath.section] isEqualToString:@""]) {
-        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@, 偏向  %@",self.resultTimeArray[indexPath.section],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
+        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@  偏向  %@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
     }else{
-        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@",self.resultTimeArray[indexPath.section],self.resultMainArray[indexPath.section]];
+        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section]];
     }
     return cell;
 }
