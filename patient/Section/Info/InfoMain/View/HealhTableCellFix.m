@@ -67,7 +67,7 @@
     
     [self.label1_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView1).offset(0);
-        make.top.equalTo(self.imageView1).offset(56+10);
+        make.top.equalTo(self.imageView1.mas_bottom).offset(15);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
@@ -91,7 +91,7 @@
     
     [self.label2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView2).offset(0);
-        make.top.equalTo(self.imageView2).offset(56+10);
+        make.top.equalTo(self.imageView2.mas_bottom).offset(15);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
@@ -115,7 +115,7 @@
     
     [self.label3_1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.imageView3).offset(0);
-        make.top.equalTo(self.imageView3).offset(56+10);
+        make.top.equalTo(self.imageView3.mas_bottom).offset(15);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(12);
     }];
