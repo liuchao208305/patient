@@ -47,7 +47,7 @@
 -(void)initGuideView{
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSArray *imageArray = @[@"guideview1.jpg",@"guideview2.jpg",@"guideview3.jpg"];
+    NSArray *imageArray = @[@"guideviewFix1",@"guideviewFix2",@"guideviewFix3"];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.delegate = self;
@@ -67,24 +67,24 @@
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             //根据设备尺寸适配按钮大小
             if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
-                button.frame = CGRectMake(2*SCREEN_WIDTH+((SCREEN_WIDTH-100)/2), SCREEN_HEIGHT -60, 100, 25);
+                button.frame = CGRectMake(2*SCREEN_WIDTH+((SCREEN_WIDTH-150)/2), SCREEN_HEIGHT -85, 150, 40);
                 button.titleLabel.font = [UIFont systemFontOfSize:14];
             }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
-                button.frame = CGRectMake(2*SCREEN_WIDTH+((SCREEN_WIDTH-100)/2), SCREEN_HEIGHT-70, 100, 30);
-                button.titleLabel.font = [UIFont systemFontOfSize:15];
+                button.frame = CGRectMake(2*SCREEN_WIDTH+((SCREEN_WIDTH-150)/2), SCREEN_HEIGHT-100, 150, 40);
+                button.titleLabel.font = [UIFont systemFontOfSize:16];
             }
-            [button setTitle:@"立即进入" forState:UIControlStateNormal];
-            [button setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-            button.layer.cornerRadius = 2;
+            [button setTitle:@"马上提问" forState:UIControlStateNormal];
+            [button setTitleColor:ColorWithHexRGB(0xfcba1c) forState:UIControlStateNormal];
+            button.layer.cornerRadius = 20;
             button.layer.borderWidth = 1;
-            button.layer.borderColor = kMAIN_COLOR.CGColor;
+            button.layer.borderColor = ColorWithHexRGB(0xfcba1c).CGColor;
             [button addTarget:self action:@selector(initRootWindow) forControlEvents:UIControlEventTouchUpInside];
             [self.scrollView addSubview:button];
         }
     }
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-100)/2, SCREEN_HEIGHT-30, 100, 20)];
     self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-    self.pageControl.currentPageIndicatorTintColor = kMAIN_COLOR;
+    self.pageControl.currentPageIndicatorTintColor = ColorWithHexRGB(0xfcba1c);
     self.pageControl.numberOfPages = imageArray.count;
     self.pageControl.currentPage = 0;
     [self.view addSubview:self.pageControl];
