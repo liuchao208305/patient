@@ -28,6 +28,55 @@
 @property (assign,nonatomic)NSInteger currentPage;
 @property (assign,nonatomic)NSInteger pageSize;
 
+@property (strong,nonatomic)NSString *complain;
+@property (strong,nonatomic)NSString *shuimianStatus;
+@property (strong,nonatomic)NSString *shuimianString;
+@property (strong,nonatomic)NSString *yinshiStatus;
+@property (strong,nonatomic)NSString *yinshiString;
+@property (strong,nonatomic)NSString *yinshuiStatus;
+@property (strong,nonatomic)NSString *yinshuiString;
+
+@property (strong,nonatomic)NSString *dabian1;
+@property (strong,nonatomic)NSString *dabian2;
+@property (strong,nonatomic)NSString *dabian3;
+@property (strong,nonatomic)NSString *xiaobian1;
+@property (strong,nonatomic)NSString *xiaobian2;
+
+@property (strong,nonatomic)NSString *dabianCishu;
+@property (strong,nonatomic)NSString *bianmiStatus;
+@property (strong,nonatomic)NSString *bianmiString;
+@property (strong,nonatomic)NSString *xiexieStatus;
+@property (strong,nonatomic)NSString *xiexieString;
+@property (strong,nonatomic)NSString *chengxingStatus;
+@property (strong,nonatomic)NSString *chengxingString;
+@property (strong,nonatomic)NSString *bianzhiStatus;
+@property (strong,nonatomic)NSString *bianzhiString;
+@property (strong,nonatomic)NSString *bianzhiStringFix;
+@property (strong,nonatomic)NSString *paibianganStatus;
+@property (strong,nonatomic)NSString *paibianganString;
+@property (strong,nonatomic)NSString *paibianganStringFix;
+@property (strong,nonatomic)NSString *dabianyanseString;
+@property (strong,nonatomic)NSString *xiaobianBaitianString;
+@property (strong,nonatomic)NSString *xiaobianWanshangString;
+@property (strong,nonatomic)NSString *sezhiStatus;
+@property (strong,nonatomic)NSString *sezhiString;
+@property (strong,nonatomic)NSString *sezhiStringFix;
+@property (strong,nonatomic)NSString *painiaoganStatus;
+@property (strong,nonatomic)NSString *painiaoganString;
+@property (strong,nonatomic)NSString *painiaoganStringFix;
+
+@property (strong,nonatomic)NSString *hanreStatus;
+@property (strong,nonatomic)NSString *hanreString;
+@property (strong,nonatomic)NSString *hanreStringFix;
+@property (strong,nonatomic)NSString *tiwenStatus;
+@property (strong,nonatomic)NSString *tiwenString;
+@property (strong,nonatomic)NSString *tiwenStringFix;
+@property (strong,nonatomic)NSString *chuhanStatus;
+@property (strong,nonatomic)NSString *chuhanString;
+@property (strong,nonatomic)NSString *chuhanStringFix;
+
+@property (strong,nonatomic)NSString *healthPhotoString;
+
 @end
 
 @implementation HealthListDetailViewController
@@ -125,7 +174,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-        return 490;
+        return 550;
     }else{
         NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
         CGFloat height = 0;
@@ -138,7 +187,7 @@
         } else {
             height= SCREEN_WIDTH/3*3;
         }
-        return 500+height;
+        return 560+height;
     }
 }
 
@@ -161,70 +210,125 @@
     HealthListDetailTableCell *cell = [[HealthListDetailTableCell alloc] init];
     [cell initViewWithPhotoArray:zhaopianArray];
     
-    NSString *complain = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]];
-    NSString *shuimian = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]];
-    NSString *yinshi = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"c_val"]];
-    NSString *yinshui = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"d_val"]];
+    self.complain = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]];
+    self.shuimianStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_status"]];
+    self.shuimianString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]];
+    self.yinshiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"c_status"]];
+    self.yinshiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"c_val"]];
+    self.yinshuiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"d_status"]];
+    self.yinshuiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"d_val"]];
     
-    NSString *dabianCishu = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_val"]];
-    NSString *bianmiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isBM"]];
-    NSString *xiexieStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"	e_isXM"]];
-    NSString *chengxingStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"	e_isCX"]];
-    NSString *bianzhiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isEX"]];
-    NSString *bianzhiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_EX_val"]];
-    NSString *paibianganStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"f_status"]];
-    NSString *paibianganString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"f_val"]];
-//    NSString *dabianyanseString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"	e_color"]];
-    NSString *xiaobianBaitianString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"g_up_no"]];
-    NSString *xiaobianWanshangString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"g_down_no"]];
-//    NSString *sezhiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"h_status"]];
-    NSString *sezhiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"h_val"]];
-//    NSString *painiaoganStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"i_status"]];
-    NSString *painiaoganString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"i_val"]];
+    self.dabianCishu = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_val"]];
+    self.bianmiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isBM"]];
+    self.xiexieStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isXM"]];
+    self.chengxingStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isCX"]];
+    self.bianzhiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_isEX"]];
+    self.bianzhiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_EX_val"]];
+    self.paibianganStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"f_status"]];
+    self.paibianganString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"f_val"]];
+    self.dabianyanseString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"e_color"]];
+    self.xiaobianBaitianString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"g_up_no"]];
+    self.xiaobianWanshangString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"g_down_no"]];
+    self.sezhiStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"h_status"]];
+    self.sezhiString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"h_val"]];
+    self.painiaoganStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"i_status"]];
+    self.painiaoganString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"i_val"]];
     
-    NSString *dabian1 = [NSString stringWithFormat:@"每天%@次；便秘：%@；泄泻：%@；成形：%@；",dabianCishu,bianmiStatus,xiexieStatus,chengxingStatus];
-    NSString *dabian2 = [NSString stringWithFormat:@"便质：%@；排便感：%@",bianzhiString,paibianganString];
-    NSString *dabian3 = @"大便颜色：";
+    if ([self.bianmiStatus intValue] == 1) {
+        self.bianmiString = @"是";
+    }else if ([self.bianmiStatus intValue]== 2){
+        self.bianmiString = @"否";
+    }
     
-    NSString *xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；",xiaobianBaitianString,xiaobianWanshangString,sezhiString];
-    NSString *xiaobian2 = [NSString stringWithFormat:@"排尿感：%@；",painiaoganString];
+    if ([self.xiexieStatus intValue] == 1) {
+        self.xiexieString = @"是";
+    }else if ([self.xiexieStatus intValue]== 2){
+        self.xiexieString = @"否";
+    }
     
-    NSString *hanre = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"v_val"]];
-    NSString *tiwen = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"w_val"]];
-    NSString *chuhan = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]];
+    if ([self.chengxingStatus intValue] == 1) {
+        self.chengxingString = @"是";
+    }else if ([self.chengxingStatus intValue]== 2){
+        self.chengxingString = @"否";
+    }
+    
+    if ([self.bianzhiStatus intValue] == 1) {
+        self.bianzhiStringFix = @"正常";
+    }else if ([self.bianzhiStatus intValue]== 2){
+        self.bianzhiStringFix = self.bianzhiString;
+    }
+    
+    if ([self.paibianganStatus intValue] == 1) {
+        self.paibianganStringFix = @"正常";
+    }else if ([self.paibianganStatus intValue]== 2){
+        self.paibianganStringFix = self.paibianganString;
+    }
+    
+    self.dabian1 = [NSString stringWithFormat:@"每天%@次  便秘:%@   泄泻:%@   成形:%@",self.dabianCishu,self.bianmiString,self.xiexieString,self.chengxingString];
+    self.dabian2 = [NSString stringWithFormat:@"便质:%@  排便感：%@",self.bianzhiStringFix,self.paibianganStringFix];
+    self.dabian3 = [NSString stringWithFormat:@"大便颜色:%@",self.dabianyanseString];
+    
+    if ([self.sezhiStatus intValue] == 1) {
+        self.sezhiStringFix = @"正常";
+    }else if ([self.sezhiStatus intValue]== 2){
+        self.sezhiStringFix = self.sezhiString;
+    }
+    
+    if ([self.paibianganStatus intValue] == 1) {
+        self.paibianganStringFix = @"正常";
+    }else if ([self.paibianganStatus intValue]== 2){
+        self.paibianganStringFix = self.painiaoganString;
+    }
+    
+    self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次  色质:%@",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiStringFix];
+    self.xiaobian2 = [NSString stringWithFormat:@"排尿感:%@",self.paibianganStringFix];
+    
+    self.hanreStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"v_status"]];
+    self.hanreString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"v_val"]];
+    self.tiwenStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"w_status"]];
+    self.tiwenString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"w_val"]];
+    self.chuhanStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_status"]];
+    self.chuhanString = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]];
+    
+    if ([self.hanreStatus intValue] == 1) {
+        self.hanreStringFix = @"正常";
+    }else if ([self.hanreStatus intValue]== 2){
+        self.hanreStringFix = self.hanreString;
+    }
+    
+    if ([self.tiwenStatus intValue] == 1) {
+        self.tiwenStringFix = @"未测";
+    }else if ([self.tiwenStatus intValue]== 2){
+        self.tiwenStringFix = self.tiwenString;
+    }
+    
+    if ([self.chuhanStatus intValue] == 1) {
+        self.chuhanStringFix = @"正常";
+    }else if ([self.chuhanStatus intValue]== 2){
+        self.chuhanStringFix = self.chuhanString;
+    }
     
     cell.complainLabel1.text = @"主诉：";
-    cell.complainLabel2.text = [complain isEqualToString:@""] ? @"无" : complain;
+    cell.complainLabel2.text = [self.complain isEqualToString:@""] ? @"正常" : self.complain;
     cell.shuimianLabel1.text = @"睡眠：";
-    cell.shuimianLabel2.text = [shuimian isEqualToString:@""] ? @"无" : shuimian;
+    cell.shuimianLabel2.text = [self.shuimianString isEqualToString:@""] ? @"正常" : self.shuimianString;
     cell.yinshiLabel1.text = @"饮食：";
-    cell.yinshiLabel2.text = [yinshi isEqualToString:@""] ? @"无" : yinshi;
+    cell.yinshiLabel2.text = [self.yinshiString isEqualToString:@""] ? @"正常" : self.yinshiString;
     cell.yinshuiLabel1.text = @"饮水：";
-    cell.yinshuiLabel2.text = [yinshui isEqualToString:@""] ? @"无" : yinshui;
+    cell.yinshuiLabel2.text = [self.yinshuiString isEqualToString:@""] ? @"不口渴" : self.yinshuiString;
     cell.dabianLabel1.text = @"大便：";
-    cell.dabianLabel2_1.text = [dabian1 isEqualToString:@""] ? @"无" : dabian1;
-    cell.dabianLabel2_2.text = [dabian2 isEqualToString:@""] ? @"无" : dabian2;
-    cell.dabianLabel2_3.text = [dabian3 isEqualToString:@""] ? @"无" : dabian3;
-    //        NSString *test = @"0xb6bc16";
-    //        unsigned long red = strtoul([test UTF8String],0,0);
-    //        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(red)];
-    NSString *dabianyanseString = @"";
-    
-    if ([dabianyanseString isEqualToString:@""]) {
-        [cell.dabianImageView setBackgroundColor:kWHITE_COLOR];
-    }else{
-        unsigned long dabian = strtoul([dabianyanseString UTF8String],0,0);
-        [cell.dabianImageView setBackgroundColor:ColorWithHexRGB(dabian)];
-    }
+    cell.dabianLabel2_1.text = self.dabian1;
+    cell.dabianLabel2_2.text = self.dabian2;
+    cell.dabianLabel2_3.text = self.dabian3;
     cell.xiaobianLabel1.text = @"小便：";
-    cell.xiaobianLabel2_1.text = [xiaobian1 isEqualToString:@""] ? @"无" : xiaobian1;
-    cell.xiaobianLabel2_2.text = [xiaobian2 isEqualToString:@""] ? @"无" : xiaobian2;
+    cell.xiaobianLabel2_1.text = self.xiaobian1;
+    cell.xiaobianLabel2_2.text = self.xiaobian2;
     cell.hanreLabel1.text = @"寒热：";
-    cell.hanreLabel2.text = [hanre isEqualToString:@""] ? @"无" : hanre;
+    cell.hanreLabel2.text = self.hanreStringFix;
     cell.tiwenLabel1.text = @"体温：";
-    cell.tiwenLabel2.text = [tiwen isEqualToString:@""] ? @"无" : tiwen;
+    cell.tiwenLabel2.text = self.tiwenStringFix;
     cell.chuhanLabel1.text = @"出汗：";
-    cell.chuhanLabel2.text = [chuhan isEqualToString:@""] ? @"无" : chuhan;
+    cell.chuhanLabel2.text = self.chuhanStringFix;
     cell.zhaopianLabel1.text = @"照片资料：";
     if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
         cell.zhaopianLabel2.hidden = NO;

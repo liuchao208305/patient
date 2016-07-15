@@ -275,7 +275,7 @@
     if (indexPath.section == 0) {
         return 130;
     }else if (indexPath.section == 1){
-        return 520;
+        return 550;
     }else if (indexPath.section > 1){
         return 45;
     }

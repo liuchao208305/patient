@@ -66,6 +66,7 @@
     [self.contentView addSubview:self.complainLabel1];
     
     self.complainLabel2 = [[UILabel alloc] init];
+    self.complainLabel2.numberOfLines = 0;
     self.complainLabel2.font = [UIFont systemFontOfSize:13];
     self.complainLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.complainLabel2];
@@ -217,13 +218,14 @@
     
     [self.complainLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.complainLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.complainLabel1).offset(0);
+        make.trailing.equalTo(self.contentView).offset(-12);
+        make.top.equalTo(self.complainLabel1).offset(0);
     }];
     
     [self.compalainLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(0);
         make.trailing.equalTo(self.contentView).offset(0);
-        make.top.equalTo(self.complainLabel1.mas_bottom).offset(12);
+        make.top.equalTo(self.complainLabel2.mas_bottom).offset(12);
         make.height.mas_equalTo(1);
     }];
     
