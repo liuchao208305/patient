@@ -336,109 +336,269 @@
     self.hanreGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
     self.chuhanGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
     
+//    if ([self.symptomString isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入患者主诉！"];
+//    }
+//    
+//    if (self.shuimianHideFlag == NO) {
+//        if ([self.shuimianGroupArray[0] isEqualToString:@""] &&[self.shuimianGroupArray[1] isEqualToString:@""] &&[self.shuimianGroupArray[2] isEqualToString:@""] &&[self.shuimianGroupArray[3] isEqualToString:@""] &&[self.shuimianGroupArray[4] isEqualToString:@""] &&[self.shuimianGroupArray[5] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择睡眠情况！"];
+//        }
+//    }else if (self.shuimianHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.yinshiHideFlag == NO) {
+//        if ([self.yinshiGroupArray[0] isEqualToString:@""] &&[self.yinshiGroupArray[1] isEqualToString:@""] &&[self.yinshiGroupArray[2] isEqualToString:@""] &&[self.yinshiGroupArray[3] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮食情况！"];
+//        }
+//    }else if (self.yinshiHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.yinshuiHideFlag == NO) {
+//        if ([self.yinshuiGroupArray[0] isEqualToString:@""] &&[self.yinshuiGroupArray[1] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮水情况！"];
+//        }
+//    }else if (self.yinshuiHideFlag == YES){
+//        
+//    }
+//    
+//    if ([self.dabiancishuString isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写大便次数！"];
+//    }
+//    
+//    if (self.bianzhiHideFlag == NO) {
+//        if ([self.bianzhiGroupArray[0] isEqualToString:@""] &&[self.bianzhiGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择便质情况！"];
+//        }
+//    }else if (self.bianzhiHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.paibianganHideFlag == NO) {
+//        if ([self.paibianganGroupArray[0] isEqualToString:@""] &&[self.paibianganGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排便感情况！"];
+//        }
+//    }else if (self.paibianganHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.dabianyanseClickedNumber == 0) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择大便颜色！"];
+//    }else if (self.dabianyanseClickedNumber > 1){
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"大便颜色只能选择一种"];
+//    }
+//    
+//    if ([self.xiaobiancishuBaitianString isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写白天小便次数！"];
+//    }
+//    
+//    if ([self.xiaobiancishuWanshangString isEqualToString:@""]) {
+//        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写晚上小便次数！"];
+//    }
+//    
+//    if (self.sezhiHideFlag == NO) {
+//        if ([self.sezhiGroupArray[0] isEqualToString:@""] &&[self.sezhiGroupArray[1] isEqualToString:@""] &&[self.sezhiGroupArray[2] isEqualToString:@""] &&[self.sezhiGroupArray[3] isEqualToString:@""] &&[self.sezhiGroupArray[4] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择色质情况！"];
+//        }
+//    }else if (self.sezhiHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.painiaoganHideFlag == NO) {
+//        if ([self.painiaoganGroupArray[0] isEqualToString:@""] &&[self.painiaoganGroupArray[1] isEqualToString:@""] &&[self.painiaoganGroupArray[2] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排尿感情况！"];
+//        }
+//    }else if (self.painiaoganHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.hanreHideFlag == NO) {
+//        if ([self.hanreGroupArray[0] isEqualToString:@""] &&[self.hanreGroupArray[1] isEqualToString:@""] &&[self.hanreGroupArray[2] isEqualToString:@""] &&[self.hanreGroupArray[3] isEqualToString:@""] &&[self.hanreGroupArray[4] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择寒热情况！"];
+//        }
+//    }else if (self.hanreHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.tiwenHideFlag == NO) {
+//        if ([self.tiwenString isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择您的体温！"];
+//        }
+//    }else if (self.tiwenHideFlag == YES){
+//        
+//    }
+//    
+//    if (self.chuhanHideFlag == NO) {
+//        if ([self.chuhanGroupArray[0] isEqualToString:@""] &&[self.chuhanGroupArray[1] isEqualToString:@""] &&[self.chuhanGroupArray[2] isEqualToString:@""] &&[self.chuhanGroupArray[3] isEqualToString:@""] &&[self.chuhanGroupArray[4] isEqualToString:@""] &&[self.chuhanGroupArray[5] isEqualToString:@""] &&[self.chuhanGroupArray[6] isEqualToString:@""] &&[self.chuhanGroupArray[7] isEqualToString:@""] &&[self.chuhanGroupArray[8] isEqualToString:@""] &&[self.chuhanGroupArray[9] isEqualToString:@""] &&[self.chuhanGroupArray[10] isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择出汗情况！"];
+//        }
+//    }else if (self.chuhanHideFlag == YES){
+//        
+//    }
+    
+    [self symptomCheck];
+    
+//    [self sendSelfInspetionConfirmRequest];
+}
+
+-(void)symptomCheck{
     if ([self.symptomString isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入患者主诉！"];
+    }else{
+        [self shuimianCheck];
     }
-    
+}
+
+-(void)shuimianCheck{
     if (self.shuimianHideFlag == NO) {
         if ([self.shuimianGroupArray[0] isEqualToString:@""] &&[self.shuimianGroupArray[1] isEqualToString:@""] &&[self.shuimianGroupArray[2] isEqualToString:@""] &&[self.shuimianGroupArray[3] isEqualToString:@""] &&[self.shuimianGroupArray[4] isEqualToString:@""] &&[self.shuimianGroupArray[5] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择睡眠情况！"];
+        }else{
+            [self yinshiCheck];
         }
     }else if (self.shuimianHideFlag == YES){
-        
+        [self yinshiCheck];
     }
-    
+}
+
+-(void)yinshiCheck{
     if (self.yinshiHideFlag == NO) {
         if ([self.yinshiGroupArray[0] isEqualToString:@""] &&[self.yinshiGroupArray[1] isEqualToString:@""] &&[self.yinshiGroupArray[2] isEqualToString:@""] &&[self.yinshiGroupArray[3] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮食情况！"];
+        }else{
+            [self yinshuiCheck];
         }
     }else if (self.yinshiHideFlag == YES){
-        
+        [self yinshuiCheck];
     }
-    
+}
+
+-(void)yinshuiCheck{
     if (self.yinshuiHideFlag == NO) {
         if ([self.yinshuiGroupArray[0] isEqualToString:@""] &&[self.yinshuiGroupArray[1] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮水情况！"];
+        }else{
+            [self dabiancishuCheck];
         }
     }else if (self.yinshuiHideFlag == YES){
-        
+        [self dabiancishuCheck];
     }
-    
+}
+
+-(void)dabiancishuCheck{
     if ([self.dabiancishuString isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写大便次数！"];
+    }else{
+        [self bianzhiCheck];
     }
-    
+}
+
+-(void)bianzhiCheck{
     if (self.bianzhiHideFlag == NO) {
         if ([self.bianzhiGroupArray[0] isEqualToString:@""] &&[self.bianzhiGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择便质情况！"];
+        }else{
+            [self paibianganCheck];
         }
     }else if (self.bianzhiHideFlag == YES){
-        
+        [self paibianganCheck];
     }
-    
+}
+
+-(void)paibianganCheck{
     if (self.paibianganHideFlag == NO) {
         if ([self.paibianganGroupArray[0] isEqualToString:@""] &&[self.paibianganGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排便感情况！"];
+        }else{
+            [self dabianyanseCheck];
         }
     }else if (self.paibianganHideFlag == YES){
-        
+        [self dabianyanseCheck];
     }
-    
+}
+
+-(void)dabianyanseCheck{
     if (self.dabianyanseClickedNumber == 0) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择大便颜色！"];
     }else if (self.dabianyanseClickedNumber > 1){
         [AlertUtil showSimpleAlertWithTitle:nil message:@"大便颜色只能选择一种"];
+        
+        //清空相关内容
+    }else{
+        [self xiaobiancishuCheck];
     }
-    
+}
+
+-(void)xiaobiancishuCheck{
     if ([self.xiaobiancishuBaitianString isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写白天小便次数！"];
-    }
-    
-    if ([self.xiaobiancishuWanshangString isEqualToString:@""]) {
+    }else if ([self.xiaobiancishuWanshangString isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写晚上小便次数！"];
+    }else{
+        [self sezhiCheck];
     }
-    
+}
+
+-(void)sezhiCheck{
     if (self.sezhiHideFlag == NO) {
         if ([self.sezhiGroupArray[0] isEqualToString:@""] &&[self.sezhiGroupArray[1] isEqualToString:@""] &&[self.sezhiGroupArray[2] isEqualToString:@""] &&[self.sezhiGroupArray[3] isEqualToString:@""] &&[self.sezhiGroupArray[4] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择色质情况！"];
+        }else{
+            [self painiaoganCheck];
         }
     }else if (self.sezhiHideFlag == YES){
-        
+        [self painiaoganCheck];
     }
-    
+}
+
+-(void)painiaoganCheck{
     if (self.painiaoganHideFlag == NO) {
         if ([self.painiaoganGroupArray[0] isEqualToString:@""] &&[self.painiaoganGroupArray[1] isEqualToString:@""] &&[self.painiaoganGroupArray[2] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排尿感情况！"];
+        }else{
+            [self hanreCheck];
         }
     }else if (self.painiaoganHideFlag == YES){
-        
+        [self hanreCheck];
     }
-    
+}
+
+-(void)hanreCheck{
     if (self.hanreHideFlag == NO) {
         if ([self.hanreGroupArray[0] isEqualToString:@""] &&[self.hanreGroupArray[1] isEqualToString:@""] &&[self.hanreGroupArray[2] isEqualToString:@""] &&[self.hanreGroupArray[3] isEqualToString:@""] &&[self.hanreGroupArray[4] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择寒热情况！"];
+        }else{
+            [self tiwenCheck];
         }
     }else if (self.hanreHideFlag == YES){
-        
+        [self tiwenCheck];
     }
-    
+}
+
+-(void)tiwenCheck{
     if (self.tiwenHideFlag == NO) {
         if ([self.tiwenString isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择您的体温！"];
+        }else{
+            [self chuhanCheck];
         }
     }else if (self.tiwenHideFlag == YES){
-        
+        [self chuhanCheck];
     }
-    
+}
+
+-(void)chuhanCheck{
     if (self.chuhanHideFlag == NO) {
         if ([self.chuhanGroupArray[0] isEqualToString:@""] &&[self.chuhanGroupArray[1] isEqualToString:@""] &&[self.chuhanGroupArray[2] isEqualToString:@""] &&[self.chuhanGroupArray[3] isEqualToString:@""] &&[self.chuhanGroupArray[4] isEqualToString:@""] &&[self.chuhanGroupArray[5] isEqualToString:@""] &&[self.chuhanGroupArray[6] isEqualToString:@""] &&[self.chuhanGroupArray[7] isEqualToString:@""] &&[self.chuhanGroupArray[8] isEqualToString:@""] &&[self.chuhanGroupArray[9] isEqualToString:@""] &&[self.chuhanGroupArray[10] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择出汗情况！"];
+        }else{
+            [self sendSelfInspetionConfirmRequest];
         }
     }else if (self.chuhanHideFlag == YES){
-        
+        [self sendSelfInspetionConfirmRequest];
     }
-    
-    [self sendSelfInspetionConfirmRequest];
 }
 
 -(void)shuimianSegmentAction:(UISegmentedControl *)Seg{
