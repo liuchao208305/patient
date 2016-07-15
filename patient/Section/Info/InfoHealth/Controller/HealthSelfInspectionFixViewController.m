@@ -1113,68 +1113,68 @@
 }
 
 -(void)dabianyanseButton1Clicked:(UIButton *)sender{
-    self.dabianyanseClickedFlag1 = !self.dabianyanseClickedFlag1;
-    if (self.dabianyanseClickedFlag1 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        self.dabianyanseString = sender.titleLabel.text;
-        DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-    }
+    self.dabianyanseClickedFlag1 = YES;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)dabianyanseButton2Clicked:(UIButton *)sender{
-    self.dabianyanseClickedFlag2 = !self.dabianyanseClickedFlag2;
-    if (self.dabianyanseClickedFlag2 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        self.dabianyanseString = sender.titleLabel.text;
-        DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-    }
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = YES;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)dabianyanseButton3Clicked:(UIButton *)sender{
-    self.dabianyanseClickedFlag3 = !self.dabianyanseClickedFlag3;
-    if (self.dabianyanseClickedFlag3 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        self.dabianyanseString = sender.titleLabel.text;
-        DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-    }
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = YES;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)dabianyanseButton4Clicked:(UIButton *)sender{
-    self.dabianyanseClickedFlag4 = !self.dabianyanseClickedFlag4;
-    if (self.dabianyanseClickedFlag4 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        self.dabianyanseString = sender.titleLabel.text;
-        DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-    }
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = YES;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)dabianyanseButton5Clicked:(UIButton *)sender{
-    self.dabianyanseClickedFlag5 = !self.dabianyanseClickedFlag5;
-    if (self.dabianyanseClickedFlag5 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        self.dabianyanseString = sender.titleLabel.text;
-        DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-    }
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = YES;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)sezhiButton1Clicked:(UIButton *)sender{
@@ -2267,6 +2267,63 @@
             [cell.button3 addTarget:self action:@selector(dabianyanseButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button4 addTarget:self action:@selector(dabianyanseButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button5 addTarget:self action:@selector(dabianyanseButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (self.dabianyanseClickedFlag1 == YES) {
+                [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.dabianyanseClickedFlag2 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.dabianyanseClickedFlag3 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button3 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button3.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.dabianyanseClickedFlag4 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button4 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button4.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.dabianyanseClickedFlag5 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button5 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button5.layer.borderColor = kMAIN_COLOR.CGColor;
+            }
         }
         
         return cell;
