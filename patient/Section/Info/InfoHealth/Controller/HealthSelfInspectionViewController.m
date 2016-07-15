@@ -80,17 +80,11 @@
 @property (assign,nonatomic)BOOL paibianganClickedFlag2;
 @property (assign,nonatomic)BOOL paibianganClickedFlag3;
 
-@property (assign,nonatomic)int dabianyanseClickedNumber;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag1;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag2;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag3;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag4;
 @property (assign,nonatomic)BOOL dabianyanseClickedFlag5;
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag6;
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag7;
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag8;
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag9;
-@property (assign,nonatomic)BOOL dabianyanseClickedFlag10;
 
 @property (assign,nonatomic)BOOL sezhiClickedFlag1;
 @property (assign,nonatomic)BOOL sezhiClickedFlag2;
@@ -178,7 +172,7 @@
 @property (strong,nonatomic)NSString *dabiancishuString;
 @property (strong,nonatomic)NSString *bianzhiGroupString;
 @property (strong,nonatomic)NSString *paibianganGroupString;
-@property (strong,nonatomic)NSString *dabianyaseString;
+@property (strong,nonatomic)NSString *dabianyanseString;
 @property (strong,nonatomic)NSString *xiaobiancishuBaitianString;
 @property (strong,nonatomic)NSString *xiaobiancishuWanshangString;
 @property (strong,nonatomic)NSString *sezhiGroupString;
@@ -222,6 +216,7 @@
     
     self.symptomString = @"";
     self.dabiancishuString = @"";
+    self.dabianyanseString = @"";
     self.xiaobiancishuBaitianString = @"";
     self.xiaobiancishuWanshangString = @"";
     self.tiwenString = @"";
@@ -520,12 +515,8 @@
 }
 
 -(void)dabianyanseCheck{
-    if (self.dabianyanseClickedNumber == 0) {
+    if ([self.dabianyanseString isEqualToString:@""]) {
         [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择大便颜色！"];
-    }else if (self.dabianyanseClickedNumber > 1){
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"大便颜色只能选择一种"];
-        
-        //清空相关内容
     }else{
         [self xiaobiancishuCheck];
     }
@@ -1081,163 +1072,69 @@
     }
 }
 
--(void)dabianyanseImageView1Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag1 = !self.dabianyanseClickedFlag1;
-    if (self.dabianyanseClickedFlag1 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0xb6bc16";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
+-(void)dabianyanseButton1Clicked:(UIButton *)sender{
+    self.dabianyanseClickedFlag1 = YES;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
--(void)dabianyanseImageView2Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag2 = !self.dabianyanseClickedFlag2;
-    if (self.dabianyanseClickedFlag2 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0xb0a547";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
+-(void)dabianyanseButton2Clicked:(UIButton *)sender{
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = YES;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
--(void)dabianyanseImageView3Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag3 = !self.dabianyanseClickedFlag3;
-    if (self.dabianyanseClickedFlag3 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0xb9ac16";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
+-(void)dabianyanseButton3Clicked:(UIButton *)sender{
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = YES;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
--(void)dabianyanseImageView4Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag4 = !self.dabianyanseClickedFlag4;
-    if (self.dabianyanseClickedFlag4 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0x8c9014";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
+-(void)dabianyanseButton4Clicked:(UIButton *)sender{
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = YES;
+    self.dabianyanseClickedFlag5 = NO;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
--(void)dabianyanseImageView5Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag5 = !self.dabianyanseClickedFlag5;
-    if (self.dabianyanseClickedFlag5 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0xb79427";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-}
-
--(void)dabianyanseImageView6Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag6 = !self.dabianyanseClickedFlag6;
-    if (self.dabianyanseClickedFlag6 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-         self.dabianyaseString = @"0xc07f19";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
-}
-
--(void)dabianyanseImageView7Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag7 = !self.dabianyanseClickedFlag7;
-    if (self.dabianyanseClickedFlag7 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0xa97421";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
-}
-
--(void)dabianyanseImageView8Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag8 = !self.dabianyanseClickedFlag8;
-    if (self.dabianyanseClickedFlag8 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0x833b0b";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
-}
-
--(void)dabianyanseImageView9Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag9 = !self.dabianyanseClickedFlag9;
-    if (self.dabianyanseClickedFlag9 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0x431e03";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
-}
-
--(void)dabianyanseImageView10Clicked:(UIGestureRecognizer *)sender{
-    UIView *clickedView = [sender view];
-    UIImageView *clickedImageView = (UIImageView *)clickedView;
-    self.dabianyanseClickedFlag10 = !self.dabianyanseClickedFlag10;
-    if (self.dabianyanseClickedFlag10 == YES) {
-        clickedImageView.layer.borderWidth = 1;
-        clickedImageView.layer.borderColor = ColorWithHexRGB(0xff3a31).CGColor;
-        self.dabianyanseClickedNumber += 1;
-        self.dabianyaseString = @"0x1f1e1e";
-    }else{
-        clickedImageView.layer.borderWidth = 0;
-        self.dabianyanseClickedNumber -= 1;
-    }
-    DLog(@"%d",self.dabianyanseClickedNumber);
+-(void)dabianyanseButton5Clicked:(UIButton *)sender{
+    self.dabianyanseClickedFlag1 = NO;
+    self.dabianyanseClickedFlag2 = NO;
+    self.dabianyanseClickedFlag3 = NO;
+    self.dabianyanseClickedFlag4 = NO;
+    self.dabianyanseClickedFlag5 = YES;
+    
+    self.dabianyanseString = sender.titleLabel.text;
+    DLog(@"self.dabianyanseString-->%@",self.dabianyanseString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)sezhiButton1Clicked:(UIButton *)sender{
@@ -1676,7 +1573,7 @@
             return 60;
         }
     }else if (indexPath.section == 10){
-        return 100;
+        return 110;
     }else if (indexPath.section == 12){
         if (self.sezhiHideFlag == NO) {
             return 110;
@@ -2091,77 +1988,76 @@
 
         return cell;
     }else if (indexPath.section == 10){
-//        SelfInspectionFourTableCell *cell = [[SelfInspectionFourTableCell alloc] init];
-//        [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
-//        cell.imageView1.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView1Clicked:)];
-//        [cell.imageView1 addGestureRecognizer:imageView1Tap];
-//        cell.imageView2.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView2Clicked:)];
-//        [cell.imageView2 addGestureRecognizer:imageView2Tap];
-//        cell.imageView3.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView3Clicked:)];
-//        [cell.imageView3 addGestureRecognizer:imageView3Tap];
-//        cell.imageView4.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView4Clicked:)];
-//        [cell.imageView4 addGestureRecognizer:imageView4Tap];
-//        cell.imageView5.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView5Clicked:)];
-//        [cell.imageView5 addGestureRecognizer:imageView5Tap];
-//        cell.imageView6.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView6Clicked:)];
-//        [cell.imageView6 addGestureRecognizer:imageView6Tap];
-//        cell.imageView7.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView7Clicked:)];
-//        [cell.imageView7 addGestureRecognizer:imageView7Tap];
-//        cell.imageView8.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView8Clicked:)];
-//        [cell.imageView8 addGestureRecognizer:imageView8Tap];
-//        cell.imageView9.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView9Clicked:)];
-//        [cell.imageView9 addGestureRecognizer:imageView9Tap];
-//        cell.imageView10.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView10Clicked:)];
-//        [cell.imageView10 addGestureRecognizer:imageView10Tap];
-//
-//        return cell;
         NSString *cellName = [NSString stringWithFormat:@"Cell%ld%ld",(long)indexPath.section,(long)indexPath.row];
-        SelfInspectionFourTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
+        SelfInspectionThreeTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
-            cell = [[SelfInspectionFourTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-            [cell initView:10 color1:ColorWithHexRGB(0xb6bc16) color2:ColorWithHexRGB(0xb0a547) color3:ColorWithHexRGB(0xb9ac16) color4:ColorWithHexRGB(0x8c9014) color5:ColorWithHexRGB(0xb79427) color6:ColorWithHexRGB(0xc07f19) color7:ColorWithHexRGB(0xa97421) color8:ColorWithHexRGB(0x833b0b) color9:ColorWithHexRGB(0x431e03) color10:ColorWithHexRGB(0x1f1e1e)];
+            cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            [cell initView:5 string1:@"黄褐色" string2:@"灰白色" string3:@"有脓血" string4:@"暗红" string5:@"黑色" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
         }
-        cell.imageView1.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView1Clicked:)];
-        [cell.imageView1 addGestureRecognizer:imageView1Tap];
-        cell.imageView2.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView2Clicked:)];
-        [cell.imageView2 addGestureRecognizer:imageView2Tap];
-        cell.imageView3.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView3Clicked:)];
-        [cell.imageView3 addGestureRecognizer:imageView3Tap];
-        cell.imageView4.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView4Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView4Clicked:)];
-        [cell.imageView4 addGestureRecognizer:imageView4Tap];
-        cell.imageView5.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView5Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView5Clicked:)];
-        [cell.imageView5 addGestureRecognizer:imageView5Tap];
-        cell.imageView6.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView6Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView6Clicked:)];
-        [cell.imageView6 addGestureRecognizer:imageView6Tap];
-        cell.imageView7.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView7Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView7Clicked:)];
-        [cell.imageView7 addGestureRecognizer:imageView7Tap];
-        cell.imageView8.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView8Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView8Clicked:)];
-        [cell.imageView8 addGestureRecognizer:imageView8Tap];
-        cell.imageView9.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView9Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView9Clicked:)];
-        [cell.imageView9 addGestureRecognizer:imageView9Tap];
-        cell.imageView10.userInteractionEnabled = YES;
-        UITapGestureRecognizer *imageView10Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dabianyanseImageView10Clicked:)];
-        [cell.imageView10 addGestureRecognizer:imageView10Tap];
-
+        
+        [cell.button1 addTarget:self action:@selector(dabianyanseButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button2 addTarget:self action:@selector(dabianyanseButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button3 addTarget:self action:@selector(dabianyanseButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button4 addTarget:self action:@selector(dabianyanseButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button5 addTarget:self action:@selector(dabianyanseButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (self.dabianyanseClickedFlag1 == YES) {
+            [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+            [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        }else if (self.dabianyanseClickedFlag2 == YES){
+            [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+            [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        }else if (self.dabianyanseClickedFlag3 == YES){
+            [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button3 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            cell.button3.layer.borderColor = kMAIN_COLOR.CGColor;
+            [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        }else if (self.dabianyanseClickedFlag4 == YES){
+            [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button4 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            cell.button4.layer.borderColor = kMAIN_COLOR.CGColor;
+            [cell.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+        }else if (self.dabianyanseClickedFlag5 == YES){
+            [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button3 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button3.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button4 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            cell.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [cell.button5 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+            cell.button5.layer.borderColor = kMAIN_COLOR.CGColor;
+        }
+        
         return cell;
     }else if (indexPath.section == 12){
 //        SelfInspectionThreeTableCell *cell = [[SelfInspectionThreeTableCell alloc] init];
@@ -2708,7 +2604,7 @@
     [parameter setValue:self.bianzhiGroupString forKey:@"e_EX_val"];
     [parameter setValue:self.paibianganHideFlag == YES? @"1" : @"2" forKey:@"f_status"];
     [parameter setValue:self.paibianganGroupString forKey:@"f_val"];
-    [parameter setValue:self.dabianyaseString forKey:@"e_color"];
+    [parameter setValue:self.dabianyanseString forKey:@"e_color"];
     [parameter setValue:self.xiaobiancishuBaitianString forKey:@"g_up_no"];
     [parameter setValue:self.xiaobiancishuWanshangString forKey:@"g_down_no"];
     [parameter setValue:self.sezhiHideFlag == YES? @"1" : @"2" forKey:@"h_status"];
