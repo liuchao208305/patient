@@ -282,6 +282,7 @@
 		706B9E651D38A02E0072EFE3 /* guideviewFix3.png in Resources */ = {isa = PBXBuildFile; fileRef = 706B9E621D38A02E0072EFE3 /* guideviewFix3.png */; };
 		706B9E661D38A02E0072EFE3 /* guideviewFix2.png in Resources */ = {isa = PBXBuildFile; fileRef = 706B9E631D38A02E0072EFE3 /* guideviewFix2.png */; };
 		706B9E671D38A02E0072EFE3 /* guideviewFix1.png in Resources */ = {isa = PBXBuildFile; fileRef = 706B9E641D38A02E0072EFE3 /* guideviewFix1.png */; };
+		706B9E6A1D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -1218,6 +1219,8 @@
 		706B9E621D38A02E0072EFE3 /* guideviewFix3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guideviewFix3.png; sourceTree = "<group>"; };
 		706B9E631D38A02E0072EFE3 /* guideviewFix2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guideviewFix2.png; sourceTree = "<group>"; };
 		706B9E641D38A02E0072EFE3 /* guideviewFix1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guideviewFix1.png; sourceTree = "<group>"; };
+		706B9E681D38C21F0072EFE3 /* SelfInspectionTiwenPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionTiwenPopView.h; sourceTree = "<group>"; };
+		706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionTiwenPopView.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -3199,6 +3202,8 @@
 				70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */,
 				7095F5321D33877C00C27969 /* SelfInspectionFootView.h */,
 				7095F5331D33877C00C27969 /* SelfInspectionFootView.m */,
+				706B9E681D38C21F0072EFE3 /* SelfInspectionTiwenPopView.h */,
+				706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4647,6 +4652,7 @@
 				70B4EAD71CD86AAE00141E38 /* MRDoctorTableCell.m in Sources */,
 				70B429E91D17E4D10036F525 /* QuestionListData.m in Sources */,
 				700CF0541D22A012008C9776 /* HealthSelfInspectionViewController.m in Sources */,
+				706B9E6A1D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m in Sources */,
 				708B52F31CEB07C30033C479 /* MoreHealthTableCell.m in Sources */,
 				70B4EA721CCB580E00141E38 /* TestResultDetailViewController.m in Sources */,
 				708275651CFC54040016AE3C /* DiseaseSymtomCollectionCell.m in Sources */,

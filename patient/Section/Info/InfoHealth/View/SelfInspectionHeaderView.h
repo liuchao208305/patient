@@ -39,6 +39,12 @@
 
 @end
 
+@protocol TiwenDelegate <NSObject>
+
+-(void)tiwenButtonClicked;
+
+@end
+
 @interface SelfInspectionHeaderView : UIView
 
 @property (strong,nonatomic)UILabel *titleLabel;
@@ -67,5 +73,6 @@
 @property (weak,nonatomic)id<ChuchaonianlingDelegate> chuchaonianlingDelegate;
 @property (weak,nonatomic)id<YuejingzhouqiDelegate> yuejingzhouqiDelegate;
 @property (weak,nonatomic)id<ChixutianshuDelegate> chixutianshuDelegate;
+@property (weak,nonatomic)id<TiwenDelegate> tiwenDelegate;
 
 @end

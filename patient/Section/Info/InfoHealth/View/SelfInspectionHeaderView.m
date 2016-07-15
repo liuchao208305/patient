@@ -100,8 +100,13 @@
 //        self.contentTextField.textColor = kMAIN_COLOR;
 //        [self addSubview:self.contentTextField];
         self.contentButton = [[UIButton alloc] init];
-        [self.contentButton setTitle:content forState:UIControlStateNormal];
+        if (![content isEqualToString:@""]) {
+            [self.contentButton setTitle:content forState:UIControlStateNormal];
+        }else{
+            [self.contentButton setTitle:@"请选择" forState:UIControlStateNormal];
+        }
         [self.contentButton setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+        [self.contentButton addTarget:self action:@selector(tiwenButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.contentButton];
         
         self.contentLabel = [[UILabel alloc] init];
@@ -137,7 +142,7 @@
     [self.contentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self).offset(0);
         make.centerY.equalTo(self).offset(0);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(80);
         make.height.mas_equalTo(15);
     }];
     
@@ -366,6 +371,12 @@
     
     
     return YES;
+}
+#pragma mark Target Action
+-(void)tiwenButtonClicked{
+    if (self.tiwenDelegate && [self.tiwenDelegate respondsToSelector:@selector(tiwenButtonClicked)]) {
+        [self.tiwenDelegate tiwenButtonClicked];
+    }
 }
 
 @end

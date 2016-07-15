@@ -29,7 +29,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/ALAsset.h>
 
-@interface HealthSelfInspectionViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
+@interface HealthSelfInspectionViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,TiwenDelegate,TiwenListDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -212,6 +212,7 @@
     
     self.symptomString = @"";
     self.shuimianGroupString = @"";
+    self.tiwenString = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -245,6 +246,8 @@
     self.painiaoganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
     self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
     self.chuhanGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+    
+    self.tiwenArray = [NSMutableArray arrayWithObjects:@"35.0",@"35.5",@"36.0",@"36.5",@"37.0",@"37.5",@"38.0",@"38.5",@"39.0",@"39.5",@"40.0",@"40.5",@"41.0",@"41.5",@"42.0", nil];
 }
 
 #pragma mark Init Section
@@ -1423,6 +1426,26 @@
     DLog(@"self.xiaobiancishuWanshangString-->%@",self.xiaobiancishuWanshangString);
 }
 
+#pragma mark TiwenDelegate
+-(void)tiwenButtonClicked{
+    DLog(@"tiwenButtonClicked");
+    
+    self.selfInspectionTiwenPopView = [[SelfInspectionTiwenPopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.selfInspectionTiwenPopView initViewWithArray:self.tiwenArray];
+    self.selfInspectionTiwenPopView.tiwenListDelegate = self;
+    [self.view addSubview:self.selfInspectionTiwenPopView];
+}
+
+#pragma mark TiwenListDelegate
+-(void)tiwenSelected:(NSString *)tiwen{
+    [self.selfInspectionTiwenPopView removeFromSuperview];
+    
+    self.tiwenString = tiwen;
+    [self.selfInspectionHeaderView.contentButton setTitle:tiwen forState:UIControlStateNormal];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 17;
@@ -1591,10 +1614,11 @@
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(hanreSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 15){
         NSString *title = @"体温";
-        NSString *content = @"37";
+        NSString *content = self.tiwenString;
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
         [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        self.selfInspectionHeaderView.tiwenDelegate = self;
     }else if (section == 16){
         NSString *title = @"出汗";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
