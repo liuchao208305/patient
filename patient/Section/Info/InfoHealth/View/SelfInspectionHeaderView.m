@@ -258,7 +258,24 @@
     self.titleLabel.textColor = ColorWithHexRGB(0x646464);
     [self addSubview:self.titleLabel];
     
-    if (![content1_1 isEqualToString:@""]) {
+    if ([content1_1 isEqualToString:@"show"]) {
+//        self.contentLabel1_1 = [[UILabel alloc] init];
+//        self.contentLabel1_1.font = [UIFont systemFontOfSize:14];
+//        self.contentLabel1_1.text = content1_1;
+//        [self addSubview:self.contentLabel1_1];
+        
+        self.contentTextField1 = [[UITextField alloc] init];
+        self.contentTextField1.placeholder = @"___";
+        self.contentTextField1.text = content1_2;
+        self.contentTextField1.textColor = kMAIN_COLOR;
+        self.contentTextField1.delegate = self;
+        [self addSubview:self.contentTextField1];
+        
+        self.contentLabel1_2 = [[UILabel alloc] init];
+        self.contentLabel1_2.font = [UIFont systemFontOfSize:14];
+        self.contentLabel1_2.text = content1_3;
+        [self addSubview:self.contentLabel1_2];
+    }else if ([content1_1 isEqualToString:@"白天"]){
         self.contentLabel1_1 = [[UILabel alloc] init];
         self.contentLabel1_1.font = [UIFont systemFontOfSize:14];
         self.contentLabel1_1.text = content1_1;
@@ -314,7 +331,7 @@
     }];
     
     [self.contentLabel1_2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.contentLabel2_1.mas_leading).offset(-44);
+        make.trailing.equalTo(self.contentLabel2_1.mas_leading).offset(-5);
         make.centerY.equalTo(self).offset(0);
     }];
     
@@ -355,6 +372,14 @@
     
     if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianWanshangCount:)]) {
         [self.xiaoBianCountDelegate sendXiaobianWanshangCount:self.contentTextField2.text];
+    }
+    
+    if (self.yuejingmoci1Delegate && [self.yuejingmoci1Delegate respondsToSelector:@selector(sendYuejingmoci1:)]) {
+        [self.yuejingmoci1Delegate sendYuejingmoci1:self.contentTextField1.text];
+    }
+    
+    if (self.yuejingmoci2Delegate && [self.yuejingmoci2Delegate respondsToSelector:@selector(sendYuejingmoci2:)]) {
+        [self.yuejingmoci2Delegate sendYuejingmoci2:self.contentTextField2.text];
     }
     
     if (self.chuchaonianlingDelegate && [self.chuchaonianlingDelegate respondsToSelector:@selector(sendChuchaonianling:)]) {

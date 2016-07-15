@@ -29,7 +29,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/ALAsset.h>
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,TiwenDelegate,TiwenListDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,Yuejingmoci1Delegate,Yuejingmoci2Delegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,TiwenDelegate,TiwenListDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -211,6 +211,8 @@
 @property (strong,nonatomic)NSString *daixiaqiweiGroupString;
 @property (strong,nonatomic)NSString *daixiazhidiGroupString;
 @property (strong,nonatomic)NSString *daixiayanseString;
+@property (strong,nonatomic)NSString *yuejingmociString1;
+@property (strong,nonatomic)NSString *yuejingmociString2;
 @property (strong,nonatomic)NSString *yuejingbijingString;
 @property (strong,nonatomic)NSString *chuchaonianlingString;
 @property (strong,nonatomic)NSString *yuejingzhouqiString;
@@ -253,6 +255,13 @@
     self.bianzhiHideFlag = YES;
     self.sezhiHideFlag = NO;
     self.painiaoganHideFlag = NO;
+    self.daixiaqiweiHideFlag = NO;
+    self.daixiazhidiHideFlag = NO;
+    self.yuejingjuejingHideFlag = NO;
+    self.yuejingbijingHideFlag = NO;
+    self.yuejingjingliangHideFlag = NO;
+    self.yuejingzhidiHideFlag = NO;
+    self.yuejingqitaHideFlag = NO;
     self.hanreHideFlag = NO;
     self.tiwenHideFlag = YES;
     self.chuhanHideFlag = NO;
@@ -261,6 +270,11 @@
     self.dabiancishuString = @"";
     self.xiaobiancishuBaitianString = @"";
     self.xiaobiancishuWanshangString = @"";
+    self.yuejingmociString1 = @"";
+    self.yuejingmociString2 = @"";
+    self.chuchaonianlingString = @"";
+    self.yuejingzhouqiString = @"";
+    self.chixutianshuString = @"";
     self.tiwenString = @"";
 }
 
@@ -458,7 +472,11 @@
 }
 
 -(void)dabianyanseCheck{
-    
+    if ([self.dabianyanseString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择大便颜色！"];
+    }else{
+        [self xiaobiancishuCheck];
+    }
 }
 
 -(void)xiaobiancishuCheck{
@@ -488,9 +506,123 @@
         if ([self.painiaoganGroupArray[0] isEqualToString:@""] &&[self.painiaoganGroupArray[1] isEqualToString:@""] &&[self.painiaoganGroupArray[2] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排尿感情况！"];
         }else{
-            [self hanreCheck];
+            [self daixiaqiweiCheck];
         }
     }else if (self.painiaoganHideFlag == YES){
+        [self daixiaqiweiCheck];
+    }
+}
+
+-(void)daixiaqiweiCheck{
+    if (self.daixiaqiweiHideFlag == NO) {
+        if ([self.daixiaqiweiGroupArray[0] isEqualToString:@""] &&[self.daixiaqiweiGroupArray[1] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择带下气味情况！"];
+        }else{
+            [self daixiazhidiCheck];
+        }
+    }else if (self.daixiaqiweiHideFlag == YES){
+        [self daixiazhidiCheck];
+    }
+}
+
+-(void)daixiazhidiCheck{
+    if (self.daixiazhidiHideFlag == NO) {
+        if ([self.daixiazhidiGroupArray[0] isEqualToString:@""] &&[self.daixiazhidiGroupArray[1] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择带下质地情况！"];
+        }else{
+            [self daixiayanseCheck];
+        }
+    }else if (self.daixiazhidiHideFlag == YES){
+        [self daixiayanseCheck];
+    }
+}
+
+-(void)daixiayanseCheck{
+    if ([self.daixiayanseString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择带下颜色！"];
+    }else{
+        [self yuejingmociCheck];
+    }
+}
+
+-(void)yuejingmociCheck{
+    if ([self.yuejingmociString1 isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写末次月经月份！"];
+    }else if ([self.yuejingmociString2 isEqualToString:@""]){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写末次月经日期！"];
+    }else{
+        [self yuejingbijingCheck];
+    }
+}
+
+-(void)yuejingbijingCheck{
+    if ([self.yuejingbijingString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写闭经相关情况！"];
+    }else{
+        [self chuchaonianlingCheck];
+    }
+}
+
+-(void)chuchaonianlingCheck{
+    if ([self.chuchaonianlingString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写初潮年龄！"];
+    }else{
+        [self yuejingzhouqiCheck];
+    }
+}
+
+-(void)yuejingzhouqiCheck{
+    if ([self.yuejingzhouqiString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写月经周期！"];
+    }else{
+        [self chixutianshuCheck];
+    }
+}
+
+-(void)chixutianshuCheck{
+    if ([self.chixutianshuString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写月经持续天数！"];
+    }else{
+        [self yuejingjingliangCheck];
+    }
+}
+
+-(void)yuejingjingliangCheck{
+    if (self.yuejingjingliangHideFlag == NO) {
+        if ([self.yuejingjingliangGroupArray[0] isEqualToString:@""] &&[self.yuejingjingliangGroupArray[1] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择月经经量情况！"];
+        }else{
+            [self yuejingzhidiCheck];
+        }
+    }else if (self.yuejingjingliangHideFlag == YES){
+        [self yuejingzhidiCheck];
+    }
+}
+
+-(void)yuejingzhidiCheck{
+    if (self.yuejingzhidiHideFlag == NO) {
+        if ([self.yuejingzhidiGroupArray[0] isEqualToString:@""] &&[self.yuejingzhidiGroupArray[1] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择月经质地情况！"];
+        }else{
+            [self yuejingyanseCheck];
+        }
+    }else if (self.yuejingzhidiHideFlag == YES){
+        [self yuejingyanseCheck];
+    }
+}
+
+-(void)yuejingyanseCheck{
+    if ([self.yuejingyanseString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择月经颜色！"];
+    }else{
+        [self yuejingqitaCheck];
+    }
+}
+
+-(void)yuejingqitaCheck{
+    if ([self.yuejingqitaString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写其他经行伴随症状！"];
+    }else{
         [self hanreCheck];
     }
 }
@@ -728,10 +860,10 @@
     DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            self.yuejingjuejingHideFlag = NO;
+            self.yuejingjuejingHideFlag = YES;
             break;
         case 1:
-            self.yuejingjuejingHideFlag = YES;
+            self.yuejingjuejingHideFlag = NO;
             break;
         default:
             break;
@@ -744,10 +876,10 @@
     DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            self.yuejingbijingHideFlag = NO;
+            self.yuejingbijingHideFlag = YES;
             break;
         case 1:
-            self.yuejingbijingHideFlag = YES;
+            self.yuejingbijingHideFlag = NO;
             break;
         default:
             break;
@@ -1773,6 +1905,18 @@
     DLog(@"self.xiaobiancishuWanshangString-->%@",self.xiaobiancishuWanshangString);
 }
 
+#pragma mark Yuejingmoci1Delegate
+-(void)sendYuejingmoci1:(NSString *)string{
+    self.yuejingmociString1 = string;
+    DLog(@"self.yuejingmociString1-->%@",self.yuejingmociString1);
+}
+
+#pragma mark Yuejingmoci2Delegate
+-(void)sendYuejingmoci2:(NSString *)string{
+    self.yuejingmociString2 = string;
+    DLog(@"self.yuejingmociString2-->%@",self.yuejingmociString2);
+}
+
 #pragma mark YuejingbijingDelegate
 -(void)sendYuejingbijingValue:(NSString *)string{
     self.yuejingbijingString = string;
@@ -1876,7 +2020,7 @@
     }else if (indexPath.section == 17){
         return 110;
     }else if (indexPath.section == 21){
-        if (self.yuejingbijingHideFlag == NO) {
+        if (self.yuejingbijingHideFlag == YES) {
             return 107;
         }
     }else if (indexPath.section == 25){
@@ -2058,49 +2202,51 @@
         [self.selfInspectionHeaderView initView:title];
     }else if (section == 19){
         NSString *title = @"末次月经";
-        NSString *content1_1 = @"xx";
-        NSString *content1_2 = @"xx";
+        NSString *content1_1 = @"show";
+        NSString *content1_2 = self.yuejingmociString1;
         NSString *content1_3 = @"月";
-        NSString *content2_1 = @"xx";
-        NSString *content2_2 = @"xx";
+        NSString *content2_1 = @"";
+        NSString *content2_2 = self.yuejingmociString2;
         NSString *content2_3 = @"日";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
+        self.selfInspectionHeaderView.yuejingmoci1Delegate = self;
+        self.selfInspectionHeaderView.yuejingmoci2Delegate = self;
     }else if (section == 20){
         NSString *title = @"绝经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingjuejingHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.yuejingjuejingHideFlag];
     }else if (section == 21){
         NSString *title = @"闭经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingbijingHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.yuejingbijingHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingbijingSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 22){
         NSString *title = @"初潮年龄";
-        NSString *content1_1 = @"";
+        NSString *content1_1 = @"hidden";
         NSString *content1_2 = @"";
         NSString *content1_3 = @"";
         NSString *content2_1 = @"";
-        NSString *content2_2 = @"12";
+        NSString *content2_2 = self.chuchaonianlingString;
         NSString *content2_3 = @"岁";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.chuchaonianlingDelegate = self;
     }else if (section == 23){
         NSString *title = @"月经周期";
-        NSString *content1_1 = @"";
+        NSString *content1_1 = @"hidden";
         NSString *content1_2 = @"";
         NSString *content1_3 = @"";
         NSString *content2_1 = @"";
-        NSString *content2_2 = @"28";
+        NSString *content2_2 = self.yuejingzhouqiString;
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.yuejingzhouqiDelegate = self;
     }else if (section == 24){
         NSString *title = @"持续天数";
-        NSString *content1_1 = @"";
+        NSString *content1_1 = @"hidden";
         NSString *content1_2 = @"";
         NSString *content1_3 = @"";
         NSString *content2_1 = @"";
-        NSString *content2_2 = @"12";
+        NSString *content2_2 = self.chixutianshuString;
         NSString *content2_3 = @"天";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.chixutianshuDelegate = self;
@@ -3101,7 +3247,7 @@
     [parameter setValue:self.yuejingzhidiHideFlag == YES? @"1" : @"2" forKey:@"s_status"];
     [parameter setValue:self.yuejingzhidiGroupString forKey:@"s_val"];
     [parameter setValue:self.yuejingyanseString forKey:@"t_color"];
-    [parameter setValue:self.yuejingqitaHideFlag == YES? @"1" : @"2" forKey:@"s_status"];
+    [parameter setValue:self.yuejingqitaHideFlag == NO? @"1" : @"2" forKey:@"s_status"];
     [parameter setValue:self.yuejingqitaString forKey:@"u_val"];
     [parameter setValue:self.hanreHideFlag == YES? @"1" : @"2" forKey:@"v_status"];
     [parameter setValue:self.hanreGroupString forKey:@"v_val"];

@@ -21,6 +21,18 @@
 
 @end
 
+@protocol Yuejingmoci1Delegate <NSObject>
+
+-(void)sendYuejingmoci1:(NSString *)string;
+
+@end
+
+@protocol Yuejingmoci2Delegate <NSObject>
+
+-(void)sendYuejingmoci2:(NSString *)string;
+
+@end
+
 @protocol ChuchaonianlingDelegate <NSObject>
 
 -(void)sendChuchaonianling:(NSString *)string;
@@ -70,6 +82,8 @@
 
 @property (weak,nonatomic)id<DaBianCountDelegate> daBianCountDelegate;
 @property (weak,nonatomic)id<XiaoBianCountDelegate> xiaoBianCountDelegate;
+@property (weak,nonatomic)id<Yuejingmoci1Delegate> yuejingmoci1Delegate;
+@property (weak,nonatomic)id<Yuejingmoci2Delegate> yuejingmoci2Delegate;
 @property (weak,nonatomic)id<ChuchaonianlingDelegate> chuchaonianlingDelegate;
 @property (weak,nonatomic)id<YuejingzhouqiDelegate> yuejingzhouqiDelegate;
 @property (weak,nonatomic)id<ChixutianshuDelegate> chixutianshuDelegate;
