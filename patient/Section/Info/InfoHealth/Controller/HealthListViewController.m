@@ -606,12 +606,12 @@
         self.painiaoganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
         self.painiaoganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
         
-        self.dabian1 = [NSString stringWithFormat:@"每天%@次；便秘：%@；泄泻：%@；成形：%@；",self.dabianCishu,self.bianmiStatus,self.xiexieStatus,self.chengxingStatus];
-        self.dabian2 = [NSString stringWithFormat:@"便质：%@；排便感：%@",self.bianzhiString,self.paibianganString];
+        self.dabian1 = [NSString stringWithFormat:@"每天%@次 便秘：%@ 泄泻：%@ 成形：%@",self.dabianCishu,self.bianmiStatus,self.xiexieStatus,self.chengxingStatus];
+        self.dabian2 = [NSString stringWithFormat:@"便质：%@ 排便感：%@",self.bianzhiString,self.paibianganString];
         self.dabian3 = @"大便颜色：";
         
-        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次；色质：%@；",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString];
-        self.xiaobian2 = [NSString stringWithFormat:@"排尿感：%@；",self.painiaoganString];
+        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次 晚上%@次 色质：%@",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiString];
+        self.xiaobian2 = [NSString stringWithFormat:@"排尿感：%@",self.painiaoganString];
         
         self.hanre = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
         self.tiwen = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];

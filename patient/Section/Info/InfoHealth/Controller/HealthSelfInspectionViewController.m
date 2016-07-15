@@ -316,15 +316,15 @@
 //        
 //    }
     
-    self.shuimianGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
-    self.yinshiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
-    self.yinshuiGroupString = [NSString stringWithFormat:@"%@,%@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
-    self.bianzhiGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
-    self.paibianganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
-    self.sezhiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
-    self.painiaoganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
-    self.hanreGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
-    self.chuhanGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
+    self.shuimianGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
+    self.yinshiGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
+    self.yinshuiGroupString = [NSString stringWithFormat:@"%@ %@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
+    self.bianzhiGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
+    self.paibianganGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
+    self.sezhiGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
+    self.painiaoganGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
+    self.hanreGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
+    self.chuhanGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
     
     [self sendSelfInspetionConfirmRequest];
 }
