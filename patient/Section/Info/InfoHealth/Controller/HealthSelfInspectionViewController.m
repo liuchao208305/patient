@@ -395,6 +395,12 @@
         }
     }
     
+    if (!self.tiwenHideFlag == NO) {
+        if ([self.tiwenString isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择您的体温！"];
+        }
+    }
+    
     if (!self.chuhanHideFlag == YES) {
         if ([self.chuhanGroupArray[0] isEqualToString:@""] &&[self.chuhanGroupArray[1] isEqualToString:@""] &&[self.chuhanGroupArray[2] isEqualToString:@""] &&[self.chuhanGroupArray[3] isEqualToString:@""] &&[self.chuhanGroupArray[4] isEqualToString:@""] &&[self.chuhanGroupArray[5] isEqualToString:@""] &&[self.chuhanGroupArray[6] isEqualToString:@""] &&[self.chuhanGroupArray[7] isEqualToString:@""] &&[self.chuhanGroupArray[8] isEqualToString:@""] &&[self.chuhanGroupArray[9] isEqualToString:@""] &&[self.chuhanGroupArray[10] isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择出汗异常情况！"];
