@@ -26,6 +26,19 @@
 
 #pragma mark Init Section
 -(void)initViewWithPhotoArray:(NSMutableArray *)photoArray{
+    self.complainLabel1 = [[UILabel alloc] init];
+    self.complainLabel1.font = [UIFont systemFontOfSize:14];
+    [self.contentView addSubview:self.complainLabel1];
+    
+    self.complainLabel2 = [[UILabel alloc] init];
+    self.complainLabel2.font = [UIFont systemFontOfSize:13];
+    self.complainLabel2.textColor = ColorWithHexRGB(0x909090);
+    [self.contentView addSubview:self.complainLabel2];
+    
+    self.complainLineView = [[UIView alloc] init];
+    self.complainLineView.backgroundColor = kBACKGROUND_COLOR;
+    [self.contentView addSubview:self.complainLineView];
+    
     self.shuimianLabel1 = [[UILabel alloc] init];
     self.shuimianLabel1.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.shuimianLabel1];
@@ -157,9 +170,26 @@
     self.zhaopianLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.zhaopianLabel2];
     
-    [self.shuimianLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.complainLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
         make.top.equalTo(self.contentView).offset(15);
+    }];
+    
+    [self.complainLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.complainLabel1.mas_trailing).offset(10);
+        make.centerY.equalTo(self.complainLabel1).offset(0);
+    }];
+    
+    [self.complainLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(0);
+        make.trailing.equalTo(self.contentView).offset(0);
+        make.top.equalTo(self.complainLabel1.mas_bottom).offset(12);
+        make.height.mas_equalTo(1);
+    }];
+    
+    [self.shuimianLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(12);
+        make.top.equalTo(self.complainLineView.mas_bottom).offset(12);
     }];
     
     [self.shuimianLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -345,7 +375,7 @@
             height= SCREEN_WIDTH/3*3;
         }
         
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,450, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,490, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollEnabled = NO;

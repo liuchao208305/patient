@@ -15,6 +15,9 @@
 @property (strong,nonatomic)UIButton *noButton;
 
 @property (strong,nonatomic)UILabel *timeLabel;
+@property (strong,nonatomic)UILabel *complainLabel1;
+@property (strong,nonatomic)UILabel *complainLabel2;
+@property (strong,nonatomic)UIView *compalainLineView;
 @property (strong,nonatomic)UILabel *shuimianLabel1;
 @property (strong,nonatomic)UILabel *shuimianLabel2;
 @property (strong,nonatomic)UIView *shuimianLineView;

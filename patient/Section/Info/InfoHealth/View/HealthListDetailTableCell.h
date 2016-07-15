@@ -10,6 +10,9 @@
 
 @interface HealthListDetailTableCell : UITableViewCell
 
+@property (strong,nonatomic)UILabel *complainLabel1;
+@property (strong,nonatomic)UILabel *complainLabel2;
+@property (strong,nonatomic)UIView *complainLineView;
 @property (strong,nonatomic)UILabel *shuimianLabel1;
 @property (strong,nonatomic)UILabel *shuimianLabel2;
 @property (strong,nonatomic)UIView *shuimianLineView;

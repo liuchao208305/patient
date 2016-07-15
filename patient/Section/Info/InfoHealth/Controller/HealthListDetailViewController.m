@@ -124,9 +124,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 450;
     if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-        return 450;
+        return 490;
     }else{
         NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
         CGFloat height = 0;
@@ -139,7 +138,7 @@
         } else {
             height= SCREEN_WIDTH/3*3;
         }
-        return 460+height;
+        return 500+height;
     }
 }
 
@@ -153,21 +152,16 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     self.healthListHeaderView = [[HealthListHeaderView alloc] init];
-    self.healthListHeaderView.titleLabel.text = self.healthListDetailTimeArray[section];
+    self.healthListHeaderView.titleLabel.text = [self.healthListDetailTimeArray[section] substringToIndex:10];
     return self.healthListHeaderView;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    static NSString *cellName = @"HealthListDetailTableCell";
-//    HealthListDetailTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
-//    if (!cell) {
-//        cell = [[HealthListDetailTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-//    }
-    
     NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
     HealthListDetailTableCell *cell = [[HealthListDetailTableCell alloc] init];
     [cell initViewWithPhotoArray:zhaopianArray];
     
+    NSString *complain = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]];
     NSString *shuimian = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]];
     NSString *yinshi = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"c_val"]];
     NSString *yinshui = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"d_val"]];
@@ -199,6 +193,8 @@
     NSString *tiwen = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"w_val"]];
     NSString *chuhan = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]];
     
+    cell.complainLabel1.text = @"主诉：";
+    cell.complainLabel2.text = [complain isEqualToString:@""] ? @"无" : complain;
     cell.shuimianLabel1.text = @"睡眠：";
     cell.shuimianLabel2.text = [shuimian isEqualToString:@""] ? @"无" : shuimian;
     cell.yinshiLabel1.text = @"饮食：";
@@ -263,7 +259,6 @@
     hud.labelText = kNetworkStatusLoadingText;
     
     NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
-//    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
     [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"user_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.currentPage] forKey:@"currentPage"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.pageSize] forKey:@"pageSize"];

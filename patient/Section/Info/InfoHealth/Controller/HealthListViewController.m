@@ -56,6 +56,7 @@
 @property (strong,nonatomic)NSString *healthTime;
 @property (strong,nonatomic)NSString *healthResultString;
 @property (strong,nonatomic)NSDictionary *healthResultDictionary;
+@property (strong,nonatomic)NSString *complain;
 @property (strong,nonatomic)NSString *shuimian;
 @property (strong,nonatomic)NSString *yinshi;
 @property (strong,nonatomic)NSString *yinshui;
@@ -257,7 +258,7 @@
     if (indexPath.section == 0) {
         return 130;
     }else if (indexPath.section == 1){
-        return 480;
+        return 520;
     }else if (indexPath.section > 1){
         return 45;
     }
@@ -372,6 +373,8 @@
             cell.noButton.hidden = YES;
             
             cell.timeLabel.text = [self.healthTime substringToIndex:10];
+            cell.complainLabel1.text = @"主诉：";
+            cell.complainLabel2.text = [self.complain isEqualToString:@""] ? @"无" : self.complain;
             cell.shuimianLabel1.text = @"睡眠：";
             cell.shuimianLabel2.text = [self.shuimian isEqualToString:@""] ? @"无" : self.shuimian;
             cell.yinshiLabel1.text = @"饮食：";
@@ -405,6 +408,8 @@
             cell.zhaopianLabel1.text = @"照片资料：";
             cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         }else{
+            cell.complainLabel1.hidden = YES;
+            cell.compalainLineView.hidden = YES;
             cell.shuimianLabel1.hidden = YES;
             cell.shuimianLineView.hidden = YES;
             cell.yinshiLabel1.hidden = YES;
@@ -586,6 +591,7 @@
         self.healthResultString = [[self.data1 objectForKey:@"healthy"] objectForKey:@"results"];
         self.healthResultDictionary = [StringUtil dictionaryWithJsonString:self.healthResultString];
         
+        self.complain = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"a_val"]];
         self.shuimian = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"b_val"]];
         self.yinshi = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"c_val"]];
         self.yinshui = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"d_val"]];
