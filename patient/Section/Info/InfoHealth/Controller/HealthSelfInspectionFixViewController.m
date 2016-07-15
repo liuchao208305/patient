@@ -29,7 +29,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/ALAsset.h>
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,TiwenDelegate,TiwenListDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -265,10 +265,24 @@
     [self initView];
     [self initRecognizer];
     
-    self.dabiancishuString = @"1";
-    self.xiaobiancishuBaitianString = @"1";
-    self.xiaobiancishuWanshangString = @"1";
-    self.tiwenHideFlag = NO;
+    self.shuimianHideFlag = NO;
+    self.yinshiHideFlag = NO;
+    self.yinshuiHideFlag = NO;
+    self.bianmiHideFlag = NO;
+    self.xiexieHideFlag = NO;
+    self.chengxingHideFlag = NO;
+    self.bianzhiHideFlag = YES;
+    self.sezhiHideFlag = NO;
+    self.painiaoganHideFlag = NO;
+    self.hanreHideFlag = NO;
+    self.tiwenHideFlag = YES;
+    self.chuhanHideFlag = NO;
+    
+    self.symptomString = @"";
+    self.dabiancishuString = @"";
+    self.xiaobiancishuBaitianString = @"";
+    self.xiaobiancishuWanshangString = @"";
+    self.tiwenString = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -375,17 +389,175 @@
 -(void)submitButtonClicked{
     DLog(@"submitButtonClicked");
     
-    self.shuimianGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
-    self.yinshiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
-    self.yinshuiGroupString = [NSString stringWithFormat:@"%@,%@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
-    self.bianzhiGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
-    self.paibianganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
-    self.sezhiGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
-    self.painiaoganGroupString = [NSString stringWithFormat:@"%@,%@,%@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
-    self.hanreGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
-    self.chuhanGroupString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
+    self.shuimianGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@",self.shuimianGroupArray[0],self.shuimianGroupArray[1],self.shuimianGroupArray[2],self.shuimianGroupArray[3],self.shuimianGroupArray[4],self.shuimianGroupArray[5]];
+    self.yinshiGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@",self.yinshiGroupArray[0],self.yinshiGroupArray[1],self.yinshiGroupArray[2],self.yinshiGroupArray[3]];
+    self.yinshuiGroupString = [NSString stringWithFormat:@"%@ %@",self.yinshuiGroupArray[0],self.yinshuiGroupArray[1]];
+    self.bianzhiGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.bianzhiGroupArray[0],self.bianzhiGroupArray[1],self.bianzhiGroupArray[2]];
+    self.paibianganGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.paibianganGroupArray[0],self.paibianganGroupArray[1],self.paibianganGroupArray[2]];
+    self.sezhiGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@",self.sezhiGroupArray[0],self.sezhiGroupArray[1],self.sezhiGroupArray[2],self.sezhiGroupArray[3],self.sezhiGroupArray[4]];
+    self.painiaoganGroupString = [NSString stringWithFormat:@"%@ %@ %@",self.painiaoganGroupArray[0],self.painiaoganGroupArray[1],self.painiaoganGroupArray[2]];
+    self.hanreGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@",self.hanreGroupArray[0],self.hanreGroupArray[1],self.hanreGroupArray[2],self.hanreGroupArray[3],self.hanreGroupArray[4]];
+    self.chuhanGroupString = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@",self.chuhanGroupArray[0],self.chuhanGroupArray[1],self.chuhanGroupArray[2],self.chuhanGroupArray[3],self.chuhanGroupArray[4],self.chuhanGroupArray[5],self.chuhanGroupArray[6],self.chuhanGroupArray[7],self.chuhanGroupArray[8],self.chuhanGroupArray[9],self.chuhanGroupArray[10]];
     
-    [self sendSelfInspetionConfirmRequest];
+    [self symptomCheck];
+}
+
+-(void)symptomCheck{
+    if ([self.symptomString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入患者主诉！"];
+    }else{
+        [self shuimianCheck];
+    }
+}
+
+-(void)shuimianCheck{
+    if (self.shuimianHideFlag == NO) {
+        if ([self.shuimianGroupArray[0] isEqualToString:@""] &&[self.shuimianGroupArray[1] isEqualToString:@""] &&[self.shuimianGroupArray[2] isEqualToString:@""] &&[self.shuimianGroupArray[3] isEqualToString:@""] &&[self.shuimianGroupArray[4] isEqualToString:@""] &&[self.shuimianGroupArray[5] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择睡眠情况！"];
+        }else{
+            [self yinshiCheck];
+        }
+    }else if (self.shuimianHideFlag == YES){
+        [self yinshiCheck];
+    }
+}
+
+-(void)yinshiCheck{
+    if (self.yinshiHideFlag == NO) {
+        if ([self.yinshiGroupArray[0] isEqualToString:@""] &&[self.yinshiGroupArray[1] isEqualToString:@""] &&[self.yinshiGroupArray[2] isEqualToString:@""] &&[self.yinshiGroupArray[3] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮食情况！"];
+        }else{
+            [self yinshuiCheck];
+        }
+    }else if (self.yinshiHideFlag == YES){
+        [self yinshuiCheck];
+    }
+}
+
+-(void)yinshuiCheck{
+    if (self.yinshuiHideFlag == NO) {
+        if ([self.yinshuiGroupArray[0] isEqualToString:@""] &&[self.yinshuiGroupArray[1] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择饮水情况！"];
+        }else{
+            [self dabiancishuCheck];
+        }
+    }else if (self.yinshuiHideFlag == YES){
+        [self dabiancishuCheck];
+    }
+}
+
+-(void)dabiancishuCheck{
+    if ([self.dabiancishuString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写大便次数！"];
+    }else{
+        [self bianzhiCheck];
+    }
+}
+
+-(void)bianzhiCheck{
+    if (self.bianzhiHideFlag == NO) {
+        if ([self.bianzhiGroupArray[0] isEqualToString:@""] &&[self.bianzhiGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择便质情况！"];
+        }else{
+            [self paibianganCheck];
+        }
+    }else if (self.bianzhiHideFlag == YES){
+        [self paibianganCheck];
+    }
+}
+
+-(void)paibianganCheck{
+    if (self.paibianganHideFlag == NO) {
+        if ([self.paibianganGroupArray[0] isEqualToString:@""] &&[self.paibianganGroupArray[1] isEqualToString:@""] &&[self.bianzhiGroupArray[2] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排便感情况！"];
+        }else{
+            [self dabianyanseCheck];
+        }
+    }else if (self.paibianganHideFlag == YES){
+        [self dabianyanseCheck];
+    }
+}
+
+-(void)dabianyanseCheck{
+    if (self.dabianyanseClickedNumber == 0) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择大便颜色！"];
+    }else if (self.dabianyanseClickedNumber > 1){
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"大便颜色只能选择一种"];
+        
+        //清空相关内容
+    }else{
+        [self xiaobiancishuCheck];
+    }
+}
+
+-(void)xiaobiancishuCheck{
+    if ([self.xiaobiancishuBaitianString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写白天小便次数！"];
+    }else if ([self.xiaobiancishuWanshangString isEqualToString:@""]) {
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写晚上小便次数！"];
+    }else{
+        [self sezhiCheck];
+    }
+}
+
+-(void)sezhiCheck{
+    if (self.sezhiHideFlag == NO) {
+        if ([self.sezhiGroupArray[0] isEqualToString:@""] &&[self.sezhiGroupArray[1] isEqualToString:@""] &&[self.sezhiGroupArray[2] isEqualToString:@""] &&[self.sezhiGroupArray[3] isEqualToString:@""] &&[self.sezhiGroupArray[4] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择色质情况！"];
+        }else{
+            [self painiaoganCheck];
+        }
+    }else if (self.sezhiHideFlag == YES){
+        [self painiaoganCheck];
+    }
+}
+
+-(void)painiaoganCheck{
+    if (self.painiaoganHideFlag == NO) {
+        if ([self.painiaoganGroupArray[0] isEqualToString:@""] &&[self.painiaoganGroupArray[1] isEqualToString:@""] &&[self.painiaoganGroupArray[2] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择排尿感情况！"];
+        }else{
+            [self hanreCheck];
+        }
+    }else if (self.painiaoganHideFlag == YES){
+        [self hanreCheck];
+    }
+}
+
+-(void)hanreCheck{
+    if (self.hanreHideFlag == NO) {
+        if ([self.hanreGroupArray[0] isEqualToString:@""] &&[self.hanreGroupArray[1] isEqualToString:@""] &&[self.hanreGroupArray[2] isEqualToString:@""] &&[self.hanreGroupArray[3] isEqualToString:@""] &&[self.hanreGroupArray[4] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择寒热情况！"];
+        }else{
+            [self tiwenCheck];
+        }
+    }else if (self.hanreHideFlag == YES){
+        [self tiwenCheck];
+    }
+}
+
+-(void)tiwenCheck{
+    if (self.tiwenHideFlag == NO) {
+        if ([self.tiwenString isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择您的体温！"];
+        }else{
+            [self chuhanCheck];
+        }
+    }else if (self.tiwenHideFlag == YES){
+        [self chuhanCheck];
+    }
+}
+
+-(void)chuhanCheck{
+    if (self.chuhanHideFlag == NO) {
+        if ([self.chuhanGroupArray[0] isEqualToString:@""] &&[self.chuhanGroupArray[1] isEqualToString:@""] &&[self.chuhanGroupArray[2] isEqualToString:@""] &&[self.chuhanGroupArray[3] isEqualToString:@""] &&[self.chuhanGroupArray[4] isEqualToString:@""] &&[self.chuhanGroupArray[5] isEqualToString:@""] &&[self.chuhanGroupArray[6] isEqualToString:@""] &&[self.chuhanGroupArray[7] isEqualToString:@""] &&[self.chuhanGroupArray[8] isEqualToString:@""] &&[self.chuhanGroupArray[9] isEqualToString:@""] &&[self.chuhanGroupArray[10] isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择出汗情况！"];
+        }else{
+            [self sendSelfInspetionConfirmRequest];
+        }
+    }else if (self.chuhanHideFlag == YES){
+        [self sendSelfInspetionConfirmRequest];
+    }
 }
 
 -(void)shuimianSegmentAction:(UISegmentedControl *)Seg{
@@ -473,10 +645,10 @@
     DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            self.chengxingHideFlag = YES;
+            self.chengxingHideFlag = NO;
             break;
         case 1:
-            self.chengxingHideFlag = NO;
+            self.chengxingHideFlag = YES;
             break;
         default:
             break;
@@ -1772,42 +1944,7 @@
 
 -(void)tiwenButtonClicked:(UIButton *)sender{
     DLog(@"tiwenButtonClicked");
-//    self.tiwenPickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 150, SCREEN_WIDTH, 150)];
-//    self.tiwenPickView.delegate = self;
-//    self.tiwenPickView.dataSource = self;
-//    self.tiwenPickView.showsSelectionIndicator = YES;
-//    [self.view addSubview:self.tiwenPickView];
-    
-//    self.actionSheet = [[UIActionSheet alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 200)];
-//    
-//    UIToolbar *pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 50)];
-//    pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
-//    [pickerDateToolbar sizeToFit];
-//    NSMutableArray *barItems = [[NSMutableArray alloc] init];
-//    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(toolBarCanelClick)];
-//    [barItems addObject:cancelBtn];
-//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-//    [barItems addObject:flexSpace];
-//    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(toolBarDoneClick)];
-//    [barItems addObject:doneBtn];
-//    [pickerDateToolbar setItems:barItems animated:YES];
-//    [self.actionSheet addSubview:pickerDateToolbar];
-//    
-//    self.tiwenPickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, SCREEN_WIDTH, 150)];
-//    self.tiwenPickView.showsSelectionIndicator = YES;
-//    self.tiwenPickView.dataSource = self;
-//    self.tiwenPickView.delegate = self;
-//    [self.actionSheet addSubview:self.tiwenPickView];
-//    
-//    [self.view addSubview:self.actionSheet];
 }
-
-//-(void)toolBarCanelClick{
-//    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-//}
-//-(void)toolBarDoneClick{
-//    [self.actionSheet dismissWithClickedButtonIndex:1 animated:YES];
-//}
 
 -(void)chuhanButton1Clicked:(UIButton *)sender{
     self.chuhanClickedFlag1 = !self.chuhanClickedFlag1;
@@ -2027,31 +2164,24 @@
     DLog(@"self.yuejingqitaString-->%@",self.yuejingqitaString);
 }
 
-#pragma mark UIPickerViewDelegate
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
+#pragma mark TiwenDelegate
+-(void)tiwenButtonClicked{
+    DLog(@"tiwenButtonClicked");
+    
+    self.selfInspectionTiwenPopView = [[SelfInspectionTiwenPopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.selfInspectionTiwenPopView initViewWithArray:self.tiwenArray];
+    self.selfInspectionTiwenPopView.tiwenListDelegate = self;
+    [self.view addSubview:self.selfInspectionTiwenPopView];
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return self.tiwenArray.count;
-}
-
--(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
-    return SCREEN_WIDTH;
-}
-
--(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
-    return 50;
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return self.tiwenArray[row];
-}
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    self.tiwenString = self.tiwenArray[row];
-    DLog(@"self.tiwenString-->%@",self.tiwenString);
+#pragma mark TiwenListDelegate
+-(void)tiwenSelected:(NSString *)tiwen{
+    [self.selfInspectionTiwenPopView removeFromSuperview];
+    
+    self.tiwenString = tiwen;
+    [self.selfInspectionHeaderView.contentButton setTitle:tiwen forState:UIControlStateNormal];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDelegate
@@ -2233,7 +2363,7 @@
     }else if (section == 7){
         NSString *title = @"成形";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.chengxingHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.chengxingHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(chengxingSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 8){
         NSString *title = @"便质";
@@ -2360,11 +2490,11 @@
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(hanreSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 30){
         NSString *title = @"体温";
-        NSString *content = @"37";
+        NSString *content = self.tiwenString;
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"未测",@"已测",nil];
         [self.selfInspectionHeaderView initView:title content:content array:segmentedArray hideFlag:self.tiwenHideFlag];
-        [self.selfInspectionHeaderView.contentButton addTarget:self action:@selector(tiwenButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(tiwenSegmentAction:) forControlEvents:UIControlEventValueChanged];
+        self.selfInspectionHeaderView.tiwenDelegate = self;
     }else if (section == 31){
         NSString *title = @"出汗";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
@@ -3260,7 +3390,7 @@
     [parameter setValue:self.dabiancishuString forKey:@"e_val"];
     [parameter setValue:self.bianmiHideFlag == YES? @"1" : @"2" forKey:@"e_isBM"];
     [parameter setValue:self.xiexieHideFlag == YES? @"1" : @"2" forKey:@"e_isXM"];
-    [parameter setValue:self.chengxingHideFlag == YES? @"1" : @"2" forKey:@"e_isCX"];
+    [parameter setValue:self.chengxingHideFlag == NO? @"1" : @"2" forKey:@"e_isCX"];
     [parameter setValue:self.bianzhiHideFlag == YES? @"1" : @"2" forKey:@"e_isEX"];
     [parameter setValue:self.bianzhiGroupString forKey:@"e_EX_val"];
     [parameter setValue:self.paibianganHideFlag == YES? @"1" : @"2" forKey:@"f_status"];

@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "SelfInspectionHeaderView.h"
 #import "SelfInspectionFootView.h"
+#import "SelfInspectionTiwenPopView.h"
 
 @interface HealthSelfInspectionFixViewController : BaseViewController
 
@@ -33,12 +34,10 @@
 @property (strong,nonatomic)NSMutableArray *yuejingzhidiGroupArray;
 
 @property (strong,nonatomic)NSMutableArray *hanreGroupArray;
-
-@property (strong,nonatomic)UIPickerView *tiwenPickView;
-@property (strong,nonatomic)NSMutableArray *tiwenArray;
-
-@property (strong,nonatomic)UIActionSheet *actionSheet;
-
 @property (strong,nonatomic)NSMutableArray *chuhanGroupArray;
+
+@property (strong,nonatomic)SelfInspectionTiwenPopView *selfInspectionTiwenPopView;
+
+@property (strong,nonatomic)NSMutableArray *tiwenArray;
 
 @end
