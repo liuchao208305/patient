@@ -268,6 +268,7 @@
         self.contentTextField1.placeholder = @"___";
         self.contentTextField1.text = content1_2;
         self.contentTextField1.textColor = kMAIN_COLOR;
+        self.contentTextField1.returnKeyType = UIReturnKeyDone;
         self.contentTextField1.delegate = self;
         [self addSubview:self.contentTextField1];
         
@@ -285,6 +286,7 @@
         self.contentTextField1.placeholder = @"___";
         self.contentTextField1.text = content1_2;
         self.contentTextField1.textColor = kMAIN_COLOR;
+        self.contentTextField1.returnKeyType = UIReturnKeyDone;
         self.contentTextField1.delegate = self;
         [self addSubview:self.contentTextField1];
         
@@ -303,6 +305,7 @@
     self.contentTextField2.placeholder = @"___";
     self.contentTextField2.text = content2_2;
     self.contentTextField2.textColor = kMAIN_COLOR;
+    self.contentTextField2.returnKeyType = UIReturnKeyDone;
     self.contentTextField2.delegate = self;
     [self addSubview:self.contentTextField2];
     

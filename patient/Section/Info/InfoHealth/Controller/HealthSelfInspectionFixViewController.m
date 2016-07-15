@@ -268,13 +268,17 @@
     
     self.symptomString = @"";
     self.dabiancishuString = @"";
+    self.dabianyanseString = @"";
     self.xiaobiancishuBaitianString = @"";
     self.xiaobiancishuWanshangString = @"";
+    self.daixiayanseString = @"";
     self.yuejingmociString1 = @"";
     self.yuejingmociString2 = @"";
     self.chuchaonianlingString = @"";
     self.yuejingzhouqiString = @"";
     self.chixutianshuString = @"";
+    self.yuejingyanseString = @"";
+    self.yuejingqitaString = @"";
     self.tiwenString = @"";
 }
 
