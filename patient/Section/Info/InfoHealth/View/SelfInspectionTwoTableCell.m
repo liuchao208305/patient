@@ -77,6 +77,10 @@
         }
     }
     
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self.contentView addSubview:self.lineView];
+    
     [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
         make.top.equalTo(self.contentView).offset(11);
@@ -117,6 +121,13 @@
         make.centerY.equalTo(self.button5).offset(0);
         make.width.mas_equalTo((SCREEN_WIDTH-36)/2);
         make.height.mas_equalTo(34);
+    }];
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(0);
+        make.trailing.equalTo(self.contentView).offset(0);
+        make.bottom.equalTo(self.contentView).offset(0);
+        make.height.mas_equalTo(1);
     }];
     
     [self fontAdaption];

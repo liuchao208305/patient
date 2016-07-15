@@ -17,6 +17,8 @@
 @property (strong,nonatomic)UIButton *button5;
 @property (strong,nonatomic)UIButton *button6;
 
+@property (strong,nonatomic)UIView *lineView;
+
 -(void)initView:(NSInteger)count string1:(NSString *)string1 string2:(NSString *)string2 string3:(NSString *)string3 string4:(NSString *)string4 string5:(NSString *)string5 string6:(NSString *)string6;
 
 @end

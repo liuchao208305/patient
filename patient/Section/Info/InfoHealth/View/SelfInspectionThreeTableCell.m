@@ -54,13 +54,15 @@
         self.button4.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
         [self.contentView addSubview:self.button4];
         
-        self.button5 = [[UIButton alloc] init];
-        [self.button5 setTitle:string5 forState:UIControlStateNormal];
-        [self.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        self.button5.layer.cornerRadius = 5;
-        self.button5.layer.borderWidth = 1;
-        self.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.contentView addSubview:self.button5];
+        if (count > 4) {
+            self.button5 = [[UIButton alloc] init];
+            [self.button5 setTitle:string5 forState:UIControlStateNormal];
+            [self.button5 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+            self.button5.layer.cornerRadius = 5;
+            self.button5.layer.borderWidth = 1;
+            self.button5.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            [self.contentView addSubview:self.button5];
+        }
         
         if (count > 5) {
             self.button6 = [[UIButton alloc] init];
@@ -112,6 +114,10 @@
             [self.contentView addSubview:self.button11];
         }
     }
+    
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = ColorWithHexRGB(0xe8e8e8);
+    [self.contentView addSubview:self.lineView];
     
     [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
@@ -188,6 +194,13 @@
         make.centerY.equalTo(self.button10).offset(0);
         make.width.mas_equalTo((SCREEN_WIDTH-48)/3);
         make.height.mas_equalTo(34);
+    }];
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.contentView).offset(0);
+        make.trailing.equalTo(self.contentView).offset(0);
+        make.bottom.equalTo(self.contentView).offset(0);
+        make.height.mas_equalTo(1);
     }];
     
     [self fontAdaption];
