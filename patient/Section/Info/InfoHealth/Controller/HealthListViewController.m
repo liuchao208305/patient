@@ -11,6 +11,7 @@
 #import "HudUtil.h"
 #import "NullUtil.h"
 #import "AlertUtil.h"
+#import "CustomAlert.h"
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
 #import "LoginViewController.h"
@@ -25,6 +26,7 @@
 #import "HealthSelfInspectionViewController.h"
 #import "HealthSelfInspectionFixViewController.h"
 #import "HealthListDetailViewController.h"
+#import "TestViewController.h"
 
 @interface HealthListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
@@ -255,8 +257,35 @@
         }
     }else if (buttonIndex == 3){
         DLog(@"体质测试");
-        TestFixViewController *testVC = [[TestFixViewController alloc] init];
-        [self.navigationController pushViewController:testVC animated:YES];
+        /**
+         *  判断有没有本地缓存(plist)，没有就直接进入,有就弹出AlertView
+         */
+        NSString *homepath =NSHomeDirectory();
+        NSString *path = [homepath stringByAppendingPathComponent:@"Documents/cellBtnStatuArr.plist"];
+        NSLog(@"cellBtnStatuArr:%@",path);
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            
+            TestViewController *testVC = [[TestViewController alloc] init];
+            [self.navigationController pushViewController:testVC animated:YES];
+            
+        } else {
+            
+            CustomAlert *alert = [[CustomAlert alloc] initWithTitle:nil withMsg:@"您有正在进行中的体质测试，\n是否继续上次测试？" withCancel:@"继续测试" withSure:@"重新开始"];
+            [alert alertViewShow];
+            alert.alertViewBlock = ^(NSInteger index) {
+                
+                /**
+                 *  点击重新开始就直接进入，点击继续测试就加载本地缓存
+                 */
+                if (index == 2) {
+                    TestViewController *testVC = [[TestViewController alloc] init];
+                    [self.navigationController pushViewController:testVC animated:YES];
+                } else {
+                    TestViewController *testVC = [[TestViewController alloc] initWithCellBtnStatuArr:[NSMutableArray arrayWithContentsOfFile:path]];
+                    [self.navigationController pushViewController:testVC animated:YES];
+                }
+            };
+        }
     }else if (buttonIndex == 4){
         DLog(@"取消");
     }
@@ -450,9 +479,12 @@
             cell = [[HealthTestTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
         }
         
-        cell.timeLabel.text = self.resultTimeArray[indexPath.section-2];
-        cell.tizhiLabel.text = [NSString stringWithFormat:@"体质：%@ 偏向 %@",self.resultMainArray[indexPath.section-2],self.resultTrendArray[indexPath.section-2]];
-        
+        cell.timeLabel.text = [self.resultTimeArray[indexPath.section-2] substringToIndex:10];
+        if ([self.resultTrendArray[indexPath.section-2] isEqualToString:@""]) {
+            cell.tizhiLabel.text = [NSString stringWithFormat:@"体质：%@",self.resultMainArray[indexPath.section-2]];
+        }else{
+            cell.tizhiLabel.text = [NSString stringWithFormat:@"体质：%@ 偏向 %@",self.resultMainArray[indexPath.section-2],self.resultTrendArray[indexPath.section-2]];
+        }
         return cell;
     }
     return nil;

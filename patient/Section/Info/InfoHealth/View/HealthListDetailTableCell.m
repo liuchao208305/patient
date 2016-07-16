@@ -377,7 +377,7 @@
             height= SCREEN_WIDTH/3*3;
         }
         
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,490, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollEnabled = NO;
