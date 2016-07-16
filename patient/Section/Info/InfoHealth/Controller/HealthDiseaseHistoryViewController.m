@@ -273,19 +273,23 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (self.jiwangshiHideFlag == NO) {
-            return 95;
+//            return 95;
+            return 10 + [StringUtil cellWithStr:self.jiwangshiFix fontSize:13 width:SCREEN_WIDTH-24];
         }
     }else if (indexPath.section == 1){
         if (self.shoushushiHideFlag == NO) {
-            return 95;
+//            return 95;
+            return 10 + [StringUtil cellWithStr:self.shoushushiFix fontSize:13 width:SCREEN_WIDTH-24];
         }
     }else if (indexPath.section == 2){
         if (self.guominshiHideFlag == NO) {
-            return 95;
+//            return 95;
+            return 10 + [StringUtil cellWithStr:self.guominshiFix fontSize:13 width:SCREEN_WIDTH-24];
         }
     }else if (indexPath.section == 3){
         if (self.jiazushiHideFlag == NO) {
-            return 95;
+//            return 95;
+            return 10 + [StringUtil cellWithStr:self.jiazushiFix fontSize:13 width:SCREEN_WIDTH-24];
         }
     }
     return 0;
