@@ -57,6 +57,7 @@
 -(void)initViewWithLabel:(NSString *)text;
 
 @property (strong,nonatomic)UITextField *textField;
+@property (strong,nonatomic)UITextView *textView;
 
 -(void)initViewWithTextField:(NSString *)placeholder text:(NSString *)text;
 
