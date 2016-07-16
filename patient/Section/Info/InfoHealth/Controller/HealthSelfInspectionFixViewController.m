@@ -624,9 +624,13 @@
 }
 
 -(void)yuejingqitaCheck{
-    if ([self.yuejingqitaString isEqualToString:@""]) {
-        [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写其他经行伴随症状！"];
-    }else{
+    if (self.yuejingqitaHideFlag == NO) {
+        if ([self.yuejingqitaString isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请填写其他经行伴随症状！"];
+        }else{
+            [self hanreCheck];
+        }
+    }else if (self.yuejingqitaHideFlag == YES){
         [self hanreCheck];
     }
 }
@@ -3107,7 +3111,7 @@
                     UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
                     UIImage *newImage = [ImageUtil imageWithImageSimpleBySize:image scaledToSize:CGSizeMake(100, 100)];
                     [images addObject:newImage];
-                    
+#warning 上传照片发送请求存在问题
                     [self sendImageViewRequest:images];
                 } else {
                     NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
