@@ -2835,12 +2835,37 @@
             cell = [[SelfInspectionThreeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
             [cell initView:5 string1:@"恶风" string2:@"恶寒" string3:@"畏寒" string4:@"发热" string5:@"潮热" string6:@"" string7:@"" string8:@"" string9:@"" string10:@"" string11:@""];
         }
-        
-        [cell.button1 addTarget:self action:@selector(hanreButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.button2 addTarget:self action:@selector(hanreButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.button3 addTarget:self action:@selector(hanreButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.button4 addTarget:self action:@selector(hanreButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        if (self.hanreHideFlag == YES) {
+            cell.button1.hidden = YES;
+            cell.button2.hidden = YES;
+            cell.button3.hidden = YES;
+            cell.button4.hidden = YES;
+            cell.button5.hidden = YES;
+            cell.button6.hidden = YES;
+            cell.button7.hidden = YES;
+            cell.button8.hidden = YES;
+            cell.button9.hidden = YES;
+            cell.button10.hidden = YES;
+            cell.button11.hidden = YES;
+        }else{
+            cell.button1.hidden = NO;
+            cell.button2.hidden = NO;
+            cell.button3.hidden = NO;
+            cell.button4.hidden = NO;
+            cell.button5.hidden = NO;
+            cell.button6.hidden = NO;
+            cell.button7.hidden = NO;
+            cell.button8.hidden = NO;
+            cell.button9.hidden = NO;
+            cell.button10.hidden = NO;
+            cell.button11.hidden = NO;
+            
+            [cell.button1 addTarget:self action:@selector(hanreButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button2 addTarget:self action:@selector(hanreButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button3 addTarget:self action:@selector(hanreButton3Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button4 addTarget:self action:@selector(hanreButton4Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.button5 addTarget:self action:@selector(hanreButton5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
         
         return cell;
     }else if (indexPath.section == 31){
