@@ -40,6 +40,7 @@
 @property (strong,nonatomic)NSString *dabian2;
 @property (strong,nonatomic)NSString *dabian3;
 @property (strong,nonatomic)NSString *xiaobian1;
+@property (strong,nonatomic)NSString *xiaobian1Fix;
 @property (strong,nonatomic)NSString *xiaobian2;
 
 @property (strong,nonatomic)NSString *dabianCishu;
@@ -174,7 +175,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-        return 550 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-40];
+        return 440 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70];
     }else{
         NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
         CGFloat height = 0;
@@ -187,7 +188,7 @@
         } else {
             height= SCREEN_WIDTH/3*3;
         }
-        return 560+height+[StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-40];
+        return 450+height+[StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70];
     }
 }
 
@@ -280,7 +281,8 @@
         self.paibianganStringFix = self.painiaoganString;
     }
     
-    self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次  色质:%@",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiStringFix];
+    self.xiaobian1 = [NSString stringWithFormat:@"白天%@次，晚上%@次",self.xiaobianBaitianString,self.xiaobianWanshangString];
+    self.xiaobian1Fix = [NSString stringWithFormat:@"色质:%@",self.sezhiStringFix];
     self.xiaobian2 = [NSString stringWithFormat:@"排尿感:%@",self.paibianganStringFix];
     
     self.hanreStatus = [NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"v_status"]];
@@ -322,6 +324,7 @@
     cell.dabianLabel2_3.text = self.dabian3;
     cell.xiaobianLabel1.text = @"小便：";
     cell.xiaobianLabel2_1.text = self.xiaobian1;
+    cell.xiaobianLabel2_1Fix.text = self.xiaobian1Fix;
     cell.xiaobianLabel2_2.text = self.xiaobian2;
     cell.hanreLabel1.text = @"寒热：";
     cell.hanreLabel2.text = self.hanreStringFix;

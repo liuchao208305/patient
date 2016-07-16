@@ -47,7 +47,7 @@
     [self.contentView addSubview:self.shuimianLabel1];
     
     self.shuimianLabel2 = [[UILabel alloc] init];
-    self.complainLabel2.numberOfLines = 0;
+    self.shuimianLabel2.numberOfLines = 0;
     self.shuimianLabel2.font = [UIFont systemFontOfSize:13];
     self.shuimianLabel2.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.shuimianLabel2];
@@ -117,6 +117,13 @@
     self.xiaobianLabel2_1.textColor = ColorWithHexRGB(0x909090);
     [self.contentView addSubview:self.xiaobianLabel2_1];
     
+    self.xiaobianLabel2_1Fix = [[UILabel alloc] init];
+    self.xiaobianLabel2_1Fix.numberOfLines = 0;
+    self.xiaobianLabel2_1Fix.font = [UIFont systemFontOfSize:13];
+    self.xiaobianLabel2_1Fix.textColor = ColorWithHexRGB(0x909090);
+    self.xiaobianLabel2_1Fix.textAlignment = NSTextAlignmentLeft;
+    [self.contentView addSubview:self.xiaobianLabel2_1Fix];
+    
     self.xiaobianLabel2_2 = [[UILabel alloc] init];
     self.xiaobianLabel2_2.font = [UIFont systemFontOfSize:13];
     self.xiaobianLabel2_2.textColor = ColorWithHexRGB(0x909090);
@@ -157,8 +164,10 @@
     [self.contentView addSubview:self.chuhanLabel1];
     
     self.chuhanLabel2 = [[UILabel alloc] init];
+    self.chuhanLabel2.numberOfLines = 0;
     self.chuhanLabel2.font = [UIFont systemFontOfSize:13];
     self.chuhanLabel2.textColor = ColorWithHexRGB(0x909090);
+    self.chuhanLabel2.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.chuhanLabel2];
     
     self.chuhanLineView = [[UIView alloc] init];
@@ -199,13 +208,14 @@
     
     [self.shuimianLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.shuimianLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.shuimianLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-70);
+        make.top.equalTo(self.shuimianLabel1).offset(0);
     }];
     
     [self.shuimianLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(0);
         make.trailing.equalTo(self.contentView).offset(0);
-        make.top.equalTo(self.shuimianLabel1.mas_bottom).offset(12);
+        make.top.equalTo(self.shuimianLabel2.mas_bottom).offset(12);
         make.height.mas_equalTo(1);
     }];
     
@@ -287,9 +297,15 @@
         make.centerY.equalTo(self.xiaobianLabel1).offset(0);
     }];
     
-    [self.xiaobianLabel2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.xiaobianLabel2_1Fix mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.xiaobianLabel2_1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-70);
         make.top.equalTo(self.xiaobianLabel2_1.mas_bottom).offset(10);
+    }];
+    
+    [self.xiaobianLabel2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.xiaobianLabel2_1Fix).offset(0);
+        make.top.equalTo(self.xiaobianLabel2_1Fix.mas_bottom).offset(10);
     }];
     
     [self.xiaobianLineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -340,7 +356,8 @@
     
     [self.chuhanLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.chuhanLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.chuhanLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-70);
+        make.top.equalTo(self.chuhanLabel1).offset(0);
     }];
     
     [self.chuhanLineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -380,7 +397,7 @@
             height= SCREEN_WIDTH/3*3;
         }
         
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550+40 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550+100 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollEnabled = NO;
