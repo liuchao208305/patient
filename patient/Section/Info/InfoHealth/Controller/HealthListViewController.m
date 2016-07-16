@@ -70,6 +70,7 @@
 @property (strong,nonatomic)NSString *dabian2;
 @property (strong,nonatomic)NSString *dabian3;
 @property (strong,nonatomic)NSString *xiaobian1;
+@property (strong,nonatomic)NSString *xiaobian1Fix;
 @property (strong,nonatomic)NSString *xiaobian2;
 
 @property (strong,nonatomic)NSString *dabianCishu;
@@ -306,7 +307,7 @@
 //        return 225;
         return 110 + [StringUtil cellWithStr:self.jiwangshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.shoushushi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.guomingshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.jiazushi fontSize:13 width:SCREEN_WIDTH-85];
     }else if (indexPath.section == 1){
-        return 500 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70];
+        return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70];
     }else if (indexPath.section > 1){
         return 45;
     }
@@ -435,6 +436,7 @@
             cell.dabianLabel2_3.text = self.dabian3;
             cell.xiaobianLabel1.text = @"小便：";
             cell.xiaobianLabel2_1.text = self.xiaobian1;
+            cell.xiaobianLabel2_1Fix.text = self.xiaobian1Fix;
             cell.xiaobianLabel2_2.text = self.xiaobian2;
             
             cell.hanreLabel1.text = @"寒热：";
@@ -709,7 +711,8 @@
             self.paibianganStringFix = self.painiaoganString;
         }
         
-        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次,晚上%@次   色质:%@",self.xiaobianBaitianString,self.xiaobianWanshangString,self.sezhiStringFix];
+        self.xiaobian1 = [NSString stringWithFormat:@"白天%@次,晚上%@次",self.xiaobianBaitianString,self.xiaobianWanshangString];
+        self.xiaobian1Fix = [NSString stringWithFormat:@"色质:%@",self.sezhiStringFix];
         self.xiaobian2 = [NSString stringWithFormat:@"排尿感:%@",self.paibianganStringFix];
         
         if ([self.hanreStatus intValue] == 1) {

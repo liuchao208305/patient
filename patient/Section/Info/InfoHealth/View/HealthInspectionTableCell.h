@@ -35,6 +35,7 @@
 @property (strong,nonatomic)UIView *dabianLineView;
 @property (strong,nonatomic)UILabel *xiaobianLabel1;
 @property (strong,nonatomic)UILabel *xiaobianLabel2_1;
+@property (strong,nonatomic)UILabel *xiaobianLabel2_1Fix;
 @property (strong,nonatomic)UILabel *xiaobianLabel2_2;
 @property (strong,nonatomic)UIView *xiaobianLineView;
 @property (strong,nonatomic)UILabel *hanreLabel1;
