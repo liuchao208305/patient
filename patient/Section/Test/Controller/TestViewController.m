@@ -149,7 +149,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:(UIBarButtonItemStylePlain) target:self action:@selector(testViewConfirmButtonClicked)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(returnLeftBarButtonClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"<返回" style:UIBarButtonItemStylePlain target:self action:@selector(returnLeftBarButtonClicked)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     
 }

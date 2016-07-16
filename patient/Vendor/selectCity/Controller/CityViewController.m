@@ -339,7 +339,7 @@
     [self.sectionTitlesArray insertObject:@"热门城市" atIndex:0];
     [self.sectionTitlesArray insertObject:@"定位城市" atIndex:0];
     self.currentCityArray = @[self.currentCityString];
-    self.hotCityArray = @[@"上海",@"北京",@"广州",@"深圳",@"武汉",@"天津",@"西安",@"南京",@"杭州"];
+    self.hotCityArray = @[@"上海市",@"北京市",@"广州市",@"深圳市",@"武汉市",@"天津市",@"西安市",@"南京市",@"杭州市"];
     [self.dataArray insertObject:self.hotCityArray atIndex:0];
     [self.dataArray insertObject:self.currentCityArray atIndex:0];
 }
