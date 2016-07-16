@@ -88,8 +88,10 @@
     [self.contentView addSubview:self.nverLabel2];
     
     [self.jiwangshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView).offset(25);
-        make.top.equalTo(self.contentView).offset(15);
+//        make.leading.equalTo(self.contentView).offset(25);
+//        make.top.equalTo(self.contentView).offset(15);
+        make.leading.equalTo(self.contentView).offset(12);
+        make.top.equalTo(self.contentView).offset(20);
     }];
     
     [self.jiwangshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,39 +100,52 @@
     }];
     
     [self.shoushushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
-        make.top.equalTo(self.contentView).offset(15);
-    }];
-    
-    [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.contentView).offset(-25);
-        make.top.equalTo(self.contentView).offset(15);
-    }];
-    
-    [self.guomingshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView).offset(25);
+//        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
+//        make.top.equalTo(self.contentView).offset(15);
+        make.leading.equalTo(self.jiwangshiLabel1).offset(0);
         make.top.equalTo(self.jiwangshiLabel1.mas_bottom).offset(20);
     }];
     
+    [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.trailing.equalTo(self.contentView).offset(-25);
+//        make.top.equalTo(self.contentView).offset(15);
+        make.leading.equalTo(self.shoushushiLabel1.mas_trailing).offset(10);
+        make.centerY.equalTo(self.shoushushiLabel1).offset(0);
+    }];
+    
+    [self.guomingshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.contentView).offset(25);
+//        make.top.equalTo(self.jiwangshiLabel1.mas_bottom).offset(20);
+        make.leading.equalTo(self.contentView).offset(12);
+        make.top.equalTo(self.shoushushiLabel1.mas_bottom).offset(20);
+    }];
+    
     [self.guomingshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
         make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(10);
         make.centerY.equalTo(self.guomingshiLabel1).offset(0);
     }];
     
     [self.jiazushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
-        make.centerY.equalTo(self.jiazushiLabel2).offset(0);
+//        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
+//        make.centerY.equalTo(self.jiazushiLabel2).offset(0);
+        make.leading.equalTo(self.contentView).offset(12);
+        make.top.equalTo(self.guomingshiLabel1.mas_bottom).offset(20);
     }];
     
     [self.jiazushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.contentView).offset(-25);
-        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+//        make.trailing.equalTo(self.contentView).offset(-25);
+//        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+        make.leading.equalTo(self.jiazushiLabel1.mas_trailing).offset(10);
+        make.centerY.equalTo(self.jiazushiLabel1).offset(0);
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(0);
         make.trailing.equalTo(self.contentView).offset(0);
-        make.top.equalTo(self.guomingshiLabel1.mas_bottom).offset(20);
+//        make.top.equalTo(self.guomingshiLabel1.mas_bottom).offset(20);
+        make.top.equalTo(self.jiazushiLabel1.mas_bottom).offset(20);
         make.height.mas_equalTo(1);
     }];
     
