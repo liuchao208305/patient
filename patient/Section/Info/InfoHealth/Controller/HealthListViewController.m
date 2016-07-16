@@ -304,7 +304,7 @@
     if (indexPath.section == 0) {
         return 130;
     }else if (indexPath.section == 1){
-        return 550;
+        return 500 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-40];
     }else if (indexPath.section > 1){
         return 45;
     }

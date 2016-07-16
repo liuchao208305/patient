@@ -9,6 +9,7 @@
 #import "HealthListDetailTableCell.h"
 #import "MRZhaopianCollectionCell.h"
 #import "xPhotoViewController.h"
+#import "StringUtil.h"
 
 @interface HealthListDetailTableCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -180,7 +181,7 @@
     
     [self.complainLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.complainLabel1.mas_trailing).offset(10);
-//        make.trailing.equalTo(self.contentView).offset(-12);
+        make.trailing.equalTo(self.contentView).offset(-12);
         make.top.equalTo(self.complainLabel1).offset(0);
     }];
     
@@ -379,7 +380,7 @@
             height= SCREEN_WIDTH/3*3;
         }
         
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550+40 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollEnabled = NO;

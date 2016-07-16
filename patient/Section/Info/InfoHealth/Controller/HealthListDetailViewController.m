@@ -174,7 +174,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-        return 550;
+        return 550 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-40];
     }else{
         NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
         CGFloat height = 0;
@@ -187,7 +187,7 @@
         } else {
             height= SCREEN_WIDTH/3*3;
         }
-        return 560+height;
+        return 560+height+[StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-40];
     }
 }
 
