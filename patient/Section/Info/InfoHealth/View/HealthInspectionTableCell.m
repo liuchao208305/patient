@@ -219,7 +219,7 @@
     
     [self.complainLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.complainLabel1.mas_trailing).offset(10);
-        make.trailing.equalTo(self.contentView).offset(-12);
+        make.width.mas_equalTo(SCREEN_WIDTH-70);
         make.top.equalTo(self.complainLabel1).offset(0);
     }];
     

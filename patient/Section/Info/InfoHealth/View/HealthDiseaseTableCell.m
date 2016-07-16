@@ -25,8 +25,10 @@
     [self.contentView addSubview:self.jiwangshiLabel1];
     
     self.jiwangshiLabel2 = [[UILabel alloc] init];
-    self.jiwangshiLabel2.font = [UIFont systemFontOfSize:14];
+    self.jiwangshiLabel2.numberOfLines = 0;
+    self.jiwangshiLabel2.font = [UIFont systemFontOfSize:13];
     self.jiwangshiLabel2.textColor = ColorWithHexRGB(0x909090);
+    self.jiwangshiLabel2.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.jiwangshiLabel2];
     
     self.shoushushiLabel1 = [[UILabel alloc] init];
@@ -34,8 +36,10 @@
     [self.contentView addSubview:self.shoushushiLabel1];
     
     self.shoushushiLabel2 = [[UILabel alloc] init];
-    self.shoushushiLabel2.font = [UIFont systemFontOfSize:14];
+    self.shoushushiLabel2.numberOfLines = 0;
+    self.shoushushiLabel2.font = [UIFont systemFontOfSize:13];
     self.shoushushiLabel2.textColor = ColorWithHexRGB(0x909090);
+    self.shoushushiLabel2.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.shoushushiLabel2];
     
     self.guomingshiLabel1 = [[UILabel alloc] init];
@@ -43,8 +47,10 @@
     [self.contentView addSubview:self.guomingshiLabel1];
     
     self.guomingshiLabel2 = [[UILabel alloc] init];
-    self.guomingshiLabel2.font = [UIFont systemFontOfSize:14];
+    self.guomingshiLabel2.numberOfLines = 0;
+    self.guomingshiLabel2.font = [UIFont systemFontOfSize:13];
     self.guomingshiLabel2.textColor = ColorWithHexRGB(0x909090);
+    self.guomingshiLabel2.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.guomingshiLabel2];
     
     self.jiazushiLabel1 = [[UILabel alloc] init];
@@ -52,8 +58,10 @@
     [self.contentView addSubview:self.jiazushiLabel1];
     
     self.jiazushiLabel2 = [[UILabel alloc] init];
-    self.jiazushiLabel2.font = [UIFont systemFontOfSize:14];
+    self.jiazushiLabel2.numberOfLines = 0;
+    self.jiazushiLabel2.font = [UIFont systemFontOfSize:13];
     self.jiazushiLabel2.textColor = ColorWithHexRGB(0x909090);
+    self.jiazushiLabel2.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.jiazushiLabel2];
     
     self.lineView = [[UIView alloc] init];
@@ -96,56 +104,60 @@
     
     [self.jiwangshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.jiwangshiLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-85);
+        make.top.equalTo(self.jiwangshiLabel1).offset(0);
     }];
     
     [self.shoushushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
 //        make.top.equalTo(self.contentView).offset(15);
         make.leading.equalTo(self.jiwangshiLabel1).offset(0);
-        make.top.equalTo(self.jiwangshiLabel1.mas_bottom).offset(20);
+        make.top.equalTo(self.jiwangshiLabel2.mas_bottom).offset(20);
     }];
     
     [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.trailing.equalTo(self.contentView).offset(-25);
 //        make.top.equalTo(self.contentView).offset(15);
         make.leading.equalTo(self.shoushushiLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.shoushushiLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-85);
+        make.top.equalTo(self.shoushushiLabel1).offset(0);
     }];
     
     [self.guomingshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.leading.equalTo(self.contentView).offset(25);
 //        make.top.equalTo(self.jiwangshiLabel1.mas_bottom).offset(20);
         make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.shoushushiLabel1.mas_bottom).offset(20);
+        make.top.equalTo(self.shoushushiLabel2.mas_bottom).offset(20);
     }];
     
     [self.guomingshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(10);
 //        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
         make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-85);
+        make.top.equalTo(self.guomingshiLabel1).offset(0);
     }];
     
     [self.jiazushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
 //        make.centerY.equalTo(self.jiazushiLabel2).offset(0);
         make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.guomingshiLabel1.mas_bottom).offset(20);
+        make.top.equalTo(self.guomingshiLabel2.mas_bottom).offset(20);
     }];
     
     [self.jiazushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.trailing.equalTo(self.contentView).offset(-25);
 //        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
         make.leading.equalTo(self.jiazushiLabel1.mas_trailing).offset(10);
-        make.centerY.equalTo(self.jiazushiLabel1).offset(0);
+        make.width.mas_equalTo(SCREEN_WIDTH-85);
+        make.top.equalTo(self.jiazushiLabel1).offset(0);
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(0);
         make.trailing.equalTo(self.contentView).offset(0);
 //        make.top.equalTo(self.guomingshiLabel1.mas_bottom).offset(20);
-        make.top.equalTo(self.jiazushiLabel1.mas_bottom).offset(20);
+        make.top.equalTo(self.jiazushiLabel2.mas_bottom).offset(20);
         make.height.mas_equalTo(1);
     }];
     

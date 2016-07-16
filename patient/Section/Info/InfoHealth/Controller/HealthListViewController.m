@@ -303,9 +303,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
 //        return 130;
-        return 225;
+//        return 225;
+        return 110 + [StringUtil cellWithStr:self.jiwangshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.shoushushi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.guomingshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.jiazushi fontSize:13 width:SCREEN_WIDTH-85];
     }else if (indexPath.section == 1){
-        return 500 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-40];
+        return 500 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70];
     }else if (indexPath.section > 1){
         return 45;
     }
