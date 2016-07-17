@@ -249,11 +249,15 @@
 -(void)sendTextField2Value:(NSString *)string{
     self.shoushushi = string;
     DLog(@"self.shoushushi-->%@",self.shoushushi);
+    
+    [self.tableView setContentOffset:CGPointMake(0, 200) animated:YES];
 }
 
 -(void)sendTextField3Value:(NSString *)string{
     self.guominshi = string;
     DLog(@"self.guominshi-->%@",self.guominshi);
+    
+    [self.tableView setContentOffset:CGPointMake(0, 400) animated:YES];
 }
 
 -(void)sendTextField4Value:(NSString *)string{

@@ -129,8 +129,11 @@
 //    [self.searchView addSubview:searchLabel];
 //    
 //    self.navigationItem.titleView = self.searchView;
-    
-    self.title=@"医生列表";
+    if ([self.sourceVCFix isEqualToString:@"InfoViewController"]) {
+        self.title=@"找中医";
+    }else{
+        self.title=@"医生列表";
+    }
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     if ([AdaptionUtil isIphoneFour]) {

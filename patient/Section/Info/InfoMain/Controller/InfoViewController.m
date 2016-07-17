@@ -628,6 +628,7 @@
     InfoMorePersonViewController *morePersonVC = [[InfoMorePersonViewController alloc] init];
     morePersonVC.hidesBottomBarWhenPushed = YES;
     morePersonVC.sourceVC = @"personHeadViewClicked";
+    morePersonVC.sourceVCFix = @"InfoViewController";
     [self.navigationController pushViewController:morePersonVC animated:YES];
 }
 
