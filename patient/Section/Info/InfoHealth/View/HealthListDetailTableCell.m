@@ -26,7 +26,7 @@
 }
 
 #pragma mark Init Section
--(void)initViewWithPhotoArray:(NSMutableArray *)photoArray{
+-(void)initViewWithPhotoArray:(NSMutableArray *)photoArray originHeight:(CGFloat)originHeight photoString:(NSString *)photoString{
     self.complainLabel1 = [[UILabel alloc] init];
     self.complainLabel1.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.complainLabel1];
@@ -525,34 +525,35 @@
         make.centerY.equalTo(self.zhaopianLabel1).offset(0);
     }];
     
-//    self.photoArray = photoArray;
-//    
-//    if (self.photoArray.count > 0) {
-//        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//        flowLayout.minimumLineSpacing = 5;
-//        flowLayout.minimumInteritemSpacing = 5;
-//        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
-//        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-//        
-//        CGFloat height = 0;
-//        if (self.photoArray.count<=3) {
-//            height= SCREEN_WIDTH/3;
-//        } else if (self.photoArray.count <=6) {
-//            height= SCREEN_WIDTH/3*2;
-//        } else if (self.photoArray.count <=9) {
-//            height= SCREEN_WIDTH/3*3;
-//        } else {
-//            height= SCREEN_WIDTH/3*3;
-//        }
-//#warning 相片的位置需要根据上面的内容进行动态变化
-//        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,430+100 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
-//        collectionView.delegate = self;
-//        collectionView.dataSource = self;
-//        collectionView.scrollEnabled = NO;
-//        collectionView.backgroundColor = [UIColor whiteColor];
-//        [self.contentView addSubview:collectionView];
-//        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
-//    }
+    self.photoArray = photoArray;
+    
+    if (self.photoArray.count > 0) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 5;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        CGFloat height = 0;
+        if (self.photoArray.count<=3) {
+            if (![photoString isEqualToString:@""]) {
+                height= SCREEN_WIDTH/3;
+            }
+        } else if (self.photoArray.count <=6) {
+            height= SCREEN_WIDTH/3*2;
+        } else if (self.photoArray.count <=9) {
+            height= SCREEN_WIDTH/3*3;
+        } else {
+            height= SCREEN_WIDTH/3*3;
+        }
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,originHeight , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.scrollEnabled = NO;
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:collectionView];
+        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+    }
 }
 
 #pragma mark UICollectionViewDelegate
@@ -582,7 +583,5 @@
 //    
 //    [self.navigationController pushViewController:photoViewController animated:YES];
 //}
-
-
 
 @end

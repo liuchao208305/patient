@@ -61,6 +61,6 @@
 @property (strong,nonatomic)UILabel *zhaopianLabel2;
 
 @property (strong,nonatomic)NSMutableArray *photoArray;
--(void)initViewWithPhotoArray:(NSMutableArray *)photoArray;
+-(void)initViewWithPhotoArray:(NSMutableArray *)photoArray originHeight:(CGFloat)originHeight photoString:(NSString *)photoString;
 
 @end
