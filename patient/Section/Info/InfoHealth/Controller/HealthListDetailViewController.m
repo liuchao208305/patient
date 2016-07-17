@@ -212,39 +212,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
-        if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-            return 440 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70];
-        }else{
-            NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
-            CGFloat height = 0;
-            if (zhaopianArray.count<=3) {
-                height= SCREEN_WIDTH/3;
-            } else if (zhaopianArray.count <=6) {
-                height= SCREEN_WIDTH/3*2;
-            } else if (zhaopianArray.count <=9) {
-                height= SCREEN_WIDTH/3*3;
-            } else {
-                height= SCREEN_WIDTH/3*3;
-            }
-            return 450+height+[StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70];
-        }
+        return 440 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70];
     }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
-        if ([self.healthListDetailPhotoArray[indexPath.section] isEqualToString:@""]) {
-            return 440 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"n_val"]] fontSize:13 width:SCREEN_WIDTH-70]+ [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"u_val"]] fontSize:13 width:SCREEN_WIDTH-70]+ [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70] + 210;
-        }else{
-            NSMutableArray *zhaopianArray = [NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[indexPath.section] componentsSeparatedByString:@","]];
-            CGFloat height = 0;
-            if (zhaopianArray.count<=3) {
-                height= SCREEN_WIDTH/3;
-            } else if (zhaopianArray.count <=6) {
-                height= SCREEN_WIDTH/3*2;
-            } else if (zhaopianArray.count <=9) {
-                height= SCREEN_WIDTH/3*3;
-            } else {
-                height= SCREEN_WIDTH/3*3;
-            }
-            return 450+height+[StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"n_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"u_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70] + 210;
-        }
+        return 440 + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"a_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"b_val"]] fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"n_val"]] fontSize:13 width:SCREEN_WIDTH-70]+ [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"u_val"]] fontSize:13 width:SCREEN_WIDTH-70]+ [StringUtil cellWithStr:[NullUtil judgeStringNull:[[StringUtil dictionaryWithJsonString:self.healthListDetailResultArray[indexPath.section]] objectForKey:@"x_val"]] fontSize:13 width:SCREEN_WIDTH-70] + 210;
     }
     return 0;
 }
