@@ -96,6 +96,43 @@
 @property (strong,nonatomic)NSString *painiaoganString;
 @property (strong,nonatomic)NSString *painiaoganStringFix;
 
+@property (strong,nonatomic)NSString *daixia;
+@property (strong,nonatomic)NSString *yuejing1;
+@property (strong,nonatomic)NSString *yuejing2;
+@property (strong,nonatomic)NSString *yuejing3;
+@property (strong,nonatomic)NSString *yuejing4;
+@property (strong,nonatomic)NSString *yuejing5;
+@property (strong,nonatomic)NSString *yuejing6;
+@property (strong,nonatomic)NSString *yuejing7;
+@property (strong,nonatomic)NSString *yuejing8;
+
+@property (strong,nonatomic)NSString *daixiaqiweiStatus;
+@property (strong,nonatomic)NSString *daixiaqiweiString;
+@property (strong,nonatomic)NSString *daixiaqiweiStringFix;
+@property (strong,nonatomic)NSString *daixiazhidiStatus;
+@property (strong,nonatomic)NSString *daixiazhidiString;
+@property (strong,nonatomic)NSString *daixiazhidiStringFix;
+@property (strong,nonatomic)NSString *daixiayanseString;
+@property (strong,nonatomic)NSString *yuejingmociString;
+@property (strong,nonatomic)NSString *yuejingjuejingStatus;
+@property (strong,nonatomic)NSString *yuejingjuejingStatusFix;
+@property (strong,nonatomic)NSString *yuejingbijingStatus;
+@property (strong,nonatomic)NSString *yuejingbijingString;
+@property (strong,nonatomic)NSString *yuejingbijingStringFix;
+@property (strong,nonatomic)NSString *yuejingchuchaoString;
+@property (strong,nonatomic)NSString *yuejingzhouqiString;
+@property (strong,nonatomic)NSString *yuejingtianshuString;
+@property (strong,nonatomic)NSString *yuejingjingliangStatus;
+@property (strong,nonatomic)NSString *yuejingjingliangString;
+@property (strong,nonatomic)NSString *yuejingjingliangStringFix;
+@property (strong,nonatomic)NSString *yuejingzhidiStatus;
+@property (strong,nonatomic)NSString *yuejingzhidiString;
+@property (strong,nonatomic)NSString *yuejingzhidiStringFix;
+@property (strong,nonatomic)NSString *yuejingyanseString;
+@property (strong,nonatomic)NSString *yuejingqitaStatus;
+@property (strong,nonatomic)NSString *yuejingqitaString;
+@property (strong,nonatomic)NSString *yuejingqitaStringFix;
+
 @property (strong,nonatomic)NSString *hanreStatus;
 @property (strong,nonatomic)NSString *hanreString;
 @property (strong,nonatomic)NSString *hanreStringFix;
@@ -307,7 +344,7 @@
 //        return 225;
         return 110 + [StringUtil cellWithStr:self.jiwangshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.shoushushi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.guomingshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.jiazushi fontSize:13 width:SCREEN_WIDTH-85];
     }else if (indexPath.section == 1){
-        return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70];
+        return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 260;
     }else if (indexPath.section > 1){
         return 45;
     }
@@ -438,6 +475,20 @@
             cell.xiaobianLabel2_1.text = self.xiaobian1;
             cell.xiaobianLabel2_1Fix.text = self.xiaobian1Fix;
             cell.xiaobianLabel2_2.text = self.xiaobian2;
+            
+            /*******************************************************/
+            cell.daixiaLabel1.text = @"带下：";
+            cell.daixiaLabel2.text = self.daixia;
+            cell.yuejingLabel1.text = @"月经：";
+            cell.yuejingLabel2_1.text = self.yuejing1;
+            cell.yuejingLabel2_2.text = self.yuejing2;
+            cell.yuejingLabel2_3.text = self.yuejing3;
+            cell.yuejingLabel2_4.text = self.yuejing4;
+            cell.yuejingLabel2_5.text = self.yuejing5;
+            cell.yuejingLabel2_6.text = self.yuejing6;
+            cell.yuejingLabel2_7.text = self.yuejing7;
+            cell.yuejingLabel2_8.text = self.yuejing8;
+            /********************************************************/
             
             cell.hanreLabel1.text = @"寒热：";
             cell.hanreLabel2.text = self.hanreStringFix;
@@ -657,6 +708,27 @@
         self.sezhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_val"]];
         self.painiaoganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_status"]];
         self.painiaoganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"i_val"]];
+        /********************************************************************************/
+        self.daixiaqiweiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"j_status"]];
+        self.daixiaqiweiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"j_val"]];
+        self.daixiazhidiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"k_status"]];
+        self.daixiazhidiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"k_val"]];
+        self.daixiayanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"l_color"]];
+        self.yuejingmociString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"p_endDate"]];
+        self.yuejingjuejingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"m_status"]];
+        self.yuejingbijingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"n_status"]];
+        self.yuejingbijingString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"n_val"]];
+        self.yuejingchuchaoString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"o_age"]];
+        self.yuejingzhouqiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"p_val"]];
+        self.yuejingtianshuString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"q_val"]];
+        self.yuejingjingliangStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"r_status"]];
+        self.yuejingjingliangString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"r_val"]];
+        self.yuejingzhidiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"s_status"]];
+        self.yuejingzhidiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"s_val"]];
+        self.yuejingyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"t_color"]];
+        self.yuejingqitaStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"u_status"]];
+        self.yuejingqitaString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"u_val"]];
+        /********************************************************************************/
         self.hanreStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_status"]];
         self.hanreString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"v_val"]];
         self.tiwenStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_status"]];
@@ -714,6 +786,54 @@
         self.xiaobian1 = [NSString stringWithFormat:@"白天%@次,晚上%@次",self.xiaobianBaitianString,self.xiaobianWanshangString];
         self.xiaobian1Fix = [NSString stringWithFormat:@"色质:%@",self.sezhiStringFix];
         self.xiaobian2 = [NSString stringWithFormat:@"排尿感:%@",self.paibianganStringFix];
+        
+        if ([self.daixiaqiweiStatus intValue] == 1) {
+            self.daixiaqiweiStringFix = @"正常";
+        }else if ([self.daixiaqiweiStatus intValue]== 2){
+            self.daixiaqiweiStringFix = self.daixiaqiweiString;
+        }
+        
+        if ([self.daixiazhidiStatus intValue] == 1) {
+            self.daixiazhidiStringFix = @"正常";
+        }else if ([self.daixiazhidiStatus intValue]== 2){
+            self.daixiazhidiStringFix = self.daixiazhidiString;
+        }
+        
+        self.daixia = [NSString stringWithFormat:@"气味:%@ 质地:%@ 颜色:%@",self.daixiaqiweiStringFix,self.daixiazhidiStringFix,self.daixiayanseString];
+        
+        self.yuejing1 = [NSString stringWithFormat:@"末次月经:%@",self.yuejingmociString];
+        if ([self.yuejingjuejingStatus intValue] == 1) {
+            self.yuejingjuejingStatusFix = @"否";
+        }else if ([self.yuejingjuejingStatus intValue]== 2){
+            self.yuejingjuejingStatusFix = @"是";
+        }
+        self.yuejing2 = [NSString stringWithFormat:@"绝经:%@",self.yuejingjuejingStatusFix];
+        if ([self.yuejingbijingStatus intValue] == 1) {
+            self.yuejingbijingStringFix = @"否";
+        }else if ([self.yuejingbijingStatus intValue]== 2){
+            self.yuejingbijingStringFix = self.yuejingbijingString;
+        }
+        self.yuejing3 = [NSString stringWithFormat:@"闭经:%@",self.yuejingbijingStringFix];
+        self.yuejing4 = [NSString stringWithFormat:@"初潮年龄:%@岁",self.yuejingchuchaoString];
+        self.yuejing5 = [NSString stringWithFormat:@"月经周期:%@天",self.yuejingzhouqiString];
+        self.yuejing6 = [NSString stringWithFormat:@"持续天数:%@天",self.yuejingtianshuString];
+        if ([self.yuejingjingliangStatus intValue] == 1) {
+            self.yuejingjingliangStringFix = @"正常";
+        }else if ([self.yuejingjingliangStatus intValue]== 2){
+            self.yuejingjingliangStringFix = self.yuejingjingliangString;
+        }
+        if ([self.yuejingzhidiStatus intValue] == 1) {
+            self.yuejingzhidiStringFix = @"正常";
+        }else if ([self.yuejingzhidiStatus intValue]== 2){
+            self.yuejingzhidiStringFix = self.yuejingzhidiString;
+        }
+        self.yuejing7 = [NSString stringWithFormat:@"经量:%@ 质地:%@ 颜色:%@",self.yuejingjingliangStringFix,self.yuejingzhidiStringFix,self.yuejingyanseString];
+        if ([self.yuejingqitaStatus intValue] == 1) {
+            self.yuejingqitaStringFix = @"无";
+        }else if ([self.yuejingqitaStatus intValue]== 2){
+            self.yuejingqitaStringFix = self.yuejingqitaString;
+        }
+        self.yuejing8 = [NSString stringWithFormat:@"其他症状:%@",self.yuejingqitaStringFix];
         
         if ([self.hanreStatus intValue] == 1) {
             self.hanreStringFix = @"正常";

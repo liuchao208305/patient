@@ -396,8 +396,8 @@
         } else {
             height= SCREEN_WIDTH/3*3;
         }
-        
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,550+100 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+#warning 相片的位置需要根据上面的内容进行动态变化
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,430+100 , SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.scrollEnabled = NO;

@@ -168,6 +168,71 @@
     self.xiaobianLineView.backgroundColor = kBACKGROUND_COLOR;
     [self.contentView addSubview:self.xiaobianLineView];
     
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2) {
+        /******************************************************/
+        self.daixiaLabel1 = [[UILabel alloc] init];
+        self.daixiaLabel1.font = [UIFont systemFontOfSize:14];
+        [self.contentView addSubview:self.daixiaLabel1];
+        
+        self.daixiaLabel2 = [[UILabel alloc] init];
+        self.daixiaLabel2.font = [UIFont systemFontOfSize:13];
+        self.daixiaLabel2.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.daixiaLabel2];
+        
+        self.daixiaLineView = [[UIView alloc] init];
+        self.daixiaLineView.backgroundColor = kBACKGROUND_COLOR;
+        [self.contentView addSubview:self.daixiaLineView];
+        
+        self.yuejingLabel1 = [[UILabel alloc] init];
+        self.yuejingLabel1.font = [UIFont systemFontOfSize:14];
+        [self.contentView addSubview:self.yuejingLabel1];
+        
+        self.yuejingLabel2_1 = [[UILabel alloc] init];
+        self.yuejingLabel2_1.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_1.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_1];
+        
+        self.yuejingLabel2_2 = [[UILabel alloc] init];
+        self.yuejingLabel2_2.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_2.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_2];
+        
+        self.yuejingLabel2_3 = [[UILabel alloc] init];
+        self.yuejingLabel2_3.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_3.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_3];
+        
+        self.yuejingLabel2_4 = [[UILabel alloc] init];
+        self.yuejingLabel2_4.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_4.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_4];
+        
+        self.yuejingLabel2_5 = [[UILabel alloc] init];
+        self.yuejingLabel2_5.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_5.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_5];
+        
+        self.yuejingLabel2_6 = [[UILabel alloc] init];
+        self.yuejingLabel2_6.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_6.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_6];
+        
+        self.yuejingLabel2_7 = [[UILabel alloc] init];
+        self.yuejingLabel2_7.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_7.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_7];
+        
+        self.yuejingLabel2_8 = [[UILabel alloc] init];
+        self.yuejingLabel2_8.font = [UIFont systemFontOfSize:13];
+        self.yuejingLabel2_8.textColor = ColorWithHexRGB(0x909090);
+        [self.contentView addSubview:self.yuejingLabel2_8];
+        
+        self.yuejingLineView = [[UIView alloc] init];
+        self.yuejingLineView.backgroundColor = kBACKGROUND_COLOR;
+        [self.contentView addSubview:self.yuejingLineView];
+        /*******************************************************/
+    }
+    
     self.hanreLabel1 = [[UILabel alloc] init];
     self.hanreLabel1.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.hanreLabel1];
@@ -355,9 +420,86 @@
         make.height.mas_equalTo(1);
     }];
     
+    /********************************************************************/
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+        [self.daixiaLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.xiaobianLineView.mas_bottom).offset(12);
+        }];
+        
+        [self.daixiaLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.daixiaLabel1.mas_trailing).offset(10);
+            make.centerY.equalTo(self.daixiaLabel1).offset(0);
+        }];
+        
+        [self.daixiaLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(0);
+            make.trailing.equalTo(self.contentView).offset(0);
+            make.top.equalTo(self.daixiaLabel2.mas_bottom).offset(12);
+            make.height.mas_equalTo(1);
+        }];
+        
+        [self.yuejingLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(12);
+            make.top.equalTo(self.daixiaLineView.mas_bottom).offset(12);
+        }];
+        
+        [self.yuejingLabel2_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel1.mas_trailing).offset(10);
+            make.centerY.equalTo(self.yuejingLabel1).mas_offset(0);
+        }];
+        
+        [self.yuejingLabel2_2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_1).offset(0);
+            make.top.equalTo(self.yuejingLabel2_1.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_2).offset(0);
+            make.top.equalTo(self.yuejingLabel2_2.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_3).offset(0);
+            make.top.equalTo(self.yuejingLabel2_3.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_5 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_4).offset(0);
+            make.top.equalTo(self.yuejingLabel2_4.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_5).offset(0);
+            make.top.equalTo(self.yuejingLabel2_5.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_7 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_6).offset(0);
+            make.top.equalTo(self.yuejingLabel2_6.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLabel2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.yuejingLabel2_7).offset(0);
+            make.top.equalTo(self.yuejingLabel2_7.mas_bottom).offset(10);
+        }];
+        
+        [self.yuejingLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.contentView).offset(0);
+            make.trailing.equalTo(self.contentView).offset(0);
+            make.top.equalTo(self.yuejingLabel2_8.mas_bottom).offset(12);
+            make.height.mas_equalTo(1);
+        }];
+    }
+    /********************************************************************/
+    
     [self.hanreLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
-        make.top.equalTo(self.xiaobianLineView.mas_bottom).offset(12);
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
+            make.top.equalTo(self.xiaobianLineView.mas_bottom).offset(12);
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+            make.top.equalTo(self.yuejingLineView.mas_bottom).offset(12);
+        }
     }];
     
     [self.hanreLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
