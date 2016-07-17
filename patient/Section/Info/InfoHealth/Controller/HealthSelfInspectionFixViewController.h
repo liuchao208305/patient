@@ -28,11 +28,6 @@
 @property (strong,nonatomic)NSMutableArray *sezhiGroupArray;
 @property (strong,nonatomic)NSMutableArray *painiaoganGroupArray;
 
-@property (strong,nonatomic)NSMutableArray *daixiaqiweiGroupArray;
-@property (strong,nonatomic)NSMutableArray *daixiazhidiGroupArray;
-@property (strong,nonatomic)NSMutableArray *yuejingjingliangGroupArray;
-@property (strong,nonatomic)NSMutableArray *yuejingzhidiGroupArray;
-
 @property (strong,nonatomic)NSMutableArray *hanreGroupArray;
 @property (strong,nonatomic)NSMutableArray *chuhanGroupArray;
 

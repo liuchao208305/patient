@@ -208,8 +208,8 @@
 @property (strong,nonatomic)NSString *sezhiGroupString;
 @property (strong,nonatomic)NSString *painiaoganGroupString;
 
-@property (strong,nonatomic)NSString *daixiaqiweiGroupString;
-@property (strong,nonatomic)NSString *daixiazhidiGroupString;
+@property (strong,nonatomic)NSString *daixiaqiweiString;
+@property (strong,nonatomic)NSString *daixiazhidiString;
 @property (strong,nonatomic)NSString *daixiayanseString;
 @property (strong,nonatomic)NSString *yuejingmociString1;
 @property (strong,nonatomic)NSString *yuejingmociString2;
@@ -217,8 +217,8 @@
 @property (strong,nonatomic)NSString *chuchaonianlingString;
 @property (strong,nonatomic)NSString *yuejingzhouqiString;
 @property (strong,nonatomic)NSString *chixutianshuString;
-@property (strong,nonatomic)NSString *yuejingjingliangGroupString;
-@property (strong,nonatomic)NSString *yuejingzhidiGroupString;
+@property (strong,nonatomic)NSString *yuejingjingliangString;
+@property (strong,nonatomic)NSString *yuejingzhidiString;
 @property (strong,nonatomic)NSString *yuejingyanseString;
 @property (strong,nonatomic)NSString *yuejingqitaString;
 
@@ -257,8 +257,8 @@
     self.painiaoganHideFlag = NO;
     self.daixiaqiweiHideFlag = NO;
     self.daixiazhidiHideFlag = NO;
-    self.yuejingjuejingHideFlag = NO;
-    self.yuejingbijingHideFlag = NO;
+    self.yuejingjuejingHideFlag = YES;
+    self.yuejingbijingHideFlag = YES;
     self.yuejingjingliangHideFlag = NO;
     self.yuejingzhidiHideFlag = NO;
     self.yuejingqitaHideFlag = NO;
@@ -311,11 +311,6 @@
     self.paibianganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
     self.sezhiGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
     self.painiaoganGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",nil];
-    
-    self.daixiaqiweiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
-    self.daixiazhidiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
-    self.yuejingjingliangGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
-    self.yuejingzhidiGroupArray = [NSMutableArray arrayWithObjects:@"",@"", nil];
     
     self.hanreGroupArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",nil];
     self.tiwenArray = [NSMutableArray arrayWithObjects:@"35.0",@"35.5",@"36.0",@"36.5",@"37.0",@"37.5",@"38.0",@"38.5",@"39.0",@"39.5",@"40.0",@"40.5",@"41.0",@"41.5",@"42.0",nil];
@@ -519,7 +514,7 @@
 
 -(void)daixiaqiweiCheck{
     if (self.daixiaqiweiHideFlag == NO) {
-        if ([self.daixiaqiweiGroupArray[0] isEqualToString:@""] &&[self.daixiaqiweiGroupArray[1] isEqualToString:@""]) {
+        if ([self.daixiaqiweiString isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择带下气味情况！"];
         }else{
             [self daixiazhidiCheck];
@@ -531,7 +526,7 @@
 
 -(void)daixiazhidiCheck{
     if (self.daixiazhidiHideFlag == NO) {
-        if ([self.daixiazhidiGroupArray[0] isEqualToString:@""] &&[self.daixiazhidiGroupArray[1] isEqualToString:@""]) {
+        if ([self.daixiazhidiString isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择带下质地情况！"];
         }else{
             [self daixiayanseCheck];
@@ -593,7 +588,7 @@
 
 -(void)yuejingjingliangCheck{
     if (self.yuejingjingliangHideFlag == NO) {
-        if ([self.yuejingjingliangGroupArray[0] isEqualToString:@""] &&[self.yuejingjingliangGroupArray[1] isEqualToString:@""]) {
+        if ([self.yuejingjingliangString isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择月经经量情况！"];
         }else{
             [self yuejingzhidiCheck];
@@ -605,7 +600,7 @@
 
 -(void)yuejingzhidiCheck{
     if (self.yuejingzhidiHideFlag == NO) {
-        if ([self.yuejingzhidiGroupArray[0] isEqualToString:@""] &&[self.yuejingzhidiGroupArray[1] isEqualToString:@""]) {
+        if ([self.yuejingzhidiString isEqualToString:@""]) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择月经质地情况！"];
         }else{
             [self yuejingyanseCheck];
@@ -868,10 +863,10 @@
     DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            self.yuejingjuejingHideFlag = YES;
+            self.yuejingjuejingHideFlag = NO;
             break;
         case 1:
-            self.yuejingjuejingHideFlag = NO;
+            self.yuejingjuejingHideFlag = YES;
             break;
         default:
             break;
@@ -884,10 +879,10 @@
     DLog(@"Index-->%li", (long)Index);
     switch (Index) {
         case 0:
-            self.yuejingbijingHideFlag = YES;
+            self.yuejingbijingHideFlag = NO;
             break;
         case 1:
-            self.yuejingbijingHideFlag = NO;
+            self.yuejingbijingHideFlag = YES;
             break;
         default:
             break;
@@ -1447,63 +1442,43 @@
 }
 
 -(void)daixiaqiweiButton1Clicked:(UIButton *)sender{
-    self.daixiaqiweiClickedFlag1= !self.daixiaqiweiClickedFlag1;
-    if (self.daixiaqiweiClickedFlag1 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.daixiaqiweiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
-        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.daixiaqiweiGroupArray replaceObjectAtIndex:0 withObject:@""];
-        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
-    }
+    self.daixiaqiweiClickedFlag1 = YES;
+    self.daixiaqiweiClickedFlag2 = NO;
+    
+    self.daixiaqiweiString = sender.titleLabel.text;
+    DLog(@"self.daixiaqiweiString-->%@",self.daixiaqiweiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)daixiaqiweiButton2Clicked:(UIButton *)sender{
-    self.daixiaqiweiClickedFlag2= !self.daixiaqiweiClickedFlag2;
-    if (self.daixiaqiweiClickedFlag2 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.daixiaqiweiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
-        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.daixiaqiweiGroupArray replaceObjectAtIndex:1 withObject:@""];
-        DLog(@"self.daixiaqiweiGroupArray-->%@", self.daixiaqiweiGroupArray);
-    }
+    self.daixiaqiweiClickedFlag1 = NO;
+    self.daixiaqiweiClickedFlag2 = YES;
+    
+    self.daixiaqiweiString = sender.titleLabel.text;
+    DLog(@"self.daixiaqiweiString-->%@",self.daixiaqiweiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)daixiazhidiButton1Clicked:(UIButton *)sender{
-    self.daixiazhidiClickedFlag1= !self.daixiazhidiClickedFlag1;
-    if (self.daixiazhidiClickedFlag1 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.daixiazhidiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
-        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.daixiazhidiGroupArray replaceObjectAtIndex:0 withObject:@""];
-        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
-    }
+    self.daixiazhidiClickedFlag1 = YES;
+    self.daixiazhidiClickedFlag2 = NO;
+    
+    self.daixiazhidiString = sender.titleLabel.text;
+    DLog(@"self.daixiazhidiString-->%@",self.daixiazhidiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)daixiazhidiButton2Clicked:(UIButton *)sender{
-    self.daixiazhidiClickedFlag2= !self.daixiazhidiClickedFlag2;
-    if (self.daixiazhidiClickedFlag2 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.daixiazhidiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
-        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.daixiazhidiGroupArray replaceObjectAtIndex:1 withObject:@""];
-        DLog(@"self.daixiazhidiGroupArray-->%@", self.daixiazhidiGroupArray);
-    }
+    self.daixiazhidiClickedFlag1 = NO;
+    self.daixiazhidiClickedFlag2 = YES;
+    
+    self.daixiazhidiString = sender.titleLabel.text;
+    DLog(@"self.daixiazhidiString-->%@",self.daixiazhidiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)daixiayanseButton1Clicked:(UIButton *)sender{
@@ -1555,62 +1530,42 @@
 }
 
 -(void)yuejingjingliangButton1Clicked:(UIButton *)sender{
-    self.yuejingjingliangClickedFlag1= !self.yuejingjingliangClickedFlag1;
-    if (self.yuejingjingliangClickedFlag1 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.yuejingjingliangGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
-        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.yuejingjingliangGroupArray replaceObjectAtIndex:0 withObject:@""];
-        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
-    }
+    self.yuejingjingliangClickedFlag1 = YES;
+    self.yuejingjingliangClickedFlag2 = NO;
+    
+    self.yuejingjingliangString = sender.titleLabel.text;
+    DLog(@"self.yuejingjingliangString-->%@",self.yuejingjingliangString);
+    
+    [self.tableView reloadData];
 }
 -(void)yuejingjingliangButton2Clicked:(UIButton *)sender{
-    self.yuejingjingliangClickedFlag2= !self.yuejingjingliangClickedFlag2;
-    if (self.yuejingjingliangClickedFlag2 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.yuejingjingliangGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
-        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.yuejingjingliangGroupArray replaceObjectAtIndex:1 withObject:@""];
-        DLog(@"self.yuejingjingliangGroupArray-->%@", self.yuejingjingliangGroupArray);
-    }
+    self.yuejingjingliangClickedFlag1 = NO;
+    self.yuejingjingliangClickedFlag2 = YES;
+    
+    self.yuejingjingliangString = sender.titleLabel.text;
+    DLog(@"self.yuejingjingliangString-->%@",self.yuejingjingliangString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)yuejingzhidiButton1Clicked:(UIButton *)sender{
-    self.yuejingzhidiClickedFlag1= !self.yuejingzhidiClickedFlag1;
-    if (self.yuejingzhidiClickedFlag1 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.yuejingzhidiGroupArray replaceObjectAtIndex:0 withObject:sender.titleLabel.text];
-        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.yuejingzhidiGroupArray replaceObjectAtIndex:0 withObject:@""];
-        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
-    }
+    self.yuejingzhidiClickedFlag1 = YES;
+    self.yuejingzhidiClickedFlag2 = NO;
+    
+    self.yuejingzhidiString = sender.titleLabel.text;
+    DLog(@"self.yuejingzhidiString-->%@",self.yuejingzhidiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)yuejingzhidiButton2Clicked:(UIButton *)sender{
-    self.yuejingzhidiClickedFlag2= !self.yuejingzhidiClickedFlag2;
-    if (self.yuejingzhidiClickedFlag2 == YES) {
-        [sender setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
-        sender.layer.borderColor = kMAIN_COLOR.CGColor;
-        [self.yuejingzhidiGroupArray replaceObjectAtIndex:1 withObject:sender.titleLabel.text];
-        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
-    }else{
-        [sender setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
-        sender.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
-        [self.yuejingzhidiGroupArray replaceObjectAtIndex:1 withObject:@""];
-        DLog(@"self.yuejingzhidiGroupArray-->%@", self.yuejingzhidiGroupArray);
-    }
+    self.yuejingzhidiClickedFlag1 = NO;
+    self.yuejingzhidiClickedFlag2 = YES;
+    
+    self.yuejingzhidiString = sender.titleLabel.text;
+    DLog(@"self.yuejingzhidiString-->%@",self.yuejingzhidiString);
+    
+    [self.tableView reloadData];
 }
 
 -(void)yuejingyanseButton1Clicked:(UIButton *)sender{
@@ -2028,7 +1983,7 @@
     }else if (indexPath.section == 17){
         return 110;
     }else if (indexPath.section == 21){
-        if (self.yuejingbijingHideFlag == YES) {
+        if (self.yuejingbijingHideFlag == NO) {
             return 107;
         }
     }else if (indexPath.section == 25){
@@ -2222,11 +2177,11 @@
     }else if (section == 20){
         NSString *title = @"绝经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.yuejingjuejingHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingjuejingHideFlag];
     }else if (section == 21){
         NSString *title = @"闭经";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
-        [self.selfInspectionHeaderView initView:title array:segmentedArray leftHideFlag:self.yuejingbijingHideFlag];
+        [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.yuejingbijingHideFlag];
         [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(yuejingbijingSegmentAction:) forControlEvents:UIControlEventValueChanged];
     }else if (section == 22){
         NSString *title = @"初潮年龄";
@@ -2627,6 +2582,7 @@
             cell = [[SelfInspectionTwoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
             [cell initView:2 string1:@"臭味" string2:@"腥气" string3:@"" string4:@"" string5:@"" string6:@""];
         }
+        
         if (self.daixiaqiweiHideFlag == YES) {
             cell.button1.hidden = YES;
             cell.button2.hidden = YES;
@@ -2634,15 +2590,28 @@
             cell.button4.hidden = YES;
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
-        }else{
+        }else if (self.daixiaqiweiHideFlag == NO){
             cell.button1.hidden = NO;
             cell.button2.hidden = NO;
             cell.button3.hidden = NO;
             cell.button4.hidden = NO;
             cell.button5.hidden = NO;
             cell.button6.hidden = NO;
+            
             [cell.button1 addTarget:self action:@selector(daixiaqiweiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(daixiaqiweiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (self.daixiaqiweiClickedFlag1 == YES) {
+                [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.daixiaqiweiClickedFlag2 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+            }
         }
         
         return cell;
@@ -2660,15 +2629,28 @@
             cell.button4.hidden = YES;
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
-        }else{
+        }else if (self.daixiazhidiHideFlag == NO){
             cell.button1.hidden = NO;
             cell.button2.hidden = NO;
             cell.button3.hidden = NO;
             cell.button4.hidden = NO;
             cell.button5.hidden = NO;
             cell.button6.hidden = NO;
+            
             [cell.button1 addTarget:self action:@selector(daixiazhidiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(daixiazhidiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (self.daixiazhidiClickedFlag1 == YES) {
+                [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.daixiazhidiClickedFlag2 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+            }
         }
         
         return cell;
@@ -2748,15 +2730,28 @@
             cell.button4.hidden = YES;
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
-        }else{
+        }else if (self.yuejingjingliangHideFlag == NO){
             cell.button1.hidden = NO;
             cell.button2.hidden = NO;
             cell.button3.hidden = NO;
             cell.button4.hidden = NO;
             cell.button5.hidden = NO;
             cell.button6.hidden = NO;
+            
             [cell.button1 addTarget:self action:@selector(yuejingjingliangButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(yuejingjingliangButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (self.yuejingjingliangClickedFlag1 == YES) {
+                [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.yuejingjingliangClickedFlag2 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+            }
         }
         
         return cell;
@@ -2774,15 +2769,28 @@
             cell.button4.hidden = YES;
             cell.button5.hidden = YES;
             cell.button6.hidden = YES;
-        }else{
+        }else if (self.yuejingzhidiHideFlag == NO){
             cell.button1.hidden = NO;
             cell.button2.hidden = NO;
             cell.button3.hidden = NO;
             cell.button4.hidden = NO;
             cell.button5.hidden = NO;
             cell.button6.hidden = NO;
+            
             [cell.button1 addTarget:self action:@selector(yuejingzhidiButton1Clicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.button2 addTarget:self action:@selector(yuejingzhidiButton2Clicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (self.yuejingzhidiClickedFlag1 == YES) {
+                [cell.button1 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = kMAIN_COLOR.CGColor;
+                [cell.button2 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+            }else if (self.yuejingzhidiClickedFlag2 == YES){
+                [cell.button1 setTitleColor:ColorWithHexRGB(0x646464) forState:UIControlStateNormal];
+                cell.button1.layer.borderColor = ColorWithHexRGB(0xc8c7cc).CGColor;
+                [cell.button2 setTitleColor:kMAIN_COLOR forState:UIControlStateNormal];
+                cell.button2.layer.borderColor = kMAIN_COLOR.CGColor;
+            }
         }
         
         return cell;
@@ -3265,22 +3273,23 @@
     [parameter setValue:self.painiaoganHideFlag == YES? @"1" : @"2" forKey:@"i_status"];
     [parameter setValue:self.painiaoganGroupString forKey:@"i_val"];
     [parameter setValue:self.daixiaqiweiHideFlag == YES? @"1" : @"2" forKey:@"j_status"];
-    [parameter setValue:self.daixiaqiweiGroupString forKey:@"j_val"];
-    [parameter setValue:self.daixiazhidiHideFlag == YES? @"1" : @"2" forKey:@"j_status"];
-    [parameter setValue:self.daixiazhidiGroupString forKey:@"j_val"];
+    [parameter setValue:self.daixiaqiweiString forKey:@"j_val"];
+    [parameter setValue:self.daixiazhidiHideFlag == YES? @"1" : @"2" forKey:@"k_status"];
+    [parameter setValue:self.daixiazhidiString forKey:@"k_val"];
     [parameter setValue:self.daixiayanseString forKey:@"l_color"];
-    [parameter setValue:self.yuejingjuejingHideFlag == YES? @"1" : @"2" forKey:@"m_status"];
-    [parameter setValue:self.yuejingbijingHideFlag == YES? @"1" : @"2" forKey:@"n_status"];
+    [parameter setValue:[NSString stringWithFormat:@"%@月%@日",self.yuejingmociString1,self.yuejingmociString2] forKey:@"p_endDate"];
+    [parameter setValue:self.yuejingjuejingHideFlag == NO? @"1" : @"2" forKey:@"m_status"];
+    [parameter setValue:self.yuejingbijingHideFlag == NO? @"1" : @"2" forKey:@"n_status"];
     [parameter setValue:self.yuejingbijingString forKey:@"n_val"];
     [parameter setValue:self.chuchaonianlingString forKey:@"o_age"];
     [parameter setValue:self.yuejingzhouqiString forKey:@"p_val"];
     [parameter setValue:self.chixutianshuString forKey:@"q_val"];
     [parameter setValue:self.yuejingjingliangHideFlag == YES? @"1" : @"2" forKey:@"r_status"];
-    [parameter setValue:self.yuejingjingliangGroupString forKey:@"r_val"];
+    [parameter setValue:self.yuejingjingliangString forKey:@"r_val"];
     [parameter setValue:self.yuejingzhidiHideFlag == YES? @"1" : @"2" forKey:@"s_status"];
-    [parameter setValue:self.yuejingzhidiGroupString forKey:@"s_val"];
+    [parameter setValue:self.yuejingzhidiString forKey:@"s_val"];
     [parameter setValue:self.yuejingyanseString forKey:@"t_color"];
-    [parameter setValue:self.yuejingqitaHideFlag == NO? @"1" : @"2" forKey:@"s_status"];
+    [parameter setValue:self.yuejingqitaHideFlag == NO? @"1" : @"2" forKey:@"u_status"];
     [parameter setValue:self.yuejingqitaString forKey:@"u_val"];
     [parameter setValue:self.hanreHideFlag == YES? @"1" : @"2" forKey:@"v_status"];
     [parameter setValue:self.hanreGroupString forKey:@"v_val"];

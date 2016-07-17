@@ -802,15 +802,15 @@
         self.daixia = [NSString stringWithFormat:@"气味:%@ 质地:%@ 颜色:%@",self.daixiaqiweiStringFix,self.daixiazhidiStringFix,self.daixiayanseString];
         
         self.yuejing1 = [NSString stringWithFormat:@"末次月经:%@",self.yuejingmociString];
-        if ([self.yuejingjuejingStatus intValue] == 1) {
+        if ([self.yuejingjuejingStatus intValue] == 2) {
             self.yuejingjuejingStatusFix = @"否";
-        }else if ([self.yuejingjuejingStatus intValue]== 2){
+        }else if ([self.yuejingjuejingStatus intValue]== 1){
             self.yuejingjuejingStatusFix = @"是";
         }
         self.yuejing2 = [NSString stringWithFormat:@"绝经:%@",self.yuejingjuejingStatusFix];
-        if ([self.yuejingbijingStatus intValue] == 1) {
+        if ([self.yuejingbijingStatus intValue] == 2) {
             self.yuejingbijingStringFix = @"否";
-        }else if ([self.yuejingbijingStatus intValue]== 2){
+        }else if ([self.yuejingbijingStatus intValue]== 1){
             self.yuejingbijingStringFix = self.yuejingbijingString;
         }
         self.yuejing3 = [NSString stringWithFormat:@"闭经:%@",self.yuejingbijingStringFix];
@@ -829,9 +829,9 @@
         }
         self.yuejing7 = [NSString stringWithFormat:@"经量:%@ 质地:%@ 颜色:%@",self.yuejingjingliangStringFix,self.yuejingzhidiStringFix,self.yuejingyanseString];
         if ([self.yuejingqitaStatus intValue] == 1) {
-            self.yuejingqitaStringFix = @"无";
-        }else if ([self.yuejingqitaStatus intValue]== 2){
             self.yuejingqitaStringFix = self.yuejingqitaString;
+        }else if ([self.yuejingqitaStatus intValue]== 2){
+            self.yuejingqitaStringFix = @"无";
         }
         self.yuejing8 = [NSString stringWithFormat:@"其他症状:%@",self.yuejingqitaStringFix];
         
