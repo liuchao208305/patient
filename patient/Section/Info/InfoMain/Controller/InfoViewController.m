@@ -255,9 +255,12 @@
     [self.scanImageView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.headView).offset(22+10);
         make.centerY.equalTo(self.timeImageFix).offset(0);
-        make.trailing.equalTo(self.headView).offset(-12);
-        make.width.mas_equalTo(22);
-        make.height.mas_equalTo(22);
+//        make.trailing.equalTo(self.headView).offset(-12);
+//        make.width.mas_equalTo(22);
+//        make.height.mas_equalTo(22);
+        make.trailing.equalTo(self.headView).offset(-20);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
     }];
     
     self.scanImageView.userInteractionEnabled = YES;

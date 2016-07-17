@@ -113,7 +113,7 @@
     
     [self initNavBar];
     [self initTabBar];
-    [self initView];
+//    [self initView];
     [self initRecognizer];
 }
 
@@ -976,8 +976,7 @@
 //                [HudUtil showSimpleTextOnlyHUD:@"取消关注成功！" withDelaySeconds:kHud_DelayTime];
             }
             
-            [self.tableView reloadData];
-            [self expertInfoDataFillingFix];
+            [self sendExpertInfoRequestFix];
         }else{
             DLog(@"%@",self.message3);
             if (self.code3 == kTOKENINVALID) {
@@ -1046,7 +1045,8 @@
     
     
 
-//    [self initView];
+    [self initView];
+    
     [self.tableView reloadData];
     
     [self expertInfoDataFillingFix];

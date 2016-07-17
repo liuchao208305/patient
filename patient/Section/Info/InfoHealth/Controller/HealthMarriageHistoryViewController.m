@@ -540,21 +540,19 @@
             [self unmarriedButtonClicked];
         }else if (self.marryStatusFix == 2){
             [self marriedButtonClicked];
-            
-            self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
-            self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
         }
+        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
+        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
     }else if (self.isEditable == NO){
         if (self.marryStatusFix == 1) {
             self.label1Fix.text = @"未婚";
         }else if (self.marryStatusFix == 2){
             self.label1Fix.text = @"已婚";
-            
-            self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
-            self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
-            self.textField2.userInteractionEnabled = NO;
-            self.textField3.userInteractionEnabled = NO;
         }
+        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
+        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        self.textField2.userInteractionEnabled = NO;
+        self.textField3.userInteractionEnabled = NO;
     }
 }
 

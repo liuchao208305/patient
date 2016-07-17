@@ -308,7 +308,7 @@
     if (section == 0) {
         NSString *title = @"既往史";
         if (self.isEditable == YES) {
-            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
             [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiwangshiHideFlag];
             [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiwangshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
         }else if (self.isEditable == NO){
@@ -317,7 +317,7 @@
     }else if (section == 1){
         NSString *title = @"手术史";
         if (self.isEditable == YES) {
-            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
             [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.shoushushiHideFlag];
             [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(shoushushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
         }else if (self.isEditable == NO){
@@ -327,7 +327,7 @@
     else if (section == 2){
         NSString *title = @"过敏史";
         if (self.isEditable == YES) {
-            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
             [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.guominshiHideFlag];
             [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(guominshiSegmentAction:) forControlEvents:UIControlEventValueChanged];
         }else if (self.isEditable == NO){
@@ -336,7 +336,7 @@
     }else if (section == 3){
         NSString *title = @"家族史";
         if (self.isEditable == YES) {
-            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
+            NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"有",@"无",nil];
             [self.selfInspectionHeaderView initView:title array:segmentedArray righHideFlag:self.jiazushiHideFlag];
             [self.selfInspectionHeaderView.segmentedControl addTarget:self action:@selector(jiazushiSegmentAction:) forControlEvents:UIControlEventValueChanged];
         }else if (self.isEditable == NO){

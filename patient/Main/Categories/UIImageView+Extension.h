@@ -10,4 +10,6 @@
 
 @interface UIImageView (Extension)
 
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;
+
 @end
