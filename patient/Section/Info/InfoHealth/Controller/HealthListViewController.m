@@ -344,7 +344,11 @@
 //        return 225;
         return 110 + [StringUtil cellWithStr:self.jiwangshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.shoushushi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.guomingshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.jiazushi fontSize:13 width:SCREEN_WIDTH-85];
     }else if (indexPath.section == 1){
-        return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 260;
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
+            return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+            return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210;
+        }
     }else if (indexPath.section > 1){
         return 45;
     }
@@ -500,17 +504,38 @@
             cell.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
         }else{
             cell.complainLabel1.hidden = YES;
+            cell.complainLabel2.hidden = YES;
             cell.compalainLineView.hidden = YES;
             cell.shuimianLabel1.hidden = YES;
+            cell.shuimianLabel2.hidden = YES;
             cell.shuimianLineView.hidden = YES;
             cell.yinshiLabel1.hidden = YES;
+            cell.yinshuiLabel2.hidden = YES;
             cell.yinshiLineView.hidden = YES;
             cell.yinshuiLabel1.hidden = YES;
+            cell.yinshuiLabel2.hidden = YES;
             cell.yinshuiLineView.hidden = YES;
             cell.dabianLabel1.hidden = YES;
+            cell.dabianLabel2_1.hidden = YES;
+            cell.dabianLabel2_2.hidden = YES;
+            cell.dabianLabel2_3.hidden = YES;
             cell.dabianLineView.hidden = YES;
             cell.xiaobianLabel1.hidden = YES;
+            cell.xiaobianLabel2_2.hidden = YES;
             cell.xiaobianLineView.hidden = YES;
+            cell.daixiaLabel1.hidden = YES;
+            cell.daixiaLabel2.hidden = YES;
+            cell.daixiaLineView.hidden = YES;
+            cell.yuejingLabel1.hidden = YES;
+            cell.yuejingLabel2_1.hidden = YES;
+            cell.yuejingLabel2_2.hidden = YES;
+            cell.yuejingLabel2_3.hidden = YES;
+            cell.yuejingLabel2_4.hidden = YES;
+            cell.yuejingLabel2_5.hidden = YES;
+            cell.yuejingLabel2_6.hidden = YES;
+            cell.yuejingLabel2_7.hidden = YES;
+            cell.yuejingLabel2_8.hidden = YES;
+            cell.yuejingLineView.hidden = YES;
             cell.hanreLabel1.hidden = YES;
             cell.hanreLineView.hidden = YES;
             cell.tiwenLabel1.hidden = YES;

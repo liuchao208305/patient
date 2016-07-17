@@ -198,8 +198,10 @@
         [self.contentView addSubview:self.yuejingLabel2_2];
         
         self.yuejingLabel2_3 = [[UILabel alloc] init];
+        self.yuejingLabel2_3.numberOfLines = 0;
         self.yuejingLabel2_3.font = [UIFont systemFontOfSize:13];
         self.yuejingLabel2_3.textColor = ColorWithHexRGB(0x909090);
+        self.yuejingLabel2_3.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.yuejingLabel2_3];
         
         self.yuejingLabel2_4 = [[UILabel alloc] init];
@@ -223,8 +225,10 @@
         [self.contentView addSubview:self.yuejingLabel2_7];
         
         self.yuejingLabel2_8 = [[UILabel alloc] init];
+        self.yuejingLabel2_8.numberOfLines = 0;
         self.yuejingLabel2_8.font = [UIFont systemFontOfSize:13];
         self.yuejingLabel2_8.textColor = ColorWithHexRGB(0x909090);
+        self.yuejingLabel2_8.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.yuejingLabel2_8];
         
         self.yuejingLineView = [[UIView alloc] init];
@@ -456,6 +460,7 @@
         
         [self.yuejingLabel2_3 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.yuejingLabel2_2).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH - 70);
             make.top.equalTo(self.yuejingLabel2_2.mas_bottom).offset(10);
         }];
         
@@ -481,6 +486,7 @@
         
         [self.yuejingLabel2_8 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.yuejingLabel2_7).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH - 70);
             make.top.equalTo(self.yuejingLabel2_7.mas_bottom).offset(10);
         }];
         
