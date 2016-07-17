@@ -283,7 +283,6 @@
 		706B9E661D38A02E0072EFE3 /* guideviewFix2.png in Resources */ = {isa = PBXBuildFile; fileRef = 706B9E631D38A02E0072EFE3 /* guideviewFix2.png */; };
 		706B9E671D38A02E0072EFE3 /* guideviewFix1.png in Resources */ = {isa = PBXBuildFile; fileRef = 706B9E641D38A02E0072EFE3 /* guideviewFix1.png */; };
 		706B9E6A1D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */; };
-		706B9E741D3BB5BB0072EFE3 /* HealthListDetailFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B9E731D3BB5BB0072EFE3 /* HealthListDetailFootView.m */; };
 		707E5B851C9653CF00101B30 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B841C9653CF00101B30 /* BaseTableViewCell.m */; };
 		707E5B881C9653FA00101B30 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B871C9653FA00101B30 /* BaseView.m */; };
 		707E5B8E1C96545700101B30 /* BaseColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 707E5B8D1C96545700101B30 /* BaseColletionViewCell.m */; };
@@ -1222,8 +1221,6 @@
 		706B9E641D38A02E0072EFE3 /* guideviewFix1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guideviewFix1.png; sourceTree = "<group>"; };
 		706B9E681D38C21F0072EFE3 /* SelfInspectionTiwenPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfInspectionTiwenPopView.h; sourceTree = "<group>"; };
 		706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfInspectionTiwenPopView.m; sourceTree = "<group>"; };
-		706B9E721D3BB5BB0072EFE3 /* HealthListDetailFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthListDetailFootView.h; sourceTree = "<group>"; };
-		706B9E731D3BB5BB0072EFE3 /* HealthListDetailFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListDetailFootView.m; sourceTree = "<group>"; };
 		707E5B831C9653CF00101B30 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		707E5B841C9653CF00101B30 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		707E5B861C9653FA00101B30 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
@@ -3207,8 +3204,6 @@
 				706B9E691D38C21F0072EFE3 /* SelfInspectionTiwenPopView.m */,
 				70EAAA481D2947C20025C6D5 /* HealthListDetailTableCell.h */,
 				70EAAA491D2947C20025C6D5 /* HealthListDetailTableCell.m */,
-				706B9E721D3BB5BB0072EFE3 /* HealthListDetailFootView.h */,
-				706B9E731D3BB5BB0072EFE3 /* HealthListDetailFootView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4752,7 +4747,6 @@
 				70EE2C3E1D2F9B1A00ADD36B /* MineWalletTableCell.m in Sources */,
 				700CF04B1D229E7D008C9776 /* HealthListViewController.m in Sources */,
 				708FD5F01CE086E0002CDFA8 /* CityViewController.m in Sources */,
-				706B9E741D3BB5BB0072EFE3 /* HealthListDetailFootView.m in Sources */,
 				70265CC11C8595720091C01F /* BaseNaviController.m in Sources */,
 				70B42A0A1D18E5FE0036F525 /* QuestionInquiryData.m in Sources */,
 				702939011C8D1754008280E2 /* UILabel+Extension.m in Sources */,

@@ -16,8 +16,10 @@
 #import "LoginViewController.h"
 #import "HealthListDetailData.h"
 #import "HealthListDetailTableCell.h"
+#import "MRZhaopianCollectionCell.h"
+#import "xPhotoViewController.h"
 
-@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HealthListDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -224,37 +226,13 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if ([self.healthListDetailPhotoArray[section] isEqualToString:@""]) {
-        return 0.01;
-    }else{
-        if ([NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[section] componentsSeparatedByString:@","]].count > 0) {
-            CGFloat height = 0;
-            if ([NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[section] componentsSeparatedByString:@","]].count <=3) {
-                height= SCREEN_WIDTH/3;
-            } else if ([NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[section] componentsSeparatedByString:@","]].count <=6) {
-                height= SCREEN_WIDTH/3*2;
-            } else if ([NSMutableArray arrayWithArray:[self.healthListDetailPhotoArray[section] componentsSeparatedByString:@","]].count <=9) {
-                height= SCREEN_WIDTH/3*3;
-            } else {
-                height= SCREEN_WIDTH/3*3;
-            }
-            return height;
-        }else{
-            return 0.01;
-        }
-    }
+    return 0.01;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     self.healthListHeaderView = [[HealthListHeaderView alloc] init];
     self.healthListHeaderView.titleLabel.text = [self.healthListDetailTimeArray[section] substringToIndex:10];
     return self.healthListHeaderView;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    self.healthListDetailFootView = [[HealthListDetailFootView alloc] init];
-    
-    return self.healthListDetailFootView;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -485,6 +463,7 @@
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 #pragma mark Network Request
 -(void)sendHealthListDetailRequest{

@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import "HealthListHeaderView.h"
-#import "HealthListDetailFootView.h"
 
 @protocol HealthListDelegate <NSObject>
 
@@ -23,7 +22,6 @@
 @property (strong,nonatomic)UITableView *tableView;
 
 @property (strong,nonatomic)HealthListHeaderView *healthListHeaderView;
-@property (strong,nonatomic)HealthListDetailFootView *healthListDetailFootView;
 
 @property (strong,nonatomic)NSMutableArray *healthListDetailArray;
 @property (strong,nonatomic)NSMutableArray *healthListDetailIdArray;
