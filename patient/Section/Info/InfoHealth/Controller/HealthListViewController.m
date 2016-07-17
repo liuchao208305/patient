@@ -869,7 +869,7 @@
         if ([self.tiwenStatus intValue] == 1) {
             self.tiwenStringFix = @"未测";
         }else if ([self.tiwenStatus intValue]== 2){
-            self.tiwenStringFix = self.tiwenString;
+            self.tiwenStringFix = [NSString stringWithFormat:@"%@℃",self.tiwenString];
         }
         
         if ([self.chuhanStatus intValue] == 1) {
