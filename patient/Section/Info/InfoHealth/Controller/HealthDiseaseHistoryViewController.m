@@ -166,7 +166,7 @@
             if ([self.guominshi isEqualToString:@""] && self.guominshiHideFlag == NO && [self.guominshiFix isEqualToString:@""]) {
                 [AlertUtil showSimpleAlertWithTitle:nil message:@"过敏史不能为空！"];
             }else{
-                if ([self.jiazushi isEqualToString:@""] && self.jiwangshiHideFlag == NO && [self.jiazushiFix isEqualToString:@""]) {
+                if ([self.jiazushi isEqualToString:@""] && self.jiazushiHideFlag == NO && [self.jiazushiFix isEqualToString:@""]) {
                     [AlertUtil showSimpleAlertWithTitle:nil message:@"家族史不能为空！"];
                 }else{
                     [self sendDiseaseHistoryConfirmRequest];
@@ -281,7 +281,7 @@
             if ([self.jiwangshiFix isEqualToString:@""]) {
                 return 95;
             }else{
-                return 10 + [StringUtil cellWithStr:self.jiwangshiFix fontSize:13 width:SCREEN_WIDTH-24];
+                return 10 + [StringUtil cellWithStr:self.jiwangshiFix fontSize:13 width:SCREEN_WIDTH-24] + 70;
             }
         }
     }else if (indexPath.section == 1){
@@ -290,7 +290,7 @@
             if ([self.shoushushiFix isEqualToString:@""]) {
                 return 95;
             }else{
-                return 10 + [StringUtil cellWithStr:self.shoushushiFix fontSize:13 width:SCREEN_WIDTH-24];
+                return 10 + [StringUtil cellWithStr:self.shoushushiFix fontSize:13 width:SCREEN_WIDTH-24] + 70;
             }
         }
     }else if (indexPath.section == 2){
@@ -299,7 +299,7 @@
             if ([self.guominshiFix isEqualToString:@""]) {
                 return 95;
             }else{
-                return 10 + [StringUtil cellWithStr:self.guominshiFix fontSize:13 width:SCREEN_WIDTH-24];
+                return 10 + [StringUtil cellWithStr:self.guominshiFix fontSize:13 width:SCREEN_WIDTH-24] + 70;
             }
         }
     }else if (indexPath.section == 3){
@@ -308,7 +308,7 @@
             if ([self.jiazushiFix isEqualToString:@""]) {
                 return 95;
             }else{
-                return 10 + [StringUtil cellWithStr:self.jiazushiFix fontSize:13 width:SCREEN_WIDTH-24];
+                return 10 + [StringUtil cellWithStr:self.jiazushiFix fontSize:13 width:SCREEN_WIDTH-24] + 70;
             }
             
         }
@@ -450,30 +450,45 @@
         [parameter setValue:self.diseaseHistoryIdFix forKey:@"ids"];
     }
     
-    if ([self.jiwangshi isEqualToString:@""]) {
-        [parameter setValue:self.jiwangshiFix forKey:@"a_history"];
-    }else{
-        [parameter setValue:self.jiwangshi forKey:@"a_history"];
+    if (self.jiwangshiHideFlag == YES) {
+        [parameter setValue:@"" forKey:@"a_history"];
+    }else if (self.jiwangshiHideFlag == NO){
+        if ([self.jiwangshi isEqualToString:@""]) {
+            [parameter setValue:self.jiwangshiFix forKey:@"a_history"];
+        }else{
+            [parameter setValue:self.jiwangshi forKey:@"a_history"];
+        }
     }
     
-    if ([self.shoushushi isEqualToString:@""]) {
-        [parameter setValue:self.shoushushiFix forKey:@"b_history"];
-    }else{
-        [parameter setValue:self.shoushushi forKey:@"b_history"];
+    if (self.shoushushiHideFlag == YES) {
+        [parameter setValue:@"" forKey:@"b_history"];
+    }else if (self.shoushushiHideFlag == NO){
+        if ([self.shoushushi isEqualToString:@""]) {
+            [parameter setValue:self.shoushushiFix forKey:@"b_history"];
+        }else{
+            [parameter setValue:self.shoushushi forKey:@"b_history"];
+        }
     }
     
-    if ([self.guominshi isEqualToString:@""]) {
-        [parameter setValue:self.guominshiFix forKey:@"c_history"];
-    }else{
-        [parameter setValue:self.guominshi forKey:@"c_history"];
+    if (self.guominshiHideFlag == YES) {
+        [parameter setValue:@"" forKey:@"c_history"];
+    }else if (self.guominshiHideFlag == NO){
+        if ([self.guominshi isEqualToString:@""]) {
+            [parameter setValue:self.guominshiFix forKey:@"c_history"];
+        }else{
+            [parameter setValue:self.guominshi forKey:@"c_history"];
+        }
     }
     
-    if ([self.jiazushi isEqualToString:@""]) {
-        [parameter setValue:self.jiazushiFix forKey:@"d_history"];
-    }else{
-        [parameter setValue:self.jiazushi forKey:@"d_history"];
+    if (self.jiazushiHideFlag == YES) {
+        [parameter setValue:@"" forKey:@"d_history"];
+    }else if (self.jiazushiHideFlag == NO){
+        if ([self.jiazushi isEqualToString:@""]) {
+            [parameter setValue:self.jiazushiFix forKey:@"d_history"];
+        }else{
+            [parameter setValue:self.jiazushi forKey:@"d_history"];
+        }
     }
-    
     
     if (self.marryStatus == 0) {
         [parameter setValue:[NSString stringWithFormat:@"%d",self.marryStatusFix] forKey:@"marriage_status"];
