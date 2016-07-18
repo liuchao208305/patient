@@ -824,6 +824,8 @@
                 if ([self.inquiryTextView.text isEqualToString:@""]) {
                     [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
                     [self.inquiryTextView becomeFirstResponder];
+                }else if (self.inquiryTextView.text.length > 200){
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述字数不能超过200！"];
                 }else if (self.consultation_money > 0){
                     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                                   initWithTitle:@"请选择支付方式"
@@ -947,7 +949,9 @@
     if (textView.text.length < 200) {
         self.inquiryTextView.editable = YES;
     }else{
-        self.inquiryTextView.editable = NO;
+//        self.inquiryTextView.editable = NO;
+        NSString *string = [NSString stringWithFormat:@"当前字数为%lu，字数不能超过200！",(unsigned long)textView.text.length];
+        [HudUtil showSimpleTextOnlyHUD:string withDelaySeconds:kHud_DelayTime];
     }
 }
 
