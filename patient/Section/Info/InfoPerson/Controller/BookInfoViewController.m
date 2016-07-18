@@ -241,7 +241,8 @@
     
     [self.expertImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertBackView).offset(12);
-        make.centerY.equalTo(self.expertBackView).offset(0);
+//        make.centerY.equalTo(self.expertBackView).offset(0);
+        make.top.equalTo(self.expertBackView).offset(10);
         make.width.mas_equalTo(60);
         make.height.mas_equalTo(60);
     }];
@@ -252,8 +253,10 @@
     }];
     
     [self.expertTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
-        make.centerY.equalTo(self.expertNameLabel).offset(0);
+//        make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.expertNameLabel).offset(0);
+        make.leading.equalTo(self.expertNameLabel).offset(0);
+        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(5);
     }];
     
     [self.expertMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -262,7 +265,8 @@
     }];
     
     [self.expertIntroductionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(0);
+//        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(0);
+        make.top.equalTo(self.expertTitleLabel.mas_bottom).offset(0);
         make.leading.equalTo(self.expertNameLabel).offset(0);
         make.trailing.equalTo(self.expertMoneyLabel).offset(0);
         //        make.bottom.equalTo(self.expertBackView).offset(-15);
@@ -1177,7 +1181,7 @@
     self.doctor_id = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_id"]];
     self.heand_url = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"heand_url"]];
     self.doctor_name = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_name"]];
-    self.titleName = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"titleName"]];
+    self.titleName = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"title_name"]];
     self.consultation_money = [[[self.data objectForKey:@"doctorInfo"] objectForKey:@"money"] doubleValue];
     self.doctor_descr = [NullUtil judgeStringNull:[[self.data objectForKey:@"doctorInfo"] objectForKey:@"doctor_descr"]];
     
