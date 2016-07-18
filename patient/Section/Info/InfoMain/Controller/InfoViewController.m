@@ -894,29 +894,31 @@
             [self.personLable2Array addObject:[NullUtil judgeStringNull:personData.diseaseName]];
         }
         
-        self.personId1 = self.personIdArray[0];
-        self.image1 = self.personImageArray[0];
-        self.label1_1 = self.personLable1Array[0];
-        self.label1_2 = self.personLable2Array[0];
-        //    if (![[[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"] isEqualToString:@""]) {
-        //        self.label1_2 = [[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"];
-        //    }
-        
-        self.personId2 = self.personIdArray[1];
-        self.image2 = self.personImageArray[1];
-        self.label2_1 = self.personLable1Array[1];
-        self.label2_2 = self.personLable2Array[1];
-        //    if (![[[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"] isEqualToString:@""]) {
-        //        self.label2_2 = [[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"];
-        //    }
-        
-        self.personId3 = self.personIdArray[2];
-        self.image3 = self.personImageArray[2];
-        self.label3_1 = self.personLable1Array[2];
-        self.label3_2 = self.personLable2Array[2];
-        //    if (![[[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"] isEqualToString:@""]) {
-        //        self.label3_2 = [[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"];
-        //    }
+        if (self.personArray.count == 3) {
+            self.personId1 = self.personIdArray[0];
+            self.image1 = self.personImageArray[0];
+            self.label1_1 = self.personLable1Array[0];
+            self.label1_2 = self.personLable2Array[0];
+            //    if (![[[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+            //        self.label1_2 = [[self.data objectForKey:@"doctors"][0] objectForKey:@"diseaseName"];
+            //    }
+            
+            self.personId2 = self.personIdArray[1];
+            self.image2 = self.personImageArray[1];
+            self.label2_1 = self.personLable1Array[1];
+            self.label2_2 = self.personLable2Array[1];
+            //    if (![[[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+            //        self.label2_2 = [[self.data objectForKey:@"doctors"][1] objectForKey:@"diseaseName"];
+            //    }
+            
+            self.personId3 = self.personIdArray[2];
+            self.image3 = self.personImageArray[2];
+            self.label3_1 = self.personLable1Array[2];
+            self.label3_2 = self.personLable2Array[2];
+            //    if (![[[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"] isEqualToString:@""]) {
+            //        self.label3_2 = [[self.data objectForKey:@"doctors"][2] objectForKey:@"diseaseName"];
+            //    }
+        }
     }
     
     [self.tableView reloadData];
