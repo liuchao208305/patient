@@ -20,6 +20,8 @@
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
+@property (assign,nonatomic)BOOL isEditing;
+
 @property (strong,nonatomic)NSMutableArray *shuimianGroupArray;
 @property (strong,nonatomic)NSMutableArray *yinshiGroupArray;
 @property (strong,nonatomic)NSMutableArray *yinshuiGroupArray;

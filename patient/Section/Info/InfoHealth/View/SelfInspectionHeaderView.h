@@ -57,6 +57,12 @@
 
 @end
 
+@protocol BugFixDelegate <NSObject>
+
+-(void)bugFixAction:(BOOL)isTouchable;
+
+@end
+
 @interface SelfInspectionHeaderView : UIView
 
 @property (strong,nonatomic)UILabel *titleLabel;
@@ -88,5 +94,6 @@
 @property (weak,nonatomic)id<YuejingzhouqiDelegate> yuejingzhouqiDelegate;
 @property (weak,nonatomic)id<ChixutianshuDelegate> chixutianshuDelegate;
 @property (weak,nonatomic)id<TiwenDelegate> tiwenDelegate;
+@property (weak,nonatomic)id<BugFixDelegate> bugFixDelegate;
 
 @end

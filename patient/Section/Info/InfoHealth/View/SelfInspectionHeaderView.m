@@ -8,7 +8,7 @@
 
 #import "SelfInspectionHeaderView.h"
 
-@interface SelfInspectionHeaderView ()<UITextViewDelegate>
+@interface SelfInspectionHeaderView ()<UITextFieldDelegate>
 
 @end
 
@@ -318,6 +318,18 @@
     self.lineView.backgroundColor = ColorWithHexRGB(0xe8e8e8);
     [self addSubview:self.lineView];
     
+    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    [topView setBarStyle:UIBarStyleDefault];
+    UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"编辑完成请点击右侧完成按钮！" style:UIBarButtonItemStyleBordered target:self action:nil];
+    helloButton.tintColor = ColorWithHexRGB(0x909090);
+    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];
+    doneButton.tintColor = kMAIN_COLOR;
+    NSArray * buttonsArray = [NSArray arrayWithObjects:helloButton,btnSpace,doneButton,nil];
+    [topView setItems:buttonsArray];
+    [self.contentTextField1 setInputAccessoryView:topView];
+    [self.contentTextField2 setInputAccessoryView:topView];
+    
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self).offset(12);
         make.centerY.equalTo(self).offset(0);
@@ -361,7 +373,14 @@
     }];
 }
 
-#pragma mark UITextViewDelegate
+#pragma mark UITextFieldDelegate
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    DLog(@"textFieldDidBeginEditing");
+    if (self.bugFixDelegate && [self.bugFixDelegate respondsToSelector:@selector(bugFixAction:)]) {
+        [self.bugFixDelegate bugFixAction:NO];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.contentTextField1 resignFirstResponder];
     [self.contentTextField2 resignFirstResponder];
@@ -397,9 +416,54 @@
         [self.chixutianshuDelegate sendChixutianshu:self.contentTextField2.text];
     }
     
+    if (self.bugFixDelegate && [self.bugFixDelegate respondsToSelector:@selector(bugFixAction:)]) {
+        [self.bugFixDelegate bugFixAction:YES];
+    }
+    
     
     return YES;
 }
+
+-(void)dismissKeyBoard{
+    [self.contentTextField1 resignFirstResponder];
+    [self.contentTextField2 resignFirstResponder];
+    if (self.daBianCountDelegate && [self.daBianCountDelegate respondsToSelector:@selector(sendDabianCount:)]) {
+        [self.daBianCountDelegate sendDabianCount:self.contentTextField2.text];
+    }
+    
+    if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianBaitianCount:)]) {
+        [self.xiaoBianCountDelegate sendXiaobianBaitianCount:self.contentTextField1.text];
+    }
+    
+    if (self.xiaoBianCountDelegate && [self.xiaoBianCountDelegate respondsToSelector:@selector(sendXiaobianWanshangCount:)]) {
+        [self.xiaoBianCountDelegate sendXiaobianWanshangCount:self.contentTextField2.text];
+    }
+    
+    if (self.yuejingmoci1Delegate && [self.yuejingmoci1Delegate respondsToSelector:@selector(sendYuejingmoci1:)]) {
+        [self.yuejingmoci1Delegate sendYuejingmoci1:self.contentTextField1.text];
+    }
+    
+    if (self.yuejingmoci2Delegate && [self.yuejingmoci2Delegate respondsToSelector:@selector(sendYuejingmoci2:)]) {
+        [self.yuejingmoci2Delegate sendYuejingmoci2:self.contentTextField2.text];
+    }
+    
+    if (self.chuchaonianlingDelegate && [self.chuchaonianlingDelegate respondsToSelector:@selector(sendChuchaonianling:)]) {
+        [self.chuchaonianlingDelegate sendChuchaonianling:self.contentTextField2.text];
+    }
+    
+    if (self.yuejingzhouqiDelegate && [self.yuejingzhouqiDelegate respondsToSelector:@selector(sendYuejingzhouqi:)]) {
+        [self.yuejingzhouqiDelegate sendYuejingzhouqi:self.contentTextField2.text];
+    }
+    
+    if (self.chixutianshuDelegate && [self.chixutianshuDelegate respondsToSelector:@selector(sendChixutianshu:)]) {
+        [self.chixutianshuDelegate sendChixutianshu:self.contentTextField2.text];
+    }
+    
+    if (self.bugFixDelegate && [self.bugFixDelegate respondsToSelector:@selector(bugFixAction:)]) {
+        [self.bugFixDelegate bugFixAction:YES];
+    }
+}
+
 #pragma mark Target Action
 -(void)tiwenButtonClicked{
     if (self.tiwenDelegate && [self.tiwenDelegate respondsToSelector:@selector(tiwenButtonClicked)]) {

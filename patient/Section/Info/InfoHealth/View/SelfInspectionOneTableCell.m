@@ -78,7 +78,8 @@
     
     UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     [topView setBarStyle:UIBarStyleDefault];
-    UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"编辑完成请点击右侧完成按钮！" style:UIBarButtonItemStyleBordered target:self action:nil];
+    helloButton.tintColor = ColorWithHexRGB(0x909090);
     UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     UIBarButtonItem * doneButton = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];
     doneButton.tintColor = kMAIN_COLOR;

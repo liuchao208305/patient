@@ -29,7 +29,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/ALAsset.h>
 
-@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,Yuejingmoci1Delegate,Yuejingmoci2Delegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,TiwenDelegate,TiwenListDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
+@interface HealthSelfInspectionFixViewController ()<SymtomDelegate,XiaoBianCountDelegate,DaBianCountDelegate,Yuejingmoci1Delegate,Yuejingmoci2Delegate,YuejingbijingDelegate,ChuchaonianlingDelegate,YuejingzhouqiDelegate,ChixutianshuDelegate,YuejingqitaDelegate,TiwenDelegate,TiwenListDelegate,BugFixDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,MJPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -1930,6 +1930,15 @@
     [self.tableView reloadData];
 }
 
+#pragma mark BugFixDelegate
+-(void)bugFixAction:(BOOL)isTouchable{
+    if (isTouchable == NO) {
+        self.isEditing = YES;
+    }else if (isTouchable == YES){
+        self.isEditing = NO;
+    }
+}
+
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 32;
@@ -2096,6 +2105,7 @@
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.daBianCountDelegate = self;
+        self.selfInspectionHeaderView.bugFixDelegate = self;
         self.selfInspectionHeaderView.contentTextField1.keyboardType = UIKeyboardTypeNumberPad;
         self.selfInspectionHeaderView.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
     }else if (section == 5){
