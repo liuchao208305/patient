@@ -88,19 +88,35 @@
 //        make.height.mas_equalTo(14);
 //    }];
     
-    self.resultLabelFix = [[UILabel alloc] init];
-    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
-        self.resultLabelFix.font = [UIFont systemFontOfSize:14];
-    }
-    [self.contentView addSubview:self.resultLabelFix];
+    self.resultLabelFix1 = [[UILabel alloc] init];
+    [self.contentView addSubview:self.resultLabelFix1];
     
-    [self.resultLabelFix mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.resultLabelFix2 = [[UILabel alloc] init];
+    [self.contentView addSubview:self.resultLabelFix2];
+    
+    self.resultLabelFix3 = [[UILabel alloc] init];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.resultLabelFix3.font = [UIFont systemFontOfSize:12];
+    }else{
+        self.resultLabelFix3.font = [UIFont systemFontOfSize:14];
+    }
+    self.resultLabelFix3.textColor = ColorWithHexRGB(0x646464);
+    [self.contentView addSubview:self.resultLabelFix3];
+    
+    [self.resultLabelFix1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
-        make.width.mas_equalTo(SCREEN_WIDTH-24);
-        make.centerY.equalTo(self.contentView).offset(0);
+        make.top.equalTo(self.contentView).offset(15);
     }];
     
+    [self.resultLabelFix2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.resultLabelFix1.mas_trailing).offset(5);
+        make.centerY.equalTo(self.resultLabelFix1).offset(0);
+    }];
     
+    [self.resultLabelFix3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.resultLabelFix1).offset(0);
+        make.top.equalTo(self.resultLabelFix2.mas_bottom).offset(10);
+    }];
 }
 
 @end

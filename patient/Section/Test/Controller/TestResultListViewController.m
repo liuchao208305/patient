@@ -132,8 +132,11 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 150;
-    return 45;
+    if (![self.resultTrendArray[indexPath.section] isEqualToString:@""]) {
+        return 80;
+    }else{
+        return 45;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -162,10 +165,13 @@
 //    cell.resultLabel4.text = self.resultTimeArray[indexPath.section];
     
 //    cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@, 偏向  %@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
+    cell.resultLabelFix1.text = [self.resultTimeArray[indexPath.section] substringToIndex:10];
+    cell.resultLabelFix2.text = [NSString stringWithFormat:@"体质：%@",self.resultMainArray[indexPath.section]];
     if (![self.resultTrendArray[indexPath.section] isEqualToString:@""]) {
-        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@  偏向  %@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section],self.resultTrendArray[indexPath.section]];
+        cell.resultLabelFix3.text = [NSString stringWithFormat:@"偏向 %@",self.resultTrendArray[indexPath.section]];
+        cell.resultLabelFix3.hidden = NO;
     }else{
-        cell.resultLabelFix.text = [NSString stringWithFormat:@"%@ 体质：%@",[self.resultTimeArray[indexPath.section] substringToIndex:10],self.resultMainArray[indexPath.section]];
+        cell.resultLabelFix3.hidden = YES;
     }
     return cell;
 }
