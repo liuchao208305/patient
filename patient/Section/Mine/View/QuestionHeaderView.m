@@ -23,7 +23,7 @@
     
     self.leftLabel = [[UILabel alloc] init];
     self.leftLabel.font = [UIFont systemFontOfSize:16];
-    self.leftLabel.text = @"我的回答";
+    self.leftLabel.text = @"我的问答";
     [self addSubview:self.leftLabel];
     
     self.rightLabel = [[UILabel alloc] init];
