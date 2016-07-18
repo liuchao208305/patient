@@ -1220,18 +1220,29 @@
         if ([self.alipayResultStatus integerValue] == 9000) {
             //支付成功
             [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+            
+            OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+            orderListVC.sourceVC = @"BookInfoViewController";
+            orderListVC.orderType = 0;
+            [self.navigationController pushViewController:orderListVC animated:YES];
         }else if ([self.alipayResultStatus integerValue] == 8000){
             //支付结果确认中
             [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
+            
+            OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+            orderListVC.sourceVC = @"BookInfoViewController";
+            orderListVC.orderType = 0;
+            [self.navigationController pushViewController:orderListVC animated:YES];
         }else{
             //支付失败
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+            
+            OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
+            orderListVC.sourceVC = @"BookInfoViewController";
+            orderListVC.orderType = 0;
+            [self.navigationController pushViewController:orderListVC animated:YES];
         }
     }];
-    
-    OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
-    orderListVC.sourceVC = @"BookInfoViewController";
-    [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
 -(void)paymentInfoWechatPayDataParse{
@@ -1270,6 +1281,7 @@
     }
     OrderListViewController *orderListVC = [[OrderListViewController alloc] init];
     orderListVC.sourceVC = @"BookInfoViewController";
+    orderListVC.orderType = 0;
     [self.navigationController pushViewController:orderListVC animated:YES];
 }
 
