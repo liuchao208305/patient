@@ -418,17 +418,17 @@
     return nil;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DLog(@"%ld",(long)indexPath.section);
-    if (indexPath.section == 0) {
-        
-    }else if (indexPath.section == 1){
-        
-    }else if (indexPath.section == 2){
-        
-    }
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    DLog(@"%ld",(long)indexPath.section);
+//    if (indexPath.section == 0) {
+//        
+//    }else if (indexPath.section == 1){
+//        
+//    }else if (indexPath.section == 2){
+//        
+//    }
+//}
 
 #pragma mark Target Action
 -(void)leftButtonClicked{

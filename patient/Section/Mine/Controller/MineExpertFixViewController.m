@@ -156,7 +156,7 @@
     cell.expertTitleLabel.text = self.expertTitleArray[indexPath.row];
     cell.expertUnitLabel.text = self.expertUnitArray[indexPath.row];
     cell.expertDepartLabel.text = self.expertDepartArray[indexPath.row];
-    cell.expertDetailLabel.text = self.expertDetailArray[indexPath.row];
+//    cell.expertDetailLabel.text = self.expertDetailArray[indexPath.row];
     cell.expertShanchangLabel.text = self.expertShanchangArray[indexPath.row];
 //    [cell.expertAnswserImageView setImage:[UIImage imageNamed:@"info_more_person_anwer_image"]];
 //    cell.expertAnswerLabel.text = [NSString stringWithFormat:@"已回答%@个问题",self.expertAnswerArray[indexPath.row]];

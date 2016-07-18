@@ -106,7 +106,7 @@
 //    label.font = [UIFont systemFontOfSize:20];
 //    label.textAlignment = NSTextAlignmentCenter;
 //    self.navigationItem.titleView = label;
-    self.title=@"体质测试结果详情";
+    self.title = @"体质测试结果详情";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     if ([self.sourceVC isEqualToString:@"TestViewController"]) {

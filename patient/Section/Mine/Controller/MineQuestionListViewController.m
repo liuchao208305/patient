@@ -411,7 +411,8 @@
         }
         cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayAll[indexPath.section]];
         if ([self.questionAnswerStatusArrayAll[indexPath.section] intValue] == 1) {
-            cell.answerTimeLabel.text = @"回答：待回答";
+//            cell.answerTimeLabel.text = @"回答：待回答";
+            cell.answerTimeLabel.hidden = YES;
         }else if ([self.questionAnswerStatusArrayAll[indexPath.section] intValue] == 2){
             cell.answerTimeLabel.text = [NSString stringWithFormat:@"回答：%@",self.questionAnswerTimeArrayAll[indexPath.section]];
         }
@@ -438,7 +439,8 @@
             cell.audienceLabel.hidden = YES;
         }
         cell.askTimeLabel.text = [NSString stringWithFormat:@"提问：%@",self.questionAskTimeArrayUnpayed[indexPath.section]];
-        cell.answerTimeLabel.text = @"回答：待回答";
+//        cell.answerTimeLabel.text = @"回答：待回答";
+        cell.answerTimeLabel.hidden = YES;
         if ([self.questionExpertNameArrayUnpayed[indexPath.section] isEqualToString:@""]) {
             cell.expertNameLabel.text = @"医生：未选择";
         }else{
