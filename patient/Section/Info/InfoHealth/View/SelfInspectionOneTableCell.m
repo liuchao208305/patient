@@ -17,7 +17,12 @@
 -(void)initViewWithLabel:(NSString *)text{
     self.label = [[UILabel alloc] init];
     self.label.font = [UIFont systemFontOfSize:13];
-    self.label.text = text;
+    if ([text isEqualToString:@""]) {
+        self.label.text = @"暂无";
+    }else{
+        self.label.text = text;
+    }
+    
     self.label.textColor = ColorWithHexRGB(0xb2b2b2);
     self.label.numberOfLines = 0;
     [self.contentView addSubview:self.label];

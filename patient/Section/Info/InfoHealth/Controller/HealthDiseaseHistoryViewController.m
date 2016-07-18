@@ -356,6 +356,7 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //            [cell initViewWithTextField:@"请在此处填写您的既往病史"];
             if (self.isEditable == YES) {
                 [cell initViewWithTextField:@"请在此处填写您的既往病史" text:self.jiwangshiFix];
@@ -370,6 +371,7 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //            [cell initViewWithTextField:@"请在此处填写您的手术史"];
             if (self.isEditable == YES) {
                 [cell initViewWithTextField:@"请在此处填写您的手术史" text:self.shoushushiFix];
@@ -384,6 +386,7 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //            [cell initViewWithTextField:@"请在此处填写您的过敏原"];
             if (self.isEditable == YES) {
                 [cell initViewWithTextField:@"请在此处填写您的过敏原" text:self.guominshiFix];
@@ -398,6 +401,7 @@
         SelfInspectionOneTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //            [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等"];
             if (self.isEditable == YES) {
                 [cell initViewWithTextField:@"请在此处填写您的家族史，如：祖父，高血压等" text:self.jiazushiFix];
