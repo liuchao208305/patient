@@ -68,6 +68,10 @@
     self.erziCount = 0;
     
     self.diseaseHistoryIdFix = @"";
+    self.jiwangshi = @"";
+    self.shoushushi = @"";
+    self.guominshi = @"";
+    self.jiazushi = @"";
     self.marryStatusFix = 0;
     self.nverCountFix = 0;
     self.erziCountFix = 0;
@@ -428,15 +432,15 @@
     }
     
     if (self.nverCount == 0) {
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"a_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"b_son"];
     }else{
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"a_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"b_son"];
     }
     
     if (self.erziCount == 0) {
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"b_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"a_son"];
     }else{
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"b_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"a_son"];
     }
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_MARRIAGE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
@@ -526,8 +530,8 @@
         self.guominshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"c_history"]];
         self.jiazushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"d_history"]];
         self.marryStatusFix = [[self.data2 objectForKey:@"marriage_status"] intValue];
-        self.nverCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
-        self.erziCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
+        self.nverCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
+        self.erziCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
     }
     
     [self marriageHistoryDataFilling];
@@ -541,16 +545,16 @@
         }else if (self.marryStatusFix == 2){
             [self marriedButtonClicked];
         }
-        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
-        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        self.textField2.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        self.textField3.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
     }else if (self.isEditable == NO){
         if (self.marryStatusFix == 1) {
             self.label1Fix.text = @"未婚";
         }else if (self.marryStatusFix == 2){
             self.label1Fix.text = @"已婚";
         }
-        self.textField2.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
-        self.textField3.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        self.textField2.text = [NSString stringWithFormat:@"%d",self.erziCountFix];
+        self.textField3.text = [NSString stringWithFormat:@"%d",self.nverCountFix];
         self.textField2.userInteractionEnabled = NO;
         self.textField3.userInteractionEnabled = NO;
     }

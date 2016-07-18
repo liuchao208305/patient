@@ -497,15 +497,15 @@
     }
     
     if (self.nverCount == 0) {
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"a_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCountFix] forKey:@"b_son"];
     }else{
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"a_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.nverCount] forKey:@"b_son"];
     }
     
     if (self.erziCount == 0) {
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"b_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCountFix] forKey:@"a_son"];
     }else{
-        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"b_son"];
+        [parameter setValue:[NSString stringWithFormat:@"%d",self.erziCount] forKey:@"a_son"];
     }
     
     [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddress,kJZK_HEALTH_DISEASE_HISTORY_CONFIRM] successBlock:^(NSURLSessionDataTask *task,id responseObject){
@@ -595,8 +595,8 @@
         self.guominshiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"c_history"]];
         self.jiazushiFix = [NullUtil judgeStringNull:[self.data2 objectForKey:@"d_history"]];
         self.marryStatusFix = [[self.data2 objectForKey:@"marriage_status"] intValue];
-        self.nverCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
-        self.erziCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
+        self.nverCountFix = [[self.data2 objectForKey:@"b_son"] intValue];
+        self.erziCountFix = [[self.data2 objectForKey:@"a_son"] intValue];
     }
     
     [self.tableView removeFromSuperview];
