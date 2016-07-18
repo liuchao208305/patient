@@ -492,7 +492,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.sourceVC isEqualToString:@"QuestionInquiryViewController"]) {
         if (self.healthListDelegate && [self.healthListDelegate respondsToSelector:@selector(healthListChoosed:time:type:)]) {
-            [self.healthListDelegate healthListChoosed:self.healthListDetailIdArray[indexPath.section] time:self.healthListDetailTimeArray[indexPath.section] type:@"健康自查"];
+            [self.healthListDelegate healthListChoosed:self.healthListDetailIdArray[indexPath.section] time:[self.healthListDetailTimeArray[indexPath.section] substringToIndex:10] type:@"健康自查"];
         }
         [self.navigationController popViewControllerAnimated:YES];
     }

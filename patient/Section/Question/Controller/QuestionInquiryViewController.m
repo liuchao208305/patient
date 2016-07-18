@@ -418,8 +418,10 @@
     [self.inquiryBackView addSubview:self.testImageView];
     
     self.testLabel1 = [[UILabel alloc] init];
+    self.testLabel1.numberOfLines = 0;
     self.testLabel1.font = [UIFont systemFontOfSize:14];
     self.testLabel1.textColor = ColorWithHexRGB(0x646464);
+    self.testLabel1.textAlignment = NSTextAlignmentLeft;
     [self.inquiryBackView addSubview:self.testLabel1];
     
     self.testLabel2 = [[UILabel alloc] init];
@@ -490,6 +492,7 @@
     
     [self.testLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.testImageView.mas_trailing).offset(13);
+        make.width.mas_equalTo(SCREEN_WIDTH-80);
         make.centerY.equalTo(self.testImageView).offset(0);
     }];
     
@@ -833,7 +836,7 @@
 }
 
 #pragma mark TestListDelegate
--(void)testListChoosed:(NSString *)tid time:(NSString *)time type:(NSString *)type{
+-(void)testListChoosed:(NSString *)tid time:(NSString *)time zhutizhi:(NSString *)zhutizhi piantizhi:(NSString *)piantizhi{
 //    if (self.inquiryTestTimeArray.count > 0) {
 //        [self.inquiryTestTimeArray replaceObjectAtIndex:0 withObject:time];
 //        [self.inquiryTestTypeArray replaceObjectAtIndex:0 withObject:type];
@@ -851,7 +854,12 @@
     self.testLabel2.hidden = NO;
     self.testButton.hidden = NO;
     
-    self.testLabel1.text = [NSString stringWithFormat:@"%@ %@结果",time,type];
+    if ([piantizhi isEqualToString:@""]) {
+        self.testLabel1.text = [NSString stringWithFormat:@"%@的体质是:%@",time,zhutizhi];
+    }else{
+        self.testLabel1.text = [NSString stringWithFormat:@"%@的体质是:%@ 偏向%@",time,zhutizhi,piantizhi];
+    }
+    
     self.testLabel2.text = @"（公开提问其他人不可见）";
     
     self.testId = tid;

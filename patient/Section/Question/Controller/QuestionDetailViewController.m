@@ -152,28 +152,28 @@
 -(void)initView{
     if (self.isMyself) {
         if ([self.expertSoundString length] > 0) {
-            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15)];
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15   + 15)];
             self.questionBackView.backgroundColor = kWHITE_COLOR;
             [self initQuestionSubView];
             [self.view addSubview:self.questionBackView];
             
-            self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15+10, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
+            self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15+10   + 15, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
             self.expertBackView.backgroundColor = kWHITE_COLOR;
             [self initExpertSubView];
             [self.view addSubview:self.expertBackView];
         }else{
-            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+12+10+15)];
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+12+10+15   + 15)];
             self.questionBackView.backgroundColor = kWHITE_COLOR;
             [self initQuestionSubView];
             [self.view addSubview:self.questionBackView];
         }
     }else{
-        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15)];
+        self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15   + 15)];
         self.questionBackView.backgroundColor = kWHITE_COLOR;
         [self initQuestionSubView];
         [self.view addSubview:self.questionBackView];
         
-        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15+30, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
+        self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+15+12+15+45+10+12+15+30   + 15, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
         self.expertBackView.backgroundColor = kWHITE_COLOR;
         [self initExpertSubView];
         [self.view addSubview:self.expertBackView];
@@ -247,8 +247,10 @@
         [self.questionBackView addSubview:self.diseaseHistoryLabel4];
         
         self.physiqueHistoryLabel = [[UILabel alloc] init];
+        self.physiqueHistoryLabel.numberOfLines = 0;
         self.physiqueHistoryLabel.textColor = ColorWithHexRGB(0x909090);
         self.physiqueHistoryLabel.font = [UIFont systemFontOfSize:12];
+        self.physiqueHistoryLabel.textAlignment = NSTextAlignmentLeft;
         [self.questionBackView addSubview:self.physiqueHistoryLabel];
         
         self.healthHistoryLabel = [[UILabel alloc] init];
@@ -938,13 +940,13 @@
     if ([self.physiqueHistory isEqualToString:@""]) {
         self.physiqueHistoryLabel.text = @"体质测试情况：暂无";
     }else{
-        self.physiqueHistoryLabel.text = [NSString stringWithFormat:@"体质测试情况：%@",self.physiqueHistory];
+        self.physiqueHistoryLabel.text = [NSString stringWithFormat:@"%@",self.physiqueHistory];
     }
     
     if ([self.healthHistory isEqualToString:@""]) {
         self.healthHistoryLabel.text = @"健康自查情况：暂无";
     }else{
-        self.healthHistoryLabel.text = [NSString stringWithFormat:@"健康自查情况：%@",self.healthHistory];
+        self.healthHistoryLabel.text = [NSString stringWithFormat:@"%@",self.healthHistory];
         [self.healthHistoryButton setTitle:@"（点击查看详情）" forState:UIControlStateNormal];
     }
     
