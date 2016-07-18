@@ -12,10 +12,10 @@
 //接口名称相关
 #ifdef DEBUG
 //Debug状态下的测试API
-//#define kServerAddress     @"http://192.168.5.44:83/jiuzhekan_http/"// 内网测试地址－秦兵
-//#define kServerAddressPay   @"http://192.168.5.44:83/jiuzhekan_pay/"//外网测试地址—秦兵－支付
-#define kServerAddress     @"http://101.68.79.26:84/jiuzhekan_http/"// 外网测试地址
-#define kServerAddressPay   @"http://101.68.79.26:84/jiuzhekan_pay/"//外网测试地址—支付
+#define kServerAddress     @"http://192.168.5.44:83/jiuzhekan_http/"// 内网测试地址－秦兵
+#define kServerAddressPay   @"http://192.168.5.44:83/jiuzhekan_pay/"//外网测试地址—秦兵－支付
+//#define kServerAddress     @"http://101.68.79.26:84/jiuzhekan_http/"// 外网测试地址
+//#define kServerAddressPay   @"http://101.68.79.26:84/jiuzhekan_pay/"//外网测试地址—支付
 //#define kServerAddress     @"http://101.68.79.26:83/jiuzhekan_http/"// 外网预发布地址
 //#define kServerAddressPay   @"http://101.68.79.26:83/jiuzhekan_pay/"//外网预发布地址—支付
 #else

@@ -1376,7 +1376,7 @@
 }
 
 -(void)sendPayNowInfoRequest2:(NSString *)orderId payType:(NSInteger)payType{
-    DLog(@"sendPayNowInfoRequest1");
+    DLog(@"sendPayNowInfoRequest2");
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDAnimationFade;
