@@ -753,7 +753,16 @@
             cell.statusLabel.textColor = [UIColor redColor];
             
             [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
-            cell.waitTimeLabel.text = [NSString stringWithFormat:@"已等待%@",self.orderWaitTimeArrayAll[indexPath.section]];
+            
+            int hour = 0;
+            int minute = 0;
+            int second = 0;
+            
+            int leftTime = 1800 - [self.orderWaitTimeArrayAll[indexPath.section] intValue];
+            hour = leftTime / 3600;
+            minute = (leftTime - hour*3600)/60;
+            second = leftTime - hour*3600 - minute * 60;
+            cell.waitTimeLabel.text = [NSString stringWithFormat:@"距离支付：%d时%d分%d秒",hour,minute,second];
             
             cell.payButton.tag = 10000+indexPath.section;
             [cell.payButton addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -823,7 +832,17 @@
         cell.statusLabel.text = @"待支付";
         cell.statusLabel.textColor = [UIColor redColor];
         [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
-        cell.waitTimeLabel.text = [NSString stringWithFormat:@"已等待%@",self.orderWaitTimeArrayUnpayed[indexPath.section]];
+
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        
+        int leftTime = 1800 - [self.orderWaitTimeArrayUnpayed[indexPath.section] intValue];
+        hour = leftTime / 3600;
+        minute = (leftTime - hour*3600)/60;
+        second = leftTime - hour*3600 - minute * 60;
+        cell.waitTimeLabel.text = [NSString stringWithFormat:@"距离支付：%d时%d分%d秒",hour,minute,second];
+        
         cell.payButton.tag = 20000+indexPath.section;
         [cell.payButton addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayUnpayed[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];
