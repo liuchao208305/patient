@@ -152,17 +152,17 @@
 -(void)initView{
     if (self.isMyself) {
         if ([self.expertSoundString length] > 0) {
-            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15   + 15)];
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15   + 15+60)];
             self.questionBackView.backgroundColor = kWHITE_COLOR;
             [self initQuestionSubView];
             [self.view addSubview:self.questionBackView];
             
-            self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15+10   + 15, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
+            self.expertBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+15+45+10+12+15+10   + 15+60, SCREEN_WIDTH, 15+15+15+60+17+12+15)];
             self.expertBackView.backgroundColor = kWHITE_COLOR;
             [self initExpertSubView];
             [self.view addSubview:self.expertBackView];
         }else{
-            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+12+10+15   + 15)];
+            self.questionBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10+45+10+[StringUtil cellWithStr:self.questionContent fontSize:14 width:SCREEN_WIDTH+24]+20+12+7+12+10+12+9+12+10+15   + 15+60)];
             self.questionBackView.backgroundColor = kWHITE_COLOR;
             [self initQuestionSubView];
             [self.view addSubview:self.questionBackView];
@@ -273,35 +273,45 @@
         [self.diseaseHistoryLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.questionBackView).offset(12);
             make.top.equalTo(self.questionContentLabel.mas_bottom).offset(20);
-            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+//            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.width.mas_equalTo(SCREEN_WIDTH-24);
             make.height.mas_equalTo(12);
         }];
         
         [self.diseaseHistoryLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.diseaseHistoryLabel1.mas_trailing).offset(20);
-            make.centerY.equalTo(self.diseaseHistoryLabel1).offset(0);
-            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+//            make.leading.equalTo(self.diseaseHistoryLabel1.mas_trailing).offset(20);
+//            make.centerY.equalTo(self.diseaseHistoryLabel1).offset(0);
+//            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.leading.equalTo(self.diseaseHistoryLabel1).offset(0);
+            make.top.equalTo(self.diseaseHistoryLabel1.mas_bottom).offset(7);
+            make.width.mas_equalTo(SCREEN_WIDTH-24);
             make.height.mas_equalTo(12);
         }];
         
         [self.diseaseHistoryLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.questionBackView).offset(12);
-            make.top.equalTo(self.diseaseHistoryLabel1.mas_bottom).offset(7);
-            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+//            make.leading.equalTo(self.questionBackView).offset(12);
+//            make.top.equalTo(self.diseaseHistoryLabel1.mas_bottom).offset(7);
+//            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.leading.equalTo(self.diseaseHistoryLabel2).offset(0);
+            make.top.equalTo(self.diseaseHistoryLabel2.mas_bottom).offset(7);
+            make.width.mas_equalTo(SCREEN_WIDTH-24);
             make.height.mas_equalTo(12);
         }];
         
         [self.diseaseHistoryLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.diseaseHistoryLabel3.mas_trailing).offset(20);
-            make.centerY.equalTo(self.diseaseHistoryLabel3).offset(0);
-            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+//            make.leading.equalTo(self.diseaseHistoryLabel3.mas_trailing).offset(20);
+//            make.centerY.equalTo(self.diseaseHistoryLabel3).offset(0);
+//            make.width.mas_equalTo(SCREEN_WIDTH/2-20);
+            make.leading.equalTo(self.diseaseHistoryLabel3).offset(0);
+            make.top.equalTo(self.diseaseHistoryLabel3.mas_bottom).offset(7);
+            make.width.mas_equalTo(SCREEN_WIDTH-24);
             make.height.mas_equalTo(12);
         }];
         
         [self.physiqueHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.questionBackView).offset(12);
             make.trailing.equalTo(self.questionBackView).offset(-12);
-            make.top.equalTo(self.diseaseHistoryLabel3.mas_bottom).offset(10);
+            make.top.equalTo(self.diseaseHistoryLabel4.mas_bottom).offset(10);
         }];
         
         [self.healthHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -450,8 +460,10 @@
     }];
     
     [self.expertTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
-        make.centerY.equalTo(self.expertNameLabel).offset(0);
+//        make.leading.equalTo(self.expertNameLabel.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.expertNameLabel).offset(0);
+        make.leading.equalTo(self.expertNameLabel).offset(0);
+        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(5);
     }];
     
     [self.expertMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -461,7 +473,7 @@
     
     [self.expertDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.expertNameLabel).offset(0);
-        make.top.equalTo(self.expertNameLabel.mas_bottom).offset(15);
+        make.top.equalTo(self.expertTitleLabel.mas_bottom).offset(5);
         make.trailing.equalTo(self.expertBackView).offset(-12);
         make.height.mas_equalTo(60);
     }];
