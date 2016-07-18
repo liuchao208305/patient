@@ -219,6 +219,10 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark Lazy Loading
 -(void)lazyLoading{
 //    self.orderArrayAll = [NSMutableArray array];
@@ -1857,6 +1861,21 @@
     req.package             = self.package1;
     req.sign                = self.sign1;
     [WXApi sendReq:req];
+    
+    if ([WXApi isWXAppInstalled]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult1:) name:@"WXPayOrderListViewController1" object:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"WXPayOrderListViewController1" forKey:kJZK_weixinpayType];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+-(void)getOrderPayResult1:(NSNotification *)notification{
+    NSLog(@"userInfo: %@",notification.userInfo);
+    if ([notification.object isEqualToString:@"success"]){
+        [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+    }
 }
 
 -(void)paymentInfoAliPayDataParse2{
@@ -1904,24 +1923,21 @@
     req.package             = self.package2;
     req.sign                = self.sign2;
     [WXApi sendReq:req];
+    
+    if ([WXApi isWXAppInstalled]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult2:) name:@"WXPayOrderListViewController2" object:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"WXPayOrderListViewController2" forKey:kJZK_weixinpayType];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
--(void)onResp:(BaseResp *)resp{
-    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
-    
-    switch (resp.errCode) {
-        case WXSuccess:
-            strMsg = @"支付结果：成功！";
-            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
-            break;
-            
-        default:
-            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
-            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
-            break;
+-(void)getOrderPayResult2:(NSNotification *)notification{
+    NSLog(@"userInfo: %@",notification.userInfo);
+    if ([notification.object isEqualToString:@"success"]){
+        [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 @end

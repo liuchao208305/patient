@@ -190,6 +190,10 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark Lazy Loading
 -(void)lazyLoading{
     self.photoArray = [NSMutableArray array];
@@ -1494,6 +1498,21 @@
     req.package             = self.package;
     req.sign                = self.sign;
     [WXApi sendReq:req];
+    
+    if ([WXApi isWXAppInstalled]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXPayOrderListDetailViewController" object:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"WXPayOrderListDetailViewController" forKey:kJZK_weixinpayType];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+-(void)getOrderPayResult:(NSNotification *)notification{
+    NSLog(@"userInfo: %@",notification.userInfo);
+    if ([notification.object isEqualToString:@"success"]){
+        [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
+    }
 }
 
 #pragma mark Data Filling

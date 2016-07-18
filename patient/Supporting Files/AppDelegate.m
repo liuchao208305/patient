@@ -22,7 +22,7 @@
 #import "MineMessageDetailViewController.h"
 #import "GuideViewController.h"
 
-@interface AppDelegate ()<CLLocationManagerDelegate>
+@interface AppDelegate ()<CLLocationManagerDelegate,WXApiDelegate>
 
 @property (assign,nonatomic)BOOL isVersionUpdated;
 @property (assign,nonatomic)BOOL isLoginSucceeded;
@@ -388,11 +388,36 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                                          RedirectURL:@"http://www.jiuzhekan.com/"];
 }
 
+#pragma mark startPay
 -(void)startPay{
     [WXApi registerApp:@"wx6a048cad50cccc7b" withDescription:@"demo 2.0"];
 }
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//    BOOL result = [UMSocialSnsService handleOpenURL:url];
+//    if (result == FALSE) {
+//        //调用其他SDK
+//        //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
+//        if ([url.host isEqualToString:@"safepay"]) {
+//            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//                //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+//                NSLog(@"result = %@",resultDic);
+//            }];
+//        }else if ([url.host isEqualToString:@"platformapi"]){
+//            //支付宝钱包快登授权返回authCode
+//            [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+//                //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+//                NSLog(@"result = %@",resultDic);
+//            }];
+//        }else{
+//            return [WXApi handleOpenURL:url delegate:self];
+//        }
+//        return YES;
+//    }
+//    return result;
+//}
+
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
     BOOL result = [UMSocialSnsService handleOpenURL:url];
     if (result == FALSE) {
         //调用其他SDK
@@ -408,10 +433,83 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                 //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
                 NSLog(@"result = %@",resultDic);
             }];
+        }else{
+            return [WXApi handleOpenURL:url delegate:self];
         }
         return YES;
     }
     return result;
+}
+
+-(void)onResp:(BaseResp *)resp{
+    NSString * strMsg = [NSString stringWithFormat:@"errorCode: %d",resp.errCode];
+    NSLog(@"strMsg: %@",strMsg);
+    
+    NSString * errStr = [NSString stringWithFormat:@"errStr: %@",resp.errStr];
+    NSLog(@"errStr: %@",errStr);
+    
+    NSString * strTitle;
+    //判断是微信消息的回调 --> 是支付回调回来的还是消息回调回来的.
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]){
+        strTitle = [NSString stringWithFormat:@"发送媒体消息的结果"];
+    }
+    
+    NSString * wxPayResult;
+    //判断是否是微信支付回调 (注意是PayResp 而不是PayReq)
+    if ([resp isKindOfClass:[PayResp class]]){
+        //支付返回的结果, 实际支付结果需要去微信服务器端查询
+        strTitle = [NSString stringWithFormat:@"支付结果"];
+        switch (resp.errCode)
+        {
+            case WXSuccess:
+            {
+                strMsg = @"支付结果:";
+                NSLog(@"支付成功: %d",resp.errCode);
+                wxPayResult = @"success";
+                break;
+            }
+            case WXErrCodeUserCancel:
+            {
+                strMsg = @"用户取消了支付";
+                NSLog(@"用户取消支付: %d",resp.errCode);
+                wxPayResult = @"cancel";
+                break;
+            }
+            default:
+            {
+                strMsg = [NSString stringWithFormat:@"支付失败! code: %d  errorStr: %@",resp.errCode,resp.errStr];
+                NSLog(@":支付失败: code: %d str: %@",resp.errCode,resp.errStr);
+                wxPayResult = @"fail";
+                break;
+            }
+        }
+        //发出通知 从微信回调回来之后,发一个通知,让请求支付的页面接收消息,并且展示出来,或者进行一些自定义的展示或者跳转
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayBookInfoViewController"]) {
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayBookInfoViewController" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayQuestionInquiryViewController"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayQuestionInquiryViewController" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayOrderListViewController1"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayOrderListViewController1" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayOrderListViewController2"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayOrderListViewController2" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayQuestionListViewController1"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayQuestionListViewController1" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayQuestionListViewController2"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayQuestionListViewController2" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayQuestionDetailViewController"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayQuestionDetailViewController" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinpayType] isEqualToString:@"WXPayOrderListDetailViewController"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXPayOrderListDetailViewController" object:wxPayResult];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }
+    }
 }
 
 #pragma mark initRootWindow

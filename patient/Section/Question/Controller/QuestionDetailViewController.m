@@ -130,6 +130,10 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark Lazy Loading
 -(void)lazyLoading{
     
@@ -879,24 +883,21 @@
     req.package             = self.package;
     req.sign                = self.sign;
     [WXApi sendReq:req];
+    
+    if ([WXApi isWXAppInstalled]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXPayQuestionDetailViewController" object:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"WXPayQuestionDetailViewController" forKey:kJZK_weixinpayType];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
--(void)onResp:(BaseResp *)resp{
-    NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
-    
-    switch (resp.errCode) {
-        case WXSuccess:
-            strMsg = @"支付结果：成功！";
-            NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
-            break;
-            
-        default:
-            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
-            NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
-            break;
+-(void)getOrderPayResult:(NSNotification *)notification{
+    NSLog(@"userInfo: %@",notification.userInfo);
+    if ([notification.object isEqualToString:@"success"]){
+        [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 #pragma mark Data Filling
