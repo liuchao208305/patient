@@ -537,6 +537,7 @@
         self.inquiryMoneyTextField.textColor = ColorWithHexRGB(0xff9e3d);
         self.inquiryMoneyTextField.textAlignment = NSTextAlignmentCenter;
         self.inquiryMoneyTextField.placeholder = @"______";
+        self.inquiryMoneyTextField.keyboardType = UIKeyboardTypeNumberPad;
         [self.inquiryBackView addSubview:self.inquiryMoneyTextField];
         
         self.inquiryMoneyLabel3_2 = [[UILabel alloc] init];
@@ -1026,11 +1027,13 @@
             }
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+//            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
             if (self.code2 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
                 [self presentViewController:navController animated:YES completion:nil];
+            }else if (self.code2 == 2){
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"提问金额只能为数字！"];
             }
         }
         

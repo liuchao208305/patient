@@ -1653,6 +1653,8 @@
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.daBianCountDelegate = self;
+        self.selfInspectionHeaderView.contentTextField1.keyboardType = UIKeyboardTypeNumberPad;
+        self.selfInspectionHeaderView.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
     }else if (section == 5){
         NSString *title = @"便秘";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"是",@"否",nil];
@@ -1691,6 +1693,8 @@
         NSString *content2_3 = @"次";
         [self.selfInspectionHeaderView initView:title content1_1:content1_1 content1_2:content1_2 content1_3:content1_3 content2_1:content2_1 content2_2:content2_2 content2_3:content2_3];
         self.selfInspectionHeaderView.xiaoBianCountDelegate = self;
+        self.selfInspectionHeaderView.contentTextField1.keyboardType = UIKeyboardTypeNumberPad;
+        self.selfInspectionHeaderView.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
     }else if (section == 12){
         NSString *title = @"色质";
         NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"异常",@"正常",nil];
