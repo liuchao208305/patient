@@ -14,6 +14,7 @@
 #import "CustomAlert.h"
 #import "AnalyticUtil.h"
 #import "StringUtil.h"
+#import "AdaptionUtil.h"
 #import "LoginViewController.h"
 #import "ResultData.h"
 #import "TestResultDetailViewController.h"
@@ -340,14 +341,21 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-//        return 130;
-//        return 225;
         return 110 + [StringUtil cellWithStr:self.jiwangshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.shoushushi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.guomingshi fontSize:13 width:SCREEN_WIDTH-85]+ [StringUtil cellWithStr:self.jiazushi fontSize:13 width:SCREEN_WIDTH-85];
     }else if (indexPath.section == 1){
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
-            return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70];
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20;
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70];
+            }
         }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
-            return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210;
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230;
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                return 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210;
+            }
+            
         }
     }else if (indexPath.section > 1){
         return 45;
