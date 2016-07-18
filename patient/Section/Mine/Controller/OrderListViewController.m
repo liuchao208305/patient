@@ -1827,7 +1827,6 @@
         if ([self.alipayResultStatus1 integerValue] == 9000) {
             //支付成功
             [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
-            
         }else if ([self.alipayResultStatus1 integerValue] == 8000){
             //支付结果确认中
             [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
@@ -1835,6 +1834,7 @@
             //支付失败
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
         }
+        [self.tableView1.mj_header beginRefreshing];
     }];
 }
 
@@ -1881,6 +1881,7 @@
             //支付失败
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
         }
+        [self.tableView2.mj_header beginRefreshing];
     }];
 }
 

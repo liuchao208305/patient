@@ -243,12 +243,12 @@
     [self initPatientSubView1];
     [self.scrollView addSubview:self.patientBackView1];
     
-    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 200)];
+    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 220)];
     self.patientBackView2.backgroundColor = ColorWithHexRGB(0xf8f8f8);
     [self initPatientSubView2];
     [self.scrollView addSubview:self.patientBackView2];
     
-    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200, SCREEN_WIDTH, 650)];
+    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+220, SCREEN_WIDTH, 650)];
     self.patientBackView3.backgroundColor = kWHITE_COLOR;
     [self initPatientSubView3];
     [self.scrollView addSubview:self.patientBackView3];
@@ -534,7 +534,7 @@
     [self.patientBackView2 addSubview:self.patientTestLabel];
     
     self.patientLineView6 = [[UIView alloc] init];
-    self.patientLineView6.backgroundColor = ColorWithHexRGB(0x646464);
+    self.patientLineView6.backgroundColor = ColorWithHexRGB(0xd6d6d6);
     [self.patientBackView2 addSubview:self.patientLineView6];
     
     [self.patientProblemLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -552,28 +552,38 @@
     
     [self.patientJiwangshiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.patientBackView2).offset(12);
+        make.width.mas_equalTo(SCREEN_WIDTH-24);
         make.top.equalTo(self.patientLineView4.mas_bottom).offset(12);
     }];
     
     [self.patientShoushushiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.patientBackView2).offset(-12);
-        make.centerY.equalTo(self.patientJiwangshiLabel).offset(0);
-    }];
-    
-    [self.patientGuominshiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.trailing.equalTo(self.patientBackView2).offset(-12);
+//        make.centerY.equalTo(self.patientJiwangshiLabel).offset(0);
         make.leading.equalTo(self.patientBackView2).offset(12);
+        make.width.mas_equalTo(SCREEN_WIDTH-24);
         make.top.equalTo(self.patientJiwangshiLabel.mas_bottom).offset(15);
     }];
     
+    [self.patientGuominshiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.equalTo(self.patientBackView2).offset(12);
+//        make.top.equalTo(self.patientJiwangshiLabel.mas_bottom).offset(15);
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.width.mas_equalTo(SCREEN_WIDTH-24);
+        make.top.equalTo(self.patientShoushushiLabel.mas_bottom).offset(15);
+    }];
+    
     [self.patientJiazushiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.patientBackView2).offset(-12);
-        make.centerY.equalTo(self.patientGuominshiLabel).offset(0);
+//        make.trailing.equalTo(self.patientBackView2).offset(-12);
+//        make.centerY.equalTo(self.patientGuominshiLabel).offset(0);
+        make.leading.equalTo(self.patientBackView2).offset(12);
+        make.width.mas_equalTo(SCREEN_WIDTH-24);
+        make.top.equalTo(self.patientGuominshiLabel.mas_bottom).offset(15);
     }];
     
     [self.patientLineView5 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.patientBackView2).offset(0);
         make.trailing.equalTo(self.patientBackView2).offset(0);
-        make.top.equalTo(self.patientGuominshiLabel.mas_bottom).offset(12);
+        make.top.equalTo(self.patientJiazushiLabel.mas_bottom).offset(12);
         make.height.mas_equalTo(1);
     }];
     
