@@ -7,6 +7,7 @@
 //
 
 #import "TestResultListTableCell.h"
+#import "AdaptionUtil.h"
 
 @implementation TestResultListTableCell
 
@@ -88,12 +89,18 @@
 //    }];
     
     self.resultLabelFix = [[UILabel alloc] init];
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.resultLabelFix.font = [UIFont systemFontOfSize:14];
+    }
     [self.contentView addSubview:self.resultLabelFix];
     
     [self.resultLabelFix mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(12);
+        make.width.mas_equalTo(SCREEN_WIDTH-24);
         make.centerY.equalTo(self.contentView).offset(0);
     }];
+    
+    
 }
 
 @end
