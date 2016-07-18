@@ -190,7 +190,7 @@
     }else if ([AdaptionUtil isIphoneFive]){
         self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.2*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 1.4*SCREEN_HEIGHT);
     }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -513,42 +513,56 @@
     
     [self.jiwangshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(10);
-        make.centerY.equalTo(self.diseaseImageView).offset(-8);
+        make.centerY.equalTo(self.diseaseImageView).offset(0);
     }];
     
     [self.jiwangshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.jiwangshiLabel1.mas_trailing).offset(5);
+        make.width.mas_equalTo(SCREEN_WIDTH-130);
         make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
     }];
     
     [self.shoushushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
-        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+//        make.trailing.equalTo(self.shoushushiLabel2.mas_leading).offset(-10);
+//        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+        make.leading.equalTo(self.jiwangshiLabel1).offset(0);
+        make.top.equalTo(self.jiwangshiLabel1.mas_bottom).offset(10);
     }];
     
     [self.shoushushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
-        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+//        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
+//        make.centerY.equalTo(self.jiwangshiLabel1).offset(0);
+        make.leading.equalTo(self.shoushushiLabel1.mas_trailing).offset(5);
+        make.width.mas_equalTo(SCREEN_WIDTH-130);
+        make.centerY.equalTo(self.shoushushiLabel1).offset(0);
     }];
     
     [self.guomingshiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(10);
-        make.centerY.equalTo(self.diseaseImageView).offset(8);
+//        make.leading.equalTo(self.diseaseImageView.mas_trailing).offset(10);
+//        make.centerY.equalTo(self.diseaseImageView).offset(8);
+        make.leading.equalTo(self.shoushushiLabel1).offset(0);
+        make.top.equalTo(self.shoushushiLabel1.mas_bottom).offset(10);
     }];
     
     [self.guomingshiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.guomingshiLabel1.mas_trailing).offset(5);
+        make.width.mas_equalTo(SCREEN_WIDTH-130);
         make.centerY.equalTo(self.guomingshiLabel1).offset(0);
     }];
     
     [self.jiazushiLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
-        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+//        make.trailing.equalTo(self.jiazushiLabel2.mas_leading).offset(-10);
+//        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+        make.leading.equalTo(self.guomingshiLabel1).offset(0);
+        make.top.equalTo(self.guomingshiLabel2.mas_bottom).offset(10);
     }];
     
     [self.jiazushiLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
-        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+//        make.trailing.equalTo(self.diseaseButton.mas_leading).offset(-10);
+//        make.centerY.equalTo(self.guomingshiLabel1).offset(0);
+        make.leading.equalTo(self.jiazushiLabel1.mas_trailing).offset(5);
+        make.width.mas_equalTo(SCREEN_WIDTH-130);
+        make.centerY.equalTo(self.jiazushiLabel1).offset(0);
     }];
     
     self.healthImageView = [[UIImageView alloc] init];
@@ -615,7 +629,8 @@
     
     [self.healthImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.inquiryBackView).offset(12);
-        make.top.equalTo(self.diseaseLabel2.mas_bottom).offset(15);
+//        make.top.equalTo(self.diseaseLabel2.mas_bottom).offset(15);
+        make.top.equalTo(self.jiazushiLabel1.mas_bottom).offset(15);
         make.width.mas_equalTo(12);
         make.height.mas_equalTo(16);
     }];
@@ -743,6 +758,7 @@
     self.guomingshiLabel2.hidden = YES;
     self.jiazushiLabel1.hidden = YES;
     self.jiazushiLabel2.hidden = YES;
+    self.diseaseButton.hidden = YES;
     
     self.diseaseLabel1.hidden = NO;
     self.diseaseLabel2.hidden = NO;
@@ -1326,6 +1342,7 @@
         self.guomingshiLabel2.hidden = NO;
         self.jiazushiLabel1.hidden = NO;
         self.jiazushiLabel2.hidden = NO;
+        self.diseaseButton.hidden = NO;
         
         self.jiwangshiLabel1.text = @"既往史：";
         self.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
