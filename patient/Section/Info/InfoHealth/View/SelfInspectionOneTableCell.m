@@ -9,7 +9,7 @@
 #import "SelfInspectionOneTableCell.h"
 #import "HudUtil.h"
 
-@interface SelfInspectionOneTableCell ()<UITextFieldDelegate>
+@interface SelfInspectionOneTableCell ()<UITextFieldDelegate,UITextViewDelegate>
 
 @end
 
@@ -58,6 +58,7 @@
     if ([text isEqualToString:@""]) {
         self.textView.text = placeholder;
         self.textView.textColor = ColorWithHexRGB(0xcccccc);
+        self.textView.delegate = self;
     }else{
         self.textView.text = text;
     }
@@ -116,6 +117,12 @@
 }
 
 #pragma mark UITextViewDelegate
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    DLog(@"textViewDidBeginEditing");
+    self.textView.text = @"";
+    self.textView.textColor = ColorWithHexRGB(0x323232);
+}
+
 -(void)dismissKeyBoard{
     if (!(self.textView.text.length <= 200)) {
         NSString *string = [NSString stringWithFormat:@"当前字数为%lu，字数不能超过200！",(unsigned long)self.textView.text.length];
