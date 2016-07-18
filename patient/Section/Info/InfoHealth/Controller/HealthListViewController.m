@@ -62,10 +62,13 @@
 @property (strong,nonatomic)NSString *complain;
 @property (strong,nonatomic)NSString *shuimianStatus;
 @property (strong,nonatomic)NSString *shuimianString;
+@property (strong,nonatomic)NSString *shuimianStringFix;
 @property (strong,nonatomic)NSString *yinshiStatus;
 @property (strong,nonatomic)NSString *yinshiString;
+@property (strong,nonatomic)NSString *yinshiStringFix;
 @property (strong,nonatomic)NSString *yinshuiStatus;
 @property (strong,nonatomic)NSString *yinshuiString;
+@property (strong,nonatomic)NSString *yinshuiStringFix;
 
 @property (strong,nonatomic)NSString *dabian1;
 @property (strong,nonatomic)NSString *dabian2;
@@ -516,11 +519,11 @@
             cell.complainLabel1.text = @"主诉：";
             cell.complainLabel2.text = [self.complain isEqualToString:@""] ? @"正常" : self.complain;
             cell.shuimianLabel1.text = @"睡眠：";
-            cell.shuimianLabel2.text = [self.shuimianString isEqualToString:@""] ? @"正常" : self.shuimianString;
+            cell.shuimianLabel2.text = self.shuimianStringFix;
             cell.yinshiLabel1.text = @"饮食：";
-            cell.yinshiLabel2.text = [self.yinshiString isEqualToString:@""] ? @"正常" : self.yinshiString;
+            cell.yinshiLabel2.text = self.yinshiStringFix;
             cell.yinshuiLabel1.text = @"饮水：";
-            cell.yinshuiLabel2.text = [self.yinshuiString isEqualToString:@""] ? @"不口渴" : self.yinshuiString;
+            cell.yinshuiLabel2.text = self.yinshuiStringFix;
             cell.dabianLabel1.text = @"大便：";
             cell.dabianLabel2_1.text = self.dabian1;
             cell.dabianLabel2_2.text = self.dabian2;
@@ -810,6 +813,24 @@
         self.tiwenString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"w_val"]];
         self.chuhanStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_status"]];
         self.chuhanString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"x_val"]];
+        
+        if ([self.shuimianStatus intValue] == 1) {
+            self.shuimianStringFix = @"正常";
+        }else if ([self.shuimianStatus intValue]== 2){
+            self.shuimianStringFix = self.shuimianString;
+        }
+        
+        if ([self.yinshiStatus intValue] == 1) {
+            self.yinshiStringFix = @"正常";
+        }else if ([self.yinshiStatus intValue]== 2){
+            self.yinshiStringFix = self.yinshiString;
+        }
+        
+        if ([self.yinshuiStatus intValue] == 1) {
+            self.yinshuiStringFix = self.yinshuiString;
+        }else if ([self.yinshuiStatus intValue]== 2){
+            self.yinshuiStringFix = @"不口渴";
+        }
         
         if ([self.bianmiStatus intValue] == 1) {
             self.bianmiString = @"是";
