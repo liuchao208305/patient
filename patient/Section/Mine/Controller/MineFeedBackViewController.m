@@ -13,6 +13,7 @@
 #import "AlertUtil.h"
 #import "AnalyticUtil.h"
 #import "AdaptionUtil.h"
+#import "VerifyUtil.h"
 #import "LoginViewController.h"
 
 @interface MineFeedBackViewController ()<UITextViewDelegate>
@@ -157,6 +158,7 @@
     
     self.phoneTextField = [[UITextField alloc] init];
     self.phoneTextField.textColor = ColorWithHexRGB(0x646464);
+    self.phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     [self.scrollView addSubview:self.phoneTextField];
     
     self.otherLabel = [[UILabel alloc] init];
@@ -166,6 +168,13 @@
     self.otherTextField = [[UITextField alloc] init];
     self.otherTextField.textColor = ColorWithHexRGB(0x646464);
     [self.scrollView addSubview:self.otherTextField];
+    
+    if ([AdaptionUtil isIphoneFour] || [AdaptionUtil isIphoneFive]) {
+        self.phoneLabel.font = [UIFont systemFontOfSize:13];
+        self.phoneTextField.font = [UIFont systemFontOfSize:13];
+        self.otherLabel.font = [UIFont systemFontOfSize:13];
+        self.otherTextField.font = [UIFont systemFontOfSize:13];
+    }
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.scrollView).offset(12);
@@ -260,7 +269,11 @@
             if (self.phoneTextField.text.length == 0 && self.otherTextField.text.length == 0) {
                 [AlertUtil showSimpleAlertWithTitle:nil message:@"电话号码和其他联系方式必须填写一项！"];
             }else{
-                [self sendFeedBackRequest];
+                if (![VerifyUtil mobileNumberCheck:self.phoneTextField.text]) {
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"请输入正确的手机号码！"];
+                }else{
+                    [self sendFeedBackRequest];
+                }
             }
         }
     }
