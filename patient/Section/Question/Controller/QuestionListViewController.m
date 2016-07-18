@@ -1082,7 +1082,6 @@
                 //支付成功
                 [HudUtil showSimpleTextOnlyHUD:@"支付成功" withDelaySeconds:kHud_DelayTime];
                 
-                [self.tableView1.mj_header beginRefreshing];
             }else if ([self.alipayResultStatus integerValue] == 8000){
                 //支付结果确认中
                 [HudUtil showSimpleTextOnlyHUD:@"支付结果确认中" withDelaySeconds:kHud_DelayTime];
@@ -1090,6 +1089,8 @@
                 //支付失败
                 [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
             }
+            
+            [self.tableView1.mj_header beginRefreshing];
         }];
     }else if (self.flag2){
         self.paymentInfomation = [self.data5 objectForKey:@"payinfo"];
@@ -1114,6 +1115,8 @@
                 //支付失败
                 [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
             }
+            
+            [self.tableView2.mj_header beginRefreshing];
         }];
     }
 }
@@ -1179,6 +1182,8 @@
     }else{
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
+    
+    [self.tableView1.mj_header beginRefreshing];
 }
 
 -(void)getOrderPayResult2:(NSNotification *)notification{
@@ -1188,6 +1193,8 @@
     }else{
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
+    
+    [self.tableView2.mj_header beginRefreshing];
 }
 
 @end

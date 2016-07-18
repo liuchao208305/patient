@@ -861,6 +861,8 @@
             //支付失败
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
         }
+        
+        [self sendQuesionDetailRequest];
     }];
 }
 
@@ -898,6 +900,8 @@
     }else{
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
+    
+    [self sendQuesionDetailRequest];
 }
 
 #pragma mark Data Filling

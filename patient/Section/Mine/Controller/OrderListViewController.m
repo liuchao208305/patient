@@ -1895,6 +1895,8 @@
     }else{
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
+    
+    [self.tableView1.mj_header beginRefreshing];
 }
 
 -(void)paymentInfoAliPayDataParse2{
@@ -1957,6 +1959,8 @@
     }else{
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
+    
+    [self.tableView2.mj_header beginRefreshing];
 }
 
 @end
