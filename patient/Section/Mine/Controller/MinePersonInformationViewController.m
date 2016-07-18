@@ -571,6 +571,10 @@
         
         if (self.code2 == kSUCCESS) {
             [HudUtil showSimpleTextOnlyHUD:@"保存成功" withDelaySeconds:kHud_DelayTime];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%ld",(long)self.user_sex] forKey:kJZK_userSex];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             DLog(@"%ld",(long)self.code2);

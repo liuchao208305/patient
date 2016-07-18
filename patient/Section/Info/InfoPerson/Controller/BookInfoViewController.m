@@ -810,26 +810,25 @@
         if (!(self.isTimeSelected == YES)) {
             [AlertUtil showSimpleAlertWithTitle:nil message:@"请选择就诊时间"];
         }else{
-//            if ([self.patientPhoneTextField.text isEqualToString:@""]) {
-//                [AlertUtil showSimpleAlertWithTitle:nil message:@"手机号不能为空！"];
-//            }else{
-//                
-//            }
-            if ([self.inquiryTextView.text isEqualToString:@""]) {
-                [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
-                [self.inquiryTextView becomeFirstResponder];
-            }else if (self.consultation_money > 0){
-                UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                              initWithTitle:@"请选择支付方式"
-                                              delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              destructiveButtonTitle:nil
-                                              otherButtonTitles:@"支付宝支付", @"微信支付",nil];
-                actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-                actionSheet.tag = 2;
-                [actionSheet showInView:self.view];
+            if ([self.patientPhoneTextField.text isEqualToString:@""]) {
+                [AlertUtil showSimpleAlertWithTitle:nil message:@"请到[个人中心－设置－个人信息]中填写手机号码！"];
             }else{
-                [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
+                if ([self.inquiryTextView.text isEqualToString:@""]) {
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述不能为空！"];
+                    [self.inquiryTextView becomeFirstResponder];
+                }else if (self.consultation_money > 0){
+                    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                                  initWithTitle:@"请选择支付方式"
+                                                  delegate:self
+                                                  cancelButtonTitle:@"取消"
+                                                  destructiveButtonTitle:nil
+                                                  otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+                    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+                    actionSheet.tag = 2;
+                    [actionSheet showInView:self.view];
+                }else{
+                    [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于零！"];
+                }
             }
         }
     }
