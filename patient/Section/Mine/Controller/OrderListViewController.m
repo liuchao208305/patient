@@ -762,7 +762,7 @@
             hour = leftTime / 3600;
             minute = (leftTime - hour*3600)/60;
             second = leftTime - hour*3600 - minute * 60;
-            cell.waitTimeLabel.text = [NSString stringWithFormat:@"距离支付：%d时%d分%d秒",hour,minute,second];
+            cell.waitTimeLabel.text = [NSString stringWithFormat:@"支付剩余时间：%d时%d分%d秒",hour,minute,second];
             
             cell.payButton.tag = 10000+indexPath.section;
             [cell.payButton addTarget:self action:@selector(allButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -841,7 +841,7 @@
         hour = leftTime / 3600;
         minute = (leftTime - hour*3600)/60;
         second = leftTime - hour*3600 - minute * 60;
-        cell.waitTimeLabel.text = [NSString stringWithFormat:@"距离支付：%d时%d分%d秒",hour,minute,second];
+        cell.waitTimeLabel.text = [NSString stringWithFormat:@"支付剩余时间：%d时%d分%d秒",hour,minute,second];
         
         cell.payButton.tag = 20000+indexPath.section;
         [cell.payButton addTarget:self action:@selector(bookedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
