@@ -355,17 +355,42 @@
             make.height.mas_equalTo(140);
         }];
         
+        if (![[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
+                if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70], SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+                }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70], SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+                }
+            }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+                if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+                }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                    self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+                }
+            }
+        }else{
+            self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+        }
 //        self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
-//        self.prescriptionTableView.delegate = self;
-//        self.prescriptionTableView.dataSource = self;
-//        self.prescriptionTableView.showsVerticalScrollIndicator = YES;
-//        self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        [self.scrollView addSubview:self.prescriptionTableView];
-//
+        self.prescriptionTableView.delegate = self;
+        self.prescriptionTableView.dataSource = self;
+        self.prescriptionTableView.showsVerticalScrollIndicator = YES;
+        self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.scrollView addSubview:self.prescriptionTableView];
+
 //        self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
-//        self.medicineBackView.backgroundColor = kWHITE_COLOR;
-//        [self initMedicineSubView];
-//        [self.scrollView addSubview:self.medicineBackView];
+        self.medicineBackView = [[UIView alloc] init];
+        self.medicineBackView.backgroundColor = kWHITE_COLOR;
+        [self initMedicineSubView];
+        [self.scrollView addSubview:self.medicineBackView];
+        
+        [self.medicineBackView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.scrollView).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+            make.top.equalTo(self.prescriptionTableView.mas_bottom).offset(10);
+            make.height.mas_equalTo(145);
+        }];
     }
 }
 
@@ -1975,11 +2000,37 @@
     self.patientPhoneLabel1.text = @"电话号码：";
     self.patientPhoneLabel2.text = self.patientPhone;
     
-    self.patientProblemLabel.text = self.patientProblem;
-    self.patientJiwangshiLabel.text = [NSString stringWithFormat:@"既往史：%@",self.patientJiwangshi];
-    self.patientShoushushiLabel.text = [NSString stringWithFormat:@"手术史：%@",self.patientShoushushi];
-    self.patientGuominshiLabel.text = [NSString stringWithFormat:@"过敏史：%@",self.patientGuominshi];
-    self.patientJiazushiLabel.text = [NSString stringWithFormat:@"家族史：%@",self.patientJiazushi];
+    if ([self.patientProblem isEqualToString:@""]) {
+        self.patientProblemLabel.text = @"";
+    }else{
+        self.patientProblemLabel.text = self.patientProblem;
+    }
+    
+    if ([self.patientJiwangshi isEqualToString:@""]) {
+        self.patientJiwangshiLabel.text = [NSString stringWithFormat:@"既往史暂无"];
+    }else{
+        self.patientJiwangshiLabel.text = [NSString stringWithFormat:@"既往史：%@",self.patientJiwangshi];
+    }
+    
+    if ([self.patientShoushushi isEqualToString:@""]) {
+        self.patientShoushushiLabel.text = [NSString stringWithFormat:@"手术史暂无"];
+    }else{
+        self.patientShoushushiLabel.text = [NSString stringWithFormat:@"手术史：%@",self.patientShoushushi];
+    }
+    
+    if ([self.patientGuominshi isEqualToString:@""]) {
+        self.patientGuominshiLabel.text = [NSString stringWithFormat:@"过敏史暂无"];
+    }else{
+        self.patientGuominshiLabel.text = [NSString stringWithFormat:@"过敏史：%@",self.patientGuominshi];
+    }
+    
+    if ([self.patientJiazushi isEqualToString:@""]) {
+        self.patientJiazushiLabel.text = [NSString stringWithFormat:@"家族史暂无"];
+    }else{
+        self.patientJiazushiLabel.text = [NSString stringWithFormat:@"家族史：%@",self.patientJiazushi];
+    }
+    
+    
     
     if ([self.patientTestTime isEqualToString:@""]) {
         self.patientTestLabel.text = @"无体质测试情况";
