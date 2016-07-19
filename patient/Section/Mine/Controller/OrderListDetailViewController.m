@@ -270,11 +270,11 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView.backgroundColor = kBACKGROUND_COLOR;
     if ([AdaptionUtil isIphoneFour]) {
-        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 4.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneFive]){
-        self.scrollView.contentSize = CGSizeMake(0, 1.5*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 3.5*SCREEN_HEIGHT);
     }else if ([AdaptionUtil isIphoneSix] || [AdaptionUtil isIphoneSixPlus]){
-        self.scrollView.contentSize = CGSizeMake(0, 2.25*SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, 3*SCREEN_HEIGHT);
     }
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -1707,8 +1707,8 @@
         self.yinshuiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"d_val"]];
         self.dabianCishu = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_val"]];
         self.bianmiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isBM"]];
-        self.xiexieStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isXM"]];
-        self.chengxingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_isCX"]];
+        self.xiexieStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isXM"]];
+        self.chengxingStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isCX"]];
         self.bianzhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_isEX"]];
         self.bianzhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_EX_val"]];
         self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_status"]];

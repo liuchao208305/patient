@@ -724,12 +724,6 @@
             [self.inquiryTextView becomeFirstResponder];
         }else if (self.inquiryTextView.text.length > 200){
             [AlertUtil showSimpleAlertWithTitle:nil message:@"问题描述字数不能超过200！"];
-        }else if ([self.inquiryMoneyTextField.text isEqualToString:@""]){
-            [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格不能为空！"];
-            [self.inquiryMoneyTextField becomeFirstResponder];
-        }else if ([self.inquiryMoneyTextField.text floatValue] == 0){
-            [AlertUtil showSimpleAlertWithTitle:nil message:@"问题价格必须大于0！"];
-            [self.inquiryMoneyTextField becomeFirstResponder];
         }else if (self.consultation_money > 0){
             UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                           initWithTitle:@"请选择支付方式"

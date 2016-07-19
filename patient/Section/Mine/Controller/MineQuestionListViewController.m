@@ -414,6 +414,7 @@
 //            cell.answerTimeLabel.text = @"回答：待回答";
             cell.answerTimeLabel.hidden = YES;
         }else if ([self.questionAnswerStatusArrayAll[indexPath.section] intValue] == 2){
+            cell.answerTimeLabel.hidden = NO;
             cell.answerTimeLabel.text = [NSString stringWithFormat:@"回答：%@",self.questionAnswerTimeArrayAll[indexPath.section]];
         }
         if ([self.questionExpertNameArrayAll[indexPath.section] isEqualToString:@""]) {
