@@ -406,7 +406,7 @@
 //    label.font = [UIFont systemFontOfSize:20];
 //    label.textAlignment = NSTextAlignmentCenter;
 //    self.navigationItem.titleView = label;
-    self.title=@"订单列表";
+    self.title=@"我的预约";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
     if ([self.sourceVC isEqualToString:@"BookInfoViewController"]) {
