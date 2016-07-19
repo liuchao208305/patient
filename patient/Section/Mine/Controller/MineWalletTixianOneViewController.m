@@ -140,26 +140,44 @@
     if (indexPath.section == 0) {
         [cell.titleImageView setImage:[UIImage imageNamed:@"mine_wallet_tixian_zhifubao"]];
         cell.titleLabel.text = @"支付宝";
-        cell.nameLabel.text = self.zhifubaoName;
+        if ([self.zhifubaoName isEqualToString:@""]) {
+            cell.nameLabel.text = @"暂未绑定";
+        }else{
+            cell.nameLabel.text = self.zhifubaoName;
+        }
     }else if (indexPath.section == 1){
         [cell.titleImageView setImage:[UIImage imageNamed:@"mine_wallet_tixian_weixin"]];
         cell.titleLabel.text = @"微信";
-        cell.nameLabel.text = self.weixinName;
+        if ([self.weixinName isEqualToString:@""]) {
+            cell.nameLabel.text = @"暂未绑定";
+        }else{
+           cell.nameLabel.text = self.weixinName;
+        }
+        
     }
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DLog(@"%ld",indexPath.section);
+    DLog(@"%ld",(long)indexPath.section);
     
     if (indexPath.section == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至支付宝" message:self.zhifubaoName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alert.tag = 1;
-        [alert show];
+//        if ([self.zhifubaoName isEqualToString:@""]) {
+//            [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往帐户安全绑定支付宝！"];
+//        }else{
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至支付宝" message:self.zhifubaoName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//            alert.tag = 1;
+//            [alert show];
+//        }
+        [AlertUtil showSimpleAlertWithTitle:nil message:@"支付宝提现暂未开放，敬请期待！"];
     }else if (indexPath.section == 1){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至微信" message:self.weixinName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alert.tag = 2;
-        [alert show];
+        if ([self.weixinName isEqualToString:@""]) {
+            [AlertUtil showSimpleAlertWithTitle:nil message:@"请前往帐户安全绑定微信！"];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您将提现至微信" message:self.weixinName delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.tag = 2;
+            [alert show];
+        }
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
