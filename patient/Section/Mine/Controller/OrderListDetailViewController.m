@@ -295,25 +295,27 @@
     [self initPatientSubView2];
     [self.scrollView addSubview:self.patientBackView2];
     
-    
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
-        if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
-            self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20)];
-        }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
-            self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70])];
+    if (![[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20)];
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70])];
+            }
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230)];
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210)];
+            }
+            
         }
-    }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
-        if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
-            self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230)];
-        }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
-            self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210)];
-        }
-        
+        //    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 650)];
+        self.patientBackView3.backgroundColor = kWHITE_COLOR;
+        [self initPatientSubView3];
+        [self.scrollView addSubview:self.patientBackView3];
     }
-//    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 650)];
-    self.patientBackView3.backgroundColor = kWHITE_COLOR;
-    [self initPatientSubView3];
-    [self.scrollView addSubview:self.patientBackView3];
+    
     
     if (self.orderType == 1) {
         self.payButton = [[UIButton alloc] init];
@@ -324,7 +326,11 @@
         [self.scrollView addSubview:self.payButton];
         
         [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.patientBackView3.mas_bottom).offset(20);
+            if ([[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+                make.top.equalTo(self.patientBackView2.mas_bottom).offset(20);
+            }else{
+                make.top.equalTo(self.patientBackView3.mas_bottom).offset(20);
+            }
             make.leading.equalTo(self.scrollView).offset(0);
             make.width.mas_equalTo(SCREEN_WIDTH);
             make.height.mas_equalTo(50);
@@ -332,22 +338,34 @@
     }else if (self.orderType == 2){
         
     }else if (self.orderType == 3){
-        self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
+//        self.diagnoseBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10, SCREEN_WIDTH, 140)];
+        self.diagnoseBackView = [[UIView alloc] init];
         self.diagnoseBackView.backgroundColor = kWHITE_COLOR;
         [self initDiagnoseSubView];
         [self.scrollView addSubview:self.diagnoseBackView];
         
-        self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
-        self.prescriptionTableView.delegate = self;
-        self.prescriptionTableView.dataSource = self;
-        self.prescriptionTableView.showsVerticalScrollIndicator = YES;
-        self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [self.scrollView addSubview:self.prescriptionTableView];
-
-        self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
-        self.medicineBackView.backgroundColor = kWHITE_COLOR;
-        [self initMedicineSubView];
-        [self.scrollView addSubview:self.medicineBackView];
+        [self.diagnoseBackView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.scrollView).offset(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+            if ([[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+                make.top.equalTo(self.patientBackView2.mas_bottom).offset(10);
+            }else{
+                make.top.equalTo(self.patientBackView3.mas_bottom).offset(10);
+            }
+            make.height.mas_equalTo(140);
+        }];
+        
+//        self.prescriptionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10, SCREEN_WIDTH, 160) style:UITableViewStylePlain];
+//        self.prescriptionTableView.delegate = self;
+//        self.prescriptionTableView.dataSource = self;
+//        self.prescriptionTableView.showsVerticalScrollIndicator = YES;
+//        self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        [self.scrollView addSubview:self.prescriptionTableView];
+//
+//        self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
+//        self.medicineBackView.backgroundColor = kWHITE_COLOR;
+//        [self initMedicineSubView];
+//        [self.scrollView addSubview:self.medicineBackView];
     }
 }
 
@@ -1969,47 +1987,132 @@
         self.patientTestLabel.text = [NSString stringWithFormat:@"%@的体质是：%@ 偏向%@",self.patientTestTime,self.patientZhutizhi,self.patientPiantizhi];
     }
     
-    
-    self.timeLabel.text = [self.inspectionTime substringToIndex:10];
-    self.complainLabel1.text = @"主诉：";
-    self.complainLabel2.text = [self.complain isEqualToString:@""] ? @"正常" : self.complain;
-    self.shuimianLabel1.text = @"睡眠：";
-    self.shuimianLabel2.text = self.shuimianStringFix;
-    self.yinshiLabel1.text = @"饮食：";
-    self.yinshiLabel2.text = self.yinshiStringFix;
-    self.yinshuiLabel1.text = @"饮水：";
-    self.yinshuiLabel2.text = self.yinshuiStringFix;
-    self.dabianLabel1.text = @"大便：";
-    self.dabianLabel2_1.text = self.dabian1;
-    self.dabianLabel2_2.text = self.dabian2;
-    self.dabianLabel2_3.text = self.dabian3;
-    self.xiaobianLabel1.text = @"小便：";
-    self.xiaobianLabel2_1.text = self.xiaobian1;
-    self.xiaobianLabel2_1Fix.text = self.xiaobian1Fix;
-    self.xiaobianLabel2_2.text = self.xiaobian2;
-    
-    /*******************************************************/
-    self.daixiaLabel1.text = @"带下：";
-    self.daixiaLabel2.text = self.daixia;
-    self.yuejingLabel1.text = @"月经：";
-    self.yuejingLabel2_1.text = self.yuejing1;
-    self.yuejingLabel2_2.text = self.yuejing2;
-    self.yuejingLabel2_3.text = self.yuejing3;
-    self.yuejingLabel2_4.text = self.yuejing4;
-    self.yuejingLabel2_5.text = self.yuejing5;
-    self.yuejingLabel2_6.text = self.yuejing6;
-    self.yuejingLabel2_7.text = self.yuejing7;
-    self.yuejingLabel2_8.text = self.yuejing8;
-    /********************************************************/
-    
-    self.hanreLabel1.text = @"寒热：";
-    self.hanreLabel2.text = self.hanreStringFix;
-    self.tiwenLabel1.text = @"体温：";
-    self.tiwenLabel2.text = self.tiwenStringFix;
-    self.chuhanLabel1.text = @"出汗：";
-    self.chuhanLabel2.text = self.chuhanStringFix;
-    self.zhaopianLabel1.text = @"照片资料：";
-    self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
+    if (![[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
+        self.complainLabel1.hidden = NO;
+        self.complainLabel2.hidden = NO;
+        self.compalainLineView.hidden = NO;
+        self.shuimianLabel1.hidden = NO;
+        self.shuimianLabel2.hidden = NO;
+        self.shuimianLineView.hidden = NO;
+        self.yinshiLabel1.hidden = NO;
+        self.yinshuiLabel2.hidden = NO;
+        self.yinshiLineView.hidden = NO;
+        self.yinshuiLabel1.hidden = NO;
+        self.yinshuiLabel2.hidden = NO;
+        self.yinshuiLineView.hidden = NO;
+        self.dabianLabel1.hidden = NO;
+        self.dabianLabel2_1.hidden = NO;
+        self.dabianLabel2_2.hidden = NO;
+        self.dabianLabel2_3.hidden = NO;
+        self.dabianLineView.hidden = NO;
+        self.xiaobianLabel1.hidden = NO;
+        self.xiaobianLabel2_2.hidden = NO;
+        self.xiaobianLineView.hidden = NO;
+        self.daixiaLabel1.hidden = NO;
+        self.daixiaLabel2.hidden = NO;
+        self.daixiaLineView.hidden = NO;
+        self.yuejingLabel1.hidden = NO;
+        self.yuejingLabel2_1.hidden = NO;
+        self.yuejingLabel2_2.hidden = NO;
+        self.yuejingLabel2_3.hidden = NO;
+        self.yuejingLabel2_4.hidden = NO;
+        self.yuejingLabel2_5.hidden = NO;
+        self.yuejingLabel2_6.hidden = NO;
+        self.yuejingLabel2_7.hidden = NO;
+        self.yuejingLabel2_8.hidden = NO;
+        self.yuejingLineView.hidden = NO;
+        self.hanreLabel1.hidden = NO;
+        self.hanreLineView.hidden = NO;
+        self.tiwenLabel1.hidden = NO;
+        self.tiwenLineView.hidden = NO;
+        self.chuhanLabel1.hidden = NO;
+        self.chuhanLineView.hidden = NO;
+        self.zhaopianLabel1.hidden = NO;
+        self.zhaopianLabel2.hidden = NO;
+        
+        self.timeLabel.text = [self.inspectionTime substringToIndex:10];
+        self.complainLabel1.text = @"主诉：";
+        self.complainLabel2.text = [self.complain isEqualToString:@""] ? @"正常" : self.complain;
+        self.shuimianLabel1.text = @"睡眠：";
+        self.shuimianLabel2.text = self.shuimianStringFix;
+        self.yinshiLabel1.text = @"饮食：";
+        self.yinshiLabel2.text = self.yinshiStringFix;
+        self.yinshuiLabel1.text = @"饮水：";
+        self.yinshuiLabel2.text = self.yinshuiStringFix;
+        self.dabianLabel1.text = @"大便：";
+        self.dabianLabel2_1.text = self.dabian1;
+        self.dabianLabel2_2.text = self.dabian2;
+        self.dabianLabel2_3.text = self.dabian3;
+        self.xiaobianLabel1.text = @"小便：";
+        self.xiaobianLabel2_1.text = self.xiaobian1;
+        self.xiaobianLabel2_1Fix.text = self.xiaobian1Fix;
+        self.xiaobianLabel2_2.text = self.xiaobian2;
+        
+        /*******************************************************/
+        self.daixiaLabel1.text = @"带下：";
+        self.daixiaLabel2.text = self.daixia;
+        self.yuejingLabel1.text = @"月经：";
+        self.yuejingLabel2_1.text = self.yuejing1;
+        self.yuejingLabel2_2.text = self.yuejing2;
+        self.yuejingLabel2_3.text = self.yuejing3;
+        self.yuejingLabel2_4.text = self.yuejing4;
+        self.yuejingLabel2_5.text = self.yuejing5;
+        self.yuejingLabel2_6.text = self.yuejing6;
+        self.yuejingLabel2_7.text = self.yuejing7;
+        self.yuejingLabel2_8.text = self.yuejing8;
+        /********************************************************/
+        
+        self.hanreLabel1.text = @"寒热：";
+        self.hanreLabel2.text = self.hanreStringFix;
+        self.tiwenLabel1.text = @"体温：";
+        self.tiwenLabel2.text = self.tiwenStringFix;
+        self.chuhanLabel1.text = @"出汗：";
+        self.chuhanLabel2.text = self.chuhanStringFix;
+        self.zhaopianLabel1.text = @"照片资料：";
+        self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
+    }else{
+        self.complainLabel1.hidden = YES;
+        self.complainLabel2.hidden = YES;
+        self.compalainLineView.hidden = YES;
+        self.shuimianLabel1.hidden = YES;
+        self.shuimianLabel2.hidden = YES;
+        self.shuimianLineView.hidden = YES;
+        self.yinshiLabel1.hidden = YES;
+        self.yinshuiLabel2.hidden = YES;
+        self.yinshiLineView.hidden = YES;
+        self.yinshuiLabel1.hidden = YES;
+        self.yinshuiLabel2.hidden = YES;
+        self.yinshuiLineView.hidden = YES;
+        self.dabianLabel1.hidden = YES;
+        self.dabianLabel2_1.hidden = YES;
+        self.dabianLabel2_2.hidden = YES;
+        self.dabianLabel2_3.hidden = YES;
+        self.dabianLineView.hidden = YES;
+        self.xiaobianLabel1.hidden = YES;
+        self.xiaobianLabel2_2.hidden = YES;
+        self.xiaobianLineView.hidden = YES;
+        self.daixiaLabel1.hidden = YES;
+        self.daixiaLabel2.hidden = YES;
+        self.daixiaLineView.hidden = YES;
+        self.yuejingLabel1.hidden = YES;
+        self.yuejingLabel2_1.hidden = YES;
+        self.yuejingLabel2_2.hidden = YES;
+        self.yuejingLabel2_3.hidden = YES;
+        self.yuejingLabel2_4.hidden = YES;
+        self.yuejingLabel2_5.hidden = YES;
+        self.yuejingLabel2_6.hidden = YES;
+        self.yuejingLabel2_7.hidden = YES;
+        self.yuejingLabel2_8.hidden = YES;
+        self.yuejingLineView.hidden = YES;
+        self.hanreLabel1.hidden = YES;
+        self.hanreLineView.hidden = YES;
+        self.tiwenLabel1.hidden = YES;
+        self.tiwenLineView.hidden = YES;
+        self.chuhanLabel1.hidden = YES;
+        self.chuhanLineView.hidden = YES;
+        self.zhaopianLabel1.hidden = YES;
+        self.zhaopianLabel2.hidden = YES;
+    }
     
     self.diagnoseTitleLabel.text = @"诊断";
     self.bianzhengLabel1.text = @"辨证：";
