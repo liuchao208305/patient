@@ -55,6 +55,9 @@
 
 @property (strong,nonatomic)UIView *patientBackView3;
 @property (strong,nonatomic)UILabel *timeLabel;
+@property (strong,nonatomic)UILabel *complainLabel1;
+@property (strong,nonatomic)UILabel *complainLabel2;
+@property (strong,nonatomic)UIView *compalainLineView;
 @property (strong,nonatomic)UILabel *shuimianLabel1;
 @property (strong,nonatomic)UILabel *shuimianLabel2;
 @property (strong,nonatomic)UIView *shuimianLineView;
@@ -72,8 +75,25 @@
 @property (strong,nonatomic)UIView *dabianLineView;
 @property (strong,nonatomic)UILabel *xiaobianLabel1;
 @property (strong,nonatomic)UILabel *xiaobianLabel2_1;
+@property (strong,nonatomic)UILabel *xiaobianLabel2_1Fix;
 @property (strong,nonatomic)UILabel *xiaobianLabel2_2;
 @property (strong,nonatomic)UIView *xiaobianLineView;
+
+@property (strong,nonatomic)UILabel *daixiaLabel1;
+@property (strong,nonatomic)UILabel *daixiaLabel2;
+@property (strong,nonatomic)UIView *daixiaLineView;
+
+@property (strong,nonatomic)UILabel *yuejingLabel1;
+@property (strong,nonatomic)UILabel *yuejingLabel2_1;
+@property (strong,nonatomic)UILabel *yuejingLabel2_2;
+@property (strong,nonatomic)UILabel *yuejingLabel2_3;
+@property (strong,nonatomic)UILabel *yuejingLabel2_4;
+@property (strong,nonatomic)UILabel *yuejingLabel2_5;
+@property (strong,nonatomic)UILabel *yuejingLabel2_6;
+@property (strong,nonatomic)UILabel *yuejingLabel2_7;
+@property (strong,nonatomic)UILabel *yuejingLabel2_8;
+@property (strong,nonatomic)UIView *yuejingLineView;
+
 @property (strong,nonatomic)UILabel *hanreLabel1;
 @property (strong,nonatomic)UILabel *hanreLabel2;
 @property (strong,nonatomic)UIView *hanreLineView;
