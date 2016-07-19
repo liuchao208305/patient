@@ -246,13 +246,13 @@
     self.patientBackView1.backgroundColor = kWHITE_COLOR;
     [self initPatientSubView1];
     [self.scrollView addSubview:self.patientBackView1];
-#warning 此处需要自适应高度
-    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 220+20)];
+    
+    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24])];
     self.patientBackView2.backgroundColor = ColorWithHexRGB(0xf8f8f8);
     [self initPatientSubView2];
     [self.scrollView addSubview:self.patientBackView2];
-#warning 此处需要自适应高度
-    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+220+20, SCREEN_WIDTH, 650)];
+    
+    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 650)];
     self.patientBackView3.backgroundColor = kWHITE_COLOR;
     [self initPatientSubView3];
     [self.scrollView addSubview:self.patientBackView3];
@@ -285,7 +285,7 @@
         self.prescriptionTableView.showsVerticalScrollIndicator = YES;
         self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.scrollView addSubview:self.prescriptionTableView];
-#warning 此处需要自适应高度        
+
         self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
         self.medicineBackView.backgroundColor = kWHITE_COLOR;
         [self initMedicineSubView];
@@ -1548,7 +1548,13 @@
     self.patientShoushushiLabel.text = [NSString stringWithFormat:@"手术史：%@",self.patientShoushushi];
     self.patientGuominshiLabel.text = [NSString stringWithFormat:@"过敏史：%@",self.patientGuominshi];
     self.patientJiazushiLabel.text = [NSString stringWithFormat:@"家族史：%@",self.patientJiazushi];
-    self.patientTestLabel.text = [NSString stringWithFormat:@"%@的体质是：%@ 偏向%@",self.patientTestTime,self.patientZhutizhi,self.patientPiantizhi];
+    
+    if ([self.patientTestTime isEqualToString:@""]) {
+        self.patientTestLabel.text = @"无体质测试情况";
+    }else{
+        self.patientTestLabel.text = [NSString stringWithFormat:@"%@的体质是：%@ 偏向%@",self.patientTestTime,self.patientZhutizhi,self.patientPiantizhi];
+    }
+    
     
     if ([self.inspectionTime isEqualToString:@""]) {
         self.timeLabel.text = @"暂无";
