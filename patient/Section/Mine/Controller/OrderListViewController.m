@@ -752,6 +752,10 @@
             cell.statusLabel.text = @"待支付";
             cell.statusLabel.textColor = [UIColor redColor];
             
+            cell.payButton.hidden = NO;
+            cell.waitTimeImageView.hidden = NO;
+            cell.waitTimeLabel.hidden = NO;
+            
             [cell.waitTimeImageView setImage:[UIImage imageNamed:@"info_treatment_shijian_image"]];
             
             int hour = 0;
@@ -770,23 +774,33 @@
             cell.statusLabel.text = @"待就诊";
             cell.statusLabel.textColor = [UIColor redColor];
             cell.payButton.hidden = YES;
+            cell.waitTimeImageView.hidden = YES;
+            cell.waitTimeLabel.hidden = YES;
         }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 3){
             cell.statusLabel.text = @"已就诊";
             cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
             cell.payButton.hidden = YES;
+            cell.waitTimeImageView.hidden = YES;
+            cell.waitTimeLabel.hidden = YES;
         }else if ([self.orderStatusArrayAll[indexPath.section] intValue] == 4){
             if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 1) {
                 cell.statusLabel.text = @"已取消";
                 cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
                 cell.payButton.hidden = YES;
+                cell.waitTimeImageView.hidden = YES;
+                cell.waitTimeLabel.hidden = YES;
             }else if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 2){
                 cell.statusLabel.text = @"已过期";
                 cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
                 cell.payButton.hidden = YES;
+                cell.waitTimeImageView.hidden = YES;
+                cell.waitTimeLabel.hidden = YES;
             }else if ([self.orderStatusFixArrayAll[indexPath.section] intValue] == 3){
                 cell.statusLabel.text = @"已退单";
                 cell.statusLabel.textColor = ColorWithHexRGB(0x909090);
                 cell.payButton.hidden = YES;
+                cell.waitTimeImageView.hidden = YES;
+                cell.waitTimeLabel.hidden = YES;
             }
         }
         [cell.expertImageView sd_setImageWithURL:[NSURL URLWithString:self.orderExpertImageArrayAll[indexPath.section]] placeholderImage:[UIImage imageNamed:@"default_image_small"]];

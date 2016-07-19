@@ -246,13 +246,13 @@
     self.patientBackView1.backgroundColor = kWHITE_COLOR;
     [self initPatientSubView1];
     [self.scrollView addSubview:self.patientBackView1];
-    
-    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 220)];
+#warning 此处需要自适应高度
+    self.patientBackView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120, SCREEN_WIDTH, 220+20)];
     self.patientBackView2.backgroundColor = ColorWithHexRGB(0xf8f8f8);
     [self initPatientSubView2];
     [self.scrollView addSubview:self.patientBackView2];
-    
-    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+220, SCREEN_WIDTH, 650)];
+#warning 此处需要自适应高度
+    self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+220+20, SCREEN_WIDTH, 650)];
     self.patientBackView3.backgroundColor = kWHITE_COLOR;
     [self initPatientSubView3];
     [self.scrollView addSubview:self.patientBackView3];
@@ -285,7 +285,7 @@
         self.prescriptionTableView.showsVerticalScrollIndicator = YES;
         self.prescriptionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.scrollView addSubview:self.prescriptionTableView];
-        
+#warning 此处需要自适应高度        
         self.medicineBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+200+650+10+140+10+160+10, SCREEN_WIDTH, 145)];
         self.medicineBackView.backgroundColor = kWHITE_COLOR;
         [self initMedicineSubView];
@@ -353,8 +353,10 @@
     }];
     
     [self.doctorTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.doctorNameLabel.mas_trailing).offset(22);
-        make.centerY.equalTo(self.doctorNameLabel).offset(0);
+//        make.leading.equalTo(self.doctorNameLabel.mas_trailing).offset(22);
+//        make.centerY.equalTo(self.doctorNameLabel).offset(0);
+        make.leading.equalTo(self.doctorNameLabel).offset(0);
+        make.top.equalTo(self.doctorNameLabel.mas_bottom).offset(5);
     }];
     
     [self.doctorMoneyLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -373,8 +375,8 @@
     }];
     
     [self.doctorTimeLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.doctorNameLabel).offset(0);
-        make.top.equalTo(self.doctorNameLabel.mas_bottom).offset(12);
+        make.leading.equalTo(self.doctorTitleLabel).offset(0);
+        make.top.equalTo(self.doctorTitleLabel.mas_bottom).offset(8);
     }];
     
     [self.doctorTimeLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -384,7 +386,7 @@
     
     [self.doctorAddressLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.doctorTimeLabel1).offset(0);
-        make.top.equalTo(self.doctorTimeLabel1.mas_bottom).offset(12);
+        make.top.equalTo(self.doctorTimeLabel1.mas_bottom).offset(8);
     }];
     
     [self.doctorAddressLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
