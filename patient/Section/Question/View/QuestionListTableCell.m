@@ -33,6 +33,7 @@
         make.leading.equalTo(self.contentView).offset(12);
         make.trailing.equalTo(self.contentView).offset(-12);
         make.top.equalTo(self.contentView).offset(15);
+//        make.height.mas_equalTo(60);
     }];
     
     [self.publicImageView mas_makeConstraints:^(MASConstraintMaker *make) {

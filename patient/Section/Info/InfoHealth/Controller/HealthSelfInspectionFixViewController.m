@@ -2734,7 +2734,7 @@
         if (!cell) {
             cell = [[SelfInspectionOneTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
 //            [cell initViewWithTextField:@"请输入患者主诉"];
-            [cell initViewWithTextField:@"请输入患者主诉" text:@""];
+            [cell initViewWithTextField:@"请输入闭经详情" text:@""];
             cell.yuejingbijingDelegate = self;
         }
         return cell;
