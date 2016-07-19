@@ -875,15 +875,15 @@
 
 -(void)weixinLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"token"] forKey:kJZK_token];
-    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
-    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_sex"] forKey:kJZK_userSex];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"user_id"] forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data2 objectForKey:@"user_sex"] forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)weiboLoginDataParse{
     [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"token"] forKey:kJZK_token];
-    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_id"] forKey:kJZK_userId];
-    [[NSUserDefaults standardUserDefaults] setValue:[self.data objectForKey:@"user_sex"] forKey:kJZK_userSex];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"user_id"] forKey:kJZK_userId];
+    [[NSUserDefaults standardUserDefaults] setValue:[self.data3 objectForKey:@"user_sex"] forKey:kJZK_userSex];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
