@@ -19,6 +19,7 @@
 #import "VerifyUtil.h"
 #import "BaseTabBarController.h"
 #import "JPUSHService.h"
+#import "WXApi.h"
 
 @interface LoginViewController ()<UIScrollViewDelegate,YJSegmentedControlDelegate,UIAlertViewDelegate,LoginDelegate>{
     UIScrollView *scrollView;
@@ -68,6 +69,18 @@
 @property (strong,nonatomic)NSMutableDictionary *data2;
 @property (assign,nonatomic)NSError *error2;
 
+@property (strong,nonatomic)NSMutableDictionary *result2Fix1;
+@property (assign,nonatomic)NSInteger code2Fix1;
+@property (strong,nonatomic)NSString *message2Fix1;
+@property (strong,nonatomic)NSMutableDictionary *data2Fix1;
+@property (assign,nonatomic)NSError *error2Fix1;
+
+@property (strong,nonatomic)NSMutableDictionary *result2Fix2;
+@property (assign,nonatomic)NSInteger code2Fix2;
+@property (strong,nonatomic)NSString *message2Fix2;
+@property (strong,nonatomic)NSMutableDictionary *data2Fix2;
+@property (assign,nonatomic)NSError *error2Fix2;
+
 @property (strong,nonatomic)NSMutableDictionary *result3;
 @property (assign,nonatomic)NSInteger code3;
 @property (strong,nonatomic)NSString *message3;
@@ -107,6 +120,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark Init Section
@@ -528,15 +545,115 @@
 }
 
 -(void)thirdLoginWeixinClicked{
+//    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+//    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+//        if (response.responseCode == UMSResponseCodeSuccess) {
+//            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+//            NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+//            [self sendWeixinLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+//        }
+//    });
     
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
-    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
-            NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            [self sendWeixinLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+    if ([WXApi isWXAppInstalled]){
+        SendAuthReq* req =[[SendAuthReq alloc] init];
+        req.scope = @"snsapi_userinfo" ;
+        req.state = @"123" ;
+        [WXApi sendReq:req];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAuthResult:) name:@"WXAuthLoginViewController" object:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"WXAuthLoginViewController" forKey:kJZK_weixinauthType];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+}
+
+-(void)getAuthResult:(NSNotification *)notification{
+    NSLog(@"object: %@",notification.object);
+    [self sendWeixinAuthRequest1:notification.object];
+}
+
+-(void)sendWeixinAuthRequest1:(NSString *)code{
+    DLog(@"sendWeixinAuthRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:@"wx6a048cad50cccc7b" forKey:@"appid"];
+    [parameter setValue:@"5cc5a1439d30a6bbead8dffeaa52aadc" forKey:@"secret"];
+    [parameter setValue:code forKey:@"code"];
+    [parameter setValue:@"authorization_code" forKey:@"grant_type"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:@"https://api.weixin.qq.com/sns/oauth2/access_token?" successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2Fix1 = (NSMutableDictionary *)responseObject;
+        
+        self.code2Fix1 = [[self.result2Fix1 objectForKey:@"code"] integerValue];
+        self.message2Fix1 = [self.result2Fix1 objectForKey:@"message"];
+        self.data2Fix1 = [self.result2Fix1 objectForKey:@"data"];
+        
+        if (self.code2Fix1 == kSUCCESS) {
+            DLog(@"self.result2Fix1-->%@",self.result2Fix1);
+            [self sendWeixinAuthRequest2:[self.result2Fix1 objectForKey:@"openid"] access_token:[self.result2Fix1 objectForKey:@"access_token"]];
+        }else{
+            DLog(@"%ld",(long)self.code2Fix1);
+            DLog(@"%@",self.message2Fix1);
         }
-    });
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendWeixinAuthRequest2:(NSString *)openid access_token:(NSString *)access_token{
+    DLog(@"sendWeixinAuthRequest");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDAnimationFade;
+    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:openid forKey:@"openid"];
+    [parameter setValue:access_token forKey:@"access_token"];
+    
+    [[NetworkUtil sharedInstance] getResultWithParameter:parameter url:@"https://api.weixin.qq.com/sns/userinfo?" successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        DLog(@"responseObject-->%@",responseObject);
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        self.result2Fix2 = (NSMutableDictionary *)responseObject;
+        
+        self.code2Fix2 = [[self.result2Fix2 objectForKey:@"code"] integerValue];
+        self.message2Fix2 = [self.result2Fix2 objectForKey:@"message"];
+        self.data2Fix2 = [self.result2Fix2 objectForKey:@"data"];
+        
+        if (self.code2Fix2 == kSUCCESS) {
+            DLog(@"self.result2Fix2-->%@",self.result2Fix2);
+            [self sendWeixinLoginRequest:[self.result2Fix2 objectForKey:@"openid"] name:[self.result2Fix2 objectForKey:@"nickname"] image:[self.result2Fix2 objectForKey:@"headimgurl"]];
+        }else{
+            DLog(@"%ld",(long)self.code2Fix2);
+            DLog(@"%@",self.message2Fix2);
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
 }
 
 -(void)thirdLoginWeiboClicked{

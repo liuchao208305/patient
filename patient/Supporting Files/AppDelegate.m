@@ -448,6 +448,16 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     NSString * errStr = [NSString stringWithFormat:@"errStr: %@",resp.errStr];
     NSLog(@"errStr: %@",errStr);
     
+    //判断是否是微信授权回调
+    if ([resp isKindOfClass:[SendAuthResp class]]){
+        SendAuthResp *authResp = (SendAuthResp *)resp;
+        NSLog(@"authResp.code-->%@",authResp.code);
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinauthType] isEqualToString:@"WXAuthLoginViewController"]) {
+            NSNotification * notification = [NSNotification notificationWithName:@"WXAuthLoginViewController" object:authResp.code];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }
+    }
+    
     NSString * strTitle;
     //判断是微信消息的回调 --> 是支付回调回来的还是消息回调回来的.
     if ([resp isKindOfClass:[SendMessageToWXResp class]]){

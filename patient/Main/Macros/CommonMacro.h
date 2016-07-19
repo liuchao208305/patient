@@ -32,5 +32,6 @@
 
 #define kJZK_questionType @"JZK_questionType"
 #define kJZK_weixinpayType @"JZK_weixinpayType"
+#define kJZK_weixinauthType @"JZK_weixinauthType"
 
 #endif /* CommonMacro_h */
