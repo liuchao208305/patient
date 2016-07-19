@@ -553,8 +553,14 @@
     [parameter setValue:self.textField1_2.text forKey:@"real_name"];
     [parameter setValue:self.ID_number forKey:@"ID_number"];
     [parameter setValue:self.ID_medical forKey:@"ID_medical"];
-    [parameter setValue:self.textField1_3.text forKey:@"newIDNumber"];
-    [parameter setValue:self.textField1_4.text forKey:@"newIDMedical"];
+    if (![self.textField1_3.text isEqualToString:self.ID_number]) {
+        [parameter setValue:self.textField1_3.text forKey:@"newIDNumber"];
+    }
+    
+    if (![self.textField1_4.text isEqualToString:self.ID_medical]) {
+        [parameter setValue:self.textField1_4.text forKey:@"newIDMedical"];
+    }
+    
     [parameter setValue:self.label1_6Fix.text forKey:@"user_age"];
     [parameter setValue:[NSString stringWithFormat:@"%ld",(long)self.user_sex] forKey:@"user_sex"];
     
