@@ -455,6 +455,9 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinauthType] isEqualToString:@"WXAuthLoginViewController"]) {
             NSNotification * notification = [NSNotification notificationWithName:@"WXAuthLoginViewController" object:authResp.code];
             [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_weixinauthType] isEqualToString:@"WXAuthMineAccoutSecurityViewController"]){
+            NSNotification * notification = [NSNotification notificationWithName:@"WXAuthMineAccoutSecurityViewController" object:authResp.code];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     }
     
