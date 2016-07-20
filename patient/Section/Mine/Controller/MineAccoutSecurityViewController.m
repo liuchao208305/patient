@@ -169,7 +169,8 @@
     if (section == 0) {
         return 2;
     }else if (section == 1){
-        return 3;
+//        return 3;
+        return 1;
     }
     return 0;
 }
@@ -201,16 +202,19 @@
             cell.phoneLabel.text = [self.emailString isEqualToString:@""] ?@"暂无" : self.emailString;
         }
     }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            cell.titleLabel.text = @"QQ";
-            cell.phoneLabel.text = [self.tencentString isEqualToString:@""] ?@"暂无" : self.tencentString;
-        }else if (indexPath.row == 1){
-            cell.titleLabel.text = @"微信";
-            cell.phoneLabel.text = [self.weixinString isEqualToString:@""] ?@"暂无" : self.weixinString;
-        }else if (indexPath.row == 2){
-            cell.titleLabel.text = @"微博";
-            cell.phoneLabel.text = [self.weiboString isEqualToString:@""] ?@"暂无" : self.weiboString;
-        }
+//        if (indexPath.row == 0) {
+//            cell.titleLabel.text = @"QQ";
+//            cell.phoneLabel.text = [self.tencentString isEqualToString:@""] ?@"暂无" : self.tencentString;
+//        }else if (indexPath.row == 1){
+//            cell.titleLabel.text = @"微信";
+//            cell.phoneLabel.text = [self.weixinString isEqualToString:@""] ?@"暂无" : self.weixinString;
+//        }else if (indexPath.row == 2){
+//            cell.titleLabel.text = @"微博";
+//            cell.phoneLabel.text = [self.weiboString isEqualToString:@""] ?@"暂无" : self.weiboString;
+//        }
+        cell.titleLabel.text = @"微信";
+        cell.phoneLabel.text = [self.weixinString isEqualToString:@""] ?@"暂无" : self.weixinString;
+
     }
     return cell;
 }
@@ -244,43 +248,54 @@
             [self.navigationController pushViewController:changeEmailVC animated:YES];
         }
     }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
-            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-                if (response.responseCode == UMSResponseCodeSuccess) {
-                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
-                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@,openid-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL,snsAccount.openId);
-                    [self sendTencentLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
-                }
-            });
-        }else if (indexPath.row == 1){
-//            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+//        if (indexPath.row == 0) {
+//            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
 //            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
 //                if (response.responseCode == UMSResponseCodeSuccess) {
-//                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
-//                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-//                    [self sendWeixinLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+//                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+//                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@,openid-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL,snsAccount.openId);
+//                    [self sendTencentLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
 //                }
 //            });
-            if ([WXApi isWXAppInstalled]){
-                SendAuthReq* req =[[SendAuthReq alloc] init];
-                req.scope = @"snsapi_userinfo" ;
-                req.state = @"123" ;
-                [WXApi sendReq:req];
-                
-                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAuthResult:) name:@"WXAuthMineAccoutSecurityViewController" object:nil];
-                [[NSUserDefaults standardUserDefaults] setValue:@"WXAuthMineAccoutSecurityViewController" forKey:kJZK_weixinauthType];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
-        }else if (indexPath.row == 2){
-            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-                if (response.responseCode == UMSResponseCodeSuccess) {
-                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
-                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-                    [self sendWeiboLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
-                }
-            });
+//        }else if (indexPath.row == 1){
+////            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+////            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+////                if (response.responseCode == UMSResponseCodeSuccess) {
+////                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+////                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+////                    [self sendWeixinLoginRequest:snsAccount.openId name:snsAccount.userName image:snsAccount.iconURL];
+////                }
+////            });
+//            if ([WXApi isWXAppInstalled]){
+//                SendAuthReq* req =[[SendAuthReq alloc] init];
+//                req.scope = @"snsapi_userinfo" ;
+//                req.state = @"123" ;
+//                [WXApi sendReq:req];
+//                
+//                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAuthResult:) name:@"WXAuthMineAccoutSecurityViewController" object:nil];
+//                [[NSUserDefaults standardUserDefaults] setValue:@"WXAuthMineAccoutSecurityViewController" forKey:kJZK_weixinauthType];
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//            }
+//        }else if (indexPath.row == 2){
+//            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+//            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+//                if (response.responseCode == UMSResponseCodeSuccess) {
+//                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+//                    NSLog(@"username-->%@,uid-->%@,token-->%@,url-->%@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+//                    [self sendWeiboLoginRequest:snsAccount.usid name:snsAccount.userName image:snsAccount.iconURL];
+//                }
+//            });
+//        }
+        
+        if ([WXApi isWXAppInstalled]){
+            SendAuthReq* req =[[SendAuthReq alloc] init];
+            req.scope = @"snsapi_userinfo" ;
+            req.state = @"123" ;
+            [WXApi sendReq:req];
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAuthResult:) name:@"WXAuthMineAccoutSecurityViewController" object:nil];
+            [[NSUserDefaults standardUserDefaults] setValue:@"WXAuthMineAccoutSecurityViewController" forKey:kJZK_weixinauthType];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }
     

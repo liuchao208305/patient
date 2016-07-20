@@ -385,46 +385,49 @@
     backView.backgroundColor = kWHITE_COLOR;
     [whiteBackView addSubview:backView];
     
-    imageView1 = [[UIImageView alloc] init];
-    [imageView1 setImage:[UIImage imageNamed:@"login_third_login_weixin"]];
-    [backView addSubview:imageView1];
-    
-    label1 = [[UILabel alloc] init];
-    label1.text = @"微信";
-    [backView addSubview:label1];
+//    imageView1 = [[UIImageView alloc] init];
+//    [imageView1 setImage:[UIImage imageNamed:@"login_third_login_weixin"]];
+//    [backView addSubview:imageView1];
+//    
+//    label1 = [[UILabel alloc] init];
+//    label1.text = @"微信";
+//    [backView addSubview:label1];
     
     imageView2 = [[UIImageView alloc] init];
-    [imageView2 setImage:[UIImage imageNamed:@"login_third_login_weibo"]];
+//    [imageView2 setImage:[UIImage imageNamed:@"login_third_login_weibo"]];
+    [imageView2 setImage:[UIImage imageNamed:@"login_third_login_weixin_fix"]];
     [backView addSubview:imageView2];
     
     label2 = [[UILabel alloc] init];
-    label2.text = @"微博";
+//    label2.text = @"微博";
+    label2.text = @"微信";
     [backView addSubview:label2];
     
-    imageView3 = [[UIImageView alloc] init];
-    [imageView3 setImage:[UIImage imageNamed:@"login_third_login_qq"]];
-    [backView addSubview:imageView3];
+//    imageView3 = [[UIImageView alloc] init];
+//    [imageView3 setImage:[UIImage imageNamed:@"login_third_login_qq"]];
+//    [backView addSubview:imageView3];
+//    
+//    label3 = [[UILabel alloc] init];
+//    label3.text = @"QQ";
+//    [backView addSubview:label3];
     
-    label3 = [[UILabel alloc] init];
-    label3.text = @"QQ";
-    [backView addSubview:label3];
+//    [imageView1 mas_updateConstraints:^(MASConstraintMaker *make){
+//        make.left.equalTo(backView).offset(35);
+//        make.top.equalTo(backView).offset(10);
+//        make.width.mas_equalTo(60);
+//        make.height.mas_equalTo(60);
+//    }];
+//    
+//    [label1 mas_makeConstraints:^(MASConstraintMaker *make){
+//        make.centerX.equalTo(imageView1).offset(5);
+//        make.bottom.equalTo(backView).offset(-50);
+//        make.width.mas_equalTo(45);
+//        make.height.mas_equalTo(15);
+//    }];
     
-    [imageView1 mas_updateConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(backView).offset(35);
+    [imageView2 mas_makeConstraints:^(MASConstraintMaker *make){
+//        make.centerY.equalTo(imageView1).offset(0);
         make.top.equalTo(backView).offset(10);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(60);
-    }];
-    
-    [label1 mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.equalTo(imageView1).offset(5);
-        make.bottom.equalTo(backView).offset(-50);
-        make.width.mas_equalTo(45);
-        make.height.mas_equalTo(15);
-    }];
-    
-    [imageView2 mas_updateConstraints:^(MASConstraintMaker *make){
-        make.centerY.equalTo(imageView1).offset(0);
         make.centerX.equalTo(backView).offset(0);
         make.width.mas_equalTo(60);
         make.height.mas_equalTo(60);
@@ -432,36 +435,38 @@
     
     [label2 mas_makeConstraints:^(MASConstraintMaker *make){
         make.centerX.equalTo(imageView2).offset(5);
-        make.centerY.equalTo(label1).offset(0);
+//        make.centerY.equalTo(label1).offset(0);
+        make.top.equalTo(imageView2.mas_bottom).offset(10);
         make.width.mas_equalTo(45);
         make.height.mas_equalTo(15);
     }];
     
-    [imageView3 mas_updateConstraints:^(MASConstraintMaker *make){
-        make.centerY.equalTo(imageView2).offset(0);
-        make.right.equalTo(backView).offset(-35);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(60);
-    }];
+//    [imageView3 mas_updateConstraints:^(MASConstraintMaker *make){
+//        make.centerY.equalTo(imageView2).offset(0);
+//        make.right.equalTo(backView).offset(-35);
+//        make.width.mas_equalTo(60);
+//        make.height.mas_equalTo(60);
+//    }];
+//    
+//    [label3 mas_makeConstraints:^(MASConstraintMaker *make){
+//        make.centerX.equalTo(imageView3).offset(5);
+//        make.centerY.equalTo(label2).offset(0);
+//        make.width.mas_equalTo(45);
+//        make.height.mas_equalTo(15);
+//    }];
     
-    [label3 mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.equalTo(imageView3).offset(5);
-        make.centerY.equalTo(label2).offset(0);
-        make.width.mas_equalTo(45);
-        make.height.mas_equalTo(15);
-    }];
-    
-    imageView1.userInteractionEnabled = YES;
-    UITapGestureRecognizer *weixinTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeixinClicked)];
-    [imageView1 addGestureRecognizer:weixinTap];
+//    imageView1.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *weixinTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeixinClicked)];
+//    [imageView1 addGestureRecognizer:weixinTap];
     
     imageView2.userInteractionEnabled = YES;
-    UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeiboClicked)];
+//    UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeiboClicked)];
+    UITapGestureRecognizer *weiboTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginWeixinClicked)];
     [imageView2 addGestureRecognizer:weiboTap];
     
-    imageView3.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tencentTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginTencentClicked)];
-    [imageView3 addGestureRecognizer:tencentTap];
+//    imageView3.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *tencentTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(thirdLoginTencentClicked)];
+//    [imageView3 addGestureRecognizer:tencentTap];
 
 }
 
