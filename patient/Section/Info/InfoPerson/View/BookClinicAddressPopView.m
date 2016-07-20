@@ -27,6 +27,12 @@
 -(void)initViewWithIdArray:(NSMutableArray *)addressIdArray addressUnitArray:(NSMutableArray *)addressUnitArray{
     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     
+    self.topFixView = [[UIView alloc] init];
+    [self addSubview:self.topFixView];
+    
+    self.bottomFixView = [[UIView alloc] init];
+    [self addSubview:self.bottomFixView];
+    
     self.tableView = [[UITableView alloc] init];
     self.tableView.backgroundColor = kWHITE_COLOR;
     self.tableView.layer.cornerRadius = 5;
@@ -36,15 +42,45 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:self.tableView];
     
+    [self.topFixView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self).offset(0);
+        make.trailing.equalTo(self).offset(0);
+        make.top.equalTo(self).offset(0);
+        make.height.mas_equalTo(80);
+    }];
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self).offset(45);
-        make.trailing.equalTo(self).offset(-45);
+        make.leading.equalTo(self).offset(0);
+        make.trailing.equalTo(self).offset(0);
         make.top.equalTo(self).offset(80);
         make.height.mas_equalTo(135);
     }];
     
+    [self.bottomFixView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self).offset(0);
+        make.trailing.equalTo(self).offset(0);
+        make.top.equalTo(self.tableView.mas_bottom).offset(0);
+        make.bottom.equalTo(self).offset(0);
+    }];
+    
     self.addressIdArray = addressIdArray;
     self.addressUnitArray = addressUnitArray;
+    
+    self.topFixView.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shadowViewClicked)];
+    [self.topFixView addGestureRecognizer:tap1];
+    
+    self.bottomFixView.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shadowViewClicked)];
+    [self.bottomFixView addGestureRecognizer:tap2];
+}
+
+#pragma mark Target Action
+-(void)shadowViewClicked{
+    DLog(@"shadowViewClicked");
+    if (self.clinicAddressFixDelegate && [self.clinicAddressFixDelegate respondsToSelector:@selector(removeClinicAddressPopView)]) {
+        [self.clinicAddressFixDelegate removeClinicAddressPopView];
+    }
 }
 
 #pragma mark UITableViewDelegate

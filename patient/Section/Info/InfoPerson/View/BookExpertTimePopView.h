@@ -14,9 +14,17 @@
 
 @end
 
+@protocol ClinicTimeFixDelegate <NSObject>
+
+-(void)removeClinicTimePopView;
+
+@end
+
 @interface BookExpertTimePopView : UIView
 
+@property (strong,nonatomic)UIView *topFixView;
 @property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)UIView *bottomFixView;
 
 @property (strong,nonatomic)NSMutableArray *timeUnformatArray;
 @property (strong,nonatomic)NSMutableArray *timeFormatArray;
@@ -26,5 +34,6 @@
 -(void)initViewWithTimeUnformatArray:(NSMutableArray *)timeUnformatArray timeFormatArray:(NSMutableArray *)timeFormatArray timePeriodArray:(NSMutableArray *)timePeriodArray timeFullFlagArray:(NSMutableArray *)timeFullFlagArray;
 
 @property (weak,nonatomic)id<ClinicTimeDelegate> clinicTimeDelegate;
+@property (weak,nonatomic)id<ClinicTimeFixDelegate> clinicTimeFixDelegate;
 
 @end

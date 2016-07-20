@@ -26,7 +26,7 @@
 #import "BookExpertTimeData.h"
 
 
-@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,DiseaseListDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate,ClinicTimeDelegate>
+@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,DiseaseListDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate,ClinicAddressFixDelegate,ClinicTimeDelegate,ClinicTimeFixDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -974,6 +974,11 @@
     [self.clinicAddressButton setTitle:addressUnit forState:UIControlStateNormal];
 }
 
+#pragma mark ClinicAddressFixDelegate
+-(void)removeClinicAddressPopView{
+    [self.bookClinicAddressPopView removeFromSuperview];
+}
+
 #pragma mark ClinicTimeDelegate
 -(void)clinicTimeSelected:(NSString *)unformatTime formatTime:(NSString *)formatTime{
     [self.bookExpertTimePopView removeFromSuperview];
@@ -981,6 +986,11 @@
     self.isTimeSelected = YES;
     self.clinicTime = unformatTime;
     [self.clinicTimeButton setTitle:formatTime forState:UIControlStateNormal];
+}
+
+#pragma mark ClinicTimeFixDelegate
+-(void)removeClinicTimePopView{
+    [self.bookExpertTimePopView removeFromSuperview];
 }
 
 #pragma mark UITextViewDelegate
@@ -1349,10 +1359,15 @@
         [self.addressUnitArray addObject:[NullUtil judgeStringNull:bookClinicAddressData.org_name]];
     }
     
-    self.bookClinicAddressPopView = [[BookClinicAddressPopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    [self.bookClinicAddressPopView initViewWithIdArray:self.addressIdArray addressUnitArray:self.addressUnitArray];
-    self.bookClinicAddressPopView.clinicAddressDelegate = self;
-    [self.view addSubview:self.bookClinicAddressPopView];
+    if (self.addressArray.count > 0) {
+        self.bookClinicAddressPopView = [[BookClinicAddressPopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [self.bookClinicAddressPopView initViewWithIdArray:self.addressIdArray addressUnitArray:self.addressUnitArray];
+        self.bookClinicAddressPopView.clinicAddressDelegate = self;
+        self.bookClinicAddressPopView.clinicAddressFixDelegate = self;
+        [self.view addSubview:self.bookClinicAddressPopView];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"该医生暂时没有设置出诊地点！" withDelaySeconds:kHud_DelayTime];
+    }
 }
 
 -(void)bookExpertTimeDataParse{
@@ -1368,10 +1383,15 @@
         [self.timeFullFlagArray addObject:[NSString stringWithFormat:@"%d",bookExpertTimeData.is_man]];
     }
     
-    self.bookExpertTimePopView = [[BookExpertTimePopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    [self.bookExpertTimePopView initViewWithTimeUnformatArray:self.timeUnformatArray timeFormatArray:self.timeFormatArray timePeriodArray:self.timePeriodArray timeFullFlagArray:self.timeFullFlagArray];
-    self.bookExpertTimePopView.clinicTimeDelegate = self;
-    [self.view addSubview:self.bookExpertTimePopView];
+    if (self.timeArray.count > 0) {
+        self.bookExpertTimePopView = [[BookExpertTimePopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [self.bookExpertTimePopView initViewWithTimeUnformatArray:self.timeUnformatArray timeFormatArray:self.timeFormatArray timePeriodArray:self.timePeriodArray timeFullFlagArray:self.timeFullFlagArray];
+        self.bookExpertTimePopView.clinicTimeDelegate = self;
+        self.bookExpertTimePopView.clinicTimeFixDelegate = self;
+        [self.view addSubview:self.bookExpertTimePopView];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"该医生暂时没有设置出诊时间！" withDelaySeconds:kHud_DelayTime];
+    }
 }
 
 #pragma mark Data Filling
