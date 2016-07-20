@@ -390,9 +390,9 @@
     self.videoUrl = [[self.data objectForKey:@"orgInfo"] objectForKey:@"org_video_url"];
     [self.playView setUrlString:self.videoUrl];
     
-    self.advantageLabel1 = [[self.data objectForKey:@"orgInfo"] objectForKey:@"org_brief"];
-    self.advantageLabel2 = [[self.data objectForKey:@"orgInfo"] objectForKey:@"mainly"];
-    self.advantageLabel3 = [[self.data objectForKey:@"orgInfo"] objectForKey:@"diseaseName"];
+    self.advantageLabel1 = [[NullUtil judgeStringNull:[[self.data objectForKey:@"orgInfo"] objectForKey:@"org_brief"]] isEqualToString:@""] ? @"暂无" : [[self.data objectForKey:@"orgInfo"] objectForKey:@"org_brief"];
+    self.advantageLabel2 = [[NullUtil judgeStringNull:[[self.data objectForKey:@"orgInfo"] objectForKey:@"mainly"]] isEqualToString:@""] ? @"暂无" : [[self.data objectForKey:@"orgInfo"] objectForKey:@"mainly"];
+    self.advantageLabel3 = [[NullUtil judgeStringNull:[[self.data objectForKey:@"orgInfo"] objectForKey:@"diseaseName"]] isEqualToString:@""] ? @"暂无" : [[self.data objectForKey:@"orgInfo"] objectForKey:@"diseaseName"];
     
     self.expertArray = [StudioExpertData mj_objectArrayWithKeyValuesArray:[self.data objectForKey:@"doctorList"]];
     for (StudioExpertData *studioExpertData in self.expertArray) {
