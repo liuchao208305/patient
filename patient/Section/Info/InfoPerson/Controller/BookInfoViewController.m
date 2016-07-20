@@ -1102,15 +1102,15 @@
     [parameter setValue:@"" forKey:@"qenclosures[1].b_history"];
     [parameter setValue:@"" forKey:@"qenclosures[1].c_history"];
     [parameter setValue:@"" forKey:@"qenclosures[1].d_history"];
-    [parameter setValue:@"" forKey:@"qenclosures[1].obj_id"];
+    [parameter setValue:self.testId forKey:@"qenclosures[1].obj_id"];
     [parameter setValue:@"" forKey:@"qenclosures[1].jiankang"];
     [parameter setValue:self.testResult forKey:@"qenclosures[1].enclosure"];
     
     [parameter setValue:@"3" forKey:@"qenclosures[2].type"];
-    [parameter setValue:self.jiwangshi forKey:@"qenclosures[2].a_history"];
-    [parameter setValue:self.shoushushi forKey:@"qenclosures[2].b_history"];
-    [parameter setValue:self.guomingshi forKey:@"qenclosures[2].c_history"];
-    [parameter setValue:self.jiazushi forKey:@"qenclosures[2].d_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].a_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].b_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].c_history"];
+    [parameter setValue:@"" forKey:@"qenclosures[2].d_history"];
     [parameter setValue:self.healthId forKey:@"qenclosures[2].obj_id"];
     [parameter setValue:self.healthResult forKey:@"qenclosures[2].jiankang"];
     [parameter setValue:@"" forKey:@"qenclosures[2].enclosure"];
