@@ -19,4 +19,6 @@
 /* 包含在哪一个控制器中 */
 @property (nonatomic, weak) UIViewController *contrainerViewController;
 
+- (void)stopButton;
+
 @end

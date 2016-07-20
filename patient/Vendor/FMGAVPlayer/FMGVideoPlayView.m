@@ -224,6 +224,14 @@
     }
 }
 
+- (void)stopButton
+{
+    [self.player pause];
+    [self removeShowTimer];
+    [self removeProgressTimer];
+    
+}
+
 #pragma mark - 定时器操作
 - (void)addProgressTimer
 {
@@ -327,7 +335,7 @@
 }
 
 - (IBAction)slider {
-//    [self addProgressTimer];
+    [self addProgressTimer];
     NSTimeInterval currentTime = CMTimeGetSeconds(self.player.currentItem.duration) * self.progressSlider.value;
     [self.player seekToTime:CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
 }

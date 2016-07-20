@@ -80,6 +80,8 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    
+    [self.playView stopButton];
 }
 
 -(void)didReceiveMemoryWarning{
