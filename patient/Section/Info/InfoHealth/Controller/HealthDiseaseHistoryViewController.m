@@ -522,6 +522,10 @@
         if (self.code == kSUCCESS) {
             [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
             [self.navigationController popViewControllerAnimated:YES];
+            
+            if (self.diseaseListDelegate && [self.diseaseListDelegate respondsToSelector:@selector(diseaseListChoosed)]) {
+                [self.diseaseListDelegate diseaseListChoosed];
+            }
         }else{
             DLog(@"%@",self.message);
             if (self.code == kTOKENINVALID) {
