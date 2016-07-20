@@ -1992,7 +1992,8 @@
             [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
         }
         
-        [self sendOrderDetailRequest];
+//        [self sendOrderDetailRequest];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 
@@ -2031,7 +2032,8 @@
         [HudUtil showSimpleTextOnlyHUD:@"支付失败" withDelaySeconds:kHud_DelayTime];
     }
     
-    [self sendOrderDetailRequest];
+//    [self sendOrderDetailRequest];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark Data Filling
