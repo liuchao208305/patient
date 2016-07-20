@@ -21,7 +21,7 @@
 #import "HealthListDetailViewController.h"
 #import "TestResultListViewController.h"
 
-@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,HealthListDelegate,TestListDelegate>
+@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,DiseaseListDelegate,HealthListDelegate,TestListDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -77,6 +77,7 @@
 @property (strong,nonatomic)NSString *sign;
 @property (nonatomic, assign)UInt32 timeStamp;
 
+@property (assign,nonatomic)BOOL diseaseAddFlag;
 @property (assign,nonatomic)BOOL healthAddFlag;
 @property (assign,nonatomic)BOOL testAddFlag;
 
@@ -105,6 +106,8 @@
     self.hunfou = 0;
     self.erzi = 0;
     self.nver = 0;
+    
+    self.diseaseAddFlag = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -656,6 +659,10 @@
 
 -(void)diseaseButtonClicked{
     DLog(@"diseaseButtonClicked");
+    
+    self.diseaseAddFlag = NO;
+    
+    self.diseaseImageView.hidden = YES;
     self.jiwangshiLabel1.hidden = YES;
     self.jiwangshiLabel2.hidden = YES;
     self.shoushushiLabel1.hidden = YES;
@@ -664,11 +671,12 @@
     self.guomingshiLabel2.hidden = YES;
     self.jiazushiLabel1.hidden = YES;
     self.jiazushiLabel2.hidden = YES;
+    self.diseaseButton.hidden = YES;
     
-    self.diseaseLabel1.hidden = NO;
-    self.diseaseLabel2.hidden = NO;
-    self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
-    self.diseaseLabel2.text = @"（公开提问其他人不可见）";
+//    self.diseaseLabel1.hidden = NO;
+//    self.diseaseLabel2.hidden = NO;
+//    self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
+//    self.diseaseLabel2.text = @"（公开提问其他人不可见）";
 }
 
 -(void)healthButtonClicked{
@@ -812,6 +820,31 @@
         }
     }
     
+}
+
+#pragma mark DiseaseListDelegate
+-(void)diseaseListChoosed{
+    self.diseaseAddFlag = YES;
+    
+    self.diseaseImageView.hidden = NO;
+    self.jiwangshiLabel1.hidden = NO;
+    self.jiwangshiLabel2.hidden = NO;
+    self.shoushushiLabel1.hidden = NO;
+    self.shoushushiLabel2.hidden = NO;
+    self.guomingshiLabel1.hidden = NO;
+    self.guomingshiLabel2.hidden = NO;
+    self.jiazushiLabel1.hidden = NO;
+    self.jiazushiLabel2.hidden = NO;
+    self.diseaseButton.hidden = NO;
+    
+    self.jiwangshiLabel1.text = @"既往史：";
+    self.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+    self.shoushushiLabel1.text = @"手术史：";
+    self.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+    self.guomingshiLabel1.text = @"过敏史：";
+    self.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+    self.jiazushiLabel1.text = @"家族史：";
+    self.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
 }
 
 #pragma mark HealthListDelegate
@@ -997,14 +1030,26 @@
     }else{
         [parameter setValue:@"2" forKey:@"is_public"];
     }
-    [parameter setValue:@"1" forKey:@"qenclosures[0].type"];
-    [parameter setValue:self.jiwangshi forKey:@"qenclosures[0].a_history"];
-    [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
-    [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
-    [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
-    [parameter setValue:@"" forKey:@"qenclosures[0].obj_id"];
-    [parameter setValue:@"" forKey:@"qenclosures[0].jiankang"];
-    [parameter setValue:@"" forKey:@"qenclosures[0].enclosure"];
+    
+    if (self.diseaseAddFlag == NO) {
+        [parameter setValue:@"1" forKey:@"qenclosures[0].type"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].a_history"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].b_history"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].c_history"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].d_history"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].obj_id"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].jiankang"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].enclosure"];
+    }else{
+        [parameter setValue:@"1" forKey:@"qenclosures[0].type"];
+        [parameter setValue:self.jiwangshi forKey:@"qenclosures[0].a_history"];
+        [parameter setValue:self.shoushushi forKey:@"qenclosures[0].b_history"];
+        [parameter setValue:self.guomingshi forKey:@"qenclosures[0].c_history"];
+        [parameter setValue:self.jiazushi forKey:@"qenclosures[0].d_history"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].obj_id"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].jiankang"];
+        [parameter setValue:@"" forKey:@"qenclosures[0].enclosure"];
+    }
     
     [parameter setValue:@"2" forKey:@"qenclosures[1].type"];
     [parameter setValue:@"" forKey:@"qenclosures[1].a_history"];
@@ -1166,10 +1211,57 @@
     self.expertMoneyLabel.text = [NSString stringWithFormat:@"¥%.2f元",self.consultation_money];
     self.expertIntroductionLabel.text = self.doctor_descr;
     
-    if (![[self.data objectForKey:@"userHistor"] isKindOfClass:[NSNull class]]) {
-        self.diseaseLabel1.hidden = YES;
-        self.diseaseLabel2.hidden = YES;
-        
+//    if (![[self.data objectForKey:@"userHistor"] isKindOfClass:[NSNull class]]) {
+//        self.diseaseLabel1.hidden = YES;
+//        self.diseaseLabel2.hidden = YES;
+//        
+//        self.jiwangshiLabel1.hidden = NO;
+//        self.jiwangshiLabel2.hidden = NO;
+//        self.shoushushiLabel1.hidden = NO;
+//        self.shoushushiLabel2.hidden = NO;
+//        self.guomingshiLabel1.hidden = NO;
+//        self.guomingshiLabel2.hidden = NO;
+//        self.jiazushiLabel1.hidden = NO;
+//        self.jiazushiLabel2.hidden = NO;
+//        
+//        self.jiwangshiLabel1.text = @"既往史：";
+//        self.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
+//        self.shoushushiLabel1.text = @"手术史：";
+//        self.shoushushiLabel2.text = [self.shoushushi isEqualToString:@""] ? @"无" : self.shoushushi;
+//        self.guomingshiLabel1.text = @"过敏史：";
+//        self.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
+//        self.jiazushiLabel1.text = @"家族史：";
+//        self.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
+//    }else{
+//        self.jiwangshiLabel1.hidden = YES;
+//        self.jiwangshiLabel2.hidden = YES;
+//        self.shoushushiLabel1.hidden = YES;
+//        self.shoushushiLabel2.hidden = YES;
+//        self.guomingshiLabel1.hidden = YES;
+//        self.guomingshiLabel2.hidden = YES;
+//        self.jiazushiLabel1.hidden = YES;
+//        self.jiazushiLabel2.hidden = YES;
+//        
+//        self.diseaseLabel1.hidden = NO;
+//        self.diseaseLabel2.hidden = NO;
+//        
+//        self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
+//        self.diseaseLabel2.text = @"（公开提问其他人不可见）";
+//    }
+    
+    if (self.diseaseAddFlag == NO) {
+        self.diseaseImageView.hidden = YES;
+        self.jiwangshiLabel1.hidden = YES;
+        self.jiwangshiLabel2.hidden = YES;
+        self.shoushushiLabel1.hidden = YES;
+        self.shoushushiLabel2.hidden = YES;
+        self.guomingshiLabel1.hidden = YES;
+        self.guomingshiLabel2.hidden = YES;
+        self.jiazushiLabel1.hidden = YES;
+        self.jiazushiLabel2.hidden = YES;
+        self.diseaseButton.hidden = YES;
+    }else{
+        self.diseaseImageView.hidden = NO;
         self.jiwangshiLabel1.hidden = NO;
         self.jiwangshiLabel2.hidden = NO;
         self.shoushushiLabel1.hidden = NO;
@@ -1178,6 +1270,7 @@
         self.guomingshiLabel2.hidden = NO;
         self.jiazushiLabel1.hidden = NO;
         self.jiazushiLabel2.hidden = NO;
+        self.diseaseButton.hidden = NO;
         
         self.jiwangshiLabel1.text = @"既往史：";
         self.jiwangshiLabel2.text = [self.jiwangshi isEqualToString:@""] ? @"无" : self.jiwangshi;
@@ -1187,21 +1280,6 @@
         self.guomingshiLabel2.text = [self.guomingshi isEqualToString:@""] ? @"无" : self.guomingshi;
         self.jiazushiLabel1.text = @"家族史：";
         self.jiazushiLabel2.text = [self.jiazushi isEqualToString:@""] ? @"无" : self.jiazushi;
-    }else{
-        self.jiwangshiLabel1.hidden = YES;
-        self.jiwangshiLabel2.hidden = YES;
-        self.shoushushiLabel1.hidden = YES;
-        self.shoushushiLabel2.hidden = YES;
-        self.guomingshiLabel1.hidden = YES;
-        self.guomingshiLabel2.hidden = YES;
-        self.jiazushiLabel1.hidden = YES;
-        self.jiazushiLabel2.hidden = YES;
-        
-        self.diseaseLabel1.hidden = NO;
-        self.diseaseLabel2.hidden = NO;
-        
-        self.diseaseLabel1.text = @"既往史、过敏史、手术史、家族史";
-        self.diseaseLabel2.text = @"（公开提问其他人不可见）";
     }
     
     if (self.healthAddFlag == NO) {
