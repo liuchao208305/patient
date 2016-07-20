@@ -523,8 +523,12 @@
             [HudUtil showSimpleTextOnlyHUD:@"提交成功！" withDelaySeconds:kHud_DelayTime];
             [self.navigationController popViewControllerAnimated:YES];
             
-            if (self.diseaseListDelegate && [self.diseaseListDelegate respondsToSelector:@selector(diseaseListChoosed)]) {
-                [self.diseaseListDelegate diseaseListChoosed];
+            if (self.diseaseListDelegate1 && [self.diseaseListDelegate1 respondsToSelector:@selector(diseaseListChoosed1)]) {
+                [self.diseaseListDelegate1 diseaseListChoosed1];
+            }
+            
+            if (self.diseaseListDelegate2 && [self.diseaseListDelegate2 respondsToSelector:@selector(diseaseListChoosed2)]) {
+                [self.diseaseListDelegate2 diseaseListChoosed2];
             }
         }else{
             DLog(@"%@",self.message);

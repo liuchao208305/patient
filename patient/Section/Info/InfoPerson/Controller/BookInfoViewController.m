@@ -26,7 +26,7 @@
 #import "BookExpertTimeData.h"
 
 
-@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,DiseaseListDelegate,HealthListDelegate,TestListDelegate,ClinicAddressDelegate,ClinicAddressFixDelegate,ClinicTimeDelegate,ClinicTimeFixDelegate>
+@interface BookInfoViewController ()<UITextViewDelegate,UIActionSheetDelegate,DiseaseListDelegate2,HealthListDelegate,TestListDelegate,ClinicAddressDelegate,ClinicAddressFixDelegate,ClinicTimeDelegate,ClinicTimeFixDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -860,7 +860,7 @@
         if (buttonIndex == 0){
             DLog(@"既往史／手术史／过敏史／家族史");
             HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
-            diseasHistoryVC.diseaseListDelegate = self;
+            diseasHistoryVC.diseaseListDelegate2 = self;
             diseasHistoryVC.isEditable = YES;
             diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
             diseasHistoryVC.marryStatus = self.hunfou;
@@ -903,8 +903,8 @@
     }
 }
 
-#pragma mark DiseaseListDelegate
--(void)diseaseListChoosed{
+#pragma mark DiseaseListDelegate2
+-(void)diseaseListChoosed2{
     self.diseaseAddFlag = YES;
     
     self.diseaseImageView.hidden = NO;

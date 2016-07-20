@@ -9,9 +9,15 @@
 #import "BaseViewController.h"
 #import "SelfInspectionHeaderView.h"
 
-@protocol DiseaseListDelegate <NSObject>
+@protocol DiseaseListDelegate1 <NSObject>
 
--(void)diseaseListChoosed;
+-(void)diseaseListChoosed1;
+
+@end
+
+@protocol DiseaseListDelegate2 <NSObject>
+
+-(void)diseaseListChoosed2;
 
 @end
 
@@ -29,6 +35,8 @@
 
 @property (strong,nonatomic)SelfInspectionHeaderView *selfInspectionHeaderView;
 
-@property (weak,nonatomic)id<DiseaseListDelegate> diseaseListDelegate;
+@property (weak,nonatomic)id<DiseaseListDelegate1> diseaseListDelegate1;
+
+@property (weak,nonatomic)id<DiseaseListDelegate2> diseaseListDelegate2;
 
 @end

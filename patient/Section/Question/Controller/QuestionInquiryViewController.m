@@ -21,7 +21,7 @@
 #import "HealthListDetailViewController.h"
 #import "TestResultListViewController.h"
 
-@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,DiseaseListDelegate,HealthListDelegate,TestListDelegate>
+@interface QuestionInquiryViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,DiseaseListDelegate1,HealthListDelegate,TestListDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result;
 @property (assign,nonatomic)NSInteger code;
@@ -777,6 +777,7 @@
         if (buttonIndex == 0){
             DLog(@"既往史／手术史／过敏史／家族史");
             HealthDiseaseHistoryViewController *diseasHistoryVC = [[HealthDiseaseHistoryViewController alloc] init];
+            diseasHistoryVC.diseaseListDelegate1 = self;
             diseasHistoryVC.isEditable = YES;
             diseasHistoryVC.diseaseHistoryId = self.diseaseHistoryId;
             diseasHistoryVC.marryStatus = self.hunfou;
@@ -822,8 +823,8 @@
     
 }
 
-#pragma mark DiseaseListDelegate
--(void)diseaseListChoosed{
+#pragma mark DiseaseListDelegate1
+-(void)diseaseListChoosed1{
     self.diseaseAddFlag = YES;
     
     self.diseaseImageView.hidden = NO;
