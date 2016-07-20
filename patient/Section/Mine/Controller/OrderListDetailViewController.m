@@ -171,6 +171,7 @@
 @property (strong,nonatomic)NSString *fuyaofangfa;
 @property (strong,nonatomic)NSString *fuyaoshijian;
 @property (strong,nonatomic)NSString *fuyaocishu;
+@property (strong,nonatomic)NSMutableArray *fuyaocishuArray;
 
 @property (assign,nonatomic)NSInteger paymentType;
 
@@ -247,6 +248,8 @@
     self.chufangQuantityArray = [NSMutableArray array];
     self.chufangUnitArray = [NSMutableArray array];
     self.chufangUsageArray = [NSMutableArray array];
+    
+    self.fuyaocishuArray = [NSMutableArray array];
 }
 
 #pragma mark Init Section
@@ -1438,7 +1441,7 @@
     
     [self.fuyaocishuLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.fuyaocishuLabel1.mas_trailing).offset(5);
-        make.centerY.equalTo(self.fuyaocishuLabel1).offset(10);
+        make.centerY.equalTo(self.fuyaocishuLabel1).offset(0);
     }];
 }
 
@@ -1963,6 +1966,7 @@
     self.fuyaofangfa = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication"]];
     self.fuyaoshijian = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medication_date"]];
     self.fuyaocishu = [NullUtil judgeStringNull:[self.data1 objectForKey:@"medicationC"]];
+    self.fuyaocishuArray = [NSMutableArray arrayWithArray:[self.fuyaocishu componentsSeparatedByString:@","]];
     
     [self initView];
     
@@ -2239,7 +2243,12 @@
     self.fuyaoshijianLabel1.text = @"服药时间：";
     self.fuyaoshijianLabel2.text = self.fuyaoshijian;
     self.fuyaocishuLabel1.text = @"服药次数：";
-    self.fuyaocishuLabel2.text = self.fuyaocishu;
+//    self.fuyaocishuLabel2.text = self.fuyaocishu;
+    if ([self.fuyaocishu isEqualToString:@""]) {
+        self.fuyaocishuLabel2.text = @"暂无";
+    }else{
+        self.fuyaocishuLabel2.text = [NSString stringWithFormat:@"%@天%@剂 分%@次 共%@剂",self.fuyaocishuArray[0],self.fuyaocishuArray[1],self.fuyaocishuArray[2],self.fuyaocishuArray[3]];
+    }
 }
 
 @end
