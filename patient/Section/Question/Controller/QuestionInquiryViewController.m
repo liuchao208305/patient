@@ -255,7 +255,7 @@
     self.inquiryTextView.textAlignment = NSTextAlignmentLeft;
     self.inquiryTextView.editable = YES;
     self.inquiryTextView.placeholderColor = ColorWithHexRGB(0xa2a2a2);
-    self.inquiryTextView.placeholder = @"请在这里输入您当前的症状。此外，您也可在下方添加您的体质测试结果、症状自查结果或者其他检查检验单据，方便医生对您的情况进行更详细的了解（向张三医生提问，等ta语音回答；超过48小时未答，将按支付路径全款退还）";
+    self.inquiryTextView.placeholder = @"请在这里输入您当前的症状。此外，您也可在下方添加您的体质测试结果、症状自查结果或者其他检查检验单据，方便医生对您的情况进行更详细的了解（向张三医生提问，等ta语音回答；超过24小时未答，将按支付路径全款退还）";
     [self.inquiryBackView addSubview:self.inquiryTextView];
     
     [self.inquiryTextView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -555,7 +555,7 @@
         
         self.inquiryMoneyLabel3_3 = [[UILabel alloc] init];
         self.inquiryMoneyLabel3_3.font = [UIFont systemFontOfSize:12];
-        self.inquiryMoneyLabel3_3.text = @"（超过12小时未答，将按支付路径全款退还）";
+        self.inquiryMoneyLabel3_3.text = @"（超过24小时未答，将按支付路径全款退还）";
         self.inquiryMoneyLabel3_3.textColor = ColorWithHexRGB(0x909090);
         [self.inquiryBackView addSubview:self.inquiryMoneyLabel3_3];
         

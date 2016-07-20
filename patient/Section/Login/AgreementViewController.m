@@ -46,7 +46,7 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-    self.navigationController.navigationBar.hidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image.png"] forBarMetrics:(UIBarMetricsDefault)];
     
@@ -59,8 +59,8 @@
     self.title = self.titleStr;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:kWHITE_COLOR}];
     
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(navBack)];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"<返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(navBack)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)initTabBar{
@@ -81,9 +81,9 @@
 }
 
 #pragma mark Target Action
-//-(void)navBack{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
+-(void)navBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView{

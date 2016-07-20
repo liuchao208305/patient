@@ -524,7 +524,8 @@
 
 -(void)agreementButtonClicked{
     AgreementViewController *agreementVC = [[AgreementViewController alloc] init];
-    agreementVC.urlStr = @"http://www.jiuzhekan.com/jiuzhekan_http/html/User_Aagreement.html";
+//    agreementVC.urlStr = @"http://www.jiuzhekan.com/jiuzhekan_http/html/User_Aagreement.html";
+    agreementVC.urlStr = @"http://121.199.73.93/jiuzhekan_http/html/User_Aagreement.html";
     agreementVC.titleStr = @"用户协议";
     [self.navigationController pushViewController:agreementVC animated:YES];
 }
