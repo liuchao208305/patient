@@ -1137,7 +1137,8 @@
             }
         }else{
             DLog(@"%@",self.message2);
-            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+//            [HudUtil showSimpleTextOnlyHUD:self.message2 withDelaySeconds:kHud_DelayTime];
+            [AlertUtil showSimpleAlertWithTitle:nil message:self.message2];
             if (self.code2 == kTOKENINVALID) {
                 LoginViewController *loginVC = [[LoginViewController alloc] init];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
