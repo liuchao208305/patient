@@ -24,6 +24,7 @@
     self.contentLabel = [[UILabel alloc] init];
     self.contentLabel.font = [UIFont systemFontOfSize:14];
     self.contentLabel.numberOfLines = 0;
+    self.contentLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:self.contentLabel];
     
     self.publicImageView = [[UIImageView alloc] init];
@@ -33,7 +34,7 @@
         make.leading.equalTo(self.contentView).offset(12);
         make.trailing.equalTo(self.contentView).offset(-12);
         make.top.equalTo(self.contentView).offset(15);
-//        make.height.mas_equalTo(60);
+        make.height.mas_equalTo(60);
     }];
     
     [self.publicImageView mas_makeConstraints:^(MASConstraintMaker *make) {

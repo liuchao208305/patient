@@ -512,16 +512,20 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.flag1) {
         if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 1) {
-            return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+21+32+11;
+//            return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+21+32+11;
+            return 60+15+21+32+11;
         }else if ([self.questionPayStatusMineArray[indexPath.section] intValue] == 2){
             if ([self.questionPublicStatusMineArray[indexPath.section] intValue] == 1) {
-                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
+//                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
+                return 60+15+15+60+15+12+15;
             }else{
-                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+15;
+//                return [StringUtil cellWithStr:self.questionContentMineArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+15;
+                return 60+15+15+60+15+15;
             }
         }
     }else if (self.flag2){
-        return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
+//        return [StringUtil cellWithStr:self.questionContentOtherArray[indexPath.section] fontSize:14 width:SCREEN_WIDTH]+15+15+60+15+12+15;
+        return 60+15+15+60+15+12+15;
     }
     return 0;
 }
