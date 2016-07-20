@@ -161,6 +161,7 @@
 
 @property (strong,nonatomic)NSString *healthPhotoString;
 @property (strong,nonatomic)NSMutableArray *photoArray;
+@property (assign,nonatomic)CGFloat photoHeight;
 
 @property (strong,nonatomic)NSString *bianzhengString;
 @property (strong,nonatomic)NSString *bianbingString;
@@ -203,7 +204,7 @@
     
     [self initNavBar];
     [self initTabBar];
-//    [self initView];
+    
     [self initRecognizer];
 }
 
@@ -298,15 +299,15 @@
     if (![[self.data1 objectForKey:@"results"] isKindOfClass:[NSNull class]]) {
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
             if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
-                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20)];
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20 + self.photoHeight)];
             }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
-                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70])];
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + self.photoHeight)];
             }
         }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
             if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
-                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230)];
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230 + self.photoHeight)];
             }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
-                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210 + 30)];
+                self.patientBackView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24], SCREEN_WIDTH, 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210 + 30 + self.photoHeight)];
             }
             
         }
@@ -1217,32 +1218,73 @@
         make.centerY.equalTo(self.zhaopianLabel1).offset(0);
     }];
     
-//    if (self.photoArray.count > 0) {
-//        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//        flowLayout.minimumLineSpacing = 5;
-//        flowLayout.minimumInteritemSpacing = 5;
-//        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
-//        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-//        
-//        CGFloat height = 0;
-//        if (self.photoArray.count<=3) {
-//            height= SCREEN_WIDTH/3;
-//        } else if (self.photoArray.count <=6) {
-//            height= SCREEN_WIDTH/3*2;
-//        } else if (self.photoArray.count <=9) {
-//            height= SCREEN_WIDTH/3*3;
-//        } else {
-//            height= SCREEN_WIDTH/3*3;
-//        }
-//        
-//        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,480, SCREEN_WIDTH, height) collectionViewLayout:flowLayout];
+    if (self.photoArray.count > 0) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 5;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH/3-10, SCREEN_WIDTH/3-10);
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        
+        if (self.photoArray.count<=3) {
+            if (![self.healthPhotoString isEqualToString:@""]) {
+                 self.photoHeight= SCREEN_WIDTH/3;
+            }
+        } else if (self.photoArray.count <=6) {
+            self.photoHeight= SCREEN_WIDTH/3*2;
+        } else if (self.photoArray.count <=9) {
+            self.photoHeight= SCREEN_WIDTH/3*3;
+        } else {
+            self.photoHeight= SCREEN_WIDTH/3*3;
+        }
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 1) {
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24] + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 20, SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
+                collectionView.delegate = self;
+                collectionView.dataSource = self;
+                collectionView.scrollEnabled = NO;
+                collectionView.backgroundColor = [UIColor whiteColor];
+                [self.patientBackView3 addSubview:collectionView];
+                [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+                UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24]+ [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70], SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
+                collectionView.delegate = self;
+                collectionView.dataSource = self;
+                collectionView.scrollEnabled = NO;
+                collectionView.backgroundColor = [UIColor whiteColor];
+                [self.patientBackView3 addSubview:collectionView];
+                [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+            }
+        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userSex] intValue] == 2){
+            if ([AdaptionUtil isIphoneFour] ||[AdaptionUtil isIphoneFive]) {
+                UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24] + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 230, SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
+                collectionView.delegate = self;
+                collectionView.dataSource = self;
+                collectionView.scrollEnabled = NO;
+                collectionView.backgroundColor = [UIColor whiteColor];
+                [self.patientBackView3 addSubview:collectionView];
+                [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+            }else if ([AdaptionUtil isIphoneSix] ||[AdaptionUtil isIphoneSixPlus]){
+//                UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24] + 470 + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210 + 30, SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
+                UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,115+10+120+195+[StringUtil cellWithStr:self.patientProblem fontSize:14 width:SCREEN_WIDTH-24] + [StringUtil cellWithStr:self.complain fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.shuimianString fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingbijingStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.yuejingqitaStringFix fontSize:13 width:SCREEN_WIDTH-70] + [StringUtil cellWithStr:self.chuhanStringFix fontSize:13 width:SCREEN_WIDTH-70] + 210, SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
+                collectionView.delegate = self;
+                collectionView.dataSource = self;
+                collectionView.scrollEnabled = NO;
+                collectionView.backgroundColor = [UIColor whiteColor];
+                [self.patientBackView3 addSubview:collectionView];
+                [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
+            }
+            
+        }
+        
+//        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,480, SCREEN_WIDTH, self.photoHeight) collectionViewLayout:flowLayout];
 //        collectionView.delegate = self;
 //        collectionView.dataSource = self;
 //        collectionView.scrollEnabled = NO;
 //        collectionView.backgroundColor = [UIColor whiteColor];
 //        [self.patientBackView3 addSubview:collectionView];
 //        [collectionView registerClass:[MRZhaopianCollectionCell class] forCellWithReuseIdentifier:@"MRZhaopianCollectionCell"];
-//    }
+    }
 }
 
 -(void)initDiagnoseSubView{
@@ -1497,7 +1539,7 @@
 }
 
 #pragma mark UICollectionViewDelegate
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)sectio{
     if (self.photoArray.count>0){
         if (self.photoArray.count>9){
             return 9;
@@ -1713,7 +1755,7 @@
         self.bianzhiString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_EX_val"]];
         self.paibianganStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_status"]];
         self.paibianganString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"f_val"]];
-        self.dabianyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"	e_color"]];
+        self.dabianyanseString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"e_color"]];
         self.xiaobianBaitianString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_up_no"]];
         self.xiaobianWanshangString = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"g_down_no"]];
         self.sezhiStatus = [NullUtil judgeStringNull:[self.healthResultDictionary objectForKey:@"h_status"]];
@@ -1884,6 +1926,20 @@
     }
     self.healthPhotoString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"healthyPhotos"]];
     self.photoArray = [NSMutableArray arrayWithArray:[self.healthPhotoString componentsSeparatedByString:@","]];
+    
+    CGFloat height = 0;
+    if (self.photoArray.count<=3) {
+        if (![self.healthPhotoString isEqualToString:@""]) {
+            height= SCREEN_WIDTH/3;
+        }
+    } else if (self.photoArray.count <=6) {
+        height= SCREEN_WIDTH/3*2;
+    } else if (self.photoArray.count <=9) {
+        height= SCREEN_WIDTH/3*3;
+    } else {
+        height= SCREEN_WIDTH/3*3;
+    }
+    self.photoHeight = height;
     
     self.bianzhengString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"dialec"]];
     self.bianbingString = [NullUtil judgeStringNull:[self.data1 objectForKey:@"disease"]];
@@ -2120,7 +2176,7 @@
         self.chuhanLabel1.text = @"出汗：";
         self.chuhanLabel2.text = self.chuhanStringFix;
         self.zhaopianLabel1.text = @"照片资料：";
-        self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"有";
+        self.zhaopianLabel2.text = [self.healthPhotoString isEqualToString:@""] ? @"无" : @"";
     }else{
         self.complainLabel1.hidden = YES;
         self.complainLabel2.hidden = YES;
