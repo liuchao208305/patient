@@ -39,6 +39,8 @@
 		7005E38F1CC0D1AC002CA541 /* RecordChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E38E1CC0D1AC002CA541 /* RecordChangeViewController.m */; };
 		7005E3921CC0D1C5002CA541 /* CouponCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3911CC0D1C5002CA541 /* CouponCheckViewController.m */; };
 		7005E3951CC0D79F002CA541 /* ContactTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7005E3941CC0D79F002CA541 /* ContactTableCell.m */; };
+		700C709A1D40682500EAC2EB /* launchimageFix@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 700C70981D40682500EAC2EB /* launchimageFix@3x.png */; };
+		700C709B1D40682500EAC2EB /* launchimageFix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 700C70991D40682500EAC2EB /* launchimageFix@2x.png */; };
 		700CF0461D2293C9008C9776 /* info_studio_jianjie_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 700CF0431D2293C9008C9776 /* info_studio_jianjie_image@3x.png */; };
 		700CF0471D2293C9008C9776 /* info_studio_jianjie_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 700CF0441D2293C9008C9776 /* info_studio_jianjie_image@2x.png */; };
 		700CF0481D2293C9008C9776 /* info_studio_jianjie_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 700CF0451D2293C9008C9776 /* info_studio_jianjie_image.png */; };
@@ -908,6 +910,8 @@
 		7005E3911CC0D1C5002CA541 /* CouponCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCheckViewController.m; sourceTree = "<group>"; };
 		7005E3931CC0D79F002CA541 /* ContactTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableCell.h; sourceTree = "<group>"; };
 		7005E3941CC0D79F002CA541 /* ContactTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableCell.m; sourceTree = "<group>"; };
+		700C70981D40682500EAC2EB /* launchimageFix@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchimageFix@3x.png"; sourceTree = "<group>"; };
+		700C70991D40682500EAC2EB /* launchimageFix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchimageFix@2x.png"; sourceTree = "<group>"; };
 		700CF0431D2293C9008C9776 /* info_studio_jianjie_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_studio_jianjie_image@3x.png"; sourceTree = "<group>"; };
 		700CF0441D2293C9008C9776 /* info_studio_jianjie_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_studio_jianjie_image@2x.png"; sourceTree = "<group>"; };
 		700CF0451D2293C9008C9776 /* info_studio_jianjie_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_studio_jianjie_image.png; sourceTree = "<group>"; };
@@ -2409,6 +2413,8 @@
 		70265CAA1C858B8E0091C01F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				700C70981D40682500EAC2EB /* launchimageFix@3x.png */,
+				700C70991D40682500EAC2EB /* launchimageFix@2x.png */,
 				709A38591D3FC338008CFE1B /* launchimageFix.png */,
 				709A384F1D3F737A008CFE1B /* login_third_login_weixin_fix@3x.png */,
 				709A38501D3F737A008CFE1B /* login_third_login_weixin_fix@2x.png */,
@@ -4433,6 +4439,7 @@
 				708275B91CFFFCDD0016AE3C /* info_coupon_yellow_back_image@2x.png in Resources */,
 				70FEAD991CA51F76006A044A /* info_expert_jingli_image.png in Resources */,
 				70B429DC1D128AFC0036F525 /* tabbar_info_selected_fix@2x.png in Resources */,
+				700C709A1D40682500EAC2EB /* launchimageFix@3x.png in Resources */,
 				7082759D1CFFF9D00016AE3C /* mine_bottom_service@2x.png in Resources */,
 				70C03E041CA2924700DBA175 /* bg_media_default222@2x.jpg in Resources */,
 				7081036C1CEB8BDF009BC871 /* info_health_dish_step2.png in Resources */,
@@ -4445,6 +4452,7 @@
 				703150F71D0FA0290056CA5D /* info_expert_xiangxia_image_fix.png in Resources */,
 				703150FC1D0FA4410056CA5D /* info_expert_status_stop@2x.png in Resources */,
 				7046AD201C97E5D700BB6818 /* cell_person_youweiping_button.png in Resources */,
+				700C709B1D40682500EAC2EB /* launchimageFix@2x.png in Resources */,
 				7046ADA21CA0168500BB6818 /* cell_person_title_button.png in Resources */,
 				705EF7F41CBC947600732886 /* mine_orderstatus_tobeevaluated.png in Resources */,
 				7082752E1CFC15E50016AE3C /* tabbar_info_normal@2x.png in Resources */,
