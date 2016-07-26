@@ -213,6 +213,7 @@
 		7046AE4D1CA145A200BB6818 /* ExpertProcessTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AE4C1CA145A200BB6818 /* ExpertProcessTableCell.m */; };
 		7046AE501CA145AE00BB6818 /* ExpertClinicTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AE4F1CA145AE00BB6818 /* ExpertClinicTableCell.m */; };
 		7046AE531CA14BC300BB6818 /* ExpertHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046AE521CA14BC300BB6818 /* ExpertHeadView.m */; };
+		705E3C5C1D4733C200AF8544 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 705E3C5B1D4733C200AF8544 /* StoreKit.framework */; };
 		705EF7E61CBC947600732886 /* mine_bottom_body.png in Resources */ = {isa = PBXBuildFile; fileRef = 705EF7D61CBC947600732886 /* mine_bottom_body.png */; };
 		705EF7E71CBC947600732886 /* mine_bottom_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 705EF7D71CBC947600732886 /* mine_bottom_contact.png */; };
 		705EF7E81CBC947600732886 /* mine_bottom_coupon.png in Resources */ = {isa = PBXBuildFile; fileRef = 705EF7D81CBC947600732886 /* mine_bottom_coupon.png */; };
@@ -1153,6 +1154,7 @@
 		7046AE4F1CA145AE00BB6818 /* ExpertClinicTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertClinicTableCell.m; sourceTree = "<group>"; };
 		7046AE511CA14BC300BB6818 /* ExpertHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertHeadView.h; sourceTree = "<group>"; };
 		7046AE521CA14BC300BB6818 /* ExpertHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertHeadView.m; sourceTree = "<group>"; };
+		705E3C5B1D4733C200AF8544 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		705EF7D61CBC947600732886 /* mine_bottom_body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_bottom_body.png; sourceTree = "<group>"; };
 		705EF7D71CBC947600732886 /* mine_bottom_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_bottom_contact.png; sourceTree = "<group>"; };
 		705EF7D81CBC947600732886 /* mine_bottom_coupon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_bottom_coupon.png; sourceTree = "<group>"; };
@@ -2078,6 +2080,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				705E3C5C1D4733C200AF8544 /* StoreKit.framework in Frameworks */,
 				70926D991CC732D700CB0416 /* CoreMotion.framework in Frameworks */,
 				702939621C8EC723008280E2 /* Foundation.framework in Frameworks */,
 				702939641C8EC72C008280E2 /* UIKit.framework in Frameworks */,
@@ -3927,6 +3930,7 @@
 		FDDF907A0C5E47401071325B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				705E3C5B1D4733C200AF8544 /* StoreKit.framework */,
 				70926D981CC732D700CB0416 /* CoreMotion.framework */,
 				70926D961CC7329C00CB0416 /* CoreText.framework */,
 				70926D941CC7329100CB0416 /* QuartzCore.framework */,

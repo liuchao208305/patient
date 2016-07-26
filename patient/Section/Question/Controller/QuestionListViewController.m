@@ -22,8 +22,11 @@
 #import "LVRecordTool.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import <StoreKit/StoreKit.h>
 
-@interface QuestionListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
+#define SOUNDINAPPIDENRIFIER @"com.jiuzhekan.patient02"
+
+@interface QuestionListViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,SKPaymentTransactionObserver,SKProductsRequestDelegate>
 
 @property (strong,nonatomic)NSMutableDictionary *result1;
 @property (assign,nonatomic)NSInteger code1;
@@ -61,6 +64,12 @@
 @property (strong,nonatomic)NSMutableDictionary *data6;
 @property (assign,nonatomic)NSError *error6;
 
+@property (strong,nonatomic)NSMutableDictionary *result7;
+@property (assign,nonatomic)NSInteger code7;
+@property (strong,nonatomic)NSString *message7;
+@property (strong,nonatomic)NSMutableDictionary *data7;
+@property (assign,nonatomic)NSError *error7;
+
 @property (assign,nonatomic)NSInteger currentPage1;
 @property (assign,nonatomic)NSInteger pageSize1;
 
@@ -72,6 +81,7 @@
 @property (strong,nonatomic)NSString *payType;
 
 @property (strong,nonatomic)NSString *quesitonID;
+@property (strong,nonatomic)NSString *shitingMoney;
 
 @property (strong,nonatomic)NSString *paymentInfomation;
 
@@ -108,6 +118,8 @@
     [self initTabBar];
     [self initView];
     [self initRecognizer];
+    
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -146,6 +158,8 @@
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 #pragma mark Lazy Loading
@@ -378,14 +392,20 @@
     
     if ([self.questionPayStatusOtherArray[clickedImageView.tag-400000] intValue] == 1) {
         self.quesitonID = self.questionIdOtherArray[clickedImageView.tag - 400000];
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                      initWithTitle:@"请选择支付方式"
-                                      delegate:self
-                                      cancelButtonTitle:@"取消"
-                                      destructiveButtonTitle:nil
-                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        [actionSheet showInView:self.view];
+        self.shitingMoney = self.questionShitingMoneyOtherArray[clickedImageView.tag - 400000];
+//        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+//                                      initWithTitle:@"请选择支付方式"
+//                                      delegate:self
+//                                      cancelButtonTitle:@"取消"
+//                                      destructiveButtonTitle:nil
+//                                      otherButtonTitles:@"支付宝支付", @"微信支付",nil];
+//        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+//        [actionSheet showInView:self.view];
+        if([SKPaymentQueue canMakePayments]){
+            [self requestProductData:SOUNDINAPPIDENRIFIER];
+        }else{
+            NSLog(@"不允许程序内付费");
+        }
     }else{
         if (self.mianfeitingFlag) {
             if ([self.questionExpertSoundOtherArray[clickedImageView.tag-400000] length] > 0) {
@@ -694,6 +714,132 @@
     }
 }
 
+#pragma mark Store Kit
+-(void)requestProductData:(NSString *)type{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSLog(@"-------------请求对应的产品信息----------------");
+    NSArray *product = [[NSArray alloc] initWithObjects:type, nil];
+    
+    NSSet *nsset = [NSSet setWithArray:product];
+    SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:nsset];
+    request.delegate = self;
+    [request start];
+}
+
+-(void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
+    NSLog(@"--------------收到产品反馈消息---------------------");
+    NSArray *product = response.products;
+    if([product count] == 0){
+        NSLog(@"--------------没有商品------------------");
+        return;
+    }
+    
+    NSLog(@"productID:%@", response.invalidProductIdentifiers);
+    NSLog(@"产品付费数量:%lu",(unsigned long)[product count]);
+    
+    SKProduct *p = nil;
+    for (SKProduct *pro in product) {
+        NSLog(@"%@", [pro description]);
+        NSLog(@"%@", [pro localizedTitle]);
+        NSLog(@"%@", [pro localizedDescription]);
+        NSLog(@"%@", [pro price]);
+        NSLog(@"%@", [pro productIdentifier]);
+        
+        if([pro.productIdentifier isEqualToString:SOUNDINAPPIDENRIFIER]){
+            p = pro;
+        }
+    }
+    
+    SKPayment *payment = [SKPayment paymentWithProduct:p];
+    NSLog(@"发送购买请求");
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+-(void)request:(SKRequest *)request didFailWithError:(NSError *)error{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    NSLog(@"------------------错误-----------------:%@", error);
+}
+
+-(void)requestDidFinish:(SKRequest *)request{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    NSLog(@"------------反馈信息结束-----------------");
+}
+
+-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
+    for(SKPaymentTransaction *tran in transaction){
+        
+        switch (tran.transactionState) {
+            case SKPaymentTransactionStatePurchased:
+                NSLog(@"交易完成");
+                [self completeTransaction:tran];
+                break;
+            case SKPaymentTransactionStatePurchasing:
+                NSLog(@"商品添加进列表");
+                
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"已经购买过商品");
+                
+                break;
+            case SKPaymentTransactionStateFailed:
+                NSLog(@"交易失败");
+                
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+-(void)completeTransaction:(SKPaymentTransaction *)transaction{
+    NSLog(@"交易结束");
+    
+    NSURL *recepitURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    NSData *receipt = [NSData dataWithContentsOfURL:recepitURL];
+    if(!receipt){
+        
+    }
+    NSError *error;
+    NSDictionary *requestContents = @{
+                                      @"receipt-data": [receipt base64EncodedStringWithOptions:0]
+                                      };
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestContents
+                                                          options:0
+                                                            error:&error];
+    if (!requestData) {
+         /* ... Handle error ... */
+    }
+    //In the test environment, use https://sandbox.itunes.apple.com/verifyReceipt
+    //In the real environment, use https://buy.itunes.apple.com/verifyReceipt
+    // Create a POST request with the receipt data.
+    NSURL *storeURL = [NSURL URLWithString:@"https://sandbox.itunes.apple.com/verifyReceipt"];
+    NSMutableURLRequest *storeRequest = [NSMutableURLRequest requestWithURL:storeURL];
+    [storeRequest setHTTPMethod:@"POST"];
+    [storeRequest setHTTPBody:requestData];
+    // Make a connection to the iTunes Store on a background queue.
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:storeRequest queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError) {
+                                   /* ... Handle error ... */
+                               } else {
+                                   NSError *error;
+                                   NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                                   if (!jsonResponse) {
+                                       /* ... Handle error ...*/
+                                   }
+                                   if ([[jsonResponse objectForKey:@"status"] intValue] == 0) {
+                                       NSArray *array = [[jsonResponse objectForKey:@"receipt"] objectForKey:@"in_app"];
+                                       NSDictionary *dic = array[0];
+                                       [dic objectForKey:@"transaction_id"];
+                                       [self sendQuestionStatusChangeRequest:[dic objectForKey:@"transaction_id"]];
+                                   }
+                               }
+                           }];
+    
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+}
+
 #pragma mark Network Request
 -(void)sendQuestionCheckRequest1{
     DLog(@"sendQuestionCheckRequest1");
@@ -991,6 +1137,55 @@
     }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        DLog(@"errorStr-->%@",errorStr);
+        
+        [HudUtil showSimpleTextOnlyHUD:kNetworkStatusErrorText withDelaySeconds:kHud_DelayTime];
+    }];
+}
+
+-(void)sendQuestionStatusChangeRequest:(NSString *)transaction_id{
+    DLog(@"sendQuestionStatusChangeRequest");
+    
+    //    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //    hud.mode = MBProgressHUDAnimationFade;
+    //    hud.labelText = kNetworkStatusLoadingText;
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_token] forKey:@"token"];
+    [parameter setValue:[[NSUserDefaults standardUserDefaults] objectForKey:kJZK_userId] forKey:@"obj_id"];
+    [parameter setValue:@"1" forKey:@"type"];
+    [parameter setValue:self.quesitonID forKey:@"interloution_id"];
+    [parameter setValue:self.shitingMoney forKey:@"st_money"];
+    [parameter setValue:transaction_id forKey:@"transaction_id"];
+    
+    [[NetworkUtil sharedInstance] postResultWithParameter:parameter url:[NSString stringWithFormat:@"%@%@",kServerAddressPay,kJZK_QUESTION_CHANGESTATUS_INFORMATION] successBlock:^(NSURLSessionDataTask *task,id responseObject){
+        
+        //        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        DLog(@"%@%@",kServerAddressPay,kJZK_QUESTION_LIST_OTHER_INFORMATION);
+        DLog(@"responseObject-->%@",responseObject);
+        self.result7 = (NSMutableDictionary *)responseObject;
+        
+        self.code7 = [[self.result7 objectForKey:@"code"] integerValue];
+        self.message7 = [self.result7 objectForKey:@"message"];
+        self.data7 = [self.result7 objectForKey:@"data"];
+        
+        if (self.code7 == kSUCCESS) {
+            [self sendQuestionCheckRequest2];
+        }else{
+            DLog(@"%@",self.message7);
+            if (self.code7 == kTOKENINVALID) {
+                LoginViewController *loginVC = [[LoginViewController alloc] init];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }
+        
+    }failureBlock:^(NSURLSessionDataTask *task,NSError *error){
+        
+        //        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         DLog(@"errorStr-->%@",errorStr);

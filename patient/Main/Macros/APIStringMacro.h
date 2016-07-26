@@ -93,6 +93,7 @@ typedef enum {
 #define kJZK_QUESTION_DETAIL_INFORMAITON @"public/v2/interloution/detail?"//问题详情接口
 #define kJZK_QUESTION_FUFEITING_INFORMATION @"private/v2/clickAnswerPay?"//问题付费听接口
 #define kJZK_QUESTION_MIANFEITING_INFORMATION @"private/v2/clickAnswer?"//问题免费听接口
+#define kJZK_QUESTION_CHANGESTATUS_INFORMATION @"private/v2/clickAnswerOfIosPay?"//问题内购接口
 
 #define kJZK_BOOK_INFORMATION @"private/v2/user/conu/toAdd?"//专家预约查询接口
 #define kJZK_BOOK_CLINIC_ADDRESS_INFORMATION @"private/v2/user/conu/getDoctorAComms?"//专家预约页面诊所地址信息
