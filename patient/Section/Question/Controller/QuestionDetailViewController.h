@@ -12,6 +12,7 @@
 
 @property (assign,nonatomic)BOOL isMyself;
 @property (strong,nonatomic)NSString *questionId;
+@property (strong,nonatomic)NSString *shitingMoney;
 
 @property (assign,nonatomic)BOOL mianfeitingFlag;
 

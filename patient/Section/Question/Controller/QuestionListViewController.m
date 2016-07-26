@@ -709,6 +709,7 @@
         detailVC.hidesBottomBarWhenPushed = YES;
         detailVC.isMyself = NO;
         detailVC.questionId = self.questionIdOtherArray[indexPath.section];
+        detailVC.shitingMoney = self.questionShitingMoneyOtherArray[indexPath.section];
         [self.navigationController pushViewController:detailVC animated:YES];
         [self.tableView2 deselectRowAtIndexPath:indexPath animated:YES];
     }
