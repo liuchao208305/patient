@@ -46,7 +46,7 @@
 
 #pragma mark Init Section
 -(void)initNavBar{
-//    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_background_image.png"] forBarMetrics:(UIBarMetricsDefault)];
     
