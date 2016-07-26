@@ -569,6 +569,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAuthResult:) name:@"WXAuthLoginViewController" object:nil];
         [[NSUserDefaults standardUserDefaults] setValue:@"WXAuthLoginViewController" forKey:kJZK_weixinauthType];
         [[NSUserDefaults standardUserDefaults] synchronize];
+    }else{
+        [HudUtil showSimpleTextOnlyHUD:@"请安装微信再进行此操作！" withDelaySeconds:kHud_DelayTime];
     }
     
 }
